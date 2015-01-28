@@ -4,7 +4,6 @@ import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
 trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnectableElement[Uml] {
-  override protected def e: Uml#Property
   
   implicit val ops: UMLOps[Uml]
   import ops._

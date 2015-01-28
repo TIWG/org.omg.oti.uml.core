@@ -30,6 +30,10 @@ trait UML {
   
   type Constraint <: PackageableElement
   
+  // Figure 7.17
+  
+  type Dependency <: DirectedRelationship with PackageableElement
+  
   // Figure 8.1
   
   type ValueSpecification <: PackageableElement with TypedElement
@@ -124,5 +128,10 @@ trait UML {
   type Extension <: Association
   type ExtensionEnd <: Property
   type Image <: Element
+  
+  // Figure 18.1
+  
+  type Actor <: BehavioredClassifier
+  type UseCase <: BehavioredClassifier
   
 }

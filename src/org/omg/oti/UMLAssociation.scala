@@ -1,7 +1,6 @@
 package org.omg.oti
 
 trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship[Uml] {
-  override protected def e: Uml#Association
 
   implicit val ops: UMLOps[Uml]
   import ops._

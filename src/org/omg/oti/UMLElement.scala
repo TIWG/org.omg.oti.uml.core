@@ -7,8 +7,6 @@ trait UMLElement[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   import ops._
 
-  protected def e: Uml#Element
-
   def ownedComments: Seq[UMLComment[Uml]]
   def annotatedElementOfComments: Seq[UMLComment[Uml]]
 
@@ -19,10 +17,10 @@ trait UMLElement[Uml <: UML] {
   def getContainedElement_eContainingFeature: EStructuralFeature
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterator[UMLElement[Uml]]
 
-  def relatedElementOfRelationships: Seq[UMLRelationship[Uml]]
+  def relatedElementOfRelationships: Set[UMLRelationship[Uml]]
 
-  def sourceOfDirectedRelationships: Seq[UMLDirectedRelationship[Uml]]
-  def targetOfDirectedRelationships: Seq[UMLDirectedRelationship[Uml]]
+  def sourceOfDirectedRelationships: Set[UMLDirectedRelationship[Uml]]
+  def targetOfDirectedRelationships: Set[UMLDirectedRelationship[Uml]]
 
   def id: String
 

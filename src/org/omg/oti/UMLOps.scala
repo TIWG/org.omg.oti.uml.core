@@ -45,6 +45,8 @@ trait UMLOps[Uml <: UML] { self =>
 
   implicit val CONSTRAINT: TypeTag[Uml#Constraint]
   
+  implicit val DEPENDENCY: TypeTag[Uml#Dependency]
+  
   implicit val VALUE_SPECIFICATION: TypeTag[Uml#ValueSpecification]
   implicit val LITERAL_SPECIFICATION: TypeTag[Uml#LiteralSpecification] 
   implicit val LITERAL_NULL: TypeTag[Uml#LiteralNull]   
@@ -107,11 +109,23 @@ trait UMLOps[Uml <: UML] { self =>
   implicit val EXTENSION_END: TypeTag[Uml#ExtensionEnd]
   implicit val IMAGE: TypeTag[Uml#Image]
     
+  implicit val ACTOR: TypeTag[Uml#Actor]
+  implicit val USECASE: TypeTag[Uml#UseCase]
+  
   type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
   type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
   type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
 
+  class FilterableUMLOption[U]( o: Option[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Option[V] = 
+      o.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( o: Option[U] ) = new FilterableUMLOption( o )
+    
   class FilterableUMLIterator[U]( it: Iterator[U] ) {
     
     def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Iterator[V] = 
@@ -156,6 +170,8 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlMultiplicityElement( e: Uml#MultiplicityElement ): UMLMultiplicityElement[Uml]
   
   implicit def umlConstraint( e: Uml#Constraint): UMLConstraint[Uml]
+  
+  implicit def umlDependency( e: Uml#Dependency): UMLDependency[Uml]
   
   implicit def umlValueSpecification( e: Uml#ValueSpecification ): UMLValueSpecification[Uml]
   implicit def umlLiteralSpecification( e: Uml#LiteralSpecification ): UMLLiteralSpecification[Uml]
@@ -214,7 +230,9 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlExtension( e: Uml#Extension ): UMLExtension[Uml]
   implicit def umlExtensionEnd( e: Uml#ExtensionEnd ): UMLExtensionEnd[Uml]
   implicit def umlImage( e: Uml#Image ): UMLImage[Uml]
-
+  
+  implicit def umlActor( e: Uml#Actor): UMLActor[Uml]
+  implicit def umlUseCase( e: Uml#UseCase): UMLUseCase[Uml]
   
   val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
   
@@ -241,6 +259,8 @@ trait UMLOps[Uml <: UML] { self =>
   
   implicit def umlTypedElement( c: Iterator[Uml#TypedElement] ): Iterator[UMLTypedElement[Uml]] = for { e <- c } yield umlTypedElement( e )
   
+  implicit def umlDependency( c: Iterator[Uml#Dependency] ): Iterator[UMLDependency[Uml]] = for { e <- c } yield umlDependency( e )
+  
   implicit def umlInstanceSpecification( c: Iterator[Uml#InstanceSpecification] ): Iterator[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   implicit def umlInstanceSpecification( c: Set[Uml#InstanceSpecification] ): Set[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   
@@ -264,7 +284,7 @@ trait UMLOps[Uml <: UML] { self =>
   
   def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
   
-  val OTI_SPECIFICATION_ROOT_S: Uml#Stereotype
+  val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
 
   val SLOT_VALUE: EStructuralFeature
 
