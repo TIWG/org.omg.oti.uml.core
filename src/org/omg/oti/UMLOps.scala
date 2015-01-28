@@ -282,6 +282,9 @@ trait UMLOps[Uml <: UML] { self =>
   
   implicit def umlParameter( c: Iterator[Uml#Parameter] ): Iterator[UMLParameter[Uml]] = for { e <- c } yield umlParameter( e )
   
+  implicit def umlElementImport( s: Set[Uml#ElementImport] ): Set[UMLElementImport[Uml]] = for { e <- s } yield umlElementImport( e )
+  implicit def umlPackageImport( s: Set[Uml#PackageImport] ): Set[UMLPackageImport[Uml]] = for { e <- s } yield umlPackageImport( e )
+  
   def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
   
   val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
