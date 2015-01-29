@@ -40,4 +40,11 @@
 package org.omg.oti
 
 trait UMLStructuredClassifier[Uml <: UML] extends UMLClassifier[Uml] { 
+  
+  /**
+   * Fig 11.1 (incomplete)
+   * - part
+   */
+  def structuredClassifier_forwardReferencesFromMetamodelAssociations =
+    classifier_forwardReferencesFromMetamodelAssociations
 }

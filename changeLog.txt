@@ -1,4 +1,17 @@
-Version 0.2: January 28, 2015
+Version 0.3: January 29, 2015
+
+- Added UMLModel
+- forwardReferencesFromMetamodelAssociations
+
+Align the criteria used to the OMG MOF/XMI spec, that is
+directed, non-composite, non-derived properties
+
+- simplified the canonicalXMI.Document/DocumentSet model
+
+Simplification allows decoupling the modeling of Documents from 
+the analysis of element-level and document-level cross-references
+
+Version 0.2: January 29, 2015
 
 Add support for calculating the forward references from an Element.
 

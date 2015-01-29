@@ -139,6 +139,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   implicit val PACKAGE: TypeTag[Uml#Package]
   implicit val PACKAGE_MERGE: TypeTag[Uml#PackageMerge]
+  implicit val MODEL: TypeTag[Uml#Model]
 
   implicit val PROFILE: TypeTag[Uml#Profile]
   implicit val PROFILE_APPLICATION: TypeTag[Uml#ProfileApplication]
@@ -261,6 +262,7 @@ trait UMLOps[Uml <: UML] { self =>
   
   implicit def umlPackage( e: Uml#Package): UMLPackage[Uml]
   implicit def umlPackageMerge( e: Uml#PackageMerge ): UMLPackageMerge[Uml]
+  implicit def umlModel( e: Uml#Model): UMLModel[Uml]
   
   implicit def umlProfile( e: Uml#Profile ): UMLProfile[Uml]
   implicit def umlProfileApplication( e: Uml#ProfileApplication ): UMLProfileApplication[Uml]
@@ -285,7 +287,9 @@ trait UMLOps[Uml <: UML] { self =>
   
   implicit def umlDirectedRelationship( c: Seq[Uml#DirectedRelationship] ): Seq[UMLDirectedRelationship[Uml]] = for { e <- c } yield umlDirectedRelationship( e )
   implicit def umlDirectedRelationship( c: Set[Uml#DirectedRelationship] ): Set[UMLDirectedRelationship[Uml]] = for { e <- c } yield umlDirectedRelationship( e )
-  
+
+  implicit def umlRedefinableElement( c: Iterator[Uml#RedefinableElement] ): Iterator[UMLRedefinableElement[Uml]] = for { e <- c } yield umlRedefinableElement( e )
+
   implicit def umlProperty( c: Iterator[Uml#Property] ): Iterator[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
   implicit def umlProperty( c: Seq[Uml#Property] ): Seq[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
   implicit def umlProperty( c: Set[Uml#Property] ): Set[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )

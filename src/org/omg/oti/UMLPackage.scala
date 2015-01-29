@@ -49,5 +49,13 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
   def ownedStereotype: Set[UMLStereotype[Uml]] = ownedType.selectByKindOf { case s: UMLStereotype[Uml] => s}
   def nestedPackages: Set[UMLPackage[Uml]] = packagedElement.selectByKindOf { case p: UMLPackage[Uml] => p }
 
+  /**
+   * Fig 12.1 (incomplete)
+   * - TemplateableElement
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    namespace_forwardReferencesFromMetamodelAssociations ++
+    packageableElement_forwardReferencesFromMetamodelAssociations
+    
   def applyingPackageOfProfileApplications: Set[UMLProfileApplication[Uml]] = sourceOfDirectedRelationships.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
 }

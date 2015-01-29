@@ -41,29 +41,27 @@ package org.omg.oti.canonicalXMI
 
 import org.omg.oti._
 import java.net.URI
+import scala.language.postfixOps
 
 sealed abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   val uri: URI
-  val referencedDocuments: Set[Document[Uml]]
-  val scope: Uml#Element
+  val scope: UMLElement[Uml]
+  
+  lazy val extent: Set[UMLElement[Uml]] = 
+     scope.allOwnedElements.flatMap { e => e.forwardReferencesFromStereotypeTagProperties ++ Iterator(e) } toSet
 }
 
 case class BuiltInDocument[Uml <: UML](
     val uri: URI,
-    val builtInDocumentReferences: Set[BuiltInDocument[Uml]],
-    val scope: Uml#Element)( implicit val ops: UMLOps[Uml] )
+    val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   
-  override val referencedDocuments: Set[Document[Uml]] = Set() ++ builtInDocumentReferences
 }
     
 case class SerializableDocument[Uml <: UML](
     val uri: URI,
-    val serializableDocumentReferences: Set[SerializableDocument[Uml]],
-    val builtInDocumentReferences: Set[BuiltInDocument[Uml]],
-    val scope: Uml#Element)( implicit val ops: UMLOps[Uml] ) 
+    val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] ) 
 extends Document[Uml] {
   
-  override val referencedDocuments: Set[Document[Uml]] = serializableDocumentReferences ++ builtInDocumentReferences  
 }

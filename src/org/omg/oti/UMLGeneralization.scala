@@ -51,6 +51,7 @@ trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
    * - generalizationSet
    */  
   override def forwardReferencesFromMetamodelAssociations = 
-    directedRelationship_forwardReferencesFromMetamodelAssociations
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    general
   
 }

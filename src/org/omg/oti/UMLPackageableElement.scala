@@ -44,7 +44,9 @@ trait UMLPackageableElement[Uml <: UML] extends UMLNamedElement[Uml] {
   def owningPackage: Option[UMLPackage[Uml]] = ownedMemberOfNamespace.selectByKindOf { case p: UMLPackage[Uml] => p }  
   
   /**
-   * Fig 7.5 (complete)
+   * Fig 7.5 (incomplete)
+   * - ParameterableElement
    */
-  def packageableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+  def packageableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    namedElement_forwardReferencesFromMetamodelAssociations
 }

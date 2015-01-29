@@ -47,6 +47,8 @@ trait UMLTypedElement[Uml <: UML] extends UMLNamedElement[Uml] {
    * Fig 7.10 (complete)
    */
   
-  def typedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = getType.toSet
+  def typedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    namedElement_forwardReferencesFromMetamodelAssociations ++
+    getType
 
 }

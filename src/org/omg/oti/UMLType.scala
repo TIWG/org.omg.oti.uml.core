@@ -50,5 +50,6 @@ trait UMLType[Uml <: UML] extends UMLPackageableElement[Uml] {
   /**
    * Fig 7.10 (complete) 
    */
-  def type_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+  def type_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    packageableElement_forwardReferencesFromMetamodelAssociations
 }

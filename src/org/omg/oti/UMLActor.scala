@@ -40,4 +40,10 @@
 package org.omg.oti
 
 trait UMLActor[Uml <: UML] extends UMLBehavioredClassifier[Uml] {
+  
+  /**
+   * Fig 18.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    behavioredClassifier_forwardReferencesFromMetamodelAssociations
 }

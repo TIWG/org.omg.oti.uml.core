@@ -49,7 +49,15 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
   def navigableOwnedEnds: Iterator[UMLProperty[Uml]]
   def memberEnds: Iterator[UMLProperty[Uml]]
   def endTypes: Iterator[UMLType[Uml]]
-
+  
+  /**
+   * Fig 11.25 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    relationship_forwardReferencesFromMetamodelAssociations ++
+    classifier_forwardReferencesFromMetamodelAssociations ++
+    memberEnds
+    
   def getDirectedAssociationEnds: Option[( UMLProperty[Uml], UMLProperty[Uml] )] = 
     memberEnds.toList match {
       case end1 :: end2 :: Nil =>

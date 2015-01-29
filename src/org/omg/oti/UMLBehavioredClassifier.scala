@@ -41,4 +41,9 @@ package org.omg.oti
 
 trait UMLBehavioredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
 
+  /**
+   * Fig 10.7 (complete)
+   */
+  def behavioredClassifier_forwardReferencesFromMetamodelAssociations =
+    classifier_forwardReferencesFromMetamodelAssociations
 }

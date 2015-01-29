@@ -44,7 +44,13 @@ import scala.annotation._
 trait UMLStereotype[Uml <: UML] extends UMLClass[Uml] {
   
   import ops._
-  
+    
+  /**
+   * Fig 12.12 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
+    
   def profile: Option[UMLProfile[Uml]] = {
     
     @tailrec

@@ -52,5 +52,6 @@ trait UMLPackageImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
    * Fig. 7.5 (complete)
    */  
   override def forwardReferencesFromMetamodelAssociations = 
-    directedRelationship_forwardReferencesFromMetamodelAssociations
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    importedPackage
 }

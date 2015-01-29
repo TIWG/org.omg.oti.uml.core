@@ -41,18 +41,29 @@ package org.omg.oti
 
 trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with UMLRedefinableElement[Uml] {
  
+  import ops._
+  
   def attribute: Seq[UMLProperty[Uml]]
   
   def classifierOfInstanceSpecifications: Set[UMLInstanceSpecification[Uml]]
+  
+  def redefinedClassifiers: Iterator[UMLClassifier[Uml]] = redefinedElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
+
+  /**
+   * Corresponds to 'classifier' in:
+   * Classifier classifier --> redefinedClassifier Classifier
+   */
+  def redefiningClassifiers: Iterator[UMLClassifier[Uml]] = redefiningElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
   
   /**
    * Fig 9.1 (incomplete) 
    * - powertypeExtent
    * - useCase
-   * - substitution
+   * - representation
    */
   def classifier_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namespace_forwardReferencesFromMetamodelAssociations ++
     type_forwardReferencesFromMetamodelAssociations ++
-    redefinableElement_forwardReferencesFromMetamodelAssociations
+    redefinableElement_forwardReferencesFromMetamodelAssociations ++
+    redefinedClassifiers
 }

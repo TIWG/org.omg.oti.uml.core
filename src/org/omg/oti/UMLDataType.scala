@@ -41,4 +41,9 @@ package org.omg.oti
 
 trait UMLDataType[Uml <: UML] extends UMLClassifier[Uml] {
   
+  /**
+   * Fig 10.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    classifier_forwardReferencesFromMetamodelAssociations
 }

@@ -156,6 +156,7 @@ trait UML {
   
   type Package <: Namespace with PackageableElement  
   type PackageMerge <: DirectedRelationship
+  type Model <: Package
   
   // Figure 12.12
   

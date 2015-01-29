@@ -39,6 +39,14 @@
  */
 package org.omg.oti
 
-trait UMLImage[Uml <: UML] extends UMLElement[Uml] {  
+trait UMLImage[Uml <: UML] extends UMLElement[Uml] {
+  
   def location: Option[String]
+    
+  /**
+   * Fig 12.12 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    element_forwardReferencesFromMetamodelAssociations
+    
 }

@@ -51,6 +51,8 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
    */
   override def forwardReferencesFromMetamodelAssociations =     
     packageableElement_forwardReferencesFromMetamodelAssociations ++
-    directedRelationship_forwardReferencesFromMetamodelAssociations
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    clients ++
+    suppliers
 
 }

@@ -44,5 +44,19 @@ trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
   def specification: Option[UMLValueSpecification[Uml]]
   def slots: Iterator[UMLSlot[Uml]]
   def classifiers: Iterator[UMLClassifier[Uml]]
+  
+  /**
+   * corresponds to 'instanceValue' in:
+   * InstanceSpecificatin instance <- instanceValue InstanceValue
+   */
   def instanceOfInstanceValues: Iterator[UMLInstanceValue[Uml]]
+  
+  /**
+   * Fig 9.27 (incomplete)
+   * - DeploymentTarget
+   * - DeployedArtifact
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    classifiers
 }

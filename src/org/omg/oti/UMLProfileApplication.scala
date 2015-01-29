@@ -47,5 +47,12 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   def applyingPackage: Option[UMLPackage[Uml]] = (sources.selectByKindOf { case p: UMLPackage[Uml] => p } toIterable).headOption
   def appliedProfile: Option[UMLProfile[Uml]] = (targets.selectByKindOf { case p: UMLProfile[Uml] => p } toIterable).headOption
-
+  
+  /**
+   * Fig 12.12 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    appliedProfile
+    
 }

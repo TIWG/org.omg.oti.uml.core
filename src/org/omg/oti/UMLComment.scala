@@ -49,6 +49,8 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   /**
    * Fig. 7.1 (complete)
    */
-  override def forwardReferencesFromMetamodelAssociations = annotatedElements.toSet
+  override def forwardReferencesFromMetamodelAssociations = 
+    element_forwardReferencesFromMetamodelAssociations ++
+    annotatedElements
   
 }

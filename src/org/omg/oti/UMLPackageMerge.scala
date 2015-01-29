@@ -41,4 +41,14 @@ package org.omg.oti
 
 trait UMLPackageMerge[Uml <: UML] extends UMLDirectedRelationship[Uml] {
 
+  import ops._
+  
+  def mergedPackage: Option[UMLPackage[Uml]] = (targets.selectByKindOf { case p: UMLPackage[Uml] => p }).toIterable.headOption
+  
+  /**
+   * Fig 12.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    mergedPackage
 }

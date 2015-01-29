@@ -39,14 +39,8 @@
  */
 package org.omg.oti
 
-trait UMLInstanceValue[Uml <: UML] extends UMLValueSpecification[Uml] {
+trait UMLModel[Uml <: UML] extends UMLPackage[Uml] {
   
-  def instance: Option[UMLInstanceSpecification[Uml]]
+  import ops._
   
-  /**
-   * Fig 9.27 (complete)
-   */
-  override def forwardReferencesFromMetamodelAssociations =
-    valueSpecification_forwardReferencesFromMetamodelAssociations ++
-    instance
 }

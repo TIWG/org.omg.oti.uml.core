@@ -40,4 +40,11 @@
 package org.omg.oti
 
 trait UMLUseCase[Uml <: UML] extends UMLBehavioredClassifier[Uml] {
+  
+  /**
+   * Fig 18.1 (incomplete)
+   * - subject
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    behavioredClassifier_forwardReferencesFromMetamodelAssociations
 }

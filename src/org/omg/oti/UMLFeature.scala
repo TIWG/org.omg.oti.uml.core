@@ -41,6 +41,10 @@ package org.omg.oti
 
 trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
   
+  import ops._
+  
+  def featuringClassifier: Option[UMLClassifier[Uml]] = (memberOfMemberNamespaces.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
+  
   /**
    * Fig 9.9 (complete)
    * Note: The association Classifier /featuringClassifier -- /feature Feature is shown without any direction

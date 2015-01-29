@@ -40,6 +40,7 @@
 package org.omg.oti
 
 import org.eclipse.emf.ecore.EStructuralFeature
+import scala.language.postfixOps
 
 trait UMLElement[Uml <: UML] {
 
@@ -48,10 +49,27 @@ trait UMLElement[Uml <: UML] {
 
   def metaclass: UMLClass[Uml]
   
-  def tagValues: Map[UMLProperty[Uml], UMLValueSpecification[Uml]]
+  def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
   
   /**
-   * The set of Elements referenced from this Element due to link instances of non-composite directed associations defined in the UML metamodel
+   * Calculate the references from this element to other elements
+   * due to non-composite, non-derived properties in the metamodel.
+   * 
+   * For serializing an OTI model into an OMG Canonical XMI document,
+   * the references among elements do matter; particularly, references
+   * due to non-composite, non-derived properties matter because their serialization
+   * depends on whether the two elements are serialized within the same document or not.
+   *
+   * The OMG MOF/XMI spec is incomplete in the sense that it does not mention
+   * references due to values of applied stereotype tag properties. 
+   */
+  def allForwardReferences: Set[UMLElement[Uml]] = 
+    forwardReferencesFromMetamodelAssociations ++ 
+    forwardReferencesFromStereotypeTagProperties
+    
+  /**
+   * The set of Elements referenced from this Element due to link instances of 
+   * directed, non-composite, non-derived associations defined in the UML metamodel
    *
    * This method is defined for every metaclass according to the figures from the UML spec in two idioms:
    * - concrete metaclasses:
@@ -68,20 +86,16 @@ trait UMLElement[Uml <: UML] {
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
   /**
+   * Fig 7.1 (complete)
+   */
+  def element_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+
+  /**
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */
-  def forwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]]
+  def forwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] =
+    tagValues flatMap { case (p,vs) => vs } toSet
   
-  /**
-   * The set of Elements referenced from this Element due to either
-   * - link instances of composite directed associations defined in the UML metamodel
-   * - link instances of non-composite directed associations defined in the UML metamodel
-   * - values of applied stereotype tag properties
-   */
-  def allForwardReferences: Set[UMLElement[Uml]] = 
-    ownedElements ++ 
-    forwardReferencesFromMetamodelAssociations ++ 
-    forwardReferencesFromStereotypeTagProperties
   
   def ownedComments: Seq[UMLComment[Uml]]
   def annotatedElementOfComments: Seq[UMLComment[Uml]]

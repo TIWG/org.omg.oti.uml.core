@@ -46,5 +46,6 @@ trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
   /**
    * Fig 7.10 (complete)
    */  
-  def multiplicityElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+  def multiplicityElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    element_forwardReferencesFromMetamodelAssociations
 }

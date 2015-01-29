@@ -56,6 +56,5 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
    * Fig 7.5 (complete)
    */
   def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
-    namedElement_forwardReferencesFromMetamodelAssociations ++ 
-    members
+    namedElement_forwardReferencesFromMetamodelAssociations
 }

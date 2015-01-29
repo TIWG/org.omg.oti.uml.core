@@ -40,4 +40,19 @@
 package org.omg.oti
 
 trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
+  
+  import ops._
+  
+  def redefinedOperations: Iterator[UMLOperation[Uml]] = redefinedElements.selectByKindOf { case o: UMLOperation[Uml] => o }
+    
+  /**
+   * Fig 9.13 (incomplete)
+   * - TemplateableElement
+   * - ParameterableElement
+   * - templateParameter
+   * - raisedException
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    behavioralFeature_forwardReferencesFromMetamodelAssociations ++
+    redefinedOperations
 }

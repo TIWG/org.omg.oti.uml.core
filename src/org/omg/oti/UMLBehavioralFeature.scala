@@ -41,8 +41,14 @@ package org.omg.oti
 
 trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace[Uml] {
 
+  import ops._
   
-  def ownedParameters: Iterator[UMLParameter[Uml]]
+  /**
+   * If this was not ordered, it could be computed:
+   * ownedMembers.selectByKindOf { case p: UMLParameter[Uml] => p }
+   * However, because it is ordered, the ordering information is tool-specific.
+   */
+  def ownedParameters: Seq[UMLParameter[Uml]]
   
   /**
    * Fig 9.9 (incomplete)

@@ -41,7 +41,7 @@ package org.omg.oti
 
 import scala.language.postfixOps
 
-trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] with UMLPackageableElement[Uml] {
+trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   import ops._
   
@@ -52,6 +52,6 @@ trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] with UML
    * Fig. 7.5 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations = 
-    packageableElement_forwardReferencesFromMetamodelAssociations ++
-    directedRelationship_forwardReferencesFromMetamodelAssociations
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    importedElement
 }

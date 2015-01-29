@@ -40,4 +40,15 @@
 package org.omg.oti
 
 trait UMLConnectorEnd[Uml <: UML] extends UMLMultiplicityElement[Uml] {
+  
+  def role: Option[UMLConnectableElement[Uml]]
+  def definingEnd: Option[UMLProperty[Uml]]
+  
+  /**
+   * Fig 11.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    multiplicityElement_forwardReferencesFromMetamodelAssociations ++
+    role
+   
 }

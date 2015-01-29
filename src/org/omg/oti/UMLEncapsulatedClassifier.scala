@@ -39,6 +39,11 @@
  */
 package org.omg.oti
 
-trait UMLEncapsulatedClassifier[Uml <: UML] extends UMLStructuredClassifier[Uml] {
+trait UMLEncapsulatedClassifier[Uml <: UML] extends UMLStructuredClassifier[Uml] {  
   
+  /**
+   * Fig 11.10 (complete)
+   */
+  def encapsulatedClassifier_forwardReferencesFromMetamodelAssociations =
+    structuredClassifier_forwardReferencesFromMetamodelAssociations
 }

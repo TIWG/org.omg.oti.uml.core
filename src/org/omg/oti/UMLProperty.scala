@@ -53,10 +53,14 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   
   def navigableOwnedEndOfAssociation: Option[UMLAssociation[Uml]]
   
+  /**
+   * Corresponds to 'association' in:
+   * Property memberEnd -- association Association
+   */
   def memberEndOfAssociation: Option[UMLAssociation[Uml]]
   
   def subsettedProperties: Iterator[UMLProperty[Uml]]
-  def redefinedProperties: Iterator[UMLProperty[Uml]]
+  def redefinedProperties: Iterator[UMLProperty[Uml]] = redefinedElements.selectByKindOf { case p: UMLProperty[Uml] => p }
   
   /**
    * Fig 9.10 (incomplete)
@@ -65,8 +69,9 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   override def forwardReferencesFromMetamodelAssociations =
     connectableElement_forwardReferencesFromMetamodelAssociations ++
     structuralFeature_forwardReferencesFromMetamodelAssociations ++
-    subsettedProperties.toSet ++
-    redefinedProperties.toSet
+    subsettedProperties ++
+    redefinedProperties ++
+    memberEndOfAssociation
     
   def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   
     case Some(a: UMLAssociation[Uml]) => Some(a)

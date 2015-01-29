@@ -45,13 +45,13 @@ trait UMLConstraint[Uml <: UML] extends UMLPackageableElement[Uml] {
   
   def context: Option[UMLNamespace[Uml]] = ownedMemberOfNamespace.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
   
-  def constrainedElement: Seq[UMLElement[Uml]]
+  def constrainedElements: Seq[UMLElement[Uml]]
     
   /**
    * Fig 7.13 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations = 
     packageableElement_forwardReferencesFromMetamodelAssociations ++
-    constrainedElement.toSet
+    constrainedElements
 
 }

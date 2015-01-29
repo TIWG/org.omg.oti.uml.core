@@ -41,4 +41,10 @@ package org.omg.oti
 
 trait UMLClass[Uml <: UML] extends UMLEncapsulatedClassifier[Uml] with UMLBehavioredClassifier[Uml] {
  
+  /**
+   * Fig 11.15 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    encapsulatedClassifier_forwardReferencesFromMetamodelAssociations ++
+    behavioredClassifier_forwardReferencesFromMetamodelAssociations
 }

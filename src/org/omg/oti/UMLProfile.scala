@@ -47,4 +47,11 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
   
   def metamodelReferences: Set[UMLPackageImport[Uml]]
   def metaclassReferences: Set[UMLElementImport[Uml]]
+   
+  /**
+   * Fig 12.12 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
+    
 }

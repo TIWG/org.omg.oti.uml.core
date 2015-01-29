@@ -41,4 +41,19 @@ package org.omg.oti
 
 trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   
+  import ops._
+  
+  def redefinedConnectors: Iterator[UMLConnector[Uml]] = redefinedElements.selectByKindOf { case c: UMLConnector[Uml] => c }
+  
+  def connectorType: Option[UMLType[Uml]]
+  
+  /**
+   * Fig 11.1 (incomplete)
+   * - contract
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    feature_forwardReferencesFromMetamodelAssociations ++
+    connectorType ++
+    redefinedConnectors
+   
 }

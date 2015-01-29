@@ -41,4 +41,9 @@ package org.omg.oti
 
 trait UMLExtension[Uml <: UML] extends UMLAssociation[Uml] {
   
+  /**
+   * Fig 12.12 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
 }

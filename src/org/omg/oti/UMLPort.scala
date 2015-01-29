@@ -41,4 +41,17 @@ package org.omg.oti
 
 trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
 
+  import ops._
+  
+  def redefinedPorts: Iterator[UMLPort[Uml]] = redefinedElements.selectByKindOf { case p: UMLPort[Uml] => p }  
+  
+  /**
+   * Fig 11.10 (incomplete)
+   * - required
+   * - provided
+   * - protocol
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations ++
+    redefinedPorts
 }
