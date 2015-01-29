@@ -37,8 +37,30 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg
+package org.omg.oti.canonicalXMI
 
-package object oti {
+import org.omg.oti._
+import java.net.URI
 
+sealed abstract trait Document[Uml <: UML] {
+  implicit val ops: UMLOps[Uml]
+  val uri: URI
+  val referencedDocuments: Set[Document[Uml]]
+}
+
+case class BuiltInDocument[Uml <: UML](
+    val uri: URI,
+    val builtInDocumentReferences: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] )
+extends Document[Uml] {
+  
+  override val referencedDocuments: Set[Document[Uml]] = Set() ++ builtInDocumentReferences
+}
+    
+case class SerializableDocument[Uml <: UML](
+    val uri: URI,
+    val serializableDocumentReferences: Set[SerializableDocument[Uml]],
+    val builtInDocumentReferences: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] ) 
+extends Document[Uml] {
+  
+  override val referencedDocuments: Set[Document[Uml]] = serializableDocumentReferences ++ builtInDocumentReferences  
 }

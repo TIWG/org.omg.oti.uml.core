@@ -37,8 +37,16 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg
+package org.omg.oti.canonicalXMI
 
-package object oti {
+import org.omg.oti._
+import scala.util.Try
+import org.omg.oti.UML
 
+case class DocumentSet[Uml <: UML](
+    val serializableDocuments: Set[SerializableDocument[Uml]],
+    val builtInDocuments: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] ) {
+  
+  def serialize: Try[Unit] = ???
 }
+    

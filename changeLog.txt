@@ -1,0 +1,4 @@
+Version 0.1: January 28, 2015
+
+Added SBT configuration.
+Added org.omg.oti.canonicalXMI based on TIWG teleconference call discussions to avoid having to write tool-specific => tool-infrastructure save converters (XSL, ...)
