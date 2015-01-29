@@ -41,4 +41,11 @@ package org.omg.oti
 
 trait UMLParameter[Uml <: UML] extends UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] {
 
+  /**
+   * Fig 9.9 (incomplete)
+   * - parameterSet
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    connectableElement_forwardReferencesFromMetamodelAssociations ++
+    multiplicityElement_forwardReferencesFromMetamodelAssociations
 }

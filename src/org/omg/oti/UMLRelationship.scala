@@ -41,4 +41,6 @@ package org.omg.oti
 
 trait UMLRelationship[Uml <: UML] extends UMLElement[Uml] {
   def relatedElements: Iterator[UMLElement[Uml]]
+  
+  def relationship_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = relatedElements.toSet
 }

@@ -47,4 +47,10 @@ trait UMLPackageImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   def importingNamespace: Option[UMLNamespace[Uml]] = (sources.selectByKindOf { case ns: UMLNamespace[Uml] => ns } toIterable).headOption
   def importedPackage: Option[UMLPackage[Uml]] = (targets.selectByKindOf { case p: UMLPackage[Uml] => p } toIterable).headOption
+  
+  /**
+   * Fig. 7.5 (complete)
+   */  
+  override def forwardReferencesFromMetamodelAssociations = 
+    directedRelationship_forwardReferencesFromMetamodelAssociations
 }

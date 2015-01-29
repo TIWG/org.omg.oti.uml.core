@@ -45,4 +45,10 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   
   def annotatedElements: Iterator[UMLElement[Uml]]
   def getCommentOwnerIndex: Int
+    
+  /**
+   * Fig. 7.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations = annotatedElements.toSet
+  
 }

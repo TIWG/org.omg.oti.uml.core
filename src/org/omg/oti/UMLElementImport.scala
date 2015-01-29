@@ -41,10 +41,17 @@ package org.omg.oti
 
 import scala.language.postfixOps
 
-trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
+trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] with UMLPackageableElement[Uml] {
   
   import ops._
   
   def importingNamespace: Option[UMLNamespace[Uml]] = (sources.selectByKindOf { case ns: UMLNamespace[Uml] => ns } toIterable).headOption
   def importedElement: Option[UMLPackageableElement[Uml]] = (targets.selectByKindOf { case p: UMLPackageableElement[Uml] => p } toIterable).headOption
+    
+  /**
+   * Fig. 7.5 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations = 
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    directedRelationship_forwardReferencesFromMetamodelAssociations
 }

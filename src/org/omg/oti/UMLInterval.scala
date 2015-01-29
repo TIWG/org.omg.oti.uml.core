@@ -40,4 +40,12 @@
 package org.omg.oti
 
 trait UMLInterval[Uml <: UML] extends UMLValueSpecification[Uml] { 
+  
+  /**
+   * Fig. 8.4 (incomplete)
+   * - min
+   * - max
+   */
+  override def forwardReferencesFromMetamodelAssociations = 
+    valueSpecification_forwardReferencesFromMetamodelAssociations
 }

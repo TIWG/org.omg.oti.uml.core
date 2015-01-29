@@ -41,4 +41,12 @@ package org.omg.oti
 
 trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
   
+  /**
+   * Fig 9.9 (complete)
+   * Note: The association Classifier /featuringClassifier -- /feature Feature is shown without any direction
+   * but it is implicitly directed because of the symmetric subsetting of 
+   * the directed association in Fig 7.5: Namespace /memberNamespace -> /member NamedElement 
+   */
+  def feature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    redefinableElement_forwardReferencesFromMetamodelAssociations
 }

@@ -40,4 +40,11 @@
 package org.omg.oti
 
 trait UMLRedefinableElement[Uml <: UML] extends UMLNamedElement[Uml] { 
+  
+  /**
+   * Fig 9.1 (incomplete)
+   * - redefinedElement
+   * - redefinitionContext
+   */  
+  def redefinableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
 }

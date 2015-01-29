@@ -41,4 +41,10 @@ package org.omg.oti
 
 trait UMLValueSpecification[Uml <: UML] extends UMLPackageableElement[Uml] with UMLTypedElement[Uml] {
 
+  /**
+   * Fig 8.1
+   */
+  def valueSpecification_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    typedElement_forwardReferencesFromMetamodelAssociations
 }

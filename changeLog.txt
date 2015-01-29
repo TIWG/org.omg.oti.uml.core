@@ -1,3 +1,10 @@
+Version 0.2: January 28, 2015
+
+Add support for calculating the forward references from an Element.
+
+This is needed to serialize OTI models into OMG Canonical XMI documents since the serialization of a local element reference
+is different from that of an external element reference (see "Linking" in the OMG MOF/XMI spec)
+
 Version 0.1: January 28, 2015
 
 Added SBT configuration.

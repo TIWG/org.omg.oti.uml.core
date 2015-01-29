@@ -43,4 +43,13 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
 
   
   def ownedParameters: Iterator[UMLParameter[Uml]]
+  
+  /**
+   * Fig 9.9 (incomplete)
+   * - method
+   * - raisedException
+   */
+  def behavioralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
+    feature_forwardReferencesFromMetamodelAssociations ++
+    namespace_forwardReferencesFromMetamodelAssociations
 }

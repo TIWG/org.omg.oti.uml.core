@@ -40,4 +40,12 @@
 package org.omg.oti
 
 trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElement[Uml] with UMLMultiplicityElement[Uml] {
+  
+  /**
+   * Fig 9.9 (complete)
+   */
+  def structuralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
+    feature_forwardReferencesFromMetamodelAssociations ++
+    typedElement_forwardReferencesFromMetamodelAssociations ++
+    multiplicityElement_forwardReferencesFromMetamodelAssociations
 }

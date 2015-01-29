@@ -42,4 +42,11 @@ package org.omg.oti
 trait UMLTypedElement[Uml <: UML] extends UMLNamedElement[Uml] {
 
   def getType: Option[UMLType[Uml]]
+     
+  /**
+   * Fig 7.10 (complete)
+   */
+  
+  def typedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = getType.toSet
+
 }

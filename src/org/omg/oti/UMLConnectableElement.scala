@@ -40,5 +40,11 @@
 package org.omg.oti
 
 trait UMLConnectableElement[Uml <: UML] extends UMLTypedElement[Uml] {
-  
+ 
+  /**
+   * Fig 9.9 (complete)
+   */  
+  def connectableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
+    typedElement_forwardReferencesFromMetamodelAssociations
+
 }

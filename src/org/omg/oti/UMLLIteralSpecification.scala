@@ -41,4 +41,10 @@ package org.omg.oti
 
 trait UMLLiteralSpecification[Uml <: UML] extends UMLValueSpecification[Uml] {
   
+  /**
+   * Fig. 8.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations = 
+    valueSpecification_forwardReferencesFromMetamodelAssociations
+
 }

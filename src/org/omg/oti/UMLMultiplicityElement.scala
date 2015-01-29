@@ -42,4 +42,9 @@ package org.omg.oti
 trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
   def lower: Int
   def upper: Int
+  
+  /**
+   * Fig 7.10 (complete)
+   */  
+  def multiplicityElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
 }

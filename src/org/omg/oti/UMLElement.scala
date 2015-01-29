@@ -46,6 +46,43 @@ trait UMLElement[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   import ops._
 
+  def metaclass: UMLClass[Uml]
+  
+  def tagValues: Map[UMLProperty[Uml], UMLValueSpecification[Uml]]
+  
+  /**
+   * The set of Elements referenced from this Element due to link instances of non-composite directed associations defined in the UML metamodel
+   *
+   * This method is defined for every metaclass according to the figures from the UML spec in two idioms:
+   * - concrete metaclasses:
+   * 
+   * The override method includes up to 3 contributions:
+   * - those of the metaclass itself
+   * 
+   * - the concrete direct generalization parent metaclass (zero or one)
+   * => super.forwardReferencesFromMetamodelAssociations
+   *  
+   * - each abstract direct generalization parent metaclass (zero or more)
+   * => [metaclass name]_forwardReferencesFromMetamodelAssociations
+   */
+  def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
+
+  /**
+   * The set of Elements referenced from this Element due to values of applied stereotype tag properties
+   */
+  def forwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]]
+  
+  /**
+   * The set of Elements referenced from this Element due to either
+   * - link instances of composite directed associations defined in the UML metamodel
+   * - link instances of non-composite directed associations defined in the UML metamodel
+   * - values of applied stereotype tag properties
+   */
+  def allForwardReferences: Set[UMLElement[Uml]] = 
+    ownedElements ++ 
+    forwardReferencesFromMetamodelAssociations ++ 
+    forwardReferencesFromStereotypeTagProperties
+  
   def ownedComments: Seq[UMLComment[Uml]]
   def annotatedElementOfComments: Seq[UMLComment[Uml]]
 

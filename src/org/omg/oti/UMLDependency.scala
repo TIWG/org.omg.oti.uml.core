@@ -45,4 +45,12 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
   
   def clients: Iterator[UMLNamedElement[Uml]] = sources.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
   def suppliers: Iterator[UMLNamedElement[Uml]] = targets.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
+    
+  /**
+   * Fig 7.17 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =     
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    directedRelationship_forwardReferencesFromMetamodelAssociations
+
 }

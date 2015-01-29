@@ -58,6 +58,16 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   def subsettedProperties: Iterator[UMLProperty[Uml]]
   def redefinedProperties: Iterator[UMLProperty[Uml]]
   
+  /**
+   * Fig 9.10 (incomplete)
+   * - DeploymentTarget
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    connectableElement_forwardReferencesFromMetamodelAssociations ++
+    structuralFeature_forwardReferencesFromMetamodelAssociations ++
+    subsettedProperties.toSet ++
+    redefinedProperties.toSet
+    
   def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   
     case Some(a: UMLAssociation[Uml]) => Some(a)
     case _ => None

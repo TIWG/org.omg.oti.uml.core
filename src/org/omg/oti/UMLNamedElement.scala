@@ -53,4 +53,10 @@ trait UMLNamedElement[Uml <: UML] extends UMLElement[Uml] {
 
   def supplierTargetOfSupplierDependency: Iterator[UMLDependency[Uml]]
   def clientSourceOfClientDependency: Iterator[UMLDependency[Uml]]
+    
+  /**
+   * Fig 7.5 (incomplete)
+   * - namedExpression
+   */
+  def namedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
 }

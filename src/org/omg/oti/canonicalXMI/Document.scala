@@ -46,11 +46,13 @@ sealed abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   val uri: URI
   val referencedDocuments: Set[Document[Uml]]
+  val scope: Uml#Element
 }
 
 case class BuiltInDocument[Uml <: UML](
     val uri: URI,
-    val builtInDocumentReferences: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] )
+    val builtInDocumentReferences: Set[BuiltInDocument[Uml]],
+    val scope: Uml#Element)( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   
   override val referencedDocuments: Set[Document[Uml]] = Set() ++ builtInDocumentReferences
@@ -59,7 +61,8 @@ extends Document[Uml] {
 case class SerializableDocument[Uml <: UML](
     val uri: URI,
     val serializableDocumentReferences: Set[SerializableDocument[Uml]],
-    val builtInDocumentReferences: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] ) 
+    val builtInDocumentReferences: Set[BuiltInDocument[Uml]],
+    val scope: Uml#Element)( implicit val ops: UMLOps[Uml] ) 
 extends Document[Uml] {
   
   override val referencedDocuments: Set[Document[Uml]] = serializableDocumentReferences ++ builtInDocumentReferences  

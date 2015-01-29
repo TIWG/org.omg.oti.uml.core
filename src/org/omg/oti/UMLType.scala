@@ -45,5 +45,10 @@ trait UMLType[Uml <: UML] extends UMLPackageableElement[Uml] {
   
   def typedElementsOfType: Iterator[UMLTypedElement[Uml]]
   
-  def endTypeOfAssociation: Iterator[UMLAssociation[Uml]]
+  def endTypeOfAssociation: Iterator[UMLAssociation[Uml]]  
+  
+  /**
+   * Fig 7.10 (complete) 
+   */
+  def type_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
 }

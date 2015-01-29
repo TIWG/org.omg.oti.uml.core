@@ -41,4 +41,16 @@ package org.omg.oti
 
 trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
+  import ops._
+  
+  def specific: Option[UMLClassifier[Uml]] = (sources.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
+  def general: Option[UMLClassifier[Uml]] = (targets.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
+  
+  /**
+   * Fig. 9.1 (incomplete)
+   * - generalizationSet
+   */  
+  override def forwardReferencesFromMetamodelAssociations = 
+    directedRelationship_forwardReferencesFromMetamodelAssociations
+  
 }

@@ -51,4 +51,11 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
   def packageImports: Set[UMLPackageImport[Uml]] = sourceOfDirectedRelationships.selectByKindOf { case pi: UMLPackageImport[Uml] => pi }
   
   def ownedRules: Set[UMLConstraint[Uml]] = ownedMembers.selectByKindOf { case c: UMLConstraint[Uml] => c }
+    
+  /**
+   * Fig 7.5 (complete)
+   */
+  def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+    namedElement_forwardReferencesFromMetamodelAssociations ++ 
+    members
 }
