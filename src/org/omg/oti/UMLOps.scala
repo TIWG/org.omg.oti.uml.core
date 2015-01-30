@@ -329,8 +329,26 @@ trait UMLOps[Uml <: UML] { self =>
   
   def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
   
+  /**
+   * OTI::SpecificationRoot stereotype
+   */
   val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
-
+  
+  /**
+   * OTI::SpecificationRoot::packageURI property
+   */
+  val OTI_SPECIFICATION_ROOT_packageURI: Option[Uml#Property]
+  
+  /**
+   * OTI::ID stereotype
+   */
+  val OTI_ID_S: Option[Uml#Stereotype]
+  
+  /**
+   * OTI::ID stereotype
+   */
+   val OTI_ID_uuid: Option[Uml#Property]
+  
   val SLOT_VALUE: EStructuralFeature
 
   def closure[T]( x: T, relation: T => Iterator[T] ): Set[T] = {

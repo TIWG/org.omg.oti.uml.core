@@ -49,6 +49,8 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   
   def isComposite: Boolean
   
+  def defaultValue: Option[UMLValueSpecification[Uml]]
+  
   def opposite: Option[UMLProperty[Uml]] 
   
   def navigableOwnedEndOfAssociation: Option[UMLAssociation[Uml]]

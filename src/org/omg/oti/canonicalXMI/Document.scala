@@ -50,18 +50,19 @@ sealed abstract trait Document[Uml <: UML] {
   
   lazy val extent: Set[UMLElement[Uml]] = 
      scope.allOwnedElements.flatMap { e => e.forwardReferencesFromStereotypeTagProperties ++ Iterator(e) } toSet
+  
 }
 
 case class BuiltInDocument[Uml <: UML](
     val uri: URI,
     val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
-  
+  override def toString: String = s"BuiltInDocument(uri=${uri})"
 }
     
 case class SerializableDocument[Uml <: UML](
     val uri: URI,
     val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] ) 
 extends Document[Uml] {
-  
+  override def toString: String = s"SerializableDocument(uri=${uri})"  
 }

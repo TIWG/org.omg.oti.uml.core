@@ -50,7 +50,7 @@ trait UMLElement[Uml <: UML] {
   def metaclass: UMLClass[Uml]
   
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
-  
+    
   /**
    * Calculate the references from this element to other elements
    * due to non-composite, non-derived properties in the metamodel.

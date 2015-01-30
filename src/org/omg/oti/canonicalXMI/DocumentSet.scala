@@ -39,14 +39,91 @@
  */
 package org.omg.oti.canonicalXMI
 
+import scala.language.higherKinds
+import scala.language.implicitConversions
+import scala.language.postfixOps
+import scala.reflect.runtime.universe
+import scala.reflect.runtime.universe._
+
 import org.omg.oti._
 import scala.util.Try
 import org.omg.oti.UML
+import scala.util.Success
+import scalax.collection.config.CoreConfig
+import scalax.collection.mutable.ArraySet.Hints
+
+import scalax.collection.GraphEdge._
+import scalax.collection.GraphPredef._
+import scalax.collection.constrained._
+import scalax.collection.constrained.constraints.NoneConstraint
+import scalax.collection.constrained.generic.GraphConstrainedCompanion
+import scalax.collection.edge.CBase._
+import scalax.collection.io.edge.CEdgeParameters
+import scalax.collection.io.json.Descriptor
+import scalax.collection.io.json.descriptor.CEdgeDescriptor
+import scalax.collection.io.json.descriptor.NodeDescriptor
 
 case class DocumentSet[Uml <: UML](
-    val serializableDocuments: Set[SerializableDocument[Uml]],
-    val builtInDocuments: Set[BuiltInDocument[Uml]])( implicit val ops: UMLOps[Uml] ) {
-  
-  def serialize: Try[Unit] = ???
-}
+  val serializableDocuments: Set[SerializableDocument[Uml]],
+  val builtInDocuments: Set[BuiltInDocument[Uml]] )( implicit val ops: UMLOps[Uml] ) {
+
+  implicit val myConfig = CoreConfig( orderHint = 5000, Hints( 64, 0, 64, 75 ) )
+
+  class DocumentEdge[N]( nodes: Product )
+    extends DiEdge[N]( nodes )
+    with EdgeCopy[DocumentEdge]
+    with OuterEdge[N, DocumentEdge] {
+
+    override def copy[NN]( newNodes: Product ) = DocumentEdge.newEdge[NN]( newNodes )
+  }
+
+  object DocumentEdge extends EdgeCompanion[DocumentEdge] {
+    protected def newEdge[N]( nodes: Product ) = new DocumentEdge[N]( nodes )
+
+    def apply( e: DiEdge[Product with Serializable with Document[Uml]] ) = new DocumentEdge[Document[Uml]]( NodeProduct( e.from, e.to ) )
+    def apply( from: Document[Uml], to: Document[Uml] ) = new DocumentEdge[Document[Uml]]( NodeProduct( from, to ) )
+    def unapply( e: DocumentEdge[Document[Uml]] ) = Some( e )
+    def apply[N]( from: N, to: N ): DocumentSet.this.DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( from, to ) )
+    override def from[N]( nodes: Product ): DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( nodes.productElement( 1 ), nodes.productElement( 2 ) ) )
+  }
+
+  implicit val documentEdgeTag: TypeTag[DocumentEdge[Document[Uml]]] = typeTag[DocumentEdge[Document[Uml]]]
+
+  class TConnected[CC[N, E[X] <: EdgeLikeIn[X]] <: Graph[N, E] with GraphLike[N, E, CC]]( val factory: GraphConstrainedCompanion[CC] ) {
+    implicit val config: Config = NoneConstraint
+
+    def empty() = factory[Document[Uml], DocumentEdge]()
+  }
+
+  def externalReferenceDocumentGraph: mutable.Graph[Document[Uml], DocumentEdge] = {
+
+    val element2document: Map[UMLElement[Uml], Document[Uml]] =
+      ( serializableDocuments ++ builtInDocuments ) flatMap {
+        d => d.extent map { e => ( e -> d ) }
+      } toMap
+
+    val ic = new TConnected[mutable.Graph]( mutable.Graph )
+    val g = ic.empty()
     
+    // add each document as a node in the graph
+    element2document.values foreach { d => g += d }
+      
+    // add document=>document edges
+    for {
+      ( e, d ) <- element2document
+      eRef <- e.allForwardReferences
+      dRef <- element2document.get(eRef)
+      if ( d != dRef )
+    }{
+      g += DocumentEdge( d, dRef )
+    }
+        
+    g
+  }
+
+  def serialize: Try[Unit] = {
+
+    Success( Unit )
+  }
+}
+

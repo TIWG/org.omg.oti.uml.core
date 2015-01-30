@@ -8,7 +8,13 @@ object OTICore extends Build {
   
   object Versions {
     val scala = "2.11.4"
+    
     val emf_ecore = "2.10.1"
+    
+    val graph_core = "1.9.1"
+    val graph_constrained = "1.9.0"
+    val graph_dot = "1.10.0"
+    val graph_json = "1.9.2"
   }
     
   lazy val emfLibs = Project(
@@ -25,6 +31,21 @@ object OTICore extends Build {
         ( mappings in pack ) := { extraPackFun.value } )
       )
       
+  lazy val graphLibs = Project(
+      "graphLibs",
+      file( "graphLibs" ),      
+      settings = Defaults.coreDefaultSettings ++ Defaults.runnerSettings ++ Defaults.baseTasks ++ packSettings ++ Seq(            
+        scalaVersion := Versions.scala,
+        packExpandedClasspath := true,
+        libraryDependencies ++= Seq(
+          "com.assembla.scala-incubator" %% "graph-core" % Versions.graph_core % "compile" withSources() withJavadoc(),
+          "com.assembla.scala-incubator" %% "graph-constrained" % Versions.graph_constrained % "compile" withSources() withJavadoc(),
+          "com.assembla.scala-incubator" %% "graph-json" % Versions.graph_json % "compile" withSources() withJavadoc(),          
+          "com.assembla.scala-incubator" %% "graph-dot" % Versions.graph_dot % "compile" withSources() withJavadoc()
+        ),
+        ( mappings in pack ) := { extraPackFun.value } )
+      )
+      
   lazy val core = Project(
       "oti-core",
       file( "." ),
@@ -37,7 +58,7 @@ object OTICore extends Build {
         scalaSource in Compile := baseDirectory.value / "src",
         shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Project.extract(state).get( GitKeys.gitCurrentBranch ) + "> " }
       )
-    ) dependsOn ( emfLibs )
+    ) dependsOn ( emfLibs, graphLibs )
           
   val extraPackFun: Def.Initialize[Task[Seq[( File, String )]]] = Def.task[Seq[( File, String )]] {
     def getFileIfExists( f: File, where: String ): Option[( File, String )] = if ( f.exists() ) Some( ( f, s"${where}/${f.getName()}" ) ) else None

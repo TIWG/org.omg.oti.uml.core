@@ -45,7 +45,8 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   
   def annotatedElements: Iterator[UMLElement[Uml]]
   def getCommentOwnerIndex: Int
-    
+  def body: Option[String]
+  
   /**
    * Fig. 7.1 (complete)
    */

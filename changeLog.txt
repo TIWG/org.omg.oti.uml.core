@@ -1,3 +1,10 @@
+Version 0.4: January 29, 2015
+
+- OTI::SpecificationRoot::packageURI
+- OTI::ID
+- OTI::ID::uuid
+- Cannonical XMI DocmentSet writer
+
 Version 0.3: January 29, 2015
 
 - Added UMLModel
