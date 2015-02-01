@@ -43,11 +43,23 @@ trait UMLImage[Uml <: UML] extends UMLElement[Uml] {
   
   import ops._
   
+  def content: Option[String]
+  def format: Option[String]
   def location: Option[String]
     
   /**
    * Fig 12.12 (complete)
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    image_metaAttributes
+
+  def image_metaAttributes: MetaAttributeFunctions =
+    element_metaAttributes ++
+      Seq( 
+          MetaAttributeStringFunction[UMLImage[Uml]]( "content", _.content ),
+          MetaAttributeStringFunction[UMLImage[Uml]]( "format", _.format ),
+          MetaAttributeStringFunction[UMLImage[Uml]]( "location", _.location ) )
+      
   override def forwardReferencesFromMetamodelAssociations =
     image_forwardReferencesFromMetamodelAssociations
     

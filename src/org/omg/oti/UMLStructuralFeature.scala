@@ -40,22 +40,30 @@
 package org.omg.oti
 
 trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElement[Uml] with UMLMultiplicityElement[Uml] {
-  
+
+  def isReadOnly: Boolean = false
+
   /**
    * Fig 9.9 (complete)
    */
+  def structuralFeature_metaAttributes: MetaAttributeFunctions =
+    feature_metaAttributes ++
+      multiplicityElement_metaAttributes ++
+      typedElement_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLStructuralFeature[Uml]]( "isReadOnly", (sf) => booleanToIterable(sf.isReadOnly, false) ) )
+
   def structuralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     feature_forwardReferencesFromMetamodelAssociations ++
-    multiplicityElement_forwardReferencesFromMetamodelAssociations ++
-    typedElement_forwardReferencesFromMetamodelAssociations
-    
+      multiplicityElement_forwardReferencesFromMetamodelAssociations ++
+      typedElement_forwardReferencesFromMetamodelAssociations
+
   def structuralFeature_compositeMetaProperties: MetaPropertyFunctions =
     feature_compositeMetaProperties ++
-    multiplicityElement_compositeMetaProperties ++
-    typedElement_compositeMetaProperties
-    
+      multiplicityElement_compositeMetaProperties ++
+      typedElement_compositeMetaProperties
+
   def structuralFeature_referenceMetaProperties: MetaPropertyFunctions =
     feature_referenceMetaProperties ++
-    multiplicityElement_referenceMetaProperties ++
-    typedElement_referenceMetaProperties
+      multiplicityElement_referenceMetaProperties ++
+      typedElement_referenceMetaProperties
 }

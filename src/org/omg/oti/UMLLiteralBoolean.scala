@@ -40,6 +40,13 @@
 package org.omg.oti
 
 trait UMLLiteralBoolean[Uml <: UML] extends UMLLiteralSpecification[Uml] {
-  
-  def value: Option[Boolean]
+
+  import ops._
+
+  def value: Boolean = false
+
+  override def metaAttributes: MetaAttributeFunctions =
+    literalSpecification_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLLiteralBoolean[Uml]]( "value", (l) => booleanToIterable(l.value, false) ) )
+
 }

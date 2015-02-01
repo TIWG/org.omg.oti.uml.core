@@ -43,7 +43,13 @@ trait UMLActor[Uml <: UML] extends UMLBehavioredClassifier[Uml] {
   
   /**
    * Fig 18.1 (complete)
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    actor_metaAttributes
+
+  def actor_metaAttributes: MetaAttributeFunctions =
+    behavioredClassifier_metaAttributes
+      
   override def forwardReferencesFromMetamodelAssociations =
     actor_forwardReferencesFromMetamodelAssociations
     

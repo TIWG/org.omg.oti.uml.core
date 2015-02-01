@@ -52,7 +52,15 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
 
   /**
    * Fig 11.25 (complete)
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    association_metaAttributes
+    
+  def association_metaAttributes: MetaAttributeFunctions =
+    classifier_metaAttributes ++
+    relationship_metaAttributes ++
+    Seq( MetaAttributeBooleanFunction[UMLAssociation[Uml]]( "isDerived", (p) => booleanToIterable(p.isDerived, false) ) )
+        
   override def forwardReferencesFromMetamodelAssociations =
     association_forwardReferencesFromMetamodelAssociations
     

@@ -41,4 +41,12 @@ package org.omg.oti
 
 trait UMLLiteralReal[Uml <: UML] extends UMLLiteralSpecification[Uml] {
   
+  import ops._
+  
+  def value: Option[Double]
+    
+  override def metaAttributes: MetaAttributeFunctions =
+    literalSpecification_metaAttributes ++
+      Seq( MetaAttributeRealFunction[UMLLiteralReal[Uml]]( "value", _.value ) )
+      
 }

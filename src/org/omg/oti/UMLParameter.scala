@@ -44,7 +44,17 @@ trait UMLParameter[Uml <: UML] extends UMLConnectableElement[Uml] with UMLMultip
   /**
    * Fig 9.9 (incomplete)
    * - parameterSet
+   * - direction
+   * - effect
+   * - isException
+   * - isStream
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    parameter_metaAttributes
+    
+  def parameter_metaAttributes: MetaAttributeFunctions =
+    connectableElement_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     connectableElement_forwardReferencesFromMetamodelAssociations ++
     multiplicityElement_forwardReferencesFromMetamodelAssociations

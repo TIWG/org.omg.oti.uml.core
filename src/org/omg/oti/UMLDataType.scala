@@ -48,6 +48,12 @@ trait UMLDataType[Uml <: UML] extends UMLClassifier[Uml] {
   /**
    * Fig 10.1 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    dataType_metaAttributes
+
+  def dataType_metaAttributes: MetaAttributeFunctions =
+    classifier_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
 

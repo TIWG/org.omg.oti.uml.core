@@ -48,6 +48,12 @@ trait UMLPackageMerge[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   /**
    * Fig 12.1 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    packageMerge_metaAttributes
+
+  def packageMerge_metaAttributes: MetaAttributeFunctions =
+    directedRelationship_metaAttributes 
+      
   override def forwardReferencesFromMetamodelAssociations =
     packageMerge_forwardReferencesFromMetamodelAssociations
     

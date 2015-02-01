@@ -41,4 +41,8 @@ package org.omg.oti
 
 trait UMLLiteralNull[Uml <: UML] extends UMLLiteralSpecification[Uml] {
 
+  import ops._
+  
+  override def metaAttributes: MetaAttributeFunctions =
+    literalSpecification_metaAttributes
 }

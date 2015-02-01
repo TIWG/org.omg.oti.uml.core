@@ -45,8 +45,12 @@ trait UMLPackageableElement[Uml <: UML] extends UMLNamedElement[Uml] {
   
   /**
    * Fig 7.5 (incomplete)
+   * - visibility
    * - ParameterableElement
    */
+  def packageableElement_metaAttributes: MetaAttributeFunctions =
+    namedElement_metaAttributes
+    
   def packageableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namedElement_forwardReferencesFromMetamodelAssociations
 

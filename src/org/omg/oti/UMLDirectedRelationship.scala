@@ -46,7 +46,10 @@ trait UMLDirectedRelationship[Uml <: UML] extends UMLRelationship[Uml] {
 
   /**
    * Fig 7.1 (complete)
-   */
+   */  
+  def directedRelationship_metaAttributes: MetaAttributeFunctions =
+    relationship_metaAttributes
+    
   def directedRelationship_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     relationship_forwardReferencesFromMetamodelAssociations
     

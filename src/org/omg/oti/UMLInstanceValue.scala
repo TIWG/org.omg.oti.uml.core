@@ -46,6 +46,12 @@ trait UMLInstanceValue[Uml <: UML] extends UMLValueSpecification[Uml] {
   /**
    * Fig 9.27 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    instanceValue_metaAttributes
+
+  def instanceValue_metaAttributes: MetaAttributeFunctions =
+    valueSpecification_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     instanceValue_forwardReferencesFromMetamodelAssociations
     

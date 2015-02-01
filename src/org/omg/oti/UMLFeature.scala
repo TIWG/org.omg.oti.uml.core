@@ -40,32 +40,38 @@
 package org.omg.oti
 
 trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
-  
+
   import ops._
-  
+
+  def isStatic: Boolean = false
+
   /**
    * issue? it seems a Feature could have multiple featuringClassifiers due to importation.
-   * 
+   *
    * For now, force an error if there might be more than one.
    */
   def featuringClassifier: Option[UMLClassifier[Uml]] = {
     val cls = memberNamespaces.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
-    require (cls.size <= 1)
+    require( cls.size <= 1 )
     cls.headOption
   }
-  
+
+  def feature_metaAttributes: MetaAttributeFunctions =
+    redefinableElement_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLFeature[Uml]]( "isStatic", (f) => booleanToIterable( f.isStatic, false ) ) )
+
   /**
    * Fig 9.9 (complete)
    * Note: The association Classifier /featuringClassifier -- /feature Feature is shown without any direction
-   * but it is implicitly directed because of the symmetric subsetting of 
-   * the directed association in Fig 7.5: Namespace /memberNamespace -> /member NamedElement 
+   * but it is implicitly directed because of the symmetric subsetting of
+   * the directed association in Fig 7.5: Namespace /memberNamespace -> /member NamedElement
    */
-  def feature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+  def feature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     redefinableElement_forwardReferencesFromMetamodelAssociations
-    
+
   def feature_compositeMetaProperties: MetaPropertyFunctions =
     redefinableElement_compositeMetaProperties
-    
+
   def feature_referenceMetaProperties: MetaPropertyFunctions =
     redefinableElement_referenceMetaProperties
 }

@@ -52,7 +52,13 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   /**
    * Fig 11.1 (incomplete)
    * - contract
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    connector_metaAttributes
+
+  def connector_metaAttributes: MetaAttributeFunctions =
+    feature_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     feature_forwardReferencesFromMetamodelAssociations ++
     _type ++

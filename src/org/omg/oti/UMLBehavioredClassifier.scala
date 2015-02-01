@@ -46,6 +46,9 @@ trait UMLBehavioredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
    * - Behavior
    * - classifierBehavior
    */
+  def behavioredClassifier_metaAttributes: MetaAttributeFunctions =
+    classifier_metaAttributes
+    
   def behavioredClassifier_forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
     

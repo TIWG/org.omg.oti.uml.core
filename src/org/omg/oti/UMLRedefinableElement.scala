@@ -50,7 +50,10 @@ trait UMLRedefinableElement[Uml <: UML] extends UMLNamedElement[Uml] {
   
   /**
    * Fig 9.1 (complete)
-   */  
+   */    
+  def redefinableElement_metaAttributes: MetaAttributeFunctions =
+    namedElement_metaAttributes
+    
   def redefinableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namedElement_forwardReferencesFromMetamodelAssociations
     

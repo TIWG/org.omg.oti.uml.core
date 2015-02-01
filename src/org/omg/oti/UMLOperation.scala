@@ -40,20 +40,20 @@
 package org.omg.oti
 
 trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
-  
+
   import ops._
-  
+
   def datatype: Option[UMLDataType[Uml]] = owner.asInstanceOf[Option[UMLDataType[Uml]]]
   def _class: Option[UMLClass[Uml]] = owner.asInstanceOf[Option[UMLClass[Uml]]]
-  
+
   def isQuery: Boolean = false
-  
+
   def preCondition: Iterable[UMLConstraint[Uml]]
   def postCondition: Iterable[UMLConstraint[Uml]]
   def bodyCondition: Option[UMLConstraint[Uml]]
-  
+
   def redefinedOperations: Iterable[UMLOperation[Uml]] = redefinedElements.selectByKindOf { case o: UMLOperation[Uml] => o }
-    
+
   /**
    * Fig 9.13 (incomplete)
    * - TemplateableElement
@@ -61,29 +61,35 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
    * - templateParameter
    * - raisedException
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    operation_metaAttributes
+
+  def operation_metaAttributes: MetaAttributeFunctions =
+    behavioralFeature_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLOperation[Uml]]( "isQuery", ( o ) => booleanToIterable( o.isQuery, false ) ) )
+
   override def forwardReferencesFromMetamodelAssociations =
     operation_forwardReferencesFromMetamodelAssociations
-    
+
   def operation_forwardReferencesFromMetamodelAssociations =
     behavioralFeature_forwardReferencesFromMetamodelAssociations ++
-    redefinedOperations
-    
+      redefinedOperations
+
   override def compositeMetaProperties: MetaPropertyFunctions =
     operation_compositeMetaProperties
-    
+
   def operation_compositeMetaProperties =
     behavioralFeature_compositeMetaProperties ++
-    Seq(
-        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "bodyCondition", _.bodyCondition ),        
+      Seq(
+        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "bodyCondition", _.bodyCondition ),
         MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "postCondition", _.postCondition ),
-        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "preCondition", _.preCondition )
-        )
-        
+        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "preCondition", _.preCondition ) )
+
   override def referenceMetaProperties: MetaPropertyFunctions =
     operation_referenceMetaProperties
-    
+
   def operation_referenceMetaProperties =
     behavioralFeature_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLOperation[Uml], UMLOperation[Uml]]( "redefinedOperation", _.redefinedOperations ) )
-    
+      Seq( MetaPropertyFunction[UMLOperation[Uml], UMLOperation[Uml]]( "redefinedOperation", _.redefinedOperations ) )
+
 }

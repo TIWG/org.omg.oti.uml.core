@@ -40,42 +40,49 @@
 package org.omg.oti
 
 trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsulatedClassifier[Uml] {
- 
+
   import ops._
-  
-  def isAbstract: Boolean = false
-  
+
+  def isActive: Boolean = false
+
   def nestedClassifiers: Seq[UMLClassifier[Uml]]
   def ownedAttributes: Seq[UMLProperty[Uml]]
   def ownedOperations: Seq[UMLOperation[Uml]]
-  
+
   def superClasses: Set[UMLClass[Uml]] = general.selectByKindOf { case c: UMLClass[Uml] => c }
-  
+
   /**
    * Fig 11.15 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    class_metaAttributes
+
+  def class_metaAttributes: MetaAttributeFunctions =
+    behavioredClassifier_metaAttributes ++
+      encapsulatedClassifier_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLClass[Uml]]( "isActive", ( o ) => booleanToIterable( o.isActive, false ) ) )
+
   override def forwardReferencesFromMetamodelAssociations =
     class_forwardReferencesFromMetamodelAssociations
-    
-  def class_forwardReferencesFromMetamodelAssociations =    
+
+  def class_forwardReferencesFromMetamodelAssociations =
     behavioredClassifier_forwardReferencesFromMetamodelAssociations ++
-    encapsulatedClassifier_forwardReferencesFromMetamodelAssociations    
-  
+      encapsulatedClassifier_forwardReferencesFromMetamodelAssociations
+
   override def compositeMetaProperties: MetaPropertyFunctions =
     class_compositeMetaProperties
-    
+
   def class_compositeMetaProperties: MetaPropertyFunctions =
     behavioredClassifier_compositeMetaProperties ++
-    Seq(
+      Seq(
         MetaPropertyFunction[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
         MetaPropertyFunction[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-        MetaPropertyFunction[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations )
-        )
-        
-   override def referenceMetaProperties: MetaPropertyFunctions =
-     class_referenceMetaProperties
-     
-   def class_referenceMetaProperties: MetaPropertyFunctions =
-     behavioredClassifier_referenceMetaProperties 
-     
+        MetaPropertyFunction[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations ) )
+
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    class_referenceMetaProperties
+
+  def class_referenceMetaProperties: MetaPropertyFunctions =
+    behavioredClassifier_referenceMetaProperties
+
 }

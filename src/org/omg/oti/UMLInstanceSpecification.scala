@@ -50,7 +50,13 @@ trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
    * Fig 9.27 (incomplete)
    * - DeploymentTarget
    * - DeployedArtifact
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    instanceSpecification_metaAttributes
+
+  def instanceSpecification_metaAttributes: MetaAttributeFunctions =
+    packageableElement_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     classifiers

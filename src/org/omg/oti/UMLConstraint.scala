@@ -50,6 +50,12 @@ trait UMLConstraint[Uml <: UML] extends UMLPackageableElement[Uml] {
   /**
    * Fig 7.13 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    constraint_metaAttributes
+  
+  def constraint_metaAttributes: MetaAttributeFunctions =
+    packageableElement_metaAttributes  
+    
   override def forwardReferencesFromMetamodelAssociations = 
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     constrainedElements

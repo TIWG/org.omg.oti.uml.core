@@ -42,22 +42,31 @@ package org.omg.oti
 trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace[Uml] {
 
   import ops._
-  
+
+  def isAbstract: Boolean = false
+
   /**
    * If this was not ordered, it could be computed:
    * ownedMembers.selectByKindOf { case p: UMLParameter[Uml] => p }
    * However, because it is ordered, the ordering information is tool-specific.
    */
   def ownedParameters: Seq[UMLParameter[Uml]]
-  
+
   /**
    * Fig 9.9 (incomplete)
+   * - concurrency
    * - method
    * - raisedException
    */
+
+  def behavioralFeature_metaAttributes: MetaAttributeFunctions =
+    feature_metaAttributes ++
+      namespace_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLBehavioralFeature[Uml]]( "isAbstract", (bf) => booleanToIterable(bf.isAbstract, false) ) )
+
   def behavioralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     feature_forwardReferencesFromMetamodelAssociations ++
-    namespace_forwardReferencesFromMetamodelAssociations
+      namespace_forwardReferencesFromMetamodelAssociations
 
   /**
    * incomplete:
@@ -65,9 +74,9 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
    */
   def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions =
     feature_compositeMetaProperties ++
-    namespace_compositeMetaProperties ++    
-    Seq( MetaPropertyFunction[UMLBehavioralFeature[Uml], UMLParameter[Uml]]( "ownedParameter", _.ownedParameters ) )
-    
+      namespace_compositeMetaProperties ++
+      Seq( MetaPropertyFunction[UMLBehavioralFeature[Uml], UMLParameter[Uml]]( "ownedParameter", _.ownedParameters ) )
+
   /**
    * incomplete:
    * - method
@@ -75,5 +84,5 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
    */
   def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions =
     feature_referenceMetaProperties ++
-    namespace_referenceMetaProperties 
+      namespace_referenceMetaProperties
 }

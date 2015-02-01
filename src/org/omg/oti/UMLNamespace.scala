@@ -54,7 +54,10 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
 
   /**
    * Fig 7.5 (complete)
-   */
+   */  
+  def namespace_metaAttributes: MetaAttributeFunctions =
+    namedElement_metaAttributes
+    
   def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     namedElement_forwardReferencesFromMetamodelAssociations
 

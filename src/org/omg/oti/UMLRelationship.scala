@@ -44,7 +44,10 @@ trait UMLRelationship[Uml <: UML] extends UMLElement[Uml] {
   
   /**
    * Fig 7.1 (complete)
-   */
+   */  
+  def relationship_metaAttributes: MetaAttributeFunctions =
+    element_metaAttributes
+    
   def relationship_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     element_forwardReferencesFromMetamodelAssociations
     

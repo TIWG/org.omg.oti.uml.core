@@ -40,6 +40,16 @@
 package org.omg.oti
 
 trait UMLLiteralInteger[Uml <: UML] extends UMLLiteralSpecification[Uml] {
-  
-  def value: Option[Int]
+
+  import ops._
+
+  def value: Integer = 0
+
+  override def metaAttributes: MetaAttributeFunctions =
+    literalSpecification_metaAttributes ++
+      Seq( MetaAttributeIntegerFunction[UMLLiteralInteger[Uml]]( "value", _.value match {
+        case n if ( n != 0 ) => Iterable( n )
+        case _               => Iterable()
+      } ) )
+
 }

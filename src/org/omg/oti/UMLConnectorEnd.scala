@@ -46,7 +46,13 @@ trait UMLConnectorEnd[Uml <: UML] extends UMLMultiplicityElement[Uml] {
   
   /**
    * Fig 11.1 (complete)
-   */
+   */  
+  override def metaAttributes: MetaAttributeFunctions =
+    connectorEnd_metaAttributes
+
+  def connectorEnd_metaAttributes: MetaAttributeFunctions =
+    multiplicityElement_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     multiplicityElement_forwardReferencesFromMetamodelAssociations ++
     role

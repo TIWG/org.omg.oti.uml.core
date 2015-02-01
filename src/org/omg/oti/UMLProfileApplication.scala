@@ -53,6 +53,12 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   /**
    * Fig 12.12 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    profileApplication_metaAttributes
+    
+  def profileApplication_metaAttributes: MetaAttributeFunctions =
+    directedRelationship_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     profileApplication_forwardReferencesFromMetamodelAssociations
     

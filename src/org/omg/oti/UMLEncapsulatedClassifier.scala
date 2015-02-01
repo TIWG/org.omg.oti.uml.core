@@ -49,7 +49,10 @@ trait UMLEncapsulatedClassifier[Uml <: UML] extends UMLStructuredClassifier[Uml]
   
   /**
    * Fig 11.10 (complete)
-   */
+   */  
+  def encapsulatedClassifier_metaAttributes: MetaAttributeFunctions =
+    structuredClassifier_metaAttributes
+    
   def encapsulatedClassifier_forwardReferencesFromMetamodelAssociations =
     structuredClassifier_forwardReferencesFromMetamodelAssociations
     

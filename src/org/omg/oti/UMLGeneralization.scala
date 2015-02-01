@@ -40,24 +40,33 @@
 package org.omg.oti
 
 trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
-  
+
   import ops._
-  
-  def specific: Option[UMLClassifier[Uml]] = (sources.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
-  def general: Option[UMLClassifier[Uml]] = (targets.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
-  
+
+  def isSubstitutable: Boolean = true
+
+  def specific: Option[UMLClassifier[Uml]] = ( sources.selectByKindOf { case cls: UMLClassifier[Uml] => cls } ).toIterable.headOption
+  def general: Option[UMLClassifier[Uml]] = ( targets.selectByKindOf { case cls: UMLClassifier[Uml] => cls } ).toIterable.headOption
+
   /**
    * Fig. 9.1 (incomplete)
    * - generalizationSet
-   */  
-  override def forwardReferencesFromMetamodelAssociations = 
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    generalization_metaAttributes
+
+  def generalization_metaAttributes: MetaAttributeFunctions =
+    directedRelationship_metaAttributes ++
+      Seq( MetaAttributeBooleanFunction[UMLGeneralization[Uml]]( "isSubstitutable", (g) => booleanToIterable(g.isSubstitutable, true ) ) )
+
+  override def forwardReferencesFromMetamodelAssociations =
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
-    general
-  
-  override def compositeMetaProperties: MetaPropertyFunctions = 
+      general
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
     directedRelationship_compositeMetaProperties
-    
-  override def referenceMetaProperties: MetaPropertyFunctions = 
+
+  override def referenceMetaProperties: MetaPropertyFunctions =
     directedRelationship_compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLGeneralization[Uml], UMLClassifier[Uml]]( "general", _.general ) )
+      Seq( MetaPropertyFunction[UMLGeneralization[Uml], UMLClassifier[Uml]]( "general", _.general ) )
 }

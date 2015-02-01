@@ -73,6 +73,17 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
    * Fig 9.10 (incomplete)
    * - DeploymentTarget
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    property_metaAttributes
+    
+  def property_metaAttributes: MetaAttributeFunctions =
+    connectableElement_metaAttributes ++
+    structuralFeature_metaAttributes ++
+    Seq(
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isDerived", (p) => booleanToIterable(p.isDerived, false) ),
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isDerivedUnion", (p) => booleanToIterable(p.isUnion, false) ),
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isID", (p) => booleanToIterable(p.isID, false) ) )
+                
   override def forwardReferencesFromMetamodelAssociations =
     property_forwardReferencesFromMetamodelAssociations
     

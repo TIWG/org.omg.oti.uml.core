@@ -40,19 +40,22 @@
 package org.omg.oti
 
 trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with UMLRedefinableElement[Uml] {
- 
+
   import ops._
-  
+
+  def isAbstract: Boolean = false
+  def isFinalSpecialization: Boolean = false
+
   def attributes: Seq[UMLProperty[Uml]]
-  
+
   def features: Set[UMLFeature[Uml]] = members.selectByKindOf { case f: UMLFeature[Uml] => f }
-  
+
   def generalizations: Set[UMLGeneralization[Uml]] = ownedElements.selectByKindOf { case g: UMLGeneralization[Uml] => g }
-  
-  def general: Set[UMLClassifier[Uml]] = generalizations flatMap (_.general)
-  
+
+  def general: Set[UMLClassifier[Uml]] = generalizations flatMap ( _.general )
+
   def instanceSpecifications: Set[UMLInstanceSpecification[Uml]]
-  
+
   def redefinedClassifiers: Iterable[UMLClassifier[Uml]] = redefinedElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
 
   /**
@@ -60,29 +63,36 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
    * Classifier classifier --> redefinedClassifier Classifier
    */
   def redefiningClassifiers: Iterable[UMLClassifier[Uml]] = redefiningElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
-  
+
   /**
-   * Fig 9.1 (incomplete) 
+   * Fig 9.1 (incomplete)
    * - powertypeExtent
    * - useCase
    * - representation
    */
-  def classifier_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+  def classifier_metaAttributes: MetaAttributeFunctions =
+    namespace_metaAttributes ++
+      redefinableElement_metaAttributes ++
+      type_metaAttributes ++
+      Seq(
+        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( "isAbstract", ( c ) => booleanToIterable( c.isAbstract, false ) ),
+        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( "isFinalSpecialization", ( c ) => booleanToIterable( c.isFinalSpecialization, false ) ) )
+
+  def classifier_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     namespace_forwardReferencesFromMetamodelAssociations ++
-    redefinableElement_forwardReferencesFromMetamodelAssociations ++
-    type_forwardReferencesFromMetamodelAssociations ++
-    redefinedClassifiers
-    
-  
-  def classifier_compositeMetaProperties: MetaPropertyFunctions = 
+      redefinableElement_forwardReferencesFromMetamodelAssociations ++
+      type_forwardReferencesFromMetamodelAssociations ++
+      redefinedClassifiers
+
+  def classifier_compositeMetaProperties: MetaPropertyFunctions =
     namespace_compositeMetaProperties ++
-    redefinableElement_compositeMetaProperties ++
-    type_compositeMetaProperties
-    
-  def classifier_referenceMetaProperties: MetaPropertyFunctions = 
+      redefinableElement_compositeMetaProperties ++
+      type_compositeMetaProperties
+
+  def classifier_referenceMetaProperties: MetaPropertyFunctions =
     namespace_referenceMetaProperties ++
-    redefinableElement_referenceMetaProperties ++
-    type_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
+      redefinableElement_referenceMetaProperties ++
+      type_referenceMetaProperties ++
+      Seq( MetaPropertyFunction[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
 
 }

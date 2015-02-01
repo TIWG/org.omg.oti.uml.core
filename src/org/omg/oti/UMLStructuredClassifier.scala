@@ -49,6 +49,9 @@ trait UMLStructuredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
   /**
    * Fig 11.1 (complete)
    */
+  def structuredClassifier_metaAttributes: MetaAttributeFunctions =
+    classifier_metaAttributes
+    
   def structuredClassifier_forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
     

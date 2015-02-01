@@ -51,6 +51,12 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
   /**
    * Fig 12.12 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    profile_metaAttributes
+
+  def profile_metaAttributes: MetaAttributeFunctions =
+    package_metaAttributes
+      
   override def forwardReferencesFromMetamodelAssociations =
     profile_forwardReferencesFromMetamodelAssociations
 

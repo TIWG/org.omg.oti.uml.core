@@ -57,8 +57,13 @@ trait UMLNamedElement[Uml <: UML] extends UMLElement[Uml] {
   def clientDependencies: Iterable[UMLDependency[Uml]]
     
   /**
-   * Fig 7.5 (complete)
+   * Fig. 7.5 (incomplete)
+   * - visibility
    */
+  def namedElement_metaAttributes: MetaAttributeFunctions =
+    element_metaAttributes ++
+    Seq( MetaAttributeStringFunction[UMLNamedElement[Uml]]( "name", _.name) )
+    
   def namedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     element_forwardReferencesFromMetamodelAssociations
 

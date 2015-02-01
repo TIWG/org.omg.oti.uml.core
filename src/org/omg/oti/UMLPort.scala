@@ -42,23 +42,37 @@ package org.omg.oti
 trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
 
   import ops._
-  
-  def redefinedPorts: Iterable[UMLPort[Uml]] = redefinedElements.selectByKindOf { case p: UMLPort[Uml] => p }  
-  
+
+  def isBehavior: Boolean = false
+  def isConjugated: Boolean = false
+  def isService: Boolean = false
+
+  def redefinedPorts: Iterable[UMLPort[Uml]] = redefinedElements.selectByKindOf { case p: UMLPort[Uml] => p }
+
   /**
    * Fig 11.10 (incomplete)
    * - required
    * - provided
    * - protocol
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    port_metaAttributes
+
+  def port_metaAttributes: MetaAttributeFunctions =
+    property_metaAttributes ++
+      Seq(
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isBehavior", ( o ) => booleanToIterable( o.isBehavior, false ) ),
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isConjugated", ( o ) => booleanToIterable( o.isConjugated, false ) ),
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isService", ( o ) => booleanToIterable( o.isService, false ) ) )
+
   override def forwardReferencesFromMetamodelAssociations =
     super.forwardReferencesFromMetamodelAssociations ++
-    redefinedPorts
-    
+      redefinedPorts
+
   override def compositeMetaProperties: MetaPropertyFunctions =
     super.compositeMetaProperties
-    
+
   override def referenceMetaProperties: MetaPropertyFunctions =
     super.referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLPort[Uml], UMLPort[Uml]]( "redefinedPort", _.redefinedPorts ) )
+      Seq( MetaPropertyFunction[UMLPort[Uml], UMLPort[Uml]]( "redefinedPort", _.redefinedPorts ) )
 }

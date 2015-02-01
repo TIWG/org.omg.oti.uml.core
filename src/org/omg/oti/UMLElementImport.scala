@@ -49,8 +49,16 @@ trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   def importedElement: Option[UMLPackageableElement[Uml]] = (targets.selectByKindOf { case p: UMLPackageableElement[Uml] => p } toIterable).headOption
     
   /**
-   * Fig. 7.5 (complete)
+   * Fig. 7.5 (incomplete)
+   * - alias
+   * - visibility
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    elementImport_metaAttributes
+  
+  def elementImport_metaAttributes: MetaAttributeFunctions =
+    directedRelationship_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations = 
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
     importedElement

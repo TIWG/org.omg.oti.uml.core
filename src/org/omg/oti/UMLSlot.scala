@@ -51,6 +51,12 @@ trait UMLSlot[Uml <: UML] extends UMLElement[Uml] {
   /**
    * Fig 9.27 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    slot_metaAttributes
+
+  def slot_metaAttributes: MetaAttributeFunctions =
+    element_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations =
     element_forwardReferencesFromMetamodelAssociations ++
     definingFeature

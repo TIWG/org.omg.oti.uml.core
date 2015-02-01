@@ -44,6 +44,9 @@ trait UMLLiteralSpecification[Uml <: UML] extends UMLValueSpecification[Uml] {
   /**
    * Fig. 8.1 (complete)
    */
+  def literalSpecification_metaAttributes: MetaAttributeFunctions =
+    valueSpecification_metaAttributes
+    
   override def forwardReferencesFromMetamodelAssociations = 
     literalSpecification_forwardReferencesFromMetamodelAssociations
     

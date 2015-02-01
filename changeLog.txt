@@ -1,3 +1,7 @@
+Version 0.5.2: January 31, 2015
+
+- meta attributes
+
 Version 0.5.1: January 31, 2015
 
 - Naming convention subtleties

@@ -49,6 +49,12 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
   /**
    * Fig 7.17 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    dependency_metaAttributes
+  
+  def dependency_metaAttributes: MetaAttributeFunctions =
+    packageableElement_metaAttributes  
+    
   override def forwardReferencesFromMetamodelAssociations =     
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     directedRelationship_forwardReferencesFromMetamodelAssociations ++

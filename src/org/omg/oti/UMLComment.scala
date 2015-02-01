@@ -51,6 +51,13 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   /**
    * Fig. 7.1 (complete)
    */
+  override def metaAttributes: MetaAttributeFunctions =
+    comment_metaAttributes
+  
+  def comment_metaAttributes: MetaAttributeFunctions =
+    element_metaAttributes ++
+    Seq( MetaAttributeStringFunction[UMLComment[Uml]]( "body", _.body ) )
+    
   override def forwardReferencesFromMetamodelAssociations = 
     element_forwardReferencesFromMetamodelAssociations ++
     annotatedElements
