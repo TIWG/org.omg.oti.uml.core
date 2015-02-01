@@ -150,7 +150,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       val suffix2: Try[String] = fv match {
         case bf: UMLBehavioralFeature[Uml] =>
           ( suffix1 /: bf.ownedParameters )( ( s, p ) =>
-            ( s, p.umlType ) match {
+            ( s, p._type ) match {
               case ( Failure( t ), _ ) => Failure( t )
               case ( _, None )         => Failure( illegalElementException( "Parameter must have a type", p ) )
               case ( Success( s ), Some( t ) ) =>

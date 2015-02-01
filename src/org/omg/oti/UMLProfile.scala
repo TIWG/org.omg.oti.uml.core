@@ -43,7 +43,7 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
   
   import ops._
   
-  def appliedProfileOfProfileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_target.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
+  def profileApplications_appliedProfile: Set[UMLProfileApplication[Uml]] = directedRelationships_target.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
   
   def metamodelReferences: Set[UMLPackageImport[Uml]]
   def metaclassReferences: Set[UMLElementImport[Uml]]

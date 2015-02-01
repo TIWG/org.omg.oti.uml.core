@@ -45,7 +45,8 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   import ops._
   
-  def isStrict: Option[Boolean]
+  def isStrict: Boolean = false
+  
   def applyingPackage: Option[UMLPackage[Uml]] = (sources.selectByKindOf { case p: UMLPackage[Uml] => p } toIterable).headOption
   def appliedProfile: Option[UMLProfile[Uml]] = (targets.selectByKindOf { case p: UMLProfile[Uml] => p } toIterable).headOption
   

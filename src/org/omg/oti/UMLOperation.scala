@@ -44,9 +44,9 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
   import ops._
   
   def datatype: Option[UMLDataType[Uml]] = owner.asInstanceOf[Option[UMLDataType[Uml]]]
-  def umlClass: Option[UMLClass[Uml]] = owner.asInstanceOf[Option[UMLClass[Uml]]]
+  def _class: Option[UMLClass[Uml]] = owner.asInstanceOf[Option[UMLClass[Uml]]]
   
-  def isQuery: Option[Boolean]
+  def isQuery: Boolean = false
   
   def preCondition: Iterable[UMLConstraint[Uml]]
   def postCondition: Iterable[UMLConstraint[Uml]]

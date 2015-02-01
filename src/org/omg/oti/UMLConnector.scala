@@ -47,7 +47,7 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   
   def redefinedConnectors: Iterable[UMLConnector[Uml]] = redefinedElements.selectByKindOf { case c: UMLConnector[Uml] => c }
   
-  def connectorType: Option[UMLType[Uml]]
+  def _type: Option[UMLType[Uml]]
   
   /**
    * Fig 11.1 (incomplete)
@@ -55,7 +55,7 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
    */
   override def forwardReferencesFromMetamodelAssociations =
     feature_forwardReferencesFromMetamodelAssociations ++
-    connectorType ++
+    _type ++
     redefinedConnectors
    
   override def compositeMetaProperties: MetaPropertyFunctions =
@@ -71,7 +71,7 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
     feature_referenceMetaProperties ++
     Seq(
       MetaPropertyFunction[UMLConnector[Uml], UMLConnector[Uml]]( "redefinedConnector", _.redefinedConnectors ),   
-      MetaPropertyFunction[UMLConnector[Uml], UMLType[Uml]]( "type", _.connectorType )  
+      MetaPropertyFunction[UMLConnector[Uml], UMLType[Uml]]( "type", _._type )  
     )
     
 }

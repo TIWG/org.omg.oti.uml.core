@@ -44,7 +44,6 @@ import scala.reflect.ClassTag
 
 trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructuralFeature[Uml] {
   
-  implicit val ops: UMLOps[Uml]
   import ops._
   
   // [protected ('aggregation')]
@@ -63,9 +62,9 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
   
   def opposite: Option[UMLProperty[Uml]] 
   
-  def navigableOwnedEndOfAssociation: Option[UMLAssociation[Uml]]
+  def association_navigableOwnedEnd: Option[UMLAssociation[Uml]]
   
-  def association: Option[UMLAssociation[Uml]]
+  def association_memberEnd: Option[UMLAssociation[Uml]]
   
   def subsettedProperties: Iterable[UMLProperty[Uml]]
   def redefinedProperties: Iterable[UMLProperty[Uml]] = redefinedElements.selectByKindOf { case p: UMLProperty[Uml] => p }
@@ -80,7 +79,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
   def property_forwardReferencesFromMetamodelAssociations =
     connectableElement_forwardReferencesFromMetamodelAssociations ++
     structuralFeature_forwardReferencesFromMetamodelAssociations ++
-    association ++
+    association_memberEnd ++
     redefinedProperties ++
     subsettedProperties
     
@@ -101,7 +100,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     connectableElement_referenceMetaProperties ++
     structuralFeature_referenceMetaProperties ++
     Seq(
-        MetaPropertyFunction[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association ),
+        MetaPropertyFunction[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association_memberEnd ),
         MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "redefinedProperty", _.redefinedProperties ),
         MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "subsettedProperty", _.subsettedProperties )
         )
@@ -117,7 +116,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
   }
   
   def isLogicallyNavigable: Boolean = 
-    association match {
+    association_memberEnd match {
     case None => false
     case Some( a ) => 
       opposite match {
@@ -125,11 +124,11 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
         case Some( that ) =>
           val thisAssociationOwned = owningAssociation.isDefined
           val thisComposite = isComposite
-          val thisNavigableOwnedEnd = navigableOwnedEndOfAssociation.isDefined
+          val thisNavigableOwnedEnd = association_navigableOwnedEnd.isDefined
       
           val thatAssociationOwned = that.owningAssociation.isDefined
           val thatComposite = that.isComposite
-          val thatNavigableOwnedEnd = that.navigableOwnedEndOfAssociation.isDefined
+          val thatNavigableOwnedEnd = that.association_navigableOwnedEnd.isDefined
       
           //System.out.println(s"p ${e.qualifiedName.get} opposite: ${opposite.qualifiedName.get}")
           System.out.println(s" thisAssociationOwned=${thisAssociationOwned}")

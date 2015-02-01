@@ -292,10 +292,14 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlMultiplicityElement( e: Uml#MultiplicityElement ): UMLMultiplicityElement[Uml]
   
   implicit def umlConstraint( e: Uml#Constraint): UMLConstraint[Uml]
+  implicit def umlConstraint( c: Iterable[Uml#Constraint]): Iterable[UMLConstraint[Uml]] = for { e <- c } yield umlConstraint( e )
   
   implicit def umlDependency( e: Uml#Dependency): UMLDependency[Uml]
   
   implicit def umlValueSpecification( e: Uml#ValueSpecification ): UMLValueSpecification[Uml]
+  implicit def umlValueSpecification( c: Iterable[Uml#ValueSpecification] ): Iterable[UMLValueSpecification[Uml]] = for { e <- c } yield umlValueSpecification( e )  
+  implicit def umlValueSpecification( c: Seq[Uml#ValueSpecification] ): Seq[UMLValueSpecification[Uml]] = for { e <- c } yield umlValueSpecification( e )
+  
   implicit def umlLiteralSpecification( e: Uml#LiteralSpecification ): UMLLiteralSpecification[Uml]
   implicit def umlLiteralNull( e: Uml#LiteralNull): UMLLiteralNull[Uml]
   implicit def umlLiteralBoolean( e: Uml#LiteralBoolean): UMLLiteralBoolean[Uml]
@@ -306,11 +310,19 @@ trait UMLOps[Uml <: UML] { self =>
   
   implicit def umlExpression( e: Uml#Expression): UMLExpression[Uml]
   implicit def umlStringExpression( e: Uml#StringExpression): UMLStringExpression[Uml]
+  implicit def umlStringExpression( c: Seq[Uml#StringExpression] ): Seq[UMLStringExpression[Uml]] = for { e <- c } yield umlStringExpression( e )
+  
   implicit def umlOpaqueExpression( e: Uml#OpaqueExpression): UMLOpaqueExpression[Uml]
   
   implicit def umlInterval( e: Uml#Interval): UMLInterval[Uml]
     
   implicit def umlClassifier( e: Uml#Classifier ): UMLClassifier[Uml]
+  
+  implicit def umlClassifier( c: Iterable[Uml#Classifier] ): Iterable[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
+  implicit def umlClassifier( c: Seq[Uml#Classifier] ): Seq[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
+  implicit def umlClassifier( c: Set[Uml#Classifier] ): Set[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
+  
+  
   implicit def umlGeneralization( e: Uml#Generalization ): UMLGeneralization[Uml]  
   implicit def umlRedefinableElement( e: Uml#RedefinableElement ): UMLRedefinableElement[Uml]
    
@@ -324,16 +336,22 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlProperty( e: Uml#Property ): UMLProperty[Uml]
   
   implicit def umlOperation( e: Uml#Operation ): UMLOperation[Uml]
+  implicit def umlOperation( c: Seq[Uml#Operation] ): Seq[UMLOperation[Uml]] = for { e <- c } yield umlOperation( e )
   
   implicit def umlInstanceSpecification( e: Uml#InstanceSpecification ): UMLInstanceSpecification[Uml]
   implicit def umlSlot( e: Uml#Slot ): UMLSlot[Uml]
   implicit def umlInstanceValue( e: Uml#InstanceValue ): UMLInstanceValue[Uml]
+  
+  implicit def umlEnumeration( e: Uml#Enumeration ): UMLEnumeration[Uml]
+  implicit def umlEnumerationLiteral( e: Uml#EnumerationLiteral ): UMLEnumerationLiteral[Uml]
+  implicit def umlEnumerationLiteral( c: Seq[Uml#EnumerationLiteral] ): Seq[UMLEnumerationLiteral[Uml]] = for { e <- c } yield umlEnumerationLiteral( e )
   
   implicit def umlBehavioredClassifier( e: Uml#BehavioredClassifier ): UMLBehavioredClassifier[Uml]
   
   implicit def umlStructuredClassifier( e: Uml#StructuredClassifier ): UMLStructuredClassifier[Uml]
   implicit def umlConnector( e: Uml#Connector ): UMLConnector[Uml]
   implicit def umlConnectorEnd( e: Uml#ConnectorEnd ): UMLConnectorEnd[Uml]
+  implicit def umlConnectorEnd( c: Seq[Uml#ConnectorEnd] ): Seq[UMLConnectorEnd[Uml]] = for { e <- c } yield umlConnectorEnd( e )
   
   implicit def umlEncapsulatedClassifier( e: Uml#EncapsulatedClassifier ): UMLEncapsulatedClassifier[Uml]
   implicit def umlPort( e: Uml#Port ): UMLPort[Uml]
@@ -382,8 +400,6 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlInstanceSpecification( c: Iterable[Uml#InstanceSpecification] ): Iterable[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   implicit def umlInstanceSpecification( c: Set[Uml#InstanceSpecification] ): Set[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   
-  implicit def umlValueSpecification( c: Iterable[Uml#ValueSpecification] ): Iterable[UMLValueSpecification[Uml]] = for { e <- c } yield umlValueSpecification( e )
-  
   implicit def umlInstanceValue( c: Iterable[Uml#InstanceValue] ): Iterable[UMLInstanceValue[Uml]] = for { e <- c } yield umlInstanceValue( e )
   
   implicit def umlSlot( c: Iterable[Uml#Slot] ): Iterable[UMLSlot[Uml]] = for { e <- c } yield umlSlot( e )
@@ -392,9 +408,6 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlNamedElement( c: Set[Uml#NamedElement] ): Set[UMLNamedElement[Uml]] = for { e <- c } yield umlNamedElement( e )
   
   implicit def umlNamespace( c: Iterable[Uml#Namespace] ): Iterable[UMLNamespace[Uml]] = for { e <- c } yield umlNamespace( e )
-  
-  implicit def umlClassifier( c: Iterable[Uml#Classifier] ): Iterable[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
-  implicit def umlClassifier( c: Set[Uml#Classifier] ): Set[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
   
   implicit def umlAssociation( c: Iterable[Uml#Association] ): Iterable[UMLAssociation[Uml]] = for { e <- c } yield umlAssociation( e )
   

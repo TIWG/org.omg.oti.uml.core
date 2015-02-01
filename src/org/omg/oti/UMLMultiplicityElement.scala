@@ -43,6 +43,9 @@ trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
   
   import ops._
   
+  def isOrdered: Boolean = false
+  def isUnique: Boolean = false
+  
   def lower: Int
   def upper: Int
   

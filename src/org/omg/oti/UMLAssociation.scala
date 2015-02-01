@@ -43,7 +43,7 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
 
   import ops._
 
-  def isDerived: Option[Boolean]
+  def isDerived: Boolean = false
   
   def ownedEnds: Iterable[UMLProperty[Uml]]
   def navigableOwnedEnds: Iterable[UMLProperty[Uml]]

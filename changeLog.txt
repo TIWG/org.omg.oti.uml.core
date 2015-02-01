@@ -1,3 +1,16 @@
+Version 0.5.1: January 31, 2015
+
+- Naming convention subtleties
+
+Element.mofMetaclass
+Extension.metaclass
+
+Profile.profileApplications_appliedProfile
+Package.appliedProfile
+
+Property.association_navigableOwnedEnd
+Property.association_memberEnd
+
 Version 0.5.0: January 31, 2015
 
 - naming convention for names of association member end properties:

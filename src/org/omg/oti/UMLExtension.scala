@@ -43,7 +43,7 @@ trait UMLExtension[Uml <: UML] extends UMLAssociation[Uml] {
   
   import ops._
     
-  def metaclass: Option[UMLClass[Uml]] = (for { p <- (memberEnds.toSet -- ownedEnds.toSet).headOption } yield p.umlType.selectByKindOf { case c: UMLClass[Uml] => c }).flatten
+  def metaclass: Option[UMLClass[Uml]] = (for { p <- (memberEnds.toSet -- ownedEnds.toSet).headOption } yield p._type.selectByKindOf { case c: UMLClass[Uml] => c }).flatten
   
   override def ownedEnds: Iterable[UMLExtensionEnd[Uml]] = {
     val extensionOwnedEnds = this.asInstanceOf[UMLAssociation[Uml]].ownedEnds.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }

@@ -43,7 +43,7 @@ trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsul
  
   import ops._
   
-  def isAbstract: Option[Boolean]
+  def isAbstract: Boolean = false
   
   def nestedClassifiers: Seq[UMLClassifier[Uml]]
   def ownedAttributes: Seq[UMLProperty[Uml]]

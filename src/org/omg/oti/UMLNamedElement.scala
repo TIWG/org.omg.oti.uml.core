@@ -53,8 +53,8 @@ trait UMLNamedElement[Uml <: UML] extends UMLElement[Uml] {
   def memberNamespaces: Iterable[UMLNamespace[Uml]]
   def namespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
 
-  def supplierTargetOfSupplierDependency: Iterable[UMLDependency[Uml]]
-  def clientSourceOfClientDependency: Iterable[UMLDependency[Uml]]
+  def supplierDependencies: Iterable[UMLDependency[Uml]]
+  def clientDependencies: Iterable[UMLDependency[Uml]]
     
   /**
    * Fig 7.5 (complete)

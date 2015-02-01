@@ -43,7 +43,7 @@ trait UMLExtensionEnd[Uml <: UML] extends UMLProperty[Uml] {
     
   import ops._
   
-  override def umlType: Option[UMLStereotype[Uml]] = this.asInstanceOf[UMLTypedElement[Uml]].umlType.selectByKindOf { case s: UMLStereotype[Uml] => s }
+  def _type: Option[UMLStereotype[Uml]]
   
   /**
    * Fig 12.12 (complete)

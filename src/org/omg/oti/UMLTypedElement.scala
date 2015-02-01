@@ -41,7 +41,9 @@ package org.omg.oti
 
 trait UMLTypedElement[Uml <: UML] extends UMLNamedElement[Uml] {
 
-  def umlType: Option[UMLType[Uml]]
+  import ops._
+  
+  def _type: Option[UMLType[Uml]]
      
   /**
    * Fig 7.10 (complete)
@@ -49,13 +51,13 @@ trait UMLTypedElement[Uml <: UML] extends UMLNamedElement[Uml] {
   
   def typedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namedElement_forwardReferencesFromMetamodelAssociations ++
-    umlType
+    _type
 
   def typedElement_compositeMetaProperties: MetaPropertyFunctions = 
     namedElement_compositeMetaProperties
     
   def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
     namedElement_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLTypedElement[Uml], UMLType[Uml]]( "type", _.umlType ) )
+    Seq( MetaPropertyFunction[UMLTypedElement[Uml], UMLType[Uml]]( "type", _._type ) )
 
 }
