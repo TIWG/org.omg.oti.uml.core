@@ -41,12 +41,18 @@ package org.omg.oti
 
 trait UMLDirectedRelationship[Uml <: UML] extends UMLRelationship[Uml] {
   
-  def sources: Iterator[UMLElement[Uml]]
-  def targets: Iterator[UMLElement[Uml]]
+  def sources: Iterable[UMLElement[Uml]]
+  def targets: Iterable[UMLElement[Uml]]
 
   /**
    * Fig 7.1 (complete)
    */
   def directedRelationship_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     relationship_forwardReferencesFromMetamodelAssociations
+    
+  def directedRelationship_compositeMetaProperties: MetaPropertyFunctions = 
+    relationship_compositeMetaProperties
+    
+  def directedRelationship_referenceMetaProperties: MetaPropertyFunctions = 
+    relationship_referenceMetaProperties    
 }

@@ -46,5 +46,20 @@ trait UMLUseCase[Uml <: UML] extends UMLBehavioredClassifier[Uml] {
    * - subject
    */
   override def forwardReferencesFromMetamodelAssociations =
+    useCase_forwardReferencesFromMetamodelAssociations
+    
+  def useCase_forwardReferencesFromMetamodelAssociations =
     behavioredClassifier_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    useCase_compositeMetaProperties
+    
+  def useCase_compositeMetaProperties =
+    behavioredClassifier_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    useCase_referenceMetaProperties
+    
+  def useCase_referenceMetaProperties =
+    behavioredClassifier_referenceMetaProperties
 }

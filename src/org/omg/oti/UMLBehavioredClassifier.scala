@@ -42,8 +42,17 @@ package org.omg.oti
 trait UMLBehavioredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
 
   /**
-   * Fig 10.7 (complete)
+   * Fig 10.7 (incomplete)
+   * - Behavior
+   * - classifierBehavior
    */
   def behavioredClassifier_forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
+    
+  def behavioredClassifier_compositeMetaProperties: MetaPropertyFunctions =
+    classifier_compositeMetaProperties
+    
+  def behavioredClassifier_referenceMetaProperties: MetaPropertyFunctions =
+    classifier_referenceMetaProperties
+    
 }

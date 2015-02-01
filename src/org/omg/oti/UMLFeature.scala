@@ -43,7 +43,16 @@ trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
   
   import ops._
   
-  def featuringClassifier: Option[UMLClassifier[Uml]] = (memberOfMemberNamespaces.selectByKindOf { case cls: UMLClassifier[Uml] => cls }).toIterable.headOption
+  /**
+   * issue? it seems a Feature could have multiple featuringClassifiers due to importation.
+   * 
+   * For now, force an error if there might be more than one.
+   */
+  def featuringClassifier: Option[UMLClassifier[Uml]] = {
+    val cls = memberNamespaces.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
+    require (cls.size <= 1)
+    cls.headOption
+  }
   
   /**
    * Fig 9.9 (complete)
@@ -53,4 +62,10 @@ trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
    */
   def feature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     redefinableElement_forwardReferencesFromMetamodelAssociations
+    
+  def feature_compositeMetaProperties: MetaPropertyFunctions =
+    redefinableElement_compositeMetaProperties
+    
+  def feature_referenceMetaProperties: MetaPropertyFunctions =
+    redefinableElement_referenceMetaProperties
 }

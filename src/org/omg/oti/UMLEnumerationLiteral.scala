@@ -40,5 +40,26 @@
 package org.omg.oti
 
 trait UMLEnumerationLiteral[Uml <: UML] extends UMLInstanceSpecification[Uml] {
+
+  import ops._
   
+  override def classifiers: Iterable[UMLClassifier[Uml]] = {
+    val enum = this.asInstanceOf[UMLInstanceSpecification[Uml]].classifiers.selectByKindOf { case e: UMLEnumeration[Uml] => e }
+    require( enum.size <= 1 )
+    enum
+  }
+  
+  def enumeration: Option[UMLEnumeration[Uml]] = namespace.selectByKindOf { case e: UMLEnumeration[Uml] => e }
+  
+  /**
+   * Fig 10.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    super.compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    super.referenceMetaProperties 
 }

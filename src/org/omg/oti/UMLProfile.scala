@@ -43,7 +43,7 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
   
   import ops._
   
-  def appliedProfileOfProfileApplications: Set[UMLProfileApplication[Uml]] = targetOfDirectedRelationships.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
+  def appliedProfileOfProfileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_target.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
   
   def metamodelReferences: Set[UMLPackageImport[Uml]]
   def metaclassReferences: Set[UMLElementImport[Uml]]
@@ -52,6 +52,25 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    super.forwardReferencesFromMetamodelAssociations
+    profile_forwardReferencesFromMetamodelAssociations
+
+  def profile_forwardReferencesFromMetamodelAssociations =    
+    package_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    profile_compositeMetaProperties
+    
+  def profile_compositeMetaProperties =
+    package_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLProfile[Uml], UMLElementImport[Uml]]( "metaclassReference", _.metaclassReferences ),
+        MetaPropertyFunction[UMLProfile[Uml], UMLPackageImport[Uml]]( "metamodelReference", _.metamodelReferences )
+        )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    profile_referenceMetaProperties
+    
+  def profile_referenceMetaProperties =
+    package_referenceMetaProperties
     
 }

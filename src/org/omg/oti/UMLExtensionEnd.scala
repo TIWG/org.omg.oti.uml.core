@@ -41,10 +41,29 @@ package org.omg.oti
 
 trait UMLExtensionEnd[Uml <: UML] extends UMLProperty[Uml] {
     
+  import ops._
+  
+  override def umlType: Option[UMLStereotype[Uml]] = this.asInstanceOf[UMLTypedElement[Uml]].umlType.selectByKindOf { case s: UMLStereotype[Uml] => s }
+  
   /**
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    super.forwardReferencesFromMetamodelAssociations
+    extensionEnd_forwardReferencesFromMetamodelAssociations
+    
+  def extensionEnd_forwardReferencesFromMetamodelAssociations =
+    property_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    extensionEnd_compositeMetaProperties
+    
+  def extensionEnd_compositeMetaProperties: MetaPropertyFunctions =
+    property_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    extensionEnd_referenceMetaProperties
+    
+  def extensionEnd_referenceMetaProperties: MetaPropertyFunctions =
+    property_referenceMetaProperties
     
 }

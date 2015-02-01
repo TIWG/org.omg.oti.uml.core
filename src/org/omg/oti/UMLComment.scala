@@ -41,10 +41,11 @@ package org.omg.oti
 
 trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   
+  // [protected ('UML spec')]
+  
   def owningElement: Option[UMLElement[Uml]] = owner
   
-  def annotatedElements: Iterator[UMLElement[Uml]]
-  def getCommentOwnerIndex: Int
+  def annotatedElements: Iterable[UMLElement[Uml]]
   def body: Option[String]
   
   /**
@@ -54,4 +55,14 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
     element_forwardReferencesFromMetamodelAssociations ++
     annotatedElements
   
+  override def compositeMetaProperties = 
+    element_compositeMetaProperties
+    
+  override def referenceMetaProperties = 
+    element_referenceMetaProperties ++ 
+    Seq( MetaPropertyFunction[UMLComment[Uml], UMLElement[Uml]]( "annotatedElement", _.annotatedElements ) )
+    
+  // [/protected]
+    
+  def getCommentOwnerIndex: Int
 }

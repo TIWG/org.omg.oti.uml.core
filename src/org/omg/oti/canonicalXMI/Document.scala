@@ -55,8 +55,10 @@ sealed abstract trait Document[Uml <: UML] {
 
 case class BuiltInDocument[Uml <: UML](
     val uri: URI,
-    val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] )
+    val scope: UMLElement[Uml],
+    val builtInExtent: Set[UMLElement[Uml]])( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
+  override lazy val extent = builtInExtent
   override def toString: String = s"BuiltInDocument(uri=${uri})"
 }
     

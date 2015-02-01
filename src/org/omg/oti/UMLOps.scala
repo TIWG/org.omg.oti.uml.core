@@ -45,6 +45,8 @@ import scala.language.implicitConversions
 import scala.language.higherKinds
 import scala.util.Try
 
+// [protected('initialize reflection')]
+
 class EarlyInit[T: TypeTag] {
   val mirror = runtimeMirror(this.getClass.getClassLoader)
   val reflection  = mirror.reflect(this)
@@ -53,7 +55,7 @@ class EarlyInit[T: TypeTag] {
   
   typeTag[T]
     .tpe
-    .members
+    .members   
     .filter(_.isModule)
     .foreach(m => {
       System.out.println("EarlyInit: " + m.name)
@@ -64,8 +66,121 @@ class EarlyInit[T: TypeTag] {
     
 }
 
+// [/protected]
+
 trait UMLOps[Uml <: UML] { self =>
 
+  // [protected('filters')]
+ 
+  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
+
+  type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
+  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
+
+  class FilterableUMLOption[U]( o: Option[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Option[V] = 
+      o.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( o: Option[U] ) = new FilterableUMLOption( o )
+    
+  class FilterableUMLIterator[U]( it: Iterator[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Iterable[V] = 
+      (it.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }).toIterable
+   
+  }
+
+  implicit def filterable[U]( it: Iterator[U] ) = new FilterableUMLIterator( it )
+    
+  class FilterableUMLIterable[U]( it: Iterable[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Iterable[V] = 
+      it.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( it: Iterable[U] ) = new FilterableUMLIterable( it )
+    
+  class FilterableUMLSeq[U]( s: Seq[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Seq[V] = 
+      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( s: Seq[U] ) = new FilterableUMLSeq( s )
+
+  class FilterableUMLSet[U]( s: Set[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Set[V] = 
+      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( s: Set[U] ) = new FilterableUMLSet( s )
+  
+  class FilterableUMLStream[U]( s: Stream[U] ) {
+    
+    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Stream[V] = 
+      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+   
+  }
+
+  implicit def filterable[U]( s: Stream[U] ) = new FilterableUMLStream( s )
+  
+  val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
+  
+  def cacheLookupOrUpdate( md: Uml#Element ): UMLElement[Uml] 
+  
+  def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
+  
+  /**
+   * OTI::SpecificationRoot stereotype
+   */
+  val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
+  
+  /**
+   * OTI::SpecificationRoot::packageURI property
+   */
+  val OTI_SPECIFICATION_ROOT_packageURI: Option[Uml#Property]
+  
+  /**
+   * OTI::ID stereotype
+   */
+  val OTI_ID_S: Option[Uml#Stereotype]
+  
+  /**
+   * OTI::ID stereotype
+   */
+   val OTI_ID_uuid: Option[Uml#Property]
+  
+  val SLOT_VALUE: EStructuralFeature
+
+  def closure[T]( x: T, relation: T => Iterable[T] ): Set[T] = {
+    
+    case class RelationClosureVisitor(
+        result: scala.collection.mutable.Set[T],
+        visit: scala.collection.mutable.ListBuffer[T],
+        visited: scala.collection.mutable.Set[T])
+        
+    val visitor = RelationClosureVisitor( scala.collection.mutable.Set[T](), scala.collection.mutable.ListBuffer[T]( x ), scala.collection.mutable.Set[T]() )
+    while ( visitor.visit.nonEmpty ) {
+      val y = visitor.visit.remove( 0 )
+      visitor.visited += y
+      relation( y ) foreach ( yi => { 
+        visitor.result += yi
+        if ( ! visitor.visited.contains( yi ) ) { visitor.visit += yi }
+      } )
+    }
+    visitor.result.toSet
+    
+  }
+  
+  // [/protected]
+  
   implicit val ELEMENT: TypeTag[Uml#Element] 
   implicit val COMMENT: TypeTag[Uml#Comment]
   implicit val RELATIONSHIP: TypeTag[Uml#Relationship]
@@ -151,48 +266,16 @@ trait UMLOps[Uml <: UML] { self =>
   implicit val ACTOR: TypeTag[Uml#Actor]
   implicit val USECASE: TypeTag[Uml#UseCase]
   
-  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
-  type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
-  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
-
-  class FilterableUMLOption[U]( o: Option[U] ) {
-    
-    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Option[V] = 
-      o.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
-   
-  }
-
-  implicit def filterable[U]( o: Option[U] ) = new FilterableUMLOption( o )
-    
-  class FilterableUMLIterator[U]( it: Iterator[U] ) {
-    
-    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Iterator[V] = 
-      it.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
-   
-  }
-
-  implicit def filterable[U]( it: Iterator[U] ) = new FilterableUMLIterator( it )
-    
-  class FilterableUMLSeq[U]( s: Seq[U] ) {
-    
-    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Seq[V] = 
-      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
-   
-  }
-
-  implicit def filterable[U]( s: Seq[U] ) = new FilterableUMLSeq( s )
-
-  class FilterableUMLSet[U]( s: Set[U] ) {
-    
-    def selectByKindOf[V <: UMLElement[Uml]]( pf: PartialFunction[U, V] ): Set[V] = 
-      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
-   
-  }
-
-  implicit def filterable[U]( s: Set[U] ) = new FilterableUMLSet( s )
+  /**
+   * For the MTL template, generate the 4-following methods for every UML metaclass (abstract & concrete)
+   */
+  implicit def umlElement( e: Uml#Element): UMLElement[Uml]  
+  implicit def umlElement( c: Iterable[Uml#Element] ): Iterable[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
+  implicit def umlElement( c: Seq[Uml#Element] ): Seq[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
+  implicit def umlElement( c: Set[Uml#Element] ): Set[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
   
-  implicit def umlElement( e: Uml#Element): UMLElement[Uml]
+  
   implicit def umlComment( e: Uml#Comment ): UMLComment[Uml]
   implicit def umlRelationship( e: Uml#Relationship ): UMLRelationship[Uml]
   implicit def umlDirectedRelationship( e: Uml#DirectedRelationship ): UMLDirectedRelationship[Uml]
@@ -274,13 +357,6 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlActor( e: Uml#Actor): UMLActor[Uml]
   implicit def umlUseCase( e: Uml#UseCase): UMLUseCase[Uml]
   
-  val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
-  
-  def cacheLookupOrUpdate( md: Uml#Element ): UMLElement[Uml] 
-  
-  implicit def umlElement( c: Iterator[Uml#Element] ): Iterator[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
-  implicit def umlElement( c: Seq[Uml#Element] ): Seq[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
-  implicit def umlElement( c: Set[Uml#Element] ): Set[UMLElement[Uml]] = for { e <- c } yield umlElement( e )
   
   implicit def umlRelationship( c: Seq[Uml#Relationship] ): Seq[UMLRelationship[Uml]] = for { e <- c } yield umlRelationship( e )
   implicit def umlRelationship( c: Set[Uml#Relationship] ): Set[UMLRelationship[Uml]] = for { e <- c } yield umlRelationship( e )
@@ -288,86 +364,43 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlDirectedRelationship( c: Seq[Uml#DirectedRelationship] ): Seq[UMLDirectedRelationship[Uml]] = for { e <- c } yield umlDirectedRelationship( e )
   implicit def umlDirectedRelationship( c: Set[Uml#DirectedRelationship] ): Set[UMLDirectedRelationship[Uml]] = for { e <- c } yield umlDirectedRelationship( e )
 
-  implicit def umlRedefinableElement( c: Iterator[Uml#RedefinableElement] ): Iterator[UMLRedefinableElement[Uml]] = for { e <- c } yield umlRedefinableElement( e )
+  implicit def umlRedefinableElement( c: Iterable[Uml#RedefinableElement] ): Iterable[UMLRedefinableElement[Uml]] = for { e <- c } yield umlRedefinableElement( e )
 
-  implicit def umlProperty( c: Iterator[Uml#Property] ): Iterator[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
+  implicit def umlProperty( c: Iterable[Uml#Property] ): Iterable[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
   implicit def umlProperty( c: Seq[Uml#Property] ): Seq[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
   implicit def umlProperty( c: Set[Uml#Property] ): Set[UMLProperty[Uml]] = for { e <- c } yield umlProperty( e )
   
   implicit def umlComment( c: Iterable[Uml#Comment] ): Iterable[UMLComment[Uml]] = for { e <- c } yield umlComment( e )
   implicit def umlComment( c: Seq[Uml#Comment] ): Seq[UMLComment[Uml]] = for { e <- c } yield umlComment( e )
   
-  implicit def umlType( c: Iterator[Uml#Type] ): Iterator[UMLType[Uml]] = for { e <- c } yield umlType( e )
+  implicit def umlType( c: Iterable[Uml#Type] ): Iterable[UMLType[Uml]] = for { e <- c } yield umlType( e )
   
-  implicit def umlTypedElement( c: Iterator[Uml#TypedElement] ): Iterator[UMLTypedElement[Uml]] = for { e <- c } yield umlTypedElement( e )
+  implicit def umlTypedElement( c: Iterable[Uml#TypedElement] ): Iterable[UMLTypedElement[Uml]] = for { e <- c } yield umlTypedElement( e )
   
-  implicit def umlDependency( c: Iterator[Uml#Dependency] ): Iterator[UMLDependency[Uml]] = for { e <- c } yield umlDependency( e )
+  implicit def umlDependency( c: Iterable[Uml#Dependency] ): Iterable[UMLDependency[Uml]] = for { e <- c } yield umlDependency( e )
   
-  implicit def umlInstanceSpecification( c: Iterator[Uml#InstanceSpecification] ): Iterator[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
+  implicit def umlInstanceSpecification( c: Iterable[Uml#InstanceSpecification] ): Iterable[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   implicit def umlInstanceSpecification( c: Set[Uml#InstanceSpecification] ): Set[UMLInstanceSpecification[Uml]] = for { e <- c } yield umlInstanceSpecification( e )
   
-  implicit def umlValueSpecification( c: Iterator[Uml#ValueSpecification] ): Iterator[UMLValueSpecification[Uml]] = for { e <- c } yield umlValueSpecification( e )
+  implicit def umlValueSpecification( c: Iterable[Uml#ValueSpecification] ): Iterable[UMLValueSpecification[Uml]] = for { e <- c } yield umlValueSpecification( e )
   
-  implicit def umlInstanceValue( c: Iterator[Uml#InstanceValue] ): Iterator[UMLInstanceValue[Uml]] = for { e <- c } yield umlInstanceValue( e )
+  implicit def umlInstanceValue( c: Iterable[Uml#InstanceValue] ): Iterable[UMLInstanceValue[Uml]] = for { e <- c } yield umlInstanceValue( e )
   
-  implicit def umlSlot( c: Iterator[Uml#Slot] ): Iterator[UMLSlot[Uml]] = for { e <- c } yield umlSlot( e )
+  implicit def umlSlot( c: Iterable[Uml#Slot] ): Iterable[UMLSlot[Uml]] = for { e <- c } yield umlSlot( e )
   
-  implicit def umlNamedElement( c: Iterator[Uml#NamedElement] ): Iterator[UMLNamedElement[Uml]] = for { e <- c } yield umlNamedElement( e )
+  implicit def umlNamedElement( c: Iterable[Uml#NamedElement] ): Iterable[UMLNamedElement[Uml]] = for { e <- c } yield umlNamedElement( e )
   implicit def umlNamedElement( c: Set[Uml#NamedElement] ): Set[UMLNamedElement[Uml]] = for { e <- c } yield umlNamedElement( e )
   
-  implicit def umlNamespace( c: Iterator[Uml#Namespace] ): Iterator[UMLNamespace[Uml]] = for { e <- c } yield umlNamespace( e )
+  implicit def umlNamespace( c: Iterable[Uml#Namespace] ): Iterable[UMLNamespace[Uml]] = for { e <- c } yield umlNamespace( e )
   
-  implicit def umlClassifier( c: Iterator[Uml#Classifier] ): Iterator[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
+  implicit def umlClassifier( c: Iterable[Uml#Classifier] ): Iterable[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
   implicit def umlClassifier( c: Set[Uml#Classifier] ): Set[UMLClassifier[Uml]] = for { e <- c } yield umlClassifier( e )
   
-  implicit def umlAssociation( c: Iterator[Uml#Association] ): Iterator[UMLAssociation[Uml]] = for { e <- c } yield umlAssociation( e )
+  implicit def umlAssociation( c: Iterable[Uml#Association] ): Iterable[UMLAssociation[Uml]] = for { e <- c } yield umlAssociation( e )
   
-  implicit def umlParameter( c: Iterator[Uml#Parameter] ): Iterator[UMLParameter[Uml]] = for { e <- c } yield umlParameter( e )
+  implicit def umlParameter( c: Iterable[Uml#Parameter] ): Iterable[UMLParameter[Uml]] = for { e <- c } yield umlParameter( e )
   
   implicit def umlElementImport( s: Set[Uml#ElementImport] ): Set[UMLElementImport[Uml]] = for { e <- s } yield umlElementImport( e )
   implicit def umlPackageImport( s: Set[Uml#PackageImport] ): Set[UMLPackageImport[Uml]] = for { e <- s } yield umlPackageImport( e )
   
-  def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
-  
-  /**
-   * OTI::SpecificationRoot stereotype
-   */
-  val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
-  
-  /**
-   * OTI::SpecificationRoot::packageURI property
-   */
-  val OTI_SPECIFICATION_ROOT_packageURI: Option[Uml#Property]
-  
-  /**
-   * OTI::ID stereotype
-   */
-  val OTI_ID_S: Option[Uml#Stereotype]
-  
-  /**
-   * OTI::ID stereotype
-   */
-   val OTI_ID_uuid: Option[Uml#Property]
-  
-  val SLOT_VALUE: EStructuralFeature
-
-  def closure[T]( x: T, relation: T => Iterator[T] ): Set[T] = {
-    
-    case class RelationClosureVisitor(
-        result: scala.collection.mutable.Set[T],
-        visit: scala.collection.mutable.ListBuffer[T],
-        visited: scala.collection.mutable.Set[T])
-        
-    val visitor = RelationClosureVisitor( scala.collection.mutable.Set[T](), scala.collection.mutable.ListBuffer[T]( x ), scala.collection.mutable.Set[T]() )
-    while ( visitor.visit.nonEmpty ) {
-      val y = visitor.visit.remove( 0 )
-      visitor.visited += y
-      relation( y ) foreach ( yi => { 
-        visitor.result += yi
-        if ( ! visitor.visited.contains( yi ) ) { visitor.visit += yi }
-      } )
-    }
-    visitor.result.toSet
-    
-  }
 }

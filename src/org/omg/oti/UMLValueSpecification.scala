@@ -41,10 +41,23 @@ package org.omg.oti
 
 trait UMLValueSpecification[Uml <: UML] extends UMLPackageableElement[Uml] with UMLTypedElement[Uml] {
 
+  import ops._
+    
+  def owningSlot: Option[UMLSlot[Uml]] = owner.asInstanceOf[Option[UMLSlot[Uml]]]
+  def owningInstanceSpec: Option[UMLInstanceSpecification[Uml]] = owner.asInstanceOf[Option[UMLInstanceSpecification[Uml]]]
+
   /**
    * Fig 8.1
    */
   def valueSpecification_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     typedElement_forwardReferencesFromMetamodelAssociations
+
+  def valueSpecification_compositeMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties ++
+    typedElement_compositeMetaProperties
+    
+  def valueSpecification_referenceMetaProperties: MetaPropertyFunctions = 
+    packageableElement_referenceMetaProperties ++
+    typedElement_referenceMetaProperties
 }

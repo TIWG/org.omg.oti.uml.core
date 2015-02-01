@@ -41,6 +41,9 @@ package org.omg.oti
 
 trait UMLOpaqueExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
   
+  def body: Seq[String]
+  def language: Seq[String]
+  
   /**
    * Fig. 8.2 (incomplete)
    * - behavior
@@ -49,4 +52,9 @@ trait UMLOpaqueExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
   override def forwardReferencesFromMetamodelAssociations = 
     valueSpecification_forwardReferencesFromMetamodelAssociations
 
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    valueSpecification_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    valueSpecification_referenceMetaProperties
 }

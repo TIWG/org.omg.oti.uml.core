@@ -40,21 +40,31 @@
 package org.omg.oti
 
 trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
-  
-  import ops._
-  
-  def members: Set[UMLNamedElement[Uml]]
-  def ownedMembers: Set[UMLNamedElement[Uml]] = members & (ownedElements.selectByKindOf { case ne: UMLNamedElement[Uml] => ne })
 
-  def elementImports: Set[UMLElementImport[Uml]] = sourceOfDirectedRelationships.selectByKindOf { case ei: UMLElementImport[Uml] => ei }
-  
-  def packageImports: Set[UMLPackageImport[Uml]] = sourceOfDirectedRelationships.selectByKindOf { case pi: UMLPackageImport[Uml] => pi }
-  
+  import ops._
+
+  def members: Set[UMLNamedElement[Uml]]
+  def ownedMembers: Set[UMLNamedElement[Uml]] = members & ( ownedElements.selectByKindOf { case ne: UMLNamedElement[Uml] => ne } )
+
+  def elementImports: Set[UMLElementImport[Uml]] = directedRelationships_source.selectByKindOf { case ei: UMLElementImport[Uml] => ei }
+
+  def packageImports: Set[UMLPackageImport[Uml]] = directedRelationships_source.selectByKindOf { case pi: UMLPackageImport[Uml] => pi }
+
   def ownedRules: Set[UMLConstraint[Uml]] = ownedMembers.selectByKindOf { case c: UMLConstraint[Uml] => c }
-    
+
   /**
    * Fig 7.5 (complete)
    */
-  def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
+  def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     namedElement_forwardReferencesFromMetamodelAssociations
+
+  def namespace_compositeMetaProperties: MetaPropertyFunctions =
+    namedElement_compositeMetaProperties ++
+      Seq(
+        MetaPropertyFunction[UMLNamespace[Uml], UMLElementImport[Uml]]( "elementImport", _.elementImports ),
+        MetaPropertyFunction[UMLNamespace[Uml], UMLConstraint[Uml]]( "ownedRule", _.ownedRules ),
+        MetaPropertyFunction[UMLNamespace[Uml], UMLPackageImport[Uml]]( "packageImport", _.packageImports ) )
+
+  def namespace_referenceMetaProperties: MetaPropertyFunctions =
+    namedElement_referenceMetaProperties
 }

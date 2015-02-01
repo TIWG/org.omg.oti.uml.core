@@ -54,4 +54,11 @@ trait UMLPackageImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   override def forwardReferencesFromMetamodelAssociations = 
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
     importedPackage
+
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    directedRelationship_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    directedRelationship_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLPackageImport[Uml], UMLPackage[Uml]]( "importedPackage", _.importedPackage ) )    
 }

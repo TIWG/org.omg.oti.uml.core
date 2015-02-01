@@ -40,27 +40,47 @@
 package org.omg.oti
 
 import scala.annotation._
+import scala.language.postfixOps
 
 trait UMLStereotype[Uml <: UML] extends UMLClass[Uml] {
   
   import ops._
     
+  def icons: Set[UMLImage[Uml]] = ownedElements.selectByKindOf { case i: UMLImage[Uml] => i } toSet
+  
+  def extensionEnds: Iterable[UMLExtensionEnd[Uml]] = typedElementsOfType.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }
+  
   /**
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    super.forwardReferencesFromMetamodelAssociations
+    stereotype_forwardReferencesFromMetamodelAssociations
+    
+  def stereotype_forwardReferencesFromMetamodelAssociations =
+    class_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    stereotype_compositeMetaProperties
+   
+  def stereotype_compositeMetaProperties =
+    class_compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLStereotype[Uml], UMLImage[Uml]]( "icon", _.icons ) )
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    stereotype_referenceMetaProperties
+    
+  def stereotype_referenceMetaProperties =
+    class_referenceMetaProperties 
     
   def profile: Option[UMLProfile[Uml]] = {
     
     @tailrec
-    def getOwningProfile( pe: UMLPackageableElement[Uml] ): Option[UMLProfile[Uml]] = 
-      pe.owningPackage match {
+    def getOwningProfile( pkg: Option[UMLPackage[Uml]] ): Option[UMLProfile[Uml]] = pkg match {
       case None => None
       case Some( pf: UMLProfile[Uml] ) => Some( pf )
-      case Some( p: UMLPackage[Uml] ) => getOwningProfile( p )
+      case Some( p ) => getOwningProfile( p.owningPackage )
     }
     
-    getOwningProfile( this )
+    getOwningProfile( owningPackage )
   }
 }

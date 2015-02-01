@@ -40,4 +40,13 @@
 package org.omg.oti
 
 trait UMLStringExpression[Uml <: UML] extends UMLExpression[Uml] {
+  
+  def subExpressions: Seq[UMLStringExpression[Uml]]
+    
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    super.compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLStringExpression[Uml], UMLStringExpression[Uml]]( "subExpression", _.subExpressions ) )
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    super.referenceMetaProperties
 }

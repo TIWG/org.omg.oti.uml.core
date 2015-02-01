@@ -47,4 +47,10 @@ trait UMLConnectableElement[Uml <: UML] extends UMLTypedElement[Uml] {
   def connectableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     typedElement_forwardReferencesFromMetamodelAssociations
 
+  def connectableElement_compositeMetaProperties: MetaPropertyFunctions =
+    typedElement_compositeMetaProperties
+    
+  def connectableElement_referenceMetaProperties: MetaPropertyFunctions =
+    typedElement_referenceMetaProperties
+    
 }

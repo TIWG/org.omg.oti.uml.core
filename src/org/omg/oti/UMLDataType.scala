@@ -40,10 +40,25 @@
 package org.omg.oti
 
 trait UMLDataType[Uml <: UML] extends UMLClassifier[Uml] {
+
+  def ownedAttributes: Seq[UMLProperty[Uml]]
+  
+  def ownedOperations: Seq[UMLOperation[Uml]]
   
   /**
    * Fig 10.1 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    classifier_compositeMetaProperties ++
+    Seq( 
+        MetaPropertyFunction[UMLDataType[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+        MetaPropertyFunction[UMLDataType[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations )
+        )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    classifier_referenceMetaProperties
+
 }

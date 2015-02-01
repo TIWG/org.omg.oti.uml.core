@@ -45,6 +45,7 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   import ops._
   
+  def isStrict: Option[Boolean]
   def applyingPackage: Option[UMLPackage[Uml]] = (sources.selectByKindOf { case p: UMLPackage[Uml] => p } toIterable).headOption
   def appliedProfile: Option[UMLProfile[Uml]] = (targets.selectByKindOf { case p: UMLProfile[Uml] => p } toIterable).headOption
   
@@ -52,7 +53,23 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
+    profileApplication_forwardReferencesFromMetamodelAssociations
+    
+  def profileApplication_forwardReferencesFromMetamodelAssociations =
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
     appliedProfile
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    profileApplication_compositeMetaProperties
+    
+  def profileApplication_compositeMetaProperties =
+    directedRelationship_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    profileApplication_referenceMetaProperties
+        
+  def profileApplication_referenceMetaProperties =
+    directedRelationship_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLProfileApplication[Uml], UMLProfile[Uml]]( "appliedProfile", _.appliedProfile ) )
     
 }

@@ -40,11 +40,17 @@
 package org.omg.oti
 
 trait UMLRelationship[Uml <: UML] extends UMLElement[Uml] {
-  def relatedElements: Iterator[UMLElement[Uml]]
+  def relatedElements: Iterable[UMLElement[Uml]]
   
   /**
    * Fig 7.1 (complete)
    */
   def relationship_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     element_forwardReferencesFromMetamodelAssociations
+    
+  def relationship_compositeMetaProperties: MetaPropertyFunctions = 
+    element_compositeMetaProperties
+    
+  def relationship_referenceMetaProperties: MetaPropertyFunctions = 
+    element_referenceMetaProperties
 }

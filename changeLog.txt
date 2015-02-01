@@ -1,3 +1,24 @@
+Version 0.5.0: January 31, 2015
+
+- naming convention for names of association member end properties:
+
+-- singular if multiplicity is 0..1 or 1; plural otherwise
+-- for the name of an opposite association member end property (regardless of navigability):
+--- use the (opposite association member end) property name (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property type name>" (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property name>" (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property type name>_<opposite member end property name>" (if unambiguous)
+
+- add support for serializing non-derived composite & reference properties
+-- UMLElement.{composite,reference}MetaProperties
+-- every metaclass defines: <metaclass name>_{composite,reference}MetaProperties to include the superclasses' meta-properties before the metaclass' properties
+   (see OMG Canonical XMI ordering rules)
+-- every concrete metaclass defines:
+
+override def {composite,reference}MetaProperties: MetaPropertyFunctions = <metaclass name>_{composite,reference}MetaProperties
+
+- added several data attributes
+
 Version 0.4: January 29, 2015
 
 - OTI::SpecificationRoot::packageURI

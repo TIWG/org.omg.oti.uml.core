@@ -43,7 +43,7 @@ trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
 
   import ops._
   
-  def redefinedPorts: Iterator[UMLPort[Uml]] = redefinedElements.selectByKindOf { case p: UMLPort[Uml] => p }  
+  def redefinedPorts: Iterable[UMLPort[Uml]] = redefinedElements.selectByKindOf { case p: UMLPort[Uml] => p }  
   
   /**
    * Fig 11.10 (incomplete)
@@ -54,4 +54,11 @@ trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
   override def forwardReferencesFromMetamodelAssociations =
     super.forwardReferencesFromMetamodelAssociations ++
     redefinedPorts
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    super.compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    super.referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLPort[Uml], UMLPort[Uml]]( "redefinedPort", _.redefinedPorts ) )
 }

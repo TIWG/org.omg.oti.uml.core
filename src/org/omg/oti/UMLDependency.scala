@@ -43,8 +43,8 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
 
   import ops._
   
-  def clients: Iterator[UMLNamedElement[Uml]] = sources.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
-  def suppliers: Iterator[UMLNamedElement[Uml]] = targets.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
+  def clients: Iterable[UMLNamedElement[Uml]] = sources.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
+  def suppliers: Iterable[UMLNamedElement[Uml]] = targets.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
     
   /**
    * Fig 7.17 (complete)
@@ -55,4 +55,12 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
     clients ++
     suppliers
 
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties ++
+    Seq( 
+        MetaPropertyFunction[UMLDependency[Uml], UMLNamedElement[Uml]]( "client", _.clients ),
+        MetaPropertyFunction[UMLDependency[Uml], UMLNamedElement[Uml]]( "supplier", _.suppliers ))
 }

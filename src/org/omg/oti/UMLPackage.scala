@@ -43,19 +43,44 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
   
   import ops._
   
+  def URI: Option[String]
   def nestingPackage: Option[UMLPackage[Uml]] = owningPackage
-  def packagedElement: Set[UMLPackageableElement[Uml]] = ownedMembers.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
-  def ownedType: Set[UMLType[Uml]] = packagedElement.selectByKindOf { case t: UMLType[Uml] => t }
-  def ownedStereotype: Set[UMLStereotype[Uml]] = ownedType.selectByKindOf { case s: UMLStereotype[Uml] => s}
-  def nestedPackages: Set[UMLPackage[Uml]] = packagedElement.selectByKindOf { case p: UMLPackage[Uml] => p }
-
+  def packagedElements: Set[UMLPackageableElement[Uml]] = ownedMembers.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
+  def ownedTypes: Set[UMLType[Uml]] = packagedElements.selectByKindOf { case t: UMLType[Uml] => t }
+  def ownedStereotypes: Set[UMLStereotype[Uml]] = ownedTypes.selectByKindOf { case s: UMLStereotype[Uml] => s}
+  def nestedPackages: Set[UMLPackage[Uml]] = packagedElements.selectByKindOf { case p: UMLPackage[Uml] => p }
+  def packageMerges: Set[UMLPackageMerge[Uml]] = ownedElements.selectByKindOf { case pm: UMLPackageMerge[Uml] => pm }
+  def profileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_source.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
+  
   /**
    * Fig 12.1 (incomplete)
    * - TemplateableElement
    */
   override def forwardReferencesFromMetamodelAssociations =
+    package_forwardReferencesFromMetamodelAssociations
+    
+  def package_forwardReferencesFromMetamodelAssociations =
     namespace_forwardReferencesFromMetamodelAssociations ++
     packageableElement_forwardReferencesFromMetamodelAssociations
     
-  def applyingPackageOfProfileApplications: Set[UMLProfileApplication[Uml]] = sourceOfDirectedRelationships.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    package_compositeMetaProperties
+    
+  def package_compositeMetaProperties: MetaPropertyFunctions =
+    namespace_compositeMetaProperties ++
+    packageableElement_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLPackage[Uml], UMLPackageableElement[Uml]]( "packagedElement", _.packagedElements ),
+        MetaPropertyFunction[UMLPackage[Uml], UMLPackageMerge[Uml]]( "packageMerge", _.packageMerges ),
+        MetaPropertyFunction[UMLPackage[Uml], UMLProfileApplication[Uml]]( "profileApplication", _.profileApplications )
+        )
+  
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    package_referenceMetaProperties
+   
+  def package_referenceMetaProperties =
+    namedElement_referenceMetaProperties ++
+    packageableElement_referenceMetaProperties
+    
+  def applyingPackageOfProfileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_source.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
 }

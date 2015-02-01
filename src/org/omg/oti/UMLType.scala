@@ -43,13 +43,19 @@ trait UMLType[Uml <: UML] extends UMLPackageableElement[Uml] {
   
   import ops._
   
-  def typedElementsOfType: Iterator[UMLTypedElement[Uml]]
+  def typedElementsOfType: Iterable[UMLTypedElement[Uml]]
   
-  def endTypeOfAssociation: Iterator[UMLAssociation[Uml]]  
+  def endTypeOfAssociation: Iterable[UMLAssociation[Uml]]  
   
   /**
    * Fig 7.10 (complete) 
    */
   def type_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     packageableElement_forwardReferencesFromMetamodelAssociations
+
+  def type_compositeMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties
+    
+  def type_referenceMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties           
 }

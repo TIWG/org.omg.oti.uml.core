@@ -43,20 +43,29 @@ trait UMLNamedElement[Uml <: UML] extends UMLElement[Uml] {
 
   import ops._
   
+  def nameExpression: Option[UMLStringExpression[Uml]] = (ownedElements.selectByKindOf { case se: UMLStringExpression[Uml] => se }).headOption
+  
   def name: Option[String]
   def setName( name: String ): Unit
   
   def qualifiedName: Option[String]
   
-  def memberOfMemberNamespaces: Iterator[UMLNamespace[Uml]]
-  def ownedMemberOfNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
+  def memberNamespaces: Iterable[UMLNamespace[Uml]]
+  def namespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
 
-  def supplierTargetOfSupplierDependency: Iterator[UMLDependency[Uml]]
-  def clientSourceOfClientDependency: Iterator[UMLDependency[Uml]]
+  def supplierTargetOfSupplierDependency: Iterable[UMLDependency[Uml]]
+  def clientSourceOfClientDependency: Iterable[UMLDependency[Uml]]
     
   /**
    * Fig 7.5 (complete)
    */
   def namedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     element_forwardReferencesFromMetamodelAssociations
+
+  def namedElement_compositeMetaProperties: MetaPropertyFunctions = 
+    element_compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLNamedElement[Uml], UMLStringExpression[Uml]]( "nameExpression", _.nameExpression ) )
+    
+  def namedElement_referenceMetaProperties: MetaPropertyFunctions = 
+    element_referenceMetaProperties    
 }

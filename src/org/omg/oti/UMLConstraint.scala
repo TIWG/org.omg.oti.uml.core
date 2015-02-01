@@ -43,7 +43,7 @@ trait UMLConstraint[Uml <: UML] extends UMLPackageableElement[Uml] {
   
   import ops._
   
-  def context: Option[UMLNamespace[Uml]] = ownedMemberOfNamespace.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
+  def context: Option[UMLNamespace[Uml]] = namespace.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
   
   def constrainedElements: Seq[UMLElement[Uml]]
     
@@ -54,4 +54,10 @@ trait UMLConstraint[Uml <: UML] extends UMLPackageableElement[Uml] {
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     constrainedElements
 
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    packageableElement_compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLConstraint[Uml], UMLElement[Uml]]( "constrainedElement", _.constrainedElements ) )
 }

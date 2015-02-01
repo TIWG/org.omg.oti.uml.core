@@ -43,7 +43,16 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
   
   import ops._
   
-  def redefinedOperations: Iterator[UMLOperation[Uml]] = redefinedElements.selectByKindOf { case o: UMLOperation[Uml] => o }
+  def datatype: Option[UMLDataType[Uml]] = owner.asInstanceOf[Option[UMLDataType[Uml]]]
+  def umlClass: Option[UMLClass[Uml]] = owner.asInstanceOf[Option[UMLClass[Uml]]]
+  
+  def isQuery: Option[Boolean]
+  
+  def preCondition: Iterable[UMLConstraint[Uml]]
+  def postCondition: Iterable[UMLConstraint[Uml]]
+  def bodyCondition: Option[UMLConstraint[Uml]]
+  
+  def redefinedOperations: Iterable[UMLOperation[Uml]] = redefinedElements.selectByKindOf { case o: UMLOperation[Uml] => o }
     
   /**
    * Fig 9.13 (incomplete)
@@ -53,6 +62,28 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
    * - raisedException
    */
   override def forwardReferencesFromMetamodelAssociations =
+    operation_forwardReferencesFromMetamodelAssociations
+    
+  def operation_forwardReferencesFromMetamodelAssociations =
     behavioralFeature_forwardReferencesFromMetamodelAssociations ++
     redefinedOperations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    operation_compositeMetaProperties
+    
+  def operation_compositeMetaProperties =
+    behavioralFeature_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "bodyCondition", _.bodyCondition ),        
+        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "postCondition", _.postCondition ),
+        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "preCondition", _.preCondition )
+        )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    operation_referenceMetaProperties
+    
+  def operation_referenceMetaProperties =
+    behavioralFeature_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLOperation[Uml], UMLOperation[Uml]]( "redefinedOperation", _.redefinedOperations ) )
+    
 }

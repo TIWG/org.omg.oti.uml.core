@@ -41,12 +41,29 @@ package org.omg.oti
 
 trait UMLImage[Uml <: UML] extends UMLElement[Uml] {
   
+  import ops._
+  
   def location: Option[String]
     
   /**
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
+    image_forwardReferencesFromMetamodelAssociations
+    
+  def image_forwardReferencesFromMetamodelAssociations =
     element_forwardReferencesFromMetamodelAssociations
     
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    image_compositeMetaProperties
+    
+  def image_compositeMetaProperties =
+    element_compositeMetaProperties
+  
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    image_referenceMetaProperties
+    
+  def image_referenceMetaProperties =
+    element_referenceMetaProperties
+  
 }

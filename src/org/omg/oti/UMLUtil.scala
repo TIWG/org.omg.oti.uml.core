@@ -133,7 +133,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
           s.definingFeature match {
             case None => Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
             case Some( sf ) =>
-              val slotValues = s.values
+              val slotValues = s.values.toList
               if ( sf.upper > 1 )
                 Success( "_" + slotValues.indexOf( fvn ) + "_" + fvn.name.getOrElse( "" ) )
               else
@@ -150,7 +150,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       val suffix2: Try[String] = fv match {
         case bf: UMLBehavioralFeature[Uml] =>
           ( suffix1 /: bf.ownedParameters )( ( s, p ) =>
-            ( s, p.getType ) match {
+            ( s, p.umlType ) match {
               case ( Failure( t ), _ ) => Failure( t )
               case ( _, None )         => Failure( illegalElementException( "Parameter must have a type", p ) )
               case ( Success( s ), Some( t ) ) =>
@@ -175,7 +175,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
                   if ( sf.upper == 1 )
                     Success( "" )
                   else {
-                    val slotValues = s.values
+                    val slotValues = s.values.toList
                     require( slotValues.contains( fv ) )
                     Success( slotValues.indexOf( fv ).toString )
                   }

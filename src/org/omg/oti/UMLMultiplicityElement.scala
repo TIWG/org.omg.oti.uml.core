@@ -40,6 +40,9 @@
 package org.omg.oti
 
 trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
+  
+  import ops._
+  
   def lower: Int
   def upper: Int
   
@@ -48,4 +51,10 @@ trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
    */  
   def multiplicityElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     element_forwardReferencesFromMetamodelAssociations
+
+  def multiplicityElement_compositeMetaProperties: MetaPropertyFunctions = 
+    element_compositeMetaProperties
+    
+  def multiplicityElement_referenceMetaProperties: MetaPropertyFunctions = 
+    element_referenceMetaProperties        
 }

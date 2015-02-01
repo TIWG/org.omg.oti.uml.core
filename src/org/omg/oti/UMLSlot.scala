@@ -41,9 +41,12 @@ package org.omg.oti
 
 trait UMLSlot[Uml <: UML] extends UMLElement[Uml] {
   
-  def values: Iterator[UMLValueSpecification[Uml]]
-  def definingFeature: Option[UMLStructuralFeature[Uml]]
+  import ops._
+  
   def owningInstance: Option[UMLInstanceSpecification[Uml]] = owner.asInstanceOf[Option[UMLInstanceSpecification[Uml]]]
+  
+  def values: Iterable[UMLValueSpecification[Uml]]
+  def definingFeature: Option[UMLStructuralFeature[Uml]]
     
   /**
    * Fig 9.27 (complete)
@@ -51,4 +54,12 @@ trait UMLSlot[Uml <: UML] extends UMLElement[Uml] {
   override def forwardReferencesFromMetamodelAssociations =
     element_forwardReferencesFromMetamodelAssociations ++
     definingFeature
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    element_compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLSlot[Uml], UMLValueSpecification[Uml]]( "value", _.values ) )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    element_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLSlot[Uml], UMLStructuralFeature[Uml]]( "definingFeature", _.definingFeature ) )    
 }

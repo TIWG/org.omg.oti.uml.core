@@ -40,5 +40,19 @@
 package org.omg.oti
 
 trait UMLEnumeration[Uml <: UML] extends UMLDataType[Uml] {
+ 
+  def ownedLiterals: Seq[UMLEnumerationLiteral[Uml]]
   
+  /**
+   * Fig 10.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    super.compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]( "ownedLiteral", _.ownedLiterals ) )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    super.referenceMetaProperties 
 }

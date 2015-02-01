@@ -49,6 +49,22 @@ trait UMLPackageMerge[Uml <: UML] extends UMLDirectedRelationship[Uml] {
    * Fig 12.1 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
+    packageMerge_forwardReferencesFromMetamodelAssociations
+    
+  def packageMerge_forwardReferencesFromMetamodelAssociations =
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
     mergedPackage
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    packageMerge_compositeMetaProperties
+    
+  def packageMerge_compositeMetaProperties = 
+    directedRelationship_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    packageMerge_referenceMetaProperties
+    
+  def packageMerge_referenceMetaProperties =
+    directedRelationship_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLPackageMerge[Uml], UMLPackage[Uml]]( "mergedPackage", _.mergedPackage ) )
 }

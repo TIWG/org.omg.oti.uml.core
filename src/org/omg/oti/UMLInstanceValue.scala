@@ -47,6 +47,23 @@ trait UMLInstanceValue[Uml <: UML] extends UMLValueSpecification[Uml] {
    * Fig 9.27 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
+    instanceValue_forwardReferencesFromMetamodelAssociations
+    
+  def instanceValue_forwardReferencesFromMetamodelAssociations =
     valueSpecification_forwardReferencesFromMetamodelAssociations ++
     instance
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    instanceValue_compositeMetaProperties
+    
+  def instanceValue_compositeMetaProperties =
+    valueSpecification_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    instanceValue_referenceMetaProperties
+    
+  def instanceValue_referenceMetaProperties =
+    valueSpecification_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]( "instance", _.instance ) )
+  
 }

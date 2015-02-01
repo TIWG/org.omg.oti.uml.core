@@ -43,7 +43,9 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   
   import ops._
   
-  def redefinedConnectors: Iterator[UMLConnector[Uml]] = redefinedElements.selectByKindOf { case c: UMLConnector[Uml] => c }
+  def ends: Seq[UMLConnectorEnd[Uml]]
+  
+  def redefinedConnectors: Iterable[UMLConnector[Uml]] = redefinedElements.selectByKindOf { case c: UMLConnector[Uml] => c }
   
   def connectorType: Option[UMLType[Uml]]
   
@@ -56,4 +58,20 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
     connectorType ++
     redefinedConnectors
    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    feature_compositeMetaProperties ++
+    Seq(
+      MetaPropertyFunction[UMLConnector[Uml], UMLConnectorEnd[Uml]]( "end", _.ends ) )
+   
+  /**
+   * (incomplete)
+   * - contract
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    feature_referenceMetaProperties ++
+    Seq(
+      MetaPropertyFunction[UMLConnector[Uml], UMLConnector[Uml]]( "redefinedConnector", _.redefinedConnectors ),   
+      MetaPropertyFunction[UMLConnector[Uml], UMLType[Uml]]( "type", _.connectorType )  
+    )
+    
 }

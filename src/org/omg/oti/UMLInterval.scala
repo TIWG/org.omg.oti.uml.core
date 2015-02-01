@@ -47,5 +47,20 @@ trait UMLInterval[Uml <: UML] extends UMLValueSpecification[Uml] {
    * - max
    */
   override def forwardReferencesFromMetamodelAssociations = 
+    interval_forwardReferencesFromMetamodelAssociations
+    
+  def interval_forwardReferencesFromMetamodelAssociations =
     valueSpecification_forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    interval_compositeMetaProperties
+   
+  def interval_compositeMetaProperties =
+    valueSpecification_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    interval_referenceMetaProperties
+    
+  def interval_referenceMetaProperties =
+    valueSpecification_referenceMetaProperties    
 }

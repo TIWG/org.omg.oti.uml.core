@@ -42,12 +42,22 @@ package org.omg.oti
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
-trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnectableElement[Uml] {
+trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructuralFeature[Uml] {
   
   implicit val ops: UMLOps[Uml]
   import ops._
   
-  def isComposite: Boolean
+  // [protected ('aggregation')]
+  /**
+   * OMG UML 2.5 defines Property::aggregation : AggregationKind { none, shared, composite }
+   * Here, we only distinguish: none, composite (that is, shared is equivalent to none)
+   */
+  def isComposite: Boolean = false
+  // [/protected]
+  
+  def isDerived: Boolean = false
+  def isUnion: Boolean = false
+  def isID: Boolean = false
   
   def defaultValue: Option[UMLValueSpecification[Uml]]
   
@@ -55,25 +65,46 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   
   def navigableOwnedEndOfAssociation: Option[UMLAssociation[Uml]]
   
-  /**
-   * Corresponds to 'association' in:
-   * Property memberEnd -- association Association
-   */
-  def memberEndOfAssociation: Option[UMLAssociation[Uml]]
+  def association: Option[UMLAssociation[Uml]]
   
-  def subsettedProperties: Iterator[UMLProperty[Uml]]
-  def redefinedProperties: Iterator[UMLProperty[Uml]] = redefinedElements.selectByKindOf { case p: UMLProperty[Uml] => p }
+  def subsettedProperties: Iterable[UMLProperty[Uml]]
+  def redefinedProperties: Iterable[UMLProperty[Uml]] = redefinedElements.selectByKindOf { case p: UMLProperty[Uml] => p }
   
   /**
    * Fig 9.10 (incomplete)
    * - DeploymentTarget
    */
   override def forwardReferencesFromMetamodelAssociations =
+    property_forwardReferencesFromMetamodelAssociations
+    
+  def property_forwardReferencesFromMetamodelAssociations =
     connectableElement_forwardReferencesFromMetamodelAssociations ++
     structuralFeature_forwardReferencesFromMetamodelAssociations ++
-    subsettedProperties ++
+    association ++
     redefinedProperties ++
-    memberEndOfAssociation
+    subsettedProperties
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    property_compositeMetaProperties
+    
+  def property_compositeMetaProperties: MetaPropertyFunctions =
+    connectableElement_compositeMetaProperties ++
+    structuralFeature_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLProperty[Uml], UMLValueSpecification[Uml]]( "defaultValue", _.defaultValue )
+        )
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    property_referenceMetaProperties
+    
+  def property_referenceMetaProperties: MetaPropertyFunctions =
+    connectableElement_referenceMetaProperties ++
+    structuralFeature_referenceMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association ),
+        MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "redefinedProperty", _.redefinedProperties ),
+        MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "subsettedProperty", _.subsettedProperties )
+        )
     
   def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   
     case Some(a: UMLAssociation[Uml]) => Some(a)
@@ -86,7 +117,7 @@ trait UMLProperty[Uml <: UML] extends UMLStructuralFeature[Uml] with UMLConnecta
   }
   
   def isLogicallyNavigable: Boolean = 
-    memberEndOfAssociation match {
+    association match {
     case None => false
     case Some( a ) => 
       opposite match {

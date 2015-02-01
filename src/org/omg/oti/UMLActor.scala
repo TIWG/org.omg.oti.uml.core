@@ -45,5 +45,20 @@ trait UMLActor[Uml <: UML] extends UMLBehavioredClassifier[Uml] {
    * Fig 18.1 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
+    actor_forwardReferencesFromMetamodelAssociations
+    
+  def actor_forwardReferencesFromMetamodelAssociations =
     behavioredClassifier_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    actor_compositeMetaProperties
+    
+  def actor_compositeMetaProperties =
+    behavioredClassifier_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    actor_referenceMetaProperties
+    
+  def actor_referenceMetaProperties =
+    behavioredClassifier_referenceMetaProperties
 }

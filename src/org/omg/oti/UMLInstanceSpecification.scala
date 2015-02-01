@@ -42,14 +42,9 @@ package org.omg.oti
 trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
   
   def specification: Option[UMLValueSpecification[Uml]]
-  def slots: Iterator[UMLSlot[Uml]]
-  def classifiers: Iterator[UMLClassifier[Uml]]
-  
-  /**
-   * corresponds to 'instanceValue' in:
-   * InstanceSpecificatin instance <- instanceValue InstanceValue
-   */
-  def instanceOfInstanceValues: Iterator[UMLInstanceValue[Uml]]
+  def slots: Iterable[UMLSlot[Uml]]
+  def classifiers: Iterable[UMLClassifier[Uml]]
+  def instanceValues: Iterable[UMLInstanceValue[Uml]]
   
   /**
    * Fig 9.27 (incomplete)
@@ -59,4 +54,15 @@ trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
   override def forwardReferencesFromMetamodelAssociations =
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     classifiers
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    packageableElement_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLSlot[Uml]]( "slot", _.slots ),        
+        MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]]( "specification", _.specification )
+        )
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    packageableElement_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLClassifier[Uml]]( "classifier", _.classifiers ) )
 }

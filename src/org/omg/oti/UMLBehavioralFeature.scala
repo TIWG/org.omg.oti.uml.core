@@ -58,4 +58,22 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
   def behavioralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     feature_forwardReferencesFromMetamodelAssociations ++
     namespace_forwardReferencesFromMetamodelAssociations
+
+  /**
+   * incomplete:
+   * - ownedParameterSet
+   */
+  def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions =
+    feature_compositeMetaProperties ++
+    namespace_compositeMetaProperties ++    
+    Seq( MetaPropertyFunction[UMLBehavioralFeature[Uml], UMLParameter[Uml]]( "ownedParameter", _.ownedParameters ) )
+    
+  /**
+   * incomplete:
+   * - method
+   * - raisedException
+   */
+  def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions =
+    feature_referenceMetaProperties ++
+    namespace_referenceMetaProperties 
 }

@@ -40,4 +40,16 @@
 package org.omg.oti
 
 trait UMLPrimitiveType[Uml <: UML] extends UMLDataType[Uml] {
+  
+  /**
+   * Fig 10.1 (complete)
+   */
+  override def forwardReferencesFromMetamodelAssociations =
+    super.forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    super.compositeMetaProperties
+        
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    super.referenceMetaProperties
 }

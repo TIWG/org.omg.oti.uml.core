@@ -44,13 +44,20 @@ trait UMLRedefinableElement[Uml <: UML] extends UMLNamedElement[Uml] {
   /**
    * corresponds to Classifier::/redefinableElement
    */
-  def redefiningElements: Iterator[UMLRedefinableElement[Uml]]
-  def redefinedElements: Iterator[UMLRedefinableElement[Uml]]
-  def redefinitionContexts: Iterator[UMLClassifier[Uml]]
+  def redefiningElements: Iterable[UMLRedefinableElement[Uml]]
+  def redefinedElements: Iterable[UMLRedefinableElement[Uml]]
+  def redefinitionContexts: Iterable[UMLClassifier[Uml]]
   
   /**
    * Fig 9.1 (complete)
    */  
   def redefinableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namedElement_forwardReferencesFromMetamodelAssociations
+    
+  def redefinableElement_compositeMetaProperties: MetaPropertyFunctions =
+    namedElement_compositeMetaProperties
+    
+  def redefinableElement_referenceMetaProperties: MetaPropertyFunctions =
+    namedElement_referenceMetaProperties
+  
 }

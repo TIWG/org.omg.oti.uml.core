@@ -39,15 +39,33 @@
  */
 package org.omg.oti
 
+// [protected ('imports')]
 import org.eclipse.emf.ecore.EStructuralFeature
 import scala.language.postfixOps
+// [/protected]
 
 trait UMLElement[Uml <: UML] {
+
+// [protected ('common framework for all metaclasses')]
 
   implicit val ops: UMLOps[Uml]
   import ops._
 
-  def metaclass: UMLClass[Uml]
+  case class MetaPropertyFunction[U <: UMLElement[Uml], V <: UMLElement[Uml]]( val propertyName: String, f: U => Iterable[V] )
+
+  type MetaPropertyFunctions = Seq[MetaPropertyFunction[_ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+  
+  /**
+   * directed, non-derived, composite association end properties
+   */
+  def compositeMetaProperties: MetaPropertyFunctions
+
+  /**
+   * directed, non-derived, reference association end properties
+   */
+  def referenceMetaProperties: MetaPropertyFunctions
+  
+  def mofMetaclass: UMLClass[Uml]
   
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
     
@@ -85,10 +103,16 @@ trait UMLElement[Uml <: UML] {
    */
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
-  /**
-   * Fig 7.1 (complete)
-   */
-  def element_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+  def allOwnedElements: Stream[UMLElement[Uml]]
+  
+  def getContainedElement_eContainingFeature: EStructuralFeature
+  def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
+
+  def id: String
+
+  def hasStereotype( s: UMLStereotype[Uml] ): Boolean
+
+  def isAncestorOf( other: UMLElement[Uml] ): Boolean
 
   /**
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
@@ -96,26 +120,25 @@ trait UMLElement[Uml <: UML] {
   def forwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] =
     tagValues flatMap { case (p,vs) => vs } toSet
   
+  // [/protected]
+  
+  /**
+   * Fig 7.1 (complete)
+   */
+  def element_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
+  def element_compositeMetaProperties: MetaPropertyFunctions = Seq( MetaPropertyFunction[UMLElement[Uml], UMLElement[Uml]]( "ownedComment", _.ownedComments.toIterable ) )
+  def element_referenceMetaProperties: MetaPropertyFunctions = Seq()
+  
   
   def ownedComments: Seq[UMLComment[Uml]]
   def annotatedElementOfComments: Seq[UMLComment[Uml]]
 
   def owner: Option[UMLElement[Uml]]
   def ownedElements: Set[UMLElement[Uml]]
-  def allOwnedElements: Stream[UMLElement[Uml]]
 
-  def getContainedElement_eContainingFeature: EStructuralFeature
-  def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterator[UMLElement[Uml]]
+  def relationships: Set[UMLRelationship[Uml]]
 
-  def relatedElementOfRelationships: Set[UMLRelationship[Uml]]
-
-  def sourceOfDirectedRelationships: Set[UMLDirectedRelationship[Uml]]
-  def targetOfDirectedRelationships: Set[UMLDirectedRelationship[Uml]]
-
-  def id: String
-
-  def hasStereotype( s: UMLStereotype[Uml] ): Boolean
-
-  def isAncestorOf( other: UMLElement[Uml] ): Boolean
+  def directedRelationships_source: Set[UMLDirectedRelationship[Uml]]
+  def directedRelationships_target: Set[UMLDirectedRelationship[Uml]]
 
 }

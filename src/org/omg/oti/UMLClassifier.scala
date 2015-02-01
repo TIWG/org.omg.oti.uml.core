@@ -43,17 +43,23 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
  
   import ops._
   
-  def attribute: Seq[UMLProperty[Uml]]
+  def attributes: Seq[UMLProperty[Uml]]
   
-  def classifierOfInstanceSpecifications: Set[UMLInstanceSpecification[Uml]]
+  def features: Set[UMLFeature[Uml]] = members.selectByKindOf { case f: UMLFeature[Uml] => f }
   
-  def redefinedClassifiers: Iterator[UMLClassifier[Uml]] = redefinedElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
+  def generalizations: Set[UMLGeneralization[Uml]] = ownedElements.selectByKindOf { case g: UMLGeneralization[Uml] => g }
+  
+  def general: Set[UMLClassifier[Uml]] = generalizations flatMap (_.general)
+  
+  def instanceSpecifications: Set[UMLInstanceSpecification[Uml]]
+  
+  def redefinedClassifiers: Iterable[UMLClassifier[Uml]] = redefinedElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
 
   /**
    * Corresponds to 'classifier' in:
    * Classifier classifier --> redefinedClassifier Classifier
    */
-  def redefiningClassifiers: Iterator[UMLClassifier[Uml]] = redefiningElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
+  def redefiningClassifiers: Iterable[UMLClassifier[Uml]] = redefiningElements.selectByKindOf { case cls: UMLClassifier[Uml] => cls }
   
   /**
    * Fig 9.1 (incomplete) 
@@ -63,7 +69,20 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
    */
   def classifier_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namespace_forwardReferencesFromMetamodelAssociations ++
-    type_forwardReferencesFromMetamodelAssociations ++
     redefinableElement_forwardReferencesFromMetamodelAssociations ++
+    type_forwardReferencesFromMetamodelAssociations ++
     redefinedClassifiers
+    
+  
+  def classifier_compositeMetaProperties: MetaPropertyFunctions = 
+    namespace_compositeMetaProperties ++
+    redefinableElement_compositeMetaProperties ++
+    type_compositeMetaProperties
+    
+  def classifier_referenceMetaProperties: MetaPropertyFunctions = 
+    namespace_referenceMetaProperties ++
+    redefinableElement_referenceMetaProperties ++
+    type_referenceMetaProperties ++
+    Seq( MetaPropertyFunction[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
+
 }

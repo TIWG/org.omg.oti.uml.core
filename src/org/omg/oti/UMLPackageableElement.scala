@@ -41,7 +41,7 @@ package org.omg.oti
 
 trait UMLPackageableElement[Uml <: UML] extends UMLNamedElement[Uml] {
   import ops._
-  def owningPackage: Option[UMLPackage[Uml]] = ownedMemberOfNamespace.selectByKindOf { case p: UMLPackage[Uml] => p }  
+  def owningPackage: Option[UMLPackage[Uml]] = namespace.selectByKindOf { case p: UMLPackage[Uml] => p }  
   
   /**
    * Fig 7.5 (incomplete)
@@ -49,4 +49,10 @@ trait UMLPackageableElement[Uml <: UML] extends UMLNamedElement[Uml] {
    */
   def packageableElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     namedElement_forwardReferencesFromMetamodelAssociations
+
+  def packageableElement_compositeMetaProperties: MetaPropertyFunctions = 
+    namedElement_compositeMetaProperties
+    
+  def packageableElement_referenceMetaProperties: MetaPropertyFunctions = 
+    namedElement_referenceMetaProperties            
 }

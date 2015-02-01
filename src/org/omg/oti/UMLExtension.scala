@@ -41,9 +41,34 @@ package org.omg.oti
 
 trait UMLExtension[Uml <: UML] extends UMLAssociation[Uml] {
   
+  import ops._
+    
+  def metaclass: Option[UMLClass[Uml]] = (for { p <- (memberEnds.toSet -- ownedEnds.toSet).headOption } yield p.umlType.selectByKindOf { case c: UMLClass[Uml] => c }).flatten
+  
+  override def ownedEnds: Iterable[UMLExtensionEnd[Uml]] = {
+    val extensionOwnedEnds = this.asInstanceOf[UMLAssociation[Uml]].ownedEnds.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }
+    require( extensionOwnedEnds.size <= 1 )
+    extensionOwnedEnds
+  }
+  
   /**
    * Fig 12.12 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    super.forwardReferencesFromMetamodelAssociations
+    extension_forwardReferencesFromMetamodelAssociations
+    
+  def extension_forwardReferencesFromMetamodelAssociations =
+    association_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    extension_compositeMetaProperties
+    
+  def extension_compositeMetaProperties: MetaPropertyFunctions =
+    association_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    extension_referenceMetaProperties
+    
+  def extension_referenceMetaProperties: MetaPropertyFunctions =
+    association_referenceMetaProperties
 }

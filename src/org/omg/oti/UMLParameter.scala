@@ -48,4 +48,13 @@ trait UMLParameter[Uml <: UML] extends UMLConnectableElement[Uml] with UMLMultip
   override def forwardReferencesFromMetamodelAssociations =
     connectableElement_forwardReferencesFromMetamodelAssociations ++
     multiplicityElement_forwardReferencesFromMetamodelAssociations
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    connectableElement_compositeMetaProperties ++
+    multiplicityElement_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    connectableElement_referenceMetaProperties ++
+    multiplicityElement_referenceMetaProperties
+    
 }

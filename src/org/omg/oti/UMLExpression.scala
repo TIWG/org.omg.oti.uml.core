@@ -40,6 +40,11 @@
 package org.omg.oti
 
 trait UMLExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
+    
+  import ops._
+  
+  def symbol: Option[String]
+  def operands: Seq[UMLValueSpecification[Uml]]
   
   /**
    * Fig. 8.2 (complete)
@@ -47,4 +52,10 @@ trait UMLExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
   override def forwardReferencesFromMetamodelAssociations = 
     valueSpecification_forwardReferencesFromMetamodelAssociations
     
+  override def compositeMetaProperties: MetaPropertyFunctions = 
+    valueSpecification_compositeMetaProperties ++
+    Seq( MetaPropertyFunction[UMLExpression[Uml], UMLValueSpecification[Uml]]( "operand", _.operands ) )
+    
+  override def referenceMetaProperties: MetaPropertyFunctions = 
+    valueSpecification_referenceMetaProperties
 }

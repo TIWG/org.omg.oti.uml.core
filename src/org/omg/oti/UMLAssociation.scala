@@ -41,24 +41,45 @@ package org.omg.oti
 
 trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship[Uml] {
 
-  implicit val ops: UMLOps[Uml]
   import ops._
 
-  def isDerived: Boolean
-  def ownedEnds: Iterator[UMLProperty[Uml]]
-  def navigableOwnedEnds: Iterator[UMLProperty[Uml]]
-  def memberEnds: Iterator[UMLProperty[Uml]]
-  def endTypes: Iterator[UMLType[Uml]]
+  def isDerived: Option[Boolean]
   
+  def ownedEnds: Iterable[UMLProperty[Uml]]
+  def navigableOwnedEnds: Iterable[UMLProperty[Uml]]
+  def memberEnds: Iterable[UMLProperty[Uml]]
+  def endTypes: Iterable[UMLType[Uml]]
+
   /**
    * Fig 11.25 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    relationship_forwardReferencesFromMetamodelAssociations ++
-    classifier_forwardReferencesFromMetamodelAssociations ++
-    memberEnds
+    association_forwardReferencesFromMetamodelAssociations
     
-  def getDirectedAssociationEnds: Option[( UMLProperty[Uml], UMLProperty[Uml] )] = 
+  def association_forwardReferencesFromMetamodelAssociations =    
+    relationship_forwardReferencesFromMetamodelAssociations ++
+      classifier_forwardReferencesFromMetamodelAssociations ++
+      memberEnds
+
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    association_compositeMetaProperties
+    
+  def association_compositeMetaProperties: MetaPropertyFunctions =
+    classifier_compositeMetaProperties ++
+      relationship_compositeMetaProperties ++
+      Seq( MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "ownedEnd", _.ownedEnds ) )
+
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    association_referenceMetaProperties
+    
+  def association_referenceMetaProperties: MetaPropertyFunctions =
+    classifier_referenceMetaProperties ++
+      relationship_referenceMetaProperties ++
+      Seq(
+        MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "memberEnd", _.memberEnds ),
+        MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "navigableOwnedEnd", _.navigableOwnedEnds ) )
+
+  def getDirectedAssociationEnds: Option[( UMLProperty[Uml], UMLProperty[Uml] )] =
     memberEnds.toList match {
       case end1 :: end2 :: Nil =>
         ( end1.isLogicallyNavigable, end2.isLogicallyNavigable ) match {
@@ -68,7 +89,7 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
             ( end1.isSemanticallyNavigable, end2.isSemanticallyNavigable ) match {
               case ( true, false ) => Some( ( end2, end1 ) )
               case ( false, true ) => Some( ( end1, end2 ) )
-              case ( _, _ ) => None
+              case ( _, _ )        => None
             }
         }
       case _ => None

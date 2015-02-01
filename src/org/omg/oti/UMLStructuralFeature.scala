@@ -46,6 +46,16 @@ trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElem
    */
   def structuralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     feature_forwardReferencesFromMetamodelAssociations ++
-    typedElement_forwardReferencesFromMetamodelAssociations ++
-    multiplicityElement_forwardReferencesFromMetamodelAssociations
+    multiplicityElement_forwardReferencesFromMetamodelAssociations ++
+    typedElement_forwardReferencesFromMetamodelAssociations
+    
+  def structuralFeature_compositeMetaProperties: MetaPropertyFunctions =
+    feature_compositeMetaProperties ++
+    multiplicityElement_compositeMetaProperties ++
+    typedElement_compositeMetaProperties
+    
+  def structuralFeature_referenceMetaProperties: MetaPropertyFunctions =
+    feature_referenceMetaProperties ++
+    multiplicityElement_referenceMetaProperties ++
+    typedElement_referenceMetaProperties
 }

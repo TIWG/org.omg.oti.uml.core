@@ -39,12 +39,43 @@
  */
 package org.omg.oti
 
-trait UMLClass[Uml <: UML] extends UMLEncapsulatedClassifier[Uml] with UMLBehavioredClassifier[Uml] {
+trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsulatedClassifier[Uml] {
  
+  import ops._
+  
+  def isAbstract: Option[Boolean]
+  
+  def nestedClassifiers: Seq[UMLClassifier[Uml]]
+  def ownedAttributes: Seq[UMLProperty[Uml]]
+  def ownedOperations: Seq[UMLOperation[Uml]]
+  
+  def superClasses: Set[UMLClass[Uml]] = general.selectByKindOf { case c: UMLClass[Uml] => c }
+  
   /**
    * Fig 11.15 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    encapsulatedClassifier_forwardReferencesFromMetamodelAssociations ++
-    behavioredClassifier_forwardReferencesFromMetamodelAssociations
+    class_forwardReferencesFromMetamodelAssociations
+    
+  def class_forwardReferencesFromMetamodelAssociations =    
+    behavioredClassifier_forwardReferencesFromMetamodelAssociations ++
+    encapsulatedClassifier_forwardReferencesFromMetamodelAssociations    
+  
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    class_compositeMetaProperties
+    
+  def class_compositeMetaProperties: MetaPropertyFunctions =
+    behavioredClassifier_compositeMetaProperties ++
+    Seq(
+        MetaPropertyFunction[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
+        MetaPropertyFunction[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+        MetaPropertyFunction[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations )
+        )
+        
+   override def referenceMetaProperties: MetaPropertyFunctions =
+     class_referenceMetaProperties
+     
+   def class_referenceMetaProperties: MetaPropertyFunctions =
+     behavioredClassifier_referenceMetaProperties 
+     
 }

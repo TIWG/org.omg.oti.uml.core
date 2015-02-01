@@ -39,11 +39,23 @@
  */
 package org.omg.oti
 
+import scala.language.postfixOps
+
 trait UMLEncapsulatedClassifier[Uml <: UML] extends UMLStructuredClassifier[Uml] {  
+  
+  import ops._
+  
+  def ownedPorts: Set[UMLPort[Uml]] = ownedAttributes.selectByKindOf { case p: UMLPort[Uml] => p } toSet
   
   /**
    * Fig 11.10 (complete)
    */
   def encapsulatedClassifier_forwardReferencesFromMetamodelAssociations =
     structuredClassifier_forwardReferencesFromMetamodelAssociations
+    
+  def encapsulatedClassifier_compositeMetaProperties: MetaPropertyFunctions =
+    structuredClassifier_compositeMetaProperties
+    
+  def encapsulatedClassifier_referenceMetaProperties: MetaPropertyFunctions =
+    structuredClassifier_referenceMetaProperties
 }

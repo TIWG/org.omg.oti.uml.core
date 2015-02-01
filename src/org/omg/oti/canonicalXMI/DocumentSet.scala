@@ -95,30 +95,56 @@ case class DocumentSet[Uml <: UML](
     def empty() = factory[Document[Uml], DocumentEdge]()
   }
 
-  def externalReferenceDocumentGraph: mutable.Graph[Document[Uml], DocumentEdge] = {
+  case class UnresolvedElementCrossReference(
+    document: Document[Uml],
+    documentElement: UMLElement[Uml],
+    externalReference: UMLElement[Uml] )
+
+  /**
+   * Construct the graph of document (nodes) and cross-references among documents (edges) and determine unresolvable cross-references
+   * 
+   * @param ignoreCrossReferencedElementFilter A predicate determing whether to ignore a cross referenced element.
+   *   Unresolvable cross references in the result correspond to cross-referenced elements for which the predicate is false.
+   * @return a tuple of the graph of document-level cross references and the unresolved cross references
+   */
+  def externalReferenceDocumentGraph(
+    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): 
+    ( mutable.Graph[Document[Uml], DocumentEdge], Iterable[UnresolvedElementCrossReference] ) = {
 
     val element2document: Map[UMLElement[Uml], Document[Uml]] =
       ( serializableDocuments ++ builtInDocuments ) flatMap {
         d => d.extent map { e => ( e -> d ) }
       } toMap
 
-    val ic = new TConnected[mutable.Graph]( mutable.Graph )
-    val g = ic.empty()
-    
+    val mc = new TConnected[mutable.Graph]( mutable.Graph )
+    val ic = new TConnected[immutable.Graph]( immutable.Graph )
+    val g = mc.empty()
+
     // add each document as a node in the graph
     element2document.values foreach { d => g += d }
-      
-    // add document=>document edges
-    for {
+
+    val unresolved = for {
       ( e, d ) <- element2document
       eRef <- e.allForwardReferences
-      dRef <- element2document.get(eRef)
-      if ( d != dRef )
-    }{
-      g += DocumentEdge( d, dRef )
+    } yield element2document.get( eRef ) match {
+      case None =>
+        if ( ignoreCrossReferencedElementFilter( eRef ) ) {
+          System.out.println(" => skip")
+          None
+        }
+        else {
+          System.out.println(" => unresolved!")
+          Some( UnresolvedElementCrossReference( d, e, eRef ) )
+        }
+      case Some( dRef ) =>
+        if ( d != dRef ) {
+          // add cross-reference edge
+          g += DocumentEdge( d, dRef )
+        }
+        None
     }
-        
-    g
+    
+    ( g, unresolved.flatten )
   }
 
   def serialize: Try[Unit] = {

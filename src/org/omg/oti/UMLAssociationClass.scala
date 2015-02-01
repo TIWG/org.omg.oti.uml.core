@@ -39,11 +39,22 @@
  */
 package org.omg.oti
 
-trait UMLAssociationClass[Uml <: UML] extends UMLClass[Uml] with UMLAssociation[Uml] {
+trait UMLAssociationClass[Uml <: UML] extends UMLAssociation[Uml] with UMLClass[Uml] {
+  
+  import ops._
   
   /**
    * Fig 11.25 (complete)
    */
   override def forwardReferencesFromMetamodelAssociations =
-    super.forwardReferencesFromMetamodelAssociations
+   association_forwardReferencesFromMetamodelAssociations ++
+   class_forwardReferencesFromMetamodelAssociations
+    
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    association_compositeMetaProperties ++
+    class_compositeMetaProperties
+    
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    association_referenceMetaProperties ++
+    class_referenceMetaProperties
 }
