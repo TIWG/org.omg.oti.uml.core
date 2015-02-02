@@ -130,10 +130,8 @@ trait UMLElement[Uml <: UML] {
   
   case class MetaPropertyReference[U <: UMLElement[Uml], V <: UMLElement[Uml]](
     val propertyName: String,
-    val f: U => Option[V] ) 
+    val f: U => Option[V] )( implicit val u: ClassTag[U] )
    extends MetaPropertyFunction[U, V] {
-
-    implicit val utag: ClassTag[U] = classTag[U]
 
     def getReferenceFunction: Option[MetaPropertyReference[U, V]] = Some( this )
     def getCollectionFunction: Option[MetaPropertyCollection[U, V]] = None
@@ -144,15 +142,13 @@ trait UMLElement[Uml <: UML] {
         case _    => Failure( IllegalMetaPropertyEvaluation( e, this ) )
       }
 
-    override def toString: String = s"MetaPropertyReference(${propertyName} on ${utag.getClass.getName})"
+    override def toString: String = s"MetaPropertyReference(${propertyName} on ${u.getClass.getName})"
   }
 
   case class MetaPropertyCollection[U <: UMLElement[Uml], V <: UMLElement[Uml]](
     val propertyName: String,
-    val f: U => Iterable[V] ) 
+    val f: U => Iterable[V])( implicit val u: ClassTag[U] ) 
    extends MetaPropertyFunction[U, V] {
-
-    implicit val utag: ClassTag[U] = classTag[U]
 
     def getReferenceFunction: Option[MetaPropertyReference[U, V]] = None
     def getCollectionFunction: Option[MetaPropertyCollection[U, V]] = Some( this )
@@ -170,7 +166,7 @@ trait UMLElement[Uml <: UML] {
       }
     }
 
-    override def toString: String = s"MetaPropertyCollection(${propertyName} on ${utag.getClass.getName})"
+    override def toString: String = s"MetaPropertyCollection(${propertyName} on ${u.getClass.getName})"
   }
 
   type MetaPropertyEvaluator = MetaPropertyFunction[_ <: UMLElement[Uml], _ <: UMLElement[Uml]]
@@ -238,7 +234,19 @@ trait UMLElement[Uml <: UML] {
 
   def xmiID: Iterable[String] = Iterable( id )
   def xmiUUID: Iterable[String] = uuid.toIterable
-  def xmiType: Iterable[String] = mofMetaclass.name.toIterable
+  def xmiElementLabel: String = {
+    val label = for { 
+      n0 <- mofMetaclass.name
+      n1 = n0( 0 ).toLower + n0.drop( 1 )
+    } yield n1
+    label.head
+  }
+    
+  def xmiType: Iterable[String] = 
+    for { 
+      n0 <- mofMetaclass.name
+      n1 = "uml:" + n0
+    } yield n1
 
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
 

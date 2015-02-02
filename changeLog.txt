@@ -1,3 +1,37 @@
+Version 0.6.1: February 2, 2015
+
+- working reflective serializer
+
+Known problem: the composite & reference MetaProperties have duplicates
+
+UMLProperty:
+
+  def property_referenceMetaProperties: MetaPropertyFunctions =
+    connectableElement_referenceMetaProperties ++
+    structuralFeature_referenceMetaProperties ++ ...
+    
+UMLConnectableElement:
+
+  def connectableElement_referenceMetaProperties: MetaPropertyFunctions =
+    typedElement_referenceMetaProperties
+
+UMLStructuralFeature:
+
+  def structuralFeature_referenceMetaProperties: MetaPropertyFunctions =
+    feature_referenceMetaProperties ++
+      multiplicityElement_referenceMetaProperties ++
+      typedElement_referenceMetaProperties    
+
+This results in duplicates in the serialization, e.g.:
+    
+</association>
+    <dataType xmi:id="_QUDV_-Rational" xmi:uuid="4e8b9de6-4171-4b2f-899f-5d04bda414fe" xmi:type="uml:DataType" name="Rational">
+      <property xmi:id="_QUDV_-Rational-numerator" xmi:uuid="c5132f22-3167-49a7-83eb-16d58020e1ab" xmi:type="uml:Property" name="numerator" isOrdered="false" isUnique="true">
+        <type href="http://www.omg.org/spec/SysML/20150301/SysML#_SysML_-Libraries-PrimitiveValueTypes-Integer"></type>
+        <type href="http://www.omg.org/spec/SysML/20150301/SysML#_SysML_-Libraries-PrimitiveValueTypes-Integer"></type>
+      </property>
+      ...
+          
 Version 0.6.0: February 1, 2015
 
 - reflective serializer (DocumentSet)

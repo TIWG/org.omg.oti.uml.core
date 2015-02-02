@@ -244,9 +244,13 @@ case class DocumentSet[Uml <: UML](
             case Failure( t )    => Failure( t )
             case Success( None ) => Success( n )
             case Success( Some( eRef ) ) =>
-              val dRef = element2document( eRef )
-              if ( d != dRef ) Success( n )
-              else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
+              element2document.get( eRef ) match {
+                case None =>
+                  Success( n )
+                case Some( dRef ) =>
+                  if ( d != dRef ) Success( n )
+                  else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
+              }
           }
       }
 
@@ -258,13 +262,16 @@ case class DocumentSet[Uml <: UML](
             case Failure( t )    => Failure( t )
             case Success( None ) => Success( ns )
             case Success( Some( eRef ) ) =>
-              val dRef = element2document( eRef )
-              if ( d == dRef )
-                Success( ns )
-              else {
-                val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
-                val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = false )
-                Success( ns :+ hrefNode )
+              element2document.get( eRef ) match {
+                case None =>
+                  Success( ns )
+                case Some( dRef ) =>
+                  if ( d == dRef ) Success( ns )
+                  else {
+                    val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                    val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = false )
+                    Success( ns :+ hrefNode )
+                  }
               }
           }
       }
@@ -303,22 +310,22 @@ case class DocumentSet[Uml <: UML](
           case Success( xmlAttributesAndLocalReferences ) =>
             val xRef0: Try[Seq[Node]] = Success( Seq() )
             val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
-            val xRefsAndSubs = ( xRefs /: subEvaluators ) ( foldSubNode _ )
-            
+            val xRefsAndSubs = ( xRefs /: subEvaluators )( foldSubNode _ )
+
             xRefsAndSubs match {
-              case Failure( t ) => 
+              case Failure( t ) =>
                 Failure( t )
-                
+
               case Success( nodes ) =>
-                val node = Elem( 
-                    prefix = prefix, 
-                    label = e.xmiType.head, 
-                    attributes = xmlAttributesAndLocalReferences, 
-                    scope = xmiScopes, 
-                    minimizeEmpty = false, 
-                    nodes: _* )
+                val node = Elem(
+                  prefix = prefix,
+                  label = e.xmiElementLabel,
+                  attributes = xmlAttributesAndLocalReferences,
+                  scope = xmiScopes,
+                  minimizeEmpty = false,
+                  nodes: _* )
                 Success( node )
-            }            
+            }
         }
     }
   }
