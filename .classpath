@@ -10,8 +10,9 @@
 	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/lift-json_2.11-2.6-M4.jar"/>
 	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/paranamer-2.4.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-parser-combinators_2.11-1.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-xml_2.11-1.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-xml_2.11-1.0.2.jar" sourcepath="graphLibs/target/pack/lib.srcs/scala-xml_2.11-1.0.2-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scalap-2.11.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="resolverLibs/target/pack/lib/xml-resolver-1.2.jar"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_COMPILER_CONTAINER"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>

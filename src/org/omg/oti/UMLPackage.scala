@@ -62,7 +62,7 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
   def package_metaAttributes: MetaAttributeFunctions =
     namespace_metaAttributes ++
       packageableElement_metaAttributes ++
-      Seq( MetaAttributeStringFunction[UMLPackage[Uml]]( "URI", _.URI ) )
+      Seq( MetaAttributeStringFunction[UMLPackage[Uml]]( None, "URI", _.URI ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     package_forwardReferencesFromMetamodelAssociations
@@ -78,9 +78,9 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
     namespace_compositeMetaProperties ++
       packageableElement_compositeMetaProperties ++
       Seq(
-        MetaPropertyFunction[UMLPackage[Uml], UMLPackageableElement[Uml]]( "packagedElement", _.packagedElements ),
-        MetaPropertyFunction[UMLPackage[Uml], UMLPackageMerge[Uml]]( "packageMerge", _.packageMerges ),
-        MetaPropertyFunction[UMLPackage[Uml], UMLProfileApplication[Uml]]( "profileApplication", _.profileApplications ) )
+        MetaPropertyCollection[UMLPackage[Uml], UMLPackageableElement[Uml]]( "packagedElement", _.packagedElements ),
+        MetaPropertyCollection[UMLPackage[Uml], UMLPackageMerge[Uml]]( "packageMerge", _.packageMerges ),
+        MetaPropertyCollection[UMLPackage[Uml], UMLProfileApplication[Uml]]( "profileApplication", _.profileApplications ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     package_referenceMetaProperties

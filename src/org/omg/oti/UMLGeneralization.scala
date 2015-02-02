@@ -57,7 +57,7 @@ trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
 
   def generalization_metaAttributes: MetaAttributeFunctions =
     directedRelationship_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLGeneralization[Uml]]( "isSubstitutable", (g) => booleanToIterable(g.isSubstitutable, true ) ) )
+      Seq( MetaAttributeBooleanFunction[UMLGeneralization[Uml]]( None, "isSubstitutable", (g) => booleanToIterable(g.isSubstitutable, true ) ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     directedRelationship_forwardReferencesFromMetamodelAssociations ++
@@ -68,5 +68,5 @@ trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     directedRelationship_compositeMetaProperties ++
-      Seq( MetaPropertyFunction[UMLGeneralization[Uml], UMLClassifier[Uml]]( "general", _.general ) )
+      Seq( MetaPropertyCollection[UMLGeneralization[Uml], UMLClassifier[Uml]]( "general", _.general ) )
 }

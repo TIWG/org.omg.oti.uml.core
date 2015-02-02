@@ -64,7 +64,7 @@ trait UMLStereotype[Uml <: UML] extends UMLClass[Uml] {
    
   def stereotype_compositeMetaProperties =
     class_compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLStereotype[Uml], UMLImage[Uml]]( "icon", _.icons ) )
+    Seq( MetaPropertyCollection[UMLStereotype[Uml], UMLImage[Uml]]( "icon", _.icons ) )
     
   override def referenceMetaProperties: MetaPropertyFunctions =
     stereotype_referenceMetaProperties

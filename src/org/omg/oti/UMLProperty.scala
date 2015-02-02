@@ -80,9 +80,9 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     connectableElement_metaAttributes ++
     structuralFeature_metaAttributes ++
     Seq(
-        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isDerived", (p) => booleanToIterable(p.isDerived, false) ),
-        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isDerivedUnion", (p) => booleanToIterable(p.isUnion, false) ),
-        MetaAttributeBooleanFunction[UMLProperty[Uml]]( "isID", (p) => booleanToIterable(p.isID, false) ) )
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( None, "isDerived", (p) => booleanToIterable(p.isDerived, false) ),
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( None, "isDerivedUnion", (p) => booleanToIterable(p.isUnion, false) ),
+        MetaAttributeBooleanFunction[UMLProperty[Uml]]( None, "isID", (p) => booleanToIterable(p.isID, false) ) )
                 
   override def forwardReferencesFromMetamodelAssociations =
     property_forwardReferencesFromMetamodelAssociations
@@ -101,7 +101,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     connectableElement_compositeMetaProperties ++
     structuralFeature_compositeMetaProperties ++
     Seq(
-        MetaPropertyFunction[UMLProperty[Uml], UMLValueSpecification[Uml]]( "defaultValue", _.defaultValue )
+        MetaPropertyCollection[UMLProperty[Uml], UMLValueSpecification[Uml]]( "defaultValue", _.defaultValue )
         )
     
   override def referenceMetaProperties: MetaPropertyFunctions =
@@ -111,9 +111,9 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     connectableElement_referenceMetaProperties ++
     structuralFeature_referenceMetaProperties ++
     Seq(
-        MetaPropertyFunction[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association_memberEnd ),
-        MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "redefinedProperty", _.redefinedProperties ),
-        MetaPropertyFunction[UMLProperty[Uml], UMLProperty[Uml]]( "subsettedProperty", _.subsettedProperties )
+        MetaPropertyReference[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association_memberEnd ),
+        MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]( "redefinedProperty", _.redefinedProperties ),
+        MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]( "subsettedProperty", _.subsettedProperties )
         )
     
   def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   

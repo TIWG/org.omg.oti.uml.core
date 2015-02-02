@@ -56,7 +56,7 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
   
   def comment_metaAttributes: MetaAttributeFunctions =
     element_metaAttributes ++
-    Seq( MetaAttributeStringFunction[UMLComment[Uml]]( "body", _.body ) )
+    Seq( MetaAttributeStringFunction[UMLComment[Uml]]( None, "body", _.body ) )
     
   override def forwardReferencesFromMetamodelAssociations = 
     element_forwardReferencesFromMetamodelAssociations ++
@@ -67,7 +67,7 @@ trait UMLComment[Uml <: UML] extends UMLElement[Uml] {
     
   override def referenceMetaProperties = 
     element_referenceMetaProperties ++ 
-    Seq( MetaPropertyFunction[UMLComment[Uml], UMLElement[Uml]]( "annotatedElement", _.annotatedElements ) )
+    Seq( MetaPropertyCollection[UMLComment[Uml], UMLElement[Uml]]( "annotatedElement", _.annotatedElements ) )
     
   // [/protected]
     

@@ -1,3 +1,7 @@
+Version 0.6.0: February 1, 2015
+
+- reflective serializer (DocumentSet)
+
 Version 0.5.2: January 31, 2015
 
 - meta attributes

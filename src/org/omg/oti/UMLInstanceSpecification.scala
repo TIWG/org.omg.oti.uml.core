@@ -64,11 +64,11 @@ trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
   override def compositeMetaProperties: MetaPropertyFunctions =
     packageableElement_compositeMetaProperties ++
     Seq(
-        MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLSlot[Uml]]( "slot", _.slots ),        
-        MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]]( "specification", _.specification )
+        MetaPropertyCollection[UMLInstanceSpecification[Uml], UMLSlot[Uml]]( "slot", _.slots ),        
+        MetaPropertyCollection[UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]]( "specification", _.specification )
         )
         
   override def referenceMetaProperties: MetaPropertyFunctions =
     packageableElement_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLInstanceSpecification[Uml], UMLClassifier[Uml]]( "classifier", _.classifiers ) )
+    Seq( MetaPropertyCollection[UMLInstanceSpecification[Uml], UMLClassifier[Uml]]( "classifier", _.classifiers ) )
 }

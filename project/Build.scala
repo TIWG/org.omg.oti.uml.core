@@ -9,6 +9,8 @@ object OTICore extends Build {
   object Versions {
     val scala = "2.11.4"
     
+    val xmlResolver = "1.2"
+    
     val emf_ecore = "2.10.1"
     
     val graph_core = "1.9.1"
@@ -17,6 +19,17 @@ object OTICore extends Build {
     val graph_json = "1.9.2"
   }
     
+
+  lazy val resolverLibs = Project(
+    "resolverLibs",
+    file( "resolverLibs" ),
+    settings = Defaults.coreDefaultSettings ++ Defaults.runnerSettings ++ Defaults.baseTasks ++ packSettings ++ Seq(
+      scalaVersion := Versions.scala,
+      packExpandedClasspath := true,
+      libraryDependencies ++= Seq(
+        "xml-resolver" % "xml-resolver" % Versions.xmlResolver withSources () ),
+      ( mappings in pack ) := { extraPackFun.value } ) )
+
   lazy val emfLibs = Project(
       "emfLibs",
       file( "emfLibs" ),      
@@ -58,7 +71,7 @@ object OTICore extends Build {
         scalaSource in Compile := baseDirectory.value / "src",
         shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Project.extract(state).get( GitKeys.gitCurrentBranch ) + "> " }
       )
-    ) dependsOn ( emfLibs, graphLibs )
+    ) dependsOn ( resolverLibs, emfLibs, graphLibs )
           
   val extraPackFun: Def.Initialize[Task[Seq[( File, String )]]] = Def.task[Seq[( File, String )]] {
     def getFileIfExists( f: File, where: String ): Option[( File, String )] = if ( f.exists() ) Some( ( f, s"${where}/${f.getName()}" ) ) else None

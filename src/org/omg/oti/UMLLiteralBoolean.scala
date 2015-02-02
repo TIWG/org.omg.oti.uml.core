@@ -47,6 +47,6 @@ trait UMLLiteralBoolean[Uml <: UML] extends UMLLiteralSpecification[Uml] {
 
   override def metaAttributes: MetaAttributeFunctions =
     literalSpecification_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLLiteralBoolean[Uml]]( "value", (l) => booleanToIterable(l.value, false) ) )
+      Seq( MetaAttributeBooleanFunction[UMLLiteralBoolean[Uml]]( None, "value", (l) => booleanToIterable(l.value, false) ) )
 
 }

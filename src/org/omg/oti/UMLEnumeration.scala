@@ -51,7 +51,7 @@ trait UMLEnumeration[Uml <: UML] extends UMLDataType[Uml] {
 
   override def compositeMetaProperties: MetaPropertyFunctions =
     super.compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]( "ownedLiteral", _.ownedLiterals ) )
+    Seq( MetaPropertyCollection[UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]( "ownedLiteral", _.ownedLiterals ) )
         
   override def referenceMetaProperties: MetaPropertyFunctions =
     super.referenceMetaProperties 

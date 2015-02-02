@@ -50,7 +50,7 @@ trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElem
     feature_metaAttributes ++
       multiplicityElement_metaAttributes ++
       typedElement_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLStructuralFeature[Uml]]( "isReadOnly", (sf) => booleanToIterable(sf.isReadOnly, false) ) )
+      Seq( MetaAttributeBooleanFunction[UMLStructuralFeature[Uml]]( None, "isReadOnly", (sf) => booleanToIterable(sf.isReadOnly, false) ) )
 
   def structuralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     feature_forwardReferencesFromMetamodelAssociations ++

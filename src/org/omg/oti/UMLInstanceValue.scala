@@ -70,6 +70,6 @@ trait UMLInstanceValue[Uml <: UML] extends UMLValueSpecification[Uml] {
     
   def instanceValue_referenceMetaProperties =
     valueSpecification_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]( "instance", _.instance ) )
+    Seq( MetaPropertyReference[UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]( "instance", _.instance ) )
   
 }

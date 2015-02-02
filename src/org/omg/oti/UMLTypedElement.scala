@@ -60,6 +60,6 @@ trait UMLTypedElement[Uml <: UML] extends UMLNamedElement[Uml] {
     
   def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
     namedElement_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLTypedElement[Uml], UMLType[Uml]]( "type", _._type ) )
+    Seq( MetaPropertyReference[UMLTypedElement[Uml], UMLType[Uml]]( "type", _._type ) )
 
 }

@@ -44,14 +44,12 @@ import scala.language.implicitConversions
 import scala.language.postfixOps
 import scala.reflect.runtime.universe
 import scala.reflect.runtime.universe._
-
 import org.omg.oti._
 import scala.util.Try
-import org.omg.oti.UML
+import scala.util.Failure
 import scala.util.Success
 import scalax.collection.config.CoreConfig
 import scalax.collection.mutable.ArraySet.Hints
-
 import scalax.collection.GraphEdge._
 import scalax.collection.GraphPredef._
 import scalax.collection.constrained._
@@ -62,10 +60,14 @@ import scalax.collection.io.edge.CEdgeParameters
 import scalax.collection.io.json.Descriptor
 import scalax.collection.io.json.descriptor.CEdgeDescriptor
 import scalax.collection.io.json.descriptor.NodeDescriptor
+import java.io.FileWriter
+import java.io.BufferedWriter
+import java.io.PrintWriter
 
 case class DocumentSet[Uml <: UML](
   val serializableDocuments: Set[SerializableDocument[Uml]],
-  val builtInDocuments: Set[BuiltInDocument[Uml]] )( implicit val ops: UMLOps[Uml] ) {
+  val builtInDocuments: Set[BuiltInDocument[Uml]],
+  val catalogURIMapper: CatalogURIMapper )( implicit val ops: UMLOps[Uml] ) {
 
   implicit val myConfig = CoreConfig( orderHint = 5000, Hints( 64, 0, 64, 75 ) )
 
@@ -102,14 +104,16 @@ case class DocumentSet[Uml <: UML](
 
   /**
    * Construct the graph of document (nodes) and cross-references among documents (edges) and determine unresolvable cross-references
-   * 
+   *
    * @param ignoreCrossReferencedElementFilter A predicate determing whether to ignore a cross referenced element.
    *   Unresolvable cross references in the result correspond to cross-referenced elements for which the predicate is false.
-   * @return a tuple of the graph of document-level cross references and the unresolved cross references
+   * @return a 3-tuple:
+   * - the graph of document-level cross references
+   * - the map of elements to theirs serialization document
+   * - the unresolved cross references
    */
   def externalReferenceDocumentGraph(
-    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): 
-    ( mutable.Graph[Document[Uml], DocumentEdge], Iterable[UnresolvedElementCrossReference] ) = {
+    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): ( mutable.Graph[Document[Uml], DocumentEdge], Map[UMLElement[Uml], Document[Uml]], Iterable[UnresolvedElementCrossReference] ) = {
 
     val element2document: Map[UMLElement[Uml], Document[Uml]] =
       ( serializableDocuments ++ builtInDocuments ) flatMap {
@@ -129,11 +133,11 @@ case class DocumentSet[Uml <: UML](
     } yield element2document.get( eRef ) match {
       case None =>
         if ( ignoreCrossReferencedElementFilter( eRef ) ) {
-          System.out.println(" => skip")
+          System.out.println( " => skip" )
           None
         }
         else {
-          System.out.println(" => unresolved!")
+          System.out.println( " => unresolved!" )
           Some( UnresolvedElementCrossReference( d, e, eRef ) )
         }
       case Some( dRef ) =>
@@ -143,13 +147,189 @@ case class DocumentSet[Uml <: UML](
         }
         None
     }
-    
-    ( g, unresolved.flatten )
+
+    ( g, element2document, unresolved.flatten )
   }
 
-  def serialize: Try[Unit] = {
+  def serialize(
+    g: mutable.Graph[Document[Uml], DocumentEdge],
+    element2document: Map[UMLElement[Uml], Document[Uml]] ): Try[Unit] = {
+
+    g.nodes foreach {
+      _.value match {
+        case _: BuiltInDocument[Uml] => ()
+        case d: SerializableDocument[Uml] =>
+          serialize( g, element2document, d ) match {
+            case Failure( t ) => return Failure( t )
+            case Success( _ ) => ()
+          }
+      }
+    }
 
     Success( Unit )
   }
+
+  def serialize(
+    g: mutable.Graph[Document[Uml], DocumentEdge],
+    element2document: Map[UMLElement[Uml], Document[Uml]],
+    d: SerializableDocument[Uml] ): Try[Unit] =
+    catalogURIMapper.resolveURI( d.uri, catalogURIMapper.saveResolutionStrategy ) match {
+      case Failure( t ) => Failure( t )
+      case Success( uri ) =>
+        import scala.xml._
+        import DocumentSet._
+
+        val xmiScopes =
+          NamespaceBinding( "xmi", XMI_ns,
+            NamespaceBinding( "xsi", XSI_ns,
+              NamespaceBinding( "uml", UML_ns, null ) ) )
+
+        generateNodeElement( g, element2document, d, "uml", d.scope, xmiScopes ) match {
+          case Failure( t ) => return Failure( t )
+          case Success( top ) =>
+
+            val xmi = Elem( prefix = "xmi", label = "XMI", attributes = Null, scope = xmiScopes, minimizeEmpty = false, top )
+            val dir = ( new java.io.File( uri ) ).getParentFile
+            dir.mkdirs()
+
+            val filepath = uri.getPath + ".xmi"
+            val xmlFile = new java.io.File( filepath )
+
+            val xmlPrettyPrinter = new PrettyPrinter( width = 200, step = 2 )
+            val xmlOutput = xmlPrettyPrinter.format( xmi )
+
+            val bw = new PrintWriter( new FileWriter( xmlFile ) )
+            bw.println( "<?xml version='1.0' encoding='UTF-8'?>" )
+            bw.println( xmlOutput )
+            bw.close()
+
+            Success( Unit )
+        }
+    }
+
+  def generateNodeElement(
+    g: mutable.Graph[Document[Uml], DocumentEdge],
+    element2document: Map[UMLElement[Uml], Document[Uml]],
+    d: SerializableDocument[Uml],
+    prefix: String,
+    e: UMLElement[Uml],
+    xmiScopes: scala.xml.NamespaceBinding ): Try[scala.xml.Node] = {
+
+    import scala.xml._
+
+    def foldAttribute( next: Try[MetaData], f: e.MetaAttributeFunction ): Try[MetaData] =
+      next match {
+        case Failure( t ) =>
+          Failure( t )
+        case Success( n ) =>
+          for { fValue <- f.evaluate( e ) }
+            yield fValue match {
+            case None =>
+              n
+            case Some( v ) =>
+              f.attributePrefix match {
+                case None =>
+                  new UnprefixedAttribute( key = f.attributeName, value = v, n )
+                case Some( aPrefix ) =>
+                  new PrefixedAttribute( pre = aPrefix, key = f.attributeName, value = v, n )
+              }
+          }
+      }
+
+    def foldLocalReference( next: Try[MetaData], f: e.MetaReferenceEvaluator ): Try[MetaData] =
+      next match {
+        case Failure( t ) => Failure( t )
+        case Success( n ) =>
+          f.evaluate( e ) match {
+            case Failure( t )    => Failure( t )
+            case Success( None ) => Success( n )
+            case Success( Some( eRef ) ) =>
+              val dRef = element2document( eRef )
+              if ( d != dRef ) Success( n )
+              else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
+          }
+      }
+
+    def foldCrossReference( nodes: Try[Seq[Node]], f: e.MetaReferenceEvaluator ): Try[Seq[Node]] =
+      nodes match {
+        case Failure( t ) => Failure( t )
+        case Success( ns ) =>
+          f.evaluate( e ) match {
+            case Failure( t )    => Failure( t )
+            case Success( None ) => Success( ns )
+            case Success( Some( eRef ) ) =>
+              val dRef = element2document( eRef )
+              if ( d == dRef )
+                Success( ns )
+              else {
+                val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = false )
+                Success( ns :+ hrefNode )
+              }
+          }
+      }
+
+    def foldSubNode( nodes: Try[Seq[Node]], f: e.MetaCollectionEvaluator ): Try[Seq[Node]] =
+      nodes match {
+        case Failure( t ) => Failure( t )
+        case Success( ns ) =>
+          f.evaluate( e ) match {
+            case Failure( t )   => Failure( t )
+            case Success( Nil ) => Success( ns )
+            case Success( subs ) =>
+              val subNodes = for { sub <- subs }
+                yield generateNodeElement( g, element2document, d, null, sub, xmiScopes ) match {
+                case Failure( t ) => return Failure( t )
+                case Success( n ) => n
+              }
+              Success( ns ++ subNodes )
+          }
+      }
+
+    val last: Try[MetaData] = Success( Null )
+    ( last /: e.metaAttributes.reverse )( foldAttribute _ ) match {
+      case Failure( t ) =>
+        Failure( t )
+
+      case Success( xmlAttributes ) =>
+        val refEvaluators: Seq[e.MetaReferenceEvaluator] = e.referenceMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getReferenceFunction }
+        val subEvaluators: Seq[e.MetaCollectionEvaluator] = e.compositeMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getCollectionFunction }
+
+        val prevAttributes: Try[MetaData] = Success( xmlAttributes )
+        ( prevAttributes /: refEvaluators )( foldLocalReference _ ) match {
+          case Failure( t ) =>
+            Failure( t )
+
+          case Success( xmlAttributesAndLocalReferences ) =>
+            val xRef0: Try[Seq[Node]] = Success( Seq() )
+            val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
+            val xRefsAndSubs = ( xRefs /: subEvaluators ) ( foldSubNode _ )
+            
+            xRefsAndSubs match {
+              case Failure( t ) => 
+                Failure( t )
+                
+              case Success( nodes ) =>
+                val node = Elem( 
+                    prefix = prefix, 
+                    label = e.xmiType.head, 
+                    attributes = xmlAttributesAndLocalReferences, 
+                    scope = xmiScopes, 
+                    minimizeEmpty = false, 
+                    nodes: _* )
+                Success( node )
+            }            
+        }
+    }
+  }
 }
 
+object DocumentSet {
+
+  val XMI_Version = "20131001"
+
+  val XMI_ns = "http://www.omg.org/spec/XMI/20131001"
+  val XSI_ns = "http://www.w3.org/2001/XMLSchema-instance"
+  val UML_ns = "http://www.omg.org/spec/UML/20131001"
+
+}

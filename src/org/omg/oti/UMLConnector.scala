@@ -67,7 +67,7 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   override def compositeMetaProperties: MetaPropertyFunctions =
     feature_compositeMetaProperties ++
     Seq(
-      MetaPropertyFunction[UMLConnector[Uml], UMLConnectorEnd[Uml]]( "end", _.ends ) )
+      MetaPropertyCollection[UMLConnector[Uml], UMLConnectorEnd[Uml]]( "end", _.ends ) )
    
   /**
    * (incomplete)
@@ -76,8 +76,8 @@ trait UMLConnector[Uml <: UML] extends UMLFeature[Uml] {
   override def referenceMetaProperties: MetaPropertyFunctions =
     feature_referenceMetaProperties ++
     Seq(
-      MetaPropertyFunction[UMLConnector[Uml], UMLConnector[Uml]]( "redefinedConnector", _.redefinedConnectors ),   
-      MetaPropertyFunction[UMLConnector[Uml], UMLType[Uml]]( "type", _._type )  
+      MetaPropertyCollection[UMLConnector[Uml], UMLConnector[Uml]]( "redefinedConnector", _.redefinedConnectors ),   
+      MetaPropertyReference[UMLConnector[Uml], UMLType[Uml]]( "type", _._type )  
     )
     
 }

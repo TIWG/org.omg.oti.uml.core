@@ -55,8 +55,8 @@ trait UMLMultiplicityElement[Uml <: UML] extends UMLElement[Uml] {
   def multiplicityElement_metaAttributes: MetaAttributeFunctions =
     element_metaAttributes ++
     Seq( 
-      MetaAttributeBooleanFunction[UMLMultiplicityElement[Uml]]( "isOrdered", (x) => Iterable(x.isOrdered) ), 
-      MetaAttributeBooleanFunction[UMLMultiplicityElement[Uml]]( "isUnique", (x) => Iterable(x.isUnique) ) ) 
+      MetaAttributeBooleanFunction[UMLMultiplicityElement[Uml]]( None, "isOrdered", (x) => Iterable(x.isOrdered) ), 
+      MetaAttributeBooleanFunction[UMLMultiplicityElement[Uml]]( None, "isUnique", (x) => Iterable(x.isUnique) ) ) 
     
   def multiplicityElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = 
     element_forwardReferencesFromMetamodelAssociations

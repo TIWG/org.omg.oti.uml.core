@@ -62,14 +62,14 @@ trait UMLNamedElement[Uml <: UML] extends UMLElement[Uml] {
    */
   def namedElement_metaAttributes: MetaAttributeFunctions =
     element_metaAttributes ++
-    Seq( MetaAttributeStringFunction[UMLNamedElement[Uml]]( "name", _.name) )
+    Seq( MetaAttributeStringFunction[UMLNamedElement[Uml]]( None, "name", _.name) )
     
   def namedElement_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     element_forwardReferencesFromMetamodelAssociations
 
   def namedElement_compositeMetaProperties: MetaPropertyFunctions = 
     element_compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLNamedElement[Uml], UMLStringExpression[Uml]]( "nameExpression", _.nameExpression ) )
+    Seq( MetaPropertyCollection[UMLNamedElement[Uml], UMLStringExpression[Uml]]( "nameExpression", _.nameExpression ) )
     
   def namedElement_referenceMetaProperties: MetaPropertyFunctions = 
     element_referenceMetaProperties    

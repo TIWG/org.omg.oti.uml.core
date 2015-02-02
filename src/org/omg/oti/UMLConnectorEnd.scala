@@ -59,7 +59,7 @@ trait UMLConnectorEnd[Uml <: UML] extends UMLMultiplicityElement[Uml] {
    
   override def compositeMetaProperties: MetaPropertyFunctions =
     multiplicityElement_compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLConnectorEnd[Uml], UMLConnectableElement[Uml]]( "role", _.role ) )
+    Seq( MetaPropertyReference[UMLConnectorEnd[Uml], UMLConnectableElement[Uml]]( "role", _.role ) )
    
   override def referenceMetaProperties: MetaPropertyFunctions =
     multiplicityElement_referenceMetaProperties

@@ -56,9 +56,9 @@ trait UMLImage[Uml <: UML] extends UMLElement[Uml] {
   def image_metaAttributes: MetaAttributeFunctions =
     element_metaAttributes ++
       Seq( 
-          MetaAttributeStringFunction[UMLImage[Uml]]( "content", _.content ),
-          MetaAttributeStringFunction[UMLImage[Uml]]( "format", _.format ),
-          MetaAttributeStringFunction[UMLImage[Uml]]( "location", _.location ) )
+          MetaAttributeStringFunction[UMLImage[Uml]]( None, "content", _.content ),
+          MetaAttributeStringFunction[UMLImage[Uml]]( None, "format", _.format ),
+          MetaAttributeStringFunction[UMLImage[Uml]]( None, "location", _.location ) )
       
   override def forwardReferencesFromMetamodelAssociations =
     image_forwardReferencesFromMetamodelAssociations

@@ -61,9 +61,9 @@ trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
   def port_metaAttributes: MetaAttributeFunctions =
     property_metaAttributes ++
       Seq(
-        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isBehavior", ( o ) => booleanToIterable( o.isBehavior, false ) ),
-        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isConjugated", ( o ) => booleanToIterable( o.isConjugated, false ) ),
-        MetaAttributeBooleanFunction[UMLPort[Uml]]( "isService", ( o ) => booleanToIterable( o.isService, false ) ) )
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( None, "isBehavior", ( o ) => booleanToIterable( o.isBehavior, false ) ),
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( None, "isConjugated", ( o ) => booleanToIterable( o.isConjugated, false ) ),
+        MetaAttributeBooleanFunction[UMLPort[Uml]]( None, "isService", ( o ) => booleanToIterable( o.isService, false ) ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     super.forwardReferencesFromMetamodelAssociations ++
@@ -74,5 +74,5 @@ trait UMLPort[Uml <: UML] extends UMLProperty[Uml] {
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     super.referenceMetaProperties ++
-      Seq( MetaPropertyFunction[UMLPort[Uml], UMLPort[Uml]]( "redefinedPort", _.redefinedPorts ) )
+      Seq( MetaPropertyCollection[UMLPort[Uml], UMLPort[Uml]]( "redefinedPort", _.redefinedPorts ) )
 }

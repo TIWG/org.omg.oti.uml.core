@@ -54,14 +54,14 @@ trait UMLExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
     
   def expression_metaAttributes: MetaAttributeFunctions =
     valueSpecification_metaAttributes ++
-      Seq( MetaAttributeStringFunction[UMLExpression[Uml]]( "symbol", _.symbol ) )
+      Seq( MetaAttributeStringFunction[UMLExpression[Uml]]( None, "symbol", _.symbol ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     valueSpecification_forwardReferencesFromMetamodelAssociations
 
   override def compositeMetaProperties: MetaPropertyFunctions =
     valueSpecification_compositeMetaProperties ++
-      Seq( MetaPropertyFunction[UMLExpression[Uml], UMLValueSpecification[Uml]]( "operand", _.operands ) )
+      Seq( MetaPropertyCollection[UMLExpression[Uml], UMLValueSpecification[Uml]]( "operand", _.operands ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     valueSpecification_referenceMetaProperties

@@ -64,9 +64,9 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
   def namespace_compositeMetaProperties: MetaPropertyFunctions =
     namedElement_compositeMetaProperties ++
       Seq(
-        MetaPropertyFunction[UMLNamespace[Uml], UMLElementImport[Uml]]( "elementImport", _.elementImports ),
-        MetaPropertyFunction[UMLNamespace[Uml], UMLConstraint[Uml]]( "ownedRule", _.ownedRules ),
-        MetaPropertyFunction[UMLNamespace[Uml], UMLPackageImport[Uml]]( "packageImport", _.packageImports ) )
+        MetaPropertyCollection[UMLNamespace[Uml], UMLElementImport[Uml]]( "elementImport", _.elementImports ),
+        MetaPropertyCollection[UMLNamespace[Uml], UMLConstraint[Uml]]( "ownedRule", _.ownedRules ),
+        MetaPropertyCollection[UMLNamespace[Uml], UMLPackageImport[Uml]]( "packageImport", _.packageImports ) )
 
   def namespace_referenceMetaProperties: MetaPropertyFunctions =
     namedElement_referenceMetaProperties

@@ -47,6 +47,6 @@ trait UMLLiteralString[Uml <: UML] extends UMLLiteralSpecification[Uml] {
 
   override def metaAttributes: MetaAttributeFunctions =
     literalSpecification_metaAttributes ++
-      Seq( MetaAttributeStringFunction[UMLLiteralString[Uml]]( "value", _.value ) )
+      Seq( MetaAttributeStringFunction[UMLLiteralString[Uml]]( None, "value", _.value ) )
 
 }

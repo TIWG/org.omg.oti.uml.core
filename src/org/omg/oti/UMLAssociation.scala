@@ -59,7 +59,7 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
   def association_metaAttributes: MetaAttributeFunctions =
     classifier_metaAttributes ++
     relationship_metaAttributes ++
-    Seq( MetaAttributeBooleanFunction[UMLAssociation[Uml]]( "isDerived", (p) => booleanToIterable(p.isDerived, false) ) )
+    Seq( MetaAttributeBooleanFunction[UMLAssociation[Uml]]( None, "isDerived", (p) => booleanToIterable(p.isDerived, false) ) )
         
   override def forwardReferencesFromMetamodelAssociations =
     association_forwardReferencesFromMetamodelAssociations
@@ -75,7 +75,7 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
   def association_compositeMetaProperties: MetaPropertyFunctions =
     classifier_compositeMetaProperties ++
       relationship_compositeMetaProperties ++
-      Seq( MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "ownedEnd", _.ownedEnds ) )
+      Seq( MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]( "ownedEnd", _.ownedEnds ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     association_referenceMetaProperties
@@ -84,8 +84,8 @@ trait UMLAssociation[Uml <: UML] extends UMLClassifier[Uml] with UMLRelationship
     classifier_referenceMetaProperties ++
       relationship_referenceMetaProperties ++
       Seq(
-        MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "memberEnd", _.memberEnds ),
-        MetaPropertyFunction[UMLAssociation[Uml], UMLProperty[Uml]]( "navigableOwnedEnd", _.navigableOwnedEnds ) )
+        MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]( "memberEnd", _.memberEnds ),
+        MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]( "navigableOwnedEnd", _.navigableOwnedEnds ) )
 
   def getDirectedAssociationEnds: Option[( UMLProperty[Uml], UMLProperty[Uml] )] =
     memberEnds.toList match {

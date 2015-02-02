@@ -68,5 +68,5 @@ trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
     
   override def referenceMetaProperties: MetaPropertyFunctions = 
     directedRelationship_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLElementImport[Uml], UMLPackageableElement[Uml]]( "importedElement", _.importedElement ) )
+    Seq( MetaPropertyReference[UMLElementImport[Uml], UMLPackageableElement[Uml]]( "importedElement", _.importedElement ) )
 }

@@ -45,7 +45,7 @@ trait UMLStringExpression[Uml <: UML] extends UMLExpression[Uml] {
     
   override def compositeMetaProperties: MetaPropertyFunctions = 
     super.compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLStringExpression[Uml], UMLStringExpression[Uml]]( "subExpression", _.subExpressions ) )
+    Seq( MetaPropertyCollection[UMLStringExpression[Uml], UMLStringExpression[Uml]]( "subExpression", _.subExpressions ) )
     
   override def referenceMetaProperties: MetaPropertyFunctions = 
     super.referenceMetaProperties

@@ -72,5 +72,5 @@ trait UMLPackageMerge[Uml <: UML] extends UMLDirectedRelationship[Uml] {
     
   def packageMerge_referenceMetaProperties =
     directedRelationship_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLPackageMerge[Uml], UMLPackage[Uml]]( "mergedPackage", _.mergedPackage ) )
+    Seq( MetaPropertyReference[UMLPackageMerge[Uml], UMLPackage[Uml]]( "mergedPackage", _.mergedPackage ) )
 }

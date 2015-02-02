@@ -47,7 +47,7 @@ trait UMLLiteralUnlimitedNatural[Uml <: UML] extends UMLLiteralSpecification[Uml
 
   override def metaAttributes: MetaAttributeFunctions =
     literalSpecification_metaAttributes ++
-      Seq( MetaAttributeIntegerFunction[UMLLiteralUnlimitedNatural[Uml]]( "value", _.value match {
+      Seq( MetaAttributeIntegerFunction[UMLLiteralUnlimitedNatural[Uml]]( None, "value", _.value match {
         case n if ( n>0 ) => Iterable( n )
         case _            => Iterable()
       } ) )

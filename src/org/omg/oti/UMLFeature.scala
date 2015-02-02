@@ -58,7 +58,7 @@ trait UMLFeature[Uml <: UML] extends UMLRedefinableElement[Uml] {
 
   def feature_metaAttributes: MetaAttributeFunctions =
     redefinableElement_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLFeature[Uml]]( "isStatic", (f) => booleanToIterable( f.isStatic, false ) ) )
+      Seq( MetaAttributeBooleanFunction[UMLFeature[Uml]]( None, "isStatic", (f) => booleanToIterable( f.isStatic, false ) ) )
 
   /**
    * Fig 9.9 (complete)

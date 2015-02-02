@@ -58,8 +58,8 @@ trait UMLStructuredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
   def structuredClassifier_compositeMetaProperties: MetaPropertyFunctions =
     classifier_compositeMetaProperties ++
     Seq(
-      MetaPropertyFunction[UMLStructuredClassifier[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-      MetaPropertyFunction[UMLStructuredClassifier[Uml], UMLConnector[Uml]]( "ownedConnector", _.ownedConnectors )
+      MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+      MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLConnector[Uml]]( "ownedConnector", _.ownedConnectors )
     )
     
   def structuredClassifier_referenceMetaProperties: MetaPropertyFunctions =

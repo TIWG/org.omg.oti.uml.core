@@ -55,8 +55,8 @@ trait UMLOpaqueExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
   def opaqueExpression_metaAttributes: MetaAttributeFunctions =
     valueSpecification_metaAttributes ++
     Seq( 
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( "body", _.body ),
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( "language", _.language ) )
+        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "body", _.body ),
+        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "language", _.language ) )
 
   override def forwardReferencesFromMetamodelAssociations = 
     valueSpecification_forwardReferencesFromMetamodelAssociations

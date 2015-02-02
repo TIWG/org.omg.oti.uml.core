@@ -66,7 +66,7 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
 
   def operation_metaAttributes: MetaAttributeFunctions =
     behavioralFeature_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLOperation[Uml]]( "isQuery", ( o ) => booleanToIterable( o.isQuery, false ) ) )
+      Seq( MetaAttributeBooleanFunction[UMLOperation[Uml]]( None, "isQuery", ( o ) => booleanToIterable( o.isQuery, false ) ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     operation_forwardReferencesFromMetamodelAssociations
@@ -81,15 +81,15 @@ trait UMLOperation[Uml <: UML] extends UMLBehavioralFeature[Uml] {
   def operation_compositeMetaProperties =
     behavioralFeature_compositeMetaProperties ++
       Seq(
-        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "bodyCondition", _.bodyCondition ),
-        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "postCondition", _.postCondition ),
-        MetaPropertyFunction[UMLOperation[Uml], UMLConstraint[Uml]]( "preCondition", _.preCondition ) )
+        MetaPropertyCollection[UMLOperation[Uml], UMLConstraint[Uml]]( "bodyCondition", _.bodyCondition ),
+        MetaPropertyCollection[UMLOperation[Uml], UMLConstraint[Uml]]( "postCondition", _.postCondition ),
+        MetaPropertyCollection[UMLOperation[Uml], UMLConstraint[Uml]]( "preCondition", _.preCondition ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     operation_referenceMetaProperties
 
   def operation_referenceMetaProperties =
     behavioralFeature_referenceMetaProperties ++
-      Seq( MetaPropertyFunction[UMLOperation[Uml], UMLOperation[Uml]]( "redefinedOperation", _.redefinedOperations ) )
+      Seq( MetaPropertyCollection[UMLOperation[Uml], UMLOperation[Uml]]( "redefinedOperation", _.redefinedOperations ) )
 
 }

@@ -60,7 +60,7 @@ trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsul
   def class_metaAttributes: MetaAttributeFunctions =
     behavioredClassifier_metaAttributes ++
       encapsulatedClassifier_metaAttributes ++
-      Seq( MetaAttributeBooleanFunction[UMLClass[Uml]]( "isActive", ( o ) => booleanToIterable( o.isActive, false ) ) )
+      Seq( MetaAttributeBooleanFunction[UMLClass[Uml]]( None, "isActive", ( o ) => booleanToIterable( o.isActive, false ) ) )
 
   override def forwardReferencesFromMetamodelAssociations =
     class_forwardReferencesFromMetamodelAssociations
@@ -75,9 +75,9 @@ trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsul
   def class_compositeMetaProperties: MetaPropertyFunctions =
     behavioredClassifier_compositeMetaProperties ++
       Seq(
-        MetaPropertyFunction[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
-        MetaPropertyFunction[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-        MetaPropertyFunction[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations ) )
+        MetaPropertyCollection[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
+        MetaPropertyCollection[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+        MetaPropertyCollection[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     class_referenceMetaProperties

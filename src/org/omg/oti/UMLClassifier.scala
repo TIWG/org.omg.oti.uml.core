@@ -75,8 +75,8 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
       redefinableElement_metaAttributes ++
       type_metaAttributes ++
       Seq(
-        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( "isAbstract", ( c ) => booleanToIterable( c.isAbstract, false ) ),
-        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( "isFinalSpecialization", ( c ) => booleanToIterable( c.isFinalSpecialization, false ) ) )
+        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( None, "isAbstract", ( c ) => booleanToIterable( c.isAbstract, false ) ),
+        MetaAttributeBooleanFunction[UMLClassifier[Uml]]( None, "isFinalSpecialization", ( c ) => booleanToIterable( c.isFinalSpecialization, false ) ) )
 
   def classifier_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     namespace_forwardReferencesFromMetamodelAssociations ++
@@ -93,6 +93,6 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
     namespace_referenceMetaProperties ++
       redefinableElement_referenceMetaProperties ++
       type_referenceMetaProperties ++
-      Seq( MetaPropertyFunction[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
+      Seq( MetaPropertyCollection[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
 
 }

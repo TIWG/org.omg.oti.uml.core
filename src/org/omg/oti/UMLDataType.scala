@@ -60,8 +60,8 @@ trait UMLDataType[Uml <: UML] extends UMLClassifier[Uml] {
   override def compositeMetaProperties: MetaPropertyFunctions =
     classifier_compositeMetaProperties ++
     Seq( 
-        MetaPropertyFunction[UMLDataType[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-        MetaPropertyFunction[UMLDataType[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations )
+        MetaPropertyCollection[UMLDataType[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+        MetaPropertyCollection[UMLDataType[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations )
         )
         
   override def referenceMetaProperties: MetaPropertyFunctions =

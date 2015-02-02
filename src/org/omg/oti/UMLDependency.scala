@@ -67,6 +67,6 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
   override def referenceMetaProperties: MetaPropertyFunctions = 
     packageableElement_compositeMetaProperties ++
     Seq( 
-        MetaPropertyFunction[UMLDependency[Uml], UMLNamedElement[Uml]]( "client", _.clients ),
-        MetaPropertyFunction[UMLDependency[Uml], UMLNamedElement[Uml]]( "supplier", _.suppliers ))
+        MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]( "client", _.clients ),
+        MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]( "supplier", _.suppliers ))
 }

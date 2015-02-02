@@ -63,9 +63,9 @@ trait UMLSlot[Uml <: UML] extends UMLElement[Uml] {
 
   override def compositeMetaProperties: MetaPropertyFunctions =
     element_compositeMetaProperties ++
-    Seq( MetaPropertyFunction[UMLSlot[Uml], UMLValueSpecification[Uml]]( "value", _.values ) )
+    Seq( MetaPropertyCollection[UMLSlot[Uml], UMLValueSpecification[Uml]]( "value", _.values ) )
         
   override def referenceMetaProperties: MetaPropertyFunctions =
     element_referenceMetaProperties ++
-    Seq( MetaPropertyFunction[UMLSlot[Uml], UMLStructuralFeature[Uml]]( "definingFeature", _.definingFeature ) )    
+    Seq( MetaPropertyReference[UMLSlot[Uml], UMLStructuralFeature[Uml]]( "definingFeature", _.definingFeature ) )    
 }
