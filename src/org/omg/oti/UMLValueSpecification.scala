@@ -50,18 +50,15 @@ trait UMLValueSpecification[Uml <: UML] extends UMLPackageableElement[Uml] with 
    * Fig 8.1
    */
   def valueSpecification_metaAttributes: MetaAttributeFunctions =
-    packageableElement_metaAttributes ++
-    typedElement_metaAttributes
+    appendUnique( packageableElement_metaAttributes, typedElement_metaAttributes )
     
   def valueSpecification_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     packageableElement_forwardReferencesFromMetamodelAssociations ++
     typedElement_forwardReferencesFromMetamodelAssociations
 
   def valueSpecification_compositeMetaProperties: MetaPropertyFunctions = 
-    packageableElement_compositeMetaProperties ++
-    typedElement_compositeMetaProperties
+    appendUnique( packageableElement_compositeMetaProperties, typedElement_compositeMetaProperties )
     
   def valueSpecification_referenceMetaProperties: MetaPropertyFunctions = 
-    packageableElement_referenceMetaProperties ++
-    typedElement_referenceMetaProperties
+    appendUnique( packageableElement_referenceMetaProperties, typedElement_referenceMetaProperties )
 }

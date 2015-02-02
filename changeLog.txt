@@ -1,8 +1,47 @@
+Version 0.6.2: February 2, 2015
+
+Fixes for problems (1) and (2) in 0.6.1
+
 Version 0.6.1: February 2, 2015
 
 - working reflective serializer
 
-Known problem: the composite & reference MetaProperties have duplicates
+Known problems: 
+
+1) some attributes are serialized in the wrong order
+
+wrong:
+
+    <association xmi:id="_QUDV_-A_unitFactor_unit" xmi:uuid="2e341130-f070-48ea-8629-2f82acb02663" xmi:type="uml:Association" name="A_unitFactor_unit">
+      <property 
+        association="_QUDV_-A_unitFactor_unit" 
+        type="_QUDV_-UnitFactor" 
+        xmi:id="_QUDV_-A_unitFactor_unit-unitFactor" 
+        xmi:uuid="29811f55-8faa-4a5d-a993-16ac89abdae5" 
+        xmi:type="uml:Property" 
+        name="unitFactor" 
+        isOrdered="false" 
+        isUnique="true">
+      </property>
+    </association>
+
+should be:
+
+
+    <association xmi:id="_QUDV_-A_unitFactor_unit" xmi:uuid="2e341130-f070-48ea-8629-2f82acb02663" xmi:type="uml:Association" name="A_unitFactor_unit">
+      <property 
+        xmi:id="_QUDV_-A_unitFactor_unit-unitFactor" 
+        xmi:uuid="29811f55-8faa-4a5d-a993-16ac89abdae5" 
+        xmi:type="uml:Property" 
+        name="unitFactor" 
+        isOrdered="false" 
+        isUnique="true" 
+        type="_QUDV_-UnitFactor" 
+        association="_QUDV_-A_unitFactor_unit">
+      </property>
+    </association>
+
+2) the composite & reference MetaProperties have duplicates
 
 UMLProperty:
 

@@ -49,7 +49,7 @@ sealed abstract trait Document[Uml <: UML] {
   val scope: UMLElement[Uml]
   
   lazy val extent: Set[UMLElement[Uml]] = 
-     scope.allOwnedElements.flatMap { e => e.forwardReferencesFromStereotypeTagProperties ++ Iterator(e) } toSet
+     (Stream(scope) ++ scope.allOwnedElements).flatMap { e => e.forwardReferencesFromStereotypeTagProperties ++ Iterator(e) } toSet
   
 }
 

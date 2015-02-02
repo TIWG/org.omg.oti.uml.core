@@ -293,39 +293,34 @@ case class DocumentSet[Uml <: UML](
           }
       }
 
-    val last: Try[MetaData] = Success( Null )
-    ( last /: e.metaAttributes.reverse )( foldAttribute _ ) match {
+    val refEvaluators: Seq[e.MetaReferenceEvaluator] = e.referenceMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getReferenceFunction }
+    val subEvaluators: Seq[e.MetaCollectionEvaluator] = e.compositeMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getCollectionFunction }
+
+    val xmlInitReferences: Try[MetaData] = Success( Null )
+    val xmlLocalReferences = ( xmlInitReferences /: refEvaluators.reverse )( foldLocalReference _ )
+    ( xmlLocalReferences /: e.metaAttributes.reverse )( foldAttribute _ ) match {
       case Failure( t ) =>
         Failure( t )
 
-      case Success( xmlAttributes ) =>
-        val refEvaluators: Seq[e.MetaReferenceEvaluator] = e.referenceMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getReferenceFunction }
-        val subEvaluators: Seq[e.MetaCollectionEvaluator] = e.compositeMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getCollectionFunction }
+      case Success( xmlAttributesAndLocalReferences ) =>
 
-        val prevAttributes: Try[MetaData] = Success( xmlAttributes )
-        ( prevAttributes /: refEvaluators )( foldLocalReference _ ) match {
+        val xRef0: Try[Seq[Node]] = Success( Seq() )
+        val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
+        val xRefsAndSubs = ( xRefs /: subEvaluators )( foldSubNode _ )
+
+        xRefsAndSubs match {
           case Failure( t ) =>
             Failure( t )
 
-          case Success( xmlAttributesAndLocalReferences ) =>
-            val xRef0: Try[Seq[Node]] = Success( Seq() )
-            val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
-            val xRefsAndSubs = ( xRefs /: subEvaluators )( foldSubNode _ )
-
-            xRefsAndSubs match {
-              case Failure( t ) =>
-                Failure( t )
-
-              case Success( nodes ) =>
-                val node = Elem(
-                  prefix = prefix,
-                  label = e.xmiElementLabel,
-                  attributes = xmlAttributesAndLocalReferences,
-                  scope = xmiScopes,
-                  minimizeEmpty = false,
-                  nodes: _* )
-                Success( node )
-            }
+          case Success( nodes ) =>
+            val node = Elem(
+              prefix = prefix,
+              label = e.xmiElementLabel,
+              attributes = xmlAttributesAndLocalReferences,
+              scope = xmiScopes,
+              minimizeEmpty = false,
+              nodes: _* )
+            Success( node )
         }
     }
   }

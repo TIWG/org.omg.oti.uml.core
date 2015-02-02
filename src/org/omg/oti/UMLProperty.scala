@@ -77,8 +77,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     property_metaAttributes
     
   def property_metaAttributes: MetaAttributeFunctions =
-    connectableElement_metaAttributes ++
-    structuralFeature_metaAttributes ++
+    appendUnique( connectableElement_metaAttributes, structuralFeature_metaAttributes ) ++
     Seq(
         MetaAttributeBooleanFunction[UMLProperty[Uml]]( None, "isDerived", (p) => booleanToIterable(p.isDerived, false) ),
         MetaAttributeBooleanFunction[UMLProperty[Uml]]( None, "isDerivedUnion", (p) => booleanToIterable(p.isUnion, false) ),
@@ -98,8 +97,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     property_compositeMetaProperties
     
   def property_compositeMetaProperties: MetaPropertyFunctions =
-    connectableElement_compositeMetaProperties ++
-    structuralFeature_compositeMetaProperties ++
+    appendUnique( connectableElement_compositeMetaProperties, structuralFeature_compositeMetaProperties ) ++
     Seq(
         MetaPropertyCollection[UMLProperty[Uml], UMLValueSpecification[Uml]]( "defaultValue", _.defaultValue )
         )
@@ -108,8 +106,7 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     property_referenceMetaProperties
     
   def property_referenceMetaProperties: MetaPropertyFunctions =
-    connectableElement_referenceMetaProperties ++
-    structuralFeature_referenceMetaProperties ++
+    appendUnique( connectableElement_referenceMetaProperties, structuralFeature_referenceMetaProperties ) ++
     Seq(
         MetaPropertyReference[UMLProperty[Uml], UMLAssociation[Uml]]( "association", _.association_memberEnd ),
         MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]( "redefinedProperty", _.redefinedProperties ),

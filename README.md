@@ -69,17 +69,22 @@ sbt compile
 
 ```
 sbt graphLibs/pack
+sbt resolverLibs/pack
 ```
-This will download dependencies from the Scala Graph library in the folder: graphLibs/target/pack
+This will download dependencies from the Scala Graph library in the folder: graphLibs/target/pack and resolverLibs/target/pack
 
-2) Copy the following to the lib/ folder:
+2) Eclipse' .classpath
 
-target/pack/lib/graph-constrained_*.jar
-graph-core_*.jar
-graph-dot_*.jar
-graph-json_*.jar
-lift-json_*.jar
-paranamer-*.jar
-scala-parser-combinators_*.jar
-scala-xml_*.jar
-scalap-*.jar
+It is already configured to look for specific jar files "packed" by SBT:
+
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-constrained_2.11-1.9.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-core_2.11-1.9.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-dot_2.11-1.10.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-json_2.11-1.9.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graphlibs_2.11-0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/lift-json_2.11-2.6-M4.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/paranamer-2.4.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-parser-combinators_2.11-1.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-xml_2.11-1.0.2.jar" sourcepath="graphLibs/target/pack/lib.srcs/scala-xml_2.11-1.0.2-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scalap-2.11.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="resolverLibs/target/pack/lib/xml-resolver-1.2.jar"/>

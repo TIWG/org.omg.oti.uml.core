@@ -47,9 +47,7 @@ trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElem
    * Fig 9.9 (complete)
    */
   def structuralFeature_metaAttributes: MetaAttributeFunctions =
-    feature_metaAttributes ++
-      multiplicityElement_metaAttributes ++
-      typedElement_metaAttributes ++
+    (( feature_metaAttributes /: List( multiplicityElement_metaAttributes, typedElement_metaAttributes ) ) ( appendUnique _ ) ) ++
       Seq( MetaAttributeBooleanFunction[UMLStructuralFeature[Uml]]( None, "isReadOnly", (sf) => booleanToIterable(sf.isReadOnly, false) ) )
 
   def structuralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
@@ -58,12 +56,8 @@ trait UMLStructuralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLTypedElem
       typedElement_forwardReferencesFromMetamodelAssociations
 
   def structuralFeature_compositeMetaProperties: MetaPropertyFunctions =
-    feature_compositeMetaProperties ++
-      multiplicityElement_compositeMetaProperties ++
-      typedElement_compositeMetaProperties
+    ( feature_compositeMetaProperties /: List( multiplicityElement_compositeMetaProperties, typedElement_compositeMetaProperties ) ) ( appendUnique _ )
 
   def structuralFeature_referenceMetaProperties: MetaPropertyFunctions =
-    feature_referenceMetaProperties ++
-      multiplicityElement_referenceMetaProperties ++
-      typedElement_referenceMetaProperties
+    ( feature_referenceMetaProperties /: List( multiplicityElement_referenceMetaProperties, typedElement_referenceMetaProperties ) ) ( appendUnique _ )
 }

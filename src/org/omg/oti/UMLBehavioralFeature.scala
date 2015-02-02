@@ -60,8 +60,7 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
    */
 
   def behavioralFeature_metaAttributes: MetaAttributeFunctions =
-    feature_metaAttributes ++
-      namespace_metaAttributes ++
+    appendUnique( feature_metaAttributes, namespace_metaAttributes ) ++
       Seq( MetaAttributeBooleanFunction[UMLBehavioralFeature[Uml]]( None, "isAbstract", (bf) => booleanToIterable(bf.isAbstract, false) ) )
 
   def behavioralFeature_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
@@ -73,8 +72,7 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
    * - ownedParameterSet
    */
   def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions =
-    feature_compositeMetaProperties ++
-      namespace_compositeMetaProperties ++
+    appendUnique( feature_compositeMetaProperties, namespace_compositeMetaProperties ) ++
       Seq( MetaPropertyCollection[UMLBehavioralFeature[Uml], UMLParameter[Uml]]( "ownedParameter", _.ownedParameters ) )
 
   /**
@@ -83,6 +81,5 @@ trait UMLBehavioralFeature[Uml <: UML] extends UMLFeature[Uml] with UMLNamespace
    * - raisedException
    */
   def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions =
-    feature_referenceMetaProperties ++
-      namespace_referenceMetaProperties
+    appendUnique( feature_referenceMetaProperties, namespace_referenceMetaProperties )
 }

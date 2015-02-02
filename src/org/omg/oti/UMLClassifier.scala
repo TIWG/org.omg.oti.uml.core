@@ -71,9 +71,7 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
    * - representation
    */
   def classifier_metaAttributes: MetaAttributeFunctions =
-    namespace_metaAttributes ++
-      redefinableElement_metaAttributes ++
-      type_metaAttributes ++
+    ( ( namespace_metaAttributes /: List( redefinableElement_metaAttributes, type_metaAttributes ) ) ( appendUnique _ ) ) ++
       Seq(
         MetaAttributeBooleanFunction[UMLClassifier[Uml]]( None, "isAbstract", ( c ) => booleanToIterable( c.isAbstract, false ) ),
         MetaAttributeBooleanFunction[UMLClassifier[Uml]]( None, "isFinalSpecialization", ( c ) => booleanToIterable( c.isFinalSpecialization, false ) ) )
@@ -85,14 +83,10 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
       redefinedClassifiers
 
   def classifier_compositeMetaProperties: MetaPropertyFunctions =
-    namespace_compositeMetaProperties ++
-      redefinableElement_compositeMetaProperties ++
-      type_compositeMetaProperties
+    ( namespace_compositeMetaProperties /: List( redefinableElement_compositeMetaProperties, type_compositeMetaProperties ) ) ( appendUnique _ )
 
   def classifier_referenceMetaProperties: MetaPropertyFunctions =
-    namespace_referenceMetaProperties ++
-      redefinableElement_referenceMetaProperties ++
-      type_referenceMetaProperties ++
+    (( namespace_referenceMetaProperties /: List( redefinableElement_referenceMetaProperties, type_referenceMetaProperties ) ) ( appendUnique _ )) ++
       Seq( MetaPropertyCollection[UMLClassifier[Uml], UMLClassifier[Uml]]( "redefinedClassifier", _.redefinedClassifiers ) )
 
 }

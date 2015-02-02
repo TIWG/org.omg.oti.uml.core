@@ -60,8 +60,7 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
     package_metaAttributes
 
   def package_metaAttributes: MetaAttributeFunctions =
-    namespace_metaAttributes ++
-      packageableElement_metaAttributes ++
+    appendUnique( namespace_metaAttributes, packageableElement_metaAttributes ) ++
       Seq( MetaAttributeStringFunction[UMLPackage[Uml]]( None, "URI", _.URI ) )
 
   override def forwardReferencesFromMetamodelAssociations =
@@ -75,8 +74,7 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
     package_compositeMetaProperties
 
   def package_compositeMetaProperties: MetaPropertyFunctions =
-    namespace_compositeMetaProperties ++
-      packageableElement_compositeMetaProperties ++
+    appendUnique( namespace_compositeMetaProperties, packageableElement_compositeMetaProperties ) ++
       Seq(
         MetaPropertyCollection[UMLPackage[Uml], UMLPackageableElement[Uml]]( "packagedElement", _.packagedElements ),
         MetaPropertyCollection[UMLPackage[Uml], UMLPackageMerge[Uml]]( "packageMerge", _.packageMerges ),
@@ -86,8 +84,7 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
     package_referenceMetaProperties
 
   def package_referenceMetaProperties =
-    namedElement_referenceMetaProperties ++
-      packageableElement_referenceMetaProperties
+    appendUnique( namedElement_referenceMetaProperties, packageableElement_referenceMetaProperties )
 
   def applyingPackageOfProfileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_source.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
 }
