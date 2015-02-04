@@ -7,7 +7,7 @@ import com.banno.license.Plugin.LicenseKeys._
 object OTICore extends Build {
   
   object Versions {
-    val scala = "2.11.4"
+    val scala = "2.11.5"
     
     val xmlResolver = "1.2"
     

@@ -1,3 +1,11 @@
+Version 0.6.4: 
+
+.classpath
+
+Version 0.6.3: 
+
+Update for applied stereotype tag/values
+
 Version 0.6.2: February 2, 2015
 
 Fixes for problems (1) and (2) in 0.6.1
