@@ -73,4 +73,16 @@ trait UMLPackageMerge[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   def packageMerge_referenceMetaProperties =
     directedRelationship_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLPackageMerge[Uml], UMLPackage[Uml]]( "mergedPackage", _.mergedPackage ) )
+
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #3
+   */
+  override def xmiOrderingKey: String = super.xmiOrderingKey + (mergedPackage match {
+    case None => "_"
+    case Some( mp ) => "_" + mp.xmiOrderingKey
+  })
+  
+  // [/protected]
 }

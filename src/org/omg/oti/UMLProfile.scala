@@ -67,16 +67,15 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
     profile_compositeMetaProperties
     
   def profile_compositeMetaProperties =
-    package_compositeMetaProperties ++
-    Seq(
-        MetaPropertyCollection[UMLProfile[Uml], UMLElementImport[Uml]]( "metaclassReference", _.metaclassReferences ),
-        MetaPropertyCollection[UMLProfile[Uml], UMLPackageImport[Uml]]( "metamodelReference", _.metamodelReferences )
-        )
-        
+    package_compositeMetaProperties
   override def referenceMetaProperties: MetaPropertyFunctions =
     profile_referenceMetaProperties
     
   def profile_referenceMetaProperties =
-    package_referenceMetaProperties
-    
+    package_referenceMetaProperties ++
+    Seq(
+        MetaPropertyCollection[UMLProfile[Uml], UMLElementImport[Uml]]( "metaclassReference", _.metaclassReferences ),
+        MetaPropertyCollection[UMLProfile[Uml], UMLPackageImport[Uml]]( "metamodelReference", _.metamodelReferences )
+        )
+
 }

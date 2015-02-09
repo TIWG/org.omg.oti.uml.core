@@ -39,6 +39,8 @@
  */
 package org.omg.oti.canonicalXMI
 
+import org.omg.oti._
+import scala.annotation.tailrec
 import scala.language.higherKinds
 import scala.language.implicitConversions
 import scala.language.postfixOps
@@ -64,10 +66,17 @@ import java.io.FileWriter
 import java.io.BufferedWriter
 import java.io.PrintWriter
 
+import scalaz._, Scalaz._, Free._
+
+/**
+ * @todo: add support for the possibility that a stereotype tag value may refer to an element serialized in a different document.
+ */
 case class DocumentSet[Uml <: UML](
   val serializableDocuments: Set[SerializableDocument[Uml]],
   val builtInDocuments: Set[BuiltInDocument[Uml]],
-  val catalogURIMapper: CatalogURIMapper )( implicit val ops: UMLOps[Uml] ) {
+  val catalogURIMapper: CatalogURIMapper,
+  val valueSpecificationTagConverter: Function1[UMLValueSpecification[Uml], Try[Option[String]]] = 
+    DocumentSet.serializeValueSpecificationAsTagValue _ )( implicit val ops: UMLOps[Uml] ) {
 
   implicit val myConfig = CoreConfig( orderHint = 5000, Hints( 64, 0, 64, 75 ) )
 
@@ -133,7 +142,6 @@ case class DocumentSet[Uml <: UML](
     } yield element2document.get( eRef ) match {
       case None =>
         if ( ignoreCrossReferencedElementFilter( eRef ) ) {
-          System.out.println( " => skip" )
           None
         }
         else {
@@ -169,6 +177,35 @@ case class DocumentSet[Uml <: UML](
     Success( Unit )
   }
 
+  def foldTagValues(
+    tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]] )(
+      tagValueAttribute: Try[scala.xml.MetaData],
+      property: UMLProperty[Uml] ): Try[scala.xml.MetaData] =
+    tagValueAttribute match {
+      case Failure( t ) => Failure( t )
+      case Success( attribute ) =>
+        tagValues.get( property ) match {
+          case None =>
+            Success( attribute )
+          case Some( values ) =>
+            val stringValues = values flatMap { v =>
+              valueSpecificationTagConverter( v ) match {
+                case Failure( t ) => return Failure( t )
+                case Success( s ) => s
+              }
+            }
+
+            if ( stringValues.isEmpty )
+              Success( attribute )
+            else
+              Success(
+                new scala.xml.UnprefixedAttribute(
+                  key = property.name.get,
+                  value = stringValues.mkString( " " ),
+                  attribute ) )
+        }
+    }
+
   def serialize(
     g: mutable.Graph[Document[Uml], DocumentEdge],
     element2document: Map[UMLElement[Uml], Document[Uml]],
@@ -182,13 +219,104 @@ case class DocumentSet[Uml <: UML](
         val xmiScopes =
           NamespaceBinding( "xmi", XMI_ns,
             NamespaceBinding( "xsi", XSI_ns,
-              NamespaceBinding( "uml", UML_ns, null ) ) )
+              NamespaceBinding( "uml", UML_ns,
+                NamespaceBinding( "mofext", MOFEXT_ns, null ) ) ) )
 
-        generateNodeElement( g, element2document, d, "uml", d.scope, xmiScopes ) match {
+        val elementOrdering = scala.collection.mutable.ArrayBuffer[UMLElement[Uml]]()
+
+        val free: Free[Function0, Try[scala.xml.Node]] =
+          generateNodeElement(
+            g, element2document, elementOrdering,
+            d, "uml", d.scope.xmiElementLabel,
+            d.scope, xmiScopes )
+
+        val result: Try[scala.xml.Node] =
+          free.go( f => Comonad[Function0].copoint( f ) )( Applicative[Function0] )
+
+        // alternatively:
+        // val result = free.run
+
+        result match {
           case Failure( t ) => return Failure( t )
           case Success( top ) =>
 
-            val xmi = Elem( prefix = "xmi", label = "XMI", attributes = Null, scope = xmiScopes, minimizeEmpty = false, top )
+            /**
+             * @issue: Canonical XMI B4 mofext:Tag
+             */
+            val mofTag = Elem(
+              prefix = "mofext",
+              label = "Tag",
+              attributes =
+                new PrefixedAttribute(
+                  pre = "xmi", key = "id", value = d.scope.xmiID.head + "_mofext.Tag",
+                  new PrefixedAttribute(
+                    pre = "xmi", key = "uuid", value = d.scope.xmiUUID.head + "_mofext.Tag",
+                    new PrefixedAttribute(
+                      pre = "xmi", key = "type", value = "mofext:Tag",
+                      d.scope match {
+                        case ne: UMLNamedElement[Uml] =>
+                          ne.name match {
+                            case None =>
+                              Null
+                            case Some( name ) =>
+                              new UnprefixedAttribute(
+                                key = "name", value = "org.omg.xmi.nsPrefix",
+                                new UnprefixedAttribute(
+                                  key = "value", value = name,
+                                  new UnprefixedAttribute(
+                                    key = "element", value = d.scope.xmiID.head,
+                                    Null ) ) )
+                          }
+                        case _ =>
+                          Null
+                      } ) ) ),
+              scope = xmiScopes,
+              minimizeEmpty = true )
+
+            /**
+             *
+             */
+            val stereotypeTagValues = elementOrdering.toList flatMap { e =>
+              val allTagValues = e.stereotypeTagValues
+              val appliedStereotypes = e.getAppliedStereotypes filter { case (s,p) => element2document.contains(s) }
+              val ordering = appliedStereotypes.toList.sortBy { case (s,p) => s.profile.get.xmiUUID.head + s.xmiUUID.head }
+              val orderedTagValueElements = ordering map { case (s,p) =>
+                val tagValueAttributes: scala.xml.MetaData = allTagValues.get( s ) match {
+                  case None => Null
+                  case Some( tagValues ) =>
+                    val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
+                    val tagValueAttribute0: Try[MetaData] = Success( Null )
+                    val tagValueAttributeN = ( tagValueAttribute0 /: properties.reverse )( foldTagValues( tagValues ) _ )
+                    tagValueAttributeN match {
+                      case Failure( t )                 => return Failure( t )
+                      case Success( tagValueAttribute ) => tagValueAttribute
+                    }
+                }
+                val xmiTagValueAttributes =
+                  new PrefixedAttribute(
+                    pre = "xmi", key = "id", value = e.xmiID.head + "-" + s.xmiID.head,
+                    new PrefixedAttribute(
+                      pre = "xmi", key = "uuid", value = e.xmiUUID.head + "-" + s.xmiUUID.head,
+                      new UnprefixedAttribute(
+                          key=p.name.get, value=e.xmiID.head, 
+                          tagValueAttributes ) ) )
+                Elem(
+                  prefix = s.profile.get.name.get,
+                  label = s.name.get,
+                  attributes = xmiTagValueAttributes,
+                  scope = xmiScopes,
+                  minimizeEmpty = true )
+              }
+              orderedTagValueElements
+            }
+
+            val xmi = Elem(
+              prefix = "xmi",
+              label = "XMI",
+              attributes = Null,
+              scope = xmiScopes,
+              minimizeEmpty = true,
+              ( top :: mofTag :: stereotypeTagValues ): _* )
             val dir = ( new java.io.File( uri ) ).getParentFile
             dir.mkdirs()
 
@@ -207,15 +335,89 @@ case class DocumentSet[Uml <: UML](
         }
     }
 
+  @tailrec final def append1Node(
+    nodes: Seq[scala.xml.Node],
+    t: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+
+    //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
+    //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
+
+    t.resume match {
+      //case -\/( s ) => suspend { append1Node( nodes, s() ) }
+      case -\/( s ) => append1Node( nodes, s() )
+      case \/-( r ) => r match {
+        case Failure( t ) => return_ { Failure( t ) }
+        case Success( n ) => return_ { Success( nodes :+ n ) }
+      }
+    }
+  }
+
+  @tailrec final def appendNodes(
+    t1: Trampoline[Try[Seq[scala.xml.Node]]],
+    t2: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+
+    //    assert(
+    //      Thread.currentThread().getStackTrace.count( _.getMethodName == "appendNodes" ) == 1,
+    //      "Verification that the trampolined recursive function 'appendNodes' runs stack-free" )
+
+    t1.resume match {
+      //case -\/( s )             => suspend { appendNodes( s(), t2 ) }
+      case -\/( s )            => appendNodes( s(), t2 )
+      case \/-( Failure( t ) ) => return_ { Failure( t ) }
+      case \/-( Success( ns ) ) =>
+        suspend {
+          append1Node( ns, t2 )
+        }
+    }
+  }
+
+  @tailrec final def wrapNodes(
+    t: Trampoline[Try[Seq[scala.xml.Node]]],
+    prefix: String,
+    label: String,
+    xmlAttributesAndLocalReferences: scala.xml.MetaData,
+    xmiScopes: scala.xml.NamespaceBinding ): Trampoline[Try[scala.xml.Node]] = {
+
+    //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "wrapNodes" ) == 1,
+    //      "Verification that the trampolined function 'wrapNodes' runs recursively stack-free" )
+
+    t.resume match {
+      //      case -\/( s ) =>
+      //        suspend { wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes ) }
+      case -\/( s ) =>
+        wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
+      case \/-( Failure( t ) ) =>
+        return_ { Failure( t ) }
+      case \/-( Success( nodes ) ) =>
+        import scala.xml._
+        val node = Elem(
+          prefix = prefix,
+          label = label,
+          attributes = xmlAttributesAndLocalReferences,
+          scope = xmiScopes,
+          minimizeEmpty = true,
+          nodes: _* )
+        return_ { Success( node ) }
+    }
+  }
+
   def generateNodeElement(
     g: mutable.Graph[Document[Uml], DocumentEdge],
     element2document: Map[UMLElement[Uml], Document[Uml]],
+    elementOrdering: scala.collection.mutable.ArrayBuffer[UMLElement[Uml]],
     d: SerializableDocument[Uml],
     prefix: String,
+    label: String,
     e: UMLElement[Uml],
-    xmiScopes: scala.xml.NamespaceBinding ): Try[scala.xml.Node] = {
+    xmiScopes: scala.xml.NamespaceBinding ): Trampoline[Try[scala.xml.Node]] = {
+
+    elementOrdering += e
 
     import scala.xml._
+
+    //    assert(
+    //      Thread.currentThread().getStackTrace.count( _.getMethodName == "generateNodeElement" ) == 1,
+    //      s"Verification that the trampolined function 'wrapNodes' runs recursively stack-free for label=${label}, e=${e.xmiID}" )
 
     def foldAttribute( next: Try[MetaData], f: e.MetaAttributeFunction ): Try[MetaData] =
       next match {
@@ -236,91 +438,157 @@ case class DocumentSet[Uml <: UML](
           }
       }
 
-    def foldLocalReference( next: Try[MetaData], f: e.MetaReferenceEvaluator ): Try[MetaData] =
+    def foldLocalReference( next: Try[MetaData], f: e.MetaPropertyEvaluator ): Try[MetaData] =
       next match {
         case Failure( t ) => Failure( t )
         case Success( n ) =>
-          f.evaluate( e ) match {
-            case Failure( t )    => Failure( t )
-            case Success( None ) => Success( n )
-            case Success( Some( eRef ) ) =>
-              element2document.get( eRef ) match {
-                case None =>
-                  Success( n )
-                case Some( dRef ) =>
-                  if ( d != dRef ) Success( n )
-                  else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
+          f match {
+            case rf: e.MetaReferenceEvaluator =>
+              rf.evaluate( e ) match {
+                case Failure( t )    => Failure( t )
+                case Success( None ) => Success( n )
+                case Success( Some( eRef ) ) =>
+                  element2document.get( eRef ) match {
+                    case None =>
+                      Success( n )
+                    case Some( dRef ) =>
+                      if ( d != dRef ) Success( n )
+                      else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
+                  }
+              }
+            case cf: e.MetaCollectionEvaluator =>
+              cf.evaluate( e ) match {
+                case Failure( t )   => Failure( t )
+                case Success( Nil ) => Success( n )
+                case Success( eRefs ) =>
+                  val lRefs = eRefs flatMap { eRef =>
+                    element2document.get( eRef ) match {
+                      case None => None
+                      case Some( dRef ) =>
+                        if ( d != dRef ) None
+                        else Some( eRef.id )
+                    }
+                  }
+                  if ( lRefs.isEmpty ) Success( n )
+                  else Success( new UnprefixedAttribute( key = f.propertyName, value = lRefs.mkString( " " ), n ) )
               }
           }
       }
 
-    def foldCrossReference( nodes: Try[Seq[Node]], f: e.MetaReferenceEvaluator ): Try[Seq[Node]] =
+    def foldCrossReference( nodes: Try[Seq[Node]], f: e.MetaPropertyEvaluator ): Try[Seq[Node]] =
       nodes match {
         case Failure( t ) => Failure( t )
         case Success( ns ) =>
-          f.evaluate( e ) match {
-            case Failure( t )    => Failure( t )
-            case Success( None ) => Success( ns )
-            case Success( Some( eRef ) ) =>
-              element2document.get( eRef ) match {
-                case None =>
-                  Success( ns )
-                case Some( dRef ) =>
-                  if ( d == dRef ) Success( ns )
-                  else {
-                    val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
-                    val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = false )
-                    Success( ns :+ hrefNode )
+          f match {
+            case rf: e.MetaReferenceEvaluator =>
+              rf.evaluate( e ) match {
+                case Failure( t )    => Failure( t )
+                case Success( None ) => Success( ns )
+                case Success( Some( eRef ) ) =>
+                  element2document.get( eRef ) match {
+                    case None =>
+                      Success( ns )
+                    case Some( dRef ) =>
+                      if ( d == dRef ) Success( ns )
+                      else {
+                        val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                        val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                        Success( ns :+ hrefNode )
+                      }
+                  }
+              }
+
+            case cf: e.MetaCollectionEvaluator =>
+              cf.evaluate( e ) match {
+                case Failure( t )   => Failure( t )
+                case Success( Nil ) => Success( ns )
+                case Success( eRefs ) =>
+                  val hRefs = eRefs flatMap { eRef =>
+                    element2document.get( eRef ) match {
+                      case None => None
+                      case Some( dRef ) =>
+                        if ( d == dRef ) None
+                        else {
+                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                          val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                          hrefNode
+                        }
+                    }
+                  }
+                  Success( ns ++ hRefs )
+              }
+          }
+      }
+
+    def callGenerateNodeElement(
+      f: e.MetaPropertyEvaluator,
+      sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] =
+      generateNodeElement( g, element2document, elementOrdering, d, null, f.propertyName, sub, xmiScopes )
+
+    @tailrec def trampolineSubNode(
+      nodes: Trampoline[Try[Seq[Node]]],
+      f: e.MetaPropertyEvaluator ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+
+      nodes.resume match {
+        //        case -\/( s ) =>
+        //          suspend { trampolineSubNode( s(), f ) }
+        case -\/( s ) =>
+          trampolineSubNode( s(), f )
+
+        case \/-( r ) =>
+          r match {
+            case Failure( t ) =>
+              return_ { Failure( t ) }
+
+            case Success( ns ) =>
+              f match {
+                case rf: e.MetaReferenceEvaluator =>
+                  rf.evaluate( e ) match {
+                    case Failure( t )    => return_ { Failure( t ) }
+                    case Success( None ) => return_ { Success( ns ) }
+                    case Success( Some( sub ) ) =>
+                      suspend {
+                        append1Node( ns, callGenerateNodeElement( f, sub ) )
+                      }
+                  }
+                case cf: e.MetaCollectionEvaluator =>
+                  cf.evaluate( e ) match {
+                    case Failure( t )   => return_ { Failure( t ) }
+                    case Success( Nil ) => return_ { Success( ns ) }
+                    case Success( subs ) =>
+                      suspend {
+                        val sortedSubs: List[UMLElement[Uml]] = subs.sortBy( _.xmiOrderingKey )
+                        val subNodes = for { sub <- sortedSubs }
+                          yield callGenerateNodeElement( f, sub )
+
+                        val result0: Trampoline[Try[Seq[scala.xml.Node]]] = return_ { Success( ns ) }
+                        val resultN = ( result0 /: subNodes )( appendNodes _ )
+                        resultN
+                      }
                   }
               }
           }
       }
+    }
 
-    def foldSubNode( nodes: Try[Seq[Node]], f: e.MetaCollectionEvaluator ): Try[Seq[Node]] =
-      nodes match {
-        case Failure( t ) => Failure( t )
-        case Success( ns ) =>
-          f.evaluate( e ) match {
-            case Failure( t )   => Failure( t )
-            case Success( Nil ) => Success( ns )
-            case Success( subs ) =>
-              val subNodes = for { sub <- subs }
-                yield generateNodeElement( g, element2document, d, null, sub, xmiScopes ) match {
-                case Failure( t ) => return Failure( t )
-                case Success( n ) => n
-              }
-              Success( ns ++ subNodes )
-          }
-      }
-
-    val refEvaluators: Seq[e.MetaReferenceEvaluator] = e.referenceMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getReferenceFunction }
-    val subEvaluators: Seq[e.MetaCollectionEvaluator] = e.compositeMetaProperties.flatMap { case p: e.MetaPropertyEvaluator => p.getCollectionFunction }
+    val refEvaluators: Seq[e.MetaPropertyEvaluator] = e.referenceMetaProperties.reverse
+    val subEvaluators: Seq[e.MetaPropertyEvaluator] = e.compositeMetaProperties
+    val duplicates = refEvaluators.toSet.intersect( subEvaluators.toSet )
+    require( duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: ${duplicates}" )
 
     val xmlInitReferences: Try[MetaData] = Success( Null )
-    val xmlLocalReferences = ( xmlInitReferences /: refEvaluators.reverse )( foldLocalReference _ )
+    val xmlLocalReferences = ( xmlInitReferences /: refEvaluators )( foldLocalReference _ )
     ( xmlLocalReferences /: e.metaAttributes.reverse )( foldAttribute _ ) match {
       case Failure( t ) =>
-        Failure( t )
+        return_ { Failure( t ) }
 
       case Success( xmlAttributesAndLocalReferences ) =>
-
-        val xRef0: Try[Seq[Node]] = Success( Seq() )
-        val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
-        val xRefsAndSubs = ( xRefs /: subEvaluators )( foldSubNode _ )
-
-        xRefsAndSubs match {
-          case Failure( t ) =>
-            Failure( t )
-
-          case Success( nodes ) =>
-            val node = Elem(
-              prefix = prefix,
-              label = e.xmiElementLabel,
-              attributes = xmlAttributesAndLocalReferences,
-              scope = xmiScopes,
-              minimizeEmpty = false,
-              nodes: _* )
-            Success( node )
+        suspend {
+          val xRef0: Try[Seq[Node]] = Success( Seq() )
+          val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
+          val xRefsAndSub0: Trampoline[Try[Seq[Node]]] = return_ { xRefs }
+          val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode _ )
+          wrapNodes( xRefsAndSubN, prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
         }
     }
   }
@@ -333,5 +601,16 @@ object DocumentSet {
   val XMI_ns = "http://www.omg.org/spec/XMI/20131001"
   val XSI_ns = "http://www.w3.org/2001/XMLSchema-instance"
   val UML_ns = "http://www.omg.org/spec/UML/20131001"
+  val MOFEXT_ns = "http://www.omg.org/spec/MOF/20131001"
+
+  def serializeValueSpecificationAsTagValue[Uml <: UML]( value: UMLValueSpecification[Uml] ): Try[Option[String]] =
+    value match {
+      case l: UMLLiteralBoolean[Uml] => Success( Some( l.value.toString ) )
+      case l: UMLLiteralInteger[Uml] => Success( Some( l.value.toString ) )
+      case l: UMLLiteralReal[Uml]    => Success( l.value match { case None => None; case Some( r ) => Some( r.toString ) } )
+      case l: UMLLiteralString[Uml]  => Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
+      case iv: UMLInstanceValue[Uml] => Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID.head ) } )
+      case v                         => Failure( new IllegalArgumentException( s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
+    }
 
 }

@@ -28,6 +28,11 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scalap-2.11.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="resolverLibs/target/pack/lib/xml-resolver-1.2.jar"/>
+	<classpathentry kind="lib" path="scalazLibs/target/pack/lib/scalaz-core_2.11-7.1.0.jar" sourcepath="scalazLibs/target/pack/lib.srcs/scalaz-core_2.11-7.1.0-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/org.omg.oti/scalazLibs/target/pack/lib.javadoc/scalaz-core_2.11-7.1.0-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_COMPILER_CONTAINER"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>

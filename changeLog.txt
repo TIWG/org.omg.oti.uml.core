@@ -1,8 +1,14 @@
-Version 0.6.4: 
+Version 0.7.0: February 8, 2015
+
+- trampolined-serializer
+- TIWG-restrictions on Canonical XMI ordering & identification
+- serialize applied stereotype instances
+
+Version 0.6.4: February 2, 2015
 
 .classpath
 
-Version 0.6.3: 
+Version 0.6.3: February 2, 2015
 
 Update for applied stereotype tag/values
 

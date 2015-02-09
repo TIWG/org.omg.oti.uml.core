@@ -60,5 +60,5 @@ trait UMLType[Uml <: UML] extends UMLPackageableElement[Uml] {
     packageableElement_compositeMetaProperties
     
   def type_referenceMetaProperties: MetaPropertyFunctions = 
-    packageableElement_compositeMetaProperties           
+    packageableElement_referenceMetaProperties           
 }

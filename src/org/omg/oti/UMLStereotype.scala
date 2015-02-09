@@ -72,6 +72,19 @@ trait UMLStereotype[Uml <: UML] extends UMLClass[Uml] {
   def stereotype_referenceMetaProperties =
     class_referenceMetaProperties 
     
+  // [protected ('TIWG')]
+
+  def baseMetaProperties: Iterable[UMLProperty[Uml]] = for {
+    ee <- extensionEnds
+    base <- ee.opposite
+  } yield base
+  
+  def baseMetaPropertiesExceptRedefined: Iterable[UMLProperty[Uml]] = {
+    val allBaseMetaProperties = baseMetaProperties.toSet
+    val redefinedBaseMetaProperties = allBaseMetaProperties flatMap (_.redefinedProperties)
+    allBaseMetaProperties -- redefinedBaseMetaProperties    
+  }
+  
   def profile: Option[UMLProfile[Uml]] = {
     
     @tailrec
@@ -83,4 +96,7 @@ trait UMLStereotype[Uml <: UML] extends UMLClass[Uml] {
     
     getOwningProfile( owningPackage )
   }
+  
+  // [/protected]
+  
 }

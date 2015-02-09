@@ -78,4 +78,9 @@ trait UMLImage[Uml <: UML] extends UMLElement[Uml] {
   def image_referenceMetaProperties =
     element_referenceMetaProperties
   
+  // [protected ('TIWG')]
+
+  override def xmiOrderingKey: String = super.xmiOrderingKey + location.getOrElse("_")
+  
+  // [/protected]
 }

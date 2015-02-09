@@ -78,5 +78,16 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   def profileApplication_referenceMetaProperties =
     directedRelationship_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLProfileApplication[Uml], UMLProfile[Uml]]( "appliedProfile", _.appliedProfile ) )
-    
+  
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #3
+   */
+  override def xmiOrderingKey: String = super.xmiOrderingKey + (appliedProfile match {
+    case None => "_"
+    case Some( ap ) => "_" + ap.xmiOrderingKey
+  })
+  
+  // [/protected]  
 }

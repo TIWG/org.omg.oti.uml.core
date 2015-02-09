@@ -68,4 +68,16 @@ trait UMLSlot[Uml <: UML] extends UMLElement[Uml] {
   override def referenceMetaProperties: MetaPropertyFunctions =
     element_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLSlot[Uml], UMLStructuralFeature[Uml]]( "definingFeature", _.definingFeature ) )    
+
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #4
+   */
+  override def xmiOrderingKey: String = super.xmiOrderingKey + (definingFeature match {
+    case None => "_"
+    case Some( sf ) => "_" + sf.xmiOrderingKey
+  })
+  
+  // [/protected]  
 }

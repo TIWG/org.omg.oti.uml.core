@@ -68,4 +68,16 @@ trait UMLPackageImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   override def referenceMetaProperties: MetaPropertyFunctions = 
     directedRelationship_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLPackageImport[Uml], UMLPackage[Uml]]( "importedPackage", _.importedPackage ) )    
+
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #3
+   */
+  override def xmiOrderingKey: String = super.xmiOrderingKey + (importedPackage match {
+    case None => "_"
+    case Some( ip ) => "_" + ip.xmiOrderingKey
+  })
+  
+  // [/protected]
 }

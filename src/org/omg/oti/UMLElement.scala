@@ -289,6 +289,9 @@ trait UMLElement[Uml <: UML] {
 
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
+  def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
+    tagValues.groupBy(_._1.owningStereotype.get)
+    
   /**
    * Calculate the references from this element to other elements
    * due to non-composite, non-derived properties in the metamodel.
@@ -342,6 +345,8 @@ trait UMLElement[Uml <: UML] {
     label.head
   }
 
+  def xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse(""))
+  
   def xmiType: Iterable[String] =
     for {
       n0 <- mofMetaclass.name
@@ -350,6 +355,11 @@ trait UMLElement[Uml <: UML] {
 
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
 
+  /**
+   * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
+   */
+  def getAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]]
+    
   def isAncestorOf( other: UMLElement[Uml] ): Boolean
 
   /**

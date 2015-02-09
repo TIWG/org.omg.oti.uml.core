@@ -47,7 +47,7 @@ trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   
   def importingNamespace: Option[UMLNamespace[Uml]] = (sources.selectByKindOf { case ns: UMLNamespace[Uml] => ns } toIterable).headOption
   def importedElement: Option[UMLPackageableElement[Uml]] = (targets.selectByKindOf { case p: UMLPackageableElement[Uml] => p } toIterable).headOption
-    
+      
   /**
    * Fig. 7.5 (incomplete)
    * - alias
@@ -69,4 +69,16 @@ trait UMLElementImport[Uml <: UML] extends UMLDirectedRelationship[Uml] {
   override def referenceMetaProperties: MetaPropertyFunctions = 
     directedRelationship_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLElementImport[Uml], UMLPackageableElement[Uml]]( "importedElement", _.importedElement ) )
+
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #3
+   */
+  override def xmiOrderingKey: String = super.xmiOrderingKey + (importedElement match {
+    case None => "_"
+    case Some( ie ) => "_" + ie.xmiOrderingKey
+  })
+
+  // [/protected]
 }

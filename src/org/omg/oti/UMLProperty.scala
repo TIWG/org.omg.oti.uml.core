@@ -123,6 +123,11 @@ trait UMLProperty[Uml <: UML] extends UMLConnectableElement[Uml] with UMLStructu
     case _ => None
   }
   
+  def owningStereotype: Option[UMLStereotype[Uml]] = owner match { 
+    case Some(s: UMLStereotype[Uml]) => Some(s)
+    case _ => None
+  }
+  
   def isLogicallyNavigable: Boolean = 
     association_memberEnd match {
     case None => false

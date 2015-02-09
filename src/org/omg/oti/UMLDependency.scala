@@ -69,4 +69,16 @@ trait UMLDependency[Uml <: UML] extends UMLPackageableElement[Uml] with UMLDirec
     Seq( 
         MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]( "client", _.clients ),
         MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]( "supplier", _.suppliers ))
+
+  // [protected ('TIWG')]
+
+  /**
+   * TIWG: see UMLUtil, Rule #3
+   */
+  override def xmiOrderingKey: String = 
+    super.xmiOrderingKey + 
+    (clients map (_.xmiOrderingKey)).mkString("_", "_", "-") + 
+    (suppliers map (_.xmiOrderingKey)).mkString("_")
+  
+  // [/protected]
 }

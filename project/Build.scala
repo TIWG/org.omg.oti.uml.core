@@ -17,9 +17,23 @@ object OTICore extends Build {
     val graph_constrained = "1.9.0"
     val graph_dot = "1.10.0"
     val graph_json = "1.9.2"
+        
+    val scalaz = "7.1.0"
   }
     
 
+  val scalazLibs = Project(
+      "scalazLibs",
+      file( "scalazLibs" ),      
+      settings = Defaults.coreDefaultSettings ++ Defaults.runnerSettings ++ Defaults.baseTasks ++ packSettings ++ Seq(            
+        scalaVersion := Versions.scala,
+        packExpandedClasspath := true,
+        libraryDependencies ++= Seq(
+          "org.scalaz" %% "scalaz-core" % Versions.scalaz % "compile" withSources() withJavadoc()
+        ),
+        ( mappings in pack ) := { extraPackFun.value } )
+      )
+      
   lazy val resolverLibs = Project(
     "resolverLibs",
     file( "resolverLibs" ),
@@ -71,7 +85,7 @@ object OTICore extends Build {
         scalaSource in Compile := baseDirectory.value / "src",
         shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Project.extract(state).get( GitKeys.gitCurrentBranch ) + "> " }
       )
-    ) dependsOn ( resolverLibs, emfLibs, graphLibs )
+    ) dependsOn ( scalazLibs, resolverLibs, emfLibs, graphLibs )
           
   val extraPackFun: Def.Initialize[Task[Seq[( File, String )]]] = Def.task[Seq[( File, String )]] {
     def getFileIfExists( f: File, where: String ): Option[( File, String )] = if ( f.exists() ) Some( ( f, s"${where}/${f.getName()}" ) ) else None

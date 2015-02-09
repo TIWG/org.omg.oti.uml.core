@@ -368,6 +368,7 @@ trait UMLOps[Uml <: UML] { self =>
   implicit def umlProfile( e: Uml#Profile ): UMLProfile[Uml]
   implicit def umlProfileApplication( e: Uml#ProfileApplication ): UMLProfileApplication[Uml]
   implicit def umlStereotype( e: Uml#Stereotype ): UMLStereotype[Uml]
+  implicit def umlStereotype( c: Set[Uml#Stereotype]  ): Set[UMLStereotype[Uml]] = for { e <- c } yield umlStereotype( e )
   implicit def umlExtension( e: Uml#Extension ): UMLExtension[Uml]
   implicit def umlExtensionEnd( e: Uml#ExtensionEnd ): UMLExtensionEnd[Uml]
   implicit def umlImage( e: Uml#Image ): UMLImage[Uml]

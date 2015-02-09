@@ -64,6 +64,6 @@ trait UMLConstraint[Uml <: UML] extends UMLPackageableElement[Uml] {
     packageableElement_compositeMetaProperties
     
   override def referenceMetaProperties: MetaPropertyFunctions = 
-    packageableElement_compositeMetaProperties ++
+    packageableElement_referenceMetaProperties ++
     Seq( MetaPropertyCollection[UMLConstraint[Uml], UMLElement[Uml]]( "constrainedElement", _.constrainedElements ) )
 }
