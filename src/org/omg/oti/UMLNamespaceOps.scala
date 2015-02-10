@@ -93,10 +93,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * 2) the semantics of importation is defined for Namespace
    * 3) Package inherits the semantics of importation from Namespace
    */
-  def allVisibleMembers: Set[UMLPackageableElement[Uml]] = {
-    val visibleNamespaceMembers: Set[UMLNamespace[Uml]] = visibleMembers.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
-    visibleMembers ++ ( visibleNamespaceMembers flatMap ( _.allVisibleMembers ) )
-  }
+  def allVisibleMembers: Set[UMLPackageableElement[Uml]] = 
+    visibleMembers ++ allImportedPackages.flatMap (_.visibleMembers)
 
   // [/protected]
 }

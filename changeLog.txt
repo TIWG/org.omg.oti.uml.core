@@ -1,3 +1,8 @@
+Version 0.7.2: February 9, 2015
+
+- Support for Nerijus' 6 questions about accessibility rules for types that a tool should present to a user.
+  (the accessibility rules in OTI are a restricted clarification of the UML 2.5 Namespace import / visibility rules)
+   
 Version 0.7.1: February 9, 2015
 
 - Clarification about the semantics of UML package importation rules:
