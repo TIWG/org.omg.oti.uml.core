@@ -1,3 +1,12 @@
+Version 0.7.1: February 9, 2015
+
+- Clarification about the semantics of UML package importation rules:
+  See UMLNamespaceOps.{visibleMembers, allVisibleMembers}
+   
+- Instead of fancy "// [protected ...]" and "// [/protected]" markers to protect regions from code generation,
+  use different traits to separate generated code that has no protected regions (e.g., UMLElement.scala, UMLNamespace.scala, UMLPackage.scala) 
+  vs. non-generated code that has no generated regions (e.g., UMLElementOps.scala, UMLNamespaceOps.scala, UMLPackageOps.scala)
+  
 Version 0.7.0: February 8, 2015
 
 - trampolined-serializer

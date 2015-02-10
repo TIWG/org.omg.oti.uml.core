@@ -159,14 +159,15 @@ trait UMLOps[Uml <: UML] { self =>
   
   val SLOT_VALUE: EStructuralFeature
 
-  def closure[T]( x: T, relation: T => Iterable[T] ): Set[T] = {
+  def closure[U, V <: U]( x: U, relation: U => Iterable[V] ): Set[V] = {
     
     case class RelationClosureVisitor(
-        result: scala.collection.mutable.Set[T],
-        visit: scala.collection.mutable.ListBuffer[T],
-        visited: scala.collection.mutable.Set[T])
+        result: scala.collection.mutable.Set[V],
+        visit: scala.collection.mutable.Buffer[V],
+        visited: scala.collection.mutable.Set[V])
         
-    val visitor = RelationClosureVisitor( scala.collection.mutable.Set[T](), scala.collection.mutable.ListBuffer[T]( x ), scala.collection.mutable.Set[T]() )
+        
+    val visitor = RelationClosureVisitor( scala.collection.mutable.Set[V](), relation(x).toBuffer, scala.collection.mutable.Set[V]() )
     while ( visitor.visit.nonEmpty ) {
       val y = visitor.visit.remove( 0 )
       visitor.visited += y

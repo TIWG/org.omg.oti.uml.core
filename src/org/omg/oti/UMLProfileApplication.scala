@@ -89,5 +89,16 @@ trait UMLProfileApplication[Uml <: UML] extends UMLDirectedRelationship[Uml] {
     case Some( ap ) => "_" + ap.xmiOrderingKey
   })
   
+  /**
+   * @see UML 2.5, 12.3.3 Profiles, Semantics, ProfileApplication
+   * Applying a Profile means recursively applying all its nested and imported Profiles. 
+   * 
+   * To align the semantics of ProfileApplication with that of PackageImport, the above criteria is restricted to the following:
+   * Applying a Profile means recursively applying all its imported Profiles. 
+   * 
+   * To achieve the original intent, a Profile can simply import nested Profiles as is done for the case of UML2.5 which imports its nested packages.
+   */
+  def transitiveClosureOfProfileApplication: Set[UMLProfile[Uml]] = ???
+    
   // [/protected]  
 }

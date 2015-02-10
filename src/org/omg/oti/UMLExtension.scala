@@ -48,7 +48,7 @@ trait UMLExtension[Uml <: UML] extends UMLAssociation[Uml] {
   override def ownedEnds: Iterable[UMLExtensionEnd[Uml]] = {
     val extensionOwnedEnds = this.asInstanceOf[UMLAssociation[Uml]].ownedEnds.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }
     require( extensionOwnedEnds.size <= 1 )
-    extensionOwnedEnds
+    extensionOwnedEnds.headOption
   }
   
   /**

@@ -39,7 +39,9 @@
  */
 package org.omg.oti
 
-trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
+import scala.language.postfixOps
+
+trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] with UMLNamespaceOps[Uml] { 
 
   import ops._
 
@@ -54,10 +56,10 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
 
   /**
    * Fig 7.5 (complete)
-   */  
+   */
   def namespace_metaAttributes: MetaAttributeFunctions =
     namedElement_metaAttributes
-    
+
   def namespace_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] =
     namedElement_forwardReferencesFromMetamodelAssociations
 
@@ -70,4 +72,5 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] {
 
   def namespace_referenceMetaProperties: MetaPropertyFunctions =
     namedElement_referenceMetaProperties
+
 }

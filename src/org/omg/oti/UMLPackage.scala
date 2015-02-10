@@ -39,15 +39,41 @@
  */
 package org.omg.oti
 
-trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElement[Uml] {
+import scala.language.postfixOps
+
+trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElement[Uml] with UMLPackageOps[Uml] {
 
   import ops._
 
   def URI: Option[String]
   def nestingPackage: Option[UMLPackage[Uml]] = owningPackage
   def packagedElements: Set[UMLPackageableElement[Uml]] = ownedMembers.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
+  
+  /**
+   * @see UML 2.5, 12.4, Package
+   * nestedPackage() : Package [0..*] 
+   * Derivation for Package::/nestedPackage
+   * 
+   * body: packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet()
+   */
   def ownedTypes: Set[UMLType[Uml]] = packagedElements.selectByKindOf { case t: UMLType[Uml] => t }
+  
+  /**
+   * @see UML 2.5, 12.4, Package
+   * ownedStereotype() : Stereotype [0..*] 
+   * Derivation for Package::/ownedStereotype
+   * 
+   * body: packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet()
+   */
   def ownedStereotypes: Set[UMLStereotype[Uml]] = ownedTypes.selectByKindOf { case s: UMLStereotype[Uml] => s }
+  
+  /**
+   * @see UML 2.5, 12.4, Package
+   * nestedPackage() : Package [0..*] 
+   * Derivation for Package::/nestedPackage
+   * 
+   * body: packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet()
+   */
   def nestedPackages: Set[UMLPackage[Uml]] = packagedElements.selectByKindOf { case p: UMLPackage[Uml] => p }
   def packageMerges: Set[UMLPackageMerge[Uml]] = ownedElements.selectByKindOf { case pm: UMLPackageMerge[Uml] => pm }
   def profileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_source.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
@@ -87,4 +113,5 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
     appendUnique( namedElement_referenceMetaProperties, packageableElement_referenceMetaProperties )
 
   def applyingPackageOfProfileApplications: Set[UMLProfileApplication[Uml]] = directedRelationships_source.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
+
 }
