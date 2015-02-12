@@ -48,11 +48,29 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   // [protected (TIWG)]
 
   /**
+   * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
+   *
+   * @return In decreasing order of priority:
+   * - the value of the tag property OTI::SpecificationRoot::packageURI, if any and the OTI::SpecificationRoot stereotype is applied
+   * - the value of the Package::URI, if any
+   * - none, otherwise
+   */
+  def getEffectiveURI: Option[String] =
+    if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_packageURI.isDefined )
+      self.tagValues.get( OTI_SPECIFICATION_ROOT_packageURI.get ) match {
+        case Some( Seq( uri: UMLLiteralString[_] ) ) if ( uri.value.isDefined ) =>
+          uri.value
+        case _ =>
+          URI
+      }
+    else URI
+
+  /**
    * @see UML2.5, 12.4, Package, Operations:
    *
    * allApplicableStereotypes() : Stereotype [0..*]
    * The query allApplicableStereotypes() returns all the directly or indirectly owned stereotypes, including stereotypes contained in sub-profiles.
-   * 
+   *
    * body: let ownedPackages : Bag(Package) = ownedMember->select(oclIsKindOf(Package))- >collect(oclAsType(Package)) in
    *  ownedStereotype->union(ownedPackages.allApplicableStereotypes())->flatten()->asSet()
    */
@@ -63,14 +81,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    *
    * containingProfile() : Profile [0..1]
    * The query containingProfile() returns the closest profile directly or indirectly containing this package (or this package itself, if it is a profile).
-   * 
-   * body: if self.oclIsKindOf(Profile) then 
+   *
+   * body: if self.oclIsKindOf(Profile) then
    *   self.oclAsType(Profile)
-   * else 
+   * else
    *   self.namespace.oclAsType(Package).containingProfile()
    * endif
    */
-  def containingProfile: Option[UMLProfile[Uml]] = this match {  
+  def containingProfile: Option[UMLProfile[Uml]] = self match {
     case pf: UMLProfile[Uml] =>
       Some( pf )
 
@@ -81,6 +99,19 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       } yield pf
   }
 
+  def allNestingPackages: Set[UMLPackage[Uml]] =
+    Set( self ) ++ closure[UMLPackage[Uml], UMLPackage[Uml]]( self, ( _.owningPackage ) )
+
+  /**
+   * @issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete:
+   * @clarification: Applying a profile PF to a package P implies applying
+   * PF to all nested packages of P. That is, for a given package P, the
+   * set of all profile applications is the union of the profile applications
+   * of P and of all of its nesting packages recursively.
+   */
+  def allProfileApplications: Set[UMLProfileApplication[Uml]] =
+    allNestingPackages.flatMap( _.profileApplications )
+
   /**
    * Calculates the set of all profiles directly or indirectly applied to the package.
    *
@@ -90,11 +121,18 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * @see UML 2.5, section 12.3.3, Profile, Integrating & Extending Profiles, 3rd paragraph:
    * Normal rules apply as to whether a referenced Stereotype is visible to users of the extending Profile:
    * a public import is needed to ensure that Stereotypes from other profiles are visible after applying the extending one.
-   *
-   * Limitation:
-   * Does not handle the semantics of PackageMerge for profiles described UML 2.5, section 12.3.3, Profile, Integrating & Extending Profiles, 4th paragraph.
    */
-  def allAppliedProfiles: Set[UMLProfile[Uml]] = ???
+  def allAppliedProfiles: Set[UMLProfile[Uml]] =
+    ( for {
+      ap <- allProfileApplications
+      pf <- ap.appliedProfile
+    } yield Set( pf ) ++ pf.allVisibleProfiles ) flatten
+
+  /**
+   * For a Package, accessibleMembers also includes all the visible members of all of the applied profiles
+   */
+  def accessibleMembersIncludingAllAppliedProfiles: Set[UMLPackageableElement[Uml]] =
+    accessibleMembers ++ allAppliedProfiles.flatMap( _.allVisibleMembers )
 
   /**
    * For the package and owned elements, calculates the map of
@@ -107,7 +145,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def allAppliedStereotypesByProfile: Map[Option[UMLProfile[Uml]], Map[( UMLStereotype[Uml], UMLProperty[Uml] ), Set[UMLElement[Uml]]]] = {
 
-    val pkgContents = ( this +: allOwnedElements ).toSet[UMLElement[Uml]]
+    val pkgContents = ( self +: allOwnedElements ).toSet[UMLElement[Uml]]
     val tuples = pkgContents flatMap { e =>
       val pf2spMap = e.getAppliedStereotypes groupBy ( _._1.profile )
       pf2spMap flatMap { case ( pf, sps ) => sps map { case ( s, p ) => ( pf, s, p, e ) } }
@@ -129,9 +167,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * visibleMembers() : PackageableElement [0..*]
    * The query visibleMembers() defines which members of a Package can be accessed outside it.
    * body: member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))- >collect(oclAsType(PackageableElement))->asSet()
-   * 
+   *
    * @see UMLNamespace
    */
-  
+
   // [/protected]
 }

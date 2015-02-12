@@ -135,7 +135,8 @@ trait UMLOps[Uml <: UML] { self =>
   
   def cacheLookupOrUpdate( md: Uml#Element ): UMLElement[Uml] 
   
-  def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, e )  
+  def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = IllegalElementException[Uml, E]( message, Iterable(e) )
+  def illegalElementException[E <: UMLElement[Uml]]( message: String, e: Iterable[E]) = IllegalElementException[Uml, E]( message, e )
   
   /**
    * OTI::SpecificationRoot stereotype
@@ -158,7 +159,7 @@ trait UMLOps[Uml <: UML] { self =>
    val OTI_ID_uuid: Option[Uml#Property]
   
   val SLOT_VALUE: EStructuralFeature
-
+  
   def closure[U, V <: U]( x: U, relation: U => Iterable[V] ): Set[V] = {
     
     case class RelationClosureVisitor(
@@ -171,6 +172,7 @@ trait UMLOps[Uml <: UML] { self =>
     while ( visitor.visit.nonEmpty ) {
       val y = visitor.visit.remove( 0 )
       visitor.visited += y
+      visitor.result += y
       relation( y ) foreach ( yi => { 
         visitor.result += yi
         if ( ! visitor.visited.contains( yi ) ) { visitor.visit += yi }

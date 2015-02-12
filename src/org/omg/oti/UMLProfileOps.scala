@@ -39,7 +39,26 @@
  */
 package org.omg.oti
 
-trait UMLException[Uml <: UML] extends Exception
+import scala.language.postfixOps
 
-case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]](message: String, val element: Iterable[E]) extends Exception(message) with UMLException[Uml]
+trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
+  
+  import self.ops._
+  
+  // [protected (TIWG)]
+  
+  def allImportedProfiles: Set[UMLProfile[Uml]] = 
+    allImportedPackages.selectByKindOf { case pf: UMLProfile[Uml] => pf }
 
+  def allNestedProfiles: Set[UMLProfile[Uml]] = 
+    Set(this) ++ (allOwnedElements.selectByKindOf { case pf: UMLProfile[Uml] => pf }).toSet
+  
+  /**
+   * @see UML 2.5, 12.3.3 Profiles, Semantics, ProfileApplication
+   * Applying a Profile means recursively applying all its nested and imported Profiles. 
+   */
+  def allVisibleProfiles: Set[UMLProfile[Uml]] = 
+    allNestedProfiles ++ allNestedProfiles.flatMap (_.allImportedProfiles)
+    
+  // [/protected]
+}

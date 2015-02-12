@@ -39,6 +39,11 @@
  */
 package org.omg
 
-package object oti {
-
-}
+/**
+ * Limitations:
+ * 
+ * For PackageMerges, recommend computing the merges first
+ * and then operate on the resulting merged packages.
+ * (OTI could be used to implement package merge but this is not (yet) done).
+ */
+package object oti

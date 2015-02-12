@@ -1,3 +1,12 @@
+Version 0.8.0: February 11, 2015
+
+- update for publishing OMG SysML 1.4 (20150211)
+
+- set xmi:uuid to "org.omg." + xmi:id (this is to ensure that we can generate OTI models with consistent xmi:uuid across different tools -- e.g. MagicDraw, Papyrus, ...)
+- change UMLElementOps.mofMetaclass: UMLClass[Uml] to UMLElementOps.mofMetaclassName: String
+
+- DocumentSet API: separate the documentURIMapper from the tool-specific builtInURIMapper
+
 Version 0.7.2: February 9, 2015
 
 - Support for Nerijus' 6 questions about accessibility rules for types that a tool should present to a user.

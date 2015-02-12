@@ -47,10 +47,10 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
   // [protected (TIWG)]
 
-  def importedPackages: Set[UMLPackage[Uml]] = packageImports.flatMap (_.importedPackage)
-  
-  def allImportedPackages: Set[UMLPackage[Uml]] = closure[UMLNamespace[Uml], UMLPackage[Uml]]( this, (_.importedPackages ) )
-  
+  def importedPackages: Set[UMLPackage[Uml]] = packageImports.flatMap( _.importedPackage )
+
+  def allImportedPackages: Set[UMLPackage[Uml]] = closure[UMLNamespace[Uml], UMLPackage[Uml]]( self, ( _.importedPackages ) )
+
   /**
    * @see UML 2.5, 7.8, Namespace
    *
@@ -61,7 +61,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * body: self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage- >collect(p | p.visibleMembers()))->asSet())
    */
   def importedMembers: Set[UMLPackageableElement[Uml]] = {
-    val visibleMembersOfImportedPackages = ( for {
+    val visibleMembersByImport = ( for {
       pi <- packageImports
       ip <- pi.importedPackage
     } yield ip.visibleMembers ) flatten
@@ -71,7 +71,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
       ie <- ei.importedElement
     } yield ie
 
-    importedMembers ++ visibleMembersOfImportedPackages
+    importedMembers ++ visibleMembersByImport
   }
 
   /**
@@ -86,15 +86,24 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
     members.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
 
   /**
-   * UML 2.5 defines Package::visibleMembers; however, this is a more general notion
-   * that is intrinsic not to a Package but to a Namespace because:
-   * 1) visible members is a notion that only depends on the Namespace characteristics
-   * of a Package (its Namespace::elementImport and Namespace::packageImport relationships)
-   * 2) the semantics of importation is defined for Namespace
-   * 3) Package inherits the semantics of importation from Namespace
+   * allVisibleMembers is the union of the visibleMembers of the namespace and those of its directly and indirectly imported packages.
    */
-  def allVisibleMembers: Set[UMLPackageableElement[Uml]] = 
-    visibleMembers ++ allImportedPackages.flatMap (_.visibleMembers)
+  def allVisibleMembers: Set[UMLPackageableElement[Uml]] =
+    visibleMembers ++ allImportedPackages.flatMap( _.visibleMembers )
 
+  /**
+   * accessibleMembers corresponds to the union of all visible members of the namespace and those of its outer namespace, if any.
+   * 
+   * @see UML 2.5, 7.4.3 Namespaces, Semantics
+   * Within a Namespace, unqualified names may be used to refer to the members of that Namespace and to outer names that
+   * are not hidden. An outer name is the name of a NamedElement that may be referenced using an unqualified name in an
+   * immediately enclosing Namespace. An outer name is hidden unless it is distinguishable from all members of the inner Namespace.
+   */
+  def accessibleMembers: Set[UMLPackageableElement[Uml]] =
+    namespace match {
+      case None          => allVisibleMembers
+      case Some( outer ) => allVisibleMembers ++ outer.allVisibleMembers
+    }
+  
   // [/protected]
 }

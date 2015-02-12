@@ -68,35 +68,40 @@ import java.io.PrintWriter
 
 import scalaz._, Scalaz._, Free._
 
+class DocumentEdge[N]( nodes: Product )
+  extends DiEdge[N]( nodes )
+  with EdgeCopy[DocumentEdge]
+  with OuterEdge[N, DocumentEdge] {
+
+  override def copy[NN]( newNodes: Product ) = DocumentEdge.newEdge[NN]( newNodes )
+}
+
+object DocumentEdge extends EdgeCompanion[DocumentEdge] {
+  protected def newEdge[N]( nodes: Product ) = new DocumentEdge[N]( nodes )
+
+  def apply[Uml <: UML]( e: DiEdge[Product with Serializable with Document[Uml]] ) = new DocumentEdge[Document[Uml]]( NodeProduct( e.from, e.to ) )
+  def apply[Uml <: UML]( from: Document[Uml], to: Document[Uml] ) = new DocumentEdge[Document[Uml]]( NodeProduct( from, to ) )
+  def unapply[Uml <: UML]( e: DocumentEdge[Document[Uml]] ) = Some( e )
+  def apply[N]( from: N, to: N ): DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( from, to ) )
+  override def from[N]( nodes: Product ): DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( nodes.productElement( 1 ), nodes.productElement( 2 ) ) )
+}
+
+case class UnresolvedElementCrossReference[Uml <: UML](
+  document: Document[Uml],
+  documentElement: UMLElement[Uml],
+  externalReference: UMLElement[Uml] )
+
 /**
  * @todo: add support for the possibility that a stereotype tag value may refer to an element serialized in a different document.
  */
 case class DocumentSet[Uml <: UML](
   val serializableDocuments: Set[SerializableDocument[Uml]],
   val builtInDocuments: Set[BuiltInDocument[Uml]],
-  val catalogURIMapper: CatalogURIMapper,
-  val valueSpecificationTagConverter: Function1[UMLValueSpecification[Uml], Try[Option[String]]] = 
-    DocumentSet.serializeValueSpecificationAsTagValue _ )( implicit val ops: UMLOps[Uml] ) {
+  val documentURIMapper: CatalogURIMapper,
+  val builtInURIMapper: CatalogURIMapper,
+  val valueSpecificationTagConverter: Function1[UMLValueSpecification[Uml], Try[Option[String]]] = DocumentSet.serializeValueSpecificationAsTagValue _ )( implicit val ops: UMLOps[Uml] ) {
 
   implicit val myConfig = CoreConfig( orderHint = 5000, Hints( 64, 0, 64, 75 ) )
-
-  class DocumentEdge[N]( nodes: Product )
-    extends DiEdge[N]( nodes )
-    with EdgeCopy[DocumentEdge]
-    with OuterEdge[N, DocumentEdge] {
-
-    override def copy[NN]( newNodes: Product ) = DocumentEdge.newEdge[NN]( newNodes )
-  }
-
-  object DocumentEdge extends EdgeCompanion[DocumentEdge] {
-    protected def newEdge[N]( nodes: Product ) = new DocumentEdge[N]( nodes )
-
-    def apply( e: DiEdge[Product with Serializable with Document[Uml]] ) = new DocumentEdge[Document[Uml]]( NodeProduct( e.from, e.to ) )
-    def apply( from: Document[Uml], to: Document[Uml] ) = new DocumentEdge[Document[Uml]]( NodeProduct( from, to ) )
-    def unapply( e: DocumentEdge[Document[Uml]] ) = Some( e )
-    def apply[N]( from: N, to: N ): DocumentSet.this.DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( from, to ) )
-    override def from[N]( nodes: Product ): DocumentEdge[N] = new DocumentEdge[N]( NodeProduct( nodes.productElement( 1 ), nodes.productElement( 2 ) ) )
-  }
 
   implicit val documentEdgeTag: TypeTag[DocumentEdge[Document[Uml]]] = typeTag[DocumentEdge[Document[Uml]]]
 
@@ -106,10 +111,8 @@ case class DocumentSet[Uml <: UML](
     def empty() = factory[Document[Uml], DocumentEdge]()
   }
 
-  case class UnresolvedElementCrossReference(
-    document: Document[Uml],
-    documentElement: UMLElement[Uml],
-    externalReference: UMLElement[Uml] )
+  type MutableDocumentSetGraph = mutable.Graph[Document[Uml], DocumentEdge]
+  type ImmutableDocumentSetGraph = immutable.Graph[Document[Uml], DocumentEdge]
 
   /**
    * Construct the graph of document (nodes) and cross-references among documents (edges) and determine unresolvable cross-references
@@ -122,7 +125,7 @@ case class DocumentSet[Uml <: UML](
    * - the unresolved cross references
    */
   def externalReferenceDocumentGraph(
-    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): ( mutable.Graph[Document[Uml], DocumentEdge], Map[UMLElement[Uml], Document[Uml]], Iterable[UnresolvedElementCrossReference] ) = {
+    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): ( MutableDocumentSetGraph, Map[UMLElement[Uml], Document[Uml]], Iterable[UnresolvedElementCrossReference[Uml]] ) = {
 
     val element2document: Map[UMLElement[Uml], Document[Uml]] =
       ( serializableDocuments ++ builtInDocuments ) flatMap {
@@ -210,17 +213,35 @@ case class DocumentSet[Uml <: UML](
     g: mutable.Graph[Document[Uml], DocumentEdge],
     element2document: Map[UMLElement[Uml], Document[Uml]],
     d: SerializableDocument[Uml] ): Try[Unit] =
-    catalogURIMapper.resolveURI( d.uri, catalogURIMapper.saveResolutionStrategy ) match {
+    documentURIMapper.resolveURI( d.uri, documentURIMapper.saveResolutionStrategy ) match {
       case Failure( t ) => Failure( t )
       case Success( uri ) =>
         import scala.xml._
         import DocumentSet._
 
+        val referencedProfiles = ( for {
+          e <- d.extent
+          ( s, p ) <- e.getAppliedStereotypes
+          pf <- s.profile
+          if (element2document.contains( pf ))
+        } yield pf ) toSet
+
+        val emptyScope: NamespaceBinding = null
+        
+        val profileScopes = ( emptyScope /: referencedProfiles ) {
+          case ( scopes, referencedProfile ) =>
+            ( referencedProfile.name, referencedProfile.getEffectiveURI ) match {
+              case ( None, _ )                      => scopes
+              case ( _, None )                      => scopes
+              case ( Some( name ), Some( ns_uri ) ) => NamespaceBinding( name, ns_uri, scopes )
+            }
+        }
+
         val xmiScopes =
           NamespaceBinding( "xmi", XMI_ns,
             NamespaceBinding( "xsi", XSI_ns,
               NamespaceBinding( "uml", UML_ns,
-                NamespaceBinding( "mofext", MOFEXT_ns, null ) ) ) )
+                NamespaceBinding( "mofext", MOFEXT_ns, profileScopes ) ) ) )
 
         val elementOrdering = scala.collection.mutable.ArrayBuffer[UMLElement[Uml]]()
 
@@ -278,34 +299,35 @@ case class DocumentSet[Uml <: UML](
              */
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
-              val appliedStereotypes = e.getAppliedStereotypes filter { case (s,p) => element2document.contains(s) }
-              val ordering = appliedStereotypes.toList.sortBy { case (s,p) => s.profile.get.xmiUUID.head + s.xmiUUID.head }
-              val orderedTagValueElements = ordering map { case (s,p) =>
-                val tagValueAttributes: scala.xml.MetaData = allTagValues.get( s ) match {
-                  case None => Null
-                  case Some( tagValues ) =>
-                    val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
-                    val tagValueAttribute0: Try[MetaData] = Success( Null )
-                    val tagValueAttributeN = ( tagValueAttribute0 /: properties.reverse )( foldTagValues( tagValues ) _ )
-                    tagValueAttributeN match {
-                      case Failure( t )                 => return Failure( t )
-                      case Success( tagValueAttribute ) => tagValueAttribute
-                    }
-                }
-                val xmiTagValueAttributes =
-                  new PrefixedAttribute(
-                    pre = "xmi", key = "id", value = e.xmiID.head + "-" + s.xmiID.head,
+              val appliedStereotypes = e.getAppliedStereotypes filter { case ( s, p ) => element2document.contains( s ) }
+              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => s.profile.get.xmiUUID.head + s.xmiUUID.head }
+              val orderedTagValueElements = ordering map {
+                case ( s, p ) =>
+                  val tagValueAttributes: scala.xml.MetaData = allTagValues.get( s ) match {
+                    case None => Null
+                    case Some( tagValues ) =>
+                      val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
+                      val tagValueAttribute0: Try[MetaData] = Success( Null )
+                      val tagValueAttributeN = ( tagValueAttribute0 /: properties.reverse )( foldTagValues( tagValues ) _ )
+                      tagValueAttributeN match {
+                        case Failure( t )                 => return Failure( t )
+                        case Success( tagValueAttribute ) => tagValueAttribute
+                      }
+                  }
+                  val xmiTagValueAttributes =
                     new PrefixedAttribute(
-                      pre = "xmi", key = "uuid", value = e.xmiUUID.head + "-" + s.xmiUUID.head,
-                      new UnprefixedAttribute(
-                          key=p.name.get, value=e.xmiID.head, 
+                      pre = "xmi", key = "id", value = e.xmiID.head + "-" + s.xmiID.head,
+                      new PrefixedAttribute(
+                        pre = "xmi", key = "uuid", value = e.xmiUUID.head + "-" + s.xmiUUID.head,
+                        new UnprefixedAttribute(
+                          key = p.name.get, value = e.xmiID.head,
                           tagValueAttributes ) ) )
-                Elem(
-                  prefix = s.profile.get.name.get,
-                  label = s.name.get,
-                  attributes = xmiTagValueAttributes,
-                  scope = xmiScopes,
-                  minimizeEmpty = true )
+                  Elem(
+                    prefix = s.profile.get.name.get,
+                    label = s.name.get,
+                    attributes = xmiTagValueAttributes,
+                    scope = xmiScopes,
+                    minimizeEmpty = true )
               }
               orderedTagValueElements
             }
@@ -450,6 +472,7 @@ case class DocumentSet[Uml <: UML](
                 case Success( Some( eRef ) ) =>
                   element2document.get( eRef ) match {
                     case None =>
+                      System.out.println( s"*** foldLocalReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
                       Success( n )
                     case Some( dRef ) =>
                       if ( d != dRef ) Success( n )
@@ -463,7 +486,9 @@ case class DocumentSet[Uml <: UML](
                 case Success( eRefs ) =>
                   val lRefs = eRefs flatMap { eRef =>
                     element2document.get( eRef ) match {
-                      case None => None
+                      case None =>
+                        System.out.println( s"*** foldLocalReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
+                        None
                       case Some( dRef ) =>
                         if ( d != dRef ) None
                         else Some( eRef.id )
@@ -487,11 +512,17 @@ case class DocumentSet[Uml <: UML](
                 case Success( Some( eRef ) ) =>
                   element2document.get( eRef ) match {
                     case None =>
+                      System.out.println( s"*** foldCrossReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) Success( ns )
                       else {
-                        val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                        val href = dRef.uri + "#" + eRef.id
+                        val externalHRef = dRef match {
+                          case _: SerializableDocument[Uml] => href
+                          case _: BuiltInDocument[Uml]      => builtInURIMapper.resolve( href )
+                        }
+                        val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
                         val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                         Success( ns :+ hrefNode )
                       }
@@ -505,11 +536,18 @@ case class DocumentSet[Uml <: UML](
                 case Success( eRefs ) =>
                   val hRefs = eRefs flatMap { eRef =>
                     element2document.get( eRef ) match {
-                      case None => None
+                      case None =>
+                        System.out.println( s"*** foldCrossReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
+                        None
                       case Some( dRef ) =>
                         if ( d == dRef ) None
                         else {
-                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = s"${dRef.uri}#${eRef.id}", Null )
+                          val href = dRef.uri + "#" + eRef.id
+                          val externalHRef = dRef match {
+                            case _: SerializableDocument[Uml] => href
+                            case _: BuiltInDocument[Uml]      => builtInURIMapper.resolve( href )
+                          }
+                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
                           val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           hrefNode
                         }
@@ -613,4 +651,26 @@ object DocumentSet {
       case v                         => Failure( new IllegalArgumentException( s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
     }
 
+  def constructDocumentSetCrossReferenceGraph[Uml <: UML](
+    specificationRootPackages: Set[UMLPackage[Uml]],
+    documentURIMapper: CatalogURIMapper,
+    builtInURIMapper: CatalogURIMapper,
+    builtInDocuments: Set[BuiltInDocument[Uml]],
+    valueSpecificationTagConverter: Function1[UMLValueSpecification[Uml], Try[Option[String]]],
+    ignoreCrossReferencedElementFilter: Function1[UMLElement[Uml], Boolean] )( implicit ops: UMLOps[Uml] ): Try[( DocumentSet[Uml], DocumentSet[Uml]#MutableDocumentSetGraph, Map[UMLElement[Uml], Document[Uml]], Iterable[UnresolvedElementCrossReference[Uml]] )] = {
+
+    import ops._
+    val ( roots, anonymousRoots ) = specificationRootPackages partition ( _.getEffectiveURI.isDefined )
+    if ( anonymousRoots.nonEmpty ) Failure( illegalElementException( "Document-level packages must have an effective URI for export", anonymousRoots ) )
+    else {
+      val serializableDocuments = for {
+        root <- roots
+        rootURI <- root.getEffectiveURI
+      } yield SerializableDocument( uri = new java.net.URI( rootURI ), scope = root )
+
+      val ds = DocumentSet( serializableDocuments, builtInDocuments, documentURIMapper, builtInURIMapper, valueSpecificationTagConverter )
+      val ( g, element2document, unresolved ) = ds.externalReferenceDocumentGraph( ignoreCrossReferencedElementFilter )
+      Success( ( ds, g, element2document, unresolved ) )
+    }
+  }
 }

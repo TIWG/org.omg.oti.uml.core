@@ -275,7 +275,7 @@ trait UMLElementOps[Uml <: UML] {
   def appendUnique[F]( s1: Seq[F], s2: Seq[F] )( implicit f: ClassTag[F] ): Seq[F] =
     s1 ++ ( s2 filter ( !s1.contains( _ ) ) )
 
-  def mofMetaclass: UMLClass[Uml]
+  def mofMetaclassName: String
 
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
@@ -293,21 +293,11 @@ trait UMLElementOps[Uml <: UML] {
 
   def xmiID: Iterable[String] = Iterable( id )
   def xmiUUID: Iterable[String] = uuid.toIterable
-  def xmiElementLabel: String = {
-    val label = for {
-      n0 <- mofMetaclass.name
-      n1 = n0( 0 ).toLower + n0.drop( 1 )
-    } yield n1
-    label.head
-  }
+  def xmiElementLabel: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
 
   def xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse(""))
   
-  def xmiType: Iterable[String] =
-    for {
-      n0 <- mofMetaclass.name
-      n1 = "uml:" + n0
-    } yield n1
+  def xmiType: Iterable[String] = Iterable( "uml:" + mofMetaclassName )
 
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
 

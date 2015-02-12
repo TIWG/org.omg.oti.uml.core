@@ -100,9 +100,11 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       } )
 
   val rule0: Element2IDRule = {
-    case root: UMLPackage[Uml] if ( OTI_SPECIFICATION_ROOT_S.isDefined && root.hasStereotype( OTI_SPECIFICATION_ROOT_S.get ) ) =>
+    //case root: UMLPackage[Uml] if ( OTI_SPECIFICATION_ROOT_S.isDefined && root.hasStereotype( OTI_SPECIFICATION_ROOT_S.get ) ) =>
+    case root: UMLPackage[Uml] =>
       root.name match {
-        case None      => Failure( illegalElementException( "OTI::SpecificationRoot-stereotyped Package must be explicitly named", root ) )
+        //case None      => Failure( illegalElementException( "OTI::SpecificationRoot-stereotyped Package must be explicitly named", root ) )
+        case None      => Failure( illegalElementException( "The root package must be explicitly named", root ) )
         case Some( n ) => Success( n )
       }
   }

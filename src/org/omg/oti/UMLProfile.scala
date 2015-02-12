@@ -39,7 +39,7 @@
  */
 package org.omg.oti
 
-trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
+trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] with UMLProfileOps[Uml] {
   
   import ops._
   
@@ -78,21 +78,4 @@ trait UMLProfile[Uml <: UML] extends UMLPackage[Uml] {
         MetaPropertyCollection[UMLProfile[Uml], UMLPackageImport[Uml]]( "metamodelReference", _.metamodelReferences )
         )
 
-  // [protected (TIWG)]
-  
-  /**
-   * @see UML 2.5, 12.3.3 Profiles, Semantics, ProfileApplication
-   * Applying a Profile means recursively applying all its nested and imported Profiles. 
-   */
-  def allNestedOrImportedProfilesIncludingSelf: Set[UMLProfile[Uml]] = {
-    
-    def directlyNestedOrImportedProfiles( pf: UMLProfile[Uml] ): Iterable[UMLProfile[Uml]] = {
-      val imported = pf.nestedPackages.selectByKindOf { case x: UMLProfile[Uml] => x }
-      Iterable()
-    }
-    
-    Set()
-  }
-    
-  // [/protected]
 }

@@ -85,9 +85,11 @@ trait UMLPackage[Uml <: UML] extends UMLNamespace[Uml] with UMLPackageableElemen
   override def metaAttributes: MetaAttributeFunctions =
     package_metaAttributes
 
+  // [protected (oti)]
   def package_metaAttributes: MetaAttributeFunctions =
     appendUnique( namespace_metaAttributes, packageableElement_metaAttributes ) ++
-      Seq( MetaAttributeStringFunction[UMLPackage[Uml]]( None, "URI", _.URI ) )
+      Seq( MetaAttributeStringFunction[UMLPackage[Uml]]( None, "URI", _.getEffectiveURI ) )
+  // [/protected]
 
   override def forwardReferencesFromMetamodelAssociations =
     package_forwardReferencesFromMetamodelAssociations

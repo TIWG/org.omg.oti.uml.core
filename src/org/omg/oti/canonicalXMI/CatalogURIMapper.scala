@@ -44,14 +44,13 @@ import java.io.IOException
 import java.net.MalformedURLException
 import java.net.URI
 import java.net.URL
-
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
-
 import org.apache.xml.resolver.Catalog
 import org.apache.xml.resolver.CatalogManager
 import org.apache.xml.resolver.tools.CatalogResolver
+import java.io.FileNotFoundException
 
 case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: CatalogResolver, catalog: Catalog ) {
 
@@ -124,6 +123,12 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
     }
   }
 
+  def resolve( uri: String ): String =
+    catalog.resolveURI( uri ) match {
+    case null => uri
+    case resolved => resolved
+  }
+  
   def resolveURI( uri: URI, resolutionStrategy: ( String ) => Option[URI] ): Try[URI] = {
 
     def ignore( e: Exception ) = {}
@@ -146,4 +151,22 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
       case t: IOException           => Failure( t )
     }
   }
+}
+
+object CatalogURIMapper {
+  
+  def createCatalogURIMapper( catalogFiles: Seq[File] ): Try[CatalogURIMapper] = {    
+    val catalog = new CatalogManager()
+    val mapper = new CatalogURIMapper( catalog )
+    catalogFiles.foreach { catalogFile => 
+      if ( ! catalogFile.exists ) return Failure( new FileNotFoundException( catalogFile.getAbsolutePath ))
+      else mapper.parseCatalog(catalogFile.toURI) match {
+        case Failure( t ) => return Failure( t )
+        case Success( _ ) => ()
+      }
+    }
+      
+    Success( mapper )
+  }
+    
 }

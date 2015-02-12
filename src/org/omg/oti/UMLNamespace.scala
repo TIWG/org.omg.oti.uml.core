@@ -46,13 +46,17 @@ trait UMLNamespace[Uml <: UML] extends UMLNamedElement[Uml] with UMLNamespaceOps
   import ops._
 
   def members: Set[UMLNamedElement[Uml]]
-  def ownedMembers: Set[UMLNamedElement[Uml]] = members & ( ownedElements.selectByKindOf { case ne: UMLNamedElement[Uml] => ne } )
+  def ownedMembers: Set[UMLNamedElement[Uml]] = 
+    members & ( ownedElements.selectByKindOf { case ne: UMLNamedElement[Uml] => ne } )
 
-  def elementImports: Set[UMLElementImport[Uml]] = directedRelationships_source.selectByKindOf { case ei: UMLElementImport[Uml] => ei }
+  def elementImports: Set[UMLElementImport[Uml]] = 
+    directedRelationships_source.selectByKindOf { case ei: UMLElementImport[Uml] => ei }
 
-  def packageImports: Set[UMLPackageImport[Uml]] = directedRelationships_source.selectByKindOf { case pi: UMLPackageImport[Uml] => pi }
+  def packageImports: Set[UMLPackageImport[Uml]] = 
+    directedRelationships_source.selectByKindOf { case pi: UMLPackageImport[Uml] => pi }
 
-  def ownedRules: Set[UMLConstraint[Uml]] = ownedMembers.selectByKindOf { case c: UMLConstraint[Uml] => c }
+  def ownedRules: Set[UMLConstraint[Uml]] = 
+    ownedMembers.selectByKindOf { case c: UMLConstraint[Uml] => c }
 
   /**
    * Fig 7.5 (complete)
