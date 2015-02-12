@@ -105,7 +105,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       root.name match {
         //case None      => Failure( illegalElementException( "OTI::SpecificationRoot-stereotyped Package must be explicitly named", root ) )
         case None      => Failure( illegalElementException( "The root package must be explicitly named", root ) )
-        case Some( n ) => Success( n )
+        case Some( n ) => Success( xmlSafeID(n) )
       }
   }
 
