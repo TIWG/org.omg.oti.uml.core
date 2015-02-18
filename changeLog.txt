@@ -1,3 +1,7 @@
+Version 0.9.1: February 17, 2015
+
+- Fix for the Canonical XMI serialization of XMIAttributes (i.e. no 2h from MOF/XMI)
+
 Version 0.9.0: February 17, 2015
 
 - Major refactoring of the xmi:ID generation / serialization framework.

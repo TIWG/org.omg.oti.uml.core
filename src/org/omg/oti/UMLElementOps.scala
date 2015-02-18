@@ -114,12 +114,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     val attributeName: String
     val f: Function1[U, Iterable[DT]]
 
-    def evaluate( e: UMLElement[Uml] )( implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U] ): Try[Option[String]] =
+    def evaluate( e: UMLElement[Uml] )( implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U] ): Try[Iterable[String]] =
       e match {
-        case u: U => Success( f( u ).headOption match {
-          case None      => None
-          case Some( v ) => Some( v.toString )
-        } )
+        case u: U => Success( f( u ).map(_.toString) )
         case _ => Failure( IllegalMetaAttributeEvaluation( e, this ) )
       }
 

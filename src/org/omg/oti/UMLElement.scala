@@ -64,8 +64,7 @@ trait UMLElement[Uml <: UML] extends UMLElementOps[Uml] {
    * Fig 7.1 (complete)
    */
 
-  def element_metaAttributes: MetaAttributeFunctions =
-    mofXMI_metaAtttributes
+  def element_metaAttributes: MetaAttributeFunctions = Seq()
     
   def element_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
   def element_compositeMetaProperties: MetaPropertyFunctions = Seq( MetaPropertyCollection[UMLElement[Uml], UMLElement[Uml]]( "ownedComment", _.ownedComments.toIterable ) )

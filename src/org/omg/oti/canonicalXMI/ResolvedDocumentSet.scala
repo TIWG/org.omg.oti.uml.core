@@ -76,23 +76,22 @@ case class ResolvedDocumentSet[Uml <: UML](
   type ValueSpecificationTagConverter = Function1[UMLValueSpecification[Uml], Try[Option[String]]]
 
   def getStereptype_ID_UUID( s: UMLStereotype[Uml] ): ( String, String ) =
-    element2document.get(s) match {
-    case None => 
-      throw new IllegalArgumentException(s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})")
-    
-    case Some( d: BuiltInDocument[Uml] ) =>
-      val builtInURI = d.builtInURI.resolve("#"+s.id).toString
-      val mappedURI = ds.builtInURIMapper.resolve( builtInURI )
-      val fragmentIndex = mappedURI.lastIndexOf('#')
-      require( fragmentIndex > 0)
-      val fragment = IDGenerator.xmlSafeID( d.nsPrefix+"."+mappedURI.substring(fragmentIndex+1) )
-      ( fragment, "org.omg."+fragment )
-             
-    case Some( d: SerializableDocument[Uml] ) =>
-       ( s.xmiID.head, s.xmiUUID.head )
-  }
-   
-  
+    element2document.get( s ) match {
+      case None =>
+        throw new IllegalArgumentException( s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})" )
+
+      case Some( d: BuiltInDocument[Uml] ) =>
+        val builtInURI = d.builtInURI.resolve( "#" + s.id ).toString
+        val mappedURI = ds.builtInURIMapper.resolve( builtInURI )
+        val fragmentIndex = mappedURI.lastIndexOf( '#' )
+        require( fragmentIndex > 0 )
+        val fragment = IDGenerator.xmlSafeID( d.nsPrefix + "." + mappedURI.substring( fragmentIndex + 1 ) )
+        ( fragment, "org.omg." + fragment )
+
+      case Some( d: SerializableDocument[Uml] ) =>
+        ( s.xmiID.head, s.xmiUUID.head )
+    }
+
   def lookupDocumentByScope( e: UMLElement[Uml] ): Option[Document[Uml]] =
     element2document.get( e ) match {
       case None      => None
@@ -235,10 +234,10 @@ case class ResolvedDocumentSet[Uml <: UML](
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
               val appliedStereotypes = e.getAppliedStereotypes filter { case ( s, p ) => element2document.contains( s ) }
-              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => getStereptype_ID_UUID(s)._1 }
+              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => getStereptype_ID_UUID( s )._1 }
               val orderedTagValueElements = ordering map {
                 case ( s, p ) =>
-                  val ( sID, sUUID ) = getStereptype_ID_UUID(s)
+                  val ( sID, sUUID ) = getStereptype_ID_UUID( s )
                   val tagValueAttributes: scala.xml.MetaData = allTagValues.get( s ) match {
                     case None => Null
                     case Some( tagValues ) =>
@@ -376,65 +375,36 @@ case class ResolvedDocumentSet[Uml <: UML](
     //      s"Verification that the trampolined function 'wrapNodes' runs recursively stack-free for label=${label}, e=${e.xmiID}" )
 
     def foldAttribute( next: Try[MetaData], f: e.MetaAttributeFunction ): Try[MetaData] =
-      next match {
-        case Failure( t ) =>
+      ( next, f.evaluate( e ) ) match {
+        case ( Failure( t ), _ ) =>
           Failure( t )
-        case Success( n ) =>
-          for { fValue <- f.evaluate( e ) }
-            yield fValue match {
-            case None =>
-              n
-            case Some( v ) =>
-              f.attributePrefix match {
-                case None =>
-                  new UnprefixedAttribute( key = f.attributeName, value = v, n )
-                case Some( aPrefix ) =>
-                  new PrefixedAttribute( pre = aPrefix, key = f.attributeName, value = v, n )
-              }
-          }
+        case ( _, Failure( t ) ) =>
+          Failure( t )
+        case ( Success( n ), Success( values ) ) =>
+          Success(
+            ( n /: values ) {
+              case ( _n, _value ) =>
+                f.attributePrefix match {
+                  case None =>
+                    new UnprefixedAttribute( key = f.attributeName, value = _value, _n )
+                  case Some( aPrefix ) =>
+                    new PrefixedAttribute( pre = aPrefix, key = f.attributeName, value = _value, _n )
+                }
+            } )
       }
 
-    def foldLocalReference( next: Try[MetaData], f: e.MetaPropertyEvaluator ): Try[MetaData] =
-      next match {
-        case Failure( t ) => Failure( t )
-        case Success( n ) =>
-          f match {
-            case rf: e.MetaReferenceEvaluator =>
-              rf.evaluate( e ) match {
-                case Failure( t )    => Failure( t )
-                case Success( None ) => Success( n )
-                case Success( Some( eRef ) ) =>
-                  element2document.get( eRef ) match {
-                    case None =>
-                      System.out.println( s"*** foldLocalReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
-                      Success( n )
-                    case Some( dRef ) =>
-                      if ( d != dRef ) Success( n )
-                      else Success( new UnprefixedAttribute( key = f.propertyName, value = eRef.id, n ) )
-                  }
-              }
-            case cf: e.MetaCollectionEvaluator =>
-              cf.evaluate( e ) match {
-                case Failure( t )   => Failure( t )
-                case Success( Nil ) => Success( n )
-                case Success( eRefs ) =>
-                  val lRefs = eRefs flatMap { eRef =>
-                    element2document.get( eRef ) match {
-                      case None =>
-                        System.out.println( s"*** foldLocalReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
-                        None
-                      case Some( dRef ) =>
-                        if ( d != dRef ) None
-                        else Some( eRef.id )
-                    }
-                  }
-                  if ( lRefs.isEmpty ) Success( n )
-                  else Success( new UnprefixedAttribute( key = f.propertyName, value = lRefs.mkString( " " ), n ) )
-              }
-          }
+    def foldAttributeNode( nodes: Try[Seq[Node]], f: e.MetaAttributeFunction ): Try[Seq[Node]] =
+      ( nodes, f.evaluate( e ) ) match {
+        case ( Failure( t ), _ ) => Failure( t )
+        case ( _, Failure( t ) ) => Failure( t )
+        case ( Success( ns ), Success( values ) ) =>
+          val valueNodes = for {
+            value <- values
+          } yield Elem( prefix = null, label = f.attributeName, attributes = Null, scope = xmiScopes, minimizeEmpty = true, Text( value ) )
+          Success( ns ++ valueNodes )
       }
 
-    def foldCrossReference( nodes: Try[Seq[Node]], f: e.MetaPropertyEvaluator ): Try[Seq[Node]] =
+    def foldReference( nodes: Try[Seq[Node]], f: e.MetaPropertyEvaluator ): Try[Seq[Node]] =
       nodes match {
         case Failure( t ) => Failure( t )
         case Success( ns ) =>
@@ -446,10 +416,14 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Success( Some( eRef ) ) =>
                   element2document.get( eRef ) match {
                     case None =>
-                      System.out.println( s"*** foldCrossReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
+                      System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
                       Success( ns )
                     case Some( dRef ) =>
-                      if ( d == dRef ) Success( ns )
+                      if ( d == dRef ) {
+                        val idrefAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "idref", value = eRef.id, Null )
+                        val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                        Success( ns :+ idrefNode )
+                      }
                       else {
                         val href = dRef.uri + "#" + eRef.id
                         val externalHRef = dRef match {
@@ -471,7 +445,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                   val hRefs = eRefs flatMap { eRef =>
                     element2document.get( eRef ) match {
                       case None =>
-                        System.out.println( s"*** foldCrossReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
+                        System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
                         None
                       case Some( dRef ) =>
                         if ( d == dRef ) None
@@ -548,19 +522,19 @@ case class ResolvedDocumentSet[Uml <: UML](
     val duplicates = refEvaluators.toSet.intersect( subEvaluators.toSet )
     require( duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: ${duplicates}" )
 
-    val xmlInitReferences: Try[MetaData] = Success( Null )
-    val xmlLocalReferences = ( xmlInitReferences /: refEvaluators )( foldLocalReference _ )
-    ( xmlLocalReferences /: e.metaAttributes.reverse )( foldAttribute _ ) match {
+    val mofAttributes0: Try[MetaData] = Success( Null )
+    ( mofAttributes0 /: e.mofXMI_metaAtttributes.reverse )( foldAttribute _ ) match {
       case Failure( t ) =>
         return_ { Failure( t ) }
 
-      case Success( xmlAttributesAndLocalReferences ) =>
+      case Success( mofAttributesN ) =>
         suspend {
           val xRef0: Try[Seq[Node]] = Success( Seq() )
-          val xRefs = ( xRef0 /: refEvaluators )( foldCrossReference _ )
+          val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode _ )
+          val xRefs = ( xRefA /: refEvaluators )( foldReference _ )
           val xRefsAndSub0: Trampoline[Try[Seq[Node]]] = return_ { xRefs }
           val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode _ )
-          wrapNodes( xRefsAndSubN, prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
+          wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
         }
     }
   }

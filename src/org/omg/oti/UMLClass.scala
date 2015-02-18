@@ -58,8 +58,7 @@ trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsul
     class_metaAttributes
 
   def class_metaAttributes: MetaAttributeFunctions =
-    behavioredClassifier_metaAttributes ++
-      encapsulatedClassifier_metaAttributes ++
+    appendUnique( behavioredClassifier_metaAttributes, encapsulatedClassifier_metaAttributes ) ++
       Seq( MetaAttributeBooleanFunction[UMLClass[Uml]]( None, "isActive", ( o ) => booleanToIterable( o.isActive, false ) ) )
 
   override def forwardReferencesFromMetamodelAssociations =
