@@ -39,6 +39,8 @@
  */
 package org.omg.oti
 
+import scala.language.postfixOps
+
 trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[Uml] =>
 
   import self.ops._
