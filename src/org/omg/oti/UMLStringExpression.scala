@@ -49,4 +49,15 @@ trait UMLStringExpression[Uml <: UML] extends UMLExpression[Uml] {
     
   override def referenceMetaProperties: MetaPropertyFunctions = 
     super.referenceMetaProperties
+        
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    stringExpression_forwardReferencesFromStereotypeTagValue
+    
+  /**
+   * A string expression that is the value of a stereotype tag property is considered part of the forward references
+   * from the element on which the stereotype is applied; other parts include the sub-expressions of the string expression
+   * and the parts from the string expression as a kind of expression.
+   */
+  def stringExpression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    expression_forwardReferencesFromStereotypeTagValue ++ subExpressions.toSet
 }

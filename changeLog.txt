@@ -1,3 +1,45 @@
+Version 0.9.0: February 17, 2015
+
+- Major refactoring of the xmi:ID generation / serialization framework.
+  See org.omg.oti.canonicalXMI.{Document, DocumentSet, ResolvedDocumentSet, IDGenerator}
+  
+- re-generated OMG SysML 1.4 (20150217) -- the validation & generation workflows are explicitly represented in UML.
+  (See the 'checks' and 'workflow' diagrams in the MD file)
+   
+- Captured the restrictions on the use of UML PackageImport & ProfileApplication.
+  (see org.omg.oti.validation.UMLPackageableElementRules)
+  The restrictions capture the intent that, at least for OMG machine-readable XMI files, 
+  there is directly or indirectly a package import or profile application to account for 
+  all cross references among XMI documents.
+
+  Although these restrictions seem to go beyond the well-formedness constraints defined in UML 2.5 and/or MOF/XMI 2.5,
+  it is difficult to assess from the specifications alone whether they cover reasonable practical expectations when working
+  with multiple XMI documents (libraries, profiles, etc...) Surprisingly, these additional restrictions helped detect 
+  subtle errors in the MD 18.0SP2 model of OMG SysML 1.4 (see the 'checks' workflow in the MD model). 
+
+- known upcoming changes:
+
+  -- A MetaAttributeAbstractFunction for properties typed by enumerations.
+  -- Change the API for stereotype tag values to be UML-neutral
+     There are 4 kinds of possible values for a stereotype tag property value:
+     --- the string representation for the value of a primitive type
+     --- the string representation for the value of an enumeration
+     --- a reference to a UML Element (i.e., the stereotype property is typed by a UML metaclass)
+     --- an object that is the value of a stereotype property typed by a profile-defined classifier (not a stereotype, not an extension, not a primitive type)
+  -- Change the XMI serialization from XMI attributes to nested XMI elements for all properties per the Canonical XMI Spec
+   
+     Canonical XMI:
+     2d:XMIAttributes      ::=  (2e:IdentityAttribs)?
+                                (2g:TypeAttrib)
+     
+     MOF/XMI 2.5:                             
+     2d:XMIAttributes      ::=  (1e:Namespaces)?
+                                (2e:IdentityAttribs)?
+                                (2g:TypeAttrib)
+                                (2h:FeatureAttrib)*
+                                
+     The current OTI Canonical XMI serializer uses 2h, which is non-compliant with Canonical XMI (ptc/2013-08-31)
+  
 Version 0.8.0: February 11, 2015
 
 - update for publishing OMG SysML 1.4 (20150211)

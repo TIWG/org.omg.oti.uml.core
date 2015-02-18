@@ -57,63 +57,16 @@ trait UMLElement[Uml <: UML] extends UMLElementOps[Uml] {
 
   implicit val ops: UMLOps[Uml]
   import ops._
-
-  /**
-   * directed, non-derived, composite association end properties
-   */
-  def compositeMetaProperties: MetaPropertyFunctions
-
-  /**
-   * directed, non-derived, reference association end properties
-   */
-  def referenceMetaProperties: MetaPropertyFunctions
-
-  /**
-   * Calculate the references from this element to other elements
-   * due to non-composite, non-derived properties in the metamodel.
-   *
-   * For serializing an OTI model into an OMG Canonical XMI document,
-   * the references among elements do matter; particularly, references
-   * due to non-composite, non-derived properties matter because their serialization
-   * depends on whether the two elements are serialized within the same document or not.
-   *
-   * The OMG MOF/XMI spec is incomplete in the sense that it does not mention
-   * references due to values of applied stereotype tag properties.
-   */
-  def allForwardReferences: Set[UMLElement[Uml]] =
-    forwardReferencesFromMetamodelAssociations ++
-      forwardReferencesFromStereotypeTagProperties
-
-  /**
-   * The set of Elements referenced from this Element due to link instances of
-   * directed, non-composite, non-derived associations defined in the UML metamodel
-   *
-   * This method is defined for every metaclass according to the figures from the UML spec in two idioms:
-   * - concrete metaclasses:
-   *
-   * The override method includes up to 3 contributions:
-   * - those of the metaclass itself
-   *
-   * - the concrete direct generalization parent metaclass (zero or one)
-   * => super.forwardReferencesFromMetamodelAssociations
-   *
-   * - each abstract direct generalization parent metaclass (zero or more)
-   * => [metaclass name]_forwardReferencesFromMetamodelAssociations
-   */
-  def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
-
-  def element_metaAttributes: MetaAttributeFunctions =
-    Seq(
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "uuid", _.xmiUUID ),
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "type", _.xmiType ) )
-
+  
   // [/protected]
 
   /**
    * Fig 7.1 (complete)
    */
 
+  def element_metaAttributes: MetaAttributeFunctions =
+    mofXMI_metaAtttributes
+    
   def element_forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]] = Set()
   def element_compositeMetaProperties: MetaPropertyFunctions = Seq( MetaPropertyCollection[UMLElement[Uml], UMLElement[Uml]]( "ownedComment", _.ownedComments.toIterable ) )
   def element_referenceMetaProperties: MetaPropertyFunctions = Seq()

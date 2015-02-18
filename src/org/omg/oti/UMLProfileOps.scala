@@ -47,18 +47,18 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
   
   // [protected (TIWG)]
   
-  def allImportedProfiles: Set[UMLProfile[Uml]] = 
-    allImportedPackages.selectByKindOf { case pf: UMLProfile[Uml] => pf }
+  def allImportedProfilesTransitively: Set[UMLProfile[Uml]] = 
+    allImportedPackagesTransitively.selectByKindOf { case pf: UMLProfile[Uml] => pf }
 
-  def allNestedProfiles: Set[UMLProfile[Uml]] = 
+  def allNestedProfilesTransitively: Set[UMLProfile[Uml]] = 
     Set(this) ++ (allOwnedElements.selectByKindOf { case pf: UMLProfile[Uml] => pf }).toSet
   
   /**
    * @see UML 2.5, 12.3.3 Profiles, Semantics, ProfileApplication
    * Applying a Profile means recursively applying all its nested and imported Profiles. 
    */
-  def allVisibleProfiles: Set[UMLProfile[Uml]] = 
-    allNestedProfiles ++ allNestedProfiles.flatMap (_.allImportedProfiles)
+  def allVisibleProfilesTransitively: Set[UMLProfile[Uml]] = 
+    allNestedProfilesTransitively ++ allNestedProfilesTransitively.flatMap (_.allImportedProfilesTransitively)
     
   // [/protected]
 }

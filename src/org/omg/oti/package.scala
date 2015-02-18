@@ -40,6 +40,9 @@
 package org.omg
 
 /**
+ * The UML trait type has type members for every UML metaclass.
+ * The enumeration types in UML itself are not parameterized.
+ * 
  * Limitations:
  * 
  * For PackageMerges, recommend computing the merges first

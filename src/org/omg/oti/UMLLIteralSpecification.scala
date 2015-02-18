@@ -64,4 +64,11 @@ trait UMLLiteralSpecification[Uml <: UML] extends UMLValueSpecification[Uml] {
     
   def literalSpecification_referenceMetaProperties =
     valueSpecification_referenceMetaProperties
+    
+  /**
+   * A literal specification that is the value of a stereotype tag property is not considered a forward reference
+   * from the element on which the stereotype is applied. 
+   */
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
+
 }

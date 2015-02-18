@@ -58,5 +58,9 @@ trait UMLPackageableElement[Uml <: UML] extends UMLNamedElement[Uml] {
     namedElement_compositeMetaProperties
     
   def packageableElement_referenceMetaProperties: MetaPropertyFunctions = 
-    namedElement_referenceMetaProperties            
+    namedElement_referenceMetaProperties       
+    
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = Set( this )
+
+  override def asForwardReferencesToOwningElementImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = Set( this ) 
 }

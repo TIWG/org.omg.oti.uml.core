@@ -39,7 +39,7 @@
  */
 package org.omg.oti
 
-trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] {
+trait UMLInstanceSpecification[Uml <: UML] extends UMLPackageableElement[Uml] with UMLInstanceSpecificationOps[Uml] {
   
   def specification: Option[UMLValueSpecification[Uml]]
   def slots: Iterable[UMLSlot[Uml]]

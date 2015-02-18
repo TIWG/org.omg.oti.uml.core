@@ -47,6 +47,22 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   // [protected (TIWG)]
 
+  def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackages -- importedPackages
+  
+  def allNestedPackages: Set[UMLPackage[Uml]] = closure( self, ((p:UMLPackage[Uml]) => p.nestedPackages))
+  
+  /**
+   * The reflexive transitive closure of the owning package of a package.
+   */
+  def allNestingPackagesTransitively: Set[UMLPackage[Uml]] =
+    Set( self ) ++ closure[UMLPackage[Uml], UMLPackage[Uml]]( self, ( _.owningPackage ) )
+
+  /**
+   * The direclty imported packages from the reflexive transitive closure of the owning package of a package.
+   */
+  def allDirectlyImportedPackagesIncludingNestingPackagesTransitively: Set[UMLPackage[Uml]] = 
+    allNestingPackagesTransitively.flatMap (_.importedPackages)
+  
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
    *
@@ -99,9 +115,6 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       } yield pf
   }
 
-  def allNestingPackages: Set[UMLPackage[Uml]] =
-    Set( self ) ++ closure[UMLPackage[Uml], UMLPackage[Uml]]( self, ( _.owningPackage ) )
-
   /**
    * @issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete:
    * @clarification: Applying a profile PF to a package P implies applying
@@ -109,8 +122,18 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * set of all profile applications is the union of the profile applications
    * of P and of all of its nesting packages recursively.
    */
-  def allProfileApplications: Set[UMLProfileApplication[Uml]] =
-    allNestingPackages.flatMap( _.profileApplications )
+  def allDirectProfileApplicationsIncludingNestingPackagesTransitively: Set[UMLProfileApplication[Uml]] =
+    allNestingPackagesTransitively.flatMap( _.profileApplications )
+
+  def allDirectlyAppliedProfilesExceptNestingPackages: Set[UMLProfile[Uml]] =
+    profileApplications.flatMap(_.appliedProfile)
+    
+  def allDirectlyAppliedProfilesIncludingNestingPackagesTransitively: Set[UMLProfile[Uml]] =
+    allDirectProfileApplicationsIncludingNestingPackagesTransitively.flatMap(_.appliedProfile)
+    
+  def allDirectlyVisibleMembersTransitivelyAccessibleExceptNestingPackagesAndAppliedProfiles: Set[UMLPackageableElement[Uml]] =
+    allVisibleMembersAccessibleTransitively ++ 
+    allDirectlyAppliedProfilesExceptNestingPackages.flatMap( _.allVisibleMembersTransitively )
 
   /**
    * Calculates the set of all profiles directly or indirectly applied to the package.
@@ -122,17 +145,17 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * Normal rules apply as to whether a referenced Stereotype is visible to users of the extending Profile:
    * a public import is needed to ensure that Stereotypes from other profiles are visible after applying the extending one.
    */
-  def allAppliedProfiles: Set[UMLProfile[Uml]] =
-    ( for {
-      ap <- allProfileApplications
-      pf <- ap.appliedProfile
-    } yield Set( pf ) ++ pf.allVisibleProfiles ) flatten
-
+  def allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively: Set[UMLProfile[Uml]] =
+    allDirectlyAppliedProfilesIncludingNestingPackagesTransitively ++
+    allDirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleProfilesTransitively)
+    
   /**
-   * For a Package, accessibleMembers also includes all the visible members of all of the applied profiles
+   * For a Package, allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles is the union of
+   * all visible members that are transitively accessible from outer namespaces or from applied profiles.
    */
-  def accessibleMembersIncludingAllAppliedProfiles: Set[UMLPackageableElement[Uml]] =
-    accessibleMembers ++ allAppliedProfiles.flatMap( _.allVisibleMembers )
+  def allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles: Set[UMLPackageableElement[Uml]] =
+    allVisibleMembersAccessibleTransitively ++ 
+    allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap( _.allVisibleMembersTransitively )
 
   /**
    * For the package and owned elements, calculates the map of
@@ -162,6 +185,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     appliedStereotypesByProfile
   }
 
+  def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =   
+      (Stream(this) ++ allOwnedElements) flatMap
+      ((e) => Set(e) ++ e.compositeReferencesFromStereotypeTagPropertyValues) flatMap
+      ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
+      (_.allForwardReferencesToImportablePackageableElements) filter(!this.isAncestorOf(_)) toSet
+  
   /**
    * @see UML 2.5 12.4, Package
    * visibleMembers() : PackageableElement [0..*]

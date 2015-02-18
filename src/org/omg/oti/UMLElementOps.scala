@@ -51,12 +51,59 @@ import scala.util.Success
 import scala.util.Failure
 // [/protected]
 
-trait UMLElementOps[Uml <: UML] {
+trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   // [protected ('common framework for all metaclasses')]
 
   implicit val ops: UMLOps[Uml]
   import ops._
+  /**
+   * directed, non-derived, composite association end properties
+   */
+  def compositeMetaProperties: MetaPropertyFunctions
+
+  /**
+   * directed, non-derived, reference association end properties
+   */
+  def referenceMetaProperties: MetaPropertyFunctions
+
+  /**
+   * The set of Elements referenced from this Element due to link instances of
+   * directed, non-composite, non-derived associations defined in the UML metamodel
+   *
+   * This method is defined for every metaclass according to the figures from the UML spec in two idioms:
+   * - concrete metaclasses:
+   *
+   * The override method includes up to 3 contributions:
+   * - those of the metaclass itself
+   *
+   * - the concrete direct generalization parent metaclass (zero or one)
+   * => super.forwardReferencesFromMetamodelAssociations
+   *
+   * - each abstract direct generalization parent metaclass (zero or more)
+   * => [metaclass name]_forwardReferencesFromMetamodelAssociations
+   */
+  def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
+
+  /**
+   * To enable verifying whether all forward references from elements contained within 
+   * the scope of a package refer to elements that are directly or indirectly imported 
+   * from that package or included in directly or indirectly applied profiles, it is necessary
+   * to aggregate a forward reference to an element up to the first, 
+   * importable outer packageable element. This aggregation is metaclass-specific.
+   *  
+   * By default, this method delegates to asForwardReferencesToOwningElementImportableOuterPackageableElements
+   * 
+   * @see asForwardReferencesToOwningElementImportableOuterPackageableElements
+   */
+  def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+    asForwardReferencesToOwningElementImportableOuterPackageableElements
+  
+  def mofXMI_metaAtttributes: MetaAttributeFunctions =
+    Seq(
+      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
+      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "uuid", _.xmiUUID ),
+      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "type", _.xmiType ) )
 
   case class IllegalMetaAttributeEvaluation( e: UMLElement[Uml], metaAttributeFunction: MetaAttributeAbstractFunction[_ <: UMLElement[Uml], _] )
     extends IllegalArgumentException( s"${metaAttributeFunction} not applicable to ${e.xmiType.head}" )
@@ -118,7 +165,7 @@ trait UMLElementOps[Uml <: UML] {
   case class MetaAttributeIntegerFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[Integer]] )
     extends MetaAttributeAbstractFunction[U, Integer] {
     implicit val UType: TypeTag[U] = typeTag[U]
-    
+
     override def equals( other: Any ): Boolean =
       other match {
         case that: MetaAttributeIntegerFunction[_] =>
@@ -140,7 +187,7 @@ trait UMLElementOps[Uml <: UML] {
   case class MetaAttributeStringFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[String]] )
     extends MetaAttributeAbstractFunction[U, String] {
     implicit val UType: TypeTag[U] = typeTag[U]
-    
+
     override def equals( other: Any ): Boolean =
       other match {
         case that: MetaAttributeStringFunction[_] =>
@@ -162,7 +209,7 @@ trait UMLElementOps[Uml <: UML] {
   case class MetaAttributeRealFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[Double]] )
     extends MetaAttributeAbstractFunction[U, Double] {
     implicit val UType: TypeTag[U] = typeTag[U]
-    
+
     override def equals( other: Any ): Boolean =
       other match {
         case that: MetaAttributeRealFunction[_] =>
@@ -185,6 +232,9 @@ trait UMLElementOps[Uml <: UML] {
 
   type MetaAttributeFunctions = Seq[MetaAttributeFunction]
 
+  /**
+   * Non-derived property attributes typed by a PrimitiveType
+   */
   def metaAttributes: MetaAttributeFunctions
 
   case class IllegalMetaPropertyEvaluation( e: UMLElement[Uml], metaPropertyFunction: MetaPropertyFunction[_ <: UMLElement[Uml], _ <: UMLElement[Uml]] )
@@ -212,7 +262,7 @@ trait UMLElementOps[Uml <: UML] {
       }
 
     override def toString: String = s"MetaPropertyReference(${propertyName} on ${u.getClass.getName})"
-    
+
     override def equals( other: Any ): Boolean =
       other match {
         case that: MetaPropertyReference[_, _] =>
@@ -250,7 +300,7 @@ trait UMLElementOps[Uml <: UML] {
     }
 
     override def toString: String = s"MetaPropertyCollection(${propertyName} on ${u.getClass.getName})"
-    
+
     override def equals( other: Any ): Boolean =
       other match {
         case that: MetaPropertyCollection[_, _] =>
@@ -280,8 +330,8 @@ trait UMLElementOps[Uml <: UML] {
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
   def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
-    tagValues.groupBy(_._1.owningStereotype.get)
-   
+    tagValues.groupBy( _._1.owningStereotype.get )
+
   def allOwnedElements: Stream[UMLElement[Uml]]
 
   def getContainedElement_eContainingFeature: EStructuralFeature
@@ -295,8 +345,8 @@ trait UMLElementOps[Uml <: UML] {
   def xmiUUID: Iterable[String] = uuid.toIterable
   def xmiElementLabel: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
 
-  def xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse(""))
-  
+  def xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse( "" ) )
+
   def xmiType: Iterable[String] = Iterable( "uml:" + mofMetaclassName )
 
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
@@ -305,14 +355,51 @@ trait UMLElementOps[Uml <: UML] {
    * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
    */
   def getAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]]
-    
+
   def isAncestorOf( other: UMLElement[Uml] ): Boolean
 
   /**
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */
-  def forwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] =
-    tagValues flatMap { case ( p, vs ) => vs } toSet
+  def allForwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] = {
+
+    def forwardReferencesFromStereotypeTagProperties1( x: UMLElement[Uml] ): Set[UMLElement[Uml]] =
+      x.getAppliedStereotypes.keys.toSet[UMLElement[Uml]] ++
+      ( x.tagValues flatMap { case ( p, vs ) => vs flatMap (_.forwardReferencesFromStereotypeTagValue) } )
+    
+    closure(this, forwardReferencesFromStereotypeTagProperties1)
+  }
+  
+  /**
+   * Serializing an element E to a document includes serializing E's composite references from E's stereotype tag property values
+   */
+  def compositeReferencesFromStereotypeTagPropertyValues: Set[UMLElement[Uml]] =
+    tagValues flatMap { case ( p, vs ) => vs flatMap (_.compositeReferencesFromStereotypeTagValue) } toSet
+    
+  /**
+   * Calculate the references from this element to other elements due to any of the following:
+   * - non-composite, non-derived properties defined for the element's metaclass (`forwardReferencesFromMetamodelAssociations`)
+   * - stereotype tag property values due to stereotypes applied to the element (`allForwardReferencesFromStereotypeTagProperties`)
+   *
+   * For serializing an OTI model into an OMG Canonical XMI document,
+   * the references among elements do matter; particularly, references
+   * due to non-composite, non-derived properties matter because their serialization
+   * depends on whether the two elements are serialized within the same document or not.
+   *
+   * The OMG MOF/XMI spec is incomplete in the sense that it does not mention
+   * references due to values of applied stereotype tag properties.
+   */
+  def allForwardReferencesToElements: Set[UMLElement[Uml]] =
+    Set(this) ++ forwardReferencesFromMetamodelAssociations ++ allForwardReferencesFromStereotypeTagProperties
+
+  /**
+   * Aggregates all forward references to the level of importable outer packageable elements
+   */
+  def allForwardReferencesToImportablePackageableElements: Set[UMLPackageableElement[Uml]] =
+    allForwardReferencesToElements flatMap ( _.asForwardReferencesToImportableOuterPackageableElements )
+
+  def asForwardReferencesToOwningElementImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    owner.fold(Set[UMLPackageableElement[Uml]]())(_.asForwardReferencesToImportableOuterPackageableElements)
 
   // [/protected]
 

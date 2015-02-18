@@ -39,48 +39,30 @@
  */
 package org.omg.oti
 
-trait UMLOpaqueExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
-  
-  def body: Seq[String]
-  def language: Seq[String]
-  
+import scala.language.postfixOps
+
+trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
+
+  import self.ops._
+
+  // [protected (TIWG)]
+
   /**
-   * Fig. 8.2 (incomplete)
-   * - behavior
-   * - result
-   */  
-  override def metaAttributes: MetaAttributeFunctions =
-    opaqueExpression_metaAttributes
-    
-  def opaqueExpression_metaAttributes: MetaAttributeFunctions =
-    valueSpecification_metaAttributes ++
-    Seq( 
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "body", _.body ),
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "language", _.language ) )
-
-  override def forwardReferencesFromMetamodelAssociations = 
-    valueSpecification_forwardReferencesFromMetamodelAssociations
-
-  override def compositeMetaProperties: MetaPropertyFunctions = 
-    valueSpecification_compositeMetaProperties
-    
-  override def referenceMetaProperties: MetaPropertyFunctions = 
-    valueSpecification_referenceMetaProperties
-    
-    
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
-
-  def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = Set(this)
-
-  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    opaqueExpression_forwardReferencesFromStereotypeTagValue
-    
-  /**
-   * An opaque expression that is the value of a stereotype tag property is considered part of the forward references
-   * from the element on which the stereotype is applied; other parts include the behavior, if any.
+   * A ValueSpecification that is the value of a stereotype tag property may constitute
+   * a forward reference to another element.
    */
-  def opaqueExpression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    Set(this) // ++ behavior.toSet
-    
+  def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]]
+  
+  /**
+   * A ValueSpecification VS that is the value of a stereotype tag property S::P for a
+   * stereotype S applied to an element E induces a set of elements, 
+   * VS.compositeReferencesFromStereotypeTagValue, each of which
+   * is considered to be exclusively and compositionally referenced from E.
+   * 
+   * @invariant For any VS, VS.compositeReferencesFromStereotypeTagValue includes VS. 
+   */
+  final def compositeReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] =
+    Set(self) ++ self.allOwnedElements.flatMap(_.compositeReferencesFromStereotypeTagPropertyValues)
+  
+  // [/protected]
 }

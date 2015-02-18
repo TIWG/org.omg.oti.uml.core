@@ -1,43 +1,4 @@
-/*
- *
- *  License Terms
- *
- *  Copyright (c) 2015, California Institute of Technology ("Caltech").
- *  U.S. Government sponsorship acknowledged.
- *
- *  All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions are
- *  met:
- *
- *
- *   *   Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
- *
- *   *   Redistributions in binary form must reproduce the above copyright
- *       notice, this list of conditions and the following disclaimer in the
- *       documentation and/or other materials provided with the
- *       distribution.
- *
- *   *   Neither the name of Caltech nor its operating division, the Jet
- *       Propulsion Laboratory, nor the names of its contributors may be
- *       used to endorse or promote products derived from this software
- *       without specific prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
- *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
- *  OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-package org.omg.oti
+package org.omg.oti.canonicalXMI
 
 import java.net.URL
 import java.net.MalformedURLException
@@ -47,19 +8,23 @@ import scala.language.postfixOps
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
+import org.omg.oti._
 
-trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
-
-  implicit val ops = umlops
-
-  import umlops._
-
+trait IDGenerator[Uml <: UML] { 
+  
+  implicit val umlOps: UMLOps[Uml]
+  import umlOps._
+  
+  import IDGenerator._
+  
+  val resolvedDocumentSet: ResolvedDocumentSet[Uml]
+  
   protected val element2id: Element2IDHashMap
 
   protected val elementRules: List[Element2IDRule]
 
   protected val containmentRules: List[ContainedElement2IDRule]
-
+  
   def getElement2IDMap: Map[UMLElement[Uml], Try[String]] = element2id.toMap
 
   def lookupElementXMI_ID( e: UMLElement[Uml] ): Try[Option[String]] =
@@ -72,6 +37,33 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
   def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): Try[Unit] = {
     pkg.allOwnedElements foreach ( getXMI_ID( _ ) )
     Success( Unit )
+  }
+  
+  protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
+    ( resolvedDocumentSet.element2document.get( from ),
+      resolvedDocumentSet.element2document.get( to ) ) match {
+    case ( None, _ ) => 
+      Failure( illegalElementException( "Unknown document for element reference from", from ) )
+
+    case ( _, None ) => 
+      Failure( illegalElementException( "Unknown document for element reference to", to) )
+
+    case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
+      require( d1 != d2 )
+      val builtInURITo = d2.builtInURI.resolve("#"+to.id).toString
+      val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo )
+      val fragmentIndex = mappedURITo.lastIndexOf('#')
+      require( fragmentIndex > 0)
+      
+      val fragment = xmlSafeID( d2.nsPrefix+"."+mappedURITo.substring(fragmentIndex+1) )
+      Success( xmlSafeID( fragment ) )
+     
+    case ( Some( d1 ), Some( d2: SerializableDocument[Uml] ) ) =>
+      if ( d1 == d2 ) getXMI_ID( to )        
+      else (for { 
+        id <- getXMI_ID(to)
+        fragment = xmlSafeID( d2.nsPrefix+"."+id )
+      } yield fragment)
   }
 
   def getXMI_ID( self: UMLElement[Uml] ): Try[String] =
@@ -100,11 +92,9 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       } )
 
   val rule0: Element2IDRule = {
-    //case root: UMLPackage[Uml] if ( OTI_SPECIFICATION_ROOT_S.isDefined && root.hasStereotype( OTI_SPECIFICATION_ROOT_S.get ) ) =>
-    case root: UMLPackage[Uml] =>
+    case root: UMLPackage[Uml] if ( resolvedDocumentSet.lookupDocumentByScope(root).isDefined ) =>
       root.name match {
-        //case None      => Failure( illegalElementException( "OTI::SpecificationRoot-stereotyped Package must be explicitly named", root ) )
-        case None      => Failure( illegalElementException( "The root package must be explicitly named", root ) )
+        case None      => Failure( illegalElementException( "Document package scope must be explicitly named", root ) )
         case Some( n ) => Success( xmlSafeID(n) )
       }
   }
@@ -220,7 +210,7 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
   val crule3: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, dr: UMLDirectedRelationship[Uml] ) =>
       dr.targets.toList match {
-        case List( t ) => getXMI_ID( t ) match {
+        case List( t ) => getXMI_IDREF_or_HREF_fragment( owner, t ) match {
           case Failure( t )   => Failure( illegalElementException( s"Binary DirectedRelationship must have a target - ${t}", dr ) )
           case Success( tid ) => Success( ownerID + "._" + xmlSafeID( cf.getName ) + "." + tid )
         }
@@ -277,7 +267,10 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
             Failure( t )
         }
     }
+}
 
+object IDGenerator {
+  
   def xmlSafeID( self: String ): String = self match {
     case null => ""
     case s    => getValidNCName( s )
@@ -335,4 +328,5 @@ trait UMLUtil[Uml <: UML] { umlops: UMLOps[Uml] =>
       }
     }
   }
+  
 }

@@ -39,48 +39,26 @@
  */
 package org.omg.oti
 
-trait UMLOpaqueExpression[Uml <: UML] extends UMLValueSpecification[Uml] {
-  
-  def body: Seq[String]
-  def language: Seq[String]
-  
+trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[Uml] =>
+
+  import self.ops._
+
   /**
-   * Fig. 8.2 (incomplete)
-   * - behavior
-   * - result
-   */  
-  override def metaAttributes: MetaAttributeFunctions =
-    opaqueExpression_metaAttributes
-    
-  def opaqueExpression_metaAttributes: MetaAttributeFunctions =
-    valueSpecification_metaAttributes ++
-    Seq( 
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "body", _.body ),
-        MetaAttributeStringFunction[UMLOpaqueExpression[Uml]]( None, "language", _.language ) )
-
-  override def forwardReferencesFromMetamodelAssociations = 
-    valueSpecification_forwardReferencesFromMetamodelAssociations
-
-  override def compositeMetaProperties: MetaPropertyFunctions = 
-    valueSpecification_compositeMetaProperties
-    
-  override def referenceMetaProperties: MetaPropertyFunctions = 
-    valueSpecification_referenceMetaProperties
-    
-    
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
-
-  def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = Set(this)
-
-  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    opaqueExpression_forwardReferencesFromStereotypeTagValue
-    
-  /**
-   * An opaque expression that is the value of a stereotype tag property is considered part of the forward references
-   * from the element on which the stereotype is applied; other parts include the behavior, if any.
+   * @return Either:
+   * None if there is no slot whose defining has the featureName
+   * Some( vs ) where vs is the iterable of values for the slot whose defining feature is named featureName
    */
-  def opaqueExpression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    Set(this) // ++ behavior.toSet
-    
+  def getValuesOfFeatureSlot( featureName: String ): Option[Iterable[UMLValueSpecification[Uml]]] = {
+    ( for {
+      slot <- self.slots
+      f <- slot.definingFeature
+      fName <- f.name
+      if ( fName == featureName )
+    } yield slot ) toList match {
+      case Nil => None
+      case s :: sx =>
+        require( sx == Nil )
+        Some( s.values )
+    }
+  }
 }

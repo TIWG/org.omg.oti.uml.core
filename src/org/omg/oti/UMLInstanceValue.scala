@@ -72,4 +72,16 @@ trait UMLInstanceValue[Uml <: UML] extends UMLValueSpecification[Uml] {
     valueSpecification_referenceMetaProperties ++
     Seq( MetaPropertyReference[UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]( "instance", _.instance ) )
   
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+    instanceValue_asForwardReferencesToImportableOuterPackageableElements
+
+  def instanceValue_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    Set(this) ++ instance.toSet
+
+  /**
+   * An instance value that is the value of a stereotype tag property is not considered a forward reference
+   * from the element on which the stereotype is applied; however, the instance that it reference is.
+   */
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    instance.toSet
 }
