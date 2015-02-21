@@ -83,7 +83,8 @@ trait UMLClassifier[Uml <: UML] extends UMLNamespace[Uml] with UMLType[Uml] with
       redefinedClassifiers
 
   def classifier_compositeMetaProperties: MetaPropertyFunctions =
-    ( namespace_compositeMetaProperties /: List( redefinableElement_compositeMetaProperties, type_compositeMetaProperties ) ) ( appendUnique _ )
+    ( namespace_compositeMetaProperties /: List( redefinableElement_compositeMetaProperties, type_compositeMetaProperties ) ) ( appendUnique _ ) ++
+      Seq( MetaPropertyCollection[UMLClassifier[Uml], UMLGeneralization[Uml]]( "generalization", _.generalizations ) )
 
   def classifier_referenceMetaProperties: MetaPropertyFunctions =
     (( namespace_referenceMetaProperties /: List( redefinableElement_referenceMetaProperties, type_referenceMetaProperties ) ) ( appendUnique _ )) ++

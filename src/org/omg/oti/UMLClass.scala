@@ -72,16 +72,21 @@ trait UMLClass[Uml <: UML] extends UMLBehavioredClassifier[Uml] with UMLEncapsul
     class_compositeMetaProperties
 
   def class_compositeMetaProperties: MetaPropertyFunctions =
-    behavioredClassifier_compositeMetaProperties ++
-      Seq(
-        MetaPropertyCollection[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
-        MetaPropertyCollection[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-        MetaPropertyCollection[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations ) )
+    appendUnique(
+      behavioredClassifier_compositeMetaProperties,
+      appendUnique(
+        encapsulatedClassifier_compositeMetaProperties,
+        Seq(
+          MetaPropertyCollection[UMLClass[Uml], UMLClassifier[Uml]]( "nestedClassifier", _.nestedClassifiers ),
+          MetaPropertyCollection[UMLClass[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+          MetaPropertyCollection[UMLClass[Uml], UMLOperation[Uml]]( "ownedOperation", _.ownedOperations ) ) ) )
 
   override def referenceMetaProperties: MetaPropertyFunctions =
     class_referenceMetaProperties
 
   def class_referenceMetaProperties: MetaPropertyFunctions =
-    behavioredClassifier_referenceMetaProperties
+    appendUnique(
+      behavioredClassifier_referenceMetaProperties,
+      encapsulatedClassifier_referenceMetaProperties )
 
 }

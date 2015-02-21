@@ -57,6 +57,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   implicit val ops: UMLOps[Uml]
   import ops._
+
+  /**
+   * The element or the first owner of the element that is a package with a URI; none if no such owner package exists.
+   */
+  @annotation.tailrec final def getPackageOwnerWithURI: Option[UMLPackage[Uml]] =
+    self match {
+      case p: UMLPackage[Uml] if ( p.URI.isDefined ) => Some( p )
+      case _ => owner match {
+        case Some( o ) => o.getPackageOwnerWithURI
+        case None      => None
+      }
+    }
+
   /**
    * directed, non-derived, composite association end properties
    */
@@ -86,19 +99,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
   /**
-   * To enable verifying whether all forward references from elements contained within 
-   * the scope of a package refer to elements that are directly or indirectly imported 
+   * To enable verifying whether all forward references from elements contained within
+   * the scope of a package refer to elements that are directly or indirectly imported
    * from that package or included in directly or indirectly applied profiles, it is necessary
-   * to aggregate a forward reference to an element up to the first, 
+   * to aggregate a forward reference to an element up to the first,
    * importable outer packageable element. This aggregation is metaclass-specific.
-   *  
+   *
    * By default, this method delegates to asForwardReferencesToOwningElementImportableOuterPackageableElements
-   * 
+   *
    * @see asForwardReferencesToOwningElementImportableOuterPackageableElements
    */
   def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
     asForwardReferencesToOwningElementImportableOuterPackageableElements
-  
+
   def mofXMI_metaAtttributes: MetaAttributeFunctions =
     Seq(
       MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
@@ -116,8 +129,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     def evaluate( e: UMLElement[Uml] )( implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U] ): Try[Iterable[String]] =
       e match {
-        case u: U => Success( f( u ).map(_.toString) )
-        case _ => Failure( IllegalMetaAttributeEvaluation( e, this ) )
+        case u: U => Success( f( u ).map( _.toString ) )
+        case _    => Failure( IllegalMetaAttributeEvaluation( e, this ) )
       }
 
     override def toString: String = {
@@ -362,17 +375,17 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     def forwardReferencesFromStereotypeTagProperties1( x: UMLElement[Uml] ): Set[UMLElement[Uml]] =
       x.getAppliedStereotypes.keys.toSet[UMLElement[Uml]] ++
-      ( x.tagValues flatMap { case ( p, vs ) => vs flatMap (_.forwardReferencesFromStereotypeTagValue) } )
-    
-    closure(this, forwardReferencesFromStereotypeTagProperties1)
+        ( x.tagValues flatMap { case ( p, vs ) => vs flatMap ( _.forwardReferencesFromStereotypeTagValue ) } )
+
+    closure( this, forwardReferencesFromStereotypeTagProperties1 )
   }
-  
+
   /**
    * Serializing an element E to a document includes serializing E's composite references from E's stereotype tag property values
    */
   def compositeReferencesFromStereotypeTagPropertyValues: Set[UMLElement[Uml]] =
-    tagValues flatMap { case ( p, vs ) => vs flatMap (_.compositeReferencesFromStereotypeTagValue) } toSet
-    
+    tagValues flatMap { case ( p, vs ) => vs flatMap ( _.compositeReferencesFromStereotypeTagValue ) } toSet
+
   /**
    * Calculate the references from this element to other elements due to any of the following:
    * - non-composite, non-derived properties defined for the element's metaclass (`forwardReferencesFromMetamodelAssociations`)
@@ -387,7 +400,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * references due to values of applied stereotype tag properties.
    */
   def allForwardReferencesToElements: Set[UMLElement[Uml]] =
-    Set(this) ++ forwardReferencesFromMetamodelAssociations ++ allForwardReferencesFromStereotypeTagProperties
+    Set( this ) ++ forwardReferencesFromMetamodelAssociations ++ allForwardReferencesFromStereotypeTagProperties
 
   /**
    * Aggregates all forward references to the level of importable outer packageable elements
@@ -395,8 +408,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def allForwardReferencesToImportablePackageableElements: Set[UMLPackageableElement[Uml]] =
     allForwardReferencesToElements flatMap ( _.asForwardReferencesToImportableOuterPackageableElements )
 
-  def asForwardReferencesToOwningElementImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    owner.fold(Set[UMLPackageableElement[Uml]]())(_.asForwardReferencesToImportableOuterPackageableElements)
+  def asForwardReferencesToOwningElementImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+    owner.fold( Set[UMLPackageableElement[Uml]]() )( _.asForwardReferencesToImportableOuterPackageableElements )
 
   // [/protected]
 

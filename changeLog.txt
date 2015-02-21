@@ -1,3 +1,8 @@
+Version 0.9.2: February 21, 2015
+
+- Fix missing generalizations found in the OMG SYsML 1.4 profile.
+  (incorrect aggregation of ref / comp meta-properties)
+
 Version 0.9.1: February 17, 2015
 
 - Fix for the Canonical XMI serialization of XMIAttributes (i.e. no 2h from MOF/XMI)

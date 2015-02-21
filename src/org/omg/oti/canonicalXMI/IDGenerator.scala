@@ -34,8 +34,11 @@ trait IDGenerator[Uml <: UML] {
       case Some( Success( id ) ) => Success( Some( id ) )
     }
 
+  /**
+   * Computes the xmi:ID for each element in the domain of the element2document map of the ResolvedDocumentSet
+   */
   def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): Try[Unit] = {
-    pkg.allOwnedElements foreach ( getXMI_ID( _ ) )
+    pkg.allOwnedElements filter (resolvedDocumentSet.element2document.contains(_)) foreach ( getXMI_ID( _ ) )
     Success( Unit )
   }
   
@@ -51,7 +54,7 @@ trait IDGenerator[Uml <: UML] {
     case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
       require( d1 != d2 )
       val builtInURITo = d2.builtInURI.resolve("#"+to.id).toString
-      val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo )
+      val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo ).getOrElse( builtInURITo )
       val fragmentIndex = mappedURITo.lastIndexOf('#')
       require( fragmentIndex > 0)
       

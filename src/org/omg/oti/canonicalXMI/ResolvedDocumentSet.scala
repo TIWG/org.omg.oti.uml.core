@@ -82,7 +82,7 @@ case class ResolvedDocumentSet[Uml <: UML](
 
       case Some( d: BuiltInDocument[Uml] ) =>
         val builtInURI = d.builtInURI.resolve( "#" + s.id ).toString
-        val mappedURI = ds.builtInURIMapper.resolve( builtInURI )
+        val mappedURI = ds.builtInURIMapper.resolve( builtInURI ).getOrElse( builtInURI )
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
         val fragment = IDGenerator.xmlSafeID( d.nsPrefix + "." + mappedURI.substring( fragmentIndex + 1 ) )
@@ -149,10 +149,11 @@ case class ResolvedDocumentSet[Uml <: UML](
   protected def serialize( d: SerializableDocument[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[Unit] =
     ds.documentURIMapper.resolveURI( d.uri, ds.documentURIMapper.saveResolutionStrategy ) match {
       case Failure( t ) => Failure( t )
-      case Success( uri ) =>
+      case Success( ruri ) =>
         import scala.xml._
         import DocumentSet._
 
+        val uri = ruri.getOrElse(d.uri)
         val referencedProfiles = ( for {
           e <- d.extent
           ( s, p ) <- e.getAppliedStereotypes
@@ -416,7 +417,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Success( Some( eRef ) ) =>
                   element2document.get( eRef ) match {
                     case None =>
-                      System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id}" )
+                      System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) {
@@ -428,7 +429,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                         val href = dRef.uri + "#" + eRef.id
                         val externalHRef = dRef match {
                           case _: SerializableDocument[Uml] => href
-                          case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href )
+                          case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                         }
                         val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
                         val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
@@ -445,17 +446,22 @@ case class ResolvedDocumentSet[Uml <: UML](
                   val hRefs = eRefs flatMap { eRef =>
                     element2document.get( eRef ) match {
                       case None =>
-                        System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id}" )
+                        System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                         None
                       case Some( dRef ) =>
-                        if ( d == dRef ) None
+                        if ( d == dRef ) {
+                          val idrefAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "idref", value = eRef.id, Null )
+                          val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                          idrefNode
+                        }
                         else {
                           val href = dRef.uri + "#" + eRef.id
                           val externalHRef = dRef match {
                             case _: SerializableDocument[Uml] => href
-                            case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href )
+                            case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                           }
-                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
+                          val typeAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "type", value = e.xmiType.head, Null )
+                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, typeAttrib )
                           val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           hrefNode
                         }
@@ -517,7 +523,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       }
     }
 
-    val refEvaluators: Seq[e.MetaPropertyEvaluator] = e.referenceMetaProperties.reverse
+    val refEvaluators: Seq[e.MetaPropertyEvaluator] = e.referenceMetaProperties
     val subEvaluators: Seq[e.MetaPropertyEvaluator] = e.compositeMetaProperties
     val duplicates = refEvaluators.toSet.intersect( subEvaluators.toSet )
     require( duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: ${duplicates}" )

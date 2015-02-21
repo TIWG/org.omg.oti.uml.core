@@ -39,29 +39,29 @@
  */
 package org.omg.oti
 
-trait UMLStructuredClassifier[Uml <: UML] extends UMLClassifier[Uml] { 
-  
+trait UMLStructuredClassifier[Uml <: UML] extends UMLClassifier[Uml] {
+
   import ops._
-  
+
   def ownedAttributes: Seq[UMLProperty[Uml]]
   def ownedConnectors: Set[UMLConnector[Uml]] = ownedMembers.selectByKindOf { case c: UMLConnector[Uml] => c }
-  
+
   /**
    * Fig 11.1 (complete)
    */
   def structuredClassifier_metaAttributes: MetaAttributeFunctions =
     classifier_metaAttributes
-    
+
   def structuredClassifier_forwardReferencesFromMetamodelAssociations =
     classifier_forwardReferencesFromMetamodelAssociations
-    
+
   def structuredClassifier_compositeMetaProperties: MetaPropertyFunctions =
-    classifier_compositeMetaProperties ++
-    Seq(
-      MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
-      MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLConnector[Uml]]( "ownedConnector", _.ownedConnectors )
-    )
-    
+    appendUnique(
+      classifier_compositeMetaProperties,
+      Seq(
+        MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLProperty[Uml]]( "ownedAttribute", _.ownedAttributes ),
+        MetaPropertyCollection[UMLStructuredClassifier[Uml], UMLConnector[Uml]]( "ownedConnector", _.ownedConnectors ) ) )
+
   def structuredClassifier_referenceMetaProperties: MetaPropertyFunctions =
     classifier_referenceMetaProperties
 }

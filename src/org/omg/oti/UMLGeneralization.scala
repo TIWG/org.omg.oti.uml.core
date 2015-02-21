@@ -67,6 +67,6 @@ trait UMLGeneralization[Uml <: UML] extends UMLDirectedRelationship[Uml] {
     directedRelationship_compositeMetaProperties
 
   override def referenceMetaProperties: MetaPropertyFunctions =
-    directedRelationship_compositeMetaProperties ++
+    directedRelationship_referenceMetaProperties ++
       Seq( MetaPropertyCollection[UMLGeneralization[Uml], UMLClassifier[Uml]]( "general", _.general ) )
 }

@@ -123,26 +123,26 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
     }
   }
 
-  def resolve( uri: String ): String =
+  def resolve( uri: String ): Option[String] =
     catalog.resolveURI( uri ) match {
-    case null => uri
-    case resolved => resolved
+    case null => None
+    case resolved => Some( resolved )
   }
   
-  def resolveURI( uri: URI, resolutionStrategy: ( String ) => Option[URI] ): Try[URI] = {
+  def resolveURI( uri: URI, resolutionStrategy: ( String ) => Option[URI] ): Try[Option[URI]] = {
 
     def ignore( e: Exception ) = {}
 
     val rawPath = uri.toString
     val iriPath = if ( rawPath.endsWith( "#" ) ) rawPath.substring( 0, rawPath.length() - 1 ) else rawPath
     try {
-      catalog.resolveURI( iriPath ) match {
-        case null =>
-          Success( uri )
-        case resolved =>
+      resolve( iriPath ) match {
+        case None =>
+          Success( None )
+        case Some( resolved ) =>
           resolutionStrategy( resolved ) match {
-            case None                => Success( uri )
-            case Some( resolvedURI ) => Success( resolvedURI )
+            case None                => Success( None )
+            case Some( resolvedURI ) => Success( Some( resolvedURI ) )
           }
       }
     }
@@ -155,8 +155,11 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
 
 object CatalogURIMapper {
   
-  def createCatalogURIMapper( catalogFiles: Seq[File] ): Try[CatalogURIMapper] = {    
-    val catalog = new CatalogManager()
+  def createCatalogURIMapper( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] = {    
+    val catalog = new CatalogManager() 
+    catalog.setUseStaticCatalog(false)
+    catalog.setRelativeCatalogs(true)
+    catalog.setVerbosity(verbosity)
     val mapper = new CatalogURIMapper( catalog )
     catalogFiles.foreach { catalogFile => 
       if ( ! catalogFile.exists ) return Failure( new FileNotFoundException( catalogFile.getAbsolutePath ))
