@@ -39,10 +39,25 @@
  */
 package org.omg.oti.operations
 
+import scala.collection.JavaConversions._
+
 import org.omg.oti._
 
 trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 
   import self.ops._
 
+  def activity: Option[UMLActivity[Uml]] =    
+    owner.selectByKindOf { case a: UMLActivity[Uml] => a }  
+  
+  def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] =
+    owner.selectByKindOf { case n: UMLStructuredActivityNode[Uml] => n }  
+  
+  def redefinedEdge: Set[UMLActivityEdge[Uml]] =
+    redefinedElement.selectByKindOf { case e: UMLActivityEdge[Uml] => e }
+  
+	def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] =
+    redefinedElement_redefinableElement.selectByKindOf { case e: UMLActivityEdge[Uml] => e }
+    
+    
 }

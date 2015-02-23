@@ -39,10 +39,24 @@
  */
 package org.omg.oti.operations
 
+import scala.collection.JavaConversions._
+
 import org.omg.oti._
 
 trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 
   import self.ops._
 
+  def activity: Option[UMLActivity[Uml]] =    
+    owner.selectByKindOf { case a: UMLActivity[Uml] => a }  
+  
+  def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] =
+    owner.selectByKindOf { case n: UMLStructuredActivityNode[Uml] => n }  
+      
+  def redefinedNode: Set[UMLActivityNode[Uml]] =
+    redefinedElement.selectByKindOf { case n: UMLActivityNode[Uml] => n }
+  
+	def redefinedNode_activityNode: Set[UMLActivityNode[Uml]] =
+    redefinedElement_redefinableElement.selectByKindOf { case n: UMLActivityNode[Uml] => n }
+    
 }

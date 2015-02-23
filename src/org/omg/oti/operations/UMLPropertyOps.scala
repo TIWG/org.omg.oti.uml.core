@@ -50,18 +50,24 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     case _ => None
   }
   
-  def _class: Option[UMLClass[Uml]] = owner match { 
-    case Some(c: UMLClass[Uml]) => Some(c)
-    case _ => None
-  }
   
   def datatype: Option[UMLDataType[Uml]] = owner match { 
     case Some(dt: UMLDataType[Uml]) => Some(dt)
     case _ => None
   }
   
-  def _interface: Option[UMLInterface[Uml]] = owner match { 
+  def interface: Option[UMLInterface[Uml]] = owner match { 
     case Some(i: UMLInterface[Uml]) => Some(i)
+    case _ => None
+  }
+  
+  def redefinedProperty: Set[UMLProperty[Uml]] =
+    redefinedElement.selectByKindOf { case p: UMLProperty[Uml] => p }
+  
+  // -----
+  
+  def _class: Option[UMLClass[Uml]] = owner match { 
+    case Some(c: UMLClass[Uml]) => Some(c)
     case _ => None
   }
   

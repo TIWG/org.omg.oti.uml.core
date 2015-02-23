@@ -48,4 +48,19 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
   override def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] =
     specification_owningConstraint.selectByKindOf { case ic: UMLIntervalConstraint[Uml] => ic }
   
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    interval_asForwardReferencesToImportableOuterPackageableElements
+
+  def interval_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    Set(this) ++ min.toSet ++ max.toSet
+
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    interval_forwardReferencesFromStereotypeTagValue
+     
+  /**
+   * An interval that is the value of a stereotype tag property is considered part of the forward references
+   * from the element on which the stereotype is applied; other parts include the min and max, if any.
+   */
+  def interval_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    Set(this) ++ min.toSet ++ max.toSet
 }

@@ -188,11 +188,7 @@ trait UMLProperty[Uml <: UML]
 	 *     null
 	 * endif)
 	 */
-	def opposite: Option[UMLProperty[Uml]] = {
-	    // Start of user code for "opposite"
-	    ???
-	    // End of user code
-	}
+	def opposite: Option[UMLProperty[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 

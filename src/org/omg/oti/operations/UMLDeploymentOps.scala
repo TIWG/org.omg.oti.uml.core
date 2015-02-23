@@ -45,4 +45,13 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 
   import self.ops._
 
+  def configuration: Set[UMLDeploymentSpecification[Uml]] =
+    ownedElement.selectByKindOf { case ds: UMLDeploymentSpecification[Uml] => ds }
+  
+  def deployedArtifact: Set[UMLDeployedArtifact[Uml]] =
+    supplier.selectByKindOf { case da: UMLDeployedArtifact[Uml] => da }
+  
+	def location: Option[UMLDeploymentTarget[Uml]] =
+    owner.selectByKindOf { case dt: UMLDeploymentTarget[Uml] => dt }
+  
 }

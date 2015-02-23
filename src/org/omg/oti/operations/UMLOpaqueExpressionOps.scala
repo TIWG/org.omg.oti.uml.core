@@ -44,5 +44,20 @@ import org.omg.oti._
 trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 
   import self.ops._
+    
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
 
+  def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    Set(this) ++ behavior.toSet
+
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    opaqueExpression_forwardReferencesFromStereotypeTagValue
+    
+  /**
+   * An opaque expression that is the value of a stereotype tag property is considered part of the forward references
+   * from the element on which the stereotype is applied; other parts include the behavior, if any.
+   */
+  def opaqueExpression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    Set(this) ++ behavior.toSet
 }
