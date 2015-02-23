@@ -45,4 +45,12 @@ trait UMLDurationIntervalOps[Uml <: UML] { self: UMLDurationInterval[Uml] =>
 
   import self.ops._
 
+  override def max: Option[UMLValueSpecification[Uml]] =
+    durationInterval_max
+    
+  override def min: Option[UMLValueSpecification[Uml]] =
+    durationInterval_min
+    
+  def specification_durationConstraint: Option[UMLDurationConstraint[Uml]] =
+    specification_owningConstraint.selectByKindOf { case dc: UMLDurationConstraint[Uml] => dc }
 }

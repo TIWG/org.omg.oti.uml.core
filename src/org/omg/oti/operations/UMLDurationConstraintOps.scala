@@ -45,4 +45,10 @@ trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>
 
   import self.ops._
 
+  override def specification: Option[UMLValueSpecification[Uml]]  =
+    durationConstraint_specification
+    
+  def durationConstraint_specification: Option[UMLDurationInterval[Uml]] =
+    specification.selectByKindOf { case di: UMLDurationInterval[Uml] => di }
+  
 }

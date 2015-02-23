@@ -53,8 +53,8 @@ trait UMLDurationInterval[Uml <: UML]
 	def durationInterval_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interval_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.max),
-		  	MetaPropertyReference[UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.min)) )
+		  Seq (MetaPropertyReference[UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.durationInterval_max),
+		  	MetaPropertyReference[UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.durationInterval_min)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
@@ -75,14 +75,18 @@ trait UMLDurationInterval[Uml <: UML]
 	 * Refers to the Duration denoting the maximum value of the range.
 	 * <!-- end-user-doc -->
 	 */
-	override def max: Option[UMLDuration[Uml]] 
+	override def max: Option[UMLValueSpecification[Uml]] 
+
+  def durationInterval_max: Option[UMLDuration[Uml]] 
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Refers to the Duration denoting the minimum value of the range.
 	 * <!-- end-user-doc -->
 	 */
-	override def min: Option[UMLDuration[Uml]] 
+	override def min: Option[UMLValueSpecification[Uml]] 
+
+  def durationInterval_min: Option[UMLDuration[Uml]] 
 
 	/**
 	 * <!-- begin-user-doc --> 

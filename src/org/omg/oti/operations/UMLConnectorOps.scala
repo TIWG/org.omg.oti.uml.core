@@ -45,4 +45,13 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 
   import self.ops._
 
+  def ownedConnector_structuredClassifier: Option[UMLStructuredClassifier[Uml]] =
+    namespace.selectByKindOf { case sc: UMLStructuredClassifier[Uml] => sc }
+  
+  def redefinedConnector: Set[UMLConnector[Uml]] =
+    redefinedElement.selectByKindOf { case c: UMLConnector[Uml] => c }
+
+  def redefinedConnector_connector: Set[UMLConnector[Uml]] =
+    redefinedElement_redefinableElement.selectByKindOf { case c: UMLConnector[Uml] => c }
+
 }

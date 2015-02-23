@@ -39,7 +39,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		intervalConstraint_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLDurationConstraint[Uml], UMLDurationInterval[Uml]]("specification", _.specification)) )
+		  Seq (MetaPropertyReference[UMLDurationConstraint[Uml], UMLDurationInterval[Uml]]("specification", _.durationConstraint_specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -73,14 +73,16 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The value of firstEvent[i] is related to constrainedElement[i] (where i is 1 or 2). If firstEvent[i] is true, then the corresponding observation event is the first time instant the execution enters constrainedElement[i]. If firstEvent[i] is false, then the corresponding observation event is the last time instant the execution is within constrainedElement[i].
 	 * <!-- end-user-doc -->
 	 */
-	def firstEvent: Set[Boolean] 
+	def firstEvent: Seq[Boolean] 
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * The DurationInterval constraining the duration.
 	 * <!-- end-user-doc -->
 	 */
-	override def specification: Option[UMLDurationInterval[Uml]] 
+	override def specification: Option[UMLValueSpecification[Uml]] 
+
+  def durationConstraint_specification: Option[UMLDurationInterval[Uml]] 
 
 // Start of user code for additional featuers
 // End of user code

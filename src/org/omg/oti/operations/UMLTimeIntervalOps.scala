@@ -45,4 +45,12 @@ trait UMLTimeIntervalOps[Uml <: UML] { self: UMLTimeInterval[Uml] =>
 
   import self.ops._
 
+  override def max: Option[UMLValueSpecification[Uml]] =
+    timeInterval_max
+    
+  override def min: Option[UMLValueSpecification[Uml]] =
+    timeInterval_min
+    
+  def specification_timeConstraint: Option[UMLTimeConstraint[Uml]] =
+    specification_owningConstraint.selectByKindOf { case tc: UMLTimeConstraint[Uml] => tc }
 }

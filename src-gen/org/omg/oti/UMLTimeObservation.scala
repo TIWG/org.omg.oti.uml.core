@@ -25,7 +25,7 @@ trait UMLTimeObservation[Uml <: UML]
 	def timeObservation_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		observation_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLTimeObservation[Uml]](None, "firstEvent", (x) => booleanToIterable(x.firstEvent, true))) )
+		  Seq (MetaAttributeBooleanFunction[UMLTimeObservation[Uml]](None, "firstEvent", _.firstEvent) ) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -80,7 +80,7 @@ trait UMLTimeObservation[Uml <: UML]
 	 * The value of firstEvent is related to the event. If firstEvent is true, then the corresponding observation event is the first time instant the execution enters the event Element. If firstEvent is false, then the corresponding observation event is the time instant the execution exits the event Element.
 	 * <!-- end-user-doc -->
 	 */
-	def firstEvent: Boolean = true
+	def firstEvent: Option[Boolean]
 
 // Start of user code for additional featuers
 // End of user code

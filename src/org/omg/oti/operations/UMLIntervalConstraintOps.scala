@@ -45,4 +45,9 @@ trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 
   import self.ops._
 
+  override def specification: Option[UMLValueSpecification[Uml]] = 
+    intervalConstraint_specification
+    
+  def intervalConstraint_specification: Option[UMLInterval[Uml]] =
+    specification.selectByKindOf { case i: UMLInterval[Uml] => i }
 }

@@ -45,4 +45,7 @@ trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 
   import self.ops._
 
+  def enumeration: Option[UMLEnumeration[Uml]] = 
+    namespace.selectByKindOf { case e: UMLEnumeration[Uml] => e }
+  
 }

@@ -25,7 +25,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		intervalConstraint_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLTimeConstraint[Uml]](None, "firstEvent", (x) => booleanToIterable(x.firstEvent, true))) )
+		  Seq (MetaAttributeBooleanFunction[UMLTimeConstraint[Uml]](None, "firstEvent", _.firstEvent) ) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		intervalConstraint_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTimeConstraint[Uml], UMLTimeInterval[Uml]]("specification", _.specification)) )
+		  Seq (MetaPropertyReference[UMLTimeConstraint[Uml], UMLTimeInterval[Uml]]("specification", _.timeConstraint_specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -73,14 +73,16 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The value of firstEvent is related to the constrainedElement. If firstEvent is true, then the corresponding observation event is the first time instant the execution enters the constrainedElement. If firstEvent is false, then the corresponding observation event is the last time instant the execution is within the constrainedElement.
 	 * <!-- end-user-doc -->
 	 */
-	def firstEvent: Boolean = true
+	def firstEvent: Option[Boolean] 
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * TheTimeInterval constraining the duration.
 	 * <!-- end-user-doc -->
 	 */
-	override def specification: Option[UMLTimeInterval[Uml]] 
+	override def specification: Option[UMLValueSpecification[Uml]] 
+
+  def timeConstraint_specification: Option[UMLTimeInterval[Uml]] 
 
 // Start of user code for additional featuers
 // End of user code
