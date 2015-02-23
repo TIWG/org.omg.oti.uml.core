@@ -72,9 +72,6 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 
   def substitution: Set[UMLSubstitution[Uml]] = 
     ownedElement.selectByKindOf { case s: UMLSubstitution[Uml] => s } 
-  
-  override def templateParameter: Option[UMLTemplateParameter[Uml]] =
-    classifier_templateParameter
     
   def redefinitionContext_state: Set[UMLState[Uml]] =
     redefinitionContext_redefinableElement.selectByKindOf { case s: UMLState[Uml] => s }

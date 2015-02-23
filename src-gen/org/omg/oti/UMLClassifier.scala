@@ -74,7 +74,7 @@ trait UMLClassifier[Uml <: UML]
 		  Seq (MetaPropertyCollection[UMLClassifier[Uml], UMLGeneralizationSet[Uml]]("powertypeExtent", _.powertypeExtent),
 		  	MetaPropertyCollection[UMLClassifier[Uml], UMLClassifier[Uml]]("redefinedClassifier", _.redefinedClassifier),
 		  	MetaPropertyReference[UMLClassifier[Uml], UMLCollaborationUse[Uml]]("representation", _.representation),
-		  	MetaPropertyReference[UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]]("templateParameter", _.classifier_templateParameter),
+		  	MetaPropertyReference[UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]]("templateParameter", _.templateParameter),
 		  	MetaPropertyCollection[UMLClassifier[Uml], UMLUseCase[Uml]]("useCase", _.useCase)) )
 
 	/**
@@ -204,9 +204,7 @@ trait UMLClassifier[Uml <: UML]
 	 * TheClassifierTemplateParameter that exposes this element as a formal parameter.
 	 * <!-- end-user-doc -->
 	 */
-  override def templateParameter: Option[UMLTemplateParameter[Uml]] 
-
-	def classifier_templateParameter: Option[UMLClassifierTemplateParameter[Uml]] 
+  override def templateParameter: Option[UMLClassifierTemplateParameter[Uml]] 
 
 	/**
 	 * <!-- begin-user-doc --> 
