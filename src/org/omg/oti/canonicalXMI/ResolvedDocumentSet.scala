@@ -40,6 +40,7 @@
 package org.omg.oti.canonicalXMI
 
 import org.omg.oti._
+import org.omg.oti.operations._
 import scala.annotation.tailrec
 import scala.language.higherKinds
 import scala.language.implicitConversions

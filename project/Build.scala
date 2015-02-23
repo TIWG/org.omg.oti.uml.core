@@ -83,6 +83,7 @@ object OTICore extends Build {
           "org.scala-lang" % "scala-reflect" % Versions.scala % "compile" withSources() withJavadoc()
         ),
         scalaSource in Compile := baseDirectory.value / "src",
+        unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
         shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Project.extract(state).get( GitKeys.gitCurrentBranch ) + "> " }
       )
     ) dependsOn ( scalazLibs, resolverLibs, emfLibs, graphLibs )

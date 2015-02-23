@@ -40,6 +40,7 @@
 package org.omg.oti.canonicalXMI
 
 import org.omg.oti._
+import org.omg.oti.operations._
 import java.net.URI
 import scala.language.postfixOps
 

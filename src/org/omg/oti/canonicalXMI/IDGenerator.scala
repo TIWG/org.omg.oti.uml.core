@@ -1,3 +1,42 @@
+/*
+ *
+ *  License Terms
+ *
+ *  Copyright (c) 2015, California Institute of Technology ("Caltech").
+ *  U.S. Government sponsorship acknowledged.
+ *
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are
+ *  met:
+ *
+ *
+ *   *   Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *   *   Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the
+ *       distribution.
+ *
+ *   *   Neither the name of Caltech nor its operating division, the Jet
+ *       Propulsion Laboratory, nor the names of its contributors may be
+ *       used to endorse or promote products derived from this software
+ *       without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+ *  OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 package org.omg.oti.canonicalXMI
 
 import java.net.URL
@@ -9,6 +48,7 @@ import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
 import org.omg.oti._
+import org.omg.oti.operations._
 
 trait IDGenerator[Uml <: UML] { 
   
@@ -128,7 +168,7 @@ trait IDGenerator[Uml <: UML] {
           s.definingFeature match {
             case None => Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
             case Some( sf ) =>
-              val slotValues = s.values.toList
+              val slotValues = s.value.toList
               if ( sf.upper > 1 )
                 Success( "_" + slotValues.indexOf( fvn ) + "_" + fvn.name.getOrElse( "" ) )
               else
@@ -144,7 +184,7 @@ trait IDGenerator[Uml <: UML] {
       }
       val suffix2: Try[String] = fv match {
         case bf: UMLBehavioralFeature[Uml] =>
-          ( suffix1 /: bf.ownedParameters )( ( s, p ) =>
+          ( suffix1 /: bf.ownedParameter )( ( s, p ) =>
             ( s, p._type ) match {
               case ( Failure( t ), _ ) => Failure( t )
               case ( _, None )         => Failure( illegalElementException( "Parameter must have a type", p ) )
@@ -170,7 +210,7 @@ trait IDGenerator[Uml <: UML] {
                   if ( sf.upper == 1 )
                     Success( "" )
                   else {
-                    val slotValues = s.values.toList
+                    val slotValues = s.value.toList
                     require( slotValues.contains( fv ) )
                     Success( slotValues.indexOf( fv ).toString )
                   }
@@ -212,7 +252,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule3: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, dr: UMLDirectedRelationship[Uml] ) =>
-      dr.targets.toList match {
+      dr.target.toList match {
         case List( t ) => getXMI_IDREF_or_HREF_fragment( owner, t ) match {
           case Failure( t )   => Failure( illegalElementException( s"Binary DirectedRelationship must have a target - ${t}", dr ) )
           case Success( tid ) => Success( ownerID + "._" + xmlSafeID( cf.getName ) + "." + tid )

@@ -40,6 +40,7 @@
 package org.omg.oti.canonicalXMI
 
 import org.omg.oti._
+import org.omg.oti.operations._
 import scala.annotation.tailrec
 import scala.language.higherKinds
 import scala.language.implicitConversions
@@ -225,7 +226,7 @@ object DocumentSet {
     value match {
       case l: UMLLiteralBoolean[Uml] => Success( Some( l.value.toString ) )
       case l: UMLLiteralInteger[Uml] => Success( Some( l.value.toString ) )
-      case l: UMLLiteralReal[Uml]    => Success( l.value match { case None => None; case Some( r ) => Some( r.toString ) } )
+      case l: UMLLiteralReal[Uml]    => Success( Some( l.value.toString ) )
       case l: UMLLiteralString[Uml]  => Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
       case iv: UMLInstanceValue[Uml] => Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID.head ) } )
       case v                         => Failure( new IllegalArgumentException( s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
