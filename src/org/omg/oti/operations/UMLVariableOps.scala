@@ -45,4 +45,10 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
 
   import self.ops._
 
+  // 15.1  
+	def activityScope: Option[UMLActivity[Uml]] = ???
+  
+  // 16.45
+  def scope: Option[UMLStructuredActivityNode[Uml]] = ???
+  
 }

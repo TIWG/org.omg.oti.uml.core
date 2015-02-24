@@ -120,7 +120,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
    * A ValueSpecification that is the value of a stereotype tag property may constitute
    * a forward reference to another element.
    */
-  def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]]
+  def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
   
   /**
    * A ValueSpecification VS that is the value of a stereotype tag property S::P for a

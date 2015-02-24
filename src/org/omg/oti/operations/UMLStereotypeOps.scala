@@ -45,9 +45,16 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 
   import self.ops._
 
-  def icon: Set[UMLImage[Uml]] = ownedElement.selectByKindOf { case i: UMLImage[Uml] => i }
+  // 12.12
+	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]] = ???
   
-  def extensionEnd: Iterable[UMLExtensionEnd[Uml]] = type_typedElement.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }
+  // 12.12 
+	def type_extensionEnd: Set[UMLExtensionEnd[Uml]] = ???
+  
+  def extensionEnd: Iterable[UMLExtensionEnd[Uml]] = 
+    type_typedElement.selectByKindOf { case ee: UMLExtensionEnd[Uml] => ee }
+  
+  def icon: Set[UMLImage[Uml]] = ownedElement.selectByKindOf { case i: UMLImage[Uml] => i }
   
   def baseMetaProperties: Iterable[UMLProperty[Uml]] = for {
     ee <- extensionEnd

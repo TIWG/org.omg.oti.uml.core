@@ -96,11 +96,7 @@ trait UMLRegion[Uml <: UML]
 	 *   sm._'context'
 	 * endif)
 	 */
-	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
-	    // Start of user code for "redefinitionContext"
-	    ???
-	    // End of user code
-	}
+	override def redefinitionContext: Iterable[UMLClassifier[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 

@@ -45,4 +45,13 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 
   import self.ops._
 
+  // 14.1
+  def trigger_transition: Option[UMLTransition[Uml]] = ???
+	
+  // 16.39
+	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] = ???
+  
+  // 14.1
+  def deferrableTrigger_state: Option[UMLState[Uml]] = ???
+  
 }

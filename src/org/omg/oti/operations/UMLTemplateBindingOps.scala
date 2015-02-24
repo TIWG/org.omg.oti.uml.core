@@ -45,4 +45,12 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 
   import self.ops._
 
+  // 7.4
+  	def boundElement: Option[UMLTemplateableElement[Uml]] = ???
+    
+  // 7.4  
+	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] = ???
+  
+  // 7.4  
+	def signature: Option[UMLTemplateSignature[Uml]] = ???
 }

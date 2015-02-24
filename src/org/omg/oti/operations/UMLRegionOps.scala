@@ -45,4 +45,22 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 
   import self.ops._
 
+  // 14.37
+  	def extendedRegion: Option[UMLRegion[Uml]] = ???
+    
+  // 14.37
+  def extendedRegion_region: Set[UMLRegion[Uml]] = ???
+  
+  // 14.1
+  	def state: Option[UMLState[Uml]] = ???
+    
+  // 14.1    
+	def stateMachine: Option[UMLStateMachine[Uml]] = ???
+  
+  // 14.1
+	def subvertex: Set[UMLVertex[Uml]] = ???
+  
+  // 14.1
+	def transition: Set[UMLTransition[Uml]] = ???
+  
 }

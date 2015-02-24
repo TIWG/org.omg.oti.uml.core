@@ -45,7 +45,8 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
 
   import self.ops._
 
-  def owningInstance: Option[UMLInstanceSpecification[Uml]] = owner.asInstanceOf[Option[UMLInstanceSpecification[Uml]]]
+  // 9.27
+  def owningInstance: Option[UMLInstanceSpecification[Uml]] = ???
   
   /**
    * TIWG: see UMLUtil, Rule #4

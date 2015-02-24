@@ -75,7 +75,7 @@ trait UMLPseudostate[Uml <: UML]
 	 * Determines the precise type of the Pseudostate and can be one of: entryPoint, exitPoint, initial, deepHistory, shallowHistory, join, fork, junction, terminate or choice.
 	 * <!-- end-user-doc -->
 	 */
-	def kind: UMLPseudostateKind.Value = UMLPseudostateKind.initial
+	def kind: UMLPseudostateKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 

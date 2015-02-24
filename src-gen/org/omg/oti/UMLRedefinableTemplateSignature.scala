@@ -95,12 +95,8 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	 *
 	 * OCL: result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
 	 */
-	def inheritedParameter: Set[UMLTemplateParameter[Uml]] = {
-	    // Start of user code for "inheritedParameter"
-	    ???
-	    // End of user code
-	}
-
+	def inheritedParameter: Set[UMLTemplateParameter[Uml]]
+  
 	/**
 	 * <!-- begin-user-doc --> 
 	 * 

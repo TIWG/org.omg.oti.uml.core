@@ -45,4 +45,10 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 
   import self.ops._
 
+  // 14.1
+  	def state: Option[UMLState[Uml]] = ???
+    
+  // 14.1
+  	def stateMachine: Option[UMLStateMachine[Uml]] = ???
+    
 }

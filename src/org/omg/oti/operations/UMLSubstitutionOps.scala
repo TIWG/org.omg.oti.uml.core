@@ -45,4 +45,10 @@ trait UMLSubstitutionOps[Uml <: UML] { self: UMLSubstitution[Uml] =>
 
   import self.ops._
 
+  // 9.1  
+	def contract: Option[UMLClassifier[Uml]] = ???
+  
+  // 9.1
+  	def substitutingClassifier: Option[UMLClassifier[Uml]] = ???
+    
 }

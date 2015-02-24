@@ -45,4 +45,10 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 
   import self.ops._
 
+  // 7.4
+	def ownedActual: Option[UMLParameterableElement[Uml]] = ??? 
+  
+  // 7.4
+  	def templateBinding: Option[UMLTemplateBinding[Uml]] = ???
+    
 }

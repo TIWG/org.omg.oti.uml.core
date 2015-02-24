@@ -39,6 +39,7 @@
  */
 package org.omg.oti.operations
 
+import scala.language.postfixOps
 import org.omg.oti._
 
 trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>

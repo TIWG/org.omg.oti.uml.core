@@ -45,4 +45,13 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 
   import self.ops._
 
+  // 9.4
+  def classifier: Option[UMLClassifier[Uml]] = ???
+  
+  // 9.4
+  def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]] = ???
+  
+  // 9.4
+  def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = ???
+  
 }

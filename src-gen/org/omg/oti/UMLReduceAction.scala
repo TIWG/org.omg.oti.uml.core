@@ -81,7 +81,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * Indicates whether the order of the input collection should determine the order in which the reducer Behavior is applied to its elements.
 	 * <!-- end-user-doc -->
 	 */
-	def isOrdered: Boolean = false
+	def isOrdered: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

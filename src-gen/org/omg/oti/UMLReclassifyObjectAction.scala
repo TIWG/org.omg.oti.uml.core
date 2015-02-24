@@ -75,7 +75,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * Specifies whether existing Classifiers should be removed before adding the new Classifiers.
 	 * <!-- end-user-doc -->
 	 */
-	def isReplaceAll: Boolean = false
+	def isReplaceAll: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

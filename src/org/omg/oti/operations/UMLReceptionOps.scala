@@ -45,4 +45,10 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 
   import self.ops._
 
+  // 10.7
+  	def ownedReception_interface: Option[UMLInterface[Uml]] = ???
+    
+  // 11.15
+	def ownedReception_class: Option[UMLClass[Uml]] = ???
+  
 }

@@ -73,7 +73,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	 * Specifies whether to remove duplicates of the value in nonunique Variables.
 	 * <!-- end-user-doc -->
 	 */
-	def isRemoveDuplicates: Boolean = false
+	def isRemoveDuplicates: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
