@@ -100,7 +100,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 
 	 * <!-- end-user-doc -->
 	 */
-	def mustIsolate: Boolean = false
+	def mustIsolate: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

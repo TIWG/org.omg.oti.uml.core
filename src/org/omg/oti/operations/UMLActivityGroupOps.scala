@@ -45,4 +45,13 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 
   import self.ops._
 
+  def inActivity: Option[UMLActivity[Uml]] =
+    owner.selectByKindOf { case e: UMLActivity[Uml] => e }
+  
+  def subgroup: Set[UMLActivityGroup[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLActivityGroup[Uml] => e }
+    
+	def superGroup: Option[UMLActivityGroup[Uml]] =
+    owner.selectByKindOf { case e: UMLActivityGroup[Uml] => e }
+    
 }

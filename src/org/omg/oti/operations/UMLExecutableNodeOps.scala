@@ -45,4 +45,11 @@ trait UMLExecutableNodeOps[Uml <: UML] { self: UMLExecutableNode[Uml] =>
 
   import self.ops._
 
+  def handler: Set[UMLExceptionHandler[Uml]] =
+    ownedElement.selectByKindOf { case eh: UMLExceptionHandler[Uml] => eh }
+    
+	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]] =
+    owner.selectByKindOf { case sn: UMLSequenceNode[Uml] => sn }
+
+  
 }

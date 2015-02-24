@@ -45,4 +45,19 @@ trait UMLTimeExpressionOps[Uml <: UML] { self: UMLTimeExpression[Uml] =>
 
   import self.ops._
 
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    expression_asForwardReferencesToImportableOuterPackageableElements
+
+  def expression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    Set(this) ++ expr.toSet
+
+  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    expression_forwardReferencesFromStereotypeTagValue
+    
+  /**
+   * An expression that is the value of a stereotype tag property is considered part of the forward references
+   * from the element on which the stereotype is applied; other parts include the operands of the expression, if any.
+   */
+  def expression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
+    Set(this) ++ expr.toSet
 }

@@ -45,4 +45,22 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 
   import self.ops._
 
+  override def activity: Option[UMLActivity[Uml]] =
+    owner.selectByKindOf { case a: UMLActivity[Uml] => a }
+    
+  def edge: Set[UMLActivityEdge[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLActivityEdge[Uml] => e }
+  
+  	def node: Iterable[UMLActivityNode[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLActivityNode[Uml] => e }
+    
+  	def structuredNodeInput: Iterable[UMLInputPin[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLInputPin[Uml] => e }
+    
+  	def structuredNodeOutput: Iterable[UMLOutputPin[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLOutputPin[Uml] => e }
+      
+  	def variable: Set[UMLVariable[Uml]] =
+    ownedMember.selectByKindOf { case e: UMLVariable[Uml] => e }
+    
 }
