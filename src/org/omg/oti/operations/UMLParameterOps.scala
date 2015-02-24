@@ -45,4 +45,10 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 
   import self.ops._
 
+  // 9.9
+	def ownedParameter_ownerFormalParam: Option[UMLBehavioralFeature[Uml]] = ???
+
+  // 13.1
+	def ownedParameter_behavior: Option[UMLBehavior[Uml]] = ???
+  
 }

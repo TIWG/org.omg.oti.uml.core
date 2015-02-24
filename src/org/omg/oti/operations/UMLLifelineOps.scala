@@ -45,4 +45,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 
   import self.ops._
 
+  // 17.6
+	def interaction: Option[UMLInteraction[Uml]] = ???
+  
 }

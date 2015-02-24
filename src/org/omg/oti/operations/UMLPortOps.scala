@@ -45,6 +45,14 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 
   import self.ops._
 
-  def redefinedPort: Set[UMLPort[Uml]] = redefinedElement.selectByKindOf { case p: UMLPort[Uml] => p }
+  // 11.10  
+	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]] = ???
+  
+  // 11.10
+  def redefinedPort: Set[UMLPort[Uml]] = 
+    redefinedElement.selectByKindOf { case p: UMLPort[Uml] => p }
 
+  // 11.10
+	def redefinedPort_port: Set[UMLPort[Uml]] = ???
+  
 }

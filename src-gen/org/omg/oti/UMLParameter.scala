@@ -82,11 +82,7 @@ trait UMLParameter[Uml <: UML]
 	 *
 	 * OCL: result = (if self.type = String then defaultValue.stringValue() else null endif)
 	 */
-	def default: Option[String] = {
-	    // Start of user code for "default"
-	    ???
-	    // End of user code
-	}
+	def default: Option[String]
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -100,7 +96,7 @@ trait UMLParameter[Uml <: UML]
 	 * Indicates whether a parameter is being sent into or out of a behavioral element.
 	 * <!-- end-user-doc -->
 	 */
-	def direction: UMLParameterDirectionKind.Value = UMLParameterDirectionKind.in
+	def direction: UMLParameterDirectionKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -114,14 +110,14 @@ trait UMLParameter[Uml <: UML]
 	 * Tells whether an output parameter may emit a value to the exclusion of the other outputs.
 	 * <!-- end-user-doc -->
 	 */
-	def isException: Boolean = false
-
+	def isException: Boolean
+  
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Tells whether an input parameter may accept values while its behavior is executing, or whether an output parameter may post values while the behavior is executing.
 	 * <!-- end-user-doc -->
 	 */
-	def isStream: Boolean = false
+	def isStream: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

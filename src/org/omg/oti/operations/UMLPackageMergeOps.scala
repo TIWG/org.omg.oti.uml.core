@@ -45,6 +45,12 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 
   import self.ops._
 
+  // 12.1  
+	def mergedPackage: Option[UMLPackage[Uml]] = ???
+  
+  // 12.1
+	def receivingPackage: Option[UMLPackage[Uml]] = ???
+  
   /**
    * TIWG: see UMLUtil, Rule #3
    */

@@ -77,21 +77,21 @@ trait UMLPort[Uml <: UML]
 	 * Specifies whether requests arriving at this Port are sent to the classifier behavior of this EncapsulatedClassifier. Such a Port is referred to as a behavior Port. Any invocation of a BehavioralFeature targeted at a behavior Port will be handled by the instance of the owning EncapsulatedClassifier itself, rather than by any instances that it may contain.
 	 * <!-- end-user-doc -->
 	 */
-	def isBehavior: Boolean = false
+	def isBehavior: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Specifies the way that the provided and required Interfaces are derived from the Port?s Type.
 	 * <!-- end-user-doc -->
 	 */
-	def isConjugated: Boolean = false
+	def isConjugated: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * If true, indicates that this Port is used to provide the published functionality of an EncapsulatedClassifier.  If false, this Port is used to implement the EncapsulatedClassifier but is not part of the essential externally-visible functionality of the EncapsulatedClassifier and can, therefore, be altered or deleted along with the internal implementation of the EncapsulatedClassifier and other properties that are considered part of its implementation.
 	 * <!-- end-user-doc -->
 	 */
-	def isService: Boolean = true
+	def isService: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -107,12 +107,8 @@ trait UMLPort[Uml <: UML]
 	 *
 	 * OCL: result = (if isConjugated then basicRequired() else basicProvided() endif)
 	 */
-	def provided: Set[UMLInterface[Uml]] = {
-	    // Start of user code for "provided"
-	    ???
-	    // End of user code
-	}
-
+	def provided: Set[UMLInterface[Uml]]
+    
 	/**
 	 * <!-- begin-user-doc --> 
 	 * A Port may be redefined when its containing EncapsulatedClassifier is specialized. The redefining Port may have additional Interfaces to those that are associated with the redefined Port or it may replace an Interface by one of its subtypes.
@@ -127,11 +123,7 @@ trait UMLPort[Uml <: UML]
 	 *
 	 * OCL: result = (if isConjugated then basicProvided() else basicRequired() endif)
 	 */
-	def required: Set[UMLInterface[Uml]] = {
-	    // Start of user code for "required"
-	    ???
-	    // End of user code
-	}
+	def required: Set[UMLInterface[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 

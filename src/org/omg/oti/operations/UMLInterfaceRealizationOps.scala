@@ -45,4 +45,9 @@ trait UMLInterfaceRealizationOps[Uml <: UML] { self: UMLInterfaceRealization[Uml
 
   import self.ops._
 
+  // 10.7
+  def contract: Option[UMLInterface[Uml]] = ???
+  
+  // 10.7
+	def implementingClassifier: Option[UMLBehavioredClassifier[Uml]] = ???
 }
