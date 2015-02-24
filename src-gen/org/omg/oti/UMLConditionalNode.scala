@@ -82,14 +82,14 @@ trait UMLConditionalNode[Uml <: UML]
 	 * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.
 	 * <!-- end-user-doc -->
 	 */
-	def isAssured: Boolean = false
+	def isAssured: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * If true, the modeler asserts that the test for at most one Clause of the ConditionalNode will succeed.
 	 * <!-- end-user-doc -->
 	 */
-	def isDeterminate: Boolean = false
+	def isDeterminate: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

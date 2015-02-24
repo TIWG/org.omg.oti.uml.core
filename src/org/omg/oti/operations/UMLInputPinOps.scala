@@ -45,4 +45,106 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 
   import self.ops._
 
+  def removeAt_removeVariableValueAction: Option[UMLRemoveVariableValueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLRemoveVariableValueAction[Uml] => e }
+    
+  def structuredNodeInput_structuredActivityNode: Option[UMLStructuredActivityNode[Uml]] =
+    owner.selectByKindOf { case e: UMLStructuredActivityNode[Uml] => e }
+        
+  def returnInformation_replyAction: Option[UMLReplyAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReplyAction[Uml] => e }
+    
+  def second_testIdentityAction: Option[UMLTestIdentityAction[Uml]] =
+    owner.selectByKindOf { case e: UMLTestIdentityAction[Uml] => e }
+    
+  def object_reclassifyObjectAction: Option[UMLReclassifyObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReclassifyObjectAction[Uml] => e }
+    
+  def request_sendObjectAction: Option[UMLSendObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLSendObjectAction[Uml] => e }
+
+	def insertAt_addStructuralFeatureValueAction: Option[UMLAddStructuralFeatureValueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAddStructuralFeatureValueAction[Uml] => e }
+
+	def object_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadLinkObjectEndQualifierAction[Uml] => e }
+
+	def destroyAt_linkEndDestructionData: Option[UMLLinkEndDestructionData[Uml]] =
+    owner.selectByKindOf { case e: UMLLinkEndDestructionData[Uml] => e }
+  
+	def object_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadLinkObjectEndAction[Uml] => e }
+  
+	def insertAt_linkEndCreationData: Option[UMLLinkEndCreationData[Uml]] =
+    owner.selectByKindOf { case e: UMLLinkEndCreationData[Uml] => e }
+    
+	def target_sendObjectAction: Option[UMLSendObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLSendObjectAction[Uml] => e }
+  
+	def object_clearAssociationAction: Option[UMLClearAssociationAction[Uml]] =
+    owner.selectByKindOf { case e: UMLClearAssociationAction[Uml] => e }
+    
+	def value_writeVariableAction: Option[UMLWriteVariableAction[Uml]] =
+    owner.selectByKindOf { case e: UMLWriteVariableAction[Uml] => e }
+  
+	def object_structuralFeatureAction: Option[UMLStructuralFeatureAction[Uml]] =
+    owner.selectByKindOf { case e: UMLStructuralFeatureAction[Uml] => e }
+  
+	def value_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]] =
+    owner.selectByKindOf { case e: UMLWriteStructuralFeatureAction[Uml] => e }
+    
+	def replyValue_replyAction: Option[UMLReplyAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReplyAction[Uml] => e }
+  
+	def insertAt_addVariableValueAction: Option[UMLAddVariableValueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAddVariableValueAction[Uml] => e }
+  
+	def object_startClassifierBehaviorAction: Option[UMLStartClassifierBehaviorAction[Uml]] =
+    owner.selectByKindOf { case e: UMLStartClassifierBehaviorAction[Uml] => e }
+    
+	def removeAt_removeStructuralFeatureValueAction: Option[UMLRemoveStructuralFeatureValueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLRemoveStructuralFeatureValueAction[Uml] => e }
+  
+	def first_testIdentityAction: Option[UMLTestIdentityAction[Uml]] =
+    owner.selectByKindOf { case e: UMLTestIdentityAction[Uml] => e }
+  
+	def loopVariableInput_loopNode: Option[UMLLoopNode[Uml]] =
+    owner.selectByKindOf { case e: UMLLoopNode[Uml] => e }
+  
+	def target_callOperationAction: Option[UMLCallOperationAction[Uml]] =
+    owner.selectByKindOf { case e: UMLCallOperationAction[Uml] => e }
+    
+	def input_action: Option[UMLAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAction[Uml] => e }
+  
+	def target_destroyObjectAction: Option[UMLDestroyObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLDestroyObjectAction[Uml] => e }
+    
+	def inputValue_opaqueAction: Option[UMLOpaqueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLOpaqueAction[Uml] => e }
+    
+	def collection_reduceAction: Option[UMLReduceAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReduceAction[Uml] => e }
+  
+	def argument_invocationAction: Option[UMLInvocationAction[Uml]] =
+    owner.selectByKindOf { case e: UMLInvocationAction[Uml] => e }
+  
+	def object_startObjectBehaviorAction: Option[UMLStartObjectBehaviorAction[Uml]] =
+    owner.selectByKindOf { case e: UMLStartObjectBehaviorAction[Uml] => e }
+  
+	def object_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadIsClassifiedObjectAction[Uml] => e }
+  
+	def target_sendSignalAction: Option[UMLSendSignalAction[Uml]] =
+    owner.selectByKindOf { case e: UMLSendSignalAction[Uml] => e }
+  
+	def exception_raiseExceptionAction: Option[UMLRaiseExceptionAction[Uml]] =
+    owner.selectByKindOf { case e: UMLRaiseExceptionAction[Uml] => e }
+
+	def object_unmarshallAction: Option[UMLUnmarshallAction[Uml]] =
+    owner.selectByKindOf { case e: UMLUnmarshallAction[Uml] => e }  
+  
+	def inputValue_linkAction: Option[UMLLinkAction[Uml]] =
+    owner.selectByKindOf { case e: UMLLinkAction[Uml] => e }  
+  
 }

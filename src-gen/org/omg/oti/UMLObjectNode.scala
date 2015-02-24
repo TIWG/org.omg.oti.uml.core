@@ -87,7 +87,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * Indicates whether the type of the ObjectNode is to be treated as representing control values that may traverse ControlFlows.
 	 * <!-- end-user-doc -->
 	 */
-	def isControlType: Boolean = false
+	def isControlType: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

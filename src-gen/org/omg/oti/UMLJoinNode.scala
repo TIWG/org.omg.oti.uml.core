@@ -73,7 +73,7 @@ trait UMLJoinNode[Uml <: UML]
 	 * Indicates whether incoming tokens having objects with the same identity are combined into one by the JoinNode.
 	 * <!-- end-user-doc -->
 	 */
-	def isCombineDuplicate: Boolean = true
+	def isCombineDuplicate: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

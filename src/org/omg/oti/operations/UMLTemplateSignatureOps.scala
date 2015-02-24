@@ -45,4 +45,10 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 
   import self.ops._
 
+  def template: Option[UMLTemplateableElement[Uml]] =
+    owner.selectByKindOf { case te: UMLTemplateableElement[Uml] => te }
+    
+	def signature_templateBinding: Set[UMLTemplateBinding[Uml]] =
+    target_directedRelationship.selectByKindOf { case tb: UMLTemplateBinding[Uml] => tb }
+  
 }

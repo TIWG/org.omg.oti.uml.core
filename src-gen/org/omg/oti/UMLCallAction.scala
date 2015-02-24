@@ -73,7 +73,7 @@ trait UMLCallAction[Uml <: UML]
 	 * If true, the call is synchronous and the caller waits for completion of the invoked Behavior. If false, the call is asynchronous and the caller proceeds immediately and cannot receive return values.
 	 * <!-- end-user-doc -->
 	 */
-	def isSynchronous: Boolean = true
+	def isSynchronous: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

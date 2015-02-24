@@ -45,4 +45,13 @@ trait UMLArtifactOps[Uml <: UML] { self: UMLArtifact[Uml] =>
 
   import self.ops._
 
+  def manifestation: Set[UMLManifestation[Uml]] =
+    ownedElement.selectByKindOf { case m: UMLManifestation[Uml] => m }
+  
+	def nestedArtifact: Set[UMLArtifact[Uml]] =
+    ownedMember.selectByKindOf { case a: UMLArtifact[Uml] => a }
+  
+	def nestedArtifact_artifact: Option[UMLArtifact[Uml]] =
+    namespace.selectByKindOf { case a: UMLArtifact[Uml] => a }
+  
 }

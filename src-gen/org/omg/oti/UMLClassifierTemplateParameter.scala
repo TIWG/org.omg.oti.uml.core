@@ -75,7 +75,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * Constrains the required relationship between an actual parameter and the parameteredElement for this formal parameter.
 	 * <!-- end-user-doc -->
 	 */
-	def allowSubstitutable: Boolean = true
+	def allowSubstitutable: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

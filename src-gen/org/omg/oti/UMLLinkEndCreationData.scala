@@ -80,7 +80,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	 * Specifies whether the existing links emanating from the object on this end should be destroyed before creating a new link.
 	 * <!-- end-user-doc -->
 	 */
-	def isReplaceAll: Boolean = false
+	def isReplaceAll: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

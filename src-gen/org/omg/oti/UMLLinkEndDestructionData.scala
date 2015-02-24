@@ -80,7 +80,7 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	 * Specifies whether to destroy duplicates of the value in nonunique Association ends.
 	 * <!-- end-user-doc -->
 	 */
-	def isDestroyDuplicates: Boolean = false
+	def isDestroyDuplicates: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

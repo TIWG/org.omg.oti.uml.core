@@ -45,4 +45,10 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 
   import self.ops._
 
+  def ownedParameterSet_behavior: Option[UMLBehavior[Uml]] =
+    namespace.selectByKindOf { case b: UMLBehavior[Uml] => b }
+  
+  def ownedParameterSet_behavioralFeature: Option[UMLBehavioralFeature[Uml]] =
+    namespace.selectByKindOf { case bf: UMLBehavioralFeature[Uml] => bf }
+  
 }

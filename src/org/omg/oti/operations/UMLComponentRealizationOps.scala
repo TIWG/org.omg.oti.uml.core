@@ -45,4 +45,10 @@ trait UMLComponentRealizationOps[Uml <: UML] { self: UMLComponentRealization[Uml
 
   import self.ops._
 
+	def abstraction: Option[UMLComponent[Uml]] =
+    owner.selectByKindOf { case c: UMLComponent[Uml] => c } 
+
+  	def realizingClassifier: Set[UMLClassifier[Uml]] =
+    client.selectByKindOf { case c: UMLClassifier[Uml] => c }
+    
 }

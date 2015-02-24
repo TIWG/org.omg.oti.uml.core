@@ -74,7 +74,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * Indicates whether there is a single OutputPin for a SignalEvent occurrence, or multiple OutputPins for attribute values of the instance of the Signal associated with a SignalEvent occurrence.
 	 * <!-- end-user-doc -->
 	 */
-	def isUnmarshall: Boolean = false
+	def isUnmarshall: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

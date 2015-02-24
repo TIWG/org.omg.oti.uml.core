@@ -95,7 +95,7 @@ trait UMLAction[Uml <: UML]
 	 * If true, the Action can begin a new, concurrent execution, even if there is already another execution of the Action ongoing. If false, the Action cannot begin a new execution until any previous execution has completed.
 	 * <!-- end-user-doc -->
 	 */
-	def isLocallyReentrant: Boolean = false
+	def isLocallyReentrant: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

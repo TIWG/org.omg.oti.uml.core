@@ -44,5 +44,17 @@ import org.omg.oti._
 trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 
   import self.ops._
-
+      
+	def contract_interfaceRealization: Set[UMLInterfaceRealization[Uml]] =
+    clientDependency.selectByKindOf { case i: UMLInterfaceRealization[Uml] => i }
+  
+	def ownedReception: Set[UMLReception[Uml]] =
+    ownedMember.selectByKindOf { case r: UMLReception[Uml] => r }
+  
+	def redefinedInterface: Set[UMLInterface[Uml]] =
+    redefinedElement.selectByKindOf { case i: UMLInterface[Uml] => i }
+    
+	def redefinedInterface_interface: Set[UMLInterface[Uml]] =
+    redefinedElement_redefinableElement.selectByKindOf { case i: UMLInterface[Uml] => i }
+  
 }

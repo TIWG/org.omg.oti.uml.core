@@ -45,4 +45,79 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 
   import self.ops._
 
+	def structuredNodeOutput_structuredActivityNode: Option[UMLStructuredActivityNode[Uml]] =
+    owner.selectByKindOf { case e: UMLStructuredActivityNode[Uml] => e }
+  
+	def result_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadLinkObjectEndQualifierAction[Uml] => e }
+  
+	def result_readSelfAction: Option[UMLReadSelfAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadSelfAction[Uml] => e }
+  
+	def result_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadLinkObjectEndAction[Uml] => e }
+
+	def result_reduceAction: Option[UMLReduceAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReduceAction[Uml] => e }
+  
+	def result_testIdentityAction: Option[UMLTestIdentityAction[Uml]] =
+    owner.selectByKindOf { case e: UMLTestIdentityAction[Uml] => e }
+
+	def result_valueSpecificationAction: Option[UMLValueSpecificationAction[Uml]] =
+    owner.selectByKindOf { case e: UMLValueSpecificationAction[Uml] => e }
+
+	def returnInformation_acceptCallAction: Option[UMLAcceptCallAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAcceptCallAction[Uml] => e }
+
+	def result_conditionalNode: Option[UMLConditionalNode[Uml]] =
+    owner.selectByKindOf { case e: UMLConditionalNode[Uml] => e }
+
+	def output_action: Option[UMLAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAction[Uml] => e }
+
+	def result_readExtentAction: Option[UMLReadExtentAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadExtentAction[Uml] => e }
+
+	def result_createLinkObjectAction: Option[UMLCreateLinkObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLCreateLinkObjectAction[Uml] => e }
+
+	def result_readVariableAction: Option[UMLReadVariableAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadVariableAction[Uml] => e }
+
+	def result_readLinkAction: Option[UMLReadLinkAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadLinkAction[Uml] => e }
+
+	def result_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadIsClassifiedObjectAction[Uml] => e }
+
+	def result_unmarshallAction: Option[UMLUnmarshallAction[Uml]] =
+    owner.selectByKindOf { case e: UMLUnmarshallAction[Uml] => e }
+
+	def result_readStructuralFeatureAction: Option[UMLReadStructuralFeatureAction[Uml]] =
+    owner.selectByKindOf { case e: UMLReadStructuralFeatureAction[Uml] => e }
+
+	def result_acceptEventAction: Option[UMLAcceptEventAction[Uml]] =
+    owner.selectByKindOf { case e: UMLAcceptEventAction[Uml] => e }
+
+	def result_loopNode: Option[UMLLoopNode[Uml]] =
+    owner.selectByKindOf { case e: UMLLoopNode[Uml] => e }
+
+	def result_callAction: Option[UMLCallAction[Uml]] =
+    owner.selectByKindOf { case e: UMLCallAction[Uml] => e }
+
+	def result_createObjectAction: Option[UMLCreateObjectAction[Uml]] =
+    owner.selectByKindOf { case e: UMLCreateObjectAction[Uml] => e }
+
+	def outputValue_opaqueAction: Option[UMLOpaqueAction[Uml]] =
+    owner.selectByKindOf { case e: UMLOpaqueAction[Uml] => e }
+
+	def loopVariable_loopNode: Option[UMLLoopNode[Uml]] =
+    owner.selectByKindOf { case e: UMLLoopNode[Uml] => e }
+
+	def result_clearStructuralFeatureAction: Option[UMLClearStructuralFeatureAction[Uml]] =
+    owner.selectByKindOf { case e: UMLClearStructuralFeatureAction[Uml] => e }
+
+	def result_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]] =
+    owner.selectByKindOf { case e: UMLWriteStructuralFeatureAction[Uml] => e }
+
 }

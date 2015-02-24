@@ -45,4 +45,10 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 
   import self.ops._
 
+  def enclosingInteraction: Option[UMLInteraction[Uml]] =
+    namespace.selectByKindOf { case i: UMLInteraction[Uml] => i }
+  
+  def enclosingOperand: Option[UMLInteractionOperand[Uml]] =
+    namespace.selectByKindOf { case i: UMLInteractionOperand[Uml] => i }
+
 }

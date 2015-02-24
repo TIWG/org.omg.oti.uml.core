@@ -80,7 +80,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	 * Specifies whether existing values of the StructuralFeature should be removed before adding the new value.
 	 * <!-- end-user-doc -->
 	 */
-	def isReplaceAll: Boolean = false
+	def isReplaceAll: Boolean
 
 // Start of user code for additional featuers
 // End of user code

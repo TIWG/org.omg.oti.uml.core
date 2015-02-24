@@ -77,7 +77,7 @@ trait UMLPin[Uml <: UML]
 	 * Indicates whether the Pin provides data to the Action or just controls how the Action executes.
 	 * <!-- end-user-doc -->
 	 */
-	def isControl: Boolean = false
+	def isControl: Boolean
 
 // Start of user code for additional featuers
 // End of user code

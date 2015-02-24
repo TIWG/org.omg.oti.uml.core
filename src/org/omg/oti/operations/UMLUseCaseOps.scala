@@ -45,4 +45,11 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 
   import self.ops._
 
+  def extend: Set[UMLExtend[Uml]] = ???
+  
+	def extensionPoint: Set[UMLExtensionPoint[Uml]] = ???
+   
+	def include: Set[UMLInclude[Uml]] = ???
+  
+	def ownedUseCase_classifier: Option[UMLClassifier[Uml]] = ???
 }
