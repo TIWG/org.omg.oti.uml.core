@@ -45,4 +45,7 @@ trait UMLImageOps[Uml <: UML] { self: UMLImage[Uml] =>
 
   import self.ops._
 
+  // 12.12
+  override def icon_stereotype: Option[UMLStereotype[Uml]] = ???
+  
 }

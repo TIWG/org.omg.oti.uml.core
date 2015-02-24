@@ -45,4 +45,10 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 
   import self.ops._
 
+  // 18.1
+	def addition: Option[UMLUseCase[Uml]] = ???
+  
+  // 18.1  
+	def includingCase: Option[UMLUseCase[Uml]] = ???
+  
 }

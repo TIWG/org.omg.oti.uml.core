@@ -76,14 +76,14 @@ trait UMLObjectFlow[Uml <: UML]
 	 * Indicates whether the objects in the ObjectFlow are passed by multicasting.
 	 * <!-- end-user-doc -->
 	 */
-	def isMulticast: Boolean = false
+	def isMulticast: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Indicates whether the objects in the ObjectFlow are gathered from respondents to multicasting.
 	 * <!-- end-user-doc -->
 	 */
-	def isMultireceive: Boolean = false
+	def isMultireceive: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

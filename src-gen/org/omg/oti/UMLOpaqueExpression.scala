@@ -101,11 +101,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * 	behavior.ownedParameter->first()
 	 * endif)
 	 */
-	def result: Option[UMLParameter[Uml]] = {
-	    // Start of user code for "result"
-	    ???
-	    // End of user code
-	}
+	def result: Option[UMLParameter[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 

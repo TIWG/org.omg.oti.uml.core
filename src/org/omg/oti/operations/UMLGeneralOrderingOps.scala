@@ -45,4 +45,7 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 
   import self.ops._
 
+  // 17.9  
+	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]] = ???
+  
 }

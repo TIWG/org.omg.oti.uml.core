@@ -45,10 +45,10 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 
   import self.ops._
 
-  def condition: Option[UMLConstraint[Uml]] = ???
-    
+  // 18.1
 	def extendedCase: Option[UMLUseCase[Uml]] = ???
     
+  // 18.1
 	def extension: Option[UMLUseCase[Uml]] = ???
   
 }

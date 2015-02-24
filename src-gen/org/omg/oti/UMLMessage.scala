@@ -104,18 +104,14 @@ trait UMLMessage[Uml <: UML]
 	 *
 	 * OCL: result = (messageKind)
 	 */
-	def messageKind: UMLMessageKind.Value = {
-	    // Start of user code for "messageKind"
-	    ???
-	    // End of user code
-	}
+	def messageKind: UMLMessageKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * The sort of communication reflected by the Message.
 	 * <!-- end-user-doc -->
 	 */
-	def messageSort: UMLMessageSort.Value = UMLMessageSort.synchCall
+	def messageSort: UMLMessageSort.Value
 
 	/**
 	 * <!-- begin-user-doc --> 

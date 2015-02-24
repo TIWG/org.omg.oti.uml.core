@@ -45,4 +45,9 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 
   import self.ops._
 
+  // 20.1  
+	override def informationSource: Set[UMLNamedElement[Uml]] = ???
+  
+  // 20.1
+	override def informationTarget: Set[UMLNamedElement[Uml]] = ??? 
 }
