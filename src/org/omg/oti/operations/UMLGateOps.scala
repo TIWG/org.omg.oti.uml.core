@@ -45,14 +45,17 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 
   import self.ops._
   
-  // 17.1
-	def cfragmentGate_combinedFragment: Option[UMLCombinedFragment[Uml]] = ???
-    
   // 17.11
-	def formalGate_interaction: Option[UMLInteraction[Uml]] = ???
+	def cfragmentGate_combinedFragment: Option[UMLCombinedFragment[Uml]] = 
+    ownedElement.selectByKindOf { case cfg: UMLCombinedFragment[Uml] => cfg } headOption
+    
+  // 17.1
+	def formalGate_interaction: Option[UMLInteraction[Uml]] = 
+    namespace.selectByKindOf { case fgi: UMLInteraction[Uml] => fgi }
   
   // 17.18
-	def actualGate_interactionUse: Option[UMLInteractionUse[Uml]] = ???
+	def actualGate_interactionUse: Option[UMLInteractionUse[Uml]] = 
+    owner.selectByKindOf { case agi: UMLInteractionUse[Uml] => agi }
   
   
 }

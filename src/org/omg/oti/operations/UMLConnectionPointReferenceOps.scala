@@ -46,6 +46,7 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
   import self.ops._
 
   // 14.1  
-	def state: Option[UMLState[Uml]] = ???
+	def state: Option[UMLState[Uml]] = 
+    namespace.selectByKindOf { case s: UMLState[Uml] => s }
   
 }

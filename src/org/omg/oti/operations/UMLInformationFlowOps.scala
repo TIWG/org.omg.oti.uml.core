@@ -46,8 +46,10 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
   import self.ops._
 
   // 20.1  
-	override def informationSource: Set[UMLNamedElement[Uml]] = ???
+	override def informationSource: Set[UMLNamedElement[Uml]] = 
+    source.selectByKindOf { case is: UMLNamedElement[Uml] => is }
   
   // 20.1
-	override def informationTarget: Set[UMLNamedElement[Uml]] = ??? 
+	override def informationTarget: Set[UMLNamedElement[Uml]] = 
+    target.selectByKindOf { case it: UMLNamedElement[Uml] => it }
 }

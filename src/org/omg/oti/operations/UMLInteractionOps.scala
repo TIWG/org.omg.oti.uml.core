@@ -46,12 +46,15 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
   import self.ops._
 
   // 17.1  
-	def action: Set[UMLAction[Uml]] = ???
+	def action: Set[UMLAction[Uml]] = 
+    ownedElement.selectByKindOf { case a: UMLAction[Uml] => a }
   
   // 17.6
-	def lifeline: Set[UMLLifeline[Uml]] = ???
+	def lifeline: Set[UMLLifeline[Uml]] = 
+    ownedMember.selectByKindOf { case l: UMLLifeline[Uml] => l }
   
   // 17.7
-	def message: Set[UMLMessage[Uml]] = ???
+	def message: Set[UMLMessage[Uml]] = 
+    ownedMember.selectByKindOf { case m: UMLMessage[Uml] => m }
   
 }

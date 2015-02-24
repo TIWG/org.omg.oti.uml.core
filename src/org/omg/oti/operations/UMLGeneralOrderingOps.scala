@@ -46,6 +46,7 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
   import self.ops._
 
   // 17.9  
-	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]] = ???
+	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]] = 
+    owner.selectByKindOf { case goif: UMLInteractionFragment[Uml] => goif }
   
 }
