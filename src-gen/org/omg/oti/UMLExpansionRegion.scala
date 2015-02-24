@@ -82,7 +82,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	 * The mode in which the ExpansionRegion executes its contents. If parallel, executions are concurrent. If iterative, executions are sequential. If stream, a stream of values flows into a single execution.
 	 * <!-- end-user-doc -->
 	 */
-	def mode: UMLExpansionKind.Value = UMLExpansionKind.iterative
+	def mode: UMLExpansionKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 

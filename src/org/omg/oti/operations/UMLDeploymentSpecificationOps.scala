@@ -44,5 +44,8 @@ import org.omg.oti._
 trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecification[Uml] =>
 
   import self.ops._
+  
+	def deployment: Option[UMLDeployment[Uml]] = ???
+  
 
 }

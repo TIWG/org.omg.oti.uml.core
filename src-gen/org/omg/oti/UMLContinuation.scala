@@ -73,7 +73,7 @@ trait UMLContinuation[Uml <: UML]
 	 * True: when the Continuation is at the end of the enclosing InteractionFragment and False when it is in the beginning.
 	 * <!-- end-user-doc -->
 	 */
-	def setting: Boolean = true
+	def setting: Boolean
 
 // Start of user code for additional featuers
 // End of user code

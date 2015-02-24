@@ -45,4 +45,8 @@ trait UMLNodeOps[Uml <: UML] { self: UMLNode[Uml] =>
 
   import self.ops._
 
+  def nestedNode: Set[UMLNode[Uml]] = ???
+  
+  def nestedNode_node: Option[UMLNode[Uml]] = ???
+  
 }

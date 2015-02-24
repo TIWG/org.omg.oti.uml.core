@@ -45,4 +45,6 @@ trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 
   import self.ops._
 
+	def deployedElement: Set[UMLPackageableElement[Uml]] = ???
+
 }

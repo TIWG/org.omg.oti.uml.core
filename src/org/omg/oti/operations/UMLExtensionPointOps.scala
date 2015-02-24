@@ -45,4 +45,6 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 
   import self.ops._
 
+  def useCase: Option[UMLUseCase[Uml]] = ???
+  
 }

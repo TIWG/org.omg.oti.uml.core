@@ -45,4 +45,7 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 
   import self.ops._
 
+	def signature: Option[UMLTemplateSignature[Uml]] =
+    owner.selectByKindOf { case ts: UMLTemplateSignature[Uml] => ts }
+  
 }

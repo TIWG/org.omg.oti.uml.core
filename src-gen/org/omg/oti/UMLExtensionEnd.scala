@@ -75,11 +75,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	 * <!-- end-user-doc -->
 	 *
 	 */
-	override def lower: Integer = {
-	    // Start of user code for "lower"
-	    ???
-	    // End of user code
-	}
+	override def lower: Integer
 
 	/**
 	 * <!-- begin-user-doc --> 

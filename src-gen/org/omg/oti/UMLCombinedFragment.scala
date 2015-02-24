@@ -81,7 +81,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * Specifies the operation which defines the semantics of this combination of InteractionFragments.
 	 * <!-- end-user-doc -->
 	 */
-	def interactionOperator: UMLInteractionOperatorKind.Value = UMLInteractionOperatorKind.seq
+	def interactionOperator: UMLInteractionOperatorKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 

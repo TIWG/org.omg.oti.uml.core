@@ -74,14 +74,14 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	 * Specifies whether links in which the object participates are destroyed along with the object.
 	 * <!-- end-user-doc -->
 	 */
-	def isDestroyLinks: Boolean = false
+	def isDestroyLinks: Boolean 
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Specifies whether objects owned by the object (via composition) are destroyed along with the object.
 	 * <!-- end-user-doc -->
 	 */
-	def isDestroyOwnedObjects: Boolean = false
+	def isDestroyOwnedObjects: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 

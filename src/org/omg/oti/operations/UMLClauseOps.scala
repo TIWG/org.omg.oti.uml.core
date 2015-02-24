@@ -45,4 +45,6 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 
   import self.ops._
 
+	def clause_conditionalNode: Option[UMLConditionalNode[Uml]] = ???
+  
 }

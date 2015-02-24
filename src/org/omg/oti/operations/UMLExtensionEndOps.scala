@@ -45,4 +45,6 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 
   import self.ops._
 
+	def ownedEnd_extension: Option[UMLExtension[Uml]] = ???
+  
 }

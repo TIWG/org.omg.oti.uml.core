@@ -45,11 +45,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 
   import self.ops._
 
-  def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   
-    case Some(a: UMLAssociation[Uml]) => Some(a)
+  def _class: Option[UMLClass[Uml]] = owner match { 
+    case Some(c: UMLClass[Uml]) => Some(c)
     case _ => None
   }
-  
   
   def datatype: Option[UMLDataType[Uml]] = owner match { 
     case Some(dt: UMLDataType[Uml]) => Some(dt)
@@ -60,16 +59,22 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     case Some(i: UMLInterface[Uml]) => Some(i)
     case _ => None
   }
+    
+  def owningAssociation: Option[UMLAssociation[Uml]] = owner match {   
+    case Some(a: UMLAssociation[Uml]) => Some(a)
+    case _ => None
+  }  
   
   def redefinedProperty: Set[UMLProperty[Uml]] =
     redefinedElement.selectByKindOf { case p: UMLProperty[Uml] => p }
+    
+	def ownedAttribute_artifact: Option[UMLArtifact[Uml]] = ???
+  
+	def ownedAttribute_owningSignal: Option[UMLSignal[Uml]] = ???
+  
+	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = ???
   
   // -----
-  
-  def _class: Option[UMLClass[Uml]] = owner match { 
-    case Some(c: UMLClass[Uml]) => Some(c)
-    case _ => None
-  }
   
   def owningStereotype: Option[UMLStereotype[Uml]] = owner match { 
     case Some(s: UMLStereotype[Uml]) => Some(s)

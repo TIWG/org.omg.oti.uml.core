@@ -98,7 +98,7 @@ trait UMLProperty[Uml <: UML]
 	 * Specifies the kind of aggregation that applies to the Property.
 	 * <!-- end-user-doc -->
 	 */
-	def aggregation: UMLAggregationKind.Value = UMLAggregationKind.none
+	def aggregation: UMLAggregationKind.Value
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -149,32 +149,28 @@ trait UMLProperty[Uml <: UML]
 	 *
 	 * OCL: result = (aggregation = AggregationKind::composite)
 	 */
-	def isComposite: Boolean = {
-	    // Start of user code for "isComposite"
-	    ???
-	    // End of user code
-	}
+	def isComposite: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Specifies whether the Property is derived, i.e., whether its value or values can be computed from other information.
 	 * <!-- end-user-doc -->
 	 */
-	def isDerived: Boolean = false
+	def isDerived: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Specifies whether the property is derived as the union of all of the Properties that are constrained to subset it.
 	 * <!-- end-user-doc -->
 	 */
-	def isDerivedUnion: Boolean = false
+	def isDerivedUnion: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
 	 * True indicates this property can be used to uniquely identify an instance of the containing Class.
 	 * <!-- end-user-doc -->
 	 */
-	def isID: Boolean = false
+	def isID: Boolean
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -227,7 +223,7 @@ trait UMLProperty[Uml <: UML]
 
 	/**
 	 * <!-- begin-user-doc --> 
-	 * 
+	 * BUG: Missing from Figure 17.18
 	 * <!-- end-user-doc -->
 	 */
 	def returnValueRecipient_interactionUse: Set[UMLInteractionUse[Uml]]
@@ -255,10 +251,10 @@ trait UMLProperty[Uml <: UML]
 
 	/**
 	 * <!-- begin-user-doc --> 
-	 * 
+	 * FIX: should be Option, not Iterable
 	 * <!-- end-user-doc -->
 	 */
-	def ownedAttribute_structuredClassifier: Iterable[UMLStructuredClassifier[Uml]]
+	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 

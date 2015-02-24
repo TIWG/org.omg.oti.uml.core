@@ -75,11 +75,7 @@ trait UMLDeploymentTarget[Uml <: UML]
 	 *
 	 * OCL: result = (deployment.deployedArtifact->select(oclIsKindOf(Artifact))->collect(oclAsType(Artifact).manifestation)->collect(utilizedElement)->asSet())
 	 */
-	def deployedElement: Set[UMLPackageableElement[Uml]] = {
-	    // Start of user code for "deployedElement"
-	    ???
-	    // End of user code
-	}
+	def deployedElement: Set[UMLPackageableElement[Uml]]
 
 	/**
 	 * <!-- begin-user-doc --> 
