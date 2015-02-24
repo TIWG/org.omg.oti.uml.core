@@ -47,7 +47,7 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 
   // 18.1
 	def extendedCase: Option[UMLUseCase[Uml]] = 
-    target.selectByKindOf { case ec: UMLUseCase[Uml] => ec }
+    target.selectByKindOf { case ec: UMLUseCase[Uml] => ec } headOption
     
   // 18.1
 	def extension: Option[UMLUseCase[Uml]] = 

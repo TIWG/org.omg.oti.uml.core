@@ -47,15 +47,20 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 
   import self.ops._
 
-  def connection: Set[UMLConnectionPointReference[Uml]] = ??? 
-  def connectionPoint: Set[UMLPseudostate[Uml]] = ??? 
-  def deferrableTrigger: Set[UMLTrigger[Uml]] = ???  
-  def inState_objectNode: Set[UMLObjectNode[Uml]] = ??? 
+  // 14.1
+  def connection: Set[UMLConnectionPointReference[Uml]] = 
+    ownedMember.selectByKindOf { case c: UMLConnectionPointReference[Uml] => c } 
+  def connectionPoint: Set[UMLPseudostate[Uml]] = 
+    ownedMember.selectByKindOf { case cp: UMLPseudostate[Uml] => cp } 
+  def deferrableTrigger: Set[UMLTrigger[Uml]] = 
+    ownedElement.selectByKindOf { case dt: UMLTrigger[Uml] => dt }     
   def redefinedState: Option[UMLState[Uml]] =
-    redefinedElement.selectByKindOf { case s: UMLState[Uml] => s } headOption
+    redefinedElement.selectByKindOf { case rs: UMLState[Uml] => rs } headOption
   def redefinedState_state: Set[UMLState[Uml]] =
-    redefinedElement_redefinableElement.selectByKindOf { case c: UMLState[Uml] => c } 
-  def region: Set[UMLRegion[Uml]] = ??? 
-  def stateInvariant: Option[UMLConstraint[Uml]] = ??? 
-  def submachine: Option[UMLStateMachine[Uml]] = ??? 
+    redefinedElement_redefinableElement.selectByKindOf { case rss: UMLState[Uml] => rss } 
+  def region: Set[UMLRegion[Uml]] = 
+    ownedMember.selectByKindOf { case r: UMLRegion[Uml] => r }  
+  def stateInvariant: Option[UMLConstraint[Uml]] = 
+    ownedRule.selectByKindOf { case si: UMLConstraint[Uml] => si } headOption
+  
 }

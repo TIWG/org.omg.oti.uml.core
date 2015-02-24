@@ -46,13 +46,15 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
   import self.ops._
 
   // 11.10  
-	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]] = ???
+	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]] = 
+    ownedAttribute_structuredClassifier.selectByKindOf { case opec: UMLEncapsulatedClassifier[Uml] => opec }
   
   // 11.10
   def redefinedPort: Set[UMLPort[Uml]] = 
     redefinedElement.selectByKindOf { case p: UMLPort[Uml] => p }
 
   // 11.10
-	def redefinedPort_port: Set[UMLPort[Uml]] = ???
+	def redefinedPort_port: Set[UMLPort[Uml]] = 
+    redefinedElement_redefinableElement.selectByKindOf { case rpp: UMLPort[Uml] => rpp }
   
 }

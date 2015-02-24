@@ -47,7 +47,7 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 
   // 18.1
 	def addition: Option[UMLUseCase[Uml]] = 
-    target.selectByKindOf { case a: UMLUseCase[Uml] => a }
+    target.selectByKindOf { case a: UMLUseCase[Uml] => a } headOption
   
   // 18.1  
 	def includingCase: Option[UMLUseCase[Uml]] = 

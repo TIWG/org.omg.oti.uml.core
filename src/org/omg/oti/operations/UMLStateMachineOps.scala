@@ -45,11 +45,13 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 
   import self.ops._
 
-  def connectionPoint: Set[UMLPseudostate[Uml]] = ??? 
+  // 14.1
+  def connectionPoint: Set[UMLPseudostate[Uml]] = 
+    ownedMember.selectByKindOf { case cp: UMLPseudostate[Uml] => cp }
   def extendedStateMachine: Iterable[UMLStateMachine[Uml]] =
-    redefinedBehavior.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
+    redefinedBehavior.selectByKindOf { case esm: UMLStateMachine[Uml] => esm }
   def extendedStateMachine_stateMachine: Set[UMLStateMachine[Uml]] =
-    redefinedBehavior_behavior.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
-  def region: Set[UMLRegion[Uml]] = ??? 
-  def submachineState: Set[UMLState[Uml]] = ??? 
+    redefinedBehavior_behavior.selectByKindOf { case esmsm: UMLStateMachine[Uml] => esmsm }
+  def region: Set[UMLRegion[Uml]] = 
+    ownedMember.selectByKindOf { case r: UMLRegion[Uml] => r }
 }

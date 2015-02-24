@@ -45,14 +45,19 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 
   import self.ops._
   
+  // 14.1
   def container: Option[UMLRegion[Uml]] =
     namespace.selectByKindOf { case e: UMLRegion[Uml] => e } 
   
-   def effect: Option[UMLBehavior[Uml]] =
+  def effect: Option[UMLBehavior[Uml]] =
     ownedElement.selectByKindOf { case e: UMLBehavior[Uml] => e } headOption
      
-   def guard: Option[UMLConstraint[Uml]] = ??? 
-   def redefinedTransition: Option[UMLTransition[Uml]] = ???
-   def redefinedTransition_transition: Set[UMLTransition[Uml]] = ??? 
-   def trigger: Set[UMLTrigger[Uml]] = ??? 
+  def guard: Option[UMLConstraint[Uml]] = 
+    ownedRule.selectByKindOf { case g: UMLConstraint[Uml] => g } headOption
+  def redefinedTransition: Option[UMLTransition[Uml]] = 
+    redefinedElement.selectByKindOf { case rt: UMLTransition[Uml] => rt } headOption
+  def redefinedTransition_transition: Set[UMLTransition[Uml]] = 
+    redefinedElement_redefinableElement.selectByKindOf { case rtt: UMLTransition[Uml] => rtt } 
+  def trigger: Set[UMLTrigger[Uml]] = 
+    ownedElement.selectByKindOf { case t: UMLTrigger[Uml] => t }
 }

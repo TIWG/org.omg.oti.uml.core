@@ -44,12 +44,11 @@ import org.omg.oti._
 trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 
   import self.ops._
-
-  def extend: Set[UMLExtend[Uml]] = ???
   
-	def extensionPoint: Set[UMLExtensionPoint[Uml]] = ???
-   
-	def include: Set[UMLInclude[Uml]] = ???
+  // 18.1
+	def extensionPoint: Set[UMLExtensionPoint[Uml]] = 
+    ownedMember.selectByKindOf { case ep: UMLExtensionPoint[Uml] => ep }
   
-	def ownedUseCase_classifier: Option[UMLClassifier[Uml]] = ???
+	def ownedUseCase_classifier: Option[UMLClassifier[Uml]] = 
+    namespace.selectByKindOf { case oucc: UMLClassifier[Uml] => oucc }
 }

@@ -46,6 +46,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
   import self.ops._
 
   // 17.7
-  def interaction: Option[UMLInteraction[Uml]] = ???
+  def interaction: Option[UMLInteraction[Uml]] = 
+    namespace.selectByKindOf { case i: UMLInteraction[Uml] => i }
   
 }

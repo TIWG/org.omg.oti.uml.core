@@ -46,10 +46,12 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
   import self.ops._
 
   // 12.1  
-	def mergedPackage: Option[UMLPackage[Uml]] = ???
+	def mergedPackage: Option[UMLPackage[Uml]] = 
+    target.selectByKindOf { case mp: UMLPackage[Uml] => mp } headOption
   
   // 12.1
-	def receivingPackage: Option[UMLPackage[Uml]] = ???
+	def receivingPackage: Option[UMLPackage[Uml]] = 
+    source.selectByKindOf { case rp: UMLPackage[Uml] => rp } headOption
   
   /**
    * TIWG: see UMLUtil, Rule #3

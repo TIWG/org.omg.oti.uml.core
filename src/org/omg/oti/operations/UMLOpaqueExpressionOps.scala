@@ -46,7 +46,8 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
   import self.ops._
     
   // 7.17
-  def mapping_abstraction: Option[UMLAbstraction[Uml]] = ???
+  def mapping_abstraction: Option[UMLAbstraction[Uml]] = 
+    owner.selectByKindOf { case ma: UMLAbstraction[Uml] => ma }
   
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     opaqueExpression_asForwardReferencesToImportableOuterPackageableElements

@@ -46,9 +46,11 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
   import self.ops._
 
   // 9.9
-	def ownedParameter_ownerFormalParam: Option[UMLBehavioralFeature[Uml]] = ???
+	def ownedParameter_ownerFormalParam: Option[UMLBehavioralFeature[Uml]] = 
+    namespace.selectByKindOf { case opofp: UMLBehavioralFeature[Uml] => opofp }
 
   // 13.1
-	def ownedParameter_behavior: Option[UMLBehavior[Uml]] = ???
+	def ownedParameter_behavior: Option[UMLBehavior[Uml]] = 
+    namespace.selectByKindOf { case opb: UMLBehavior[Uml] => opb }
   
 }
