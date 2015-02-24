@@ -45,4 +45,11 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 
   import self.ops._
 
+  def connectionPoint: Set[UMLPseudostate[Uml]] = ??? 
+  def extendedStateMachine: Iterable[UMLStateMachine[Uml]] =
+    redefinedBehavior.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
+  def extendedStateMachine_stateMachine: Set[UMLStateMachine[Uml]] =
+    redefinedBehavior_behavior.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
+  def region: Set[UMLRegion[Uml]] = ??? 
+  def submachineState: Set[UMLState[Uml]] = ??? 
 }

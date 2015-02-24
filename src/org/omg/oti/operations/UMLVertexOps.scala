@@ -44,5 +44,7 @@ import org.omg.oti._
 trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 
   import self.ops._
-
+  
+  def container: Option[UMLRegion[Uml]] =
+    namespace.selectByKindOf { case e: UMLRegion[Uml] => e } 
 }

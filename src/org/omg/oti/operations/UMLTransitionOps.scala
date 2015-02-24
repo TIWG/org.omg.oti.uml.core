@@ -44,5 +44,15 @@ import org.omg.oti._
 trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 
   import self.ops._
-
+  
+  def container: Option[UMLRegion[Uml]] =
+    namespace.selectByKindOf { case e: UMLRegion[Uml] => e } 
+  
+   def effect: Option[UMLBehavior[Uml]] =
+    ownedElement.selectByKindOf { case e: UMLBehavior[Uml] => e } headOption
+     
+   def guard: Option[UMLConstraint[Uml]] = ??? 
+   def redefinedTransition: Option[UMLTransition[Uml]] = ???
+   def redefinedTransition_transition: Set[UMLTransition[Uml]] = ??? 
+   def trigger: Set[UMLTrigger[Uml]] = ??? 
 }

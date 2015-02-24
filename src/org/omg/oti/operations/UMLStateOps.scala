@@ -45,4 +45,15 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 
   import self.ops._
 
+  def connection: Set[UMLConnectionPointReference[Uml]] = ??? 
+  def connectionPoint: Set[UMLPseudostate[Uml]] = ??? 
+  def deferrableTrigger: Set[UMLTrigger[Uml]] = ???  
+  def inState_objectNode: Set[UMLObjectNode[Uml]] = ??? 
+  def redefinedState: Option[UMLState[Uml]] =
+    redefinedElement.selectByKindOf { case s: UMLState[Uml] => s } headOption
+  def redefinedState_state: Set[UMLState[Uml]] =
+    redefinedElement_redefinableElement.selectByKindOf { case c: UMLState[Uml] => c } 
+  def region: Set[UMLRegion[Uml]] = ??? 
+  def stateInvariant: Option[UMLConstraint[Uml]] = ??? 
+  def submachine: Option[UMLStateMachine[Uml]] = ??? 
 }
