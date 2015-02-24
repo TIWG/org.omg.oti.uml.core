@@ -45,4 +45,13 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 
   import self.ops._
 
+  // 17.1  
+	def action: Set[UMLAction[Uml]] = ???
+  
+  // 17.6
+	def lifeline: Set[UMLLifeline[Uml]] = ???
+  
+  // 17.7
+	def message: Set[UMLMessage[Uml]] = ???
+  
 }

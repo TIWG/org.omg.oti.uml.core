@@ -45,4 +45,7 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 
   import self.ops._
 
+  // 14.1  
+	def state: Option[UMLState[Uml]] = ???
+  
 }

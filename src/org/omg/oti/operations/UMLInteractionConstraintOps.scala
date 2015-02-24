@@ -45,4 +45,6 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 
   import self.ops._
 
+  // 17.11
+	def guard_interactionOperand: Option[UMLInteractionOperand[Uml]] = ???
 }

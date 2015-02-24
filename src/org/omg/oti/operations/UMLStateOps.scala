@@ -41,6 +41,8 @@ package org.omg.oti.operations
 
 import org.omg.oti._
 
+import scala.language.postfixOps
+
 trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 
   import self.ops._

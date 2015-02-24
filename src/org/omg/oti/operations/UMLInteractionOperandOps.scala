@@ -45,4 +45,6 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 
   import self.ops._
 
+  // 17.11
+	def operand_combinedFragment: Option[UMLCombinedFragment[Uml]] = ???
 }
