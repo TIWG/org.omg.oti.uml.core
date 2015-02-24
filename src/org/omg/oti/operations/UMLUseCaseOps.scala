@@ -46,6 +46,12 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
   import self.ops._
   
   // 18.1
+  def extend: Set[UMLExtend[Uml]] = 
+    target_directedRelationship.selectByKindOf { case e: UMLExtend[Uml] => e }
+  
+  def include: Set[UMLInclude[Uml]] = 
+    target_directedRelationship.selectByKindOf { case i: UMLInclude[Uml] => i }
+  
 	def extensionPoint: Set[UMLExtensionPoint[Uml]] = 
     ownedMember.selectByKindOf { case ep: UMLExtensionPoint[Uml] => ep }
   
