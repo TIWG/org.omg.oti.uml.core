@@ -54,10 +54,13 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
      
   def guard: Option[UMLConstraint[Uml]] = 
     ownedRule.selectByKindOf { case g: UMLConstraint[Uml] => g } headOption
+    
   def redefinedTransition: Option[UMLTransition[Uml]] = 
     redefinedElement.selectByKindOf { case rt: UMLTransition[Uml] => rt } headOption
+    
   def redefinedTransition_transition: Set[UMLTransition[Uml]] = 
     redefinedElement_redefinableElement.selectByKindOf { case rtt: UMLTransition[Uml] => rtt } 
+    
   def trigger: Set[UMLTrigger[Uml]] = 
     ownedElement.selectByKindOf { case t: UMLTrigger[Uml] => t }
 }

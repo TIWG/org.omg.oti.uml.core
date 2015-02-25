@@ -46,11 +46,14 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
   import self.ops._
 
   // 7.4
-  	def boundElement: Option[UMLTemplateableElement[Uml]] = ???
+  def boundElement: Option[UMLTemplateableElement[Uml]] = 
+    source.selectByKindOf { case be: UMLTemplateableElement[Uml] => be } headOption
     
   // 7.4  
-	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] = ???
+	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] = 
+    ownedElement.selectByKindOf { case ps: UMLTemplateParameterSubstitution[Uml] => ps }
   
   // 7.4  
-	def signature: Option[UMLTemplateSignature[Uml]] = ???
+	def signature: Option[UMLTemplateSignature[Uml]] = 
+    target.selectByKindOf { case s: UMLTemplateSignature[Uml] => s } headOption
 }

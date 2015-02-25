@@ -46,9 +46,11 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
   import self.ops._
 
   // 15.1  
-	def activityScope: Option[UMLActivity[Uml]] = ???
+	def activityScope: Option[UMLActivity[Uml]] = 
+    namespace.selectByKindOf { case as: UMLActivity[Uml] => as }
   
   // 16.45
-  def scope: Option[UMLStructuredActivityNode[Uml]] = ???
+  def scope: Option[UMLStructuredActivityNode[Uml]] = 
+    namespace.selectByKindOf { case s: UMLStructuredActivityNode[Uml] => s }
   
 }

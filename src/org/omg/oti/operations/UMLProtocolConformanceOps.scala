@@ -46,9 +46,11 @@ trait UMLProtocolConformanceOps[Uml <: UML] { self: UMLProtocolConformance[Uml] 
   import self.ops._
 
   // 14.41  
-	def generalMachine: Option[UMLProtocolStateMachine[Uml]] = ???
+	def generalMachine: Option[UMLProtocolStateMachine[Uml]] = 
+    target.selectByKindOf { case gm: UMLProtocolStateMachine[Uml] => gm } headOption
   
   // 14.41
-  def specificMachine: Option[UMLProtocolStateMachine[Uml]] = ???
+  def specificMachine: Option[UMLProtocolStateMachine[Uml]] = 
+    source.selectByKindOf { case sm: UMLProtocolStateMachine[Uml] => sm } headOption
   
 }

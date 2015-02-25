@@ -46,6 +46,7 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
   import self.ops._
 
   // 16.33
-  def qualifier_linkEndData: Option[UMLLinkEndData[Uml]] = ???
+  def qualifier_linkEndData: Option[UMLLinkEndData[Uml]] =
+    owner.selectByKindOf { case qled: UMLLinkEndData[Uml] => qled }
   
 }

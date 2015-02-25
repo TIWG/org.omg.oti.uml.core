@@ -46,12 +46,15 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
   import self.ops._
 
   // 9.4
-  def classifier: Option[UMLClassifier[Uml]] = ???
+  def classifier: Option[UMLClassifier[Uml]] = 
+    redefinitionContext.selectByKindOf { case c: UMLClassifier[Uml] => c } headOption
+    
+  // 9.4
+  def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]] = 
+    redefinedElement.selectByKindOf { case es: UMLRedefinableTemplateSignature[Uml] => es }
   
   // 9.4
-  def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]] = ???
-  
-  // 9.4
-  def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = ???
+  def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = 
+    redefinedElement_redefinableElement.selectByKindOf { case esrts: UMLRedefinableTemplateSignature[Uml] => esrts }
   
 }

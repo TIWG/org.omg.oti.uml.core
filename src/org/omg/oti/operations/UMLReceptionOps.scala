@@ -46,9 +46,11 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
   import self.ops._
 
   // 10.7
-  	def ownedReception_interface: Option[UMLInterface[Uml]] = ???
+  def ownedReception_interface: Option[UMLInterface[Uml]] = ???
+//    namespace.selectByKindOf { case ori: UMLInterface[Uml] => ori }
     
   // 11.15
-	def ownedReception_class: Option[UMLClass[Uml]] = ???
+	def ownedReception_class: Option[UMLClass[Uml]] = 
+    namespace.selectByKindOf { case orc: UMLClass[Uml] => orc }
   
 }

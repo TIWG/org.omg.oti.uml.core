@@ -46,9 +46,11 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
   import self.ops._
 
   // 7.4
-	def ownedActual: Option[UMLParameterableElement[Uml]] = ??? 
+	def ownedActual: Option[UMLParameterableElement[Uml]] = 
+    ownedElement.selectByKindOf { case oa: UMLParameterableElement[Uml] => oa } headOption
   
   // 7.4
-  	def templateBinding: Option[UMLTemplateBinding[Uml]] = ???
+  def templateBinding: Option[UMLTemplateBinding[Uml]] = 
+    owner.selectByKindOf { case tb: UMLTemplateBinding[Uml] => tb }
     
 }

@@ -46,6 +46,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
   import self.ops._
 
   // 17.18
-	def actualGate: Set[UMLGate[Uml]] = ???
+	def actualGate: Set[UMLGate[Uml]] = 
+    ownedElement.selectByKindOf { case ag: UMLGate[Uml] => ag }
   
 }

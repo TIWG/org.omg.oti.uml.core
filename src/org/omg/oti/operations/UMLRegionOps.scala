@@ -46,21 +46,27 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
   import self.ops._
 
   // 14.37
-  	def extendedRegion: Option[UMLRegion[Uml]] = ???
+  def extendedRegion: Option[UMLRegion[Uml]] = 
+    redefinedElement.selectByKindOf { case er: UMLRegion[Uml] => er } headOption
     
   // 14.37
-  def extendedRegion_region: Set[UMLRegion[Uml]] = ???
+  def extendedRegion_region: Set[UMLRegion[Uml]] = 
+    redefinedElement_redefinableElement.selectByKindOf { case err: UMLRegion[Uml] => err }
   
   // 14.1
-  	def state: Option[UMLState[Uml]] = ???
+  def state: Option[UMLState[Uml]] = 
+    namespace.selectByKindOf { case s: UMLState[Uml] => s }
     
   // 14.1    
-	def stateMachine: Option[UMLStateMachine[Uml]] = ???
+	def stateMachine: Option[UMLStateMachine[Uml]] = 
+    namespace.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
   
   // 14.1
-	def subvertex: Set[UMLVertex[Uml]] = ???
+	def subvertex: Set[UMLVertex[Uml]] = 
+    ownedMember.selectByKindOf { case sv: UMLVertex[Uml] => sv }
   
   // 14.1
-	def transition: Set[UMLTransition[Uml]] = ???
+	def transition: Set[UMLTransition[Uml]] = 
+    ownedMember.selectByKindOf { case t: UMLTransition[Uml] => t }
   
 }

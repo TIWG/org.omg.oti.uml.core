@@ -46,9 +46,11 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
   import self.ops._
 
   // 14.1
-  	def state: Option[UMLState[Uml]] = ???
+  	def state: Option[UMLState[Uml]] = 
+      namespace.selectByKindOf { case s: UMLState[Uml] => s }
     
   // 14.1
-  	def stateMachine: Option[UMLStateMachine[Uml]] = ???
+  	def stateMachine: Option[UMLStateMachine[Uml]] = 
+      namespace.selectByKindOf { case sm: UMLStateMachine[Uml] => sm }
     
 }

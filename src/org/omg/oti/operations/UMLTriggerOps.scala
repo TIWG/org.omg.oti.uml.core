@@ -46,12 +46,15 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
   import self.ops._
 
   // 14.1
-  def trigger_transition: Option[UMLTransition[Uml]] = ???
+  def trigger_transition: Option[UMLTransition[Uml]] = 
+    owner.selectByKindOf { case tt: UMLTransition[Uml] => tt }
 	
   // 16.39
-	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] = ???
+	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] = 
+    owner.selectByKindOf { case taea: UMLAcceptEventAction[Uml] => taea }
   
   // 14.1
-  def deferrableTrigger_state: Option[UMLState[Uml]] = ???
+  def deferrableTrigger_state: Option[UMLState[Uml]] = 
+    owner.selectByKindOf { case dts: UMLState[Uml] => dts }
   
 }

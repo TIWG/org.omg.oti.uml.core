@@ -46,7 +46,8 @@ trait UMLTimeExpressionOps[Uml <: UML] { self: UMLTimeExpression[Uml] =>
   import self.ops._
 
   // 13.2  
-	def when_timeEvent: Option[UMLTimeEvent[Uml]] = ???
+	def when_timeEvent: Option[UMLTimeEvent[Uml]] = 
+    owner.selectByKindOf { case wte: UMLTimeEvent[Uml] => wte }
   
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     expression_asForwardReferencesToImportableOuterPackageableElements
