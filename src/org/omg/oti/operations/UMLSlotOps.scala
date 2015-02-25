@@ -46,7 +46,8 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
   import self.ops._
 
   // 9.27
-  def owningInstance: Option[UMLInstanceSpecification[Uml]] = ???
+  def owningInstance: Option[UMLInstanceSpecification[Uml]] = 
+    owner.selectByKindOf { case is: UMLInstanceSpecification[Uml] => is }
   
   /**
    * TIWG: see UMLUtil, Rule #4

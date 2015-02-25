@@ -1,3 +1,7 @@
+Version 0.9.5 February 22, 2015
+
+- Exported OMG SysML 1.4
+
 Version 0.9.4 February 22, 2015
 
 - complete for clean compilation (with oti.magicdraw); however, some derivations are incompletely defined

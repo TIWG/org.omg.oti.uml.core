@@ -65,4 +65,16 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
         Some( s.value )
     }
   }
+  
+  
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+    instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
+
+  def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    owner match {
+    case None => Set()
+    case Some( p: UMLPackage[Uml] ) => Set( p )
+    case Some( e ) => e.asForwardReferencesToImportableOuterPackageableElements
+  }
+  
 }

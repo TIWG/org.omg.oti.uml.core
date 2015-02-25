@@ -209,5 +209,10 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * @see UMLNamespace
    */
 
+  def forwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =   
+      (packagedElement flatMap
+      ((e) => Set(e) ++ e.compositeReferencesFromStereotypeTagPropertyValues) flatMap
+      (_.allForwardReferencesToImportablePackageableElements)) -- (packagedElement + this)
+  
   // [/protected]
 }

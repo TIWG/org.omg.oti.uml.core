@@ -42,6 +42,7 @@ package org.omg.oti.operations
 import org.omg.oti._
 import org.eclipse.emf.ecore.EStructuralFeature
 import scala.reflect.runtime.universe._
+import scala.reflect.{ classTag, ClassTag }
 import scala.language.implicitConversions
 import scala.language.higherKinds
 import scala.util.Try
@@ -129,7 +130,14 @@ trait UMLOps[Uml <: UML] { self =>
   
   val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
   
-  def cacheLookupOrUpdate( md: Uml#Element ): UMLElement[Uml]
+  def cacheLookupOrUpdate( e: Uml#Element ): UMLElement[Uml]
+  
+  def cacheLookupOrUpdateAs[U <: Uml#Element : ClassTag, V <: UMLElement[Uml] : ClassTag]( e: U )( implicit uTag: ClassTag[U], vTag: ClassTag[V] ): V = {
+    val v = cacheLookupOrUpdate( e )
+    val rv = vTag.runtimeClass
+    require (rv.isInstance(v), s"lookup of ${e.xmiType.head}: ${e.id} got: ${v.xmiType.head}: ${v.id}, not a ${rv.getName}")
+    v.asInstanceOf[V]
+  }
   
   def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E) = 
 	IllegalElementException[Uml, E]( message, Iterable(e) )

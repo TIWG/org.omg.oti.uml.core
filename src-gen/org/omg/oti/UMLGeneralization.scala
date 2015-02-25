@@ -25,7 +25,7 @@ trait UMLGeneralization[Uml <: UML]
 	def generalization_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		directedRelationship_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLGeneralization[Uml]](None, "isSubstitutable", (x) => booleanToIterable(x.isSubstitutable, true))) )
+		  Seq (MetaAttributeBooleanFunction[UMLGeneralization[Uml]](None, "isSubstitutable", _.isSubstitutable)) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -89,9 +89,29 @@ trait UMLGeneralization[Uml <: UML]
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Indicates whether the specific Classifier can be used wherever the general Classifier can be used. If true, the execution traces of the specific Classifier shall be a superset of the execution traces of the general Classifier. If false, there is no such constraint on execution traces. If unset, the modeler has not stated whether there is such a constraint or not.
+   * 
+   * UML 2.5 BUG:
+   * 
+   * The description of isSubstitutable makes a distinction between 3 cases:
+   * - no value
+   * - a value (true)
+   * - a value (false)
+   * 
+   * It completely defeats the purpose of making a distinction amongst 3 cases if we have a default value!
+   * If there is a default value, then using that default would loose the ability to represent the case where there is no value!
+   * 
+   * So instead of:
+   * 
+   * isSubstitable: Boolean[0..1] = true
+   * 
+   * it should be defined as: 
+   * 
+   * isSubstitable: Boolean[0..1]
+   * 
+   * The OTI API assumes that isSubstituable is really an optional boolean, no default.
 	 * <!-- end-user-doc -->
 	 */
-	def isSubstitutable: Boolean = true
+	def isSubstitutable: Option[Boolean]
 
 	/**
 	 * <!-- begin-user-doc --> 
