@@ -41,6 +41,9 @@ package org.omg.oti.operations
 
 import org.omg.oti._
 import scala.language.postfixOps
+import scala.util.Try
+import scala.util.Success
+import scala.util.Failure
 
 trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
@@ -57,9 +60,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def profileApplication: Set[UMLProfileApplication[Uml]] = source_directedRelationship.selectByKindOf { case pa: UMLProfileApplication[Uml] => pa }
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
-  
-  def allNestedPackages: Set[UMLPackage[Uml]] = closure( self, ((p:UMLPackage[Uml]) => p.nestedPackage))
-  
+
+  def allNestedPackages: Set[UMLPackage[Uml]] = closure( self, ( ( p: UMLPackage[Uml] ) => p.nestedPackage ) )
+
   /**
    * The reflexive transitive closure of the owning package of a package.
    */
@@ -69,9 +72,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   /**
    * The direclty imported packages from the reflexive transitive closure of the owning package of a package.
    */
-  def allDirectlyImportedPackagesIncludingNestingPackagesTransitively: Set[UMLPackage[Uml]] = 
-    allNestingPackagesTransitively.flatMap (_.importedPackages)
-  
+  def allDirectlyImportedPackagesIncludingNestingPackagesTransitively: Set[UMLPackage[Uml]] =
+    allNestingPackagesTransitively.flatMap( _.importedPackages )
+
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
    *
@@ -135,14 +138,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     allNestingPackagesTransitively.flatMap( _.profileApplication )
 
   def allDirectlyAppliedProfilesExceptNestingPackages: Set[UMLProfile[Uml]] =
-    profileApplication.flatMap(_.appliedProfile)
-    
+    profileApplication.flatMap( _.appliedProfile )
+
   def allDirectlyAppliedProfilesIncludingNestingPackagesTransitively: Set[UMLProfile[Uml]] =
-    allDirectProfileApplicationsIncludingNestingPackagesTransitively.flatMap(_.appliedProfile)
-    
+    allDirectProfileApplicationsIncludingNestingPackagesTransitively.flatMap( _.appliedProfile )
+
   def allDirectlyVisibleMembersTransitivelyAccessibleExceptNestingPackagesAndAppliedProfiles: Set[UMLPackageableElement[Uml]] =
-    allVisibleMembersAccessibleTransitively ++ 
-    allDirectlyAppliedProfilesExceptNestingPackages.flatMap( _.allVisibleMembersTransitively )
+    allVisibleMembersAccessibleTransitively ++
+      allDirectlyAppliedProfilesExceptNestingPackages.flatMap( _.allVisibleMembersTransitively )
 
   /**
    * Calculates the set of all profiles directly or indirectly applied to the package.
@@ -156,15 +159,15 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively: Set[UMLProfile[Uml]] =
     allDirectlyAppliedProfilesIncludingNestingPackagesTransitively ++
-    allDirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleProfilesTransitively)
-    
+      allDirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap( _.allVisibleProfilesTransitively )
+
   /**
    * For a Package, allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles is the union of
    * all visible members that are transitively accessible from outer namespaces or from applied profiles.
    */
   def allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles: Set[UMLPackageableElement[Uml]] =
-    allVisibleMembersAccessibleTransitively ++ 
-    allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap( _.allVisibleMembersTransitively )
+    allVisibleMembersAccessibleTransitively ++
+      allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap( _.allVisibleMembersTransitively )
 
   /**
    * For the package and owned elements, calculates the map of
@@ -194,25 +197,70 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     appliedStereotypesByProfile
   }
 
-  def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =   
-      (Stream(this) ++ allOwnedElements) flatMap
-      ((e) => Set(e) ++ e.compositeReferencesFromStereotypeTagPropertyValues) flatMap
-      ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
-      (_.allForwardReferencesToImportablePackageableElements) filter(!this.isAncestorOf(_)) toSet
-  
-  /**
-   * @see UML 2.5 12.4, Package
-   * visibleMembers() : PackageableElement [0..*]
-   * The query visibleMembers() defines which members of a Package can be accessed outside it.
-   * body: member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))- >collect(oclAsType(PackageableElement))->asSet()
-   *
-   * @see UMLNamespace
-   */
+  def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =
+    ( Stream( this ) ++ allOwnedElements ) flatMap
+      ( ( e ) => Set( e ) ++ e.compositeReferencesFromStereotypeTagPropertyValues ) flatMap
+      ( ( e ) => Set( e ) ++ e.allForwardReferencesToElements ) flatMap
+      ( _.allForwardReferencesToImportablePackageableElements ) filter ( !this.isAncestorOf( _ ) ) toSet
 
-  def forwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =   
-      (packagedElement flatMap
-      ((e) => Set(e) ++ e.compositeReferencesFromStereotypeTagPropertyValues) flatMap
-      (_.allForwardReferencesToImportablePackageableElements)) -- (packagedElement + this)
-  
+  /**
+   * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
+   * This does not include references from elements in nested packages.
+   */
+  def forwardReferencesToPackagesOrProfiles: Try[Set[UMLPackage[Uml]]] =
+    forwardReferencesBeyondPackageScope match {
+    case Failure( t ) => Failure( t )
+    case Success( triples ) =>
+      val ps = triples map 
+      (_.obj) flatMap
+      (getPackageOrProfileOwner(_))
+      Success( ps )
+  }
+
+  def forwardReferencesBeyondPackageScope: Try[Set[RelationTriple[Uml]]] = {
+
+    val scope = self.allOwnedElementsWithinPackageScope
+    
+    val visited = scala.collection.mutable.HashSet[UMLElement[Uml]]( self )
+
+    @annotation.tailrec def followReferencesUntilPackageScopeBoundary(
+      acc: Set[RelationTriple[Uml]],
+      triples: Try[Set[RelationTriple[Uml]]] ): Try[Set[RelationTriple[Uml]]] =
+      triples match {
+        case Failure( t ) => Failure( t )
+        case Success( ts ) =>
+          if ( ts.isEmpty ) Success( acc )
+          else {
+            val ( th, tr: Set[RelationTriple[Uml]] ) = ( ts.head, ts.tail )
+            if ( visited.contains( th.obj ) )
+              followReferencesUntilPackageScopeBoundary(
+                acc,
+                Success( tr ) )
+            else {
+              visited += th.sub
+              if ( scope.contains( th.obj ) )
+                th.obj.forwardRelationTriples match {
+                  case Failure( t ) => Failure( t )
+                  case Success( nextTriples: Set[RelationTriple[Uml]] ) =>
+                    followReferencesUntilPackageScopeBoundary(
+                      acc,
+                      Success( nextTriples ++ tr ) )
+                }
+              else
+                followReferencesUntilPackageScopeBoundary(
+                  acc + th,
+                  Success( tr ) )
+            }
+          }
+      }
+
+    val triples0: Try[Set[RelationTriple[Uml]]] = Success( Set() )
+    val triplesN: Try[Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
+      case ( Failure( t ), _ )   => Failure( t )
+      case ( Success( acc ), e ) => followReferencesUntilPackageScopeBoundary( acc, e.forwardRelationTriples )
+    }
+    triplesN
+  }
+
   // [/protected]
 }

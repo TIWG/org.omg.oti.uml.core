@@ -25,7 +25,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def linkEndCreationData_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		linkEndData_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLLinkEndCreationData[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLLinkEndCreationData[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def linkEndCreationData_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		linkEndData_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLLinkEndCreationData[Uml], UMLInputPin[Uml]]("insertAt", _.insertAt)) )
+		  Seq (MetaPropertyReference[Uml, UMLLinkEndCreationData[Uml], UMLInputPin[Uml]]("insertAt", _.insertAt)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

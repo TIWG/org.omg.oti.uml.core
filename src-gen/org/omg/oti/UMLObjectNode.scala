@@ -27,7 +27,7 @@ trait UMLObjectNode[Uml <: UML]
 	   appendUnique(
 		typedElement_metaAttributes,
 		activityNode_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLObjectNode[Uml]](None, "isControlType", (x) => booleanToIterable(x.isControlType, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLObjectNode[Uml]](None, "isControlType", (x) => booleanToIterable(x.isControlType, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -42,7 +42,7 @@ trait UMLObjectNode[Uml <: UML]
 	  appendUnique(
 		typedElement_compositeMetaProperties,
 		activityNode_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLObjectNode[Uml], UMLValueSpecification[Uml]]("upperBound", _.upperBound)) )
+		  Seq (MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLValueSpecification[Uml]]("upperBound", _.upperBound)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -57,8 +57,8 @@ trait UMLObjectNode[Uml <: UML]
 	  appendUnique(
 		typedElement_referenceMetaProperties,
 		activityNode_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLObjectNode[Uml], UMLState[Uml]]("inState", _.inState),
-		  	MetaPropertyReference[UMLObjectNode[Uml], UMLBehavior[Uml]]("selection", _.selection)) )
+		  Seq (MetaPropertyCollection[Uml, UMLObjectNode[Uml], UMLState[Uml]]("inState", _.inState),
+		  	MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]]("selection", _.selection)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

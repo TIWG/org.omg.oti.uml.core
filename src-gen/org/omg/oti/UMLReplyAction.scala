@@ -39,8 +39,8 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLReplyAction[Uml], UMLInputPin[Uml]]("replyValue", _.replyValue),
-		  	MetaPropertyReference[UMLReplyAction[Uml], UMLInputPin[Uml]]("returnInformation", _.returnInformation)) )
+		  Seq (MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]]("replyValue", _.replyValue),
+		  	MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]]("returnInformation", _.returnInformation)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLReplyAction[Uml], UMLTrigger[Uml]]("replyToCall", _.replyToCall)) )
+		  Seq (MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLTrigger[Uml]]("replyToCall", _.replyToCall)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

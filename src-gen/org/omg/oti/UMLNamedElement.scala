@@ -25,7 +25,7 @@ trait UMLNamedElement[Uml <: UML]
 	def namedElement_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		element_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLNamedElement[Uml]](None, "name", (x) => stringToIterable(x.name, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](None, "name", (x) => stringToIterable(x.name, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLNamedElement[Uml <: UML]
 	def namedElement_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLNamedElement[Uml], UMLStringExpression[Uml]]("nameExpression", _.nameExpression)) )
+		  Seq (MetaPropertyReference[Uml, UMLNamedElement[Uml], UMLStringExpression[Uml]]("nameExpression", _.nameExpression)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

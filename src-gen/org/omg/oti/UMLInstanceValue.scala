@@ -53,7 +53,7 @@ trait UMLInstanceValue[Uml <: UML]
 	def instanceValue_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]("instance", _.instance)) )
+		  Seq (MetaPropertyReference[Uml, UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]]("instance", _.instance)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

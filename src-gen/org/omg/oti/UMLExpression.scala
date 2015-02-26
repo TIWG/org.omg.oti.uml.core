@@ -25,7 +25,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		valueSpecification_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLExpression[Uml]](None, "symbol", (x) => stringToIterable(x.symbol, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLExpression[Uml]](None, "symbol", (x) => stringToIterable(x.symbol, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand)) )
+		  Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

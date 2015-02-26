@@ -53,7 +53,7 @@ trait UMLActionExecutionSpecification[Uml <: UML]
 	def actionExecutionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		executionSpecification_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLActionExecutionSpecification[Uml], UMLAction[Uml]]("action", _.action)) )
+		  Seq (MetaPropertyReference[Uml, UMLActionExecutionSpecification[Uml], UMLAction[Uml]]("action", _.action)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

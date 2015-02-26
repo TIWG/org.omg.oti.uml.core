@@ -39,8 +39,8 @@ trait UMLWriteStructuralFeatureAction[Uml <: UML]
 	def writeStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuralFeatureAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]]("result", _.result),
-		  	MetaPropertyReference[UMLWriteStructuralFeatureAction[Uml], UMLInputPin[Uml]]("value", _.value)) )
+		  Seq (MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]]("result", _.result),
+		  	MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLInputPin[Uml]]("value", _.value)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

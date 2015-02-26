@@ -39,7 +39,7 @@ trait UMLExtension[Uml <: UML]
 	def extension_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		association_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLExtension[Uml], UMLExtensionEnd[Uml]]("ownedEnd", _.ownedEnd)) )
+		  Seq (MetaPropertyCollection[Uml, UMLExtension[Uml], UMLExtensionEnd[Uml]]("ownedEnd", _.ownedEnd)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

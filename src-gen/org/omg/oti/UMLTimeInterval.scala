@@ -53,8 +53,8 @@ trait UMLTimeInterval[Uml <: UML]
 	def timeInterval_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interval_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("max", _.timeInterval_max),
-		  	MetaPropertyReference[UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("min", _.timeInterval_min)) )
+		  Seq (MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("max", _.timeInterval_max),
+		  	MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("min", _.timeInterval_min)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

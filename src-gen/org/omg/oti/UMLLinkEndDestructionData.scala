@@ -25,7 +25,7 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	def linkEndDestructionData_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		linkEndData_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLLinkEndDestructionData[Uml]](None, "isDestroyDuplicates", (x) => booleanToIterable(x.isDestroyDuplicates, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLLinkEndDestructionData[Uml]](None, "isDestroyDuplicates", (x) => booleanToIterable(x.isDestroyDuplicates, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	def linkEndDestructionData_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		linkEndData_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLLinkEndDestructionData[Uml], UMLInputPin[Uml]]("destroyAt", _.destroyAt)) )
+		  Seq (MetaPropertyReference[Uml, UMLLinkEndDestructionData[Uml], UMLInputPin[Uml]]("destroyAt", _.destroyAt)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -25,7 +25,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	def reclassifyObjectAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		action_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLReclassifyObjectAction[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLReclassifyObjectAction[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	def reclassifyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]]("object", _._object)) )
+		  Seq (MetaPropertyReference[Uml, UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]]("object", _._object)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,8 +53,8 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	def reclassifyObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]]("newClassifier", _.newClassifier),
-		  	MetaPropertyCollection[UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]]("oldClassifier", _.oldClassifier)) )
+		  Seq (MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]]("newClassifier", _.newClassifier),
+		  	MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]]("oldClassifier", _.oldClassifier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

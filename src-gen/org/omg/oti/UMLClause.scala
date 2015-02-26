@@ -53,12 +53,12 @@ trait UMLClause[Uml <: UML]
 	def clause_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLClause[Uml], UMLExecutableNode[Uml]]("body", _.body),
-		  	MetaPropertyCollection[UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
-		  	MetaPropertyReference[UMLClause[Uml], UMLOutputPin[Uml]]("decider", _.decider),
-		  	MetaPropertyCollection[UMLClause[Uml], UMLClause[Uml]]("predecessorClause", _.predecessorClause),
-		  	MetaPropertyCollection[UMLClause[Uml], UMLClause[Uml]]("successorClause", _.successorClause),
-		  	MetaPropertyCollection[UMLClause[Uml], UMLExecutableNode[Uml]]("test", _.test)) )
+		  Seq (MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]]("body", _.body),
+		  	MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
+		  	MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("decider", _.decider),
+		  	MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("predecessorClause", _.predecessorClause),
+		  	MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("successorClause", _.successorClause),
+		  	MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]]("test", _.test)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

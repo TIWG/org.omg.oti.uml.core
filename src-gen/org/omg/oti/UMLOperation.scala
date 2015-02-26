@@ -27,7 +27,7 @@ trait UMLOperation[Uml <: UML]
 		parameterableElement_metaAttributes,
 		templateableElement_metaAttributes,
 		behavioralFeature_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLOperation[Uml]](None, "isQuery", (x) => booleanToIterable(x.isQuery, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLOperation[Uml]](None, "isQuery", (x) => booleanToIterable(x.isQuery, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -43,10 +43,10 @@ trait UMLOperation[Uml <: UML]
 		parameterableElement_compositeMetaProperties,
 		templateableElement_compositeMetaProperties,
 		behavioralFeature_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-		  	MetaPropertyCollection[UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
-		  	MetaPropertyCollection[UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-		  	MetaPropertyCollection[UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)) )
+		  Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
+		  	MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+		  	MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+		  	MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -62,12 +62,12 @@ trait UMLOperation[Uml <: UML]
 		parameterableElement_referenceMetaProperties,
 		templateableElement_referenceMetaProperties,
 		behavioralFeature_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLOperation[Uml], UMLClass[Uml]]("class", _._class),
-		  	MetaPropertyReference[UMLOperation[Uml], UMLDataType[Uml]]("datatype", _.datatype),
-		  	MetaPropertyReference[UMLOperation[Uml], UMLInterface[Uml]]("interface", _.interface),
-		  	MetaPropertyCollection[UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
-		  	MetaPropertyCollection[UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
-		  	MetaPropertyReference[UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.operation_templateParameter)) )
+		  Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLClass[Uml]]("class", _._class),
+		  	MetaPropertyReference[Uml, UMLOperation[Uml], UMLDataType[Uml]]("datatype", _.datatype),
+		  	MetaPropertyReference[Uml, UMLOperation[Uml], UMLInterface[Uml]]("interface", _.interface),
+		  	MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
+		  	MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
+		  	MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.operation_templateParameter)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

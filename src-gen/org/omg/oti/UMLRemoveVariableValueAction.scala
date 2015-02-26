@@ -25,7 +25,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	def removeVariableValueAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		writeVariableAction_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates", (x) => booleanToIterable(x.isRemoveDuplicates, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates", (x) => booleanToIterable(x.isRemoveDuplicates, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	def removeVariableValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		writeVariableAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLRemoveVariableValueAction[Uml], UMLInputPin[Uml]]("removeAt", _.removeAt)) )
+		  Seq (MetaPropertyReference[Uml, UMLRemoveVariableValueAction[Uml], UMLInputPin[Uml]]("removeAt", _.removeAt)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

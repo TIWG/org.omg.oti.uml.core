@@ -53,9 +53,9 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		vertex_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("entry", _.entry),
-		  	MetaPropertyCollection[UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("exit", _.exit),
-		  	MetaPropertyReference[UMLConnectionPointReference[Uml], UMLState[Uml]]("state", _.state)) )
+		  Seq (MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("entry", _.entry),
+		  	MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("exit", _.exit),
+		  	MetaPropertyReference[Uml, UMLConnectionPointReference[Uml], UMLState[Uml]]("state", _.state)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

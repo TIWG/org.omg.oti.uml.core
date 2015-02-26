@@ -53,7 +53,7 @@ trait UMLManifestation[Uml <: UML]
 	def manifestation_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		abstraction_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLManifestation[Uml], UMLPackageableElement[Uml]]("utilizedElement", _.utilizedElement)) )
+		  Seq (MetaPropertyReference[Uml, UMLManifestation[Uml], UMLPackageableElement[Uml]]("utilizedElement", _.utilizedElement)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

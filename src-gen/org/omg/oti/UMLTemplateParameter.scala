@@ -39,8 +39,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedDefault", _.ownedDefault),
-		  	MetaPropertyReference[UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedParameteredElement", _.ownedParameteredElement)) )
+		  Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedDefault", _.ownedDefault),
+		  	MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedParameteredElement", _.ownedParameteredElement)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,9 +54,9 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
-		  	MetaPropertyReference[UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement),
-		  	MetaPropertyReference[UMLTemplateParameter[Uml], UMLTemplateSignature[Uml]]("signature", _.signature)) )
+		  Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
+		  	MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement),
+		  	MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLTemplateSignature[Uml]]("signature", _.signature)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

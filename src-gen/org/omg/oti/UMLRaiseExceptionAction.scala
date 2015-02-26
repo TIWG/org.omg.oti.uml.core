@@ -39,7 +39,7 @@ trait UMLRaiseExceptionAction[Uml <: UML]
 	def raiseExceptionAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLRaiseExceptionAction[Uml], UMLInputPin[Uml]]("exception", _.exception)) )
+		  Seq (MetaPropertyReference[Uml, UMLRaiseExceptionAction[Uml], UMLInputPin[Uml]]("exception", _.exception)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

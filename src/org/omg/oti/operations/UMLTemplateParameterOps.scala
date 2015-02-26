@@ -48,4 +48,20 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	def signature: Option[UMLTemplateSignature[Uml]] =
     owner.selectByKindOf { case ts: UMLTemplateSignature[Uml] => ts }
   
+  /**
+   * Helper for UML 2.5, 7.8 NamedElement::allNamespaces
+   */
+  def getTemplateSignatureNamespace: Option[UMLNamespace[Uml]] =
+    signature match {
+    case None => None
+    case Some( sig ) =>
+      sig.template match {
+        case None => None
+        case Some( t ) =>
+          t match {
+            case tns: UMLNamespace[Uml] => Some( tns )
+            case _ => None
+          }
+      }
+  }
 }

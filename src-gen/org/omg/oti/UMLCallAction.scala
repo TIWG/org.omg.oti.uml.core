@@ -25,7 +25,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		invocationAction_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLCallAction[Uml]](None, "isSynchronous", (x) => booleanToIterable(x.isSynchronous, true))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLCallAction[Uml]](None, "isSynchronous", (x) => booleanToIterable(x.isSynchronous, true))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		invocationAction_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

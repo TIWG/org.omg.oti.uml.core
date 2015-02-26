@@ -39,7 +39,7 @@ trait UMLCollaborationUse[Uml <: UML]
 	def collaborationUse_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLCollaborationUse[Uml], UMLDependency[Uml]]("roleBinding", _.roleBinding)) )
+		  Seq (MetaPropertyCollection[Uml, UMLCollaborationUse[Uml], UMLDependency[Uml]]("roleBinding", _.roleBinding)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLCollaborationUse[Uml <: UML]
 	def collaborationUse_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLCollaborationUse[Uml], UMLCollaboration[Uml]]("type", _._type)) )
+		  Seq (MetaPropertyReference[Uml, UMLCollaborationUse[Uml], UMLCollaboration[Uml]]("type", _._type)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

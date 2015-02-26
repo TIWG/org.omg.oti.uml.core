@@ -39,9 +39,9 @@ trait UMLUseCase[Uml <: UML]
 	def useCase_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		behavioredClassifier_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLUseCase[Uml], UMLExtend[Uml]]("extend", _.extend),
-		  	MetaPropertyCollection[UMLUseCase[Uml], UMLExtensionPoint[Uml]]("extensionPoint", _.extensionPoint),
-		  	MetaPropertyCollection[UMLUseCase[Uml], UMLInclude[Uml]]("include", _.include)) )
+		  Seq (MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtend[Uml]]("extend", _.extend),
+		  	MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtensionPoint[Uml]]("extensionPoint", _.extensionPoint),
+		  	MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLInclude[Uml]]("include", _.include)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -55,7 +55,7 @@ trait UMLUseCase[Uml <: UML]
 	def useCase_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		behavioredClassifier_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLUseCase[Uml], UMLClassifier[Uml]]("subject", _.subject)) )
+		  Seq (MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLClassifier[Uml]]("subject", _.subject)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

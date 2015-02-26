@@ -39,7 +39,7 @@ trait UMLIntervalConstraint[Uml <: UML]
 	def intervalConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		constraint_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLIntervalConstraint[Uml], UMLInterval[Uml]]("specification", _.intervalConstraint_specification)) )
+		  Seq (MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]]("specification", _.intervalConstraint_specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

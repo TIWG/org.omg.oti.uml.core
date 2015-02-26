@@ -53,7 +53,7 @@ trait UMLVertex[Uml <: UML]
 	def vertex_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLVertex[Uml], UMLRegion[Uml]]("container", _.container)) )
+		  Seq (MetaPropertyReference[Uml, UMLVertex[Uml], UMLRegion[Uml]]("container", _.container)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

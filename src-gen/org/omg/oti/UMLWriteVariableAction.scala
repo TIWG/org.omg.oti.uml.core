@@ -39,7 +39,7 @@ trait UMLWriteVariableAction[Uml <: UML]
 	def writeVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		variableAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLWriteVariableAction[Uml], UMLInputPin[Uml]]("value", _.value)) )
+		  Seq (MetaPropertyReference[Uml, UMLWriteVariableAction[Uml], UMLInputPin[Uml]]("value", _.value)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -53,9 +53,9 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	def occurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interactionFragment_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]]("covered", _.covered),
-		  	MetaPropertyCollection[UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toAfter", _.toAfter),
-		  	MetaPropertyCollection[UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toBefore", _.toBefore)) )
+		  Seq (MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]]("covered", _.covered),
+		  	MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toAfter", _.toAfter),
+		  	MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toBefore", _.toBefore)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

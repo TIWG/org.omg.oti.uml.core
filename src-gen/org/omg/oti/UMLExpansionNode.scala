@@ -53,8 +53,8 @@ trait UMLExpansionNode[Uml <: UML]
 	def expansionNode_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		objectNode_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLExpansionNode[Uml], UMLExpansionRegion[Uml]]("regionAsInput", _.regionAsInput),
-		  	MetaPropertyReference[UMLExpansionNode[Uml], UMLExpansionRegion[Uml]]("regionAsOutput", _.regionAsOutput)) )
+		  Seq (MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]]("regionAsInput", _.regionAsInput),
+		  	MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]]("regionAsOutput", _.regionAsOutput)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

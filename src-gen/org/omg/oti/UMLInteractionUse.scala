@@ -39,9 +39,9 @@ trait UMLInteractionUse[Uml <: UML]
 	def interactionUse_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interactionFragment_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInteractionUse[Uml], UMLGate[Uml]]("actualGate", _.actualGate),
-		  	MetaPropertyCollection[UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("argument", _.argument),
-		  	MetaPropertyReference[UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("returnValue", _.returnValue)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLGate[Uml]]("actualGate", _.actualGate),
+		  	MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("argument", _.argument),
+		  	MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("returnValue", _.returnValue)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -55,8 +55,8 @@ trait UMLInteractionUse[Uml <: UML]
 	def interactionUse_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interactionFragment_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLInteractionUse[Uml], UMLInteraction[Uml]]("refersTo", _.refersTo),
-		  	MetaPropertyReference[UMLInteractionUse[Uml], UMLProperty[Uml]]("returnValueRecipient", _.returnValueRecipient)) )
+		  Seq (MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLInteraction[Uml]]("refersTo", _.refersTo),
+		  	MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLProperty[Uml]]("returnValueRecipient", _.returnValueRecipient)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

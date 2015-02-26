@@ -1,8 +1,16 @@
-Version 0.9.5 February 22, 2015
+Version 0.9.6 February 26, 2015
+
+- new query: getPackageOrProfileOwner(UMLElement): Option[UMLPackage]
+- new query: UMLPackage.forwardReferencesBeyondPackageScope(): Try[Set[RelationTriple]]
+- new query: UMLPackage.forwardReferencesToPackagesOrProfiles(): Try[Set[UMLPackage]]
+
+- refactored UMLElementOps (see oti.package)
+
+Version 0.9.5 February 25, 2015
 
 - Exported OMG SysML 1.4
 
-Version 0.9.4 February 22, 2015
+Version 0.9.4 February 24, 2015
 
 - complete for clean compilation (with oti.magicdraw); however, some derivations are incompletely defined
   (search for "= ???" in *Ops.scala)

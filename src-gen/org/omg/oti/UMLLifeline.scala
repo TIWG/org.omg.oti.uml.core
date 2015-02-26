@@ -39,7 +39,7 @@ trait UMLLifeline[Uml <: UML]
 	def lifeline_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLLifeline[Uml], UMLValueSpecification[Uml]]("selector", _.selector)) )
+		  Seq (MetaPropertyReference[Uml, UMLLifeline[Uml], UMLValueSpecification[Uml]]("selector", _.selector)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,10 +53,10 @@ trait UMLLifeline[Uml <: UML]
 	def lifeline_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLLifeline[Uml], UMLInteractionFragment[Uml]]("coveredBy", _.coveredBy),
-		  	MetaPropertyReference[UMLLifeline[Uml], UMLPartDecomposition[Uml]]("decomposedAs", _.decomposedAs),
-		  	MetaPropertyReference[UMLLifeline[Uml], UMLInteraction[Uml]]("interaction", _.interaction),
-		  	MetaPropertyReference[UMLLifeline[Uml], UMLConnectableElement[Uml]]("represents", _.represents)) )
+		  Seq (MetaPropertyCollection[Uml, UMLLifeline[Uml], UMLInteractionFragment[Uml]]("coveredBy", _.coveredBy),
+		  	MetaPropertyReference[Uml, UMLLifeline[Uml], UMLPartDecomposition[Uml]]("decomposedAs", _.decomposedAs),
+		  	MetaPropertyReference[Uml, UMLLifeline[Uml], UMLInteraction[Uml]]("interaction", _.interaction),
+		  	MetaPropertyReference[Uml, UMLLifeline[Uml], UMLConnectableElement[Uml]]("represents", _.represents)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

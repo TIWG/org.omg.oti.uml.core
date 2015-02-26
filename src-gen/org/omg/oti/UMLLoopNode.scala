@@ -25,7 +25,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		structuredActivityNode_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLLoopNode[Uml]](None, "isTestedFirst", (x) => booleanToIterable(x.isTestedFirst, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLLoopNode[Uml]](None, "isTestedFirst", (x) => booleanToIterable(x.isTestedFirst, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,9 +39,9 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuredActivityNode_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLLoopNode[Uml], UMLOutputPin[Uml]]("loopVariable", _.loopVariable),
-		  	MetaPropertyCollection[UMLLoopNode[Uml], UMLInputPin[Uml]]("loopVariableInput", _.loopVariableInput),
-		  	MetaPropertyCollection[UMLLoopNode[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("loopVariable", _.loopVariable),
+		  	MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]]("loopVariableInput", _.loopVariableInput),
+		  	MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -55,11 +55,11 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuredActivityNode_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLLoopNode[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
-		  	MetaPropertyCollection[UMLLoopNode[Uml], UMLExecutableNode[Uml]]("bodyPart", _.bodyPart),
-		  	MetaPropertyReference[UMLLoopNode[Uml], UMLOutputPin[Uml]]("decider", _.decider),
-		  	MetaPropertyCollection[UMLLoopNode[Uml], UMLExecutableNode[Uml]]("setupPart", _.setupPart),
-		  	MetaPropertyCollection[UMLLoopNode[Uml], UMLExecutableNode[Uml]]("test", _.test)) )
+		  Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
+		  	MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("bodyPart", _.bodyPart),
+		  	MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("decider", _.decider),
+		  	MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("setupPart", _.setupPart),
+		  	MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("test", _.test)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

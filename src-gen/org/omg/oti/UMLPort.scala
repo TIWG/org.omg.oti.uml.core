@@ -25,9 +25,9 @@ trait UMLPort[Uml <: UML]
 	def port_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		property_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLPort[Uml]](None, "isBehavior", (x) => booleanToIterable(x.isBehavior, false)),
-		  	MetaAttributeBooleanFunction[UMLPort[Uml]](None, "isConjugated", (x) => booleanToIterable(x.isConjugated, false)),
-		  	MetaAttributeBooleanFunction[UMLPort[Uml]](None, "isService", (x) => booleanToIterable(x.isService, true))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isBehavior", (x) => booleanToIterable(x.isBehavior, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isConjugated", (x) => booleanToIterable(x.isConjugated, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isService", (x) => booleanToIterable(x.isService, true))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -55,8 +55,8 @@ trait UMLPort[Uml <: UML]
 	def port_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		property_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLPort[Uml], UMLProtocolStateMachine[Uml]]("protocol", _.protocol),
-		  	MetaPropertyCollection[UMLPort[Uml], UMLPort[Uml]]("redefinedPort", _.redefinedPort)) )
+		  Seq (MetaPropertyReference[Uml, UMLPort[Uml], UMLProtocolStateMachine[Uml]]("protocol", _.protocol),
+		  	MetaPropertyCollection[Uml, UMLPort[Uml], UMLPort[Uml]]("redefinedPort", _.redefinedPort)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

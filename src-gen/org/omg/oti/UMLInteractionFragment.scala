@@ -39,7 +39,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	def interactionFragment_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]]("generalOrdering", _.generalOrdering)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]]("generalOrdering", _.generalOrdering)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,9 +53,9 @@ trait UMLInteractionFragment[Uml <: UML]
 	def interactionFragment_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInteractionFragment[Uml], UMLLifeline[Uml]]("covered", _.covered),
-		  	MetaPropertyReference[UMLInteractionFragment[Uml], UMLInteraction[Uml]]("enclosingInteraction", _.enclosingInteraction),
-		  	MetaPropertyReference[UMLInteractionFragment[Uml], UMLInteractionOperand[Uml]]("enclosingOperand", _.enclosingOperand)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLLifeline[Uml]]("covered", _.covered),
+		  	MetaPropertyReference[Uml, UMLInteractionFragment[Uml], UMLInteraction[Uml]]("enclosingInteraction", _.enclosingInteraction),
+		  	MetaPropertyReference[Uml, UMLInteractionFragment[Uml], UMLInteractionOperand[Uml]]("enclosingOperand", _.enclosingOperand)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

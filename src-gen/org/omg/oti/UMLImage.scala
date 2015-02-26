@@ -25,9 +25,9 @@ trait UMLImage[Uml <: UML]
 	def image_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		element_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLImage[Uml]](None, "content", (x) => stringToIterable(x.content, null)),
-		  	MetaAttributeStringFunction[UMLImage[Uml]](None, "format", (x) => stringToIterable(x.format, null)),
-		  	MetaAttributeStringFunction[UMLImage[Uml]](None, "location", (x) => stringToIterable(x.location, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "content", (x) => stringToIterable(x.content, null)),
+		  	MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "format", (x) => stringToIterable(x.format, null)),
+		  	MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "location", (x) => stringToIterable(x.location, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

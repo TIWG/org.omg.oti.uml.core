@@ -39,7 +39,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("ownedActual", _.ownedActual)) )
+		  Seq (MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("ownedActual", _.ownedActual)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,9 +53,9 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("actual", _.actual),
-		  	MetaPropertyReference[UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]]("formal", _.formal),
-		  	MetaPropertyReference[UMLTemplateParameterSubstitution[Uml], UMLTemplateBinding[Uml]]("templateBinding", _.templateBinding)) )
+		  Seq (MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("actual", _.actual),
+		  	MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]]("formal", _.formal),
+		  	MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateBinding[Uml]]("templateBinding", _.templateBinding)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

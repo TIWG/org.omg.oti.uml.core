@@ -40,7 +40,7 @@ trait UMLInvocationAction[Uml <: UML]
 	def invocationAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInvocationAction[Uml], UMLInputPin[Uml]]("argument", _.argument)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]]("argument", _.argument)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLInvocationAction[Uml <: UML]
 	def invocationAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLInvocationAction[Uml], UMLPort[Uml]]("onPort", _.onPort)) )
+		  Seq (MetaPropertyReference[Uml, UMLInvocationAction[Uml], UMLPort[Uml]]("onPort", _.onPort)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

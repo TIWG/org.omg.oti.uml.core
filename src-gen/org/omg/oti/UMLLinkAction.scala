@@ -39,8 +39,8 @@ trait UMLLinkAction[Uml <: UML]
 	def linkAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData),
-		  	MetaPropertyCollection[UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)) )
+		  Seq (MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData),
+		  	MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

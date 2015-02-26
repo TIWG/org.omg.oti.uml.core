@@ -38,7 +38,7 @@ trait UMLElement[Uml <: UML]
 	 */
 	def element_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
-		  Seq (MetaPropertyCollection[UMLElement[Uml], UMLComment[Uml]]("ownedComment", _.ownedComment)) )
+		  Seq (MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]]("ownedComment", _.ownedComment)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

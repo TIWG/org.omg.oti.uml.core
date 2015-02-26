@@ -53,7 +53,7 @@ trait UMLActivityParameterNode[Uml <: UML]
 	def activityParameterNode_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		objectNode_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLActivityParameterNode[Uml], UMLParameter[Uml]]("parameter", _.parameter)) )
+		  Seq (MetaPropertyReference[Uml, UMLActivityParameterNode[Uml], UMLParameter[Uml]]("parameter", _.parameter)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

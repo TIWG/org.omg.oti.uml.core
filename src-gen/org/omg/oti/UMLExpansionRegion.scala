@@ -53,8 +53,8 @@ trait UMLExpansionRegion[Uml <: UML]
 	def expansionRegion_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuredActivityNode_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLExpansionRegion[Uml], UMLExpansionNode[Uml]]("inputElement", _.inputElement),
-		  	MetaPropertyCollection[UMLExpansionRegion[Uml], UMLExpansionNode[Uml]]("outputElement", _.outputElement)) )
+		  Seq (MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]]("inputElement", _.inputElement),
+		  	MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]]("outputElement", _.outputElement)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

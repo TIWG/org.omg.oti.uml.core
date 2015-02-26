@@ -230,6 +230,6 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
       case None          => allVisibleMembersTransitively
       case Some( outer ) => allVisibleMembersTransitively ++ outer.allVisibleMembersAccessibleTransitively
     }
-  
+
   // [/protected]
 }

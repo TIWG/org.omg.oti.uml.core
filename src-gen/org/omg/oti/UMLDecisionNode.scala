@@ -53,8 +53,8 @@ trait UMLDecisionNode[Uml <: UML]
 	def decisionNode_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		controlNode_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLDecisionNode[Uml], UMLBehavior[Uml]]("decisionInput", _.decisionInput),
-		  	MetaPropertyReference[UMLDecisionNode[Uml], UMLObjectFlow[Uml]]("decisionInputFlow", _.decisionInputFlow)) )
+		  Seq (MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLBehavior[Uml]]("decisionInput", _.decisionInput),
+		  	MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLObjectFlow[Uml]]("decisionInputFlow", _.decisionInputFlow)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -53,8 +53,8 @@ trait UMLPackageImport[Uml <: UML]
 	def packageImport_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		directedRelationship_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLPackageImport[Uml], UMLPackage[Uml]]("importedPackage", _.importedPackage),
-		  	MetaPropertyReference[UMLPackageImport[Uml], UMLNamespace[Uml]]("importingNamespace", _.importingNamespace)) )
+		  Seq (MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLPackage[Uml]]("importedPackage", _.importedPackage),
+		  	MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLNamespace[Uml]]("importingNamespace", _.importingNamespace)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

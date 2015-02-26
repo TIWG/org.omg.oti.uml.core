@@ -39,9 +39,9 @@ trait UMLTestIdentityAction[Uml <: UML]
 	def testIdentityAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTestIdentityAction[Uml], UMLInputPin[Uml]]("first", _.first),
-		  	MetaPropertyReference[UMLTestIdentityAction[Uml], UMLOutputPin[Uml]]("result", _.result),
-		  	MetaPropertyReference[UMLTestIdentityAction[Uml], UMLInputPin[Uml]]("second", _.second)) )
+		  Seq (MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]]("first", _.first),
+		  	MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLOutputPin[Uml]]("result", _.result),
+		  	MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]]("second", _.second)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

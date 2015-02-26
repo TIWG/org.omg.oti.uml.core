@@ -41,7 +41,7 @@ trait UMLExtend[Uml <: UML]
 	  appendUnique(
 		namedElement_compositeMetaProperties,
 		directedRelationship_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLExtend[Uml], UMLConstraint[Uml]]("condition", _.condition)) )
+		  Seq (MetaPropertyReference[Uml, UMLExtend[Uml], UMLConstraint[Uml]]("condition", _.condition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -56,9 +56,9 @@ trait UMLExtend[Uml <: UML]
 	  appendUnique(
 		namedElement_referenceMetaProperties,
 		directedRelationship_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLExtend[Uml], UMLUseCase[Uml]]("extendedCase", _.extendedCase),
-		  	MetaPropertyReference[UMLExtend[Uml], UMLUseCase[Uml]]("extension", _.extension),
-		  	MetaPropertyCollection[UMLExtend[Uml], UMLExtensionPoint[Uml]]("extensionLocation", _.extensionLocation)) )
+		  Seq (MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]]("extendedCase", _.extendedCase),
+		  	MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]]("extension", _.extension),
+		  	MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]]("extensionLocation", _.extensionLocation)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

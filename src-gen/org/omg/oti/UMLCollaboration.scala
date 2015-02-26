@@ -56,7 +56,7 @@ trait UMLCollaboration[Uml <: UML]
 	  appendUnique(
 		structuredClassifier_referenceMetaProperties,
 		behavioredClassifier_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLCollaboration[Uml], UMLConnectableElement[Uml]]("collaborationRole", _.collaborationRole)) )
+		  Seq (MetaPropertyCollection[Uml, UMLCollaboration[Uml], UMLConnectableElement[Uml]]("collaborationRole", _.collaborationRole)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

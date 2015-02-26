@@ -25,7 +25,7 @@ trait UMLDurationObservation[Uml <: UML]
 	def durationObservation_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		observation_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLDurationObservation[Uml]](None, "firstEvent", _.firstEvent)) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](None, "firstEvent", _.firstEvent)) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLDurationObservation[Uml <: UML]
 	def durationObservation_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		observation_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLDurationObservation[Uml], UMLNamedElement[Uml]]("event", _.event)) )
+		  Seq (MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]]("event", _.event)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

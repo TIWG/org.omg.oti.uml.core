@@ -53,8 +53,8 @@ trait UMLProtocolConformance[Uml <: UML]
 	def protocolConformance_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		directedRelationship_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]]("generalMachine", _.generalMachine),
-		  	MetaPropertyReference[UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]]("specificMachine", _.specificMachine)) )
+		  Seq (MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]]("generalMachine", _.generalMachine),
+		  	MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]]("specificMachine", _.specificMachine)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -53,8 +53,8 @@ trait UMLInterruptibleActivityRegion[Uml <: UML]
 	def interruptibleActivityRegion_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		activityGroup_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInterruptibleActivityRegion[Uml], UMLActivityEdge[Uml]]("interruptingEdge", _.interruptingEdge),
-		  	MetaPropertyCollection[UMLInterruptibleActivityRegion[Uml], UMLActivityNode[Uml]]("node", _.node)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityEdge[Uml]]("interruptingEdge", _.interruptingEdge),
+		  	MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityNode[Uml]]("node", _.node)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

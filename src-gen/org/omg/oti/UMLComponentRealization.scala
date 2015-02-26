@@ -53,8 +53,8 @@ trait UMLComponentRealization[Uml <: UML]
 	def componentRealization_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		realization_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLComponentRealization[Uml], UMLComponent[Uml]]("abstraction", _.abstraction),
-		  	MetaPropertyCollection[UMLComponentRealization[Uml], UMLClassifier[Uml]]("realizingClassifier", _.realizingClassifier)) )
+		  Seq (MetaPropertyReference[Uml, UMLComponentRealization[Uml], UMLComponent[Uml]]("abstraction", _.abstraction),
+		  	MetaPropertyCollection[Uml, UMLComponentRealization[Uml], UMLClassifier[Uml]]("realizingClassifier", _.realizingClassifier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

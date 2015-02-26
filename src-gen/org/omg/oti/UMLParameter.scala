@@ -26,8 +26,8 @@ trait UMLParameter[Uml <: UML]
 	   appendUnique(
 		connectableElement_metaAttributes,
 		multiplicityElement_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLParameter[Uml]](None, "isException", (x) => booleanToIterable(x.isException, false)),
-		  	MetaAttributeBooleanFunction[UMLParameter[Uml]](None, "isStream", (x) => booleanToIterable(x.isStream, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException", (x) => booleanToIterable(x.isException, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isStream", (x) => booleanToIterable(x.isStream, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -42,7 +42,7 @@ trait UMLParameter[Uml <: UML]
 	  appendUnique(
 		connectableElement_compositeMetaProperties,
 		multiplicityElement_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLParameter[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue)) )
+		  Seq (MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -57,8 +57,8 @@ trait UMLParameter[Uml <: UML]
 	  appendUnique(
 		connectableElement_referenceMetaProperties,
 		multiplicityElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLParameter[Uml], UMLOperation[Uml]]("operation", _.operation),
-		  	MetaPropertyCollection[UMLParameter[Uml], UMLParameterSet[Uml]]("parameterSet", _.parameterSet)) )
+		  Seq (MetaPropertyReference[Uml, UMLParameter[Uml], UMLOperation[Uml]]("operation", _.operation),
+		  	MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]]("parameterSet", _.parameterSet)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

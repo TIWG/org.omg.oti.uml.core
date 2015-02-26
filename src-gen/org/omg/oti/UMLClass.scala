@@ -27,8 +27,8 @@ trait UMLClass[Uml <: UML]
 	   appendUnique(
 		encapsulatedClassifier_metaAttributes,
 		behavioredClassifier_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLClass[Uml]](None, "isAbstract", (x) => booleanToIterable(x.isAbstract, false)),
-		  	MetaAttributeBooleanFunction[UMLClass[Uml]](None, "isActive", (x) => booleanToIterable(x.isActive, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isAbstract", (x) => booleanToIterable(x.isAbstract, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isActive", (x) => booleanToIterable(x.isActive, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -43,10 +43,10 @@ trait UMLClass[Uml <: UML]
 	  appendUnique(
 		encapsulatedClassifier_compositeMetaProperties,
 		behavioredClassifier_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLClass[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier),
-		  	MetaPropertyCollection[UMLClass[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-		  	MetaPropertyCollection[UMLClass[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation),
-		  	MetaPropertyCollection[UMLClass[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception)) )
+		  Seq (MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier),
+		  	MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
+		  	MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation),
+		  	MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

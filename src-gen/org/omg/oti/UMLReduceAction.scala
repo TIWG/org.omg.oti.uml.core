@@ -25,7 +25,7 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		action_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLReduceAction[Uml]](None, "isOrdered", (x) => booleanToIterable(x.isOrdered, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLReduceAction[Uml]](None, "isOrdered", (x) => booleanToIterable(x.isOrdered, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,8 +39,8 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLReduceAction[Uml], UMLInputPin[Uml]]("collection", _.collection),
-		  	MetaPropertyReference[UMLReduceAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLInputPin[Uml]]("collection", _.collection),
+		  	MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLReduceAction[Uml], UMLBehavior[Uml]]("reducer", _.reducer)) )
+		  Seq (MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLBehavior[Uml]]("reducer", _.reducer)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

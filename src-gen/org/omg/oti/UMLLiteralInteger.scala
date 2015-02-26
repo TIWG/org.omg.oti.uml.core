@@ -25,7 +25,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	def literalInteger_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		literalSpecification_metaAttributes,
-		  Seq (MetaAttributeIntegerFunction[UMLLiteralInteger[Uml]](None, "value", (x) => integerToIterable(x.value, 0))) )
+		  Seq (MetaAttributeIntegerFunction[Uml, UMLLiteralInteger[Uml]](None, "value", (x) => integerToIterable(x.value, 0))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

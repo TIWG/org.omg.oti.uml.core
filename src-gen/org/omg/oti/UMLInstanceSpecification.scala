@@ -43,8 +43,8 @@ trait UMLInstanceSpecification[Uml <: UML]
 		deploymentTarget_compositeMetaProperties,
 		deployedArtifact_compositeMetaProperties,
 		packageableElement_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInstanceSpecification[Uml], UMLSlot[Uml]]("slot", _.slot),
-		  	MetaPropertyReference[UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]]("specification", _.specification)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLSlot[Uml]]("slot", _.slot),
+		  	MetaPropertyReference[Uml, UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]]("specification", _.specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -60,7 +60,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 		deploymentTarget_referenceMetaProperties,
 		deployedArtifact_referenceMetaProperties,
 		packageableElement_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInstanceSpecification[Uml], UMLClassifier[Uml]]("classifier", _.classifier)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLClassifier[Uml]]("classifier", _.classifier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

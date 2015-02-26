@@ -39,7 +39,7 @@ trait UMLReadLinkAction[Uml <: UML]
 	def readLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		linkAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLReadLinkAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyReference[Uml, UMLReadLinkAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

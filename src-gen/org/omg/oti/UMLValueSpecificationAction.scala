@@ -39,8 +39,8 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	def valueSpecificationAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]]("result", _.result),
-		  	MetaPropertyReference[UMLValueSpecificationAction[Uml], UMLValueSpecification[Uml]]("value", _.value)) )
+		  Seq (MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]]("result", _.result),
+		  	MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLValueSpecification[Uml]]("value", _.value)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

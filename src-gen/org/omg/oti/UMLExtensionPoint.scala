@@ -53,7 +53,7 @@ trait UMLExtensionPoint[Uml <: UML]
 	def extensionPoint_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		redefinableElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLExtensionPoint[Uml], UMLUseCase[Uml]]("useCase", _.useCase)) )
+		  Seq (MetaPropertyReference[Uml, UMLExtensionPoint[Uml], UMLUseCase[Uml]]("useCase", _.useCase)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

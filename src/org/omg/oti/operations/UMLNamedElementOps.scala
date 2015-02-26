@@ -45,7 +45,94 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 
   import self.ops._
 
-  def nameExpression: Option[UMLStringExpression[Uml]] = (ownedElement.selectByKindOf { case se: UMLStringExpression[Uml] => se }).headOption
-  
+  def nameExpression: Option[UMLStringExpression[Uml]] = ( ownedElement.selectByKindOf { case se: UMLStringExpression[Uml] => se } ).headOption
+
   def namespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case ns: UMLNamespace[Uml] => ns }
+
+  /**
+   * UML 2.5
+   * 7.4 Namespaces
+   * 7.8 Classifier Descriptions / NamedElement
+   *
+   * allNamespaces() : Namespace [0..*]{ordered}
+   * The query allNamespaces() gives the sequence of Namespaces in which the NamedElement is nested, working outwards.
+   * body:
+   *  if owner.oclIsKindOf(TemplateParameter) and owner.oclAsType(TemplateParameter).signature.template.oclIsKindOf(Namespace) then
+   *    let enclosingNamespace : Namespace = owner.oclAsType(TemplateParameter).signature.template.oclAsType(Namespace) in
+   *    enclosingNamespace.allNamespaces()->prepend(enclosingNamespace)
+   *  else
+   *    if namespace->isEmpty()
+   *    then OrderedSet{}
+   *    else namespace.allNamespaces()->prepend(namespace)
+   *    endif
+   *  endif
+   */
+  def allNamespaces: Seq[UMLNamespace[Uml]] = {
+
+    @annotation.tailrec def allNamespacesAggregator(
+      acc: Seq[UMLNamespace[Uml]],
+      ne: UMLNamedElement[Uml] ): Seq[UMLNamespace[Uml]] =
+      ne.owner match {
+        case tp: UMLTemplateParameter[Uml] =>
+          tp.getTemplateSignatureNamespace match {
+            case Some( tns ) => allNamespacesAggregator( acc :+ tns, tns )
+            case None =>
+              ne.namespace match {
+                case Some( ns ) => allNamespacesAggregator( acc :+ ns, ns )
+                case None       => acc
+              }
+          }
+        case _ =>
+          ne.namespace match {
+            case None       => acc
+            case Some( ns ) => allNamespacesAggregator( acc :+ ns, ns )
+          }
+      }
+
+    allNamespacesAggregator( Seq(), self )
+  }
+
+  /**
+   * UML 2.5
+   * 7.4 Namespaces
+   * 7.8 Classifier Descriptions / NamedElement
+   *
+   * allOwningPackages() : Package [0..*]
+   * The query allOwningPackages() returns the set of all the enclosing Namespaces of this NamedElement,
+   * working outwards, that are Packages, up to but not including the first such Namespace that is not a Package.
+   * body:
+   *  if namespace.oclIsKindOf(Package) then
+   *    let owningPackage : Package = namespace.oclAsType(Package) in owningPackage->union(owningPackage.allOwningPackages())
+   *    else null
+   *    endif
+   *
+   * JPL:
+   * Suppose we have:
+   * - package P
+   * - class P::A, P::A::B (i.e., B is a nested classifier of A)
+   * Then P::A::B.allOwningPackages == {}
+   */
+  def allOwningPackages: Seq[UMLPackage[Uml]] = {
+
+    @annotation.tailrec def allOwningPackagesAggregator(
+      acc: Seq[UMLPackage[Uml]],
+      ne: UMLNamedElement[Uml] ): Seq[UMLPackage[Uml]] =
+      ne.namespace match {
+        case Some( p: UMLPackage[Uml] ) => allOwningPackagesAggregator( acc :+ p, p )
+        case _                          => acc
+      }
+
+    allOwningPackagesAggregator( Seq(), self )
+  }
+
+  /**
+   * JPL:
+   * To avoid the limitation of UML's NamedElement::allOwningPackages,
+   * this query returns the first package, if any, from UML's NamedElement::allNamespaces
+   */
+  def owningPackage: Option[UMLPackage[Uml]] =
+    self match {
+      case p: UMLPackage[Uml] => Some( p )
+      case _                  => allNamespaces.collectFirst( { case p: UMLPackage[Uml] => p } )
+    }
 }

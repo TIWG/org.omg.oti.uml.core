@@ -39,7 +39,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	def callOperationAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		callAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLCallOperationAction[Uml], UMLInputPin[Uml]]("target", _.target)) )
+		  Seq (MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLInputPin[Uml]]("target", _.target)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	def callOperationAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		callAction_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLCallOperationAction[Uml], UMLOperation[Uml]]("operation", _.operation)) )
+		  Seq (MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLOperation[Uml]]("operation", _.operation)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

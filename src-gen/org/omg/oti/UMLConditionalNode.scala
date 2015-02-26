@@ -25,8 +25,8 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		structuredActivityNode_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLConditionalNode[Uml]](None, "isAssured", (x) => booleanToIterable(x.isAssured, false)),
-		  	MetaAttributeBooleanFunction[UMLConditionalNode[Uml]](None, "isDeterminate", (x) => booleanToIterable(x.isDeterminate, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isAssured", (x) => booleanToIterable(x.isAssured, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isDeterminate", (x) => booleanToIterable(x.isDeterminate, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -40,8 +40,8 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuredActivityNode_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLConditionalNode[Uml], UMLClause[Uml]]("clause", _.clause),
-		  	MetaPropertyCollection[UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]]("clause", _.clause),
+		  	MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

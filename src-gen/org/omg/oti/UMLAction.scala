@@ -25,7 +25,7 @@ trait UMLAction[Uml <: UML]
 	def action_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		executableNode_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLAction[Uml]](None, "isLocallyReentrant", (x) => booleanToIterable(x.isLocallyReentrant, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLAction[Uml]](None, "isLocallyReentrant", (x) => booleanToIterable(x.isLocallyReentrant, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,8 +39,8 @@ trait UMLAction[Uml <: UML]
 	def action_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		executableNode_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLAction[Uml], UMLConstraint[Uml]]("localPostcondition", _.localPostcondition),
-		  	MetaPropertyCollection[UMLAction[Uml], UMLConstraint[Uml]]("localPrecondition", _.localPrecondition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]]("localPostcondition", _.localPostcondition),
+		  	MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]]("localPrecondition", _.localPrecondition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

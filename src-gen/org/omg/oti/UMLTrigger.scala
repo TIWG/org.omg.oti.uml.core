@@ -53,8 +53,8 @@ trait UMLTrigger[Uml <: UML]
 	def trigger_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLTrigger[Uml], UMLEvent[Uml]]("event", _.event),
-		  	MetaPropertyCollection[UMLTrigger[Uml], UMLPort[Uml]]("port", _.port)) )
+		  Seq (MetaPropertyReference[Uml, UMLTrigger[Uml], UMLEvent[Uml]]("event", _.event),
+		  	MetaPropertyCollection[Uml, UMLTrigger[Uml], UMLPort[Uml]]("port", _.port)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

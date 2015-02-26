@@ -25,8 +25,8 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		activityGroup_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLActivityPartition[Uml]](None, "isDimension", (x) => booleanToIterable(x.isDimension, false)),
-		  	MetaAttributeBooleanFunction[UMLActivityPartition[Uml]](None, "isExternal", (x) => booleanToIterable(x.isExternal, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isDimension", (x) => booleanToIterable(x.isDimension, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isExternal", (x) => booleanToIterable(x.isExternal, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -40,7 +40,7 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		activityGroup_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLActivityPartition[Uml], UMLActivityPartition[Uml]]("subpartition", _.subpartition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]]("subpartition", _.subpartition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,10 +54,10 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		activityGroup_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLActivityPartition[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-		  	MetaPropertyCollection[UMLActivityPartition[Uml], UMLActivityNode[Uml]]("node", _.node),
-		  	MetaPropertyReference[UMLActivityPartition[Uml], UMLElement[Uml]]("represents", _.represents),
-		  	MetaPropertyReference[UMLActivityPartition[Uml], UMLActivityPartition[Uml]]("superPartition", _.superPartition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
+		  	MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityNode[Uml]]("node", _.node),
+		  	MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]]("represents", _.represents),
+		  	MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]]("superPartition", _.superPartition)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

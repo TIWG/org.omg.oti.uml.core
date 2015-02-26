@@ -53,7 +53,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	def callBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		callAction_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLCallBehaviorAction[Uml], UMLBehavior[Uml]]("behavior", _.behavior)) )
+		  Seq (MetaPropertyReference[Uml, UMLCallBehaviorAction[Uml], UMLBehavior[Uml]]("behavior", _.behavior)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -39,7 +39,7 @@ trait UMLConstraint[Uml <: UML]
 	def constraint_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		packageableElement_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLConstraint[Uml], UMLValueSpecification[Uml]]("specification", _.specification)) )
+		  Seq (MetaPropertyReference[Uml, UMLConstraint[Uml], UMLValueSpecification[Uml]]("specification", _.specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,8 +53,8 @@ trait UMLConstraint[Uml <: UML]
 	def constraint_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		packageableElement_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement),
-		  	MetaPropertyReference[UMLConstraint[Uml], UMLNamespace[Uml]]("context", _.context)) )
+		  Seq (MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement),
+		  	MetaPropertyReference[Uml, UMLConstraint[Uml], UMLNamespace[Uml]]("context", _.context)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

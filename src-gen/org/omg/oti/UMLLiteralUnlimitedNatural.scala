@@ -25,7 +25,7 @@ trait UMLLiteralUnlimitedNatural[Uml <: UML]
 	def literalUnlimitedNatural_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		literalSpecification_metaAttributes,
-		  Seq (MetaAttributeIntegerFunction[UMLLiteralUnlimitedNatural[Uml]](None, "value", (x) => integerToIterable(x.value, 0))) )
+		  Seq (MetaAttributeIntegerFunction[Uml, UMLLiteralUnlimitedNatural[Uml]](None, "value", (x) => integerToIterable(x.value, 0))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

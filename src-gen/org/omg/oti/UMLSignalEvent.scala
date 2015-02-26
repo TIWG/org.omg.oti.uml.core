@@ -53,7 +53,7 @@ trait UMLSignalEvent[Uml <: UML]
 	def signalEvent_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		messageEvent_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLSignalEvent[Uml], UMLSignal[Uml]]("signal", _.signal)) )
+		  Seq (MetaPropertyReference[Uml, UMLSignalEvent[Uml], UMLSignal[Uml]]("signal", _.signal)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

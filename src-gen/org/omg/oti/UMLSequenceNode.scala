@@ -39,7 +39,7 @@ trait UMLSequenceNode[Uml <: UML]
 	def sequenceNode_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuredActivityNode_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLSequenceNode[Uml], UMLExecutableNode[Uml]]("executableNode", _.executableNode)) )
+		  Seq (MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]]("executableNode", _.executableNode)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

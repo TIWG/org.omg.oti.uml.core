@@ -25,7 +25,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		action_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect", (x) => booleanToIterable(x.isDirect, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect", (x) => booleanToIterable(x.isDirect, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,8 +39,8 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]]("object", _._object),
-		  	MetaPropertyReference[UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]]("object", _._object),
+		  	MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]]("classifier", _.classifier)) )
+		  Seq (MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]]("classifier", _.classifier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

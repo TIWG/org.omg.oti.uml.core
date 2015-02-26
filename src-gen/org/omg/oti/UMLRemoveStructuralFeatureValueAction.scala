@@ -25,7 +25,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	def removeStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		writeStructuralFeatureAction_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates", (x) => booleanToIterable(x.isRemoveDuplicates, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates", (x) => booleanToIterable(x.isRemoveDuplicates, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	def removeStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		writeStructuralFeatureAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLRemoveStructuralFeatureValueAction[Uml], UMLInputPin[Uml]]("removeAt", _.removeAt)) )
+		  Seq (MetaPropertyReference[Uml, UMLRemoveStructuralFeatureValueAction[Uml], UMLInputPin[Uml]]("removeAt", _.removeAt)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

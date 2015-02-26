@@ -26,7 +26,7 @@ trait UMLPin[Uml <: UML]
 	   appendUnique(
 		objectNode_metaAttributes,
 		multiplicityElement_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLPin[Uml]](None, "isControl", (x) => booleanToIterable(x.isControl, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLPin[Uml]](None, "isControl", (x) => booleanToIterable(x.isControl, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

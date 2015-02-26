@@ -56,8 +56,8 @@ trait UMLDependency[Uml <: UML]
 	  appendUnique(
 		directedRelationship_referenceMetaProperties,
 		packageableElement_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]("client", _.client),
-		  	MetaPropertyCollection[UMLDependency[Uml], UMLNamedElement[Uml]]("supplier", _.supplier)) )
+		  Seq (MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]]("client", _.client),
+		  	MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]]("supplier", _.supplier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

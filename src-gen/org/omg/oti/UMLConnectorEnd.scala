@@ -53,8 +53,8 @@ trait UMLConnectorEnd[Uml <: UML]
 	def connectorEnd_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		multiplicityElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLConnectorEnd[Uml], UMLProperty[Uml]]("partWithPort", _.partWithPort),
-		  	MetaPropertyReference[UMLConnectorEnd[Uml], UMLConnectableElement[Uml]]("role", _.role)) )
+		  Seq (MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLProperty[Uml]]("partWithPort", _.partWithPort),
+		  	MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLConnectableElement[Uml]]("role", _.role)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

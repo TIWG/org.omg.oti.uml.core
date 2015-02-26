@@ -27,7 +27,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		activityGroup_metaAttributes,
 		action_metaAttributes,
 		namespace_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLStructuredActivityNode[Uml]](None, "mustIsolate", (x) => booleanToIterable(x.mustIsolate, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLStructuredActivityNode[Uml]](None, "mustIsolate", (x) => booleanToIterable(x.mustIsolate, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -43,11 +43,11 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		activityGroup_compositeMetaProperties,
 		action_compositeMetaProperties,
 		namespace_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-		  	MetaPropertyCollection[UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node),
-		  	MetaPropertyCollection[UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput),
-		  	MetaPropertyCollection[UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput),
-		  	MetaPropertyCollection[UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)) )
+		  Seq (MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
+		  	MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node),
+		  	MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput),
+		  	MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput),
+		  	MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -63,7 +63,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		activityGroup_referenceMetaProperties,
 		action_referenceMetaProperties,
 		namespace_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLStructuredActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity)) )
+		  Seq (MetaPropertyReference[Uml, UMLStructuredActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

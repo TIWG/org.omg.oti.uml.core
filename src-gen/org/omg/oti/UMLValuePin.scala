@@ -39,7 +39,7 @@ trait UMLValuePin[Uml <: UML]
 	def valuePin_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		inputPin_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLValuePin[Uml], UMLValueSpecification[Uml]]("value", _.value)) )
+		  Seq (MetaPropertyReference[Uml, UMLValuePin[Uml], UMLValueSpecification[Uml]]("value", _.value)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

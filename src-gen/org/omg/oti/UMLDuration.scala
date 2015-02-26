@@ -39,7 +39,7 @@ trait UMLDuration[Uml <: UML]
 	def duration_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLDuration[Uml], UMLValueSpecification[Uml]]("expr", _.expr)) )
+		  Seq (MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]]("expr", _.expr)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLDuration[Uml <: UML]
 	def duration_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLDuration[Uml], UMLObservation[Uml]]("observation", _.observation)) )
+		  Seq (MetaPropertyCollection[Uml, UMLDuration[Uml], UMLObservation[Uml]]("observation", _.observation)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

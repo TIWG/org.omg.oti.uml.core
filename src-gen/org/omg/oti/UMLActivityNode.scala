@@ -53,13 +53,13 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		redefinableElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity),
-		  	MetaPropertyCollection[UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]]("inInterruptibleRegion", _.inInterruptibleRegion),
-		  	MetaPropertyCollection[UMLActivityNode[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-		  	MetaPropertyReference[UMLActivityNode[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
-		  	MetaPropertyCollection[UMLActivityNode[Uml], UMLActivityEdge[Uml]]("incoming", _.incoming),
-		  	MetaPropertyCollection[UMLActivityNode[Uml], UMLActivityEdge[Uml]]("outgoing", _.outgoing),
-		  	MetaPropertyCollection[UMLActivityNode[Uml], UMLActivityNode[Uml]]("redefinedNode", _.redefinedNode)) )
+		  Seq (MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity),
+		  	MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]]("inInterruptibleRegion", _.inInterruptibleRegion),
+		  	MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
+		  	MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
+		  	MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("incoming", _.incoming),
+		  	MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("outgoing", _.outgoing),
+		  	MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]]("redefinedNode", _.redefinedNode)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

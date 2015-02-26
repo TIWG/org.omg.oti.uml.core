@@ -39,7 +39,7 @@ trait UMLSendSignalAction[Uml <: UML]
 	def sendSignalAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		invocationAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLSendSignalAction[Uml], UMLInputPin[Uml]]("target", _.target)) )
+		  Seq (MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLInputPin[Uml]]("target", _.target)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLSendSignalAction[Uml <: UML]
 	def sendSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		invocationAction_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLSendSignalAction[Uml], UMLSignal[Uml]]("signal", _.signal)) )
+		  Seq (MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLSignal[Uml]]("signal", _.signal)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

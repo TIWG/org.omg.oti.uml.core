@@ -53,7 +53,7 @@ trait UMLType[Uml <: UML]
 	def type_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		packageableElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLType[Uml], UMLPackage[Uml]]("package", _._package)) )
+		  Seq (MetaPropertyReference[Uml, UMLType[Uml], UMLPackage[Uml]]("package", _._package)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

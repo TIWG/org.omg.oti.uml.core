@@ -25,8 +25,8 @@ trait UMLActivity[Uml <: UML]
 	def activity_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		behavior_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLActivity[Uml]](None, "isReadOnly", (x) => booleanToIterable(x.isReadOnly, false)),
-		  	MetaAttributeBooleanFunction[UMLActivity[Uml]](None, "isSingleExecution", (x) => booleanToIterable(x.isSingleExecution, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isReadOnly", (x) => booleanToIterable(x.isReadOnly, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isSingleExecution", (x) => booleanToIterable(x.isSingleExecution, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -40,11 +40,11 @@ trait UMLActivity[Uml <: UML]
 	def activity_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		behavior_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLActivity[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-		  	MetaPropertyCollection[UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
-		  	MetaPropertyCollection[UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
-		  	MetaPropertyCollection[UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
-		  	MetaPropertyCollection[UMLActivity[Uml], UMLVariable[Uml]]("variable", _.variable)) )
+		  Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
+		  	MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
+		  	MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
+		  	MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
+		  	MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]]("variable", _.variable)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -58,7 +58,7 @@ trait UMLActivity[Uml <: UML]
 	def activity_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		behavior_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

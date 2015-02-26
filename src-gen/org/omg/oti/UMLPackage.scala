@@ -29,7 +29,7 @@ trait UMLPackage[Uml <: UML]
 		templateableElement_metaAttributes,
 		namespace_metaAttributes,
 		packageableElement_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLPackage[Uml]](None, "URI", (x) => stringToIterable(x.URI, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", (x) => stringToIterable(x.URI, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -45,9 +45,9 @@ trait UMLPackage[Uml <: UML]
 		templateableElement_compositeMetaProperties,
 		namespace_compositeMetaProperties,
 		packageableElement_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLPackage[Uml], UMLPackageMerge[Uml]]("packageMerge", _.packageMerge),
-		  	MetaPropertyCollection[UMLPackage[Uml], UMLPackageableElement[Uml]]("packagedElement", _.packagedElement),
-		  	MetaPropertyCollection[UMLPackage[Uml], UMLProfileApplication[Uml]]("profileApplication", _.profileApplication)) )
+		  Seq (MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]]("packageMerge", _.packageMerge),
+		  	MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageableElement[Uml]]("packagedElement", _.packagedElement),
+		  	MetaPropertyCollection[Uml, UMLPackage[Uml], UMLProfileApplication[Uml]]("profileApplication", _.profileApplication)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -63,7 +63,7 @@ trait UMLPackage[Uml <: UML]
 		templateableElement_referenceMetaProperties,
 		namespace_referenceMetaProperties,
 		packageableElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLPackage[Uml], UMLPackage[Uml]]("nestingPackage", _.nestingPackage)) )
+		  Seq (MetaPropertyReference[Uml, UMLPackage[Uml], UMLPackage[Uml]]("nestingPackage", _.nestingPackage)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

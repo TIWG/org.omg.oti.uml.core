@@ -39,7 +39,7 @@ trait UMLExecutableNode[Uml <: UML]
 	def executableNode_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		activityNode_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLExecutableNode[Uml], UMLExceptionHandler[Uml]]("handler", _.handler)) )
+		  Seq (MetaPropertyCollection[Uml, UMLExecutableNode[Uml], UMLExceptionHandler[Uml]]("handler", _.handler)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

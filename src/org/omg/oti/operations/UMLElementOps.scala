@@ -52,6 +52,9 @@ import scala.util.Failure
 import org.omg.oti._
 // [/protected]
 
+
+
+
 trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   // [protected ('common framework for all metaclasses')]
@@ -100,6 +103,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
   /**
+   * The element itself (if it is a kind of namespace)
+   * or the first owner of the element that is a kind of namespace.
+   */
+  @annotation.tailrec final def owningNamespace: Option[UMLNamespace[Uml]] = self match {
+    case ns: UMLNamespace[Uml] => Some( ns )
+    case e: UMLElement[Uml] => e.owner match {
+      case None      => None
+      case Some( o ) => o.owningNamespace
+    }
+  }
+
+  /**
    * To enable verifying whether all forward references from elements contained within
    * the scope of a package refer to elements that are directly or indirectly imported
    * from that package or included in directly or indirectly applied profiles, it is necessary
@@ -115,59 +130,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def mofXMI_metaAtttributes: MetaAttributeFunctions =
     Seq(
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "uuid", _.xmiUUID ),
-      MetaAttributeStringFunction[UMLElement[Uml]]( Some( "xmi" ), "type", _.xmiType ) )
-
-  case class IllegalMetaAttributeEvaluation( e: UMLElement[Uml], metaAttributeFunction: MetaAttributeAbstractFunction[_ <: UMLElement[Uml], _] )
-    extends IllegalArgumentException( s"${metaAttributeFunction} not applicable to ${e.xmiType.head}" )
-
-  sealed abstract trait MetaAttributeAbstractFunction[U <: UMLElement[Uml], DT] {
-    implicit val UType: TypeTag[U]
-    val attributePrefix: Option[String]
-    val attributeName: String
-    val f: Function1[U, Iterable[DT]]
-
-    def evaluate( e: UMLElement[Uml] )( implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U] ): Try[Iterable[String]] =
-      e match {
-        case u: U => Success( f( u ).map( _.toString ) )
-        case _    => Failure( IllegalMetaAttributeEvaluation( e, this ) )
-      }
-
-    override def toString: String = {
-      val attributeQName = attributePrefix match {
-        case None       => attributeName
-        case Some( ns ) => ns + ":" + attributeName
-      }
-      s"MetaAttribute(${attributeQName} on ${UType.getClass.getName})"
-    }
-
-  }
-
-  case class MetaAttributeBooleanFunction[U <: UMLElement[Uml]](
-    val attributePrefix: Option[String] = None,
-    val attributeName: String,
-    val f: Function1[U, Iterable[Boolean]] )
-    extends MetaAttributeAbstractFunction[U, Boolean] {
-    implicit val UType: TypeTag[U] = typeTag[U]
-
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaAttributeBooleanFunction[_] =>
-          ( that canEqual this ) &&
-            attributePrefix == that.attributePrefix &&
-            attributeName == that.attributeName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaAttributeBooleanFunction[_]]
-
-    override def hashCode: Int =
-      41 * ( 41 + attributePrefix.hashCode() )
-    +attributeName.hashCode()
-  }
+      MetaAttributeStringFunction[Uml, UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
+      MetaAttributeStringFunction[Uml, UMLElement[Uml]]( Some( "xmi" ), "uuid", _.xmiUUID ),
+      MetaAttributeStringFunction[Uml, UMLElement[Uml]]( Some( "xmi" ), "type", _.xmiType ) )
 
   def booleanToIterable( value: Boolean, default: Boolean ): Iterable[Boolean] =
     if ( value != default ) Iterable( value )
@@ -183,81 +148,15 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   def realToIterable( value: Double, default: Double ): Iterable[Double] =
     Iterable( value )
-    
+
   def stringToIterable( value: Option[String], default: String ): Iterable[String] =
     value.toIterable
-    
+
   def stringToIterable( value: String, default: String ): Iterable[String] =
     if ( value != default ) Iterable( value )
     else Iterable()
-    
-  case class MetaAttributeIntegerFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[Integer]] )
-    extends MetaAttributeAbstractFunction[U, Integer] {
-    implicit val UType: TypeTag[U] = typeTag[U]
 
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaAttributeIntegerFunction[_] =>
-          ( that canEqual this ) &&
-            attributePrefix == that.attributePrefix &&
-            attributeName == that.attributeName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaAttributeIntegerFunction[_]]
-
-    override def hashCode: Int =
-      41 * ( 41 + attributePrefix.hashCode() )
-    +attributeName.hashCode()
-  }
-
-  case class MetaAttributeStringFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[String]] )
-    extends MetaAttributeAbstractFunction[U, String] {
-    implicit val UType: TypeTag[U] = typeTag[U]
-
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaAttributeStringFunction[_] =>
-          ( that canEqual this ) &&
-            attributePrefix == that.attributePrefix &&
-            attributeName == that.attributeName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaAttributeStringFunction[_]]
-
-    override def hashCode: Int =
-      41 * ( 41 + attributePrefix.hashCode() )
-    +attributeName.hashCode()
-  }
-
-  case class MetaAttributeRealFunction[U <: UMLElement[Uml]]( val attributePrefix: Option[String] = None, val attributeName: String, val f: Function1[U, Iterable[Double]] )
-    extends MetaAttributeAbstractFunction[U, Double] {
-    implicit val UType: TypeTag[U] = typeTag[U]
-
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaAttributeRealFunction[_] =>
-          ( that canEqual this ) &&
-            attributePrefix == that.attributePrefix &&
-            attributeName == that.attributeName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaAttributeRealFunction[_]]
-
-    override def hashCode: Int =
-      41 * ( 41 + attributePrefix.hashCode() )
-    +attributeName.hashCode()
-  }
-
-  type MetaAttributeFunction = MetaAttributeAbstractFunction[_ <: UMLElement[Uml], _]
+  type MetaAttributeFunction = MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _]
 
   type MetaAttributeFunctions = Seq[MetaAttributeFunction]
 
@@ -266,103 +165,66 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   def metaAttributes: MetaAttributeFunctions
 
-  case class IllegalMetaPropertyEvaluation( e: UMLElement[Uml], metaPropertyFunction: MetaPropertyFunction[_ <: UMLElement[Uml], _ <: UMLElement[Uml]] )
-    extends IllegalArgumentException( s"${metaPropertyFunction} not applicable to ${e.xmiType.head}" )
-
-  sealed abstract trait MetaPropertyFunction[U <: UMLElement[Uml], V <: UMLElement[Uml]] {
-    val propertyName: String
-
-    def getReferenceFunction: Option[MetaPropertyReference[U, V]]
-    def getCollectionFunction: Option[MetaPropertyCollection[U, V]]
-  }
-
-  case class MetaPropertyReference[U <: UMLElement[Uml], V <: UMLElement[Uml]](
-    val propertyName: String,
-    val f: U => Option[V] )( implicit val u: ClassTag[U] )
-    extends MetaPropertyFunction[U, V] {
-
-    def getReferenceFunction: Option[MetaPropertyReference[U, V]] = Some( this )
-    def getCollectionFunction: Option[MetaPropertyCollection[U, V]] = None
-
-    def evaluate( e: UMLElement[Uml] ): Try[Option[UMLElement[Uml]]] =
-      e match {
-        case u: U => Success( f( u ) )
-        case _    => Failure( IllegalMetaPropertyEvaluation( e, this ) )
-      }
-
-    override def toString: String = s"MetaPropertyReference(${propertyName} on ${u.getClass.getName})"
-
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaPropertyReference[_, _] =>
-          ( that canEqual this ) &&
-            propertyName == that.propertyName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaPropertyReference[_, _]]
-
-    override def hashCode: Int = propertyName.hashCode()
-  }
-
-  case class MetaPropertyCollection[U <: UMLElement[Uml], V <: UMLElement[Uml]](
-    val propertyName: String,
-    val f: U => Iterable[V] )( implicit val u: ClassTag[U] )
-    extends MetaPropertyFunction[U, V] {
-
-    def getReferenceFunction: Option[MetaPropertyReference[U, V]] = None
-    def getCollectionFunction: Option[MetaPropertyCollection[U, V]] = Some( this )
-
-    def evaluate( e: UMLElement[Uml] ): Try[List[UMLElement[Uml]]] = {
-      require( e != null )
-      e match {
-        case u: U =>
-          val v = f( u )
-          require( v != null )
-          if ( v.isEmpty ) Success( Nil )
-          else Success( v.toList )
-        case _ =>
-          Failure( IllegalMetaPropertyEvaluation( e, this ) )
-      }
-    }
-
-    override def toString: String = s"MetaPropertyCollection(${propertyName} on ${u.getClass.getName})"
-
-    override def equals( other: Any ): Boolean =
-      other match {
-        case that: MetaPropertyCollection[_, _] =>
-          ( that canEqual this ) &&
-            propertyName == that.propertyName
-        case _ =>
-          false
-      }
-
-    def canEqual( other: Any ): Boolean =
-      other.isInstanceOf[MetaPropertyCollection[_, _]]
-
-    override def hashCode: Int = propertyName.hashCode()
-  }
+  // -----------------------
 
   type Elements = Set[UMLElement[Uml]]
-  
-  type MetaPropertyEvaluator = MetaPropertyFunction[_ <: UMLElement[Uml], _ <: UMLElement[Uml]]
-  type MetaReferenceEvaluator = MetaPropertyReference[_ <: UMLElement[Uml], _ <: UMLElement[Uml]]
-  type MetaCollectionEvaluator = MetaPropertyCollection[_ <: UMLElement[Uml], _ <: UMLElement[Uml]]
+
+  type MetaPropertyEvaluator = MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
+  type MetaReferenceEvaluator = MetaPropertyReference[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
+  type MetaCollectionEvaluator = MetaPropertyCollection[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
 
   type MetaPropertyFunctions = Seq[MetaPropertyEvaluator]
 
+  
+  def forwardRelationTriples: Try[Set[RelationTriple[Uml]]] = {
+
+    def addEvaluatedTriples(
+      acc: Try[Set[RelationTriple[Uml]]],
+      f: MetaPropertyEvaluator ): Try[Set[RelationTriple[Uml]]] = acc match {
+      case Failure( t ) => Failure( t )
+      case Success( triples ) => f match {
+        case rf: MetaReferenceEvaluator =>
+          rf.evaluate( self ) match {
+            case Failure( t )           => Failure( t )
+            case Success( None )        => Success( triples )
+            case Success( Some( ref ) ) => 
+              if (self.owner.get == ref ) Success( triples )
+              else Success( triples + AssociationTriple( sub = self, relf = rf, obj = ref ) )
+          }
+        case cf: MetaCollectionEvaluator =>
+          cf.evaluate( self ) match {
+            case Failure( t )    => Failure( t )
+            case Success( Nil )  => Success( triples )
+            case Success( refs ) => Success( triples ++ (refs.toSet - self.owner.get).map( AssociationTriple( sub = self, relf = cf, _ ) ) )
+          }
+      }
+    }
+
+    val triples: Set[RelationTriple[Uml]] = tagValues.flatMap { case ( p, vs ) =>
+      p.owningStereotype match {
+        case None =>
+          Set[RelationTriple[Uml]]()
+        case Some( s ) =>
+          val refs = (vs flatMap (_.forwardReferencesFromStereotypeTagValue))
+          (refs map (StereotypePropertyTriple(sub=self, rels=s, relp=p, _))).toSet[RelationTriple[Uml]]
+      }
+    } toSet;
+
+    val acc0: Try[Set[RelationTriple[Uml]]] = Success( triples )
+    val accN = ( acc0 /: self.referenceMetaProperties )( addEvaluatedTriples _ )
+    accN
+  }
+  
   def appendUnique[F]( s1: Seq[F], s2: Seq[F] )( implicit f: ClassTag[F] ): Seq[F] =
     s1 ++ ( s2 filter ( !s1.contains( _ ) ) )
 
   def appendUnique[F]( ss: Seq[F]* )( implicit f: ClassTag[F] ): Seq[F] =
     ss.toList match {
-    case Nil => Seq()
-    case ( s :: Nil ) => s
-    case ( s1 :: s2 :: Nil ) => appendUnique( s1, s2 )
-    case ( s :: sx ) => appendUnique( s, appendUnique( sx: _* ) )
-  }
+      case Nil                 => Seq()
+      case ( s :: Nil )        => s
+      case ( s1 :: s2 :: Nil ) => appendUnique( s1, s2 )
+      case ( s :: sx )         => appendUnique( s, appendUnique( sx: _* ) )
+    }
 
   def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
     tagValues.groupBy( _._1.owningStereotype.get )
@@ -375,6 +237,40 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def element_xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse( "" ) )
 
   def xmiType: Iterable[String] = Iterable( "uml:" + mofMetaclassName )
+
+  /**
+   * All the non-package elements directly or indirectly owned by a package scope.
+   */
+  def allOwnedElementsWithinPackageScope: Set[UMLElement[Uml]] = {
+
+    def directlyOwnedElementFilter( owned: UMLElement[Uml] ): Boolean =
+      owned match {
+        case _: UMLPackage[Uml]       => false
+        case _: UMLElementImport[Uml] => false
+        case _: UMLPackageImport[Uml] => false
+        case _: UMLPackageMerge[Uml]  => false
+        case _                        => true
+      }
+
+    @annotation.tailrec def allOwnedElementsWithinPackageScopeAggregator(
+      acc: Set[UMLElement[Uml]],
+      es: List[UMLElement[Uml]] ): Set[UMLElement[Uml]] = es match {
+      case Nil => acc
+      case x :: xs =>
+        x match {
+          case p: UMLPackage[Uml] =>
+            val pOwned = p.ownedElement.filter( directlyOwnedElementFilter( _ ) ).toList
+            allOwnedElementsWithinPackageScopeAggregator( acc, pOwned ::: xs )
+          case e if ( directlyOwnedElementFilter( e ) ) =>
+            val eOwned = e.ownedElement.filter( directlyOwnedElementFilter( _ ) ).toList
+            allOwnedElementsWithinPackageScopeAggregator( acc + e, eOwned ::: xs )
+          case _ =>
+            allOwnedElementsWithinPackageScopeAggregator( acc, xs )
+        }
+    }
+
+    allOwnedElementsWithinPackageScopeAggregator( Set(), List( this ) ) - this
+  }
 
   /**
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
@@ -420,7 +316,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     owner.fold( Set[UMLPackageableElement[Uml]]() )( _.asForwardReferencesToImportableOuterPackageableElements )
 
   // API to be implemented
-  
+
   def allOwnedElements: Stream[UMLElement[Uml]]
 
   def mofMetaclassName: String
@@ -428,7 +324,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
   def getContainedElement_eContainingFeature: EStructuralFeature
-  
+
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
 
   def id: String

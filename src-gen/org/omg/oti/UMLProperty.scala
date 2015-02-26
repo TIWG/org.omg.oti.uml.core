@@ -27,9 +27,9 @@ trait UMLProperty[Uml <: UML]
 		connectableElement_metaAttributes,
 		structuralFeature_metaAttributes,
 		deploymentTarget_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLProperty[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false)),
-		  	MetaAttributeBooleanFunction[UMLProperty[Uml]](None, "isDerivedUnion", (x) => booleanToIterable(x.isDerivedUnion, false)),
-		  	MetaAttributeBooleanFunction[UMLProperty[Uml]](None, "isID", (x) => booleanToIterable(x.isID, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerivedUnion", (x) => booleanToIterable(x.isDerivedUnion, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isID", (x) => booleanToIterable(x.isID, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -45,8 +45,8 @@ trait UMLProperty[Uml <: UML]
 		connectableElement_compositeMetaProperties,
 		structuralFeature_compositeMetaProperties,
 		deploymentTarget_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLProperty[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue),
-		  	MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]("qualifier", _.qualifier)) )
+		  Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue),
+		  	MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("qualifier", _.qualifier)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -62,14 +62,14 @@ trait UMLProperty[Uml <: UML]
 		connectableElement_referenceMetaProperties,
 		structuralFeature_referenceMetaProperties,
 		deploymentTarget_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLProperty[Uml], UMLAssociation[Uml]]("association", _.association),
-		  	MetaPropertyReference[UMLProperty[Uml], UMLProperty[Uml]]("associationEnd", _.associationEnd),
-		  	MetaPropertyReference[UMLProperty[Uml], UMLClass[Uml]]("class", _._class),
-		  	MetaPropertyReference[UMLProperty[Uml], UMLDataType[Uml]]("datatype", _.datatype),
-		  	MetaPropertyReference[UMLProperty[Uml], UMLInterface[Uml]]("interface", _.interface),
-		  	MetaPropertyReference[UMLProperty[Uml], UMLAssociation[Uml]]("owningAssociation", _.owningAssociation),
-		  	MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]("redefinedProperty", _.redefinedProperty),
-		  	MetaPropertyCollection[UMLProperty[Uml], UMLProperty[Uml]]("subsettedProperty", _.subsettedProperty)) )
+		  Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]]("association", _.association),
+		  	MetaPropertyReference[Uml, UMLProperty[Uml], UMLProperty[Uml]]("associationEnd", _.associationEnd),
+		  	MetaPropertyReference[Uml, UMLProperty[Uml], UMLClass[Uml]]("class", _._class),
+		  	MetaPropertyReference[Uml, UMLProperty[Uml], UMLDataType[Uml]]("datatype", _.datatype),
+		  	MetaPropertyReference[Uml, UMLProperty[Uml], UMLInterface[Uml]]("interface", _.interface),
+		  	MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]]("owningAssociation", _.owningAssociation),
+		  	MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("redefinedProperty", _.redefinedProperty),
+		  	MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("subsettedProperty", _.subsettedProperty)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

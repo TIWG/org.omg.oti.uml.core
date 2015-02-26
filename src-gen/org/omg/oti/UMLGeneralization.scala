@@ -25,7 +25,7 @@ trait UMLGeneralization[Uml <: UML]
 	def generalization_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		directedRelationship_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLGeneralization[Uml]](None, "isSubstitutable", _.isSubstitutable)) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLGeneralization[Uml]](None, "isSubstitutable", _.isSubstitutable)) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -53,9 +53,9 @@ trait UMLGeneralization[Uml <: UML]
 	def generalization_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		directedRelationship_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLGeneralization[Uml], UMLClassifier[Uml]]("general", _.general),
-		  	MetaPropertyCollection[UMLGeneralization[Uml], UMLGeneralizationSet[Uml]]("generalizationSet", _.generalizationSet),
-		  	MetaPropertyReference[UMLGeneralization[Uml], UMLClassifier[Uml]]("specific", _.specific)) )
+		  Seq (MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]]("general", _.general),
+		  	MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]]("generalizationSet", _.generalizationSet),
+		  	MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]]("specific", _.specific)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

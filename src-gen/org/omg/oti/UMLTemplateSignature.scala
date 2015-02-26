@@ -39,7 +39,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	def templateSignature_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("ownedParameter", _.ownedParameter)) )
+		  Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("ownedParameter", _.ownedParameter)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,8 +53,8 @@ trait UMLTemplateSignature[Uml <: UML]
 	def templateSignature_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter),
-		  	MetaPropertyReference[UMLTemplateSignature[Uml], UMLTemplateableElement[Uml]]("template", _.template)) )
+		  Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter),
+		  	MetaPropertyReference[Uml, UMLTemplateSignature[Uml], UMLTemplateableElement[Uml]]("template", _.template)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

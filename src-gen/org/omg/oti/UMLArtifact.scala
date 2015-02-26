@@ -27,7 +27,7 @@ trait UMLArtifact[Uml <: UML]
 	   appendUnique(
 		deployedArtifact_metaAttributes,
 		classifier_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLArtifact[Uml]](None, "fileName", (x) => stringToIterable(x.fileName, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName", (x) => stringToIterable(x.fileName, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -42,10 +42,10 @@ trait UMLArtifact[Uml <: UML]
 	  appendUnique(
 		deployedArtifact_compositeMetaProperties,
 		classifier_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLArtifact[Uml], UMLManifestation[Uml]]("manifestation", _.manifestation),
-		  	MetaPropertyCollection[UMLArtifact[Uml], UMLArtifact[Uml]]("nestedArtifact", _.nestedArtifact),
-		  	MetaPropertyCollection[UMLArtifact[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-		  	MetaPropertyCollection[UMLArtifact[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation)) )
+		  Seq (MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]]("manifestation", _.manifestation),
+		  	MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]]("nestedArtifact", _.nestedArtifact),
+		  	MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
+		  	MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

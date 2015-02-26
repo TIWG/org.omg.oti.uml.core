@@ -41,7 +41,7 @@ trait UMLStringExpression[Uml <: UML]
 	  appendUnique(
 		templateableElement_compositeMetaProperties,
 		expression_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLStringExpression[Uml], UMLStringExpression[Uml]]("subExpression", _.subExpression)) )
+		  Seq (MetaPropertyCollection[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]]("subExpression", _.subExpression)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -56,7 +56,7 @@ trait UMLStringExpression[Uml <: UML]
 	  appendUnique(
 		templateableElement_referenceMetaProperties,
 		expression_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLStringExpression[Uml], UMLStringExpression[Uml]]("owningExpression", _.owningExpression)) )
+		  Seq (MetaPropertyReference[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]]("owningExpression", _.owningExpression)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

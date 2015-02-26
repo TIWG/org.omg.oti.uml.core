@@ -25,8 +25,8 @@ trait UMLObjectFlow[Uml <: UML]
 	def objectFlow_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		activityEdge_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLObjectFlow[Uml]](None, "isMulticast", (x) => booleanToIterable(x.isMulticast, false)),
-		  	MetaAttributeBooleanFunction[UMLObjectFlow[Uml]](None, "isMultireceive", (x) => booleanToIterable(x.isMultireceive, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMulticast", (x) => booleanToIterable(x.isMulticast, false)),
+		  	MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMultireceive", (x) => booleanToIterable(x.isMultireceive, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -54,8 +54,8 @@ trait UMLObjectFlow[Uml <: UML]
 	def objectFlow_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		activityEdge_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLObjectFlow[Uml], UMLBehavior[Uml]]("selection", _.selection),
-		  	MetaPropertyReference[UMLObjectFlow[Uml], UMLBehavior[Uml]]("transformation", _.transformation)) )
+		  Seq (MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]]("selection", _.selection),
+		  	MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]]("transformation", _.transformation)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

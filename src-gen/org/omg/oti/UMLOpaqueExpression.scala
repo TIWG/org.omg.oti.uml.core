@@ -25,8 +25,8 @@ trait UMLOpaqueExpression[Uml <: UML]
 	def opaqueExpression_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		valueSpecification_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLOpaqueExpression[Uml]](None, "body", _.body),
-		  	MetaAttributeStringFunction[UMLOpaqueExpression[Uml]](None, "language", _.language)) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "body", _.body),
+		  	MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "language", _.language)) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	def opaqueExpression_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLOpaqueExpression[Uml], UMLBehavior[Uml]]("behavior", _.behavior)) )
+		  Seq (MetaPropertyReference[Uml, UMLOpaqueExpression[Uml], UMLBehavior[Uml]]("behavior", _.behavior)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

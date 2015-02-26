@@ -41,9 +41,9 @@ trait UMLTransition[Uml <: UML]
 	  appendUnique(
 		redefinableElement_compositeMetaProperties,
 		namespace_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTransition[Uml], UMLBehavior[Uml]]("effect", _.effect),
-		  	MetaPropertyReference[UMLTransition[Uml], UMLConstraint[Uml]]("guard", _.guard),
-		  	MetaPropertyCollection[UMLTransition[Uml], UMLTrigger[Uml]]("trigger", _.trigger)) )
+		  Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]]("effect", _.effect),
+		  	MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]]("guard", _.guard),
+		  	MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]]("trigger", _.trigger)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -58,10 +58,10 @@ trait UMLTransition[Uml <: UML]
 	  appendUnique(
 		redefinableElement_referenceMetaProperties,
 		namespace_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLTransition[Uml], UMLRegion[Uml]]("container", _.container),
-		  	MetaPropertyReference[UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
-		  	MetaPropertyReference[UMLTransition[Uml], UMLVertex[Uml]]("source", _.source),
-		  	MetaPropertyReference[UMLTransition[Uml], UMLVertex[Uml]]("target", _.target)) )
+		  Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLRegion[Uml]]("container", _.container),
+		  	MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
+		  	MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("source", _.source),
+		  	MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("target", _.target)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

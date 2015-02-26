@@ -41,11 +41,11 @@ trait UMLInteraction[Uml <: UML]
 	  appendUnique(
 		interactionFragment_compositeMetaProperties,
 		behavior_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInteraction[Uml], UMLAction[Uml]]("action", _.action),
-		  	MetaPropertyCollection[UMLInteraction[Uml], UMLGate[Uml]]("formalGate", _.formalGate),
-		  	MetaPropertyCollection[UMLInteraction[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment),
-		  	MetaPropertyCollection[UMLInteraction[Uml], UMLLifeline[Uml]]("lifeline", _.lifeline),
-		  	MetaPropertyCollection[UMLInteraction[Uml], UMLMessage[Uml]]("message", _.message)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLAction[Uml]]("action", _.action),
+		  	MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLGate[Uml]]("formalGate", _.formalGate),
+		  	MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment),
+		  	MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLLifeline[Uml]]("lifeline", _.lifeline),
+		  	MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLMessage[Uml]]("message", _.message)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

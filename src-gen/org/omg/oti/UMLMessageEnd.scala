@@ -53,7 +53,7 @@ trait UMLMessageEnd[Uml <: UML]
 	def messageEnd_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLMessageEnd[Uml], UMLMessage[Uml]]("message", _.message)) )
+		  Seq (MetaPropertyReference[Uml, UMLMessageEnd[Uml], UMLMessage[Uml]]("message", _.message)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

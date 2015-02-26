@@ -25,7 +25,7 @@ trait UMLAddVariableValueAction[Uml <: UML]
 	def addVariableValueAction_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		writeVariableAction_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLAddVariableValueAction[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLAddVariableValueAction[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLAddVariableValueAction[Uml <: UML]
 	def addVariableValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		writeVariableAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLAddVariableValueAction[Uml], UMLInputPin[Uml]]("insertAt", _.insertAt)) )
+		  Seq (MetaPropertyReference[Uml, UMLAddVariableValueAction[Uml], UMLInputPin[Uml]]("insertAt", _.insertAt)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

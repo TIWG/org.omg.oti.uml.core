@@ -25,7 +25,7 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		class_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLBehavior[Uml]](None, "isReentrant", (x) => booleanToIterable(x.isReentrant, true))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant", (x) => booleanToIterable(x.isReentrant, true))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,10 +39,10 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		class_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
-		  	MetaPropertyCollection[UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet),
-		  	MetaPropertyCollection[UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-		  	MetaPropertyCollection[UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+		  	MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet),
+		  	MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+		  	MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -56,8 +56,8 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		class_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLBehavior[Uml], UMLBehavioralFeature[Uml]]("specification", _.specification),
-		  	MetaPropertyCollection[UMLBehavior[Uml], UMLBehavior[Uml]]("redefinedBehavior", _.redefinedBehavior)) )
+		  Seq (MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]]("specification", _.specification),
+		  	MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]]("redefinedBehavior", _.redefinedBehavior)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

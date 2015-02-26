@@ -39,7 +39,7 @@ trait UMLDeploymentTarget[Uml <: UML]
 	def deploymentTarget_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLDeploymentTarget[Uml], UMLDeployment[Uml]]("deployment", _.deployment)) )
+		  Seq (MetaPropertyCollection[Uml, UMLDeploymentTarget[Uml], UMLDeployment[Uml]]("deployment", _.deployment)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

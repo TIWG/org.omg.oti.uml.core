@@ -25,7 +25,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		intervalConstraint_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLTimeConstraint[Uml]](None, "firstEvent", _.firstEvent) ) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent", _.firstEvent) ) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		intervalConstraint_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTimeConstraint[Uml], UMLTimeInterval[Uml]]("specification", _.timeConstraint_specification)) )
+		  Seq (MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]]("specification", _.timeConstraint_specification)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

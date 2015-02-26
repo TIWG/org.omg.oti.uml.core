@@ -39,7 +39,7 @@ trait UMLCreateLinkAction[Uml <: UML]
 	def createLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		writeLinkAction_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]]("endData", _.endData)) )
+		  Seq (MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]]("endData", _.endData)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

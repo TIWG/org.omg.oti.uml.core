@@ -25,7 +25,7 @@ trait UMLTimeEvent[Uml <: UML]
 	def timeEvent_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		event_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLTimeEvent[Uml]](None, "isRelative", (x) => booleanToIterable(x.isRelative, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLTimeEvent[Uml]](None, "isRelative", (x) => booleanToIterable(x.isRelative, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -39,7 +39,7 @@ trait UMLTimeEvent[Uml <: UML]
 	def timeEvent_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		event_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLTimeEvent[Uml], UMLTimeExpression[Uml]]("when", _.when)) )
+		  Seq (MetaPropertyReference[Uml, UMLTimeEvent[Uml], UMLTimeExpression[Uml]]("when", _.when)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

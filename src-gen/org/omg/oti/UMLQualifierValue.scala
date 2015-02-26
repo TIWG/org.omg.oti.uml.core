@@ -53,8 +53,8 @@ trait UMLQualifierValue[Uml <: UML]
 	def qualifierValue_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		element_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLQualifierValue[Uml], UMLProperty[Uml]]("qualifier", _.qualifier),
-		  	MetaPropertyReference[UMLQualifierValue[Uml], UMLInputPin[Uml]]("value", _.value)) )
+		  Seq (MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]]("qualifier", _.qualifier),
+		  	MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLInputPin[Uml]]("value", _.value)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

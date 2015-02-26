@@ -25,7 +25,7 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		directedRelationship_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLElementImport[Uml]](None, "alias", (x) => stringToIterable(x.alias, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](None, "alias", (x) => stringToIterable(x.alias, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -53,8 +53,8 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		directedRelationship_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLElementImport[Uml], UMLPackageableElement[Uml]]("importedElement", _.importedElement),
-		  	MetaPropertyReference[UMLElementImport[Uml], UMLNamespace[Uml]]("importingNamespace", _.importingNamespace)) )
+		  Seq (MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]]("importedElement", _.importedElement),
+		  	MetaPropertyReference[Uml, UMLElementImport[Uml], UMLNamespace[Uml]]("importingNamespace", _.importingNamespace)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

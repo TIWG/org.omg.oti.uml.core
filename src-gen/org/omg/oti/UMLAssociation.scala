@@ -27,7 +27,7 @@ trait UMLAssociation[Uml <: UML]
 	   appendUnique(
 		relationship_metaAttributes,
 		classifier_metaAttributes,
-		  Seq (MetaAttributeBooleanFunction[UMLAssociation[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false))) )
+		  Seq (MetaAttributeBooleanFunction[Uml, UMLAssociation[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -42,7 +42,7 @@ trait UMLAssociation[Uml <: UML]
 	  appendUnique(
 		relationship_compositeMetaProperties,
 		classifier_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd)) )
+		  Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -57,8 +57,8 @@ trait UMLAssociation[Uml <: UML]
 	  appendUnique(
 		relationship_referenceMetaProperties,
 		classifier_referenceMetaProperties,
-		  Seq (MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd),
-		  	MetaPropertyCollection[UMLAssociation[Uml], UMLProperty[Uml]]("navigableOwnedEnd", _.navigableOwnedEnd)) )
+		  Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd),
+		  	MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("navigableOwnedEnd", _.navigableOwnedEnd)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

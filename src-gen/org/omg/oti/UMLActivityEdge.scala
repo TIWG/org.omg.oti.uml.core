@@ -39,8 +39,8 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		redefinableElement_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("guard", _.guard),
-		  	MetaPropertyReference[UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("weight", _.weight)) )
+		  Seq (MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("guard", _.guard),
+		  	MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("weight", _.weight)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,13 +54,13 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		redefinableElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLActivityEdge[Uml], UMLActivity[Uml]]("activity", _.activity),
-		  	MetaPropertyCollection[UMLActivityEdge[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-		  	MetaPropertyReference[UMLActivityEdge[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
-		  	MetaPropertyReference[UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]]("interrupts", _.interrupts),
-		  	MetaPropertyCollection[UMLActivityEdge[Uml], UMLActivityEdge[Uml]]("redefinedEdge", _.redefinedEdge),
-		  	MetaPropertyReference[UMLActivityEdge[Uml], UMLActivityNode[Uml]]("source", _.source),
-		  	MetaPropertyReference[UMLActivityEdge[Uml], UMLActivityNode[Uml]]("target", _.target)) )
+		  Seq (MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivity[Uml]]("activity", _.activity),
+		  	MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
+		  	MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
+		  	MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]]("interrupts", _.interrupts),
+		  	MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]]("redefinedEdge", _.redefinedEdge),
+		  	MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]]("source", _.source),
+		  	MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]]("target", _.target)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

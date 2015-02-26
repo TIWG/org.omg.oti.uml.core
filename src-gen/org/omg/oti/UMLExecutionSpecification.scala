@@ -53,8 +53,8 @@ trait UMLExecutionSpecification[Uml <: UML]
 	def executionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		interactionFragment_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("finish", _.finish),
-		  	MetaPropertyReference[UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("start", _.start)) )
+		  Seq (MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("finish", _.finish),
+		  	MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("start", _.start)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -41,8 +41,8 @@ trait UMLRegion[Uml <: UML]
 	  appendUnique(
 		redefinableElement_compositeMetaProperties,
 		namespace_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLRegion[Uml], UMLVertex[Uml]]("subvertex", _.subvertex),
-		  	MetaPropertyCollection[UMLRegion[Uml], UMLTransition[Uml]]("transition", _.transition)) )
+		  Seq (MetaPropertyCollection[Uml, UMLRegion[Uml], UMLVertex[Uml]]("subvertex", _.subvertex),
+		  	MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]]("transition", _.transition)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -57,9 +57,9 @@ trait UMLRegion[Uml <: UML]
 	  appendUnique(
 		redefinableElement_referenceMetaProperties,
 		namespace_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLRegion[Uml], UMLRegion[Uml]]("extendedRegion", _.extendedRegion),
-		  	MetaPropertyReference[UMLRegion[Uml], UMLState[Uml]]("state", _.state),
-		  	MetaPropertyReference[UMLRegion[Uml], UMLStateMachine[Uml]]("stateMachine", _.stateMachine)) )
+		  Seq (MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]]("extendedRegion", _.extendedRegion),
+		  	MetaPropertyReference[Uml, UMLRegion[Uml], UMLState[Uml]]("state", _.state),
+		  	MetaPropertyReference[Uml, UMLRegion[Uml], UMLStateMachine[Uml]]("stateMachine", _.stateMachine)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

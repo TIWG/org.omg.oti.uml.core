@@ -39,7 +39,7 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	def structuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]]("object", _._object)) )
+		  Seq (MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]]("object", _._object)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -53,7 +53,7 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	def structuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLStructuralFeatureAction[Uml], UMLStructuralFeature[Uml]]("structuralFeature", _.structuralFeature)) )
+		  Seq (MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLStructuralFeature[Uml]]("structuralFeature", _.structuralFeature)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

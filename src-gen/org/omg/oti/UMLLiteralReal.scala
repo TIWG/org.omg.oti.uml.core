@@ -25,7 +25,7 @@ trait UMLLiteralReal[Uml <: UML]
 	def literalReal_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		literalSpecification_metaAttributes,
-		  Seq (MetaAttributeRealFunction[UMLLiteralReal[Uml]](None, "value", (x) => realToIterable(x.value, 0.0))) )
+		  Seq (MetaAttributeRealFunction[Uml, UMLLiteralReal[Uml]](None, "value", (x) => realToIterable(x.value, 0.0))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

@@ -53,8 +53,8 @@ trait UMLInterval[Uml <: UML]
 	def interval_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		valueSpecification_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max),
-		  	MetaPropertyReference[UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)) )
+		  Seq (MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max),
+		  	MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

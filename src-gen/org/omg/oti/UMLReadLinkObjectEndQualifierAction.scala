@@ -39,8 +39,8 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	def readLinkObjectEndQualifierAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]]("object", _._object),
-		  	MetaPropertyReference[UMLReadLinkObjectEndQualifierAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]]("object", _._object),
+		  	MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	def readLinkObjectEndQualifierAction_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		action_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLReadLinkObjectEndQualifierAction[Uml], UMLProperty[Uml]]("qualifier", _.qualifier)) )
+		  Seq (MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLProperty[Uml]]("qualifier", _.qualifier)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

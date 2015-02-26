@@ -56,7 +56,7 @@ trait UMLConnectableElement[Uml <: UML]
 	  appendUnique(
 		parameterableElement_referenceMetaProperties,
 		typedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]]("templateParameter", _.connectableElement_templateParameter)) )
+		  Seq (MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]]("templateParameter", _.connectableElement_templateParameter)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

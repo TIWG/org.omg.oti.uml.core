@@ -41,8 +41,8 @@ trait UMLInteractionOperand[Uml <: UML]
 	  appendUnique(
 		interactionFragment_compositeMetaProperties,
 		namespace_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment),
-		  	MetaPropertyReference[UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]]("guard", _.guard)) )
+		  Seq (MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment),
+		  	MetaPropertyReference[Uml, UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]]("guard", _.guard)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

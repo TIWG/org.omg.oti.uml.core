@@ -39,7 +39,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	def clearStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		structuralFeatureAction_compositeMetaProperties,
-		  Seq (MetaPropertyReference[UMLClearStructuralFeatureAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
+		  Seq (MetaPropertyReference[Uml, UMLClearStructuralFeatureAction[Uml], UMLOutputPin[Uml]]("result", _.result)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

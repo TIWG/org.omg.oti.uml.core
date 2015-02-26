@@ -39,7 +39,7 @@ trait UMLSignal[Uml <: UML]
 	def signal_compositeMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		classifier_compositeMetaProperties,
-		  Seq (MetaPropertyCollection[UMLSignal[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute)) )
+		  Seq (MetaPropertyCollection[Uml, UMLSignal[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute)) )
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

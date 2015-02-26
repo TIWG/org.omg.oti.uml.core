@@ -25,8 +25,8 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_metaAttributes: MetaAttributeFunctions = 
 	   appendUnique(
 		artifact_metaAttributes,
-		  Seq (MetaAttributeStringFunction[UMLDeploymentSpecification[Uml]](None, "deploymentLocation", (x) => stringToIterable(x.deploymentLocation, null)),
-		  	MetaAttributeStringFunction[UMLDeploymentSpecification[Uml]](None, "executionLocation", (x) => stringToIterable(x.executionLocation, null))) )
+		  Seq (MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "deploymentLocation", (x) => stringToIterable(x.deploymentLocation, null)),
+		  	MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "executionLocation", (x) => stringToIterable(x.executionLocation, null))) )
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -54,7 +54,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		artifact_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLDeploymentSpecification[Uml], UMLDeployment[Uml]]("deployment", _.deployment)) )
+		  Seq (MetaPropertyReference[Uml, UMLDeploymentSpecification[Uml], UMLDeployment[Uml]]("deployment", _.deployment)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

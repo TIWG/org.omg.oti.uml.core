@@ -53,8 +53,8 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def generalOrdering_referenceMetaProperties: MetaPropertyFunctions = 
 	  appendUnique(
 		namedElement_referenceMetaProperties,
-		  Seq (MetaPropertyReference[UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("after", _.after),
-		  	MetaPropertyReference[UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("before", _.before)) )
+		  Seq (MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("after", _.after),
+		  	MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("before", _.before)) )
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
