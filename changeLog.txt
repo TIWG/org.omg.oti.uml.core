@@ -1,3 +1,10 @@
+Version 0.9.7 February 27, 2015
+
+- new query: UMLNamespace.allNamespacesWithinScope(): Set[UMLNamespace]
+- new query: UMLNamespace.forwardReferencesToNamespaces(): Try[Set[UMLNamespace]]
+- new query: UMLNamespace.forwardReferencesBeyondNamespaceScope(): Try[Set[RelationTriple]]]
+- new query: UMLPackage.allPackagesWithinScope(): Set[UMLPackage]
+
 Version 0.9.6 February 26, 2015
 
 - new query: getPackageOrProfileOwner(UMLElement): Option[UMLPackage]

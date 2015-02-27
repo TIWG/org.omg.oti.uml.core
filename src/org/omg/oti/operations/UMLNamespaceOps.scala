@@ -41,6 +41,9 @@ package org.omg.oti.operations
 
 import org.omg.oti._
 import scala.language.postfixOps
+import scala.util.Try
+import scala.util.Success
+import scala.util.Failure
 
 /**
  * In UML, a PackageImport is a relationship between a Namespace and a Package.
@@ -231,5 +234,75 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
       case Some( outer ) => allVisibleMembersTransitively ++ outer.allVisibleMembersAccessibleTransitively
     }
 
+  /**
+   * All namespaces that are owned within the reflexive transitive closure of ownership from this namespace
+   */
+  def allNamespacesWithinScope: Set[UMLNamespace[Uml]] =
+    (allOwnedElements selectByKindOf { case ns: UMLNamespace[Uml] => ns } toSet) + self
+    
+  /**
+   * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
+   * This does not include references from elements in nested packages.
+   */
+  def forwardReferencesToNamespaces: Try[Set[UMLNamespace[Uml]]] =
+    forwardReferencesBeyondNamespaceScope match {
+    case Failure( t ) => Failure( t )
+    case Success( triples ) =>
+      val ns = triples map 
+      (_.obj) flatMap
+      (_.owningNamespace)
+      Success( ns )
+  }
+
+  /**
+    * The RelationTriples characterizing the namespace boundary.
+    * The subject of each relation triple is an element inside the ownership scope of the namespace.
+    * The object of each relation triple is an element outside the ownership scope of the namespace.
+    * The property of each relation triple is either a metamodel association or a stereotype property.
+    */
+  def forwardReferencesBeyondNamespaceScope: Try[Set[RelationTriple[Uml]]] = {
+
+    val scope = self.ownedElement
+    
+    val visited = scala.collection.mutable.HashSet[UMLElement[Uml]]( self )
+
+    @annotation.tailrec def followReferencesUntilNamespaceScopeBoundary(
+      acc: Set[RelationTriple[Uml]],
+      triples: Try[Set[RelationTriple[Uml]]] ): Try[Set[RelationTriple[Uml]]] =
+      triples match {
+        case Failure( t ) => Failure( t )
+        case Success( ts ) =>
+          if ( ts.isEmpty ) Success( acc )
+          else {
+            val ( th, tr: Set[RelationTriple[Uml]] ) = ( ts.head, ts.tail )
+            if ( visited.contains( th.obj ) )
+              followReferencesUntilNamespaceScopeBoundary(
+                acc,
+                Success( tr ) )
+            else {
+              visited += th.sub
+              if ( scope.contains( th.obj ) )
+                th.obj.forwardRelationTriples match {
+                  case Failure( t ) => Failure( t )
+                  case Success( nextTriples: Set[RelationTriple[Uml]] ) =>
+                    followReferencesUntilNamespaceScopeBoundary(
+                      acc,
+                      Success( nextTriples ++ tr ) )
+                }
+              else
+                followReferencesUntilNamespaceScopeBoundary(
+                  acc + th,
+                  Success( tr ) )
+            }
+          }
+      }
+
+    val triples0: Try[Set[RelationTriple[Uml]]] = Success( Set() )
+    val triplesN: Try[Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
+      case ( Failure( t ), _ )   => Failure( t )
+      case ( Success( acc ), e ) => followReferencesUntilNamespaceScopeBoundary( acc, e.forwardRelationTriples )
+    }
+    triplesN
+  }
   // [/protected]
 }

@@ -271,7 +271,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     allOwnedElementsWithinPackageScopeAggregator( Set(), List( this ) ) - this
   }
-
+  
   /**
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */

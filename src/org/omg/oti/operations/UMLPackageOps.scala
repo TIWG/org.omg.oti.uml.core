@@ -64,6 +64,17 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def allNestedPackages: Set[UMLPackage[Uml]] = closure( self, ( ( p: UMLPackage[Uml] ) => p.nestedPackage ) )
 
   /**
+   * All packages that are owned within the reflexive transitive closure of ownership from this package
+   * 
+   * Note: allNestedPackages should always be a proper subset of allPackagesWithinScope.
+   * The difference, allPackagesWithinScope - allNestedPackages, is precisely:
+   * - the package itself
+   * - all packages directly or indireclty owned by any component in the ownership scope of the package itself
+   */
+  def allPackagesWithinScope: Set[UMLPackage[Uml]] =
+    (allOwnedElements selectByKindOf { case p: UMLPackage[Uml] => p } toSet) + self
+    
+  /**
    * The reflexive transitive closure of the owning package of a package.
    */
   def allNestingPackagesTransitively: Set[UMLPackage[Uml]] =
@@ -217,6 +228,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       Success( ps )
   }
 
+  /**
+    * The RelationTriples characterizing the package boundary.
+    * The subject of each relation triple is an element inside the ownership scope of the package.
+    * The object of each relation triple is an element outside the ownership scope of the package.
+    * The property of each relation triple is either a metamodel association or a stereotype property.
+    */
   def forwardReferencesBeyondPackageScope: Try[Set[RelationTriple[Uml]]] = {
 
     val scope = self.allOwnedElementsWithinPackageScope
