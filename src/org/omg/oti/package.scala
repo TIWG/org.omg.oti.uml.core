@@ -79,7 +79,7 @@ package object oti {
     override def toString: String = {
       val attributeQName = attributePrefix match {
         case None       => attributeName
-        case Some( ns ) => ns + ":" + attributeName
+        case Some( ns ) => ns+":"+attributeName
       }
       s"MetaAttribute(${attributeQName} on ${UType.getClass.getName})"
     }
@@ -321,5 +321,74 @@ package object oti {
             case ( None, None )      => None
           }
     }
+
+  import operations._
+
+  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]]( source: T, targets: Set[T], next: Function1[T, Set[T]] ): Set[Seq[( T, T )]] = {
+
+    val paths = scala.collection.mutable.HashSet[Seq[( T, T )]]()
+
+    def growPath( candidate: Seq[( T, T )] ): Set[Seq[( T, T )]] = {
+      val t1 = candidate.last._2
+      for {
+        t2 <- next( t1 )
+        path = candidate :+ ( t1, t2 )
+        follow <- if ( targets.contains( t2 ) ) { paths += path; None } else Some( path )
+      } yield follow
+    }
+
+    def growPaths( candidates: Set[Seq[( T, T )]] ): Set[Seq[( T, T )]] = {
+      val followCandidates = for {
+        candidate <- candidates
+        follow <- growPath( candidate )
+      } yield follow
+      if ( followCandidates.isEmpty ) paths.toSet
+      else growPaths( followCandidates )
+    }
+
+    growPaths( next( source ) map ( ( n ) => Seq( ( source, n ) ) ) )
+  }
+
+  def getSpecializedStereotypes[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    s.general_classifier.selectByKindOf( { case s: UMLStereotype[Uml] => s } )
+  }
+
+  def getSpecializedStereotypesOutsideProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    getSpecializedStereotypes( s ).filter( ( s1 ) => s1.profile != s.profile )
+  }
+
+  def getSpecializedStereotypesWithinProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    getSpecializedStereotypes( s ).filter( ( s1 ) => s1.profile == s.profile )
+  }
+
+  def getAllSpecializedStereotypes[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    closure[UMLStereotype[Uml], UMLStereotype[Uml]]( s, ( getSpecializedStereotypes( _ ) + s ) )
+  }
+
+  def getAllSpecializedStereotypesWithinProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    closure[UMLStereotype[Uml], UMLStereotype[Uml]]( s, ( getSpecializedStereotypesWithinProfile( _ ) + s ) )
+  }
+
+  def getSpecializedStereotypesFromOtherProfiles[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] =
+    s.profile match {
+      case None => Set()
+      case Some( pf ) =>
+        import ops._
+        getAllSpecializedStereotypesWithinProfile( s ).flatMap( getSpecializedStereotypesOutsideProfile( _ ) )
+    }
+
+  def oclIsTypeOfPackage[Uml <: UML]( e: UMLElement[Uml] ): Boolean =
+    e match {
+      case _: UMLProfile[Uml] => false
+      case _: UMLModel[Uml]   => false
+      case _: UMLPackage[Uml] => true
+      case _                  => false
+    }
+
 }
 

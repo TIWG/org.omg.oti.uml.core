@@ -120,7 +120,35 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 
 	// Start of user code for additional features
 
+  /**
+   * @return Either:
+   * None if there is no slot whose defining has the featureName
+   * Some( vs ) where vs is the iterable of values for the slot whose defining feature is named featureName
+   */
+  def getValuesOfFeatureSlot( featureName: String ): Option[Iterable[UMLValueSpecification[Uml]]] = {
+    ( for {
+      slot <- self.slot
+      f <- slot.definingFeature
+      fName <- f.name
+      if ( fName == featureName )
+    } yield slot ) toList match {
+      case Nil => None
+      case s :: sx =>
+        require( sx == Nil )
+        Some( s.value )
+    }
+  }
 
+  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+    instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
+
+  def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+    owner match {
+    case None => Set()
+    case Some( p: UMLPackage[Uml] ) => Set( p )
+    case Some( e ) => e.asForwardReferencesToImportableOuterPackageableElements
+  }
+  
 	// End of user code
 
 } //UMLInstanceSpecification
