@@ -74,6 +74,8 @@ class EarlyInit[T: TypeTag] {
  * <!-- begin-model-doc --> 
  * The UML 2.5 metamodel
  * <!-- end-model-doc --> 
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
  */
 trait UMLOps[Uml <: UML] { self =>
 
