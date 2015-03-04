@@ -70,6 +70,11 @@ class EarlyInit[T: TypeTag] {
 }
 // End of user code
 
+/**
+ * <!-- begin-model-doc --> 
+ * The UML 2.5 metamodel
+ * <!-- end-model-doc --> 
+ */
 trait UMLOps[Uml <: UML] { self =>
 
 	implicit val ABSTRACTION: TypeTag[Uml#Abstraction] 

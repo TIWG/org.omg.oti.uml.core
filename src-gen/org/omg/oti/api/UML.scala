@@ -39,6 +39,11 @@
  */
 package org.omg.oti.api
 
+/**
+ * <!-- begin-model-doc --> 
+ * The UML 2.5 metamodel
+ * <!-- end-model-doc --> 
+ */
 trait UML {
 
 	type Abstraction <: Dependency
