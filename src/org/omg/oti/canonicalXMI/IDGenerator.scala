@@ -47,7 +47,7 @@ import scala.language.postfixOps
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
-import org.omg.oti._
+import org.omg.oti.api._
 import org.omg.oti.operations._
 
 trait IDGenerator[Uml <: UML] { 

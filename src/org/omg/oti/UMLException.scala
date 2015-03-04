@@ -39,6 +39,8 @@
  */
 package org.omg.oti
 
+import org.omg.oti.api._
+
 trait UMLException[Uml <: UML] extends Exception
 
 case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]](message: String, val element: Iterable[E]) extends Exception(message) with UMLException[Uml]

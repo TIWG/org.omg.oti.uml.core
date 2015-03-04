@@ -37,9 +37,10 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti
+package org.omg.oti.api
 
 trait UML {
+
 	type Abstraction <: Dependency
 	type AcceptCallAction <: AcceptEventAction
 	type AcceptEventAction <: Action
@@ -62,7 +63,7 @@ trait UML {
 	type AssociationClass <: Association with Class
 	type Behavior <: Class
 	type BehaviorExecutionSpecification <: ExecutionSpecification
-	type BehavioralFeature <: Namespace with Feature
+	type BehavioralFeature <: Feature with Namespace
 	type BehavioredClassifier <: Classifier
 	type BroadcastSignalAction <: InvocationAction
 	type CallAction <: InvocationAction
@@ -71,14 +72,14 @@ trait UML {
 	type CallOperationAction <: CallAction
 	type CentralBufferNode <: ObjectNode
 	type ChangeEvent <: Event
-	type Class <: EncapsulatedClassifier with BehavioredClassifier
-	type Classifier <: Type with TemplateableElement with RedefinableElement with Namespace
+	type Class <: BehavioredClassifier with EncapsulatedClassifier
+	type Classifier <: Namespace with RedefinableElement with TemplateableElement with Type
 	type ClassifierTemplateParameter <: TemplateParameter
 	type Clause <: Element
 	type ClearAssociationAction <: Action
 	type ClearStructuralFeatureAction <: StructuralFeatureAction
 	type ClearVariableAction <: VariableAction
-	type Collaboration <: StructuredClassifier with BehavioredClassifier
+	type Collaboration <: BehavioredClassifier with StructuredClassifier
 	type CollaborationUse <: NamedElement
 	type CombinedFragment <: InteractionFragment
 	type Comment <: Element
@@ -86,7 +87,7 @@ trait UML {
 	type Component <: Class
 	type ComponentRealization <: Realization
 	type ConditionalNode <: StructuredActivityNode
-	type ConnectableElement <: TypedElement with ParameterableElement
+	type ConnectableElement <: ParameterableElement with TypedElement
 	type ConnectableElementTemplateParameter <: TemplateParameter
 	type ConnectionPointReference <: Vertex
 	type Connector <: Feature
@@ -130,7 +131,7 @@ trait UML {
 	type ExpansionNode <: ObjectNode
 	type ExpansionRegion <: StructuredActivityNode
 	type Expression <: ValueSpecification
-	type Extend <: NamedElement with DirectedRelationship
+	type Extend <: DirectedRelationship with NamedElement
 	type Extension <: Association
 	type ExtensionEnd <: Property
 	type ExtensionPoint <: RedefinableElement
@@ -145,17 +146,17 @@ trait UML {
 	type Generalization <: DirectedRelationship
 	type GeneralizationSet <: PackageableElement
 	type Image <: Element
-	type Include <: NamedElement with DirectedRelationship
+	type Include <: DirectedRelationship with NamedElement
 	type InformationFlow <: DirectedRelationship with PackageableElement
 	type InformationItem <: Classifier
 	type InitialNode <: ControlNode
 	type InputPin <: Pin
-	type InstanceSpecification <: DeploymentTarget with DeployedArtifact with PackageableElement
+	type InstanceSpecification <: DeployedArtifact with DeploymentTarget with PackageableElement
 	type InstanceValue <: ValueSpecification
-	type Interaction <: InteractionFragment with Behavior
+	type Interaction <: Behavior with InteractionFragment
 	type InteractionConstraint <: Constraint
 	type InteractionFragment <: NamedElement
-	type InteractionOperand <: Namespace with InteractionFragment
+	type InteractionOperand <: InteractionFragment with Namespace
 	type InteractionUse <: InteractionFragment
 	type Interface <: Classifier
 	type InterfaceRealization <: Realization
@@ -182,12 +183,12 @@ trait UML {
 	type Message <: NamedElement
 	type MessageEnd <: NamedElement
 	type MessageEvent <: Event
-	type MessageOccurrenceSpecification <: OccurrenceSpecification with MessageEnd
+	type MessageOccurrenceSpecification <: MessageEnd with OccurrenceSpecification
 	type Model <: Package
 	type MultiplicityElement <: Element
 	type NamedElement <: Element
 	type Namespace <: NamedElement
-	type Node <: DeploymentTarget with Class
+	type Node <: Class with DeploymentTarget
 	type ObjectFlow <: ActivityEdge
 	type ObjectNode <: ActivityNode with TypedElement
 	type Observation <: PackageableElement
@@ -195,23 +196,23 @@ trait UML {
 	type OpaqueAction <: Action
 	type OpaqueBehavior <: Behavior
 	type OpaqueExpression <: ValueSpecification
-	type Operation <: BehavioralFeature with TemplateableElement with ParameterableElement
+	type Operation <: BehavioralFeature with ParameterableElement with TemplateableElement
 	type OperationTemplateParameter <: TemplateParameter
 	type OutputPin <: Pin
-	type Package <: TemplateableElement with Namespace with PackageableElement
+	type Package <: Namespace with PackageableElement with TemplateableElement
 	type PackageImport <: DirectedRelationship
 	type PackageMerge <: DirectedRelationship
 	type PackageableElement <: NamedElement with ParameterableElement
-	type Parameter <: MultiplicityElement with ConnectableElement
+	type Parameter <: ConnectableElement with MultiplicityElement
 	type ParameterSet <: NamedElement
 	type ParameterableElement <: Element
 	type PartDecomposition <: InteractionUse
-	type Pin <: ObjectNode with MultiplicityElement
+	type Pin <: MultiplicityElement with ObjectNode
 	type Port <: Property
 	type PrimitiveType <: DataType
 	type Profile <: Package
 	type ProfileApplication <: DirectedRelationship
-	type Property <: DeploymentTarget with StructuralFeature with ConnectableElement
+	type Property <: ConnectableElement with DeploymentTarget with StructuralFeature
 	type ProtocolConformance <: DirectedRelationship
 	type ProtocolStateMachine <: StateMachine
 	type ProtocolTransition <: Transition
@@ -232,7 +233,7 @@ trait UML {
 	type RedefinableElement <: NamedElement
 	type RedefinableTemplateSignature <: RedefinableElement with TemplateSignature
 	type ReduceAction <: Action
-	type Region <: RedefinableElement with Namespace
+	type Region <: Namespace with RedefinableElement
 	type Relationship <: Element
 	type RemoveStructuralFeatureValueAction <: WriteStructuralFeatureAction
 	type RemoveVariableValueAction <: WriteVariableAction
@@ -245,14 +246,14 @@ trait UML {
 	type Slot <: Element
 	type StartClassifierBehaviorAction <: Action
 	type StartObjectBehaviorAction <: CallAction
-	type State <: RedefinableElement with Vertex with Namespace
+	type State <: Namespace with RedefinableElement with Vertex
 	type StateInvariant <: InteractionFragment
 	type StateMachine <: Behavior
 	type Stereotype <: Class
 	type StringExpression <: Expression with TemplateableElement
-	type StructuralFeature <: TypedElement with MultiplicityElement with Feature
+	type StructuralFeature <: Feature with MultiplicityElement with TypedElement
 	type StructuralFeatureAction <: Action
-	type StructuredActivityNode <: ActivityGroup with Namespace with Action
+	type StructuredActivityNode <: Action with ActivityGroup with Namespace
 	type StructuredClassifier <: Classifier
 	type Substitution <: Realization
 	type TemplateBinding <: DirectedRelationship
@@ -266,7 +267,7 @@ trait UML {
 	type TimeExpression <: ValueSpecification
 	type TimeInterval <: Interval
 	type TimeObservation <: Observation
-	type Transition <: RedefinableElement with Namespace
+	type Transition <: Namespace with RedefinableElement
 	type Trigger <: NamedElement
 	type Type <: PackageableElement
 	type TypedElement <: NamedElement
@@ -274,12 +275,13 @@ trait UML {
 	type Usage <: Dependency
 	type UseCase <: BehavioredClassifier
 	type ValuePin <: InputPin
-	type ValueSpecification <: TypedElement with PackageableElement
+	type ValueSpecification <: PackageableElement with TypedElement
 	type ValueSpecificationAction <: Action
-	type Variable <: MultiplicityElement with ConnectableElement
+	type Variable <: ConnectableElement with MultiplicityElement
 	type VariableAction <: Action
 	type Vertex <: NamedElement
 	type WriteLinkAction <: LinkAction
 	type WriteStructuralFeatureAction <: StructuralFeatureAction
 	type WriteVariableAction <: VariableAction
+
 }

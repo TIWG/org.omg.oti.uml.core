@@ -39,7 +39,7 @@
  */
 package org.omg.oti.validation
 
-import org.omg.oti._
+import org.omg.oti.api._
 import org.omg.oti.operations._
 
 /**

@@ -39,7 +39,7 @@
  */
 package org.omg.oti.canonicalXMI
 
-import org.omg.oti._
+import org.omg.oti.api._
 import org.omg.oti.operations._
 import scala.annotation.tailrec
 import scala.language.higherKinds
@@ -47,7 +47,6 @@ import scala.language.implicitConversions
 import scala.language.postfixOps
 import scala.reflect.runtime.universe
 import scala.reflect.runtime.universe._
-import org.omg.oti._
 import scala.util.Try
 import scala.util.Failure
 import scala.util.Success

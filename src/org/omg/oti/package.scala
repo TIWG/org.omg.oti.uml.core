@@ -39,6 +39,7 @@
  */
 package org.omg
 
+import org.omg.oti.api._
 import scala.language.existentials
 import scala.reflect.runtime.universe._
 import scala.reflect.{ classTag, ClassTag }

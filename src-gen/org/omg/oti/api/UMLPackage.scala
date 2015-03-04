@@ -1,0 +1,224 @@
+/*
+ *
+ *  License Terms
+ *
+ *  Copyright (c) 2015, California Institute of Technology ("Caltech").
+ *  U.S. Government sponsorship acknowledged.
+ *
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are
+ *  met:
+ *
+ *
+ *   *   Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *
+ *   *   Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the
+ *       distribution.
+ *
+ *   *   Neither the name of Caltech nor its operating division, the Jet
+ *       Propulsion Laboratory, nor the names of its contributors may be
+ *       used to endorse or promote products derived from this software
+ *       without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ *  IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ *  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ *  PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+ *  OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package org.omg.oti.api
+
+// Start of user code for imports
+import org.omg.oti._
+import org.omg.oti.operations._
+// End of user code
+
+/**
+ * <!-- begin-model-doc --> 
+ * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.
+Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.
+A package is used to group elements, and provides a namespace for the grouped elements.
+ * <!-- end-model-doc --> 
+ */
+trait UMLPackage[Uml <: UML]
+	extends UMLNamespace[Uml]
+	with UMLPackageableElement[Uml]
+	with UMLTemplateableElement[Uml]
+	with UMLPackageOps[Uml] {
+	
+	import ops._
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * Provides an identifier for the package that can be used for many purposes. A URI is the universally unique identification of the package following the IETF URI specification, RFC 2396 http://www.ietf.org/rfc/rfc2396.txt and it must comply with those syntax rules.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 */
+	def URI: Option[String]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the packaged elements that are Packages.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLPackage.nestingPackage
+	 */
+	def nestedPackage: Set[UMLPackage[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the Package that owns this Package.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
+	 */
+	def nestingPackage: Option[UMLPackage[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the Stereotypes that are owned by the Package.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLStereotype.ownedStereotype_owningPackage
+	 */
+	def ownedStereotype: Set[UMLStereotype[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the packaged elements that are Types.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLType._package
+	 */
+	def ownedType: Set[UMLType[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the PackageMerges that are owned by this Package.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLPackageMerge.receivingPackage
+	 */
+	def packageMerge: Set[UMLPackageMerge[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * Specifies the packageable elements that are owned by this Package.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLPackageableElement.packagedElement_owningPackage
+	 */
+	def packagedElement: Set[UMLPackageableElement[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * References the ProfileApplications that indicate which profiles have been applied to the Package.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLProfileApplication.applyingPackage
+	 */
+	def profileApplication: Set[UMLProfileApplication[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLPackageImport.importedPackage
+	 */
+	def importedPackage_packageImport: Set[UMLPackageImport[Uml]]
+
+	/**
+	 * <!-- begin-model-doc -->
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLPackageMerge.mergedPackage
+	 */
+	def mergedPackage_packageMerge: Set[UMLPackageMerge[Uml]]
+
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		package_metaAttributes
+
+	/**
+	 * The XMI meta-attributes relevant to class UMLPackage
+	 */
+	def package_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namespace_metaAttributes,
+			packageableElement_metaAttributes,
+			templateableElement_metaAttributes,
+			Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", _.URI)))
+
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		package_compositeMetaProperties
+
+	/**
+	 * The XMI composite meta-properties relevant to class UMLPackage
+	 */
+	def package_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namespace_compositeMetaProperties,
+			packageableElement_compositeMetaProperties,
+			templateableElement_compositeMetaProperties,
+			Seq (MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]]("packageMerge", _.packageMerge),
+				MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageableElement[Uml]]("packagedElement", _.packagedElement),
+				MetaPropertyCollection[Uml, UMLPackage[Uml], UMLProfileApplication[Uml]]("profileApplication", _.profileApplication)))
+
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		package_referenceMetaProperties
+
+	/**
+	 * The XMI reference meta-properties relevant to class UMLPackage
+	 */
+	def package_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namespace_referenceMetaProperties,
+			packageableElement_referenceMetaProperties,
+			templateableElement_referenceMetaProperties,
+			Seq (MetaPropertyReference[Uml, UMLPackage[Uml], UMLPackage[Uml]]("nestingPackage", _.nestingPackage)))
+
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		package_forwardReferencesFromMetamodelAssociations
+
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLPackage
+	 */
+	def package_forwardReferencesFromMetamodelAssociations: Elements =
+		namespace_forwardReferencesFromMetamodelAssociations ++
+		packageableElement_forwardReferencesFromMetamodelAssociations ++
+		templateableElement_forwardReferencesFromMetamodelAssociations ++
+		nestingPackage 
+
+} //UMLPackage
