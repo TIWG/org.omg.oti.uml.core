@@ -503,17 +503,17 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
           val thatNavigableOwnedEnd = that.navigableOwnedEnd_association.isDefined
       
           //System.out.println(s"p ${e.qualifiedName.get} opposite: ${opposite.qualifiedName.get}")
-          System.out.println(s" thisAssociationOwned=${thisAssociationOwned}")
-          System.out.println(s" thisComposite=${thisComposite}")
-          System.out.println(s" thisNavigableOwnedEnd=${thisNavigableOwnedEnd}")
+//          System.out.println(s" thisAssociationOwned=${thisAssociationOwned}")
+//          System.out.println(s" thisComposite=${thisComposite}")
+//          System.out.println(s" thisNavigableOwnedEnd=${thisNavigableOwnedEnd}")
       
-          System.out.println(s" thatAssociationOwned=${thatAssociationOwned}")
-          System.out.println(s" thatComposite=${thatComposite}")
-          System.out.println(s" thatNavigableOwnedEnd=${thatNavigableOwnedEnd}")
+//          System.out.println(s" thatAssociationOwned=${thatAssociationOwned}")
+//          System.out.println(s" thatComposite=${thatComposite}")
+//          System.out.println(s" thatNavigableOwnedEnd=${thatNavigableOwnedEnd}")
           val case1 = (! thisAssociationOwned && thatAssociationOwned )
           val case2 = ( thisAssociationOwned == thatAssociationOwned && thisComposite && ! thatComposite )
           val case3 = ( thisAssociationOwned && thatAssociationOwned && thisNavigableOwnedEnd && !thatNavigableOwnedEnd )
-          System.out.println(s" case1=${case1} case2=${case2} case3=${case3}")
+//          System.out.println(s" case1=${case1} case2=${case2} case3=${case3}")
           case1 || case2 || case3
       }
   }
