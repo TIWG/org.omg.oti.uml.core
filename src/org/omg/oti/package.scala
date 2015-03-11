@@ -349,6 +349,39 @@ package object oti {
     growPaths( next( source ) map ( ( n ) => Seq( ( source, n ) ) ) )
   }
 
+  def getGeneralStereotypes[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    s.general.selectByKindOf( { case s: UMLStereotype[Uml] => s } )
+  }
+  
+  def getGeneralStereotypesOutsideProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    getGeneralStereotypes( s ).filter( ( s1 ) => s1.profile != s.profile )
+  }
+
+  def getGeneralStereotypesWithinProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    getGeneralStereotypes( s ).filter( ( s1 ) => s1.profile == s.profile )
+  }
+
+  def getAllGeneralStereotypes[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    closure[UMLStereotype[Uml], UMLStereotype[Uml]]( s, ( getGeneralStereotypes( _ ) + s ) )
+  }
+
+  def getAllGeneralStereotypesWithinProfile[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
+    import ops._
+    closure[UMLStereotype[Uml], UMLStereotype[Uml]]( s, ( getGeneralStereotypesWithinProfile( _ ) + s ) )
+  }
+
+  def getGeneralStereotypesFromOtherProfiles[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] =
+    s.profile match {
+      case None => Set()
+      case Some( pf ) =>
+        import ops._
+        getAllGeneralStereotypesWithinProfile( s ).flatMap( getGeneralStereotypesOutsideProfile( _ ) )
+    }
+
   def getSpecializedStereotypes[Uml <: UML]( s: UMLStereotype[Uml] )( implicit ops: UMLOps[Uml] ): Set[UMLStereotype[Uml]] = {
     import ops._
     s.general_classifier.selectByKindOf( { case s: UMLStereotype[Uml] => s } )

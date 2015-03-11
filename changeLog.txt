@@ -1,3 +1,13 @@
+Version 0.10.1 March 4, 2015
+
+- new query: getGeneralStereotypes(UMLStereotype)
+- new query: getGeneralStereotypesOutsideProfile(UMLStereotype)
+- new query: getGeneralStereotypesWithinProfile(UMLStereotype)
+- new query: getAllGeneralStereotypes(UMLStereotype)
+- new query: getAllGeneralStereotypesWithinProfile(UMLStereotype)
+- new query: getGeneralStereotypesFromOtherProfiles(UMLStereotype)
+- new query: UMLElement.getAppliedStereotypesWithoutMetaclassProperties
+
 Version 0.10.0 March 4, 2015
 
 Full code generation.

@@ -404,7 +404,12 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
    */
   def getAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]]
-
+      
+  /**
+   * Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.
+   */
+  def getAppliedStereotypesWithoutMetaclassProperties: Set[UMLStereotype[Uml]]
+    
   def isAncestorOf( other: UMLElement[Uml] ): Boolean
   
   // End of user code
