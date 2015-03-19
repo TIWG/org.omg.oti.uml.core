@@ -137,6 +137,71 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	}
 
 	// Start of user code for additional features
+  
+  /**
+   * PSCS 2015-02-18, 8.5.1.2.4 CS_DefaultConstructStrategy
+   * [13] public isArrayPattern(c:Connector) : Boolean
+   *  // This is an array pattern if:
+   *  // - c is typed by an association FIXME this may no longer be required in UML 2.5
+   *  // - c is binary
+   *  // - lower bound of the two connector ends is 1
+   *  // - Cardinality of ends are equals
+   *  if (c.end.size() == 2) {
+   *    if (c.end.get(0).role.actualConnectableElement.multiplicityElement.lower == 1) {
+   *      if (c.end.get(1).role.actualConnectableElement.multiplicityElement.lower == 1) {
+   *        if (this.canInstantiate(c.end.get(0).role.actualConnectableElement) &&
+   *            this.canInstantiate(c.end.get(1).role.actualConnectableElement)) {
+   *            int cardinality1 = this.getCardinality(c.end.get(0)) ;
+   *            int cardinality2 = this.getCardinality(c.end.get(1)) ;
+   *            return cardinality1 == cardinality2 ;
+   *        }
+   *      }
+   *    }
+   *  }
+   *  return false ;
+   */
+  def pscs_isArrayPattern: Boolean =
+    end.toList match {
+    case (r1: UMLProperty[Uml]) :: (r2: UMLProperty[Uml]) :: Nil =>
+      1 == r1.lower && r1.pscs_canInstantiate &&
+      1 == r2.lower && r2.pscs_canInstantiate &&
+      r1.pscs_getCardinality == r2.pscs_getCardinality
+    case _ =>
+      false
+  }
+  
+  /**
+   * PSCS 2015-02-18, 8.5.1.2.4 CS_DefaultConstructStrategy
+   * [14] public isStarPattern(c:Connector) : Boolean
+   *  // This is a star pattern if:
+   *  // - c is binary
+   *  // - lower bound of end1 equals cardinality of end1
+   *  // - lower bound of end2 equals cardinality of end2
+   *  if (c.end.size() == 2) {
+   *    if (this.canInstantiate(c.end.get(0).role.actualConnectableElement) &&
+   *        this.canInstantiate(c.end.get(1).role.actualConnectableElement)) {
+   *        int cardinalityOfEnd1 = this.getCardinality(c.end.get(0)) ;
+   *        int lowerBoundofEnd1 = c.end.get(0).role.actualConnectableElement.multiplicityElement.lower ;
+   *        if (cardinalityOfEnd1 == lowerBoundofEnd1) {
+   *          int cardinalityOfEnd2 = this.getCardinality(c.end.get(1)) ;
+   *          int lowerBoundofEnd2 = c.end.get(1).role.actualConnectableElement.multiplicityElement.lower ;
+   *          return cardinalityOfEnd2 == lowerBoundofEnd2 ;
+   *        }
+   *    }
+   *  }
+   *  return false ;
+   */
+  def pscs_isStarPattern: Boolean =
+    end.toList match {
+    case (r1: UMLProperty[Uml]) :: (r2: UMLProperty[Uml]) :: Nil =>
+      r1.pscs_canInstantiate &&
+      r2.pscs_canInstantiate &&
+      r1.pscs_getCardinality == Option.apply(r1.lower) &&
+      r2.pscs_getCardinality == Option.apply(r2.lower)
+    case _ =>
+      false
+  }    
+  
 	// End of user code
 
 } //UMLConnector

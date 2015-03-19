@@ -77,7 +77,7 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 */
 	def part: Set[UMLProperty[Uml]] = {
 	    // Start of user code for "part"
-	    ???
+	    ownedAttribute.filter(_.isComposite).toSet
 	    // End of user code
 	}
 
@@ -91,7 +91,7 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 */
 	def allRoles: Set[UMLConnectableElement[Uml]]  = {
     	// Start of user code for "allRoles"
-    	???
+    	allFeatures.selectByKindOf { case c: UMLConnectableElement[Uml] => c }
     	// End of user code
 	}
 

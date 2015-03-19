@@ -297,7 +297,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 */
 	def allFeatures: Set[UMLFeature[Uml]]  = {
     	// Start of user code for "allFeatures"
-    	???
+    	member.selectByKindOf { case f: UMLFeature[Uml] => f }
     	// End of user code
 	}
 
