@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InputPin is a Pin that holds input values to be consumed by an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInputPin[Uml <: UML]
 	extends UMLPin[Uml]

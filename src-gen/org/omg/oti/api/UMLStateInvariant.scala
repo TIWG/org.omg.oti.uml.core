@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLStateInvariant[Uml <: UML]
 	extends UMLInteractionFragment[Uml]

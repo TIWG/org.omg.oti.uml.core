@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OccurrenceSpecification is the basic semantic unit of Interactions. The sequences of occurrences specified by them are the meanings of Interactions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLOccurrenceSpecification[Uml <: UML]
 	extends UMLInteractionFragment[Uml]

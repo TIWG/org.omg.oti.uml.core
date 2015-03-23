@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityNode[Uml <: UML]
 	extends UMLRedefinableElement[Uml]

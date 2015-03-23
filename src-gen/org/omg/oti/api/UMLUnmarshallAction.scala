@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLUnmarshallAction[Uml <: UML]
 	extends UMLAction[Uml]

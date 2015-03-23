@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InstanceValue is a ValueSpecification that identifies an instance.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInstanceValue[Uml <: UML]
 	extends UMLValueSpecification[Uml]

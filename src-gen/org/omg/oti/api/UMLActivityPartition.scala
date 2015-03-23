@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityPartition is a kind of ActivityGroup for identifying ActivityNodes that have some characteristic in common.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityPartition[Uml <: UML]
 	extends UMLActivityGroup[Uml]

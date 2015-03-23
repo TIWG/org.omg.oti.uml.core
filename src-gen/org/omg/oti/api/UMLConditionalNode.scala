@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConditionalNode is a StructuredActivityNode that chooses one among some number of alternative collections of ExecutableNodes to execute.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConditionalNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]

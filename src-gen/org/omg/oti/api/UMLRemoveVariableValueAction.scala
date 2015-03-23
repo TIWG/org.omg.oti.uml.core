@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RemoveVariableValueAction is a WriteVariableAction that removes values from a Variables.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLRemoveVariableValueAction[Uml <: UML]
 	extends UMLWriteVariableAction[Uml]

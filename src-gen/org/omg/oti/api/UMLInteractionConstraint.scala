@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InteractionConstraint is a Boolean expression that guards an operand in a CombinedFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInteractionConstraint[Uml <: UML]
 	extends UMLConstraint[Uml]

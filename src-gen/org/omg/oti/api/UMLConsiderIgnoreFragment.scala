@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConsiderIgnoreFragment is a kind of CombinedFragment that is used for the consider and ignore cases, which require lists of pertinent Messages to be specified.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConsiderIgnoreFragment[Uml <: UML]
 	extends UMLCombinedFragment[Uml]

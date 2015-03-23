@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityParameterNode is an ObjectNode for accepting values from the input Parameters or providing values to the output Parameters of an Activity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityParameterNode[Uml <: UML]
 	extends UMLObjectNode[Uml]

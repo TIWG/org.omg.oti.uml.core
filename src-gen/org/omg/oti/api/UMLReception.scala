@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Reception is a declaration stating that a Classifier is prepared to react to the receipt of a Signal.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReception[Uml <: UML]
 	extends UMLBehavioralFeature[Uml]

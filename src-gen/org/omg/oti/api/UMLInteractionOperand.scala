@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InteractionOperand is contained in a CombinedFragment. An InteractionOperand represents one operand of the expression given by the enclosing CombinedFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInteractionOperand[Uml <: UML]
 	extends UMLInteractionFragment[Uml]

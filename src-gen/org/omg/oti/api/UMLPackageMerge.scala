@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A package merge defines how the contents of one package are extended by the contents of another package.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPackageMerge[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

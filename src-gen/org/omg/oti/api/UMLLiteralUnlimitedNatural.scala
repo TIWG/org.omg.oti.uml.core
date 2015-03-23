@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLiteralUnlimitedNatural[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]

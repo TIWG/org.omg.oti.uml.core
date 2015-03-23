@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * StructuredClassifiers may contain an internal structure of connected elements each of which plays a role in the overall Behavior modeled by the StructuredClassifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLStructuredClassifier[Uml <: UML]
 	extends UMLClassifier[Uml]

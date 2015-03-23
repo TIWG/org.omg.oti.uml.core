@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OutputPin is a Pin that holds output values produced by an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLOutputPin[Uml <: UML]
 	extends UMLPin[Uml]

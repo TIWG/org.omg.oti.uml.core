@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Actor specifies a role played by a user or any other system that interacts with the subject.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActor[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]

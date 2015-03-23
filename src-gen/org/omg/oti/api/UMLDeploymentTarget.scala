@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A deployment target is the location for a deployed artifact.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDeploymentTarget[Uml <: UML]
 	extends UMLNamedElement[Uml]

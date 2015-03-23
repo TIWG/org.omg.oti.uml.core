@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeInterval defines the range between two TimeExpressions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTimeInterval[Uml <: UML]
 	extends UMLInterval[Uml]

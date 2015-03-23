@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Node is computational resource upon which artifacts may be deployed for execution. Nodes can be interconnected through communication paths to define network structures.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLNode[Uml <: UML]
 	extends UMLClass[Uml]

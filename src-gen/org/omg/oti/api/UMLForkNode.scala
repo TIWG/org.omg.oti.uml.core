@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ForkNode is a ControlNode that splits a flow into multiple concurrent flows.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLForkNode[Uml <: UML]
 	extends UMLControlNode[Uml]

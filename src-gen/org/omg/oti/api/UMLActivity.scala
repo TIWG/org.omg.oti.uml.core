@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivity[Uml <: UML]
 	extends UMLBehavior[Uml]

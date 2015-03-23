@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A GeneralizationSet is a PackageableElement whose instances represent sets of Generalization relationships.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLGeneralizationSet[Uml <: UML]
 	extends UMLPackageableElement[Uml]

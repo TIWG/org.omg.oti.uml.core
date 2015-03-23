@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateableElement is an Element that can optionally be defined as a template and bound to other templates.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTemplateableElement[Uml <: UML]
 	extends UMLElement[Uml]

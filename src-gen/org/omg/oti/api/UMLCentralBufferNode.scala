@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CentralBufferNode is an ObjectNode for managing flows from multiple sources and targets.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCentralBufferNode[Uml <: UML]
 	extends UMLObjectNode[Uml]

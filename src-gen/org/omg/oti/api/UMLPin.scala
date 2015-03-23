@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Pin is an ObjectNode and MultiplicityElement that provides input values to an Action or accepts output values from an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPin[Uml <: UML]
 	extends UMLMultiplicityElement[Uml]

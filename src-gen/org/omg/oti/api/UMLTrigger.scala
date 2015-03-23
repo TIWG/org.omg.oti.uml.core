@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Trigger specifies a specific point  at which an Event occurrence may trigger an effect in a Behavior. A Trigger may be qualified by the Port on which the Event occurred.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTrigger[Uml <: UML]
 	extends UMLNamedElement[Uml]

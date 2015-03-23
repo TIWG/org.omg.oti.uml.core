@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkEndDestructionData is LinkEndData used to provide values for one end of a link to be destroyed by a DestroyLinkAction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLinkEndDestructionData[Uml <: UML]
 	extends UMLLinkEndData[Uml]

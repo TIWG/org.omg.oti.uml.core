@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A stereotype defines how an existing metaclass may be extended, and enables the use of platform or domain specific terminology or notation in place of, or in addition to, the ones used for the extended metaclass.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLStereotype[Uml <: UML]
 	extends UMLClass[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A JoinNode is a ControlNode that synchronizes multiple flows.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLJoinNode[Uml <: UML]
 	extends UMLControlNode[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OpaqueAction is an Action whose functionality is not specified within UML.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLOpaqueAction[Uml <: UML]
 	extends UMLAction[Uml]

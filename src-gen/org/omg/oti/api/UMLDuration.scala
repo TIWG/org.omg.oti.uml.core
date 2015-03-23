@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDuration[Uml <: UML]
 	extends UMLValueSpecification[Uml]

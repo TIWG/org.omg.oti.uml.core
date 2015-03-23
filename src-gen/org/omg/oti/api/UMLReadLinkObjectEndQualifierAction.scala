@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkObjectEndQualifierAction is an Action that retrieves a qualifier end value from a link object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	extends UMLAction[Uml]

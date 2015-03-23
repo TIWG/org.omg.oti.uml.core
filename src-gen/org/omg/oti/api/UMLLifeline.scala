@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Lifeline represents an individual participant in the Interaction. While parts and structural features may have multiplicity greater than 1, Lifelines represent only one interacting entity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLifeline[Uml <: UML]
 	extends UMLNamedElement[Uml]

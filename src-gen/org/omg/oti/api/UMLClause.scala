@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Clause is an Element that represents a single branch of a ConditionalNode, including a test and a body section. The body section is executed only if (but not necessarily if) the test section evaluates to true.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLClause[Uml <: UML]
 	extends UMLElement[Uml]

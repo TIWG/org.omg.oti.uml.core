@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AcceptEventAction is an Action that waits for the occurrence of one or more specific Events.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLAcceptEventAction[Uml <: UML]
 	extends UMLAction[Uml]

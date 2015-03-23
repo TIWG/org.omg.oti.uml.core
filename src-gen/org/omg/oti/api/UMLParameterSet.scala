@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ParameterSet designates alternative sets of inputs or outputs that a Behavior may use.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLParameterSet[Uml <: UML]
 	extends UMLNamedElement[Uml]

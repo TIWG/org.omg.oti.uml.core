@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConstraint[Uml <: UML]
 	extends UMLPackageableElement[Uml]

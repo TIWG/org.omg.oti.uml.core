@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateLinkAction is a WriteLinkAction for creating links.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCreateLinkAction[Uml <: UML]
 	extends UMLWriteLinkAction[Uml]

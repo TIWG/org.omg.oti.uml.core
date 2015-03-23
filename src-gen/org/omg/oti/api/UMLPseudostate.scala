@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Pseudostate is an abstraction that encompasses different types of transient Vertices in the StateMachine graph. A StateMachine instance never comes to rest in a Pseudostate, instead, it will exit and enter the Pseudostate within a single run-to-completion step.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPseudostate[Uml <: UML]
 	extends UMLVertex[Uml]

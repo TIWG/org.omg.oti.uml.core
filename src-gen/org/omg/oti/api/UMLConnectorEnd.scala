@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConnectorEnd is an endpoint of a Connector, which attaches the Connector to a ConnectableElement.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConnectorEnd[Uml <: UML]
 	extends UMLMultiplicityElement[Uml]

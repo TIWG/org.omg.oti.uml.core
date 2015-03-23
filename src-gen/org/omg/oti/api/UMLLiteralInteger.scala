@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralInteger is a specification of an Integer value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLiteralInteger[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]

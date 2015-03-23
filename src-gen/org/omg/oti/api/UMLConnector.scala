@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Connector specifies links that enables communication between two or more instances. In contrast to Associations, which specify links between any instance of the associated Classifiers, Connectors specify links between instances playing the connected parts only.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConnector[Uml <: UML]
 	extends UMLFeature[Uml]

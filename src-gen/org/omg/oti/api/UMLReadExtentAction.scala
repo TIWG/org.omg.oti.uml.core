@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadExtentAction[Uml <: UML]
 	extends UMLAction[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReplyAction is an Action that accepts a set of reply values and a value containing return information produced by a previous AcceptCallAction. The ReplyAction returns the values to the caller of the previous call, completing execution of the call.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReplyAction[Uml <: UML]
 	extends UMLAction[Uml]

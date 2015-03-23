@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DestroyObjectAction is an Action that destroys objects.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDestroyObjectAction[Uml <: UML]
 	extends UMLAction[Uml]

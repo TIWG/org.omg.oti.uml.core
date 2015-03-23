@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ConnectableElement is an abstract metaclass representing a set of instances that play roles of a StructuredClassifier. ConnectableElements may be joined by attached Connectors and specify configurations of linked instances to be created within an instance of the containing StructuredClassifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConnectableElement[Uml <: UML]
 	extends UMLParameterableElement[Uml]

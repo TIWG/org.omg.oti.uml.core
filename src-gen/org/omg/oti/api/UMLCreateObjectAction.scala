@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateObjectAction is an Action that creates an instance of the specified Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCreateObjectAction[Uml <: UML]
 	extends UMLAction[Uml]

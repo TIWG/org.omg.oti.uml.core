@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralReal is a specification of a Real value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLiteralReal[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]

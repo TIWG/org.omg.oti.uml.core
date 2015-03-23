@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RemoveStructuralFeatureValueAction is a WriteStructuralFeatureAction that removes values from a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	extends UMLWriteStructuralFeatureAction[Uml]

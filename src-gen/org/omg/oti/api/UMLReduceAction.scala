@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReduceAction is an Action that reduces a collection to a single value by repeatedly combining the elements of the collection using a reducer Behavior.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReduceAction[Uml <: UML]
 	extends UMLAction[Uml]

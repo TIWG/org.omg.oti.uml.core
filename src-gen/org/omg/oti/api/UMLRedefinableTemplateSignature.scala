@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RedefinableTemplateSignature supports the addition of formal template parameters in a specialization of a template classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLRedefinableTemplateSignature[Uml <: UML]
 	extends UMLRedefinableElement[Uml]

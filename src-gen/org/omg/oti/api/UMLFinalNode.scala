@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A FinalNode is an abstract ControlNode at which a flow in an Activity stops.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLFinalNode[Uml <: UML]
 	extends UMLControlNode[Uml]

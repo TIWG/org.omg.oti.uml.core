@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExecutableNode is an abstract class for ActivityNodes whose execution may be controlled using ControlFlows and to which ExceptionHandlers may be attached.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExecutableNode[Uml <: UML]
 	extends UMLActivityNode[Uml]

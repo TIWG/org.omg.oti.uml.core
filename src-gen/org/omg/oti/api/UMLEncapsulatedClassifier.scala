@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An EncapsulatedClassifier may own Ports to specify typed interaction points.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLEncapsulatedClassifier[Uml <: UML]
 	extends UMLStructuredClassifier[Uml]

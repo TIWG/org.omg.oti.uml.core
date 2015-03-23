@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConnectableElementTemplateParameter exposes a ConnectableElement as a formal parameter for a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConnectableElementTemplateParameter[Uml <: UML]
 	extends UMLTemplateParameter[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExtensionPoint[Uml <: UML]
 	extends UMLRedefinableElement[Uml]

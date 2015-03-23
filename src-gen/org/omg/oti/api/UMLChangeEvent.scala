@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ChangeEvent models a change in the system configuration that makes a condition true.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLChangeEvent[Uml <: UML]
 	extends UMLEvent[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A NamedElement is an Element in a model that may have a name. The name may be given directly and/or via the use of a StringExpression.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLNamedElement[Uml <: UML]
 	extends UMLElement[Uml]

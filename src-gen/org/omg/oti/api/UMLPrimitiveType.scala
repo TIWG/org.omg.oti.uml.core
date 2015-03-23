@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PrimitiveType defines a predefined DataType, without any substructure. A PrimitiveType may have an algebra and operations defined outside of UML, for example, mathematically.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPrimitiveType[Uml <: UML]
 	extends UMLDataType[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLNamespace[Uml <: UML]
 	extends UMLNamedElement[Uml]

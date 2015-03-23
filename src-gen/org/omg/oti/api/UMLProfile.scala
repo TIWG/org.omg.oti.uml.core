@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A profile defines limited extensions to a reference metamodel with the purpose of adapting the metamodel to a specific platform or domain.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLProfile[Uml <: UML]
 	extends UMLPackage[Uml]

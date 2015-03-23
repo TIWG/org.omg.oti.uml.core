@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkAction is an abstract class for all Actions that identify the links to be acted on using LinkEndData.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLinkAction[Uml <: UML]
 	extends UMLAction[Uml]

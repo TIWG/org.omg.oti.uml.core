@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Classifier represents a classification of instances according to their Features.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLClassifier[Uml <: UML]
 	extends UMLNamespace[Uml]

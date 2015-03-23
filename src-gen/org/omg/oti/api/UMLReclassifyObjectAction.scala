@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReclassifyObjectAction[Uml <: UML]
 	extends UMLAction[Uml]

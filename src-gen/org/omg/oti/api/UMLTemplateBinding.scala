@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTemplateBinding[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Signal is a specification of a kind of communication between objects in which a reaction is asynchronously triggered in the receiver without a reply.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLSignal[Uml <: UML]
 	extends UMLClassifier[Uml]

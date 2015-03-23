@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralNull specifies the lack of a value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLiteralNull[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]

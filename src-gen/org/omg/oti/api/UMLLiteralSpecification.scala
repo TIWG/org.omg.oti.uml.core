@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralSpecification identifies a literal constant being modeled.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLiteralSpecification[Uml <: UML]
 	extends UMLValueSpecification[Uml]

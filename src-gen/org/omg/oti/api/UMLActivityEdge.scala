@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityEdge[Uml <: UML]
 	extends UMLRedefinableElement[Uml]

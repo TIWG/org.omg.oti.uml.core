@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CollaborationUse is used to specify the application of a pattern specified by a Collaboration to a specific situation.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCollaborationUse[Uml <: UML]
 	extends UMLNamedElement[Uml]

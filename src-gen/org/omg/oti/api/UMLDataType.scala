@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DataType is a type whose instances are identified only by their value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDataType[Uml <: UML]
 	extends UMLClassifier[Uml]

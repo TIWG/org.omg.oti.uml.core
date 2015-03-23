@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InstanceSpecification is a model element that represents an instance in a modeled system. An InstanceSpecification can act as a DeploymentTarget in a Deployment relationship, in the case that it represents an instance of a Node. It can also act as a DeployedArtifact, if it represents an instance of an Artifact.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInstanceSpecification[Uml <: UML]
 	extends UMLDeployedArtifact[Uml]

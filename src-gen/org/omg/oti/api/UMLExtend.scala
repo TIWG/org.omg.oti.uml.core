@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A relationship from an extending UseCase to an extended UseCase that specifies how and when the behavior defined in the extending UseCase can be inserted into the behavior defined in the extended UseCase.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExtend[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

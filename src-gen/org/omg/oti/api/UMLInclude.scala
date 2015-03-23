@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInclude[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

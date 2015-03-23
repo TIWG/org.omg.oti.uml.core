@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PartDecomposition is a description of the internal Interactions of one Lifeline relative to an Interaction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPartDecomposition[Uml <: UML]
 	extends UMLInteractionUse[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InitialNode is a ControlNode that offers a single control token when initially enabled.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInitialNode[Uml <: UML]
 	extends UMLControlNode[Uml]

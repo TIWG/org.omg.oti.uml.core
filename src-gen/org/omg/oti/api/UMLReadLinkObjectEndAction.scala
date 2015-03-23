@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkObjectEndAction is an Action that retrieves an end object from a link object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadLinkObjectEndAction[Uml <: UML]
 	extends UMLAction[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActionInputPin is a kind of InputPin that executes an Action to determine the values to input to another Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActionInputPin[Uml <: UML]
 	extends UMLInputPin[Uml]

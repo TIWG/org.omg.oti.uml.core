@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Continuation is a syntactic way to define continuations of different branches of an alternative CombinedFragment. Continuations are intuitively similar to labels representing intermediate points in a flow of control.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLContinuation[Uml <: UML]
 	extends UMLInteractionFragment[Uml]

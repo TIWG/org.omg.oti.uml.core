@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Vertex is an abstraction of a node in a StateMachine graph. It can be the source or destination of any number of Transitions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLVertex[Uml <: UML]
 	extends UMLNamedElement[Uml]

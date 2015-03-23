@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActionExecutionSpecification is a kind of ExecutionSpecification representing the execution of an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActionExecutionSpecification[Uml <: UML]
 	extends UMLExecutionSpecification[Uml]

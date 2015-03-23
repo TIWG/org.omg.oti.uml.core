@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * WriteLinkAction is an abstract class for LinkActions that create and destroy links.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLWriteLinkAction[Uml <: UML]
 	extends UMLLinkAction[Uml]

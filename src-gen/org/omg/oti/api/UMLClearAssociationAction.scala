@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ClearAssociationAction is an Action that destroys all links of an Association in which a particular object participates.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLClearAssociationAction[Uml <: UML]
 	extends UMLAction[Uml]

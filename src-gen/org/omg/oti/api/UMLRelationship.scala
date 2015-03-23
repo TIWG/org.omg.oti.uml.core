@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * Relationship is an abstract concept that specifies some kind of relationship between Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLRelationship[Uml <: UML]
 	extends UMLElement[Uml]

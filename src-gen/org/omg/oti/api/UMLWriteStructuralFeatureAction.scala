@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * WriteStructuralFeatureAction is an abstract class for StructuralFeatureActions that change StructuralFeature values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLWriteStructuralFeatureAction[Uml <: UML]
 	extends UMLStructuralFeatureAction[Uml]

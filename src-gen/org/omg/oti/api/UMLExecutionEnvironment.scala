@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An execution environment is a node that offers an execution environment for specific types of components that are deployed on it in the form of executable artifacts.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExecutionEnvironment[Uml <: UML]
 	extends UMLNode[Uml]

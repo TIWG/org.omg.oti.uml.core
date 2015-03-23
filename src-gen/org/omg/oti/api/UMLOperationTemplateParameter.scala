@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OperationTemplateParameter exposes an Operation as a formal parameter for a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLOperationTemplateParameter[Uml <: UML]
 	extends UMLTemplateParameter[Uml]

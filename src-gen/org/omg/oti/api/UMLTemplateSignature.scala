@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Template Signature bundles the set of formal TemplateParameters for a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTemplateSignature[Uml <: UML]
 	extends UMLElement[Uml]

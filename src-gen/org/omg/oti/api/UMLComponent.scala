@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment.  
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLComponent[Uml <: UML]
 	extends UMLClass[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TestIdentityAction is an Action that tests if two values are identical objects.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTestIdentityAction[Uml <: UML]
 	extends UMLAction[Uml]

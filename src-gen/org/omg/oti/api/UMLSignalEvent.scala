@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A SignalEvent represents the receipt of an asynchronous Signal instance.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLSignalEvent[Uml <: UML]
 	extends UMLMessageEvent[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An extension is used to indicate that the properties of a metaclass are extended through a stereotype, and gives the ability to flexibly add (and later remove) stereotypes to classes.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExtension[Uml <: UML]
 	extends UMLAssociation[Uml]

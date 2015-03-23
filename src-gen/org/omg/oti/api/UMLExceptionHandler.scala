@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExceptionHandler is an Element that specifies a handlerBody ExecutableNode to execute in case the specified exception occurs during the execution of the protected ExecutableNode.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExceptionHandler[Uml <: UML]
 	extends UMLElement[Uml]

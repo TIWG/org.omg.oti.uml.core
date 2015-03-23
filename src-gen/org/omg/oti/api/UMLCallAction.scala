@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * CallAction is an abstract class for Actions that invoke a Behavior with given argument values and (if the invocation is synchronous) receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCallAction[Uml <: UML]
 	extends UMLInvocationAction[Uml]

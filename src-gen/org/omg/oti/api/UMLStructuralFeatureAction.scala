@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * StructuralFeatureAction is an abstract class for all Actions that operate on StructuralFeatures.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLStructuralFeatureAction[Uml <: UML]
 	extends UMLAction[Uml]

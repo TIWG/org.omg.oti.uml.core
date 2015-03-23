@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A SendSignalAction is an InvocationAction that creates a Signal instance and transmits it to the target object. Values from the argument InputPins are used to provide values for the attributes of the Signal. The requestor continues execution immediately after the Signal instance is sent out and cannot receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLSendSignalAction[Uml <: UML]
 	extends UMLInvocationAction[Uml]

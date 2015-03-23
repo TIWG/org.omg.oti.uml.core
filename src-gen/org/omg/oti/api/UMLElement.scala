@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Element is a constituent of a model. As such, it has the capability of owning other Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLElement[Uml <: UML]
 	extends UMLElementOps[Uml] { 

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ControlFlow is an ActivityEdge traversed by control tokens or object tokens of control type, which are use to control the execution of ExecutableNodes.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLControlFlow[Uml <: UML]
 	extends UMLActivityEdge[Uml]

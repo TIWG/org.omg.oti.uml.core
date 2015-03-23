@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AddVariableValueAction is a WriteVariableAction for adding values to a Variable.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLAddVariableValueAction[Uml <: UML]
 	extends UMLWriteVariableAction[Uml]

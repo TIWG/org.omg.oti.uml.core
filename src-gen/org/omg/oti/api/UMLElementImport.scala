@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ElementImport identifies a NamedElement in a Namespace other than the one that owns that NamedElement and allows the NamedElement to be referenced using an unqualified name in the Namespace owning the ElementImport.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLElementImport[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

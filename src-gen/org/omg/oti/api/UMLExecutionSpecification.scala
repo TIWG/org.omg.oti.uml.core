@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExecutionSpecification is a specification of the execution of a unit of Behavior or Action within the Lifeline. The duration of an ExecutionSpecification is represented by two OccurrenceSpecifications, the start OccurrenceSpecification and the finish OccurrenceSpecification.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExecutionSpecification[Uml <: UML]
 	extends UMLInteractionFragment[Uml]

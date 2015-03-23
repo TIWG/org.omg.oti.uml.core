@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeConstraint is a Constraint that refers to a TimeInterval.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTimeConstraint[Uml <: UML]
 	extends UMLIntervalConstraint[Uml]

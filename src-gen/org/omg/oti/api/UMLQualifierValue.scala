@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A QualifierValue is an Element that is used as part of LinkEndData to provide the value for a single qualifier of the end given by the LinkEndData.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLQualifierValue[Uml <: UML]
 	extends UMLElement[Uml]

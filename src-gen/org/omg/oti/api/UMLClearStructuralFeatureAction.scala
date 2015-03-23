@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ClearStructuralFeatureAction is a StructuralFeatureAction that removes all values of a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLClearStructuralFeatureAction[Uml <: UML]
 	extends UMLStructuralFeatureAction[Uml]

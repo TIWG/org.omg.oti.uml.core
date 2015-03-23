@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ObjectFlow is an ActivityEdge that is traversed by object tokens that may hold values. Object flows also support multicast/receive, token selection from object nodes, and transformation of tokens.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLObjectFlow[Uml <: UML]
 	extends UMLActivityEdge[Uml]

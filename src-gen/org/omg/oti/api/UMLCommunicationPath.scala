@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCommunicationPath[Uml <: UML]
 	extends UMLAssociation[Uml]

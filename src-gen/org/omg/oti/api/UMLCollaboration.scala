@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Collaboration describes a structure of collaborating elements (roles), each performing a specialized function, which collectively accomplish some desired functionality. 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCollaboration[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]

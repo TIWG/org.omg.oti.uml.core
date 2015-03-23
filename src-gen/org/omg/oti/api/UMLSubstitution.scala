@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A substitution is a relationship between two classifiers signifying that the substituting classifier complies with the contract specified by the contract classifier. This implies that instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLSubstitution[Uml <: UML]
 	extends UMLRealization[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Interaction is a unit of Behavior that focuses on the observable exchange of information between connectable elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInteraction[Uml <: UML]
 	extends UMLBehavior[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConnectionPointReference represents a usage (as part of a submachine State) of an entry/exit point Pseudostate defined in the StateMachine referenced by the submachine State.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLConnectionPointReference[Uml <: UML]
 	extends UMLVertex[Uml]

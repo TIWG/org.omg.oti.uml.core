@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DurationConstraint is a Constraint that refers to a DurationInterval.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDurationConstraint[Uml <: UML]
 	extends UMLIntervalConstraint[Uml]

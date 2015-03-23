@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ValueSpecificationAction is an Action that evaluates a ValueSpecification and provides a result.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLValueSpecificationAction[Uml <: UML]
 	extends UMLAction[Uml]

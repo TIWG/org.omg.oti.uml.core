@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ControlNode is an abstract ActivityNode that coordinates flows in an Activity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLControlNode[Uml <: UML]
 	extends UMLActivityNode[Uml]

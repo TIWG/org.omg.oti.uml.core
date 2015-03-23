@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A UseCase specifies a set of actions performed by its subjects, which yields an observable result that is of value for one or more Actors or other stakeholders of each subject.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLUseCase[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * MessageEnd is an abstract specialization of NamedElement that represents what can occur at the end of a Message.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLMessageEnd[Uml <: UML]
 	extends UMLNamedElement[Uml]

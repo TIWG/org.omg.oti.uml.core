@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A FunctionBehavior is an OpaqueBehavior that does not access or modify any objects or other external data.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLFunctionBehavior[Uml <: UML]
 	extends UMLOpaqueBehavior[Uml]

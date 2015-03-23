@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AddStructuralFeatureValueAction is a WriteStructuralFeatureAction for adding values to a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	extends UMLWriteStructuralFeatureAction[Uml]

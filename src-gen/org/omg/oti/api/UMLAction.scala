@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Action is the fundamental unit of executable functionality. The execution of an Action represents some transformation or processing in the modeled system. Actions provide the ExecutableNodes within Activities and may also be used within Interactions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLAction[Uml <: UML]
 	extends UMLExecutableNode[Uml]

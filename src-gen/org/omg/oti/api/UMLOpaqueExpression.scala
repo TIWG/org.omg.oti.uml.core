@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLOpaqueExpression[Uml <: UML]
 	extends UMLValueSpecification[Uml]

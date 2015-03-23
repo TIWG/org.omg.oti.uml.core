@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadIsClassifiedObjectAction is an Action that determines whether an object is classified by a given Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	extends UMLAction[Uml]

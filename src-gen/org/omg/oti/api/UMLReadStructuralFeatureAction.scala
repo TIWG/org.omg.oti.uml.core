@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadStructuralFeatureAction is a StructuralFeatureAction that retrieves the values of a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadStructuralFeatureAction[Uml <: UML]
 	extends UMLStructuralFeatureAction[Uml]

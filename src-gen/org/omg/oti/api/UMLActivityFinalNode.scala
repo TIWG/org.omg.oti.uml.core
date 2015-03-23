@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityFinalNode is a FinalNode that terminates the execution of its owning Activity or StructuredActivityNode.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityFinalNode[Uml <: UML]
 	extends UMLFinalNode[Uml]

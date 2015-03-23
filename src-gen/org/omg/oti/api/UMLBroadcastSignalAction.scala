@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BroadcastSignalAction is an InvocationAction that transmits a Signal instance to all the potential target objects in the system. Values from the argument InputPins are used to provide values for the attributes of the Signal. The requestor continues execution immediately after the Signal instances are sent out and cannot receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLBroadcastSignalAction[Uml <: UML]
 	extends UMLInvocationAction[Uml]

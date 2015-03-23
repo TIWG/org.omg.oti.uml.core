@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CallEvent models the receipt by an object of a message invoking a call of an Operation.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCallEvent[Uml <: UML]
 	extends UMLMessageEvent[Uml]

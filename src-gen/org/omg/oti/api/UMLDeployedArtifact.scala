@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A deployed artifact is an artifact or artifact instance that has been deployed to a deployment target.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDeployedArtifact[Uml <: UML]
 	extends UMLNamedElement[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Event is the specification of some occurrence that may potentially trigger effects by an object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLEvent[Uml <: UML]
 	extends UMLPackageableElement[Uml]

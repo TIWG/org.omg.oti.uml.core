@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Region is a top-level part of a StateMachine or a composite State, that serves as a container for the Vertices and Transitions of the StateMachine. A StateMachine or composite State may contain multiple Regions representing behaviors that may occur in parallel.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLRegion[Uml <: UML]
 	extends UMLNamespace[Uml]

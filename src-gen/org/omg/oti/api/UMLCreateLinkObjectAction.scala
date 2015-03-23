@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateLinkObjectAction is a CreateLinkAction for creating link objects (AssociationClasse instances).
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLCreateLinkObjectAction[Uml <: UML]
 	extends UMLCreateLinkAction[Uml]

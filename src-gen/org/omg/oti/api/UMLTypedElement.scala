@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TypedElement is a NamedElement that may have a Type specified for it.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTypedElement[Uml <: UML]
 	extends UMLNamedElement[Uml]

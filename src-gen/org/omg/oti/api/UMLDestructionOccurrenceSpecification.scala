@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DestructionOccurenceSpecification models the destruction of an object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDestructionOccurrenceSpecification[Uml <: UML]
 	extends UMLMessageOccurrenceSpecification[Uml]

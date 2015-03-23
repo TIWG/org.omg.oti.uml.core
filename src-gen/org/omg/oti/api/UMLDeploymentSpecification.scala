@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A deployment specification specifies a set of properties that determine execution parameters of a component artifact that is deployed on a node. A deployment specification can be aimed at a specific type of container. An artifact that reifies or implements deployment specification properties is a deployment descriptor.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDeploymentSpecification[Uml <: UML]
 	extends UMLArtifact[Uml]

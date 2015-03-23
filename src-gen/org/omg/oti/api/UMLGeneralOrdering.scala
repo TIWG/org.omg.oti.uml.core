@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A GeneralOrdering represents a binary relation between two OccurrenceSpecifications, to describe that one OccurrenceSpecification must occur before the other in a valid trace. This mechanism provides the ability to define partial orders of OccurrenceSpecifications that may otherwise not have a specified order.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLGeneralOrdering[Uml <: UML]
 	extends UMLNamedElement[Uml]

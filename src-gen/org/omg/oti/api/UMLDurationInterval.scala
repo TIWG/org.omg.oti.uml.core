@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DurationInterval defines the range between two Durations.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDurationInterval[Uml <: UML]
 	extends UMLInterval[Uml]

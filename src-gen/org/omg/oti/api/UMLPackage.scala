@@ -45,11 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.
 Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.
 A package is used to group elements, and provides a namespace for the grouped elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPackage[Uml <: UML]
 	extends UMLNamespace[Uml]

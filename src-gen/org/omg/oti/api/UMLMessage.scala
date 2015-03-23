@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Message defines a particular communication between Lifelines of an Interaction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLMessage[Uml <: UML]
 	extends UMLNamedElement[Uml]

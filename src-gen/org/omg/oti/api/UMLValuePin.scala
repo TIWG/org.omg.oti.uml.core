@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ValuePin is an InputPin that provides a value by evaluating a ValueSpecification.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLValuePin[Uml <: UML]
 	extends UMLInputPin[Uml]

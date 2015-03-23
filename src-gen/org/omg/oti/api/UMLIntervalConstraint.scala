@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An IntervalConstraint is a Constraint that is specified by an Interval.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLIntervalConstraint[Uml <: UML]
 	extends UMLConstraint[Uml]

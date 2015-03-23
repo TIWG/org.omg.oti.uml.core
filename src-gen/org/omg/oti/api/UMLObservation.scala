@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * Observation specifies a value determined by observing an event or events that occur relative to other model Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLObservation[Uml <: UML]
 	extends UMLPackageableElement[Uml]

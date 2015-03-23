@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLEnumeration[Uml <: UML]
 	extends UMLDataType[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeExpression is a ValueSpecification that represents a time value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTimeExpression[Uml <: UML]
 	extends UMLValueSpecification[Uml]

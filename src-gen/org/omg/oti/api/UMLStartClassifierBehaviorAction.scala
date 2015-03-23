@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A StartClassifierBehaviorAction is an Action that starts the classifierBehavior of the input object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	extends UMLAction[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A profile application is used to show which profiles have been applied to a package.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLProfileApplication[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]

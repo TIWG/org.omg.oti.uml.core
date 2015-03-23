@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Feature declares a behavioral or structural characteristic of Classifiers.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLFeature[Uml <: UML]
 	extends UMLRedefinableElement[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LoopNode is a StructuredActivityNode that represents an iterative loop with setup, test, and body sections.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLoopNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]

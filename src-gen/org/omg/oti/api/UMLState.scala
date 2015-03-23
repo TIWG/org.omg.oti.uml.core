@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A State models a situation during which some (usually implicit) invariant condition holds.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLState[Uml <: UML]
 	extends UMLNamespace[Uml]

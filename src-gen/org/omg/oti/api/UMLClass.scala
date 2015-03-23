@@ -45,10 +45,10 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Class classifies a set of objects and specifies the features that characterize the structure and behavior of those objects.  A Class may have an internal structure and Ports.
 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLClass[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]

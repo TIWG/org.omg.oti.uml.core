@@ -45,10 +45,10 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An extension end is used to tie an extension to a stereotype when extending a metaclass.
 The default multiplicity of an extension end is 0..1.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLExtensionEnd[Uml <: UML]
 	extends UMLProperty[Uml]

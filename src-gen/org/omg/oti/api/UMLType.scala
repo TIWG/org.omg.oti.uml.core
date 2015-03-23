@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Type constrains the values represented by a TypedElement.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLType[Uml <: UML]
 	extends UMLPackageableElement[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A SequenceNode is a StructuredActivityNode that executes a sequence of ExecutableNodes in order.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLSequenceNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]

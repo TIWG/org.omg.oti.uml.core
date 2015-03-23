@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ValueSpecification is the specification of a (possibly empty) set of values. A ValueSpecification is a ParameterableElement that may be exposed as a formal TemplateParameter and provided as the actual parameter in the binding of a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLValueSpecification[Uml <: UML]
 	extends UMLPackageableElement[Uml]

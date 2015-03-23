@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DirectedRelationship represents a relationship between a collection of source model Elements and a collection of target model Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLDirectedRelationship[Uml <: UML]
 	extends UMLRelationship[Uml]

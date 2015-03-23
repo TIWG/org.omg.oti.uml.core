@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkAction is a LinkAction that navigates across an Association to retrieve the objects on one end.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLReadLinkAction[Uml <: UML]
 	extends UMLLinkAction[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PackageableElement is a NamedElement that may be owned directly by a Package. A PackageableElement is also able to serve as the parameteredElement of a TemplateParameter.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLPackageableElement[Uml <: UML]
 	extends UMLNamedElement[Uml]

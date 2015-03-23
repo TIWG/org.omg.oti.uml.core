@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BehaviorExecutionSpecification is a kind of ExecutionSpecification representing the execution of a Behavior.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLBehaviorExecutionSpecification[Uml <: UML]
 	extends UMLExecutionSpecification[Uml]

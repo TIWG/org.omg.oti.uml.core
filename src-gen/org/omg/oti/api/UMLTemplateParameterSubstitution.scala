@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateParameterSubstitution relates the actual parameter to a formal TemplateParameter as part of a template binding.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTemplateParameterSubstitution[Uml <: UML]
 	extends UMLElement[Uml]

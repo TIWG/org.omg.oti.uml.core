@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * VariableAction is an abstract class for Actions that operate on a specified Variable.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLVariableAction[Uml <: UML]
 	extends UMLAction[Uml]

@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkEndCreationData is LinkEndData used to provide values for one end of a link to be created by a CreateLinkAction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLLinkEndCreationData[Uml <: UML]
 	extends UMLLinkEndData[Uml]

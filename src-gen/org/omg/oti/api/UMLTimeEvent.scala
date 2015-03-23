@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeEvent is an Event that occurs at a specific point in time.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLTimeEvent[Uml <: UML]
 	extends UMLEvent[Uml]

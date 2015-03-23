@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ActivityGroup is an abstract class for defining sets of ActivityNodes and ActivityEdges in an Activity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLActivityGroup[Uml <: UML]
 	extends UMLNamedElement[Uml]

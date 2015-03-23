@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * Interfaces declare coherent services that are implemented by BehavioredClassifiers that implement the Interfaces via InterfaceRealizations.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLInterface[Uml <: UML]
 	extends UMLClassifier[Uml]

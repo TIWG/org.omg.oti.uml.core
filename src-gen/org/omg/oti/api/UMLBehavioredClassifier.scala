@@ -45,9 +45,9 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BehavioredClassifier may have InterfaceRealizations, and owns a set of Behaviors one of which may specify the behavior of the BehavioredClassifier itself.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 trait UMLBehavioredClassifier[Uml <: UML]
 	extends UMLClassifier[Uml]
