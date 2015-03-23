@@ -300,7 +300,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def xmiID: Iterable[String] = Iterable( id )
   def xmiUUID: Iterable[String] = uuid.toIterable
-  def xmiElementLabel: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
+  def xmiElementLabel: String = mofMetaclassName // ( 0 ).toLower + mofMetaclassName.drop( 1 )
 
   def xmiOrderingKey: String = element_xmiOrderingKey
   def element_xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse( "" ) )

@@ -243,6 +243,19 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     allNestingPackagesTransitively.flatMap( _.importedPackages )
 
   /**
+   * The OTI::SpecificationRoot::documentURL stereotype property, if applied.
+   */
+  def getDocumentURL: Option[String] =
+    if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined )
+      self.tagValues.get( OTI_SPECIFICATION_ROOT_documentURL.get ) match {
+        case Some( Seq( url: UMLLiteralString[_] ) ) if ( url.value.isDefined ) =>
+          url.value
+        case _ =>
+          None
+      }
+    else None
+    
+  /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
    *
    * @return In decreasing order of priority:

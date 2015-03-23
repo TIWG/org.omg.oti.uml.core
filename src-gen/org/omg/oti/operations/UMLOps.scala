@@ -1624,6 +1624,11 @@ trait UMLOps[Uml <: UML] { self =>
   val OTI_SPECIFICATION_ROOT_packageURI: Option[Uml#Property]
 
   /**
+   * OTI::SpecificationRoot::documentURL property
+   */
+  val OTI_SPECIFICATION_ROOT_documentURL: Option[Uml#Property]
+
+  /**
    * OTI::ID stereotype
    */
   val OTI_ID_S: Option[Uml#Stereotype]

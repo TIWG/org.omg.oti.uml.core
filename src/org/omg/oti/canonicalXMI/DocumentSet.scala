@@ -247,9 +247,11 @@ object DocumentSet {
       val serializableDocuments = for {
         root <- roots
         rootURI <- root.getEffectiveURI
+        rootURL <- root.getDocumentURL
       } yield SerializableDocument(
         uri = new java.net.URI( rootURI ),
         nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
+        documentURL =  new java.net.URI( rootURL ),
         scope = root )
 
       val ds = DocumentSet(

@@ -81,12 +81,12 @@ case class ResolvedDocumentSet[Uml <: UML](
         throw new IllegalArgumentException( s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})" )
 
       case Some( d: BuiltInDocument[Uml] ) =>
-        val builtInURI = d.builtInURI.resolve( "#" + s.id ).toString
+        val builtInURI = d.documentURL.resolve( "#"+s.id ).toString
         val mappedURI = ds.builtInURIMapper.resolve( builtInURI ).getOrElse( builtInURI )
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
-        val fragment = IDGenerator.xmlSafeID( d.nsPrefix + "." + mappedURI.substring( fragmentIndex + 1 ) )
-        ( fragment, "org.omg." + fragment )
+        val fragment = IDGenerator.xmlSafeID( d.nsPrefix+"."+mappedURI.substring( fragmentIndex + 1 ) )
+        ( fragment, "org.omg."+fragment )
 
       case Some( d: SerializableDocument[Uml] ) =>
         ( s.xmiID.head, s.xmiUUID.head )
@@ -118,15 +118,16 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   protected def foldTagValues(
-    tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]] )(
-      tagValueAttribute: Try[scala.xml.MetaData],
-      property: UMLProperty[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[scala.xml.MetaData] =
+    tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]],
+    xmiScopes: scala.xml.NamespaceBinding )(
+      tagValueAttribute: Try[List[scala.xml.Elem]],
+      property: UMLProperty[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[List[scala.xml.Elem]] =
     tagValueAttribute match {
       case Failure( t ) => Failure( t )
-      case Success( attribute ) =>
+      case Success( attributes ) =>
         tagValues.get( property ) match {
           case None =>
-            Success( attribute )
+            Success( attributes )
           case Some( values ) =>
             val stringValues = values flatMap { v =>
               valueSpecificationTagConverter( v ) match {
@@ -135,14 +136,17 @@ case class ResolvedDocumentSet[Uml <: UML](
               }
             }
 
-            if ( stringValues.isEmpty )
-              Success( attribute )
-            else
-              Success(
-                new scala.xml.UnprefixedAttribute(
-                  key = property.name.get,
-                  value = stringValues.mkString( " " ),
-                  attribute ) )
+            Success( ( attributes /: stringValues ) {
+              case ( xs, value ) =>
+                scala.xml.Elem(
+                  prefix = null,
+                  label = property.name.get,
+                  attributes = scala.xml.Null,
+                  scope = xmiScopes,
+                  minimizeEmpty = true,
+                  scala.xml.Text( value ) ) ::
+                  xs
+            } )
         }
     }
 
@@ -153,7 +157,7 @@ case class ResolvedDocumentSet[Uml <: UML](
         import scala.xml._
         import DocumentSet._
 
-        val uri = ruri.getOrElse(d.uri)
+        val uri = ruri.getOrElse( d.uri )
         val referencedProfiles = ( for {
           e <- d.extent
           ( s, p ) <- e.getAppliedStereotypes
@@ -204,9 +208,9 @@ case class ResolvedDocumentSet[Uml <: UML](
               label = "Tag",
               attributes =
                 new PrefixedAttribute(
-                  pre = "xmi", key = "id", value = d.scope.xmiID.head + "_mofext.Tag",
+                  pre = "xmi", key = "id", value = d.scope.xmiID.head+"_mofext.Tag",
                   new PrefixedAttribute(
-                    pre = "xmi", key = "uuid", value = d.scope.xmiUUID.head + "_mofext.Tag",
+                    pre = "xmi", key = "uuid", value = d.scope.xmiUUID.head+"_mofext.Tag",
                     new PrefixedAttribute(
                       pre = "xmi", key = "type", value = "mofext:Tag",
                       d.scope match {
@@ -239,31 +243,40 @@ case class ResolvedDocumentSet[Uml <: UML](
               val orderedTagValueElements = ordering map {
                 case ( s, p ) =>
                   val ( sID, sUUID ) = getStereptype_ID_UUID( s )
-                  val tagValueAttributes: scala.xml.MetaData = allTagValues.get( s ) match {
-                    case None => Null
-                    case Some( tagValues ) =>
-                      val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
-                      val tagValueAttribute0: Try[MetaData] = Success( Null )
-                      val tagValueAttributeN = ( tagValueAttribute0 /: properties.reverse )( foldTagValues( tagValues ) _ )
-                      tagValueAttributeN match {
-                        case Failure( t )                 => return Failure( t )
-                        case Success( tagValueAttribute ) => tagValueAttribute
-                      }
-                  }
+                  val tagValueAttributes: List[Elem] =
+                    scala.xml.Elem(
+                      prefix = null,
+                      label = p.name.get,
+                      attributes = scala.xml.Null,
+                      scope = xmiScopes,
+                      minimizeEmpty = true,
+                      scala.xml.Text( e.xmiID.head ) ) ::
+                      ( allTagValues.get( s ) match {
+                        case None => Nil
+                        case Some( tagValues ) =>
+                          val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
+                          val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
+                          val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) _ )
+                          tagValueAttributeN match {
+                            case Failure( t )                 => return Failure( t )
+                            case Success( tagValueAttribute ) => tagValueAttribute
+                          }
+                      } )
                   val xmiTagValueAttributes =
                     new PrefixedAttribute(
-                      pre = "xmi", key = "id", value = e.xmiID.head + "-" + sID,
+                      pre = "xmi", key = "id", value = e.xmiID.head+"-"+sID,
                       new PrefixedAttribute(
-                        pre = "xmi", key = "uuid", value = e.xmiUUID.head + "-" + sUUID,
-                        new UnprefixedAttribute(
-                          key = p.name.get, value = e.xmiID.head,
-                          tagValueAttributes ) ) )
+                        pre = "xmi", key = "uuid", value = e.xmiUUID.head+"-"+sUUID,
+                        new PrefixedAttribute(
+                          pre = "xmi", key = "type", value = s.profile.get.name.get+":"+s.name.get,
+                          Null ) ) )
                   Elem(
                     prefix = s.profile.get.name.get,
                     label = s.name.get,
                     attributes = xmiTagValueAttributes,
                     scope = xmiScopes,
-                    minimizeEmpty = true )
+                    minimizeEmpty = true,
+                    tagValueAttributes: _* )
               }
               orderedTagValueElements
             }
@@ -278,7 +291,7 @@ case class ResolvedDocumentSet[Uml <: UML](
             val dir = ( new java.io.File( uri ) ).getParentFile
             dir.mkdirs()
 
-            val filepath = uri.getPath + ".xmi"
+            val filepath = uri.getPath+".xmi"
             val xmlFile = new java.io.File( filepath )
 
             val xmlPrettyPrinter = new PrettyPrinter( width = 200, step = 2 )
@@ -421,12 +434,11 @@ case class ResolvedDocumentSet[Uml <: UML](
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) {
-                        val idrefAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "idref", value = eRef.id, Null )
+                        val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
                         val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                         Success( ns :+ idrefNode )
-                      }
-                      else {
-                        val href = dRef.uri + "#" + eRef.id
+                      } else {
+                        val href = dRef.documentURL+"#"+eRef.id
                         val externalHRef = dRef match {
                           case _: SerializableDocument[Uml] => href
                           case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
@@ -450,17 +462,16 @@ case class ResolvedDocumentSet[Uml <: UML](
                         None
                       case Some( dRef ) =>
                         if ( d == dRef ) {
-                          val idrefAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "idref", value = eRef.id, Null )
+                          val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
                           val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           idrefNode
-                        }
-                        else {
-                          val href = dRef.uri + "#" + eRef.id
+                        } else {
+                          val href = dRef.uri+"#"+eRef.id
                           val externalHRef = dRef match {
                             case _: SerializableDocument[Uml] => href
                             case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                           }
-                          val typeAttrib: MetaData = new PrefixedAttribute( pre="xmi", key = "type", value = e.xmiType.head, Null )
+                          val typeAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = e.xmiType.head, Null )
                           val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, typeAttrib )
                           val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           hrefNode

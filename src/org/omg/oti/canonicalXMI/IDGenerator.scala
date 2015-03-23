@@ -93,7 +93,7 @@ trait IDGenerator[Uml <: UML] {
 
     case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
       require( d1 != d2 )
-      val builtInURITo = d2.builtInURI.resolve("#"+to.id).toString
+      val builtInURITo = d2.documentURL.resolve("#"+to.id).toString
       val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo ).getOrElse( builtInURITo )
       val fragmentIndex = mappedURITo.lastIndexOf('#')
       require( fragmentIndex > 0)
