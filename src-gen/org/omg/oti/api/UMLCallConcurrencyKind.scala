@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * CallConcurrencyKind is an Enumeration used to specify the semantics of concurrent calls to a BehavioralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLCallConcurrencyKind extends Enumeration {
 	

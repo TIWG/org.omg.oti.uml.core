@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * TransitionKind is an Enumeration type used to differentiate the various kinds of Transitions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLTransitionKind extends Enumeration {
 	

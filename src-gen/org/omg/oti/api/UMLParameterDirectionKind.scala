@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ParameterDirectionKind is an Enumeration that defines literals used to specify direction of parameters.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLParameterDirectionKind extends Enumeration {
 	

@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * InteractionOperatorKind is an enumeration designating the different kinds of operators of CombinedFragments. The InteractionOperand defines the type of operator of a CombinedFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLInteractionOperatorKind extends Enumeration {
 	

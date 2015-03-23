@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ConnectorKind is an enumeration that defines whether a Connector is an assembly or a delegation.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLConnectorKind extends Enumeration {
 	

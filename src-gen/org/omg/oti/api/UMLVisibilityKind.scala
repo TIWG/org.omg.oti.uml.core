@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * VisibilityKind is an enumeration type that defines literals to determine the visibility of Elements in a model.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLVisibilityKind extends Enumeration {
 	

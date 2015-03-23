@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * AggregationKind is an Enumeration for specifying the kind of aggregation of a Property.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLAggregationKind extends Enumeration {
 	

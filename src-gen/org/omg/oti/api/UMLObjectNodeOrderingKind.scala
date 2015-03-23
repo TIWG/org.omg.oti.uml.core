@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ObjectNodeOrderingKind is an enumeration indicating queuing order for offering the tokens held by an ObjectNode.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLObjectNodeOrderingKind extends Enumeration {
 	

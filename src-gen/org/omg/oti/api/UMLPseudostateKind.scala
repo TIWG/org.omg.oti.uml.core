@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * PseudostateKind is an Enumeration type that is used to differentiate various kinds of Pseudostates.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLPseudostateKind extends Enumeration {
 	

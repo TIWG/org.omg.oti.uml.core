@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * This is an enumerated type that identifies the type of Message.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLMessageKind extends Enumeration {
 	

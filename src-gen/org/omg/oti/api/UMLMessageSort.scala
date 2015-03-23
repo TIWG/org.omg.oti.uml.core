@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * This is an enumerated type that identifies the type of communication action that was used to generate the Message.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLMessageSort extends Enumeration {
 	

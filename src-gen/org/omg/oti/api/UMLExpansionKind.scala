@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ExpansionKind is an enumeration type used to specify how an ExpansionRegion executes its contents.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLExpansionKind extends Enumeration {
 	

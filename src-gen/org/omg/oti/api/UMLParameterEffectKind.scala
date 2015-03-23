@@ -40,9 +40,9 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ParameterEffectKind is an Enumeration that indicates the effect of a Behavior on values passed in or out of its parameters.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  */
 object UMLParameterEffectKind extends Enumeration {
 	
