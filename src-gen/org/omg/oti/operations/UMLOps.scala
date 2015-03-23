@@ -71,9 +71,9 @@ class EarlyInit[T: TypeTag] {
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * The UML 2.5 metamodel
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
