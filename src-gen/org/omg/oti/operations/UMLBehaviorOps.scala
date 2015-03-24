@@ -93,31 +93,12 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * References the Behavior that this Behavior redefines. A subtype of Behavior may redefine any other subtype of Behavior. If the Behavior implements a BehavioralFeature, it replaces the redefined Behavior. If the Behavior is a classifierBehavior, it extends the redefined Behavior.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.redefinedBehavior_behavior
-	 */
-	def redefinedBehavior: Set[UMLBehavior[Uml]] = redefinedClassifier.selectByKindOf { case x: UMLBehavior[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.effect
 	 */
 	def effect_transition: Option[UMLTransition[Uml]] = owner.selectByKindOf { case x: UMLTransition[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.redefinedBehavior
-	 */
-	def redefinedBehavior_behavior: Set[UMLBehavior[Uml]] = redefinedClassifier_classifier.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

@@ -66,15 +66,6 @@ trait UMLExecutableNodeOps[Uml <: UML] { self: UMLExecutableNode[Uml] =>
 	 */
 	def handler: Set[UMLExceptionHandler[Uml]] = ownedElement.selectByKindOf { case x: UMLExceptionHandler[Uml] => x }
 
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSequenceNode.executableNode
-	 */
-	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]] = inStructuredNode.selectByKindOf { case x: UMLSequenceNode[Uml] => x }
-
 	// Start of user code for additional features
 	// End of user code
 

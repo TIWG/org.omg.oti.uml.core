@@ -58,22 +58,12 @@ trait UMLManifestationOps[Uml <: UML] { self: UMLManifestation[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The model element that is utilized in the manifestation in an Artifact.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackageableElement.utilizedElement_manifestation
-	 */
-	def utilizedElement: Option[UMLPackageableElement[Uml]] = supplier.selectByKindOf { case x: UMLPackageableElement[Uml] => x } headOption
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.manifestation
 	 */
-	def manifestation_artifact: Option[UMLArtifact[Uml]] = client.selectByKindOf { case x: UMLArtifact[Uml] => x } headOption
+	def manifestation_artifact: Option[UMLArtifact[Uml]] = owner.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
 	// Start of user code for additional features
 	// End of user code

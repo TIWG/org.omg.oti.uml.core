@@ -68,15 +68,6 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStateInvariant.covered
-	 */
-	def covered_stateInvariant: Set[UMLStateInvariant[Uml]] = coveredBy.selectByKindOf { case x: UMLStateInvariant[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * If a lifeline is in an Interaction referred to by an InteractionUse in an enclosing Interaction,  and that lifeline is common with another lifeline in an Interaction referred to by another InteractonUse within that same enclosing Interaction, it must be common to a lifeline within that enclosing Interaction. By common Lifelines we mean Lifelines with the same selector and represents associations.
 	 
 	 * <!-- end-model-doc -->

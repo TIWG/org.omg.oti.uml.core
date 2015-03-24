@@ -56,26 +56,6 @@ trait UMLComponentRealizationOps[Uml <: UML] { self: UMLComponentRealization[Uml
 
 	import self.ops._
 
-	/**
-	 * <!-- begin-model-doc -->
-	 * The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLComponent.realization
-	 */
-	def abstraction: Option[UMLComponent[Uml]] = supplier.selectByKindOf { case x: UMLComponent[Uml] => x } headOption
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * The Classifiers that are involved in the implementation of the Component that owns this Realization.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.realizingClassifier_componentRealization
-	 */
-	def realizingClassifier: Set[UMLClassifier[Uml]] = client.selectByKindOf { case x: UMLClassifier[Uml] => x }
-
 	// Start of user code for additional features
 	// End of user code
 

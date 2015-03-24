@@ -88,15 +88,6 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConditionalNode.result
-	 */
-	def result_conditionalNode: Option[UMLConditionalNode[Uml]] = structuredNodeOutput_structuredActivityNode.selectByKindOf { case x: UMLConditionalNode[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCreateLinkObjectAction.result
 	 */
 	def result_createLinkObjectAction: Option[UMLCreateLinkObjectAction[Uml]] = output_action.selectByKindOf { case x: UMLCreateLinkObjectAction[Uml] => x }
@@ -109,15 +100,6 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	 * @opposite org.omg.oti.api.UMLCreateObjectAction.result
 	 */
 	def result_createObjectAction: Option[UMLCreateObjectAction[Uml]] = output_action.selectByKindOf { case x: UMLCreateObjectAction[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLoopNode.result
-	 */
-	def result_loopNode: Option[UMLLoopNode[Uml]] = structuredNodeOutput_structuredActivityNode.selectByKindOf { case x: UMLLoopNode[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

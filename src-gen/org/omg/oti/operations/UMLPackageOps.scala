@@ -71,17 +71,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @opposite org.omg.oti.api.UMLPackage.nestingPackage
 	 * @body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
 	 */
-	def nestedPackage: Set[UMLPackage[Uml]] = packagedElement.selectByKindOf { case x: UMLPackage[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * References the Package that owns this Package.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
-	 */
-	def nestingPackage: Option[UMLPackage[Uml]] = packagedElement_owningPackage
+	def nestedPackage: Set[UMLPackage[Uml]] = {
+		// Start of user code for "nestedPackage"
+		???
+		// End of user code
+	}
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -92,7 +86,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @opposite org.omg.oti.api.UMLStereotype.ownedStereotype_owningPackage
 	 * @body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
 	 */
-	def ownedStereotype: Set[UMLStereotype[Uml]] = ownedType.selectByKindOf { case x: UMLStereotype[Uml] => x }
+	def ownedStereotype: Set[UMLStereotype[Uml]] = {
+		// Start of user code for "ownedStereotype"
+		???
+		// End of user code
+	}
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -103,7 +101,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @opposite org.omg.oti.api.UMLType._package
 	 * @body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
 	 */
-	def ownedType: Set[UMLType[Uml]] = packagedElement.selectByKindOf { case x: UMLType[Uml] => x }
+	def ownedType: Set[UMLType[Uml]] = {
+		// Start of user code for "ownedType"
+		???
+		// End of user code
+	}
 
 	/**
 	 * <!-- begin-model-doc -->

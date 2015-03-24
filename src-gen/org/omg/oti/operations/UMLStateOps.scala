@@ -184,16 +184,6 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * Specifies conditions that are always true when this State is the current State. In ProtocolStateMachines state invariants are additional conditions to the preconditions of the outgoing Transitions, and to the postcondition of the incoming Transitions.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.stateInvariant_owningState
-	 */
-	def stateInvariant: Option[UMLConstraint[Uml]] = ownedRule headOption
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"

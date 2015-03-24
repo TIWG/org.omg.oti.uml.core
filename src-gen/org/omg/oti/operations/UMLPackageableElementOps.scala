@@ -111,15 +111,6 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLManifestation.utilizedElement
-	 */
-	def utilizedElement_manifestation: Set[UMLManifestation[Uml]] = supplier_supplierDependency.selectByKindOf { case x: UMLManifestation[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * A PackageableElement owned by a Namespace must have a visibility.
 	 * <!-- end-model-doc -->
 	 *

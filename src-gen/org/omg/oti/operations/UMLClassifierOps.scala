@@ -148,23 +148,13 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * A CollaborationUse which indicates the Collaboration that represents this Classifier.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLCollaborationUse.representation_classifier
-	 */
-	def representation: Option[UMLCollaborationUse[Uml]] = collaborationUse headOption
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The Substitutions owned by this Classifier.
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLSubstitution.substitutingClassifier
 	 */
-	def substitution: Set[UMLSubstitution[Uml]] = clientDependency.selectByKindOf { case x: UMLSubstitution[Uml] => x }
+	def substitution: Set[UMLSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLSubstitution[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -178,15 +168,6 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	    ???
 	    // End of user code
 	}
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLSubstitution.contract
-	 */
-	def contract_substitution: Set[UMLSubstitution[Uml]] = supplier_supplierDependency.selectByKindOf { case x: UMLSubstitution[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -227,15 +208,6 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @opposite org.omg.oti.api.UMLClass.nestedClassifier
 	 */
 	def nestedClassifier_nestingClass: Option[UMLClass[Uml]] = redefinitionContext.selectByKindOf { case x: UMLClass[Uml] => x } headOption
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLComponentRealization.realizingClassifier
-	 */
-	def realizingClassifier_componentRealization: Set[UMLComponentRealization[Uml]] = clientDependency.selectByKindOf { case x: UMLComponentRealization[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

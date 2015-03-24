@@ -148,7 +148,7 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAssociation.ownedEnd
 	 */
-	def owningAssociation: Option[UMLAssociation[Uml]] = association
+	def owningAssociation: Option[UMLAssociation[Uml]] = featuringClassifier.selectByKindOf { case x: UMLAssociation[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -172,15 +172,6 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     ???
     // End of user code
 	}
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAssociation.navigableOwnedEnd
-	 */
-	def navigableOwnedEnd_association: Option[UMLAssociation[Uml]] = owningAssociation
 
 	/**
 	 * <!-- begin-model-doc -->

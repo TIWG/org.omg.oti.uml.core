@@ -58,26 +58,6 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * References a metaclass that may be extended.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLElementImport.metaclassReference_profile
-	 */
-	def metaclassReference: Set[UMLElementImport[Uml]] = elementImport
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * References a package containing (directly or indirectly) metaclasses that may be extended.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageImport.metamodelReference_profile
-	 */
-	def metamodelReference: Set[UMLPackageImport[Uml]] = packageImport
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"

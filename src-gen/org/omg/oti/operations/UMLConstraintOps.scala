@@ -94,15 +94,6 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLState.stateInvariant
-	 */
-	def stateInvariant_owningState: Option[UMLState[Uml]] = context.selectByKindOf { case x: UMLState[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The ValueSpecification for a Constraint must evaluate to a Boolean value.
 	 * <!-- end-model-doc -->
 	 *

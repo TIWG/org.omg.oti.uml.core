@@ -56,26 +56,6 @@ trait UMLInterfaceRealizationOps[Uml <: UML] { self: UMLInterfaceRealization[Uml
 
 	import self.ops._
 
-	/**
-	 * <!-- begin-model-doc -->
-	 * References the Interface specifying the conformance contract.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInterface.contract_interfaceRealization
-	 */
-	def contract: Option[UMLInterface[Uml]] = supplier.selectByKindOf { case x: UMLInterface[Uml] => x } headOption
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * References the BehavioredClassifier that owns this InterfaceRealization, i.e., the BehavioredClassifier that realizes the Interface to which it refers.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.interfaceRealization
-	 */
-	def implementingClassifier: Option[UMLBehavioredClassifier[Uml]] = client.selectByKindOf { case x: UMLBehavioredClassifier[Uml] => x } headOption
-
 	// Start of user code for additional features
 	// End of user code
 

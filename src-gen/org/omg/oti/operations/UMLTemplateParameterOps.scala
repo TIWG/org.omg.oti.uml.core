@@ -58,26 +58,6 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedDefault_templateParameter
-	 */
-	def ownedDefault: Option[UMLParameterableElement[Uml]] = default
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of exposing it as the parameteredElement.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameterableElement.owningTemplateParameter
-	 */
-	def ownedParameteredElement: Option[UMLParameterableElement[Uml]] = parameteredElement
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateSignature that owns this TemplateParameter.
 	 * <!-- end-model-doc -->
 	 *
@@ -93,7 +73,11 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.inheritedParameter
 	 */
-	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = parameter_templateSignature.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
+	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = {
+		// Start of user code for "redefinableTemplateSignature"
+		???
+		// End of user code
+	}
 
 	/**
 	 * <!-- begin-model-doc -->

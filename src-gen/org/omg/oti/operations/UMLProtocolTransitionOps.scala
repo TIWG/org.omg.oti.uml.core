@@ -58,16 +58,6 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * Specifies the precondition of the Transition. It specifies the Condition that should be verified before triggering the Transition. This guard condition added to the source State will be evaluated as part of the precondition of the Operation referred by the Transition if any.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.preCondition_protocolTransition
-	 */
-	def preCondition: Option[UMLConstraint[Uml]] = guard
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * This association refers to the associated Operation. It is derived from the Operation of the CallEvent Trigger when applicable.
 	 * <!-- end-model-doc -->
 	 *

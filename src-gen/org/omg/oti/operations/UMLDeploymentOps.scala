@@ -69,23 +69,13 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The Artifacts that are deployed onto a Node. This association specializes the supplier association.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDeployedArtifact.deployedArtifact_deploymentForArtifact
-	 */
-	def deployedArtifact: Set[UMLDeployedArtifact[Uml]] = supplier.selectByKindOf { case x: UMLDeployedArtifact[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The DeployedTarget which is the target of a Deployment.
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployment
 	 */
-	def location: Option[UMLDeploymentTarget[Uml]] = client.selectByKindOf { case x: UMLDeploymentTarget[Uml] => x } headOption
+	def location: Option[UMLDeploymentTarget[Uml]] = owner.selectByKindOf { case x: UMLDeploymentTarget[Uml] => x }
 
 	// Start of user code for additional features
 	// End of user code

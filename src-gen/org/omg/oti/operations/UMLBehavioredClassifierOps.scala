@@ -58,23 +58,13 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * A Behavior that specifies the behavior of the BehavioredClassifier itself.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.classifierBehavior_behavioredClassifier
-	 */
-	def classifierBehavior: Option[UMLBehavior[Uml]] = ownedBehavior headOption
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The set of InterfaceRealizations owned by the BehavioredClassifier. Interface realizations reference the Interfaces of which the BehavioredClassifier is an implementation.
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterfaceRealization.implementingClassifier
 	 */
-	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = clientDependency.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
+	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

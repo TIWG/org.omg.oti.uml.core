@@ -56,26 +56,6 @@ trait UMLSubstitutionOps[Uml <: UML] { self: UMLSubstitution[Uml] =>
 
 	import self.ops._
 
-	/**
-	 * <!-- begin-model-doc -->
-	 * The contract with which the substituting classifier complies.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.contract_substitution
-	 */
-	def contract: Option[UMLClassifier[Uml]] = supplier.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * Instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.substitution
-	 */
-	def substitutingClassifier: Option[UMLClassifier[Uml]] = client.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
-
 	// Start of user code for additional features
 	// End of user code
 

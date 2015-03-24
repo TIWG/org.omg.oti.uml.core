@@ -72,16 +72,6 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The Operation owning this parameter.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOperation.ownedParameter
-	 */
-	def operation: Option[UMLOperation[Uml]] = ownedParameter_ownerFormalParam.selectByKindOf { case x: UMLOperation[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"

@@ -88,26 +88,6 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * Top-level ActivityPartitions in the Activity.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.partition_activity
-	 */
-	def partition: Set[UMLActivityPartition[Uml]] = group.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * Top-level StructuredActivityNodes in the Activity.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.activity
-	 */
-	def structuredNode: Set[UMLStructuredActivityNode[Uml]] = group.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * Top-level Variables defined by the Activity.
 	 * <!-- end-model-doc -->
 	 *

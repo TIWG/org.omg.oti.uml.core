@@ -72,15 +72,6 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLExtension.ownedEnd
-	 */
-	def ownedEnd_extension: Option[UMLExtension[Uml]] = owningAssociation.selectByKindOf { case x: UMLExtension[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The query lowerBound() returns the lower bound of the multiplicity as an Integer. This is a redefinition of the default lower bound, which normally, for MultiplicityElements, evaluates to 1 if empty.
 	 * <!-- end-model-doc -->
 	 *

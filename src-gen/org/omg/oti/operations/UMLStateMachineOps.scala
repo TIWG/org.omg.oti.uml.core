@@ -88,15 +88,6 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStateMachine.extendedStateMachine
-	 */
-	def extendedStateMachine_stateMachine: Set[UMLStateMachine[Uml]] = redefinedBehavior_behavior.selectByKindOf { case x: UMLStateMachine[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The operation LCA(s1,s2) returns the Region that is the least common ancestor of Vertices s1 and s2, based on the StateMachine containment hierarchy.
 	 * <!-- end-model-doc -->
 	 *

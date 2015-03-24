@@ -78,15 +78,6 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProfile.metamodelReference
-	 */
-	def metamodelReference_profile: Option[UMLProfile[Uml]] = importingNamespace.selectByKindOf { case x: UMLProfile[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The visibility of a PackageImport is either public or private.
 	 * <!-- end-model-doc -->
 	 *

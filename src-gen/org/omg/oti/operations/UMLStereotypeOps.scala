@@ -103,15 +103,6 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtensionEnd._type
-	 */
-	def type_extensionEnd: Set[UMLExtensionEnd[Uml]] = type_typedElement.selectByKindOf { case x: UMLExtensionEnd[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The query containingProfile returns the closest profile directly or indirectly containing this stereotype.
 	 * <!-- end-model-doc -->
 	 *

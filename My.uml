@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_qZQcENH7EeS_PegC3Il2Cw">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_DKDWMNI-EeS_PegC3Il2Cw" node="_HzPu4NI-EeS_PegC3Il2Cw _M098UNI-EeS_PegC3Il2Cw" group="_HzPu4NI-EeS_PegC3Il2Cw">
+    <structuredNode xmi:type="uml:ConditionalNode" xmi:id="_HzPu4NI-EeS_PegC3Il2Cw"/>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_M098UNI-EeS_PegC3Il2Cw"/>
+  </packagedElement>
+</uml:Package>

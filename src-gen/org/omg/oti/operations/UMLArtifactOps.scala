@@ -65,7 +65,7 @@ trait UMLArtifactOps[Uml <: UML] { self: UMLArtifact[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLManifestation.manifestation_artifact
 	 */
-	def manifestation: Set[UMLManifestation[Uml]] = clientDependency.selectByKindOf { case x: UMLManifestation[Uml] => x }
+	def manifestation: Set[UMLManifestation[Uml]] = ownedElement.selectByKindOf { case x: UMLManifestation[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

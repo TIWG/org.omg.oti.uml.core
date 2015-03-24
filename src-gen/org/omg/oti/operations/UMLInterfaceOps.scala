@@ -78,25 +78,6 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * References all the Interfaces redefined by this Interface.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.redefinedInterface_interface
-	 */
-	def redefinedInterface: Set[UMLInterface[Uml]] = redefinedClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterfaceRealization.contract
-	 */
-	def contract_interfaceRealization: Set[UMLInterfaceRealization[Uml]] = supplier_supplierDependency.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
@@ -120,15 +101,6 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 		???
 		// End of user code
 	}
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.redefinedInterface
-	 */
-	def redefinedInterface_interface: Set[UMLInterface[Uml]] = redefinedClassifier_classifier.selectByKindOf { case x: UMLInterface[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

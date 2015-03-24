@@ -70,16 +70,6 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The navigable ends that are owned by the Association itself.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProperty.navigableOwnedEnd_association
-	 */
-	def navigableOwnedEnd: Set[UMLProperty[Uml]] = ownedEnd.toSet[UMLProperty[Uml]]
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * Ends of Associations with more than two ends must be owned by the Association itself.
 	 * <!-- end-model-doc -->
 	 *

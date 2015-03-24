@@ -78,15 +78,6 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProfile.metaclassReference
-	 */
-	def metaclassReference_profile: Option[UMLProfile[Uml]] = importingNamespace.selectByKindOf { case x: UMLProfile[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The query getName() returns the name under which the imported PackageableElement will be known in the importing namespace.
 	 * <!-- end-model-doc -->
 	 *

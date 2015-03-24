@@ -58,16 +58,6 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The formal TemplateParameter that owns this ParameterableElement.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTemplateParameter.ownedParameteredElement
-	 */
-	def owningTemplateParameter: Option[UMLTemplateParameter[Uml]] = templateParameter
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"

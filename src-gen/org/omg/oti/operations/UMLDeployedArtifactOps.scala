@@ -56,15 +56,6 @@ trait UMLDeployedArtifactOps[Uml <: UML] { self: UMLDeployedArtifact[Uml] =>
 
 	import self.ops._
 
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDeployment.deployedArtifact
-	 */
-	def deployedArtifact_deploymentForArtifact: Set[UMLDeployment[Uml]] = supplier_supplierDependency.selectByKindOf { case x: UMLDeployment[Uml] => x }
-
 	// Start of user code for additional features
 	// End of user code
 

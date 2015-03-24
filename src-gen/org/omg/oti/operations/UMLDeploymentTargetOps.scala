@@ -79,7 +79,7 @@ trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeployment.location
 	 */
-	def deployment: Set[UMLDeployment[Uml]] = clientDependency.selectByKindOf { case x: UMLDeployment[Uml] => x }
+	def deployment: Set[UMLDeployment[Uml]] = ownedElement.selectByKindOf { case x: UMLDeployment[Uml] => x }
 
 	// Start of user code for additional features
 	// End of user code

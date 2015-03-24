@@ -98,15 +98,6 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.partition
-	 */
-	def partition_activity: Option[UMLActivity[Uml]] = inActivity
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * An ActvivityPartition with isDimension = true may not be contained by another ActivityPartition.
 	 * <!-- end-model-doc -->
 	 *

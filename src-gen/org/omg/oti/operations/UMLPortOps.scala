@@ -73,16 +73,6 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * A Port may be redefined when its containing EncapsulatedClassifier is specialized. The redefining Port may have additional Interfaces to those that are associated with the redefined Port or it may replace an Interface by one of its subtypes.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.redefinedPort_port
-	 */
-	def redefinedPort: Set[UMLPort[Uml]] = redefinedProperty.selectByKindOf { case x: UMLPort[Uml] => x }
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCassifier expects its environment to handle via this port. This association is derived according to the value of isConjugated. If isConjugated is false, required is derived as the union of the sets of Interfaces used by the type of the Port and its supertypes. If isConjugated is true, it is derived as the union of the sets of Interfaces realized by the type of the Port and its supertypes, or directly from the type of the Port if the Port is typed by an Interface.
 	 * <!-- end-model-doc -->
 	 *
@@ -108,15 +98,6 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	    ownedAttribute_structuredClassifier.selectByKindOf { case x: UMLEncapsulatedClassifier[Uml] => x } headOption
 	    // End of user code
 	}
-
-	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.redefinedPort
-	 */
-	def redefinedPort_port: Set[UMLPort[Uml]] = redefinedProperty_property.selectByKindOf { case x: UMLPort[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

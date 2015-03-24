@@ -64,7 +64,7 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedActual_owningTemplateParameterSubstitution
 	 */
-	def ownedActual: Option[UMLParameterableElement[Uml]] = actual
+	def ownedActual: Option[UMLParameterableElement[Uml]] = ownedElement.selectByKindOf { case x: UMLParameterableElement[Uml] => x } headOption
 
 	/**
 	 * <!-- begin-model-doc -->

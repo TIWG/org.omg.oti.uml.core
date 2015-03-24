@@ -78,16 +78,6 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * A guard is a Constraint that provides a fine-grained control over the firing of the Transition. The guard is evaluated when an Event occurrence is dispatched by the StateMachine. If the guard is true at that time, the Transition may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
-	 * <!-- end-model-doc -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.guard_transition
-	 */
-	def guard: Option[UMLConstraint[Uml]] = ownedRule headOption
-
-	/**
-	 * <!-- begin-model-doc -->
 	 * The Transition that is redefined by this Transition.
 	 * <!-- end-model-doc -->
 	 *
