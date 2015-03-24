@@ -163,6 +163,7 @@ trait UMLActivity[Uml <: UML]
 			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
+				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]]("variable", _.variable)))
 
 	/**
@@ -177,8 +178,9 @@ trait UMLActivity[Uml <: UML]
 	def activity_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode)))
+			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
+				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
+				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
