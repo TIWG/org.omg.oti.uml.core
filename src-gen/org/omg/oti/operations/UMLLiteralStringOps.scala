@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralString is a specification of a String value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 	 * @body result = (value)
 	 */
 	override def stringValue: Option[String]  = {
-    	// Start of user code for "stringValue"
+		// Start of user code for "stringValue"
     	???
     	// End of user code
 	}

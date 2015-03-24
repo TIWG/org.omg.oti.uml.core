@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DestroyObjectAction is an Action that destroys objects.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	 * @body target.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	 * @body target.type= null
 	 */
 	def validate_no_type: Boolean  = {
-    	// Start of user code for "no_type"
+		// Start of user code for "no_type"
     	???
     	// End of user code
 	}

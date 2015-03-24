@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExceptionHandler is an Element that specifies a handlerBody ExecutableNode to execute in case the specified exception occurs during the execution of the protected ExecutableNode.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * nodes.incoming->forAll(nodes->includes(source))
 	 */
 	def validate_edge_source_target: Boolean  = {
-    	// Start of user code for "edge_source_target"
+		// Start of user code for "edge_source_target"
     	???
     	// End of user code
 	}
@@ -90,7 +90,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * exceptionType->forAll(conformsTo(exceptionInput.type.oclAsType(Classifier)))
 	 */
 	def validate_exception_input_type: Boolean  = {
-    	// Start of user code for "exception_input_type"
+		// Start of user code for "exception_input_type"
     	???
     	// End of user code
 	}
@@ -103,7 +103,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * @body handlerBody.incoming->isEmpty() and handlerBody.outgoing->isEmpty() and exceptionInput.incoming->isEmpty()
 	 */
 	def validate_handler_body_edges: Boolean  = {
-    	// Start of user code for "handler_body_edges"
+		// Start of user code for "handler_body_edges"
     	???
     	// End of user code
 	}
@@ -116,7 +116,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * @body handlerBody.owner=protectedNode.owner
 	 */
 	def validate_handler_body_owner: Boolean  = {
-    	// Start of user code for "handler_body_owner"
+		// Start of user code for "handler_body_owner"
     	???
     	// End of user code
 	}
@@ -131,7 +131,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * inputs->size()=1 and inputs->first()=exceptionInput
 	 */
 	def validate_one_input: Boolean  = {
-    	// Start of user code for "one_input"
+		// Start of user code for "one_input"
     	???
     	// End of user code
 	}
@@ -154,7 +154,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * )
 	 */
 	def validate_output_pins: Boolean  = {
-    	// Start of user code for "output_pins"
+		// Start of user code for "output_pins"
     	???
     	// End of user code
 	}

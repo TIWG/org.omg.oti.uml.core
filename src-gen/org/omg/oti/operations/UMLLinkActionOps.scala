@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkAction is an abstract class for all Actions that identify the links to be acted on using LinkEndData.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -85,7 +85,7 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * @body result = (endData->asSequence()->first().end.association)
 	 */
 	def association: Option[UMLAssociation[Uml]]  = {
-    	// Start of user code for "association"
+		// Start of user code for "association"
     	???
     	// End of user code
 	}
@@ -98,7 +98,7 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * @body endData->forAll(not end.isStatic)
 	 */
 	def validate_not_static: Boolean  = {
-    	// Start of user code for "not_static"
+		// Start of user code for "not_static"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * @body endData.end = self.association().memberEnd->asBag()
 	 */
 	def validate_same_association: Boolean  = {
-    	// Start of user code for "same_association"
+		// Start of user code for "same_association"
     	???
     	// End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * @body inputValue->asBag()=endData.allPins()
 	 */
 	def validate_same_pins: Boolean  = {
-    	// Start of user code for "same_pins"
+		// Start of user code for "same_pins"
     	???
     	// End of user code
 	}

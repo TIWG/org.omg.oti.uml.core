@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InteractionConstraint is a Boolean expression that guards an operand in a CombinedFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -72,7 +72,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 */
 	def validate_dynamic_variables: Boolean  = {
-    	// Start of user code for "dynamic_variables"
+		// Start of user code for "dynamic_variables"
     	???
     	// End of user code
 	}
@@ -84,7 +84,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 */
 	def validate_global_data: Boolean  = {
-    	// Start of user code for "global_data"
+		// Start of user code for "global_data"
     	???
     	// End of user code
 	}
@@ -99,7 +99,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * minint->asSequence()->first().integerValue() )
 	 */
 	def validate_maxint_greater_equal_minint: Boolean  = {
-    	// Start of user code for "maxint_greater_equal_minint"
+		// Start of user code for "maxint_greater_equal_minint"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * maxint->asSequence()->first().integerValue() > 0
 	 */
 	def validate_maxint_positive: Boolean  = {
-    	// Start of user code for "maxint_positive"
+		// Start of user code for "maxint_positive"
     	???
     	// End of user code
 	}
@@ -128,7 +128,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * InteractionOperatorKind::loop
 	 */
 	def validate_minint_maxint: Boolean  = {
-    	// Start of user code for "minint_maxint"
+		// Start of user code for "minint_maxint"
     	???
     	// End of user code
 	}
@@ -142,7 +142,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * minint->asSequence()->first().integerValue() >= 0
 	 */
 	def validate_minint_non_negative: Boolean  = {
-    	// Start of user code for "minint_non_negative"
+		// Start of user code for "minint_non_negative"
     	???
     	// End of user code
 	}

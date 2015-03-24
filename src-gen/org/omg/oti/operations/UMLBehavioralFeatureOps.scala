@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BehavioralFeature is a feature of a Classifier that specifies an aspect of the behavior of its instances.  A BehavioralFeature is implemented (realized) by a Behavior. A BehavioralFeature specifies that a Classifier will respond to a designated request by invoking its implementing method.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -75,7 +75,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -93,7 +93,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 *   )
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
-    	// Start of user code for "isDistinguishableFrom"
+		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
@@ -107,7 +107,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * @body isAbstract implies method->isEmpty()
 	 */
 	def validate_abstract_no_method: Boolean  = {
-    	// Start of user code for "abstract_no_method"
+		// Start of user code for "abstract_no_method"
     	???
     	// End of user code
 	}

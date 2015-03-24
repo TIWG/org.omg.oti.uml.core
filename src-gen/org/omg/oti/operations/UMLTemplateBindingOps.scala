@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -94,7 +94,7 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * @body signature.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)
 	 */
 	def validate_one_parameter_substitution: Boolean  = {
-    	// Start of user code for "one_parameter_substitution"
+		// Start of user code for "one_parameter_substitution"
     	???
     	// End of user code
 	}
@@ -107,7 +107,7 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * @body parameterSubstitution->forAll(b | signature.parameter->includes(b.formal))
 	 */
 	def validate_parameter_substitution_formal: Boolean  = {
-    	// Start of user code for "parameter_substitution_formal"
+		// Start of user code for "parameter_substitution_formal"
     	???
     	// End of user code
 	}

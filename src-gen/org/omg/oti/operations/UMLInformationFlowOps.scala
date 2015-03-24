@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * InformationFlows describe circulation of information through a system in a general manner. They do not specify the nature of the information, mechanisms by which it is conveyed, sequences of exchange or any control conditions. During more detailed modeling, representation and realization links may be added to specify which model elements implement an InformationFlow and to show how information is conveyed.  InformationFlows require some kind of ?information channel? for unidirectional transmission of information items from sources to targets.? They specify the information channel?s realizations, if any, and identify the information that flows along them.? Information moving along the information channel may be represented by abstract InformationItems and by concrete Classifiers.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -85,7 +85,7 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 *   or oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component))
 	 */
 	def validate_convey_classifiers: Boolean  = {
-    	// Start of user code for "convey_classifiers"
+		// Start of user code for "convey_classifiers"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 *
 	 */
 	def validate_must_conform: Boolean  = {
-    	// Start of user code for "must_conform"
+		// Start of user code for "must_conform"
     	???
     	// End of user code
 	}
@@ -121,7 +121,7 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * (oclIsKindOf(InstanceSpecification) and not sit.oclAsType(InstanceSpecification).classifier->exists(oclIsKindOf(Relationship)))))
 	 */
 	def validate_sources_and_targets_kind: Boolean  = {
-    	// Start of user code for "sources_and_targets_kind"
+		// Start of user code for "sources_and_targets_kind"
     	???
     	// End of user code
 	}

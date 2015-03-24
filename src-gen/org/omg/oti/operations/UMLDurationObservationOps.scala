@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DurationObservation is a reference to a duration during an execution. It points out the NamedElement(s) in the model to observe and whether the observations are when this NamedElement is entered or when it is exited.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -66,7 +66,7 @@ trait UMLDurationObservationOps[Uml <: UML] { self: UMLDurationObservation[Uml] 
 	 * endif
 	 */
 	def validate_first_event_multiplicity: Boolean  = {
-    	// Start of user code for "first_event_multiplicity"
+		// Start of user code for "first_event_multiplicity"
     	???
     	// End of user code
 	}

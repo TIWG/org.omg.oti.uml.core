@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkObjectEndQualifierAction is an Action that retrieves a qualifier end value from a link object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
 	 */
 	def validate_association_of_association: Boolean  = {
-    	// Start of user code for "association_of_association"
+		// Start of user code for "association_of_association"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
 	 */
 	def validate_ends_of_association: Boolean  = {
-    	// Start of user code for "ends_of_association"
+		// Start of user code for "ends_of_association"
     	???
     	// End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_object: Boolean  = {
-    	// Start of user code for "multiplicity_of_object"
+		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body qualifier.is(1,1)
 	 */
 	def validate_multiplicity_of_qualifier: Boolean  = {
-    	// Start of user code for "multiplicity_of_qualifier"
+		// Start of user code for "multiplicity_of_qualifier"
     	???
     	// End of user code
 	}
@@ -136,7 +136,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body qualifier.associationEnd <> null
 	 */
 	def validate_qualifier_attribute: Boolean  = {
-    	// Start of user code for "qualifier_attribute"
+		// Start of user code for "qualifier_attribute"
     	???
     	// End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body result.type = qualifier.type
 	 */
 	def validate_same_type: Boolean  = {
-    	// Start of user code for "same_type"
+		// Start of user code for "same_type"
     	???
     	// End of user code
 	}
@@ -175,7 +175,7 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * @body object.type = qualifier.associationEnd.association
 	 */
 	def validate_type_of_object: Boolean  = {
-    	// Start of user code for "type_of_object"
+		// Start of user code for "type_of_object"
     	???
     	// End of user code
 	}

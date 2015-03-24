@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkEndCreationData is LinkEndData used to provide values for one end of a link to be created by a CreateLinkAction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 * @body result = (self.LinkEndData::allPins()->including(insertAt))
 	 */
 	override def allPins: Set[UMLInputPin[Uml]]  = {
-    	// Start of user code for "allPins"
+		// Start of user code for "allPins"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 * endif
 	 */
 	def validate_insertAt_pin: Boolean  = {
-    	// Start of user code for "insertAt_pin"
+		// Start of user code for "insertAt_pin"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BroadcastSignalAction is an InvocationAction that transmits a Signal instance to all the potential target objects in the system. Values from the argument InputPins are used to provide values for the attributes of the Signal. The requestor continues execution immediately after the Signal instances are sent out and cannot receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 * @body onPort=null
 	 */
 	def validate_no_onport: Boolean  = {
-    	// Start of user code for "no_onport"
+		// Start of user code for "no_onport"
     	???
     	// End of user code
 	}
@@ -77,7 +77,7 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 * @body argument->size() = signal.allAttributes()->size()
 	 */
 	def validate_number_of_arguments: Boolean  = {
-    	// Start of user code for "number_of_arguments"
+		// Start of user code for "number_of_arguments"
     	???
     	// End of user code
 	}
@@ -94,7 +94,7 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 * 	argument->at(i).compatibleWith(attribute->at(i)))
 	 */
 	def validate_type_ordering_multiplicity: Boolean  = {
-    	// Start of user code for "type_ordering_multiplicity"
+		// Start of user code for "type_ordering_multiplicity"
     	???
     	// End of user code
 	}

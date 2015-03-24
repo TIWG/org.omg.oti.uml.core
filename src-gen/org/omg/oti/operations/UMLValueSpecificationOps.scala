@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ValueSpecification is the specification of a (possibly empty) set of values. A ValueSpecification is a ParameterableElement that may be exposed as a formal TemplateParameter and provided as the actual parameter in the binding of a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -182,7 +182,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (null)
 	 */
 	def booleanValue: Option[Boolean]  = {
-    	// Start of user code for "booleanValue"
+		// Start of user code for "booleanValue"
     	???
     	// End of user code
 	}
@@ -196,7 +196,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (null)
 	 */
 	def integerValue: Option[Integer]  = {
-    	// Start of user code for "integerValue"
+		// Start of user code for "integerValue"
     	???
     	// End of user code
 	}
@@ -211,7 +211,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * self.type.conformsTo(p.oclAsType(TypedElement).type)))
 	 */
 	override def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isCompatibleWith"
+		// Start of user code for "isCompatibleWith"
     	???
     	// End of user code
 	}
@@ -225,7 +225,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (false)
 	 */
 	def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
@@ -239,7 +239,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (false)
 	 */
 	def isNull: Boolean  = {
-    	// Start of user code for "isNull"
+		// Start of user code for "isNull"
     	???
     	// End of user code
 	}
@@ -253,7 +253,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (null)
 	 */
 	def realValue: Option[Double]  = {
-    	// Start of user code for "realValue"
+		// Start of user code for "realValue"
     	???
     	// End of user code
 	}
@@ -267,7 +267,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (null)
 	 */
 	def stringValue: Option[String]  = {
-    	// Start of user code for "stringValue"
+		// Start of user code for "stringValue"
     	???
     	// End of user code
 	}
@@ -281,7 +281,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	 * @body result = (null)
 	 */
 	def unlimitedValue: Option[Integer]  = {
-    	// Start of user code for "unlimitedValue"
+		// Start of user code for "unlimitedValue"
     	???
     	// End of user code
 	}

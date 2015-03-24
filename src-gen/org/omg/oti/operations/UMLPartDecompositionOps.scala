@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PartDecomposition is a description of the internal Interactions of one Lifeline relative to an Interaction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -63,7 +63,7 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 *
 	 */
 	def validate_assume: Boolean  = {
-    	// Start of user code for "assume"
+		// Start of user code for "assume"
     	???
     	// End of user code
 	}
@@ -75,7 +75,7 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 *
 	 */
 	def validate_commutativity_of_decomposition: Boolean  = {
-    	// Start of user code for "commutativity_of_decomposition"
+		// Start of user code for "commutativity_of_decomposition"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 *
 	 */
 	def validate_parts_of_internal_structures: Boolean  = {
-    	// Start of user code for "parts_of_internal_structures"
+		// Start of user code for "parts_of_internal_structures"
     	???
     	// End of user code
 	}

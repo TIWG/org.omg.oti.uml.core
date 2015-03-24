@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ParameterableElement is an Element that can be exposed as a formal TemplateParameter for a template, or specified as an actual parameter in a binding of a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * @body result = (self.oclIsKindOf(p.oclType()))
 	 */
 	def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isCompatibleWith"
+		// Start of user code for "isCompatibleWith"
     	???
     	// End of user code
 	}
@@ -98,7 +98,7 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * @body result = (templateParameter->notEmpty())
 	 */
 	def isTemplateParameter: Boolean  = {
-    	// Start of user code for "isTemplateParameter"
+		// Start of user code for "isTemplateParameter"
     	???
     	// End of user code
 	}

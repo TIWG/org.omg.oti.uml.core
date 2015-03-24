@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CallOperationAction is a CallAction that transmits an Operation call request to the target object, where it may cause the invocation of associated Behavior. The argument values of the CallOperationAction are passed on the input Parameters of the Operation. If call is synchronous, the execution of the CallOperationAction waits until the execution of the invoked Operation completes and the values of output Parameters of the Operation are placed on the result OutputPins. If the call is asynchronous, the CallOperationAction completes immediately and no results values can be provided.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * @body result = (operation.inputParameters())
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * @body result = (operation.outputParameters())
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -94,7 +94,7 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * endif
 	 */
 	def validate_type_target_pin: Boolean  = {
-    	// Start of user code for "type_target_pin"
+		// Start of user code for "type_target_pin"
     	???
     	// End of user code
 	}

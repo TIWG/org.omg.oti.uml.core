@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 	 * @body name->notEmpty ()
 	 */
 	def validate_must_have_name: Boolean  = {
-    	// Start of user code for "must_have_name"
+		// Start of user code for "must_have_name"
     	???
     	// End of user code
 	}

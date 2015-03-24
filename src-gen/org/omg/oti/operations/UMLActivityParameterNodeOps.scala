@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityParameterNode is an ObjectNode for accepting values from the input Parameters or providing values to the output Parameters of an Activity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * @body activity.ownedParameter->includes(parameter)
 	 */
 	def validate_has_parameters: Boolean  = {
-    	// Start of user code for "has_parameters"
+		// Start of user code for "has_parameters"
     	???
     	// End of user code
 	}
@@ -77,7 +77,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * @body incoming->isEmpty() or outgoing->isEmpty()
 	 */
 	def validate_no_edges: Boolean  = {
-    	// Start of user code for "no_edges"
+		// Start of user code for "no_edges"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * 	 parameter.direction = ParameterDirectionKind::inout)
 	 */
 	def validate_no_incoming_edges: Boolean  = {
-    	// Start of user code for "no_incoming_edges"
+		// Start of user code for "no_incoming_edges"
     	???
     	// End of user code
 	}
@@ -108,7 +108,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * 	 parameter.direction = ParameterDirectionKind::return)
 	 */
 	def validate_no_outgoing_edges: Boolean  = {
-    	// Start of user code for "no_outgoing_edges"
+		// Start of user code for "no_outgoing_edges"
     	???
     	// End of user code
 	}
@@ -121,7 +121,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * @body type = parameter.type
 	 */
 	def validate_same_type: Boolean  = {
-    	// Start of user code for "same_type"
+		// Start of user code for "same_type"
     	???
     	// End of user code
 	}

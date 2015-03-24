@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadStructuralFeatureAction is a StructuralFeatureAction that retrieves the values of a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 * @body structuralFeature.compatibleWith(result)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 * result.isOrdered = structuralFeature.isOrdered
 	 */
 	def validate_type_and_ordering: Boolean  = {
-    	// Start of user code for "type_and_ordering"
+		// Start of user code for "type_and_ordering"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkAction is a LinkAction that navigates across an Association to retrieve the objects on one end.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -75,7 +75,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 * @body result = (endData->select(value=null).end->asOrderedSet())
 	 */
 	def openEnd: Seq[UMLProperty[Uml]]  = {
-    	// Start of user code for "openEnd"
+		// Start of user code for "openEnd"
     	???
     	// End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 * @body self.openEnd()->first().compatibleWith(result)
 	 */
 	def validate_compatible_multiplicity: Boolean  = {
-    	// Start of user code for "compatible_multiplicity"
+		// Start of user code for "compatible_multiplicity"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 * @body self.openEnd()->first().isNavigable()
 	 */
 	def validate_navigable_open_end: Boolean  = {
-    	// Start of user code for "navigable_open_end"
+		// Start of user code for "navigable_open_end"
     	???
     	// End of user code
 	}
@@ -114,7 +114,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 * @body self.openEnd()->size() = 1
 	 */
 	def validate_one_open_end: Boolean  = {
-    	// Start of user code for "one_open_end"
+		// Start of user code for "one_open_end"
     	???
     	// End of user code
 	}
@@ -127,7 +127,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 * @body self.openEnd()->forAll(type=result.type and isOrdered=result.isOrdered)
 	 */
 	def validate_type_and_ordering: Boolean  = {
-    	// Start of user code for "type_and_ordering"
+		// Start of user code for "type_and_ordering"
     	???
     	// End of user code
 	}
@@ -146,7 +146,7 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 *         _'context'.conformsTo(oed.end.type.oclAsType(Classifier)))))
 	 */
 	def validate_visibility: Boolean  = {
-    	// Start of user code for "visibility"
+		// Start of user code for "visibility"
     	???
     	// End of user code
 	}

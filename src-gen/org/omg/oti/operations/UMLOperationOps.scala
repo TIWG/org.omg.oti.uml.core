@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Operation is a BehavioralFeature of a Classifier that specifies the name, type, parameters, and constraints for invoking an associated Behavior. An Operation may invoke both the execution of method behaviors as well as other behavioral responses. Operation specializes TemplateableElement in order to support specification of template operations and bound operations. Operation specializes ParameterableElement to specify that an operation can be exposed as a formal template parameter, and provided as an actual parameter in a binding of a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).type else null endif)
 	 */
 	def _type: Option[UMLType[Uml]] = {
-	    // Start of user code for "type"
+		// Start of user code for "type"
 	    ???
 	    // End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
 	 */
 	def isOrdered: Boolean = {
-	    // Start of user code for "isOrdered"
+		// Start of user code for "isOrdered"
 	    ???
 	    // End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
 	 */
 	def isUnique: Boolean = {
-	    // Start of user code for "isUnique"
+		// Start of user code for "isUnique"
 	    ???
 	    // End of user code
 	}
@@ -138,7 +138,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
 	 */
 	def lower: Option[Integer] = {
-	    // Start of user code for "lower"
+		// Start of user code for "lower"
 	    ???
 	    // End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
 	 */
 	def upper: Option[Integer] = {
-	    // Start of user code for "upper"
+		// Start of user code for "upper"
 	    ???
 	    // End of user code
 	}
@@ -193,7 +193,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.referred
 	 */
 	def referred_protocolTransition: Set[UMLProtocolTransition[Uml]] = {
-	    // Start of user code for "protocolTransition"
+		// Start of user code for "protocolTransition"
 	    ???
 	    // End of user code
 	}
@@ -232,7 +232,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * 		))
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -246,7 +246,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body result = (ownedParameter->select (direction = ParameterDirectionKind::return))
 	 */
 	def returnResult: Set[UMLParameter[Uml]]  = {
-    	// Start of user code for "returnResult"
+		// Start of user code for "returnResult"
     	???
     	// End of user code
 	}
@@ -259,7 +259,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body self.ownedParameter->select(direction = ParameterDirectionKind::return)->size() <= 1
 	 */
 	def validate_at_most_one_return: Boolean  = {
-    	// Start of user code for "at_most_one_return"
+		// Start of user code for "at_most_one_return"
     	???
     	// End of user code
 	}
@@ -272,7 +272,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * @body bodyCondition <> null implies isQuery
 	 */
 	def validate_only_body_for_query: Boolean  = {
-    	// Start of user code for "only_body_for_query"
+		// Start of user code for "only_body_for_query"
     	???
     	// End of user code
 	}

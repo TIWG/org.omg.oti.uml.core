@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Reception is a declaration stating that a Classifier is prepared to react to the receipt of a Signal.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -82,7 +82,7 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * @body name = signal.name
 	 */
 	def validate_same_name_as_signal: Boolean  = {
-    	// Start of user code for "same_name_as_signal"
+		// Start of user code for "same_name_as_signal"
     	???
     	// End of user code
 	}
@@ -102,7 +102,7 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * )
 	 */
 	def validate_same_structure_as_signal: Boolean  = {
-    	// Start of user code for "same_structure_as_signal"
+		// Start of user code for "same_structure_as_signal"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RedefinableElement is an element that, when defined in the context of a Classifier, can be redefined more specifically or differently in the context of another Classifier that specializes (directly or indirectly) the context Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * @body result = (false)
 	 */
 	def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * @body result = (redefinitionContext->exists(c | c.allParents()->includesAll(redefinedElement.redefinitionContext)))
 	 */
 	def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isRedefinitionContextValid"
+		// Start of user code for "isRedefinitionContextValid"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * @body redefinedElement->forAll(re | not re.isLeaf)
 	 */
 	def validate_non_leaf_redefinition: Boolean  = {
-    	// Start of user code for "non_leaf_redefinition"
+		// Start of user code for "non_leaf_redefinition"
     	???
     	// End of user code
 	}
@@ -105,7 +105,7 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * @body redefinedElement->forAll(re | re.isConsistentWith(self))
 	 */
 	def validate_redefinition_consistent: Boolean  = {
-    	// Start of user code for "redefinition_consistent"
+		// Start of user code for "redefinition_consistent"
     	???
     	// End of user code
 	}
@@ -118,7 +118,7 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * @body redefinedElement->forAll(re | self.isRedefinitionContextValid(re))
 	 */
 	def validate_redefinition_context_valid: Boolean  = {
-    	// Start of user code for "redefinition_context_valid"
+		// Start of user code for "redefinition_context_valid"
     	???
     	// End of user code
 	}

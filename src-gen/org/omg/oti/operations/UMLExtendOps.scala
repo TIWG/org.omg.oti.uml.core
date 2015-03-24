@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A relationship from an extending UseCase to an extended UseCase that specifies how and when the behavior defined in the extending UseCase can be inserted into the behavior defined in the extended UseCase.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -94,7 +94,7 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	 * @body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
 	 */
 	def validate_extension_points: Boolean  = {
-    	// Start of user code for "extension_points"
+		// Start of user code for "extension_points"
     	???
     	// End of user code
 	}

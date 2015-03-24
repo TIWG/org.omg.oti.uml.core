@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * WriteLinkAction is an abstract class for LinkActions that create and destroy links.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -69,7 +69,7 @@ trait UMLWriteLinkActionOps[Uml <: UML] { self: UMLWriteLinkAction[Uml] =>
 	 *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
 	 */
 	def validate_allow_access: Boolean  = {
-    	// Start of user code for "allow_access"
+		// Start of user code for "allow_access"
     	???
     	// End of user code
 	}

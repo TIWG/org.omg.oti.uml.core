@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_object: Boolean  = {
-    	// Start of user code for "multiplicity_of_object"
+		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * @body unmarshallType.allAttributes()->size() = result->size()
 	 */
 	def validate_number_of_result: Boolean  = {
-    	// Start of user code for "number_of_result"
+		// Start of user code for "number_of_result"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * @body object.type.conformsTo(unmarshallType)
 	 */
 	def validate_object_type: Boolean  = {
-    	// Start of user code for "object_type"
+		// Start of user code for "object_type"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * @body unmarshallType.allAttributes()->size() >= 1
 	 */
 	def validate_structural_feature: Boolean  = {
-    	// Start of user code for "structural_feature"
+		// Start of user code for "structural_feature"
     	???
     	// End of user code
 	}
@@ -130,7 +130,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * 	attribute->at(i).compatibleWith(result->at(i)))
 	 */
 	def validate_type_ordering_and_multiplicity: Boolean  = {
-    	// Start of user code for "type_ordering_and_multiplicity"
+		// Start of user code for "type_ordering_and_multiplicity"
     	???
     	// End of user code
 	}

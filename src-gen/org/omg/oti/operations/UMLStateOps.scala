@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A State models a situation during which some (usually implicit) invariant condition holds.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -95,7 +95,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body result = (region->notEmpty())
 	 */
 	def isComposite: Boolean = {
-	    // Start of user code for "isComposite"
+		// Start of user code for "isComposite"
 	    ???
 	    // End of user code
 	}
@@ -109,7 +109,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body result = (region->size () > 1)
 	 */
 	def isOrthogonal: Boolean = {
-	    // Start of user code for "isOrthogonal"
+		// Start of user code for "isOrthogonal"
 	    ???
 	    // End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body result = ((region->isEmpty()) and not isSubmachineState())
 	 */
 	def isSimple: Boolean = {
-	    // Start of user code for "isSimple"
+		// Start of user code for "isSimple"
 	    ???
 	    // End of user code
 	}
@@ -137,7 +137,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body result = (submachine <> null)
 	 */
 	def isSubmachineState: Boolean = {
-	    // Start of user code for "isSubmachineState"
+		// Start of user code for "isSubmachineState"
 	    ???
 	    // End of user code
 	}
@@ -167,7 +167,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * endif)
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
-	    // Start of user code for "redefinitionContext"
+		// Start of user code for "redefinitionContext"
 	    ???
 	    // End of user code
 	}
@@ -210,7 +210,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body result = (container.containingStateMachine())
 	 */
 	override def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
-    	// Start of user code for "containingStateMachine"
+		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
@@ -225,7 +225,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * true)
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -245,7 +245,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * endif)
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isRedefinitionContextValid"
+		// Start of user code for "isRedefinitionContextValid"
     	???
     	// End of user code
 	}
@@ -258,7 +258,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body connectionPoint->notEmpty() implies isComposite
 	 */
 	def validate_composite_states: Boolean  = {
-    	// Start of user code for "composite_states"
+		// Start of user code for "composite_states"
     	???
     	// End of user code
 	}
@@ -273,7 +273,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 *   cp.exit->forAll (ps | ps.stateMachine = self.submachine)))
 	 */
 	def validate_destinations_or_sources_of_transitions: Boolean  = {
-    	// Start of user code for "destinations_or_sources_of_transitions"
+		// Start of user code for "destinations_or_sources_of_transitions"
     	???
     	// End of user code
 	}
@@ -286,7 +286,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body connectionPoint->forAll(kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
 	 */
 	def validate_entry_or_exit: Boolean  = {
-    	// Start of user code for "entry_or_exit"
+		// Start of user code for "entry_or_exit"
     	???
     	// End of user code
 	}
@@ -299,7 +299,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body isComposite implies not isSubmachineState
 	 */
 	def validate_submachine_or_regions: Boolean  = {
-    	// Start of user code for "submachine_or_regions"
+		// Start of user code for "submachine_or_regions"
     	???
     	// End of user code
 	}
@@ -312,7 +312,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * @body isSubmachineState implies connection->notEmpty( )
 	 */
 	def validate_submachine_states: Boolean  = {
-    	// Start of user code for "submachine_states"
+		// Start of user code for "submachine_states"
     	???
     	// End of user code
 	}

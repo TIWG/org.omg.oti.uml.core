@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	 * @body result.is(0,*)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	 * @body result.type = classifier
 	 */
 	def validate_type_is_classifier: Boolean  = {
-    	// Start of user code for "type_is_classifier"
+		// Start of user code for "type_is_classifier"
     	???
     	// End of user code
 	}

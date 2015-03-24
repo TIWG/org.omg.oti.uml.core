@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A UseCase specifies a set of actions performed by its subjects, which yields an observable result that is of value for one or more Actors or other stakeholders of each subject.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -113,7 +113,7 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 * @body result = (self.include.addition->union(self.include.addition->collect(uc | uc.allIncludedUseCases()))->asSet())
 	 */
 	def allIncludedUseCases: Set[UMLUseCase[Uml]]  = {
-    	// Start of user code for "allIncludedUseCases"
+		// Start of user code for "allIncludedUseCases"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 * @body Association.allInstances()->forAll(a | a.memberEnd.type->includes(self) implies a.memberEnd->size() = 2)
 	 */
 	def validate_binary_associations: Boolean  = {
-    	// Start of user code for "binary_associations"
+		// Start of user code for "binary_associations"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 * @body not allIncludedUseCases()->includes(self)
 	 */
 	def validate_cannot_include_self: Boolean  = {
-    	// Start of user code for "cannot_include_self"
+		// Start of user code for "cannot_include_self"
     	???
     	// End of user code
 	}
@@ -152,7 +152,7 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 * @body name -> notEmpty ()
 	 */
 	def validate_must_have_name: Boolean  = {
-    	// Start of user code for "must_have_name"
+		// Start of user code for "must_have_name"
     	???
     	// End of user code
 	}
@@ -170,7 +170,7 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 * )
 	 */
 	def validate_no_association_to_use_case: Boolean  = {
-    	// Start of user code for "no_association_to_use_case"
+		// Start of user code for "no_association_to_use_case"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InstanceSpecification is a model element that represents an instance in a modeled system. An InstanceSpecification can act as a DeploymentTarget in a Deployment relationship, in the case that it represents an instance of a Node. It can also act as a DeployedArtifact, if it represents an instance of an Artifact.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * @body slot->forAll(s | classifier->exists (c | c.allSlottableFeatures()->includes (s.definingFeature)))
 	 */
 	def validate_defining_feature: Boolean  = {
-    	// Start of user code for "defining_feature"
+		// Start of user code for "defining_feature"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * @body deploymentForArtifact->notEmpty() implies classifier->exists(oclIsKindOf(Artifact))
 	 */
 	def validate_deployment_artifact: Boolean  = {
-    	// Start of user code for "deployment_artifact"
+		// Start of user code for "deployment_artifact"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * @body deployment->notEmpty() implies classifier->exists(node | node.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p.type = node)))
 	 */
 	def validate_deployment_target: Boolean  = {
-    	// Start of user code for "deployment_target"
+		// Start of user code for "deployment_target"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * @body classifier->forAll(c | (c.allSlottableFeatures()->forAll(f | slot->select(s | s.definingFeature = f)->size() <= 1)))
 	 */
 	def validate_structural_feature: Boolean  = {
-    	// Start of user code for "structural_feature"
+		// Start of user code for "structural_feature"
     	???
     	// End of user code
 	}

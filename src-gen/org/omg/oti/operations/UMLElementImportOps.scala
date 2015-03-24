@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ElementImport identifies a NamedElement in a Namespace other than the one that owns that NamedElement and allows the NamedElement to be referenced using an unqualified name in the Namespace owning the ElementImport.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -98,7 +98,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * endif)
 	 */
 	def getName: Option[String]  = {
-    	// Start of user code for "getName"
+		// Start of user code for "getName"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * @body importedElement.visibility <> null implies importedElement.visibility = VisibilityKind::public
 	 */
 	def validate_imported_element_is_public: Boolean  = {
-    	// Start of user code for "imported_element_is_public"
+		// Start of user code for "imported_element_is_public"
     	???
     	// End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
 	 */
 	def validate_visibility_public_or_private: Boolean  = {
-    	// Start of user code for "visibility_public_or_private"
+		// Start of user code for "visibility_public_or_private"
     	???
     	// End of user code
 	}

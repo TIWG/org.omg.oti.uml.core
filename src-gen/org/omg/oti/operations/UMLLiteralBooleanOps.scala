@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralBoolean is a specification of a Boolean value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	 * @body result = (value)
 	 */
 	override def booleanValue: Option[Boolean]  = {
-    	// Start of user code for "booleanValue"
+		// Start of user code for "booleanValue"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}

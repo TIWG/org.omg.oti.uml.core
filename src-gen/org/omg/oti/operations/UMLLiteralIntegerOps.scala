@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralInteger is a specification of an Integer value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 	 * @body result = (value)
 	 */
 	override def integerValue: Option[Integer]  = {
-    	// Start of user code for "integerValue"
+		// Start of user code for "integerValue"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}

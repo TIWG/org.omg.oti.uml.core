@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeEvent is an Event that occurs at a specific point in time.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 	 * @body when.integerValue() >= 0
 	 */
 	def validate_when_non_negative: Boolean  = {
-    	// Start of user code for "when_non_negative"
+		// Start of user code for "when_non_negative"
     	???
     	// End of user code
 	}

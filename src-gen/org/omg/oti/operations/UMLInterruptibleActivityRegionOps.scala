@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InterruptibleActivityRegion is an ActivityGroup that supports the termination of tokens flowing in the portions of an activity within it.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -75,7 +75,7 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	 *   node->includes(edge.source) and node->excludes(edge.target) and edge.target.containingActivity() = inActivity)
 	 */
 	def validate_interrupting_edges: Boolean  = {
-    	// Start of user code for "interrupting_edges"
+		// Start of user code for "interrupting_edges"
     	???
     	// End of user code
 	}

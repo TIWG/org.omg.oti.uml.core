@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * StateMachines can be used to express event-driven behaviors of parts of a system. Behavior is modeled as a traversal of a graph of Vertices interconnected by one or more joined Transition arcs that are triggered by the dispatching of successive Event occurrences. During this traversal, the StateMachine may execute a sequence of Behaviors associated with various elements of the StateMachine.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -112,7 +112,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * endif)
 	 */
 	def LCA(s1: Option[UMLVertex[Uml]], s2: Option[UMLVertex[Uml]]): Option[UMLRegion[Uml]]  = {
-    	// Start of user code for "LCA"
+		// Start of user code for "LCA"
     	???
     	// End of user code
 	}
@@ -133,7 +133,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * endif endif endif)
 	 */
 	def LCAState(v1: Option[UMLVertex[Uml]], v2: Option[UMLVertex[Uml]]): Option[UMLState[Uml]]  = {
-    	// Start of user code for "LCAState"
+		// Start of user code for "LCAState"
     	???
     	// End of user code
 	}
@@ -159,7 +159,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * endif  )
 	 */
 	def ancestor(s1: Option[UMLVertex[Uml]], s2: Option[UMLVertex[Uml]]): Boolean  = {
-    	// Start of user code for "ancestor"
+		// Start of user code for "ancestor"
     	???
     	// End of user code
 	}
@@ -174,7 +174,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * true)
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -194,7 +194,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * endif)
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isRedefinitionContextValid"
+		// Start of user code for "isRedefinitionContextValid"
     	???
     	// End of user code
 	}
@@ -207,7 +207,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * @body connectionPoint->forAll (kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
 	 */
 	def validate_connection_points: Boolean  = {
-    	// Start of user code for "connection_points"
+		// Start of user code for "connection_points"
     	???
     	// End of user code
 	}
@@ -220,7 +220,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * @body specification <> null implies ( _'context' <> null and specification.featuringClassifier->exists(c | c = _'context'))
 	 */
 	def validate_context_classifier: Boolean  = {
-    	// Start of user code for "context_classifier"
+		// Start of user code for "context_classifier"
     	???
     	// End of user code
 	}
@@ -233,7 +233,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * @body specification <> null implies connectionPoint->isEmpty()
 	 */
 	def validate_method: Boolean  = {
-    	// Start of user code for "method"
+		// Start of user code for "method"
     	???
     	// End of user code
 	}
@@ -246,7 +246,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * @body _'context' <> null implies not _'context'.oclIsKindOf(Interface)
 	 */
 	def validate_state_machine_classifier_context: Boolean  = {
-    	// Start of user code for "state_machine_classifier_context"
+		// Start of user code for "state_machine_classifier_context"
     	???
     	// End of user code
 	}

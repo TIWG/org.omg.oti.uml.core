@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OperationTemplateParameter exposes an Operation as a formal parameter for a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -67,7 +67,7 @@ trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateP
 	 *           p1.type = p2.type and p1.upper = p2.upper and p1.lower = p2.lower and p1.direction = p2.direction and p1.isOrdered = p2.isOrdered and p1.isUnique = p2.isUnique)))
 	 */
 	def validate_match_default_signature: Boolean  = {
-    	// Start of user code for "match_default_signature"
+		// Start of user code for "match_default_signature"
     	???
     	// End of user code
 	}

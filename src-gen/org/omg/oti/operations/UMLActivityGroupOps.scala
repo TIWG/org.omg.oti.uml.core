@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ActivityGroup is an abstract class for defining sets of ActivityNodes and ActivityEdges in an Activity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -97,7 +97,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * endif)
 	 */
 	def containingActivity: Option[UMLActivity[Uml]]  = {
-    	// Start of user code for "containingActivity"
+		// Start of user code for "containingActivity"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * containedEdge->forAll(activity = self.containingActivity())
 	 */
 	def validate_nodes_and_edges: Boolean  = {
-    	// Start of user code for "nodes_and_edges"
+		// Start of user code for "nodes_and_edges"
     	???
     	// End of user code
 	}
@@ -127,7 +127,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * superGroup->closure(superGroup).containedEdge->excludesAll(containedEdge)
 	 */
 	def validate_not_contained: Boolean  = {
-    	// Start of user code for "not_contained"
+		// Start of user code for "not_contained"
     	???
     	// End of user code
 	}

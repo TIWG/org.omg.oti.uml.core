@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InteractionUse refers to an Interaction. The InteractionUse is a shorthand for copying the contents of the referenced Interaction where the InteractionUse is. To be accurate the copying must take into account substituting parameters with arguments and connect the formal Gates with the actual ones.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -88,7 +88,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *  implies self.covered->asSet()->includes(intLifeline)))
 	 */
 	def validate_all_lifelines: Boolean  = {
-    	// Start of user code for "all_lifelines"
+		// Start of user code for "all_lifelines"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *
 	 */
 	def validate_arguments_are_constants: Boolean  = {
-    	// Start of user code for "arguments_are_constants"
+		// Start of user code for "arguments_are_constants"
     	???
     	// End of user code
 	}
@@ -112,7 +112,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *
 	 */
 	def validate_arguments_correspond_to_parameters: Boolean  = {
-    	// Start of user code for "arguments_correspond_to_parameters"
+		// Start of user code for "arguments_correspond_to_parameters"
     	???
     	// End of user code
 	}
@@ -127,7 +127,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * self.actualGate->forAll(ag : Gate | refersTo.formalGate->select(matches(ag))->size()=1)
 	 */
 	def validate_gates_match: Boolean  = {
-    	// Start of user code for "gates_match"
+		// Start of user code for "gates_match"
     	???
     	// End of user code
 	}
@@ -144,7 +144,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * allProps->includes(returnValueRecipient)
 	 */
 	def validate_returnValueRecipient_coverage: Boolean  = {
-    	// Start of user code for "returnValueRecipient_coverage"
+		// Start of user code for "returnValueRecipient_coverage"
     	???
     	// End of user code
 	}
@@ -157,7 +157,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * @body returnValue.type->asSequence()->notEmpty() implies returnValue.type->asSequence()->first() = returnValueRecipient.type->asSequence()->first()
 	 */
 	def validate_returnValue_type_recipient_correspondence: Boolean  = {
-    	// Start of user code for "returnValue_type_recipient_correspondence"
+		// Start of user code for "returnValue_type_recipient_correspondence"
     	???
     	// End of user code
 	}

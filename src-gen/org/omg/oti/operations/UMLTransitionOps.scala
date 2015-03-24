@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Transition represents an arc between exactly one source Vertex and exactly one Target vertex (the source and targets may be the same Vertex). It may form part of a compound transition, which takes the StateMachine from one steady State configuration to another, representing the full response of the StateMachine to an occurrence of an Event that triggered it.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -111,7 +111,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * endif)
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
-	    // Start of user code for "redefinitionContext"
+		// Start of user code for "redefinitionContext"
 	    ???
 	    // End of user code
 	}
@@ -144,7 +144,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body result = (container.containingStateMachine())
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
-    	// Start of user code for "containingStateMachine"
+		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
@@ -159,7 +159,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * true)
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -172,7 +172,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (guard = null and trigger->isEmpty())
 	 */
 	def validate_fork_segment_guards: Boolean  = {
-    	// Start of user code for "fork_segment_guards"
+		// Start of user code for "fork_segment_guards"
     	???
     	// End of user code
 	}
@@ -185,7 +185,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body (source.oclIsKindOf(Pseudostate) and  source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (target.oclIsKindOf(State))
 	 */
 	def validate_fork_segment_state: Boolean  = {
-    	// Start of user code for "fork_segment_state"
+		// Start of user code for "fork_segment_state"
     	???
     	// End of user code
 	}
@@ -199,7 +199,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * 	trigger->isEmpty()
 	 */
 	def validate_initial_transition: Boolean  = {
-    	// Start of user code for "initial_transition"
+		// Start of user code for "initial_transition"
     	???
     	// End of user code
 	}
@@ -212,7 +212,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (guard = null and trigger->isEmpty())
 	 */
 	def validate_join_segment_guards: Boolean  = {
-    	// Start of user code for "join_segment_guards"
+		// Start of user code for "join_segment_guards"
     	???
     	// End of user code
 	}
@@ -225,7 +225,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (source.oclIsKindOf(State))
 	 */
 	def validate_join_segment_state: Boolean  = {
-    	// Start of user code for "join_segment_state"
+		// Start of user code for "join_segment_state"
     	???
     	// End of user code
 	}
@@ -238,7 +238,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * @body source.oclIsKindOf(Pseudostate) and (source.oclAsType(Pseudostate).kind <> PseudostateKind::initial) implies trigger->isEmpty()
 	 */
 	def validate_outgoing_pseudostates: Boolean  = {
-    	// Start of user code for "outgoing_pseudostates"
+		// Start of user code for "outgoing_pseudostates"
     	???
     	// End of user code
 	}
@@ -252,7 +252,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * 	not (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint)
 	 */
 	def validate_state_is_external: Boolean  = {
-    	// Start of user code for "state_is_external"
+		// Start of user code for "state_is_external"
     	???
     	// End of user code
 	}
@@ -266,7 +266,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * 		(source.oclIsKindOf (State) and source = target)
 	 */
 	def validate_state_is_internal: Boolean  = {
-    	// Start of user code for "state_is_internal"
+		// Start of user code for "state_is_internal"
     	???
     	// End of user code
 	}
@@ -281,7 +281,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * 		(source.oclIsKindOf (Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint))
 	 */
 	def validate_state_is_local: Boolean  = {
-    	// Start of user code for "state_is_local"
+		// Start of user code for "state_is_local"
     	???
     	// End of user code
 	}

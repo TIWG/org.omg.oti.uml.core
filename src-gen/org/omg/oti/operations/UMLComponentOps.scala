@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment.  
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -72,7 +72,7 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * in     ris->union(realizingClassifierInterfaces) ->union(providedByPorts)->asSet())
 	 */
 	def provided: Set[UMLInterface[Uml]] = {
-	    // Start of user code for "provided"
+		// Start of user code for "provided"
 	    ???
 	    // End of user code
 	}
@@ -104,7 +104,7 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * )
 	 */
 	def required: Set[UMLInterface[Uml]] = {
-	    // Start of user code for "required"
+		// Start of user code for "required"
 	    ???
 	    // End of user code
 	}
@@ -117,7 +117,7 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * @body nestedClassifier->isEmpty()
 	 */
 	def validate_no_nested_classifiers: Boolean  = {
-    	// Start of user code for "no_nested_classifiers"
+		// Start of user code for "no_nested_classifiers"
     	???
     	// End of user code
 	}
@@ -130,7 +130,7 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * @body nestingClass <> null implies packagedElement->isEmpty()
 	 */
 	def validate_no_packaged_elements: Boolean  = {
-    	// Start of user code for "no_packaged_elements"
+		// Start of user code for "no_packaged_elements"
     	???
     	// End of user code
 	}

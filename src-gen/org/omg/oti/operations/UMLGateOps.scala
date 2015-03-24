@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Gate is a MessageEnd which serves as a connection point for relating a Message which has a MessageEnd (sendEvent / receiveEvent) outside an InteractionFragment with another Message which has a MessageEnd (receiveEvent / sendEvent)  inside that InteractionFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -103,7 +103,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * endif)
 	 */
 	def getName: Option[String]  = {
-    	// Start of user code for "getName"
+		// Start of user code for "getName"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * endif)
 	 */
 	def getOperand: Option[UMLInteractionOperand[Uml]]  = {
-    	// Start of user code for "getOperand"
+		// Start of user code for "getOperand"
     	???
     	// End of user code
 	}
@@ -140,7 +140,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body result = (interactionUse->notEmpty())
 	 */
 	def isActual: Boolean  = {
-    	// Start of user code for "isActual"
+		// Start of user code for "isActual"
     	???
     	// End of user code
 	}
@@ -155,7 +155,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
-    	// Start of user code for "isDistinguishableFrom"
+		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
@@ -169,7 +169,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body result = (interaction->notEmpty())
 	 */
 	def isFormal: Boolean  = {
-    	// Start of user code for "isFormal"
+		// Start of user code for "isFormal"
     	???
     	// End of user code
 	}
@@ -191,7 +191,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * endif)
 	 */
 	def isInsideCF: Boolean  = {
-    	// Start of user code for "isInsideCF"
+		// Start of user code for "isInsideCF"
     	???
     	// End of user code
 	}
@@ -218,7 +218,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * endif)
 	 */
 	def isOutsideCF: Boolean  = {
-    	// Start of user code for "isOutsideCF"
+		// Start of user code for "isOutsideCF"
     	???
     	// End of user code
 	}
@@ -237,7 +237,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * self.message.signature = gateToMatch.message.signature)
 	 */
 	def matches(gateToMatch: Option[UMLGate[Uml]]): Boolean  = {
-    	// Start of user code for "matches"
+		// Start of user code for "matches"
     	???
     	// End of user code
 	}
@@ -250,7 +250,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body isActual() implies interactionUse.actualGate->select(getName() = self.getName())->size()=1
 	 */
 	def validate_actual_gate_distinguishable: Boolean  = {
-    	// Start of user code for "actual_gate_distinguishable"
+		// Start of user code for "actual_gate_distinguishable"
     	???
     	// End of user code
 	}
@@ -263,7 +263,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body interactionUse->notEmpty() implies interactionUse.refersTo.formalGate->select(matches(self))->size()=1
 	 */
 	def validate_actual_gate_matched: Boolean  = {
-    	// Start of user code for "actual_gate_matched"
+		// Start of user code for "actual_gate_matched"
     	???
     	// End of user code
 	}
@@ -276,7 +276,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body isFormal() implies interaction.formalGate->select(getName() = self.getName())->size()=1
 	 */
 	def validate_formal_gate_distinguishable: Boolean  = {
-    	// Start of user code for "formal_gate_distinguishable"
+		// Start of user code for "formal_gate_distinguishable"
     	???
     	// End of user code
 	}
@@ -291,7 +291,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *   combinedFragment.cfragmentGate->select(isInsideCF() and getName() = self.getName())->select(getOperand() = selfOperand)->size()=1
 	 */
 	def validate_inside_cf_gate_distinguishable: Boolean  = {
-    	// Start of user code for "inside_cf_gate_distinguishable"
+		// Start of user code for "inside_cf_gate_distinguishable"
     	???
     	// End of user code
 	}
@@ -304,7 +304,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body isInsideCF() implies combinedFragment.cfragmentGate->select(isOutsideCF() and matches(self))->size()=1
 	 */
 	def validate_inside_cf_matched: Boolean  = {
-    	// Start of user code for "inside_cf_matched"
+		// Start of user code for "inside_cf_matched"
     	???
     	// End of user code
 	}
@@ -317,7 +317,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * @body isOutsideCF() implies combinedFragment.cfragmentGate->select(getName() = self.getName())->size()=1
 	 */
 	def validate_outside_cf_gate_distinguishable: Boolean  = {
-    	// Start of user code for "outside_cf_gate_distinguishable"
+		// Start of user code for "outside_cf_gate_distinguishable"
     	???
     	// End of user code
 	}
@@ -336,7 +336,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *  endif
 	 */
 	def validate_outside_cf_matched: Boolean  = {
-    	// Start of user code for "outside_cf_matched"
+		// Start of user code for "outside_cf_matched"
     	???
     	// End of user code
 	}

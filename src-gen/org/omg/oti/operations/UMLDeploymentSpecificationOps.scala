@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A deployment specification specifies a set of properties that determine execution parameters of a component artifact that is deployed on a node. A deployment specification can be aimed at a specific type of container. An artifact that reifies or implements deployment specification properties is a deployment descriptor.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecificati
 	 * @body deployment->forAll (location.deployedElement->forAll (oclIsKindOf(Component)))
 	 */
 	def validate_deployed_elements: Boolean  = {
-    	// Start of user code for "deployed_elements"
+		// Start of user code for "deployed_elements"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecificati
 	 * @body deployment->forAll (location.oclIsKindOf(ExecutionEnvironment))
 	 */
 	def validate_deployment_target: Boolean  = {
-    	// Start of user code for "deployment_target"
+		// Start of user code for "deployment_target"
     	???
     	// End of user code
 	}

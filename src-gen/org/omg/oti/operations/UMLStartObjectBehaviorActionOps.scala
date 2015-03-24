@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A StartObjectBehaviorAction is an InvocationAction that starts the execution either of a directly instantiated Behavior or of the classifierBehavior of an object. Argument values may be supplied for the input Parameters of the Behavior. If the Behavior is invoked synchronously, then output values may be obtained for output Parameters.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -72,7 +72,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * endif)
 	 */
 	def behavior: Option[UMLBehavior[Uml]]  = {
-    	// Start of user code for "behavior"
+		// Start of user code for "behavior"
     	???
     	// End of user code
 	}
@@ -86,7 +86,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * @body result = (self.behavior().inputParameters())
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * @body result = (self.behavior().outputParameters())
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_object: Boolean  = {
-    	// Start of user code for "multiplicity_of_object"
+		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * @body onPort->isEmpty()
 	 */
 	def validate_no_onport: Boolean  = {
-    	// Start of user code for "no_onport"
+		// Start of user code for "no_onport"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * @body self.behavior()<>null
 	 */
 	def validate_type_of_object: Boolean  = {
-    	// Start of user code for "type_of_object"
+		// Start of user code for "type_of_object"
     	???
     	// End of user code
 	}

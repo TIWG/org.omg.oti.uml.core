@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * CallAction is an abstract class for Actions that invoke a Behavior with given argument values and (if the invocation is synchronous) receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -77,7 +77,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -95,7 +95,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * 	argument->at(i).compatibleWith(parameter->at(i)))
 	 */
 	def validate_argument_pins: Boolean  = {
-    	// Start of user code for "argument_pins"
+		// Start of user code for "argument_pins"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
 	def validate_result_pins: Boolean  = {
-    	// Start of user code for "result_pins"
+		// Start of user code for "result_pins"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * @body result->notEmpty() implies isSynchronous
 	 */
 	def validate_synchronous_call: Boolean  = {
-    	// Start of user code for "synchronous_call"
+		// Start of user code for "synchronous_call"
     	???
     	// End of user code
 	}

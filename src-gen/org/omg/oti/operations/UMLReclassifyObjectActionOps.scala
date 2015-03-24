@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * @body not newClassifier->exists(isAbstract)
 	 */
 	def validate_classifier_not_abstract: Boolean  = {
-    	// Start of user code for "classifier_not_abstract"
+		// Start of user code for "classifier_not_abstract"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * @body object.type = null
 	 */
 	def validate_input_pin: Boolean  = {
-    	// Start of user code for "input_pin"
+		// Start of user code for "input_pin"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}

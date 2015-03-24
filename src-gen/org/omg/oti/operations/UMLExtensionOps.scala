@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An extension is used to indicate that the properties of a metaclass are extended through a stereotype, and gives the ability to flexibly add (and later remove) stereotypes to classes.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * @body result = (ownedEnd.lowerBound() = 1)
 	 */
 	def isRequired: Boolean = {
-	    // Start of user code for "isRequired"
+		// Start of user code for "isRequired"
 	    ???
 	    // End of user code
 	}
@@ -80,7 +80,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * @body result = (metaclassEnd().type.oclAsType(Class))
 	 */
 	def metaclass: Option[UMLClass[Uml]] = {
-	    // Start of user code for "metaclass"
+		// Start of user code for "metaclass"
 	    (for { p <- (memberEnd.toSet -- ownedEnd.toSet).headOption } yield p._type.selectByKindOf { case c: UMLClass[Uml] => c }).flatten
 	    // End of user code
 	}
@@ -104,7 +104,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * @body result = (memberEnd->reject(p | ownedEnd->includes(p.oclAsType(ExtensionEnd)))->any(true))
 	 */
 	def metaclassEnd: Option[UMLProperty[Uml]]  = {
-    	// Start of user code for "metaclassEnd"
+		// Start of user code for "metaclassEnd"
     	???
     	// End of user code
 	}
@@ -117,7 +117,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * @body memberEnd->size() = 2
 	 */
 	def validate_is_binary: Boolean  = {
-    	// Start of user code for "is_binary"
+		// Start of user code for "is_binary"
     	???
     	// End of user code
 	}
@@ -130,7 +130,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * @body metaclassEnd()->notEmpty() and metaclassEnd().type.oclIsKindOf(Class)
 	 */
 	def validate_non_owned_end: Boolean  = {
-    	// Start of user code for "non_owned_end"
+		// Start of user code for "non_owned_end"
     	???
     	// End of user code
 	}

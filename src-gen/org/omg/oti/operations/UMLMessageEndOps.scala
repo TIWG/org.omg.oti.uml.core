@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * MessageEnd is an abstract specialization of NamedElement that represents what can occur at the end of a Message.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -93,7 +93,7 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * endif)
 	 */
 	def enclosingFragment: Set[UMLInteractionFragment[Uml]]  = {
-    	// Start of user code for "enclosingFragment"
+		// Start of user code for "enclosingFragment"
     	???
     	// End of user code
 	}
@@ -107,7 +107,7 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * @body result = (message.receiveEvent->asSet()->includes(self))
 	 */
 	def isReceive: Boolean  = {
-    	// Start of user code for "isReceive"
+		// Start of user code for "isReceive"
     	???
     	// End of user code
 	}
@@ -121,7 +121,7 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * @body result = (message.sendEvent->asSet()->includes(self))
 	 */
 	def isSend: Boolean  = {
-    	// Start of user code for "isSend"
+		// Start of user code for "isSend"
     	???
     	// End of user code
 	}
@@ -135,7 +135,7 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * @body result = (message->asSet().messageEnd->asSet()->excluding(self))
 	 */
 	def oppositeEnd: Set[UMLMessageEnd[Uml]]  = {
-    	// Start of user code for "oppositeEnd"
+		// Start of user code for "oppositeEnd"
     	???
     	// End of user code
 	}

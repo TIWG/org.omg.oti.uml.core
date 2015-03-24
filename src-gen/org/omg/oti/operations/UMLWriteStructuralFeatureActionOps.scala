@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * WriteStructuralFeatureAction is an abstract class for StructuralFeatureActions that change StructuralFeature values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * @body result <> null implies result.is(1,1)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * @body value<>null implies value.is(1,1)
 	 */
 	def validate_multiplicity_of_value: Boolean  = {
-    	// Start of user code for "multiplicity_of_value"
+		// Start of user code for "multiplicity_of_value"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * @body result <> null implies result.type = object.type
 	 */
 	def validate_type_of_result: Boolean  = {
-    	// Start of user code for "type_of_result"
+		// Start of user code for "type_of_result"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * @body value <> null implies value.type.conformsTo(structuralFeature.type)
 	 */
 	def validate_type_of_value: Boolean  = {
-    	// Start of user code for "type_of_value"
+		// Start of user code for "type_of_value"
     	???
     	// End of user code
 	}

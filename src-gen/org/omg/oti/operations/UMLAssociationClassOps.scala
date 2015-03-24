@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A model element that has both Association and Class properties. An AssociationClass can be seen as an Association that also has Class properties, or as a Class that also has Association properties. It not only connects a set of Classifiers but also defines a set of Features that belong to the Association itself and not to any of the associated Classifiers.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 * @body self.endType()->excludes(self) and self.endType()->collect(et|et.oclAsType(Classifier).allParents())->flatten()->excludes(self)
 	 */
 	def validate_cannot_be_defined: Boolean  = {
-    	// Start of user code for "cannot_be_defined"
+		// Start of user code for "cannot_be_defined"
     	???
     	// End of user code
 	}
@@ -77,7 +77,7 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 * @body ownedAttribute->intersection(ownedEnd)->isEmpty()
 	 */
 	def validate_disjoint_attributes_ends: Boolean  = {
-    	// Start of user code for "disjoint_attributes_ends"
+		// Start of user code for "disjoint_attributes_ends"
     	???
     	// End of user code
 	}

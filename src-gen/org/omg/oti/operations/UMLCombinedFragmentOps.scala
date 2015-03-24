@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CombinedFragment defines an expression of InteractionFragments. A CombinedFragment is defined by an interaction operator and corresponding InteractionOperands. Through the use of CombinedFragments the user will be able to describe a number of traces in a compact and concise manner.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 *    enclosingOperand.oclAsType(InteractionFragment)->asSet()).covered->asSet() = self.covered->asSet()
 	 */
 	def validate_break: Boolean  = {
-    	// Start of user code for "break"
+		// Start of user code for "break"
     	???
     	// End of user code
 	}
@@ -89,7 +89,7 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * @body ((interactionOperator = InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)) implies oclIsKindOf(ConsiderIgnoreFragment)
 	 */
 	def validate_consider_and_ignore: Boolean  = {
-    	// Start of user code for "consider_and_ignore"
+		// Start of user code for "consider_and_ignore"
     	???
     	// End of user code
 	}
@@ -105,7 +105,7 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * implies operand->size()=1
 	 */
 	def validate_opt_loop_break_neg: Boolean  = {
-    	// Start of user code for "opt_loop_break_neg"
+		// Start of user code for "opt_loop_break_neg"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InputPin is a Pin that holds input values to be consumed by an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -265,7 +265,7 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(outgoing.target)
 	 */
 	def validate_outgoing_edges_structured_only: Boolean  = {
-    	// Start of user code for "outgoing_edges_structured_only"
+		// Start of user code for "outgoing_edges_structured_only"
     	???
     	// End of user code
 	}

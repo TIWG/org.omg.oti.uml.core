@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ClearAssociationAction is an Action that destroys all links of an Association in which a particular object participates.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	 * @body association.memberEnd->exists(self.object.type.conformsTo(type))
 	 */
 	def validate_same_type: Boolean  = {
-    	// Start of user code for "same_type"
+		// Start of user code for "same_type"
     	???
     	// End of user code
 	}

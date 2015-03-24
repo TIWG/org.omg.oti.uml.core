@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadLinkObjectEndAction is an Action that retrieves an end object from a link object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body end.association.oclIsKindOf(AssociationClass)
 	 */
 	def validate_association_of_association: Boolean  = {
-    	// Start of user code for "association_of_association"
+		// Start of user code for "association_of_association"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body end.association.memberEnd->forAll(e | not e.isStatic)
 	 */
 	def validate_ends_of_association: Boolean  = {
-    	// Start of user code for "ends_of_association"
+		// Start of user code for "ends_of_association"
     	???
     	// End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_object: Boolean  = {
-    	// Start of user code for "multiplicity_of_object"
+		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -136,7 +136,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body end.association <> null
 	 */
 	def validate_property: Boolean  = {
-    	// Start of user code for "property"
+		// Start of user code for "property"
     	???
     	// End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body object.type = end.association
 	 */
 	def validate_type_of_object: Boolean  = {
-    	// Start of user code for "type_of_object"
+		// Start of user code for "type_of_object"
     	???
     	// End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLReadLinkObjectEndActionOps[Uml <: UML] { self: UMLReadLinkObjectEndActi
 	 * @body result.type = end.type
 	 */
 	def validate_type_of_result: Boolean  = {
-    	// Start of user code for "type_of_result"
+		// Start of user code for "type_of_result"
     	???
     	// End of user code
 	}

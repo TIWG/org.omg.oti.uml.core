@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InitialNode is a ControlNode that offers a single control token when initially enabled.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLInitialNodeOps[Uml <: UML] { self: UMLInitialNode[Uml] =>
 	 * @body outgoing->forAll(oclIsKindOf(ControlFlow))
 	 */
 	def validate_control_edges: Boolean  = {
-    	// Start of user code for "control_edges"
+		// Start of user code for "control_edges"
     	???
     	// End of user code
 	}
@@ -77,7 +77,7 @@ trait UMLInitialNodeOps[Uml <: UML] { self: UMLInitialNode[Uml] =>
 	 * @body incoming->isEmpty()
 	 */
 	def validate_no_incoming_edges: Boolean  = {
-    	// Start of user code for "no_incoming_edges"
+		// Start of user code for "no_incoming_edges"
     	???
     	// End of user code
 	}

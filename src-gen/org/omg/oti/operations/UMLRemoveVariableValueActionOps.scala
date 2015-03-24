@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RemoveVariableValueAction is a WriteVariableAction that removes values from a Variables.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -71,7 +71,7 @@ trait UMLRemoveVariableValueActionOps[Uml <: UML] { self: UMLRemoveVariableValue
 	 * endif
 	 */
 	def validate_removeAt_and_value: Boolean  = {
-    	// Start of user code for "removeAt_and_value"
+		// Start of user code for "removeAt_and_value"
     	???
     	// End of user code
 	}

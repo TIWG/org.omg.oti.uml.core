@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateLinkObjectAction is a CreateLinkAction for creating link objects (AssociationClasse instances).
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * @body self.association().oclIsKindOf(AssociationClass)
 	 */
 	def validate_association_class: Boolean  = {
-    	// Start of user code for "association_class"
+		// Start of user code for "association_class"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * @body result.type = association()
 	 */
 	def validate_type_of_result: Boolean  = {
-    	// Start of user code for "type_of_result"
+		// Start of user code for "type_of_result"
     	???
     	// End of user code
 	}

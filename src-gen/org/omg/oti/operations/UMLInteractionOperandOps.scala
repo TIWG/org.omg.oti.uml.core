@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An InteractionOperand is contained in a CombinedFragment. An InteractionOperand represents one operand of the expression given by the enclosing CombinedFragment.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -82,7 +82,7 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 *
 	 */
 	def validate_guard_contain_references: Boolean  = {
-    	// Start of user code for "guard_contain_references"
+		// Start of user code for "guard_contain_references"
     	???
     	// End of user code
 	}
@@ -94,7 +94,7 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 *
 	 */
 	def validate_guard_directly_prior: Boolean  = {
-    	// Start of user code for "guard_directly_prior"
+		// Start of user code for "guard_directly_prior"
     	???
     	// End of user code
 	}

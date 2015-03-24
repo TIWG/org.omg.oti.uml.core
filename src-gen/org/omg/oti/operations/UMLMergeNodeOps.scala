@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A merge node is a control node that brings together multiple alternate flows. It is not used to synchronize concurrent flows but to accept one among several alternate flows.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
 	 */
 	def validate_edges: Boolean  = {
-    	// Start of user code for "edges"
+		// Start of user code for "edges"
     	???
     	// End of user code
 	}
@@ -78,7 +78,7 @@ trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 	 * @body outgoing->size()=1
 	 */
 	def validate_one_outgoing_edge: Boolean  = {
-    	// Start of user code for "one_outgoing_edge"
+		// Start of user code for "one_outgoing_edge"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A FunctionBehavior is an OpaqueBehavior that does not access or modify any objects or other external data.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -67,7 +67,7 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 *       hasAllDataTypeAttributes(a.type.oclAsType(DataType))))
 	 */
 	def hasAllDataTypeAttributes(d: Option[UMLDataType[Uml]]): Boolean  = {
-    	// Start of user code for "hasAllDataTypeAttributes"
+		// Start of user code for "hasAllDataTypeAttributes"
     	???
     	// End of user code
 	}
@@ -81,7 +81,7 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 *   select(p | p.direction = ParameterDirectionKind::out or p.direction= ParameterDirectionKind::inout or p.direction= ParameterDirectionKind::return)->size() >= 1
 	 */
 	def validate_one_output_parameter: Boolean  = {
-    	// Start of user code for "one_output_parameter"
+		// Start of user code for "one_output_parameter"
     	???
     	// End of user code
 	}
@@ -95,7 +95,7 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 *   p.type.oclIsTypeOf(DataType) and hasAllDataTypeAttributes(p.type.oclAsType(DataType)))
 	 */
 	def validate_types_of_parameters: Boolean  = {
-    	// Start of user code for "types_of_parameters"
+		// Start of user code for "types_of_parameters"
     	???
     	// End of user code
 	}

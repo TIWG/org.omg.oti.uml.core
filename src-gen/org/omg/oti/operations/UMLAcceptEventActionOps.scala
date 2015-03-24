@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AcceptEventAction is an Action that waits for the occurrence of one or more specific Events.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -79,7 +79,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		 trigger.event.oclAsType(SignalEvent).signal->forAll(s | s.conformsTo(type)))
 	 */
 	def validate_conforming_type: Boolean  = {
-    	// Start of user code for "conforming_type"
+		// Start of user code for "conforming_type"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * @body input->size() = 0
 	 */
 	def validate_no_input_pins: Boolean  = {
-    	// Start of user code for "no_input_pins"
+		// Start of user code for "no_input_pins"
     	???
     	// End of user code
 	}
@@ -108,7 +108,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * implies output->size() = 0
 	 */
 	def validate_no_output_pins: Boolean  = {
-    	// Start of user code for "no_output_pins"
+		// Start of user code for "no_output_pins"
     	???
     	// End of user code
 	}
@@ -122,7 +122,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 	output->size() = 1 and output->first().is(1,1)
 	 */
 	def validate_one_output_pin: Boolean  = {
-    	// Start of user code for "one_output_pin"
+		// Start of user code for "one_output_pin"
     	???
     	// End of user code
 	}
@@ -143,7 +143,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		result->at(i).includesMultiplicity(attribute->at(i)))
 	 */
 	def validate_unmarshall_signal_events: Boolean  = {
-    	// Start of user code for "unmarshall_signal_events"
+		// Start of user code for "unmarshall_signal_events"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TestIdentityAction is an Action that tests if two values are identical objects.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * @body first.is(1,1) and second.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * @body first.type= null and second.type = null
 	 */
 	def validate_no_type: Boolean  = {
-    	// Start of user code for "no_type"
+		// Start of user code for "no_type"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * @body result.type=Boolean
 	 */
 	def validate_result_is_boolean: Boolean  = {
-    	// Start of user code for "result_is_boolean"
+		// Start of user code for "result_is_boolean"
     	???
     	// End of user code
 	}

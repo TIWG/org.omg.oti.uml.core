@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A GeneralizationSet is a PackageableElement whose instances represent sets of Generalization relationships.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	 * @body generalization->collect(general)->asSet()->size() <= 1
 	 */
 	def validate_generalization_same_classifier: Boolean  = {
-    	// Start of user code for "generalization_same_classifier"
+		// Start of user code for "generalization_same_classifier"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	 *   )
 	 */
 	def validate_maps_to_generalization_set: Boolean  = {
-    	// Start of user code for "maps_to_generalization_set"
+		// Start of user code for "maps_to_generalization_set"
     	???
     	// End of user code
 	}

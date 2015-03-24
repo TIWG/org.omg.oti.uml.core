@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -82,7 +82,7 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	 * @body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
 	 */
 	def validate_no_expr_requires_observation: Boolean  = {
-    	// Start of user code for "no_expr_requires_observation"
+		// Start of user code for "no_expr_requires_observation"
     	???
     	// End of user code
 	}

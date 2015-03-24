@@ -50,11 +50,11 @@ import scala.util.Failure
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.
 Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.
 A package is used to group elements, and provides a namespace for the grouped elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -154,7 +154,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * )
 	 */
 	def allApplicableStereotypes: Set[UMLStereotype[Uml]]  = {
-    	// Start of user code for "allApplicableStereotypes"
+		// Start of user code for "allApplicableStereotypes"
       allOwnedElements.selectByKindOf { case s: UMLStereotype[Uml] => s } toSet
     	// End of user code
 	}
@@ -172,7 +172,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * endif)
 	 */
 	def containingProfile: Option[UMLProfile[Uml]]  = {
-    	// Start of user code for "containingProfile"
+		// Start of user code for "containingProfile"
       self match {
         case pf: UMLProfile[Uml] =>
           Some( pf )
@@ -195,7 +195,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @body result = (false)
 	 */
 	override def mustBeOwned: Boolean  = {
-    	// Start of user code for "mustBeOwned"
+		// Start of user code for "mustBeOwned"
     	???
     	// End of user code
 	}
@@ -208,7 +208,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @body packagedElement->forAll(e | e.visibility<> null implies e.visibility = VisibilityKind::public or e.visibility = VisibilityKind::private)
 	 */
 	def validate_elements_public_or_private: Boolean  = {
-    	// Start of user code for "elements_public_or_private"
+		// Start of user code for "elements_public_or_private"
     	???
     	// End of user code
 	}

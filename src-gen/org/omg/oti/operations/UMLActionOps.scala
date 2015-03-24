@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Action is the fundamental unit of executable functionality. The execution of an Action represents some transformation or processing in the modeled system. Actions provide the ExecutableNodes within Activities and may also be used within Interactions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -71,7 +71,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * endif)
 	 */
 	def context: Option[UMLClassifier[Uml]] = {
-	    // Start of user code for "context"
+		// Start of user code for "context"
 	    ???
 	    // End of user code
 	}
@@ -103,7 +103,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * @body result = (self->asSet())
 	 */
 	def allActions: Set[UMLAction[Uml]]  = {
-    	// Start of user code for "allActions"
+		// Start of user code for "allActions"
     	???
     	// End of user code
 	}
@@ -117,7 +117,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * @body result = (input.oclAsType(Pin)->asSet()->union(output->asSet()))
 	 */
 	def allOwnedNodes: Set[UMLActivityNode[Uml]]  = {
-    	// Start of user code for "allOwnedNodes"
+		// Start of user code for "allOwnedNodes"
     	???
     	// End of user code
 	}
@@ -135,7 +135,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * )
 	 */
 	def containingBehavior: Option[UMLBehavior[Uml]]  = {
-    	// Start of user code for "containingBehavior"
+		// Start of user code for "containingBehavior"
     	???
     	// End of user code
 	}

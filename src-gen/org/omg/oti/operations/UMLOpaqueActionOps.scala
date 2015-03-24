@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OpaqueAction is an Action whose functionality is not specified within UML.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>
 	 * @body language->notEmpty() implies (_'body'->size() = language->size())
 	 */
 	def validate_language_body_size: Boolean  = {
-    	// Start of user code for "language_body_size"
+		// Start of user code for "language_body_size"
     	???
     	// End of user code
 	}

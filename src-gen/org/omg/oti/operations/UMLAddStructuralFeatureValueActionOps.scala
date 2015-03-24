@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AddStructuralFeatureValueAction is a WriteStructuralFeatureAction for adding values to a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -69,7 +69,7 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	 * endif
 	 */
 	def validate_insertAt_pin: Boolean  = {
-    	// Start of user code for "insertAt_pin"
+		// Start of user code for "insertAt_pin"
     	???
     	// End of user code
 	}
@@ -82,7 +82,7 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	 * @body value<>null
 	 */
 	def validate_required_value: Boolean  = {
-    	// Start of user code for "required_value"
+		// Start of user code for "required_value"
     	???
     	// End of user code
 	}

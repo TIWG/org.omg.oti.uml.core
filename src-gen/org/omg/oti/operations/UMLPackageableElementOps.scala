@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PackageableElement is a NamedElement that may be owned directly by a Package. A PackageableElement is also able to serve as the parameteredElement of a TemplateParameter.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployedElement
 	 */
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]] = {
-	    // Start of user code for "deploymentTarget"
+		// Start of user code for "deploymentTarget"
 	    ???
 	    // End of user code
 	}
@@ -86,7 +86,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * @opposite org.omg.oti.api.UMLNamespace.importedMember
 	 */
 	def importedMember_namespace: Set[UMLNamespace[Uml]] = {
-	    // Start of user code for "namespace"
+		// Start of user code for "namespace"
 	    ???
 	    // End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * @body visibility = null implies namespace = null
 	 */
 	def validate_namespace_needs_visibility: Boolean  = {
-    	// Start of user code for "namespace_needs_visibility"
+		// Start of user code for "namespace_needs_visibility"
     	???
     	// End of user code
 	}

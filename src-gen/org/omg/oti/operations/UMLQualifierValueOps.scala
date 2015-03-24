@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A QualifierValue is an Element that is used as part of LinkEndData to provide the value for a single qualifier of the end given by the LinkEndData.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -73,7 +73,7 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * @body value.is(1,1)
 	 */
 	def validate_multiplicity_of_qualifier: Boolean  = {
-    	// Start of user code for "multiplicity_of_qualifier"
+		// Start of user code for "multiplicity_of_qualifier"
     	???
     	// End of user code
 	}
@@ -86,7 +86,7 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * @body linkEndData.end.qualifier->includes(qualifier)
 	 */
 	def validate_qualifier_attribute: Boolean  = {
-    	// Start of user code for "qualifier_attribute"
+		// Start of user code for "qualifier_attribute"
     	???
     	// End of user code
 	}
@@ -99,7 +99,7 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * @body value.type.conformsTo(qualifier.type)
 	 */
 	def validate_type_of_qualifier: Boolean  = {
-    	// Start of user code for "type_of_qualifier"
+		// Start of user code for "type_of_qualifier"
     	???
     	// End of user code
 	}

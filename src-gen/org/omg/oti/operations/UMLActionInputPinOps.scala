@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActionInputPin is a kind of InputPin that executes an Action to determine the values to input to another Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 * @body fromAction.input->forAll(oclIsKindOf(ActionInputPin))
 	 */
 	def validate_input_pin: Boolean  = {
-    	// Start of user code for "input_pin"
+		// Start of user code for "input_pin"
     	???
     	// End of user code
 	}
@@ -89,7 +89,7 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 * fromAction.output.outgoing->isEmpty()
 	 */
 	def validate_no_control_or_object_flow: Boolean  = {
-    	// Start of user code for "no_control_or_object_flow"
+		// Start of user code for "no_control_or_object_flow"
     	???
     	// End of user code
 	}
@@ -102,7 +102,7 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 * @body fromAction.output->size() = 1
 	 */
 	def validate_one_output_pin: Boolean  = {
-    	// Start of user code for "one_output_pin"
+		// Start of user code for "one_output_pin"
     	???
     	// End of user code
 	}

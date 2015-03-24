@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Lifeline represents an individual participant in the Interaction. While parts and structural features may have multiplicity greater than 1, Lifelines represent only one interacting entity.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -121,7 +121,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 * )
 	 */
 	def validate_interaction_uses_share_lifeline: Boolean  = {
-    	// Start of user code for "interaction_uses_share_lifeline"
+		// Start of user code for "interaction_uses_share_lifeline"
     	???
     	// End of user code
 	}
@@ -134,7 +134,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 * @body represents.namespace->closure(namespace)->includes(interaction._'context')
 	 */
 	def validate_same_classifier: Boolean  = {
-    	// Start of user code for "same_classifier"
+		// Start of user code for "same_classifier"
     	???
     	// End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 * self.selector.oclIsKindOf(LiteralString)
 	 */
 	def validate_selector_int_or_string: Boolean  = {
-    	// Start of user code for "selector_int_or_string"
+		// Start of user code for "selector_int_or_string"
     	???
     	// End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 * @body  self.selector->notEmpty() = (self.represents.oclIsKindOf(MultiplicityElement) and self.represents.oclAsType(MultiplicityElement).isMultivalued())
 	 */
 	def validate_selector_specified: Boolean  = {
-    	// Start of user code for "selector_specified"
+		// Start of user code for "selector_specified"
     	???
     	// End of user code
 	}

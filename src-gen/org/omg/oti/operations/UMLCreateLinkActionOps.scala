@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateLinkAction is a WriteLinkAction for creating links.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLCreateLinkActionOps[Uml <: UML] { self: UMLCreateLinkAction[Uml] =>
 	 * @body not self.association().isAbstract
 	 */
 	def validate_association_not_abstract: Boolean  = {
-    	// Start of user code for "association_not_abstract"
+		// Start of user code for "association_not_abstract"
     	???
     	// End of user code
 	}

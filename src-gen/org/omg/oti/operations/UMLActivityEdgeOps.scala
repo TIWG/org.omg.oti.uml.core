@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -113,7 +113,7 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * @body result = (redefiningElement.oclIsKindOf(ActivityEdge))
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * @body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
 	 */
 	def validate_source_and_target: Boolean  = {
-    	// Start of user code for "source_and_target"
+		// Start of user code for "source_and_target"
     	???
     	// End of user code
 	}

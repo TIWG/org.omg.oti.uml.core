@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DestructionOccurenceSpecification models the destruction of an object.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -66,7 +66,7 @@ trait UMLDestructionOccurrenceSpecificationOps[Uml <: UML] { self: UMLDestructio
 	 * in peerEvents->last() = self
 	 */
 	def validate_no_occurrence_specifications_below: Boolean  = {
-    	// Start of user code for "no_occurrence_specifications_below"
+		// Start of user code for "no_occurrence_specifications_below"
     	???
     	// End of user code
 	}

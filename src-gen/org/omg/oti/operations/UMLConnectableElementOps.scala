@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ConnectableElement is an abstract metaclass representing a set of instances that play roles of a StructuredClassifier. ConnectableElements may be joined by attached Connectors and specify configurations of linked instances to be created within an instance of the containing StructuredClassifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -66,7 +66,7 @@ trait UMLConnectableElementOps[Uml <: UML] { self: UMLConnectableElement[Uml] =>
 	 * @body result = (ConnectorEnd.allInstances()->select(role = self))
 	 */
 	def end: Set[UMLConnectorEnd[Uml]] = {
-	    // Start of user code for "end"
+		// Start of user code for "end"
 	    ???
 	    // End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * StructuralFeatureAction is an abstract class for all Actions that operate on StructuralFeatures.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_object: Boolean  = {
-    	// Start of user code for "multiplicity_of_object"
+		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 * @body not structuralFeature.isStatic
 	 */
 	def validate_not_static: Boolean  = {
-    	// Start of user code for "not_static"
+		// Start of user code for "not_static"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 * 	object.type.conformsTo(structuralFeature.oclAsType(Property).opposite.type)
 	 */
 	def validate_object_type: Boolean  = {
-    	// Start of user code for "object_type"
+		// Start of user code for "object_type"
     	???
     	// End of user code
 	}
@@ -114,7 +114,7 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 * @body structuralFeature.featuringClassifier->size() = 1
 	 */
 	def validate_one_featuring_classifier: Boolean  = {
-    	// Start of user code for "one_featuring_classifier"
+		// Start of user code for "one_featuring_classifier"
     	???
     	// End of user code
 	}
@@ -130,7 +130,7 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 * _'context'.conformsTo(structuralFeature.oclAsType(Property).opposite.type.oclAsType(Classifier))
 	 */
 	def validate_visibility: Boolean  = {
-    	// Start of user code for "visibility"
+		// Start of user code for "visibility"
     	???
     	// End of user code
 	}

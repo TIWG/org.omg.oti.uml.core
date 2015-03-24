@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A profile defines limited extensions to a reference metamodel with the purpose of adapting the metamodel to a specific platform or domain.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -93,7 +93,7 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 * @opposite org.omg.oti.api.UMLStereotype.profile
 	 */
 	def profile_stereotype: Set[UMLStereotype[Uml]] = {
-	    // Start of user code for "stereotype"
+		// Start of user code for "stereotype"
 	    ???
 	    // End of user code
 	}
@@ -112,7 +112,7 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 *        intersection(metaclassReference.importedElement->select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier)))->isEmpty()
 	 */
 	def validate_metaclass_reference_not_specialized: Boolean  = {
-    	// Start of user code for "metaclass_reference_not_specialized"
+		// Start of user code for "metaclass_reference_not_specialized"
     	???
     	// End of user code
 	}
@@ -126,7 +126,7 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 *   union(metaclassReference.importedElement.allOwningPackages() )->notEmpty()
 	 */
 	def validate_references_same_metamodel: Boolean  = {
-    	// Start of user code for "references_same_metamodel"
+		// Start of user code for "references_same_metamodel"
     	???
     	// End of user code
 	}

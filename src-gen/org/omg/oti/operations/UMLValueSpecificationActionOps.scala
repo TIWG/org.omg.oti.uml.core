@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ValueSpecificationAction is an Action that evaluates a ValueSpecification and provides a result.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLValueSpecificationActionOps[Uml <: UML] { self: UMLValueSpecificationAc
 	 * @body value.type.conformsTo(result.type)
 	 */
 	def validate_compatible_type: Boolean  = {
-    	// Start of user code for "compatible_type"
+		// Start of user code for "compatible_type"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLValueSpecificationActionOps[Uml <: UML] { self: UMLValueSpecificationAc
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}

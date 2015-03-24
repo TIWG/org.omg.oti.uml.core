@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A stereotype defines how an existing metaclass may be extended, and enables the use of platform or domain specific terminology or notation in place of, or in addition to, the ones used for the extended metaclass.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * @body result = (self.containingProfile())
 	 */
 	def profile: Option[UMLProfile[Uml]] = {
-	    // Start of user code for "profile"
+		// Start of user code for "profile"
     @annotation.tailrec
     def getOwningProfile( pkg: Option[UMLPackage[Uml]] ): Option[UMLProfile[Uml]] = pkg match {
       case None => None
@@ -96,7 +96,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * @opposite org.omg.oti.api.UMLPackage.ownedStereotype
 	 */
 	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]] = {
-	    // Start of user code for "owningPackage"
+		// Start of user code for "owningPackage"
 	    ???
 	    // End of user code
 	}
@@ -119,7 +119,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * @body result = (self.namespace.oclAsType(Package).containingProfile())
 	 */
 	def containingProfile: Option[UMLProfile[Uml]]  = {
-    	// Start of user code for "containingProfile"
+		// Start of user code for "containingProfile"
     	???
     	// End of user code
 	}
@@ -134,7 +134,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * ->forAll(opposite.owner = association)
 	 */
 	def validate_associationEndOwnership: Boolean  = {
-    	// Start of user code for "associationEndOwnership"
+		// Start of user code for "associationEndOwnership"
     	???
     	// End of user code
 	}
@@ -146,7 +146,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 */
 	def validate_base_property_multiplicity_multiple_extension: Boolean  = {
-    	// Start of user code for "base_property_multiplicity_multiple_extension"
+		// Start of user code for "base_property_multiplicity_multiple_extension"
     	???
     	// End of user code
 	}
@@ -158,7 +158,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 */
 	def validate_base_property_multiplicity_single_extension: Boolean  = {
-    	// Start of user code for "base_property_multiplicity_single_extension"
+		// Start of user code for "base_property_multiplicity_single_extension"
     	???
     	// End of user code
 	}
@@ -170,7 +170,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 */
 	def validate_base_property_upper_bound: Boolean  = {
-    	// Start of user code for "base_property_upper_bound"
+		// Start of user code for "base_property_upper_bound"
     	???
     	// End of user code
 	}
@@ -183,7 +183,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * @body ownedAttribute.association->forAll(memberEnd->size()=2)
 	 */
 	def validate_binaryAssociationsOnly: Boolean  = {
-    	// Start of user code for "binaryAssociationsOnly"
+		// Start of user code for "binaryAssociationsOnly"
     	???
     	// End of user code
 	}
@@ -197,7 +197,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * and Classifier.allInstances()->forAll(c | c.allParents()->exists(oclIsKindOf(Stereotype)) implies c.oclIsKindOf(Stereotype))
 	 */
 	def validate_generalize: Boolean  = {
-    	// Start of user code for "generalize"
+		// Start of user code for "generalize"
     	???
     	// End of user code
 	}
@@ -209,7 +209,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 */
 	def validate_name_not_clash: Boolean  = {
-    	// Start of user code for "name_not_clash"
+		// Start of user code for "name_not_clash"
     	???
     	// End of user code
 	}

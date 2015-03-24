@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadSelfAction is an Action that retrieves the context object of the Behavior execution within which the ReadSelfAction execution is taking place.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * @body _'context' <> null
 	 */
 	def validate_contained: Boolean  = {
-    	// Start of user code for "contained"
+		// Start of user code for "contained"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * behavior.specification<>null implies not behavior.specification.isStatic
 	 */
 	def validate_not_static: Boolean  = {
-    	// Start of user code for "not_static"
+		// Start of user code for "not_static"
     	???
     	// End of user code
 	}
@@ -114,7 +114,7 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * @body result.type = _'context'
 	 */
 	def validate__type: Boolean  = {
-    	// Start of user code for "_type"
+		// Start of user code for "_type"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A StructuredActivityNode is an Action that is also an ActivityGroup and whose behavior is specified by the ActivityNodes and ActivityEdges it so contains. Unlike other kinds of ActivityGroup, a StructuredActivityNode owns the ActivityNodes and ActivityEdges it contains, and so a node or edge can only be directly contained in one StructuredActivityNode, though StructuredActivityNodes may be nested.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -125,7 +125,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * @body result = (node->select(oclIsKindOf(Action)).oclAsType(Action).allActions()->including(self)->asSet())
 	 */
 	override def allActions: Set[UMLAction[Uml]]  = {
-    	// Start of user code for "allActions"
+		// Start of user code for "allActions"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * @body result = (self.Action::allOwnedNodes()->union(node)->union(node->select(oclIsKindOf(Action)).oclAsType(Action).allOwnedNodes())->asSet())
 	 */
 	override def allOwnedNodes: Set[UMLActivityNode[Uml]]  = {
-    	// Start of user code for "allOwnedNodes"
+		// Start of user code for "allOwnedNodes"
     	???
     	// End of user code
 	}
@@ -153,7 +153,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * @body result = (self.Action::containingActivity())
 	 */
 	override def containingActivity: Option[UMLActivity[Uml]]  = {
-    	// Start of user code for "containingActivity"
+		// Start of user code for "containingActivity"
     	???
     	// End of user code
 	}
@@ -168,7 +168,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 *   union(node->select(oclIsKindOf(Action)).oclAsType(Action).output)->asSet())
 	 */
 	def sourceNodes: Set[UMLActivityNode[Uml]]  = {
-    	// Start of user code for "sourceNodes"
+		// Start of user code for "sourceNodes"
     	???
     	// End of user code
 	}
@@ -183,7 +183,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 *   union(node->select(oclIsKindOf(Action)).oclAsType(Action).input)->asSet())
 	 */
 	def targetNodes: Set[UMLActivityNode[Uml]]  = {
-    	// Start of user code for "targetNodes"
+		// Start of user code for "targetNodes"
     	???
     	// End of user code
 	}
@@ -197,7 +197,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * 	union(self.targetNodes().incoming->intersection(self.allOwnedNodes().outgoing))->asSet()
 	 */
 	def validate_edges: Boolean  = {
-    	// Start of user code for "edges"
+		// Start of user code for "edges"
     	???
     	// End of user code
 	}
@@ -210,7 +210,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * @body input.incoming.source->excludesAll(allOwnedNodes()-output)
 	 */
 	def validate_input_pin_edges: Boolean  = {
-    	// Start of user code for "input_pin_edges"
+		// Start of user code for "input_pin_edges"
     	???
     	// End of user code
 	}
@@ -223,7 +223,7 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * @body output.outgoing.target->excludesAll(allOwnedNodes()-input)
 	 */
 	def validate_output_pin_edges: Boolean  = {
-    	// Start of user code for "output_pin_edges"
+		// Start of user code for "output_pin_edges"
     	???
     	// End of user code
 	}

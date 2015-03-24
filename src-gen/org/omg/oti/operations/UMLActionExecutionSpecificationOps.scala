@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActionExecutionSpecification is a kind of ExecutionSpecification representing the execution of an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -68,7 +68,7 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	 * (parentInteraction->size() = 1) and self.action.interaction->asSet() = parentInteraction
 	 */
 	def validate_action_referenced: Boolean  = {
-    	// Start of user code for "action_referenced"
+		// Start of user code for "action_referenced"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReplyAction is an Action that accepts a set of reply values and a value containing return information produced by a previous AcceptCallAction. The ReplyAction returns the values to the caller of the previous call, completing execution of the call.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 	 * @body replyToCall.event.oclIsKindOf(CallEvent)
 	 */
 	def validate_event_on_reply_to_call_trigger: Boolean  = {
-    	// Start of user code for "event_on_reply_to_call_trigger"
+		// Start of user code for "event_on_reply_to_call_trigger"
     	???
     	// End of user code
 	}
@@ -82,7 +82,7 @@ trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 	 * 	replyValue->at(i).compatibleWith(parameter->at(i)))
 	 */
 	def validate_pins_match_parameter: Boolean  = {
-    	// Start of user code for "pins_match_parameter"
+		// Start of user code for "pins_match_parameter"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateParameterSubstitution relates the actual parameter to a formal TemplateParameter as part of a template binding.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 	 * @body actual->forAll(a | a.isCompatibleWith(formal.parameteredElement))
 	 */
 	def validate_must_be_compatible: Boolean  = {
-    	// Start of user code for "must_be_compatible"
+		// Start of user code for "must_be_compatible"
     	???
     	// End of user code
 	}

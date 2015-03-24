@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadIsClassifiedObjectAction is an Action that determines whether an object is classified by a given Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * @body result.type = Boolean
 	 */
 	def validate_boolean_result: Boolean  = {
-    	// Start of user code for "boolean_result"
+		// Start of user code for "boolean_result"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * @body object.is(1,1)
 	 */
 	def validate_multiplicity_of_input: Boolean  = {
-    	// Start of user code for "multiplicity_of_input"
+		// Start of user code for "multiplicity_of_input"
     	???
     	// End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity_of_output: Boolean  = {
-    	// Start of user code for "multiplicity_of_output"
+		// Start of user code for "multiplicity_of_output"
     	???
     	// End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * @body object.type = null
 	 */
 	def validate_no_type: Boolean  = {
-    	// Start of user code for "no_type"
+		// Start of user code for "no_type"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -103,7 +103,7 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * @body default <> null implies default.isCompatibleWith(parameteredElement)
 	 */
 	def validate_must_be_compatible: Boolean  = {
-    	// Start of user code for "must_be_compatible"
+		// Start of user code for "must_be_compatible"
     	???
     	// End of user code
 	}

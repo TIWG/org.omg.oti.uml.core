@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CollaborationUse is used to specify the application of a pattern specified by a Collaboration to a specific situation.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -91,7 +91,7 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 *       ce1.collaboration = ce2.collaboration)
 	 */
 	def validate_client_elements: Boolean  = {
-    	// Start of user code for "client_elements"
+		// Start of user code for "client_elements"
     	???
     	// End of user code
 	}
@@ -112,7 +112,7 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 * )
 	 */
 	def validate_connectors: Boolean  = {
-    	// Start of user code for "connectors"
+		// Start of user code for "connectors"
     	???
     	// End of user code
 	}
@@ -125,7 +125,7 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 * @body type.collaborationRole->forAll(role | roleBinding->exists(rb | rb.supplier->includes(role)))
 	 */
 	def validate_every_role: Boolean  = {
-    	// Start of user code for "every_role"
+		// Start of user code for "every_role"
     	???
     	// End of user code
 	}

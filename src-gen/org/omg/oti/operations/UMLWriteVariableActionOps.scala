@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * WriteVariableAction is an abstract class for VariableActions that change Variable values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] 
 	 * @body value<>null implies value.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] 
 	 * @body value <> null implies value.type.conformsTo(variable.type)
 	 */
 	def validate_value_type: Boolean  = {
-    	// Start of user code for "value_type"
+		// Start of user code for "value_type"
     	???
     	// End of user code
 	}

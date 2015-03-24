@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLCommunicationPathOps[Uml <: UML] { self: UMLCommunicationPath[Uml] =>
 	 * @body endType->forAll (oclIsKindOf(DeploymentTarget))
 	 */
 	def validate_communication_path_ends: Boolean  = {
-    	// Start of user code for "communication_path_ends"
+		// Start of user code for "communication_path_ends"
     	???
     	// End of user code
 	}

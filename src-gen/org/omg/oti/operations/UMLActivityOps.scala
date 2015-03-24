@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -126,7 +126,7 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p)->size()= 1)
 	 */
 	def validate_maximum_one_parameter_node: Boolean  = {
-    	// Start of user code for "maximum_one_parameter_node"
+		// Start of user code for "maximum_one_parameter_node"
     	???
     	// End of user code
 	}
@@ -146,7 +146,7 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * )
 	 */
 	def validate_maximum_two_parameter_nodes: Boolean  = {
-    	// Start of user code for "maximum_two_parameter_nodes"
+		// Start of user code for "maximum_two_parameter_nodes"
     	???
     	// End of user code
 	}

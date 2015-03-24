@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ActivityPartition is a kind of ActivityGroup for identifying ActivityNodes that have some characteristic in common.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -113,7 +113,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * @body isDimension implies superPartition->isEmpty()
 	 */
 	def validate_dimension_not_contained: Boolean  = {
-    	// Start of user code for "dimension_not_contained"
+		// Start of user code for "dimension_not_contained"
     	???
     	// End of user code
 	}
@@ -138,7 +138,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * )
 	 */
 	def validate_represents_classifier: Boolean  = {
-    	// Start of user code for "represents_classifier"
+		// Start of user code for "represents_classifier"
     	???
     	// End of user code
 	}
@@ -157,7 +157,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * )
 	 */
 	def validate_represents_property: Boolean  = {
-    	// Start of user code for "represents_property"
+		// Start of user code for "represents_property"
     	???
     	// End of user code
 	}
@@ -174,7 +174,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * )
 	 */
 	def validate_represents_property_and_is_contained: Boolean  = {
-    	// Start of user code for "represents_property_and_is_contained"
+		// Start of user code for "represents_property_and_is_contained"
     	???
     	// End of user code
 	}

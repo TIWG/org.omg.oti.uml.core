@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Actor specifies a role played by a user or any other system that interacts with the subject.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -73,7 +73,7 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 *   )
 	 */
 	def validate_associations: Boolean  = {
-    	// Start of user code for "associations"
+		// Start of user code for "associations"
     	???
     	// End of user code
 	}
@@ -86,7 +86,7 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 * @body name->notEmpty()
 	 */
 	def validate_must_have_name: Boolean  = {
-    	// Start of user code for "must_have_name"
+		// Start of user code for "must_have_name"
     	???
     	// End of user code
 	}

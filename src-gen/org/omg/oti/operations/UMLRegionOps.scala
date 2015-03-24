@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Region is a top-level part of a StateMachine or a composite State, that serves as a container for the Vertices and Transitions of the StateMachine. A StateMachine or composite State may contain multiple Regions representing behaviors that may occur in parallel.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -81,7 +81,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * endif)
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
-	    // Start of user code for "redefinitionContext"
+		// Start of user code for "redefinitionContext"
 	    ???
 	    // End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * endif )
 	 */
 	def belongsToPSM: Boolean  = {
-    	// Start of user code for "belongsToPSM"
+		// Start of user code for "belongsToPSM"
     	???
     	// End of user code
 	}
@@ -168,7 +168,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * endif)
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
-    	// Start of user code for "containingStateMachine"
+		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
@@ -183,7 +183,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * true)
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -209,7 +209,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * endif)
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isRedefinitionContextValid"
+		// Start of user code for "isRedefinitionContextValid"
     	???
     	// End of user code
 	}
@@ -223,7 +223,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *    select(kind = PseudostateKind::deepHistory)->size() <= 1
 	 */
 	def validate_deep_history_vertex: Boolean  = {
-    	// Start of user code for "deep_history_vertex"
+		// Start of user code for "deep_history_vertex"
     	???
     	// End of user code
 	}
@@ -237,7 +237,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *   select(kind = PseudostateKind::initial)->size() <= 1
 	 */
 	def validate_initial_vertex: Boolean  = {
-    	// Start of user code for "initial_vertex"
+		// Start of user code for "initial_vertex"
     	???
     	// End of user code
 	}
@@ -250,7 +250,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * @body (stateMachine <> null implies state = null) and (state <> null implies stateMachine = null)
 	 */
 	def validate_owned: Boolean  = {
-    	// Start of user code for "owned"
+		// Start of user code for "owned"
     	???
     	// End of user code
 	}
@@ -264,7 +264,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *   select(kind = PseudostateKind::shallowHistory)->size() <= 1
 	 */
 	def validate_shallow_history_vertex: Boolean  = {
-    	// Start of user code for "shallow_history_vertex"
+		// Start of user code for "shallow_history_vertex"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Template Signature bundles the set of formal TemplateParameters for a template.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -83,7 +83,7 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 	 * @body template.ownedElement->includesAll(parameter.parameteredElement->asSet() - parameter.ownedParameteredElement->asSet())
 	 */
 	def validate_own_elements: Boolean  = {
-    	// Start of user code for "own_elements"
+		// Start of user code for "own_elements"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 	 *    p1.parameteredElement.oclAsType(NamedElement).name <> p2.parameteredElement.oclAsType(NamedElement).name)
 	 */
 	def validate_unique_parameters: Boolean  = {
-    	// Start of user code for "unique_parameters"
+		// Start of user code for "unique_parameters"
     	???
     	// End of user code
 	}

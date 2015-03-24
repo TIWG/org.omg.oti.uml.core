@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -108,7 +108,7 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 *
 	 */
 	def validate_boolean_value: Boolean  = {
-    	// Start of user code for "boolean_value"
+		// Start of user code for "boolean_value"
     	???
     	// End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 *
 	 */
 	def validate_no_side_effects: Boolean  = {
-    	// Start of user code for "no_side_effects"
+		// Start of user code for "no_side_effects"
     	???
     	// End of user code
 	}
@@ -133,7 +133,7 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * @body not constrainedElement->includes(self)
 	 */
 	def validate_not_apply_to_self: Boolean  = {
-    	// Start of user code for "not_apply_to_self"
+		// Start of user code for "not_apply_to_self"
     	???
     	// End of user code
 	}

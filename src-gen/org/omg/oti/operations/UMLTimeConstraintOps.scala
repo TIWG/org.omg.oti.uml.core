@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TimeConstraint is a Constraint that refers to a TimeInterval.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 	 * @body constrainedElement->size() = 1
 	 */
 	def validate_has_one_constrainedElement: Boolean  = {
-    	// Start of user code for "has_one_constrainedElement"
+		// Start of user code for "has_one_constrainedElement"
     	???
     	// End of user code
 	}

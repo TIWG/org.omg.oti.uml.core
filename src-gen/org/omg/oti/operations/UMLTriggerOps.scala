@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Trigger specifies a specific point  at which an Event occurrence may trigger an effect in a Behavior. A Trigger may be qualified by the Port on which the Event occurred.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -91,7 +91,7 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 	 * @body port->notEmpty() implies event.oclIsKindOf(MessageEvent)
 	 */
 	def validate_trigger_with_ports: Boolean  = {
-    	// Start of user code for "trigger_with_ports"
+		// Start of user code for "trigger_with_ports"
     	???
     	// End of user code
 	}

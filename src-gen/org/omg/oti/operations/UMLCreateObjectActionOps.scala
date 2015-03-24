@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CreateObjectAction is an Action that creates an instance of the specified Classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * @body not classifier.isAbstract 
 	 */
 	def validate_classifier_not_abstract: Boolean  = {
-    	// Start of user code for "classifier_not_abstract"
+		// Start of user code for "classifier_not_abstract"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * @body not classifier.oclIsKindOf(AssociationClass)
 	 */
 	def validate_classifier_not_association_class: Boolean  = {
-    	// Start of user code for "classifier_not_association_class"
+		// Start of user code for "classifier_not_association_class"
     	???
     	// End of user code
 	}
@@ -100,7 +100,7 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * @body result.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -113,7 +113,7 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * @body result.type = classifier
 	 */
 	def validate_same_type: Boolean  = {
-    	// Start of user code for "same_type"
+		// Start of user code for "same_type"
     	???
     	// End of user code
 	}

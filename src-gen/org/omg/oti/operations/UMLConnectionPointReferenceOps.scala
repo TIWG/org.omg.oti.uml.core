@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConnectionPointReference represents a usage (as part of a submachine State) of an entry/exit point Pseudostate defined in the StateMachine referenced by the submachine State.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	 * @body entry->forAll(kind = PseudostateKind::entryPoint)
 	 */
 	def validate_entry_pseudostates: Boolean  = {
-    	// Start of user code for "entry_pseudostates"
+		// Start of user code for "entry_pseudostates"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	 * @body exit->forAll(kind = PseudostateKind::exitPoint)
 	 */
 	def validate_exit_pseudostates: Boolean  = {
-    	// Start of user code for "exit_pseudostates"
+		// Start of user code for "exit_pseudostates"
     	???
     	// End of user code
 	}

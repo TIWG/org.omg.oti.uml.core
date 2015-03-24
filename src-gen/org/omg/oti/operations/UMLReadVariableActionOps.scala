@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReadVariableAction is a VariableAction that retrieves the values of a Variable.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 * @body variable.compatibleWith(result)
 	 */
 	def validate_compatible_multiplicity: Boolean  = {
-    	// Start of user code for "compatible_multiplicity"
+		// Start of user code for "compatible_multiplicity"
     	???
     	// End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 * result.isOrdered = variable.isOrdered
 	 */
 	def validate_type_and_ordering: Boolean  = {
-    	// Start of user code for "type_and_ordering"
+		// Start of user code for "type_and_ordering"
     	???
     	// End of user code
 	}

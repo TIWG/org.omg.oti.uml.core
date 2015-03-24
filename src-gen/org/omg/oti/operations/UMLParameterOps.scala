@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Parameter is a specification of an argument used to pass information into or out of an invocation of a BehavioralFeature.  Parameters can be treated as ConnectableElements within Collaborations.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body result = (if self.type = String then defaultValue.stringValue() else null endif)
 	 */
 	def default: Option[String] = {
-	    // Start of user code for "default"
+		// Start of user code for "default"
 	    ???
 	    // End of user code
 	}
@@ -106,7 +106,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @opposite org.omg.oti.api.UMLOpaqueExpression.result
 	 */
 	def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]] = {
-	    // Start of user code for "opaqueExpression"
+		// Start of user code for "opaqueExpression"
 	    ???
 	    // End of user code
 	}
@@ -119,7 +119,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body end->notEmpty() implies collaboration->notEmpty()
 	 */
 	def validate_connector_end: Boolean  = {
-    	// Start of user code for "connector_end"
+		// Start of user code for "connector_end"
     	???
     	// End of user code
 	}
@@ -134,7 +134,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * (effect = ParameterEffectKind::create implies (direction = ParameterDirectionKind::out or direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::return))
 	 */
 	def validate_in_and_out: Boolean  = {
-    	// Start of user code for "in_and_out"
+		// Start of user code for "in_and_out"
     	???
     	// End of user code
 	}
@@ -147,7 +147,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body isException implies (direction <> ParameterDirectionKind::_'in' and direction <> ParameterDirectionKind::inout)
 	 */
 	def validate_not_exception: Boolean  = {
-    	// Start of user code for "not_exception"
+		// Start of user code for "not_exception"
     	???
     	// End of user code
 	}
@@ -160,7 +160,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body (type.oclIsKindOf(DataType)) implies (effect = null)
 	 */
 	def validate_object_effect: Boolean  = {
-    	// Start of user code for "object_effect"
+		// Start of user code for "object_effect"
     	???
     	// End of user code
 	}
@@ -173,7 +173,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body (isStream and behavior <> null) implies not behavior.isReentrant
 	 */
 	def validate_reentrant_behaviors: Boolean  = {
-    	// Start of user code for "reentrant_behaviors"
+		// Start of user code for "reentrant_behaviors"
     	???
     	// End of user code
 	}
@@ -186,7 +186,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 * @body not (isException and isStream)
 	 */
 	def validate_stream_and_exception: Boolean  = {
-    	// Start of user code for "stream_and_exception"
+		// Start of user code for "stream_and_exception"
     	???
     	// End of user code
 	}

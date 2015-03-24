@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A CallBehaviorAction is a CallAction that invokes a Behavior directly. The argument values of the CallBehaviorAction are passed on the input Parameters of the invoked Behavior. If the call is synchronous, the execution of the CallBehaviorAction waits until the execution of the invoked Behavior completes and the values of output Parameters of the Behavior are placed on the result OutputPins. If the call is asynchronous, the CallBehaviorAction completes immediately and no results values can be provided.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * @body result = (behavior.inputParameters())
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * @body result = (behavior.outputParameters())
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * @body onPort=null
 	 */
 	def validate_no_onport: Boolean  = {
-    	// Start of user code for "no_onport"
+		// Start of user code for "no_onport"
     	???
     	// End of user code
 	}

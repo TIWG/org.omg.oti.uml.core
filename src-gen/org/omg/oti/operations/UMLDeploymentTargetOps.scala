@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A deployment target is the location for a deployed artifact.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -66,7 +66,7 @@ trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 	 * @body result = (deployment.deployedArtifact->select(oclIsKindOf(Artifact))->collect(oclAsType(Artifact).manifestation)->collect(utilizedElement)->asSet())
 	 */
 	def deployedElement: Set[UMLPackageableElement[Uml]] = {
-	    // Start of user code for "deployedElement"
+		// Start of user code for "deployedElement"
 	    ???
 	    // End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A BehavioredClassifier may have InterfaceRealizations, and owns a set of Behaviors one of which may specify the behavior of the BehavioredClassifier itself.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -103,7 +103,7 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * @body classifierBehavior->notEmpty() implies classifierBehavior.specification->isEmpty()
 	 */
 	def validate_class_behavior: Boolean  = {
-    	// Start of user code for "class_behavior"
+		// Start of user code for "class_behavior"
     	???
     	// End of user code
 	}

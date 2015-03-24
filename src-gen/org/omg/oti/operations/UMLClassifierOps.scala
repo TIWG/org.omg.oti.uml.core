@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Classifier represents a classification of instances according to their Features.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -86,7 +86,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (parents())
 	 */
 	def general: Set[UMLClassifier[Uml]] = {
-	    // Start of user code for "general"
+		// Start of user code for "general"
 	    generalization flatMap ( _.general )//TBD
 	    // End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (inherit(parents()->collect(inheritableMembers(self))->asSet()))
 	 */
 	def inheritedMember: Set[UMLNamedElement[Uml]] = {
-	    // Start of user code for "inheritedMember"
+		// Start of user code for "inheritedMember"
 	    ???
 	    // End of user code
 	}
@@ -174,7 +174,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @opposite org.omg.oti.api.UMLAction.context
 	 */
 	def context_action: Set[UMLAction[Uml]] = {
-	    // Start of user code for "action"
+		// Start of user code for "action"
 	    ???
 	    // End of user code
 	}
@@ -196,7 +196,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @opposite org.omg.oti.api.UMLClassifier.general
 	 */
 	def general_classifier: Set[UMLClassifier[Uml]] = {
-	    // Start of user code for "classifier"
+		// Start of user code for "classifier"
 	    general_generalization flatMap (_.specific) // TBD
 	    // End of user code
 	}
@@ -282,7 +282,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (attribute->asSequence()->union(parents()->asSequence().allAttributes())->select(p | member->includes(p))->asOrderedSet())
 	 */
 	def allAttributes: Seq[UMLProperty[Uml]]  = {
-    	// Start of user code for "allAttributes"
+		// Start of user code for "allAttributes"
     	???
     	// End of user code
 	}
@@ -296,7 +296,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (member->select(oclIsKindOf(Feature))->collect(oclAsType(Feature))->asSet())
 	 */
 	def allFeatures: Set[UMLFeature[Uml]]  = {
-    	// Start of user code for "allFeatures"
+		// Start of user code for "allFeatures"
     	member.selectByKindOf { case f: UMLFeature[Uml] => f }
     	// End of user code
 	}
@@ -310,7 +310,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (parents()->union(parents()->collect(allParents())->asSet()))
 	 */
 	def allParents: Set[UMLClassifier[Uml]]  = {
-    	// Start of user code for "allParents"
+		// Start of user code for "allParents"
     	???
     	// End of user code
 	}
@@ -324,7 +324,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (directlyRealizedInterfaces()->union(self.allParents()->collect(directlyRealizedInterfaces()))->asSet())
 	 */
 	def allRealizedInterfaces: Set[UMLInterface[Uml]]  = {
-    	// Start of user code for "allRealizedInterfaces"
+		// Start of user code for "allRealizedInterfaces"
     	???
     	// End of user code
 	}
@@ -341,7 +341,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *      collect(oclAsType(StructuralFeature)))->asSet())
 	 */
 	def allSlottableFeatures: Set[UMLStructuralFeature[Uml]]  = {
-    	// Start of user code for "allSlottableFeatures"
+		// Start of user code for "allSlottableFeatures"
     	???
     	// End of user code
 	}
@@ -355,7 +355,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (directlyUsedInterfaces()->union(self.allParents()->collect(directlyUsedInterfaces()))->asSet())
 	 */
 	def allUsedInterfaces: Set[UMLInterface[Uml]]  = {
-    	// Start of user code for "allUsedInterfaces"
+		// Start of user code for "allUsedInterfaces"
     	???
     	// End of user code
 	}
@@ -374,7 +374,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * endif)
 	 */
 	override def conformsTo(other: Option[UMLType[Uml]]): Boolean  = {
-    	// Start of user code for "conformsTo"
+		// Start of user code for "conformsTo"
     	???
     	// End of user code
 	}
@@ -390,7 +390,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *       collect(supplier.oclAsType(Interface))->asSet())
 	 */
 	def directlyRealizedInterfaces: Set[UMLInterface[Uml]]  = {
-    	// Start of user code for "directlyRealizedInterfaces"
+		// Start of user code for "directlyRealizedInterfaces"
     	???
     	// End of user code
 	}
@@ -406,7 +406,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *     collect(client.oclAsType(Interface))->asSet())
 	 */
 	def directlyUsedInterfaces: Set[UMLInterface[Uml]]  = {
-    	// Start of user code for "directlyUsedInterfaces"
+		// Start of user code for "directlyUsedInterfaces"
     	???
     	// End of user code
 	}
@@ -420,7 +420,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (n.visibility <> VisibilityKind::private)
 	 */
 	def hasVisibilityOf(n: Option[UMLNamedElement[Uml]]): Boolean  = {
-    	// Start of user code for "hasVisibilityOf"
+		// Start of user code for "hasVisibilityOf"
     	???
     	// End of user code
 	}
@@ -438,7 +438,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *        ->notEmpty()))
 	 */
 	def inherit(inhs: Set[UMLNamedElement[Uml]]): Set[UMLNamedElement[Uml]]  = {
-    	// Start of user code for "inherit"
+		// Start of user code for "inherit"
     	???
     	// End of user code
 	}
@@ -452,7 +452,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (member->select(m | c.hasVisibilityOf(m)))
 	 */
 	def inheritableMembers(c: Option[UMLClassifier[Uml]]): Set[UMLNamedElement[Uml]]  = {
-    	// Start of user code for "inheritableMembers"
+		// Start of user code for "inheritableMembers"
     	???
     	// End of user code
 	}
@@ -465,7 +465,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (substitution.contract->includes(contract))
 	 */
 	def isSubstitutableFor(contract: Option[UMLClassifier[Uml]]): Boolean  = {
-    	// Start of user code for "isSubstitutableFor"
+		// Start of user code for "isSubstitutableFor"
     	???
     	// End of user code
 	}
@@ -479,7 +479,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (ownedTemplateSignature <> null or general->exists(g | g.isTemplate()))
 	 */
 	override def isTemplate: Boolean  = {
-    	// Start of user code for "isTemplate"
+		// Start of user code for "isTemplate"
     	???
     	// End of user code
 	}
@@ -493,7 +493,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (self.oclIsKindOf(c.oclType()))
 	 */
 	def maySpecializeType(c: Option[UMLClassifier[Uml]]): Boolean  = {
-    	// Start of user code for "maySpecializeType"
+		// Start of user code for "maySpecializeType"
     	???
     	// End of user code
 	}
@@ -507,7 +507,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body result = (generalization.general->asSet())
 	 */
 	def parents: Set[UMLClassifier[Uml]]  = {
-    	// Start of user code for "parents"
+		// Start of user code for "parents"
     	???
     	// End of user code
 	}
@@ -523,7 +523,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *   ))
 	 */
 	def validate_maps_to_generalization_set: Boolean  = {
-    	// Start of user code for "maps_to_generalization_set"
+		// Start of user code for "maps_to_generalization_set"
     	???
     	// End of user code
 	}
@@ -536,7 +536,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body not allParents()->includes(self)
 	 */
 	def validate_no_cycles_in_generalization: Boolean  = {
-    	// Start of user code for "no_cycles_in_generalization"
+		// Start of user code for "no_cycles_in_generalization"
     	???
     	// End of user code
 	}
@@ -549,7 +549,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body parents()->forAll(not isFinalSpecialization)
 	 */
 	def validate_non_final_parents: Boolean  = {
-    	// Start of user code for "non_final_parents"
+		// Start of user code for "non_final_parents"
     	???
     	// End of user code
 	}
@@ -562,7 +562,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @body parents()->forAll(c | self.maySpecializeType(c))
 	 */
 	def validate_specialize_type: Boolean  = {
-    	// Start of user code for "specialize_type"
+		// Start of user code for "specialize_type"
     	???
     	// End of user code
 	}

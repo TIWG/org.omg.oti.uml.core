@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Interaction is a unit of Behavior that focuses on the observable exchange of information between connectable elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -104,7 +104,7 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * @body enclosingInteraction->isEmpty()
 	 */
 	def validate_not_contained: Boolean  = {
-    	// Start of user code for "not_contained"
+		// Start of user code for "not_contained"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ReduceAction is an Action that reduces a collection to a single value by repeatedly combining the elements of the collection using a reducer Behavior.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -83,7 +83,7 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 *
 	 */
 	def validate_input_type_is_collection: Boolean  = {
-    	// Start of user code for "input_type_is_collection"
+		// Start of user code for "input_type_is_collection"
     	???
     	// End of user code
 	}
@@ -96,7 +96,7 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * @body reducer.outputParameters().type->forAll(conformsTo(result.type))
 	 */
 	def validate_output_types_are_compatible: Boolean  = {
-    	// Start of user code for "output_types_are_compatible"
+		// Start of user code for "output_types_are_compatible"
     	???
     	// End of user code
 	}
@@ -108,7 +108,7 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 *
 	 */
 	def validate_reducer_inputs_output: Boolean  = {
-    	// Start of user code for "reducer_inputs_output"
+		// Start of user code for "reducer_inputs_output"
     	???
     	// End of user code
 	}

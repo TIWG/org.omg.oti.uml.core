@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -126,7 +126,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * endif)
 	 */
 	def containingActivity: Option[UMLActivity[Uml]]  = {
-    	// Start of user code for "containingActivity"
+		// Start of user code for "containingActivity"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * @body result = (redefiningElement.oclIsKindOf(ActivityNode))
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}

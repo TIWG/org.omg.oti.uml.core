@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralReal is a specification of a Real value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 * @body result = (value)
 	 */
 	override def realValue: Option[Double]  = {
-    	// Start of user code for "realValue"
+		// Start of user code for "realValue"
     	???
     	// End of user code
 	}

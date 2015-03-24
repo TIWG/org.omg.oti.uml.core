@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DurationConstraint is a Constraint that refers to a DurationInterval.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>
 	 * endif
 	 */
 	def validate_first_event_multiplicity: Boolean  = {
-    	// Start of user code for "first_event_multiplicity"
+		// Start of user code for "first_event_multiplicity"
     	???
     	// End of user code
 	}
@@ -89,7 +89,7 @@ trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>
 	 * @body constrainedElement->size() = 1 or constrainedElement->size()=2
 	 */
 	def validate_has_one_or_two_constrainedElements: Boolean  = {
-    	// Start of user code for "has_one_or_two_constrainedElements"
+		// Start of user code for "has_one_or_two_constrainedElements"
     	???
     	// End of user code
 	}

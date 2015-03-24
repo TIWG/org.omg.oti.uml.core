@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 	 * @body result = (value)
 	 */
 	override def unlimitedValue: Option[Integer]  = {
-    	// Start of user code for "unlimitedValue"
+		// Start of user code for "unlimitedValue"
     	???
     	// End of user code
 	}

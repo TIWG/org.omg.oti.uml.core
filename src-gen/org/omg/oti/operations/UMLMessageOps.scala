@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Message defines a particular communication between Lifelines of an Interaction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -75,7 +75,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * @body result = (messageKind)
 	 */
 	def messageKind: UMLMessageKind.Value = {
-	    // Start of user code for "messageKind"
+		// Start of user code for "messageKind"
 	    ???
 	    // End of user code
 	}
@@ -89,7 +89,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
-    	// Start of user code for "isDistinguishableFrom"
+		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 */
 	def validate_arguments: Boolean  = {
-    	// Start of user code for "arguments"
+		// Start of user code for "arguments"
     	???
     	// End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * in  sendEnclosingFrag = receiveEnclosingFrag
 	 */
 	def validate_cannot_cross_boundaries: Boolean  = {
-    	// Start of user code for "cannot_cross_boundaries"
+		// Start of user code for "cannot_cross_boundaries"
     	???
     	// End of user code
 	}
@@ -132,7 +132,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 */
 	def validate_occurrence_specifications: Boolean  = {
-    	// Start of user code for "occurrence_specifications"
+		// Start of user code for "occurrence_specifications"
     	???
     	// End of user code
 	}
@@ -150,7 +150,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * f.events->indexOf(receiveEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() )
 	 */
 	def validate_sending_receiving_message_event: Boolean  = {
-    	// Start of user code for "sending_receiving_message_event"
+		// Start of user code for "sending_receiving_message_event"
     	???
     	// End of user code
 	}
@@ -171,7 +171,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * )
 	 */
 	def validate_signature_is_operation_reply: Boolean  = {
-    	// Start of user code for "signature_is_operation_reply"
+		// Start of user code for "signature_is_operation_reply"
     	???
     	// End of user code
 	}
@@ -192,7 +192,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * )
 	 */
 	def validate_signature_is_operation_request: Boolean  = {
-    	// Start of user code for "signature_is_operation_request"
+		// Start of user code for "signature_is_operation_request"
     	???
     	// End of user code
 	}
@@ -214,7 +214,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *               in o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier)))
 	 */
 	def validate_signature_is_signal: Boolean  = {
-    	// Start of user code for "signature_is_signal"
+		// Start of user code for "signature_is_signal"
     	???
     	// End of user code
 	}
@@ -231,7 +231,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *  ) and name = signature.name
 	 */
 	def validate_signature_refer_to: Boolean  = {
-    	// Start of user code for "signature_refer_to"
+		// Start of user code for "signature_refer_to"
     	???
     	// End of user code
 	}

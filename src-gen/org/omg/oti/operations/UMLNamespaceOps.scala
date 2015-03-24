@@ -50,9 +50,9 @@ import scala.util.Failure
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * In UML, a PackageImport is a relationship between a Namespace and a Package.
  * It means that the members of the imported package can be "referred by name" from
@@ -172,7 +172,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
 	 */
 	def importedMember: Set[UMLPackageableElement[Uml]] = {
-	    // Start of user code for "importedMember"
+		// Start of user code for "importedMember"
     val visibleMembersByImport = ( for {
       pi <- packageImport
       ip <- pi.importedPackage
@@ -216,7 +216,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body result = (imps->reject(imp1  | imps->exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))
 	 */
 	def excludeCollisions(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]]  = {
-    	// Start of user code for "excludeCollisions"
+		// Start of user code for "excludeCollisions"
     	???
     	// End of user code
 	}
@@ -239,7 +239,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * endif)
 	 */
 	def getNamesOfMember(element: Option[UMLNamedElement[Uml]]): Set[String]  = {
-    	// Start of user code for "getNamesOfMember"
+		// Start of user code for "getNamesOfMember"
     	???
     	// End of user code
 	}
@@ -253,7 +253,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
 	 */
 	def importMembers(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]]  = {
-    	// Start of user code for "importMembers"
+		// Start of user code for "importMembers"
     	???
     	// End of user code
 	}
@@ -269,7 +269,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * (packageImport->select(visibility = VisibilityKind::public)->collect(importedPackage.member->includes(el))->notEmpty()))
 	 */
 	def makesVisible(el: Option[UMLNamedElement[Uml]]): Boolean  = {
-    	// Start of user code for "makesVisible"
+		// Start of user code for "makesVisible"
     	???
     	// End of user code
 	}
@@ -285,7 +285,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 *        memb.isDistinguishableFrom(other, self))))
 	 */
 	def membersAreDistinguishable: Boolean  = {
-    	// Start of user code for "membersAreDistinguishable"
+		// Start of user code for "membersAreDistinguishable"
     	???
     	// End of user code
 	}
@@ -299,7 +299,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body result = (member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))->collect(oclAsType(PackageableElement))->asSet())
 	 */
 	def visibleMembers: Set[UMLPackageableElement[Uml]]  = {
-    	// Start of user code for "visibleMembers"
+		// Start of user code for "visibleMembers"
     	member.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
     	// End of user code
 	}
@@ -312,7 +312,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body elementImport.importedElement.oclAsType(Element)->excludesAll(ownedMember)
 	 */
 	def validate_cannot_import_ownedMembers: Boolean  = {
-    	// Start of user code for "cannot_import_ownedMembers"
+		// Start of user code for "cannot_import_ownedMembers"
     	???
     	// End of user code
 	}
@@ -325,7 +325,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body packageImport.importedPackage.oclAsType(Namespace)->excludes(self)
 	 */
 	def validate_cannot_import_self: Boolean  = {
-    	// Start of user code for "cannot_import_self"
+		// Start of user code for "cannot_import_self"
     	???
     	// End of user code
 	}
@@ -338,7 +338,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * @body membersAreDistinguishable()
 	 */
 	def validate_members_distinguishable: Boolean  = {
-    	// Start of user code for "members_distinguishable"
+		// Start of user code for "members_distinguishable"
     	???
     	// End of user code
 	}

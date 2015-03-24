@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * StructuredClassifiers may contain an internal structure of connected elements each of which plays a role in the overall Behavior modeled by the StructuredClassifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 * @body result = (ownedAttribute->select(isComposite))
 	 */
 	def part: Set[UMLProperty[Uml]] = {
-	    // Start of user code for "part"
+		// Start of user code for "part"
 	    ownedAttribute.filter(_.isComposite).toSet
 	    // End of user code
 	}
@@ -90,7 +90,7 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 * @body result = (allFeatures()->select(oclIsKindOf(ConnectableElement))->collect(oclAsType(ConnectableElement))->asSet())
 	 */
 	def allRoles: Set[UMLConnectableElement[Uml]]  = {
-    	// Start of user code for "allRoles"
+		// Start of user code for "allRoles"
     	allFeatures.selectByKindOf { case c: UMLConnectableElement[Uml] => c }
     	// End of user code
 	}

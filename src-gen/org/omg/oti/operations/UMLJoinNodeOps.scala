@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A JoinNode is a ControlNode that synchronizes multiple flows.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -66,7 +66,7 @@ trait UMLJoinNodeOps[Uml <: UML] { self: UMLJoinNode[Uml] =>
 	 * endif
 	 */
 	def validate_incoming_object_flow: Boolean  = {
-    	// Start of user code for "incoming_object_flow"
+		// Start of user code for "incoming_object_flow"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLJoinNodeOps[Uml <: UML] { self: UMLJoinNode[Uml] =>
 	 * @body outgoing->size() = 1
 	 */
 	def validate_one_outgoing_edge: Boolean  = {
-    	// Start of user code for "one_outgoing_edge"
+		// Start of user code for "one_outgoing_edge"
     	???
     	// End of user code
 	}

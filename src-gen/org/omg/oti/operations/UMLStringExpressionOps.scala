@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A StringExpression is an Expression that specifies a String value that is derived by concatenating a sequence of operands with String values or a sequence of subExpressions, some of which might be template parameters.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -78,7 +78,7 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * endif)
 	 */
 	override def stringValue: Option[String]  = {
-    	// Start of user code for "stringValue"
+		// Start of user code for "stringValue"
     	???
     	// End of user code
 	}
@@ -91,7 +91,7 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * @body operand->forAll (oclIsKindOf (LiteralString))
 	 */
 	def validate_operands: Boolean  = {
-    	// Start of user code for "operands"
+		// Start of user code for "operands"
     	???
     	// End of user code
 	}
@@ -104,7 +104,7 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * @body if subExpression->notEmpty() then operand->isEmpty() else operand->notEmpty() endif
 	 */
 	def validate_subexpressions: Boolean  = {
-    	// Start of user code for "subexpressions"
+		// Start of user code for "subexpressions"
     	???
     	// End of user code
 	}

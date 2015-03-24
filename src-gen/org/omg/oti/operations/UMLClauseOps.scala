@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Clause is an Element that represents a single branch of a ConditionalNode, including a test and a body section. The body section is executed only if (but not necessarily if) the test section evaluates to true.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -73,7 +73,7 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	 * @body _'body'.oclAsType(Action).allActions().output->includesAll(bodyOutput)
 	 */
 	def validate_body_output_pins: Boolean  = {
-    	// Start of user code for "body_output_pins"
+		// Start of user code for "body_output_pins"
     	???
     	// End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	 * decider.is(1,1)
 	 */
 	def validate_decider_output: Boolean  = {
-    	// Start of user code for "decider_output"
+		// Start of user code for "decider_output"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	 * @body test->intersection(_'body')->isEmpty()
 	 */
 	def validate_test_and_body: Boolean  = {
-    	// Start of user code for "test_and_body"
+		// Start of user code for "test_and_body"
     	???
     	// End of user code
 	}

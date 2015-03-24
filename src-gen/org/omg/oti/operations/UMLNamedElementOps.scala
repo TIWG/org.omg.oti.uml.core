@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A NamedElement is an Element in a model that may have a name. The name may be given directly and/or via the use of a StringExpression.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -101,7 +101,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * endif)
 	 */
 	def qualifiedName: Option[String] = {
-	    // Start of user code for "qualifiedName"
+		// Start of user code for "qualifiedName"
 	    ???
 	    // End of user code
 	}
@@ -163,7 +163,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * endif)
 	 */
 	def allNamespaces: Seq[UMLNamespace[Uml]]  = {
-    	// Start of user code for "allNamespaces"
+		// Start of user code for "allNamespaces"
     	@annotation.tailrec def allNamespacesAggregator( //TBD
       acc: Seq[UMLNamespace[Uml]],
       ne: UMLNamedElement[Uml] ): Seq[UMLNamespace[Uml]] =
@@ -203,7 +203,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * endif)
 	 */
 	def allOwningPackages: Set[UMLPackage[Uml]]  = {
-    	// Start of user code for "allOwningPackages"
+		// Start of user code for "allOwningPackages"
     @annotation.tailrec def allOwningPackagesAggregator(
       acc: Set[UMLPackage[Uml]],
       ne: UMLNamedElement[Uml] ): Set[UMLPackage[Uml]] =
@@ -227,7 +227,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * )
 	 */
 	def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
-    	// Start of user code for "isDistinguishableFrom"
+		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
@@ -241,7 +241,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * @body result = ('::')
 	 */
 	def separator: Option[String]  = {
-    	// Start of user code for "separator"
+		// Start of user code for "separator"
     	???
     	// End of user code
 	}
@@ -254,7 +254,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * @body name=null or allNamespaces()->select( ns | ns.name=null )->notEmpty() implies qualifiedName = null
 	 */
 	def validate_has_no_qualified_name: Boolean  = {
-    	// Start of user code for "has_no_qualified_name"
+		// Start of user code for "has_no_qualified_name"
     	???
     	// End of user code
 	}
@@ -268,7 +268,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name | ns.name.concat(self.separator()).concat(agg))
 	 */
 	def validate_has_qualified_name: Boolean  = {
-    	// Start of user code for "has_qualified_name"
+		// Start of user code for "has_qualified_name"
     	???
     	// End of user code
 	}
@@ -281,7 +281,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * @body (namespace = null and owner <> null) implies visibility = null
 	 */
 	def validate_visibility_needs_ownership: Boolean  = {
-    	// Start of user code for "visibility_needs_ownership"
+		// Start of user code for "visibility_needs_ownership"
     	???
     	// End of user code
 	}

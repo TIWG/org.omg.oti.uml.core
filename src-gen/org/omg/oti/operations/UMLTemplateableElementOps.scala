@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A TemplateableElement is an Element that can optionally be defined as a template and bound to other templates.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -85,7 +85,7 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * @body result = (ownedTemplateSignature <> null)
 	 */
 	def isTemplate: Boolean  = {
-    	// Start of user code for "isTemplate"
+		// Start of user code for "isTemplate"
     	???
     	// End of user code
 	}
@@ -99,7 +99,7 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * @body result = (self.allOwnedElements()->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
 	 */
 	def parameterableElements: Set[UMLParameterableElement[Uml]]  = {
-    	// Start of user code for "parameterableElements"
+		// Start of user code for "parameterableElements"
     	???
     	// End of user code
 	}

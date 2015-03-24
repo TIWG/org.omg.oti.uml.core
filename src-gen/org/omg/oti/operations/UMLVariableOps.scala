@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Variable is a ConnectableElement that may store values during the execution of an Activity. Reading and writing the values of a Variable provides an alternative means for passing data than the use of ObjectFlows. A Variable may be owned directly by an Activity, in which case it is accessible from anywhere within that activity, or it may be owned by a StructuredActivityNode, in which case it is only accessible within that node.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -87,7 +87,7 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
 	 * endif)
 	 */
 	def isAccessibleBy(a: Option[UMLAction[Uml]]): Boolean  = {
-    	// Start of user code for "isAccessibleBy"
+		// Start of user code for "isAccessibleBy"
     	???
     	// End of user code
 	}

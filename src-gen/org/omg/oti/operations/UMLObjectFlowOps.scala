@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ObjectFlow is an ActivityEdge that is traversed by object tokens that may hold values. Object flows also support multicast/receive, token selection from object nodes, and transformation of tokens.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -63,7 +63,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 *
 	 */
 	def validate_compatible_types: Boolean  = {
-    	// Start of user code for "compatible_types"
+		// Start of user code for "compatible_types"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * 	selection.outputParameters()->size()=1
 	 */
 	def validate_input_and_output_parameter: Boolean  = {
-    	// Start of user code for "input_and_output_parameter"
+		// Start of user code for "input_and_output_parameter"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * @body not (isMulticast and isMultireceive)
 	 */
 	def validate_is_multicast_or_is_multireceive: Boolean  = {
-    	// Start of user code for "is_multicast_or_is_multireceive"
+		// Start of user code for "is_multicast_or_is_multireceive"
     	???
     	// End of user code
 	}
@@ -105,7 +105,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * @body not (source.oclIsKindOf(ExecutableNode) or target.oclIsKindOf(ExecutableNode))
 	 */
 	def validate_no_executable_nodes: Boolean  = {
-    	// Start of user code for "no_executable_nodes"
+		// Start of user code for "no_executable_nodes"
     	???
     	// End of user code
 	}
@@ -117,7 +117,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 *
 	 */
 	def validate_same_upper_values: Boolean  = {
-    	// Start of user code for "same_upper_values"
+		// Start of user code for "same_upper_values"
     	???
     	// End of user code
 	}
@@ -130,7 +130,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * @body selection<>null implies source.oclIsKindOf(ObjectNode)
 	 */
 	def validate_selection_behavior: Boolean  = {
-    	// Start of user code for "selection_behavior"
+		// Start of user code for "selection_behavior"
     	???
     	// End of user code
 	}
@@ -142,7 +142,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 *
 	 */
 	def validate_target: Boolean  = {
-    	// Start of user code for "target"
+		// Start of user code for "target"
     	???
     	// End of user code
 	}
@@ -157,7 +157,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * 	transformation.outputParameters()->size()=1
 	 */
 	def validate_transformation_behavior: Boolean  = {
-    	// Start of user code for "transformation_behavior"
+		// Start of user code for "transformation_behavior"
     	???
     	// End of user code
 	}

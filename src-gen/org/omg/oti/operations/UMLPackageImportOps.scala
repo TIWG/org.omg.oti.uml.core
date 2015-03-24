@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A PackageImport is a Relationship that imports all the non-private members of a Package into the Namespace owning the PackageImport, so that those Elements may be referred to by their unqualified names in the importingNamespace.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -93,7 +93,7 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
 	 */
 	def validate_public_or_private: Boolean  = {
-    	// Start of user code for "public_or_private"
+		// Start of user code for "public_or_private"
     	???
     	// End of user code
 	}

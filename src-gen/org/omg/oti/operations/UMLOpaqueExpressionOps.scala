@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -70,7 +70,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * endif)
 	 */
 	def result: Option[UMLParameter[Uml]] = {
-	    // Start of user code for "result"
+		// Start of user code for "result"
 	    ???
 	    // End of user code
 	}
@@ -93,7 +93,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body result = (false)
 	 */
 	def isIntegral: Boolean  = {
-    	// Start of user code for "isIntegral"
+		// Start of user code for "isIntegral"
     	???
     	// End of user code
 	}
@@ -107,7 +107,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body result = (false)
 	 */
 	def isNonNegative: Boolean  = {
-    	// Start of user code for "isNonNegative"
+		// Start of user code for "isNonNegative"
     	???
     	// End of user code
 	}
@@ -121,7 +121,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body result = (false)
 	 */
 	def isPositive: Boolean  = {
-    	// Start of user code for "isPositive"
+		// Start of user code for "isPositive"
     	???
     	// End of user code
 	}
@@ -135,7 +135,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body result = (0)
 	 */
 	def value: Integer  = {
-    	// Start of user code for "value"
+		// Start of user code for "value"
     	???
     	// End of user code
 	}
@@ -148,7 +148,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body language->notEmpty() implies (_'body'->size() = language->size())
 	 */
 	def validate_language_body_size: Boolean  = {
-    	// Start of user code for "language_body_size"
+		// Start of user code for "language_body_size"
     	???
     	// End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
 	 */
 	def validate_one_return_result_parameter: Boolean  = {
-    	// Start of user code for "one_return_result_parameter"
+		// Start of user code for "one_return_result_parameter"
     	???
     	// End of user code
 	}
@@ -175,7 +175,7 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * @body behavior <> null implies behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
 	 */
 	def validate_only_return_result_parameters: Boolean  = {
-    	// Start of user code for "only_return_result_parameters"
+		// Start of user code for "only_return_result_parameters"
     	???
     	// End of user code
 	}

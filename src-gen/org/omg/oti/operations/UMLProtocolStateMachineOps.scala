@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ProtocolStateMachine is always defined in the context of a Classifier. It specifies which BehavioralFeatures of the Classifier can be called in which State and under which conditions, thus specifying the allowed invocation sequences on the Classifier's BehavioralFeatures. A ProtocolStateMachine specifies the possible and permitted Transitions on the instances of its context Classifier, together with the BehavioralFeatures that carry the Transitions. In this manner, an instance lifecycle can be specified for a Classifier, by defining the order in which the BehavioralFeatures can be activated and the States through which an instance progresses during its existence.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * ((v.oclAsType(Pseudostate).kind <>  PseudostateKind::deepHistory) and (v.oclAsType(Pseudostate).kind <> PseudostateKind::shallowHistory))))
 	 */
 	def validate_deep_or_shallow_history: Boolean  = {
-    	// Start of user code for "deep_or_shallow_history"
+		// Start of user code for "deep_or_shallow_history"
     	???
     	// End of user code
 	}
@@ -98,7 +98,7 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * (v.oclAsType(State).entry->isEmpty() and v.oclAsType(State).exit->isEmpty() and v.oclAsType(State).doActivity->isEmpty())))
 	 */
 	def validate_entry_exit_do: Boolean  = {
-    	// Start of user code for "entry_exit_do"
+		// Start of user code for "entry_exit_do"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * @body _'context' <> null and specification = null
 	 */
 	def validate_protocol_state_machine_classifier_context: Boolean  = {
-    	// Start of user code for "protocol_state_machine_classifier_context"
+		// Start of user code for "protocol_state_machine_classifier_context"
     	???
     	// End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * @body region->forAll(r | r.transition->forAll(t | t.oclIsTypeOf(ProtocolTransition)))
 	 */
 	def validate_protocol_transitions: Boolean  = {
-    	// Start of user code for "protocol_transitions"
+		// Start of user code for "protocol_transitions"
     	???
     	// End of user code
 	}

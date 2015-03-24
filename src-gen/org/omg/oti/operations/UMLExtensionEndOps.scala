@@ -46,10 +46,10 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An extension end is used to tie an extension to a stereotype when extending a metaclass.
 The default multiplicity of an extension end is 0..1.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	override def lower: Integer = {
-	    // Start of user code for "lower"
+		// Start of user code for "lower"
 	    ???
 	    // End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
 	 */
 	override def lowerBound: Option[Integer]  = {
-    	// Start of user code for "lowerBound"
+		// Start of user code for "lowerBound"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * @body self.aggregation = AggregationKind::composite
 	 */
 	def validate_aggregation: Boolean  = {
-    	// Start of user code for "aggregation"
+		// Start of user code for "aggregation"
     	???
     	// End of user code
 	}
@@ -114,7 +114,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * @body (lowerBound() = 0 or lowerBound() = 1) and upperBound() = 1
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}

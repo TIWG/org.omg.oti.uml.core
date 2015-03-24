@@ -54,9 +54,9 @@ import scala.util.Failure
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An Element is a constituent of a model. As such, it has the capability of owning other Elements.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
 	 */
 	def allOwnedElements: Set[UMLElement[Uml]]  = {
-    	// Start of user code for "allOwnedElements"
+		// Start of user code for "allOwnedElements"
     	???
     	// End of user code
 	}
@@ -98,7 +98,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * @body result = (true)
 	 */
 	def mustBeOwned: Boolean  = {
-    	// Start of user code for "mustBeOwned"
+		// Start of user code for "mustBeOwned"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * @body mustBeOwned() implies owner->notEmpty()
 	 */
 	def validate_has_owner: Boolean  = {
-    	// Start of user code for "has_owner"
+		// Start of user code for "has_owner"
     	???
     	// End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * @body not allOwnedElements()->includes(self)
 	 */
 	def validate_not_own_self: Boolean  = {
-    	// Start of user code for "not_own_self"
+		// Start of user code for "not_own_self"
     	???
     	// End of user code
 	}

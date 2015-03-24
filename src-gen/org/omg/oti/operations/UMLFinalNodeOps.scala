@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A FinalNode is an abstract ControlNode at which a flow in an Activity stops.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLFinalNodeOps[Uml <: UML] { self: UMLFinalNode[Uml] =>
 	 * @body outgoing->isEmpty()
 	 */
 	def validate_no_outgoing_edges: Boolean  = {
-    	// Start of user code for "no_outgoing_edges"
+		// Start of user code for "no_outgoing_edges"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Vertex is an abstraction of a node in a StateMachine graph. It can be the source or destination of any number of Transitions.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * @body result = (Transition.allInstances()->select(target=self))
 	 */
 	def incoming: Set[UMLTransition[Uml]] = {
-	    // Start of user code for "incoming"
+		// Start of user code for "incoming"
 	    ???
 	    // End of user code
 	}
@@ -91,7 +91,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * @body result = (Transition.allInstances()->select(source=self))
 	 */
 	def outgoing: Set[UMLTransition[Uml]] = {
-	    // Start of user code for "outgoing"
+		// Start of user code for "outgoing"
 	    ???
 	    // End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * )
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
-    	// Start of user code for "containingStateMachine"
+		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
@@ -142,7 +142,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * endif)
 	 */
 	def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean  = {
-    	// Start of user code for "isContainedInRegion"
+		// Start of user code for "isContainedInRegion"
     	???
     	// End of user code
 	}
@@ -164,7 +164,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * endif)
 	 */
 	def isContainedInState(s: Option[UMLState[Uml]]): Boolean  = {
-    	// Start of user code for "isContainedInState"
+		// Start of user code for "isContainedInState"
     	???
     	// End of user code
 	}

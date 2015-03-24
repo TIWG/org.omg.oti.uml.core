@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ForkNode is a ControlNode that splits a flow into multiple concurrent flows.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
 	 */
 	def validate_edges: Boolean  = {
-    	// Start of user code for "edges"
+		// Start of user code for "edges"
     	???
     	// End of user code
 	}
@@ -78,7 +78,7 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 	 * @body incoming->size()=1
 	 */
 	def validate_one_incoming_edge: Boolean  = {
-    	// Start of user code for "one_incoming_edge"
+		// Start of user code for "one_incoming_edge"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * Interfaces declare coherent services that are implemented by BehavioredClassifiers that implement the Interfaces via InterfaceRealizations.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -103,9 +103,9 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * @opposite org.omg.oti.api.UMLComponent.provided
 	 */
 	def provided_component: Set[UMLComponent[Uml]] = {
-	    // Start of user code for "component"
-	    ???
-	    // End of user code
+		// Start of user code for "component"
+		???
+		// End of user code
 	}
 
 	/**
@@ -116,9 +116,9 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * @opposite org.omg.oti.api.UMLPort.provided
 	 */
 	def provided_port: Set[UMLPort[Uml]] = {
-	    // Start of user code for "port"
-	    ???
-	    // End of user code
+		// Start of user code for "port"
+		???
+		// End of user code
 	}
 
 	/**
@@ -138,9 +138,9 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * @opposite org.omg.oti.api.UMLComponent.required
 	 */
 	def required_component: Set[UMLComponent[Uml]] = {
-	    // Start of user code for "component"
-	    ???
-	    // End of user code
+		// Start of user code for "component"
+		???
+		// End of user code
 	}
 
 	/**
@@ -151,9 +151,9 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * @opposite org.omg.oti.api.UMLPort.required
 	 */
 	def required_port: Set[UMLPort[Uml]] = {
-	    // Start of user code for "port"
-	    ???
-	    // End of user code
+		// Start of user code for "port"
+		???
+		// End of user code
 	}
 
 	/**
@@ -164,7 +164,7 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * @body feature->forAll(visibility = VisibilityKind::public)
 	 */
 	def validate_visibility: Boolean  = {
-    	// Start of user code for "visibility"
+		// Start of user code for "visibility"
     	???
     	// End of user code
 	}

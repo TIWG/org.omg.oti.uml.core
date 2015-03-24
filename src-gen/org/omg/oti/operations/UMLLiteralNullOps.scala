@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LiteralNull specifies the lack of a value.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isComputable: Boolean  = {
-    	// Start of user code for "isComputable"
+		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 * @body result = (true)
 	 */
 	override def isNull: Boolean  = {
-    	// Start of user code for "isNull"
+		// Start of user code for "isNull"
     	???
     	// End of user code
 	}

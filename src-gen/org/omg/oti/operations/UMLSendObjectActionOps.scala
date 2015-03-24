@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A SendObjectAction is an InvocationAction that transmits an input object to the target object, which is handled as a request message by the target object. The requestor continues execution immediately after the object is sent out and cannot receive reply values.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLSendObjectActionOps[Uml <: UML] { self: UMLSendObjectAction[Uml] =>
 	 * @body onPort<>null implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
 	 */
 	def validate_type_target_pin: Boolean  = {
-    	// Start of user code for "type_target_pin"
+		// Start of user code for "type_target_pin"
     	???
     	// End of user code
 	}

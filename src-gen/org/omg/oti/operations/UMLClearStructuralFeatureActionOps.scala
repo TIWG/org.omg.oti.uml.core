@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ClearStructuralFeatureAction is a StructuralFeatureAction that removes all values of a StructuralFeature.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLClearStructuralFeatureActionOps[Uml <: UML] { self: UMLClearStructuralF
 	 * @body result<>null implies result.is(1,1)
 	 */
 	def validate_multiplicity_of_result: Boolean  = {
-    	// Start of user code for "multiplicity_of_result"
+		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
@@ -87,7 +87,7 @@ trait UMLClearStructuralFeatureActionOps[Uml <: UML] { self: UMLClearStructuralF
 	 * @body result<>null implies result.type = object.type
 	 */
 	def validate_type_of_result: Boolean  = {
-    	// Start of user code for "type_of_result"
+		// Start of user code for "type_of_result"
     	???
     	// End of user code
 	}

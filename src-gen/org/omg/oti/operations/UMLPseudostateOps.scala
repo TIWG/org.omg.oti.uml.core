@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Pseudostate is an abstraction that encompasses different types of transient Vertices in the StateMachine graph. A StateMachine instance never comes to rest in a Pseudostate, instead, it will exit and enter the Pseudostate within a single run-to-completion step.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::choice) implies (incoming->size() >= 1 and outgoing->size() >= 1)
 	 */
 	def validate_choice_vertex: Boolean  = {
-    	// Start of user code for "choice_vertex"
+		// Start of user code for "choice_vertex"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::fork) implies (incoming->size() = 1 and outgoing->size() >= 2)
 	 */
 	def validate_fork_vertex: Boolean  = {
-    	// Start of user code for "fork_vertex"
+		// Start of user code for "fork_vertex"
     	???
     	// End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body ((kind = PseudostateKind::deepHistory) or (kind = PseudostateKind::shallowHistory)) implies (outgoing->size() <= 1)
 	 */
 	def validate_history_vertices: Boolean  = {
-    	// Start of user code for "history_vertices"
+		// Start of user code for "history_vertices"
     	???
     	// End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::initial) implies (outgoing->size() <= 1)
 	 */
 	def validate_initial_vertex: Boolean  = {
-    	// Start of user code for "initial_vertex"
+		// Start of user code for "initial_vertex"
     	???
     	// End of user code
 	}
@@ -136,7 +136,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::join) implies (outgoing->size() = 1 and incoming->size() >= 2)
 	 */
 	def validate_join_vertex: Boolean  = {
-    	// Start of user code for "join_vertex"
+		// Start of user code for "join_vertex"
     	???
     	// End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::junction) implies (incoming->size() >= 1 and outgoing->size() >= 1)
 	 */
 	def validate_junction_vertex: Boolean  = {
-    	// Start of user code for "junction_vertex"
+		// Start of user code for "junction_vertex"
     	???
     	// End of user code
 	}
@@ -162,7 +162,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * @body (kind = PseudostateKind::initial) implies (outgoing.guard = null and outgoing.trigger->isEmpty())
 	 */
 	def validate_outgoing_from_initial: Boolean  = {
-    	// Start of user code for "outgoing_from_initial"
+		// Start of user code for "outgoing_from_initial"
     	???
     	// End of user code
 	}
@@ -180,7 +180,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.source.isContainedInRegion(r1) and t2.source.isContainedInRegion(r2)))))
 	 */
 	def validate_transitions_incoming: Boolean  = {
-    	// Start of user code for "transitions_incoming"
+		// Start of user code for "transitions_incoming"
     	???
     	// End of user code
 	}
@@ -199,7 +199,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * 	
 	 */
 	def validate_transitions_outgoing: Boolean  = {
-    	// Start of user code for "transitions_outgoing"
+		// Start of user code for "transitions_outgoing"
     	???
     	// End of user code
 	}

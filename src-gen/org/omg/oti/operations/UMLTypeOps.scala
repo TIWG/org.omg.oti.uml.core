@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Type constrains the values represented by a TypedElement.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -92,7 +92,7 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	 * @opposite org.omg.oti.api.UMLOperation._type
 	 */
 	def type_operation: Set[UMLOperation[Uml]] = {
-	    // Start of user code for "operation"
+		// Start of user code for "operation"
 	    ???
 	    // End of user code
 	}
@@ -106,7 +106,7 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	 * @body result = (false)
 	 */
 	def conformsTo(other: Option[UMLType[Uml]]): Boolean  = {
-    	// Start of user code for "conformsTo"
+		// Start of user code for "conformsTo"
     	???
     	// End of user code
 	}

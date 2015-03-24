@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Continuation is a syntactic way to define continuations of different branches of an alternative CombinedFragment. Continuations are intuitively similar to labels representing intermediate points in a flow of control.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -67,7 +67,7 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *    ((peerFragments->first() = self) or  (peerFragments->last() = self)))
 	 */
 	def validate_first_or_last_interaction_fragment: Boolean  = {
-    	// Start of user code for "first_or_last_interaction_fragment"
+		// Start of user code for "first_or_last_interaction_fragment"
     	???
     	// End of user code
 	}
@@ -83,7 +83,7 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *     operandLifelines->forAll(ol :Lifeline |self.covered->includes(ol)))
 	 */
 	def validate_global: Boolean  = {
-    	// Start of user code for "global"
+		// Start of user code for "global"
     	???
     	// End of user code
 	}
@@ -119,7 +119,7 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *   )
 	 */
 	def validate_same_name: Boolean  = {
-    	// Start of user code for "same_name"
+		// Start of user code for "same_name"
     	???
     	// End of user code
 	}

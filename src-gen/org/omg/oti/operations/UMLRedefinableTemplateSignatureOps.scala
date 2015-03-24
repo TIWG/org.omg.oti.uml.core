@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A RedefinableTemplateSignature supports the addition of formal template parameters in a specialization of a template classifier.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -86,7 +86,7 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * @body result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
 	 */
 	def inheritedParameter: Set[UMLTemplateParameter[Uml]] = {
-	    // Start of user code for "inheritedParameter"
+		// Start of user code for "inheritedParameter"
 	    ???
 	    // End of user code
 	}
@@ -109,7 +109,7 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * @body result = (redefiningElement.oclIsKindOf(RedefinableTemplateSignature))
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
-    	// Start of user code for "isConsistentWith"
+		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
@@ -122,7 +122,7 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * @body classifier.allParents()->forAll(c | c.ownedTemplateSignature->notEmpty() implies self->closure(extendedSignature)->includes(c.ownedTemplateSignature))
 	 */
 	def validate_redefines_parents: Boolean  = {
-    	// Start of user code for "redefines_parents"
+		// Start of user code for "redefines_parents"
     	???
     	// End of user code
 	}

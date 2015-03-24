@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An AcceptCallAction is an AcceptEventAction that handles the receipt of a synchronous call request. In addition to the values from the Operation input parameters, the Action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller. An AcceptCallAction is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent ReplyAction will complete immediately with no effect.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -69,7 +69,7 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
 	def validate_result_pins: Boolean  = {
-    	// Start of user code for "result_pins"
+		// Start of user code for "result_pins"
     	???
     	// End of user code
 	}
@@ -83,7 +83,7 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
 	 */
 	def validate_trigger_call_event: Boolean  = {
-    	// Start of user code for "trigger_call_event"
+		// Start of user code for "trigger_call_event"
     	???
     	// End of user code
 	}
@@ -96,7 +96,7 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * @body isUnmarshall = true
 	 */
 	def validate_unmarshall: Boolean  = {
-    	// Start of user code for "unmarshall"
+		// Start of user code for "unmarshall"
     	???
     	// End of user code
 	}

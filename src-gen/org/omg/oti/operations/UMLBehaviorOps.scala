@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * Behavior is a specification of how its context BehavioredClassifier changes state over time. This specification may be either a definition of possible behavior execution or emergent behavior, or a selective illustration of an interesting subset of possible executions. The latter form is typically used for capturing examples, such as a trace of a particular execution.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 *         )
 	 */
 	def context: Option[UMLBehavioredClassifier[Uml]] = {
-	    // Start of user code for "context"
+		// Start of user code for "context"
 	    ???
 	    // End of user code
 	}
@@ -136,7 +136,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 *     
 	 */
 	def behavioredClassifier(from: Option[UMLElement[Uml]]): Option[UMLBehavioredClassifier[Uml]]  = {
-    	// Start of user code for "behavioredClassifier"
+		// Start of user code for "behavioredClassifier"
     	???
     	// End of user code
 	}
@@ -150,7 +150,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "inputParameters"
+		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
@@ -164,7 +164,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]  = {
-    	// Start of user code for "outputParameters"
+		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
@@ -177,7 +177,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * @body _'context'.feature->includes(specification)
 	 */
 	def validate_feature_of_context_classifier: Boolean  = {
-    	// Start of user code for "feature_of_context_classifier"
+		// Start of user code for "feature_of_context_classifier"
     	???
     	// End of user code
 	}
@@ -190,7 +190,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * @body specification <> null implies _'context'.ownedBehavior->select(specification=self.specification)->size() = 1
 	 */
 	def validate_most_one_behavior: Boolean  = {
-    	// Start of user code for "most_one_behavior"
+		// Start of user code for "most_one_behavior"
     	???
     	// End of user code
 	}
@@ -203,7 +203,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * @body specification <> null implies ownedParameter->size() = specification.ownedParameter->size()
 	 */
 	def validate_parameters_match: Boolean  = {
-    	// Start of user code for "parameters_match"
+		// Start of user code for "parameters_match"
     	???
     	// End of user code
 	}

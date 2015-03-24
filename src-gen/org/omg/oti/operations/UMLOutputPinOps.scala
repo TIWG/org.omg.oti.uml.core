@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An OutputPin is a Pin that holds output values produced by an Action.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -265,7 +265,7 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(incoming.source)
 	 */
 	def validate_incoming_edges_structured_only: Boolean  = {
-    	// Start of user code for "incoming_edges_structured_only"
+		// Start of user code for "incoming_edges_structured_only"
     	???
     	// End of user code
 	}

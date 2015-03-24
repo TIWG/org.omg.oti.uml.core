@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ProtocolTransition specifies a legal Transition for an Operation. Transitions of ProtocolStateMachines have the following information: a pre-condition (guard), a Trigger, and a post-condition. Every ProtocolTransition is associated with at most one BehavioralFeature belonging to the context Classifier of the ProtocolStateMachine.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -76,7 +76,7 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * @body result = (trigger->collect(event)->select(oclIsKindOf(CallEvent))->collect(oclAsType(CallEvent).operation)->asSet())
 	 */
 	def referred: Set[UMLOperation[Uml]] = {
-	    // Start of user code for "referred"
+		// Start of user code for "referred"
 	    ???
 	    // End of user code
 	}
@@ -89,7 +89,7 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * @body effect = null
 	 */
 	def validate_associated_actions: Boolean  = {
-    	// Start of user code for "associated_actions"
+		// Start of user code for "associated_actions"
     	???
     	// End of user code
 	}
@@ -102,7 +102,7 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * @body container.belongsToPSM()
 	 */
 	def validate_belongs_to_psm: Boolean  = {
-    	// Start of user code for "belongs_to_psm"
+		// Start of user code for "belongs_to_psm"
     	???
     	// End of user code
 	}
@@ -117,7 +117,7 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * else true endif
 	 */
 	def validate_refers_to_operation: Boolean  = {
-    	// Start of user code for "refers_to_operation"
+		// Start of user code for "refers_to_operation"
     	???
     	// End of user code
 	}

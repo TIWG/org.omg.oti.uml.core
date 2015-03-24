@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Connector specifies links that enables communication between two or more instances. In contrast to Associations, which specify links between any instance of the associated Classifiers, Connectors specify links between instances playing the connected parts only.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -71,7 +71,7 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * endif)
 	 */
 	def kind: UMLConnectorKind.Value = {
-	    // Start of user code for "kind"
+		// Start of user code for "kind"
 	    ???
 	    // End of user code
 	}
@@ -116,7 +116,7 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 *   e.role.oclIsKindOf(Port) and structuredClassifier.allRoles()->includes(e.partWithPort))
 	 */
 	def validate_roles: Boolean  = {
-    	// Start of user code for "roles"
+		// Start of user code for "roles"
     	???
     	// End of user code
 	}
@@ -131,7 +131,7 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 *   (type.memberEnd->size() = noOfEnds) and Sequence{1..noOfEnds}->forAll(i | end->at(i).role.type.conformsTo(type.memberEnd->at(i).type))
 	 */
 	def validate_types: Boolean  = {
-    	// Start of user code for "types"
+		// Start of user code for "types"
     	???
     	// End of user code
 	}

@@ -46,10 +46,10 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A link is a tuple of values that refer to typed objects.  An Association classifies a set of links, each of which is an instance of the Association.  Each value in the link refers to an instance of the type of the corresponding end of the Association.
 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -86,7 +86,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * @body memberEnd->size() > 2 implies ownedEnd->includesAll(memberEnd)
 	 */
 	def validate_association_ends: Boolean  = {
-    	// Start of user code for "association_ends"
+		// Start of user code for "association_ends"
     	???
     	// End of user code
 	}
@@ -99,7 +99,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * @body memberEnd->exists(aggregation <> AggregationKind::none) implies (memberEnd->size() = 2 and memberEnd->exists(aggregation = AggregationKind::none))
 	 */
 	def validate_binary_associations: Boolean  = {
-    	// Start of user code for "binary_associations"
+		// Start of user code for "binary_associations"
     	???
     	// End of user code
 	}
@@ -111,7 +111,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * @body memberEnd->forAll(type->notEmpty())
 	 */
 	def validate_ends_must_be_typed: Boolean  = {
-    	// Start of user code for "ends_must_be_typed"
+		// Start of user code for "ends_must_be_typed"
     	???
     	// End of user code
 	}
@@ -124,7 +124,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * @body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
 	 */
 	def validate_specialized_end_number: Boolean  = {
-    	// Start of user code for "specialized_end_number"
+		// Start of user code for "specialized_end_number"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
 	 */
 	def validate_specialized_end_types: Boolean  = {
-    	// Start of user code for "specialized_end_types"
+		// Start of user code for "specialized_end_types"
     	???
     	// End of user code
 	}

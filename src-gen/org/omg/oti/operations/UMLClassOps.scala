@@ -46,10 +46,10 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A Class classifies a set of objects and specifies the features that characterize the structure and behavior of those objects.  A Class may have an internal structure and Ports.
 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -69,7 +69,7 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
 	 */
 	def extension: Set[UMLExtension[Uml]] = {
-	    // Start of user code for "extension"
+		// Start of user code for "extension"
 	    ???
 	    // End of user code
 	}
@@ -112,7 +112,7 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * @body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
 	 */
 	def validate_passive_class: Boolean  = {
-    	// Start of user code for "passive_class"
+		// Start of user code for "passive_class"
     	???
     	// End of user code
 	}

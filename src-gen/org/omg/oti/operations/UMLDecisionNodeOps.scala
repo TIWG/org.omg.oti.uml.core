@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A DecisionNode is a ControlNode that chooses between outgoing ActivityEdges for the routing of tokens.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -64,7 +64,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * @body incoming->includes(decisionInputFlow)
 	 */
 	def validate_decision_input_flow_incoming: Boolean  = {
-    	// Start of user code for "decision_input_flow_incoming"
+		// Start of user code for "decision_input_flow_incoming"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * allRelevantEdges->forAll(oclIsKindOf(ControlFlow)) or allRelevantEdges->forAll(oclIsKindOf(ObjectFlow))
 	 */
 	def validate_edges: Boolean  = {
-    	// Start of user code for "edges"
+		// Start of user code for "edges"
     	???
     	// End of user code
 	}
@@ -93,7 +93,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * 	decisionInput.inputParameters()->size()=1
 	 */
 	def validate_incoming_control_one_input_parameter: Boolean  = {
-    	// Start of user code for "incoming_control_one_input_parameter"
+		// Start of user code for "incoming_control_one_input_parameter"
     	???
     	// End of user code
 	}
@@ -107,7 +107,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * 	decisionInput.inputParameters()->size()=1
 	 */
 	def validate_incoming_object_one_input_parameter: Boolean  = {
-    	// Start of user code for "incoming_object_one_input_parameter"
+		// Start of user code for "incoming_object_one_input_parameter"
     	???
     	// End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * @body (incoming->size() = 1 or incoming->size() = 2) and outgoing->size() > 0
 	 */
 	def validate_incoming_outgoing_edges: Boolean  = {
-    	// Start of user code for "incoming_outgoing_edges"
+		// Start of user code for "incoming_outgoing_edges"
     	???
     	// End of user code
 	}
@@ -139,7 +139,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *      
 	 */
 	def validate_parameters: Boolean  = {
-    	// Start of user code for "parameters"
+		// Start of user code for "parameters"
     	???
     	// End of user code
 	}
@@ -153,7 +153,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 * 	decisionInput.inputParameters()->size()=2
 	 */
 	def validate_two_input_parameters: Boolean  = {
-    	// Start of user code for "two_input_parameters"
+		// Start of user code for "two_input_parameters"
     	???
     	// End of user code
 	}
@@ -167,7 +167,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *    decisionInput.inputParameters()->isEmpty()
 	 */
 	def validate_zero_input_parameters: Boolean  = {
-    	// Start of user code for "zero_input_parameters"
+		// Start of user code for "zero_input_parameters"
     	???
     	// End of user code
 	}

@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkEndDestructionData is LinkEndData used to provide values for one end of a link to be destroyed by a DestroyLinkAction.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -74,7 +74,7 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 * @body result = (self.LinkEndData::allPins()->including(destroyAt))
 	 */
 	override def allPins: Set[UMLInputPin[Uml]]  = {
-    	// Start of user code for "allPins"
+		// Start of user code for "allPins"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 * endif
 	 */
 	def validate_destroyAt_pin: Boolean  = {
-    	// Start of user code for "destroyAt_pin"
+		// Start of user code for "destroyAt_pin"
     	???
     	// End of user code
 	}

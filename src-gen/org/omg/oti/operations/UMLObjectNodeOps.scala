@@ -46,10 +46,10 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * An ObjectNode is an abstract ActivityNode that may hold tokens within the object flow in an Activity. ObjectNodes also support token selection, limitation on the number of tokens held, specification of the state required for tokens being held, and carrying control values.
 
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -70,7 +70,7 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * 	
 	 */
 	def validate_input_output_parameter: Boolean  = {
-    	// Start of user code for "input_output_parameter"
+		// Start of user code for "input_output_parameter"
     	???
     	// End of user code
 	}
@@ -83,7 +83,7 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * @body (not isControlType) implies incoming->union(outgoing)->forAll(oclIsKindOf(ObjectFlow))
 	 */
 	def validate_object_flow_edges: Boolean  = {
-    	// Start of user code for "object_flow_edges"
+		// Start of user code for "object_flow_edges"
     	???
     	// End of user code
 	}
@@ -96,7 +96,7 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * @body (selection<>null) = (ordering=ObjectNodeOrderingKind::ordered)
 	 */
 	def validate_selection_behavior: Boolean  = {
-    	// Start of user code for "selection_behavior"
+		// Start of user code for "selection_behavior"
     	???
     	// End of user code
 	}

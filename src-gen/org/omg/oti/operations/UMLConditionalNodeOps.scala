@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A ConditionalNode is a StructuredActivityNode that chooses one among some number of alternative collections of ExecutableNodes to execute.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -75,7 +75,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * @body result = (self->asSet())
 	 */
 	override def allActions: Set[UMLAction[Uml]]  = {
-    	// Start of user code for "allActions"
+		// Start of user code for "allActions"
     	???
     	// End of user code
 	}
@@ -88,7 +88,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * @body clause->closure(predecessorClause)->intersection(clause)->isEmpty()
 	 */
 	def validate_clause_no_predecessor: Boolean  = {
-    	// Start of user code for "clause_no_predecessor"
+		// Start of user code for "clause_no_predecessor"
     	???
     	// End of user code
 	}
@@ -101,7 +101,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * @body clause.test->union(clause._'body') = node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)
 	 */
 	def validate_executable_nodes: Boolean  = {
-    	// Start of user code for "executable_nodes"
+		// Start of user code for "executable_nodes"
     	???
     	// End of user code
 	}
@@ -120,7 +120,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * 		bodyOutput->at(i).compatibleWith(result->at(i))))
 	 */
 	def validate_matching_output_pins: Boolean  = {
-    	// Start of user code for "matching_output_pins"
+		// Start of user code for "matching_output_pins"
     	???
     	// End of user code
 	}
@@ -133,7 +133,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * @body input->isEmpty()
 	 */
 	def validate_no_input_pins: Boolean  = {
-    	// Start of user code for "no_input_pins"
+		// Start of user code for "no_input_pins"
     	???
     	// End of user code
 	}
@@ -147,7 +147,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * 	self.clause->select(test->union(_'body')->includes(n))->size()=1)
 	 */
 	def validate_one_clause_with_executable_node: Boolean  = {
-    	// Start of user code for "one_clause_with_executable_node"
+		// Start of user code for "one_clause_with_executable_node"
     	???
     	// End of user code
 	}
@@ -160,7 +160,7 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * @body result.incoming->isEmpty()
 	 */
 	def validate_result_no_incoming: Boolean  = {
-    	// Start of user code for "result_no_incoming"
+		// Start of user code for "result_no_incoming"
     	???
     	// End of user code
 	}

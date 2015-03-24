@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * A LoopNode is a StructuredActivityNode that represents an iterative loop with setup, test, and body sections.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,7 +65,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body result = (self->asSet())
 	 */
 	override def allActions: Set[UMLAction[Uml]]  = {
-    	// Start of user code for "allActions"
+		// Start of user code for "allActions"
     	???
     	// End of user code
 	}
@@ -79,7 +79,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body result = (self.StructuredActivityNode::sourceNodes()->union(loopVariable))
 	 */
 	override def sourceNodes: Set[UMLActivityNode[Uml]]  = {
-    	// Start of user code for "sourceNodes"
+		// Start of user code for "sourceNodes"
     	???
     	// End of user code
 	}
@@ -92,7 +92,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body bodyPart.oclAsType(Action).allActions().output->includesAll(bodyOutput)
 	 */
 	def validate_body_output_pins: Boolean  = {
-    	// Start of user code for "body_output_pins"
+		// Start of user code for "body_output_pins"
     	???
     	// End of user code
 	}
@@ -105,7 +105,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body setupPart->union(test)->union(bodyPart)=node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)->asSet()
 	 */
 	def validate_executable_nodes: Boolean  = {
-    	// Start of user code for "executable_nodes"
+		// Start of user code for "executable_nodes"
     	???
     	// End of user code
 	}
@@ -118,7 +118,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body loopVariableInput.outgoing->isEmpty()
 	 */
 	def validate_input_edges: Boolean  = {
-    	// Start of user code for "input_edges"
+		// Start of user code for "input_edges"
     	???
     	// End of user code
 	}
@@ -131,7 +131,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body allOwnedNodes()->includesAll(loopVariable.outgoing.target)
 	 */
 	def validate_loop_variable_outgoing: Boolean  = {
-    	// Start of user code for "loop_variable_outgoing"
+		// Start of user code for "loop_variable_outgoing"
     	???
     	// End of user code
 	}
@@ -148,7 +148,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * loopVariableInput.upper=loopVariable.upper
 	 */
 	def validate_matching_loop_variables: Boolean  = {
-    	// Start of user code for "matching_loop_variables"
+		// Start of user code for "matching_loop_variables"
     	???
     	// End of user code
 	}
@@ -166,7 +166,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * 	loopVariable->at(i).includesMultiplicity(bodyOutput->at(i)))
 	 */
 	def validate_matching_output_pins: Boolean  = {
-    	// Start of user code for "matching_output_pins"
+		// Start of user code for "matching_output_pins"
     	???
     	// End of user code
 	}
@@ -183,7 +183,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * result.upper=loopVariable.upper
 	 */
 	def validate_matching_result_pins: Boolean  = {
-    	// Start of user code for "matching_result_pins"
+		// Start of user code for "matching_result_pins"
     	???
     	// End of user code
 	}
@@ -196,7 +196,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * @body result.incoming->isEmpty()
 	 */
 	def validate_result_no_incoming: Boolean  = {
-    	// Start of user code for "result_no_incoming"
+		// Start of user code for "result_no_incoming"
     	???
     	// End of user code
 	}
@@ -211,7 +211,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 * test->intersection(bodyPart)->isEmpty()
 	 */
 	def validate_setup_test_and_body: Boolean  = {
-    	// Start of user code for "setup_test_and_body"
+		// Start of user code for "setup_test_and_body"
     	???
     	// End of user code
 	}

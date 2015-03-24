@@ -46,9 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc --> 
+ * <!-- begin-model-doc -->
  * LinkEndData is an Element that identifies on end of a link to be read or written by a LinkAction. As a link (that is not a link object) cannot be passed as a runtime value to or from an Action, it is instead identified by its end objects and qualifier values, if any. A LinkEndData instance provides these values for a single Association end.
- * <!-- end-model-doc --> 
+ * <!-- end-model-doc -->
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -84,7 +84,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body result = (value->asBag()->union(qualifier.value))
 	 */
 	def allPins: Set[UMLInputPin[Uml]]  = {
-    	// Start of user code for "allPins"
+		// Start of user code for "allPins"
     	???
     	// End of user code
 	}
@@ -97,7 +97,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body value->excludesAll(qualifier.value)
 	 */
 	def validate_end_object_input_pin: Boolean  = {
-    	// Start of user code for "end_object_input_pin"
+		// Start of user code for "end_object_input_pin"
     	???
     	// End of user code
 	}
@@ -110,7 +110,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body value<>null implies value.is(1,1)
 	 */
 	def validate_multiplicity: Boolean  = {
-    	// Start of user code for "multiplicity"
+		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
@@ -123,7 +123,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body end.association <> null
 	 */
 	def validate_property_is_association_end: Boolean  = {
-    	// Start of user code for "property_is_association_end"
+		// Start of user code for "property_is_association_end"
     	???
     	// End of user code
 	}
@@ -136,7 +136,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body end.qualifier->includesAll(qualifier.qualifier)
 	 */
 	def validate_qualifiers: Boolean  = {
-    	// Start of user code for "qualifiers"
+		// Start of user code for "qualifiers"
     	???
     	// End of user code
 	}
@@ -149,7 +149,7 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * @body value<>null implies value.type.conformsTo(end.type)
 	 */
 	def validate_same_type: Boolean  = {
-    	// Start of user code for "same_type"
+		// Start of user code for "same_type"
     	???
     	// End of user code
 	}
