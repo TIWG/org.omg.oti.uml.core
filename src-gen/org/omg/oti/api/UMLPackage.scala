@@ -83,7 +83,7 @@ trait UMLPackage[Uml <: UML]
 	 * References the Package that owns this Package.
 	 * <!-- end-model-doc -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
 	 */
 	def nestingPackage: Option[UMLPackage[Uml]]
@@ -204,7 +204,7 @@ trait UMLPackage[Uml <: UML]
 			namespace_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLPackage[Uml], UMLPackage[Uml]]("nestingPackage", _.nestingPackage)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
@@ -219,6 +219,6 @@ trait UMLPackage[Uml <: UML]
 		namespace_forwardReferencesFromMetamodelAssociations ++
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
 		templateableElement_forwardReferencesFromMetamodelAssociations ++
-		nestingPackage 
+		Set () 
 
 } //UMLPackage

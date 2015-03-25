@@ -60,7 +60,7 @@ trait UMLType[Uml <: UML]
 	 * Specifies the owning Package of this Type, if any.
 	 * <!-- end-model-doc -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.ownedType
 	 */
 	def _package: Option[UMLPackage[Uml]]
@@ -150,7 +150,7 @@ trait UMLType[Uml <: UML]
 	def type_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLType[Uml], UMLPackage[Uml]]("package", _._package)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
@@ -163,6 +163,6 @@ trait UMLType[Uml <: UML]
 	 */
 	def type_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
-		_package 
+		Set () 
 
 } //UMLType
