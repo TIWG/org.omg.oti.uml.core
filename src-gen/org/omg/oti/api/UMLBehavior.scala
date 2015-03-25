@@ -305,7 +305,9 @@ trait UMLBehavior[Uml <: UML]
 		appendUnique(
 			class_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet)))
+				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet),
+				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -319,9 +321,7 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]]("redefinedBehavior", _.redefinedBehavior),
+			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]]("redefinedBehavior", _.redefinedBehavior),
 				MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]]("specification", _.specification)))
 
 	/**

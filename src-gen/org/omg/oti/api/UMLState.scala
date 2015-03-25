@@ -257,7 +257,8 @@ trait UMLState[Uml <: UML]
 				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("doActivity", _.doActivity),
 				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("entry", _.entry),
 				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("exit", _.exit),
-				MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]]("region", _.region)))
+				MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]]("region", _.region),
+				MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]]("stateInvariant", _.stateInvariant)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -274,7 +275,6 @@ trait UMLState[Uml <: UML]
 			redefinableElement_referenceMetaProperties,
 			vertex_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLState[Uml], UMLState[Uml]]("redefinedState", _.redefinedState),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]]("stateInvariant", _.stateInvariant),
 				MetaPropertyReference[Uml, UMLState[Uml], UMLStateMachine[Uml]]("submachine", _.submachine)))
 
 	/**

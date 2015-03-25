@@ -178,9 +178,7 @@ trait UMLActivity[Uml <: UML]
 	def activity_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)))
+			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -183,6 +183,7 @@ trait UMLTransition[Uml <: UML]
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]]("effect", _.effect),
+				MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]]("guard", _.guard),
 				MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]]("trigger", _.trigger)))
 
 	/**
@@ -199,7 +200,6 @@ trait UMLTransition[Uml <: UML]
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLRegion[Uml]]("container", _.container),
-				MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]]("guard", _.guard),
 				MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
 				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("source", _.source),
 				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("target", _.target)))
