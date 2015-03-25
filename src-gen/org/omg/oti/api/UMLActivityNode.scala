@@ -184,10 +184,8 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity),
-				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]]("inInterruptibleRegion", _.inInterruptibleRegion),
+			Seq (MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]]("inInterruptibleRegion", _.inInterruptibleRegion),
 				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-				MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
 				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("incoming", _.incoming),
 				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("outgoing", _.outgoing),
 				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]]("redefinedNode", _.redefinedNode)))

@@ -142,8 +142,7 @@ trait UMLPseudostate[Uml <: UML]
 	def pseudostate_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLPseudostate[Uml], UMLState[Uml]]("state", _.state),
-				MetaPropertyReference[Uml, UMLPseudostate[Uml], UMLStateMachine[Uml]]("stateMachine", _.stateMachine)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

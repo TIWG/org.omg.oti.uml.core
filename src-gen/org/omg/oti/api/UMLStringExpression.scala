@@ -128,7 +128,7 @@ trait UMLStringExpression[Uml <: UML]
 		appendUnique(
 			expression_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]]("owningExpression", _.owningExpression)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

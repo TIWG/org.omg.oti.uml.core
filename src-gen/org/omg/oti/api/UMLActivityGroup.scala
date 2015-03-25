@@ -145,7 +145,7 @@ trait UMLActivityGroup[Uml <: UML]
 	def activityGroup_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLActivityGroup[Uml], UMLActivity[Uml]]("inActivity", _.inActivity)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

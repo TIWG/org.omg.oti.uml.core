@@ -124,8 +124,7 @@ trait UMLProfileApplication[Uml <: UML]
 	def profileApplication_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLProfile[Uml]]("appliedProfile", _.appliedProfile),
-				MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLPackage[Uml]]("applyingPackage", _.applyingPackage)))
+			Seq (MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLProfile[Uml]]("appliedProfile", _.appliedProfile)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

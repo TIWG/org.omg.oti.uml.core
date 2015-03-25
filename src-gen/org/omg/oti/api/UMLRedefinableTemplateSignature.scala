@@ -138,8 +138,7 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
 			templateSignature_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLRedefinableTemplateSignature[Uml], UMLClassifier[Uml]]("classifier", _.classifier),
-				MetaPropertyCollection[Uml, UMLRedefinableTemplateSignature[Uml], UMLRedefinableTemplateSignature[Uml]]("extendedSignature", _.extendedSignature)))
+			Seq (MetaPropertyCollection[Uml, UMLRedefinableTemplateSignature[Uml], UMLRedefinableTemplateSignature[Uml]]("extendedSignature", _.extendedSignature)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -165,7 +165,6 @@ trait UMLLifeline[Uml <: UML]
 			namedElement_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLLifeline[Uml], UMLInteractionFragment[Uml]]("coveredBy", _.coveredBy),
 				MetaPropertyReference[Uml, UMLLifeline[Uml], UMLPartDecomposition[Uml]]("decomposedAs", _.decomposedAs),
-				MetaPropertyReference[Uml, UMLLifeline[Uml], UMLInteraction[Uml]]("interaction", _.interaction),
 				MetaPropertyReference[Uml, UMLLifeline[Uml], UMLConnectableElement[Uml]]("represents", _.represents)))
 
 	/**

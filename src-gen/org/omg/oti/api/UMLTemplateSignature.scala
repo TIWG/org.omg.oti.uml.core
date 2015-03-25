@@ -134,8 +134,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	def templateSignature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter),
-				MetaPropertyReference[Uml, UMLTemplateSignature[Uml], UMLTemplateableElement[Uml]]("template", _.template)))
+			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

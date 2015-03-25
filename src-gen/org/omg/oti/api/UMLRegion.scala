@@ -169,9 +169,7 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]]("extendedRegion", _.extendedRegion),
-				MetaPropertyReference[Uml, UMLRegion[Uml], UMLState[Uml]]("state", _.state),
-				MetaPropertyReference[Uml, UMLRegion[Uml], UMLStateMachine[Uml]]("stateMachine", _.stateMachine)))
+			Seq (MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]]("extendedRegion", _.extendedRegion)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

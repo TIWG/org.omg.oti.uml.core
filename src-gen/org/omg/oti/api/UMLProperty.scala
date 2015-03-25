@@ -406,11 +406,6 @@ trait UMLProperty[Uml <: UML]
 			deploymentTarget_referenceMetaProperties,
 			structuralFeature_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]]("association", _.association),
-				MetaPropertyReference[Uml, UMLProperty[Uml], UMLProperty[Uml]]("associationEnd", _.associationEnd),
-				MetaPropertyReference[Uml, UMLProperty[Uml], UMLClass[Uml]]("class", _._class),
-				MetaPropertyReference[Uml, UMLProperty[Uml], UMLDataType[Uml]]("datatype", _.datatype),
-				MetaPropertyReference[Uml, UMLProperty[Uml], UMLInterface[Uml]]("interface", _.interface),
-				MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]]("owningAssociation", _.owningAssociation),
 				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("redefinedProperty", _.redefinedProperty),
 				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("subsettedProperty", _.subsettedProperty)))
 

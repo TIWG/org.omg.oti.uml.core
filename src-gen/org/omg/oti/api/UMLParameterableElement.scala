@@ -151,8 +151,7 @@ trait UMLParameterableElement[Uml <: UML]
 	def parameterableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("owningTemplateParameter", _.owningTemplateParameter),
-				MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
+			Seq (MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

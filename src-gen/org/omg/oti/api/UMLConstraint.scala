@@ -251,8 +251,7 @@ trait UMLConstraint[Uml <: UML]
 	def constraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement),
-				MetaPropertyReference[Uml, UMLConstraint[Uml], UMLNamespace[Uml]]("context", _.context)))
+			Seq (MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

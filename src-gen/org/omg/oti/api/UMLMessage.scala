@@ -192,7 +192,6 @@ trait UMLMessage[Uml <: UML]
 		appendUnique(
 			namedElement_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLMessage[Uml], UMLConnector[Uml]]("connector", _.connector),
-				MetaPropertyReference[Uml, UMLMessage[Uml], UMLInteraction[Uml]]("interaction", _.interaction),
 				MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]]("receiveEvent", _.receiveEvent),
 				MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]]("sendEvent", _.sendEvent),
 				MetaPropertyReference[Uml, UMLMessage[Uml], UMLNamedElement[Uml]]("signature", _.signature)))

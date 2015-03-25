@@ -126,8 +126,7 @@ trait UMLDeployment[Uml <: UML]
 	def deployment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeployedArtifact[Uml]]("deployedArtifact", _.deployedArtifact),
-				MetaPropertyReference[Uml, UMLDeployment[Uml], UMLDeploymentTarget[Uml]]("location", _.location)))
+			Seq (MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeployedArtifact[Uml]]("deployedArtifact", _.deployedArtifact)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -306,10 +306,7 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_referenceMetaProperties,
 			parameterableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLClass[Uml]]("class", _._class),
-				MetaPropertyReference[Uml, UMLOperation[Uml], UMLDataType[Uml]]("datatype", _.datatype),
-				MetaPropertyReference[Uml, UMLOperation[Uml], UMLInterface[Uml]]("interface", _.interface),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
+			Seq (MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
 				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
 				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
 

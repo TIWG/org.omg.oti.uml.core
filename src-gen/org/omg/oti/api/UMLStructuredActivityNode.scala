@@ -177,7 +177,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 			action_referenceMetaProperties,
 			activityGroup_referenceMetaProperties,
 			namespace_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLStructuredActivityNode[Uml], UMLActivity[Uml]]("activity", _.activity)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

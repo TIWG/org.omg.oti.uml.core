@@ -135,8 +135,7 @@ trait UMLGeneralization[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]]("general", _.general),
-				MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]]("generalizationSet", _.generalizationSet),
-				MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]]("specific", _.specific)))
+				MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]]("generalizationSet", _.generalizationSet)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -140,7 +140,6 @@ trait UMLExtend[Uml <: UML]
 			directedRelationship_referenceMetaProperties,
 			namedElement_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]]("extendedCase", _.extendedCase),
-				MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]]("extension", _.extension),
 				MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]]("extensionLocation", _.extensionLocation)))
 
 	/**

@@ -214,9 +214,7 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivity[Uml]]("activity", _.activity),
-				MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLStructuredActivityNode[Uml]]("inStructuredNode", _.inStructuredNode),
+			Seq (MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
 				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]]("interrupts", _.interrupts),
 				MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]]("redefinedEdge", _.redefinedEdge),
 				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]]("source", _.source),

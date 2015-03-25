@@ -211,8 +211,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_referenceMetaProperties,
 			multiplicityElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLParameter[Uml], UMLOperation[Uml]]("operation", _.operation),
-				MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]]("parameterSet", _.parameterSet)))
+			Seq (MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]]("parameterSet", _.parameterSet)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -105,7 +105,7 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	def enumerationLiteral_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			instanceSpecification_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLEnumerationLiteral[Uml], UMLEnumeration[Uml]]("enumeration", _.enumeration)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

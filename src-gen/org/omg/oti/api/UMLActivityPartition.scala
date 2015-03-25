@@ -175,8 +175,7 @@ trait UMLActivityPartition[Uml <: UML]
 			activityGroup_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
 				MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]]("represents", _.represents),
-				MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]]("superPartition", _.superPartition)))
+				MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]]("represents", _.represents)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

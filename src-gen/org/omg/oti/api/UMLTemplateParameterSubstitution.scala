@@ -136,8 +136,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("actual", _.actual),
-				MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]]("formal", _.formal),
-				MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateBinding[Uml]]("templateBinding", _.templateBinding)))
+				MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]]("formal", _.formal)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

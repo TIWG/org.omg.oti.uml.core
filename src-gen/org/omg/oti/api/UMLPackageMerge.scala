@@ -115,8 +115,7 @@ trait UMLPackageMerge[Uml <: UML]
 	def packageMerge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]]("mergedPackage", _.mergedPackage),
-				MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]]("receivingPackage", _.receivingPackage)))
+			Seq (MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]]("mergedPackage", _.mergedPackage)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

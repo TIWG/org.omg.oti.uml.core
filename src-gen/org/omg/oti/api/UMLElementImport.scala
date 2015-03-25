@@ -142,8 +142,7 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]]("importedElement", _.importedElement),
-				MetaPropertyReference[Uml, UMLElementImport[Uml], UMLNamespace[Uml]]("importingNamespace", _.importingNamespace)))
+			Seq (MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]]("importedElement", _.importedElement)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

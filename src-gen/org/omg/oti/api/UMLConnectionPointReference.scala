@@ -126,8 +126,7 @@ trait UMLConnectionPointReference[Uml <: UML]
 		appendUnique(
 			vertex_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("entry", _.entry),
-				MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("exit", _.exit),
-				MetaPropertyReference[Uml, UMLConnectionPointReference[Uml], UMLState[Uml]]("state", _.state)))
+				MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("exit", _.exit)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

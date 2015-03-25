@@ -199,8 +199,7 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLRegion[Uml]]("container", _.container),
-				MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
+			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
 				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("source", _.source),
 				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("target", _.target)))
 

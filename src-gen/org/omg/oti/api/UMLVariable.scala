@@ -128,8 +128,7 @@ trait UMLVariable[Uml <: UML]
 		appendUnique(
 			connectableElement_referenceMetaProperties,
 			multiplicityElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLVariable[Uml], UMLActivity[Uml]]("activityScope", _.activityScope),
-				MetaPropertyReference[Uml, UMLVariable[Uml], UMLStructuredActivityNode[Uml]]("scope", _.scope)))
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

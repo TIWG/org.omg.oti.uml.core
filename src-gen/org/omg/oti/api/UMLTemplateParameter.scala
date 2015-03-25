@@ -174,8 +174,7 @@ trait UMLTemplateParameter[Uml <: UML]
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
-				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement),
-				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLTemplateSignature[Uml]]("signature", _.signature)))
+				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

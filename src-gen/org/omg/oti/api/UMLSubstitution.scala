@@ -115,8 +115,7 @@ trait UMLSubstitution[Uml <: UML]
 	def substitution_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]]("contract", _.contract),
-				MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]]("substitutingClassifier", _.substitutingClassifier)))
+			Seq (MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]]("contract", _.contract)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

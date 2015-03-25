@@ -125,8 +125,7 @@ trait UMLTemplateBinding[Uml <: UML]
 	def templateBinding_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateableElement[Uml]]("boundElement", _.boundElement),
-				MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateSignature[Uml]]("signature", _.signature)))
+			Seq (MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateSignature[Uml]]("signature", _.signature)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
