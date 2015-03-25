@@ -58,6 +58,16 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 
 	/**
 	 * <!-- begin-model-doc -->
+	 * Specifies the owning Package of this Type, if any.
+	 * <!-- end-model-doc -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLPackage.ownedType
+	 */
+	def _package: Option[UMLPackage[Uml]] = packagedElement_owningPackage
+
+	/**
+	 * <!-- begin-model-doc -->
 	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"

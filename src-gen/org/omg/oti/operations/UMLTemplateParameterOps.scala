@@ -73,11 +73,7 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.inheritedParameter
 	 */
-	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = {
-		// Start of user code for "redefinableTemplateSignature"
-		???
-		// End of user code
-	}
+	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = parameter_templateSignature.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
 
 	/**
 	 * <!-- begin-model-doc -->

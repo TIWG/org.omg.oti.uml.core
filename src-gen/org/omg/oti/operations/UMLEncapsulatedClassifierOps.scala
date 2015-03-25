@@ -65,11 +65,7 @@ trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier
 	 * @opposite org.omg.oti.api.UMLPort.ownedPort_encapsulatedClassifier
 	 * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
 	 */
-	def ownedPort: Set[UMLPort[Uml]] = {
-		// Start of user code for "ownedPort"
-		???
-		// End of user code
-	}
+	def ownedPort: Set[UMLPort[Uml]] = ownedAttribute.selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
 
 	// Start of user code for additional features
 	// End of user code
