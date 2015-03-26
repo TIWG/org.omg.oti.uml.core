@@ -161,9 +161,9 @@ trait UMLActivity[Uml <: UML]
 		appendUnique(
 			behavior_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
+				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
 				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]]("variable", _.variable)))
 
 	/**

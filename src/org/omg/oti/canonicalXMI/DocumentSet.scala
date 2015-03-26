@@ -248,12 +248,15 @@ object DocumentSet {
         root <- roots
         rootURI <- root.getEffectiveURI
         rootURL <- root.getDocumentURL
-      } yield SerializableDocument(
+      } yield {
+        System.out.println(s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}")
+        SerializableDocument(
         uri = new java.net.URI( rootURI ),
         nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
         documentURL =  new java.net.URI( rootURL ),
         scope = root )
-
+      }
+      
       val ds = DocumentSet(
         serializableDocuments,
         builtInDocuments,

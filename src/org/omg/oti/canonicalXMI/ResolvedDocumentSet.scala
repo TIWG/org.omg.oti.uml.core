@@ -293,7 +293,7 @@ case class ResolvedDocumentSet[Uml <: UML](
 
             val filepath = uri.getPath+".xmi"
             val xmlFile = new java.io.File( filepath )
-
+            System.out.println( s"### File: ${filepath}" )
             val xmlPrettyPrinter = new PrettyPrinter( width = 200, step = 2 )
             val xmlOutput = xmlPrettyPrinter.format( xmi )
 
@@ -305,6 +305,24 @@ case class ResolvedDocumentSet[Uml <: UML](
             Success( Unit )
         }
     }
+
+  @tailrec final protected def append1Pair(
+    t: Trampoline[Try[scala.xml.Node]],
+    subElements: Set[UMLElement[Uml]],
+    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
+
+    //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
+    //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
+
+    t.resume match {
+      //case -\/( s ) => suspend { append1Node( nodes, s() ) }
+      case -\/( s ) => append1Pair( s(), subElements, nodes )
+      case \/-( r ) => r match {
+        case Failure( t ) => return_ { Failure( t ) }
+        case Success( n ) => return_ { Success( (subElements, n +: nodes ) )}
+      }
+    }
+  }
 
   @tailrec final protected def append1Node(
     nodes: Seq[scala.xml.Node],
@@ -343,7 +361,7 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
-    t: Trampoline[Try[Seq[scala.xml.Node]]],
+    t: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
     prefix: String,
     label: String,
     xmlAttributesAndLocalReferences: scala.xml.MetaData,
@@ -359,7 +377,7 @@ case class ResolvedDocumentSet[Uml <: UML](
         wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
       case \/-( Failure( t ) ) =>
         return_ { Failure( t ) }
-      case \/-( Success( nodes ) ) =>
+      case \/-( Success( ( es, nodes ) ) ) =>
         import scala.xml._
         val node = Elem(
           prefix = prefix,
@@ -418,6 +436,12 @@ case class ResolvedDocumentSet[Uml <: UML](
           Success( ns ++ valueNodes )
       }
 
+    /**
+     * Add xmi:type for an href element reference -- this is an exception to Canonical XMI ptc13-08-28; B2, #6:
+     * xmi:type is always present except where the element is a reference (using xmi:idref or href)
+     * when it is never present [as of XMI 2.4 this is standard XMI].
+     *
+     */
     def foldReference( nodes: Try[Seq[Node]], f: e.MetaPropertyEvaluator ): Try[Seq[Node]] =
       nodes match {
         case Failure( t ) => Failure( t )
@@ -444,7 +468,8 @@ case class ResolvedDocumentSet[Uml <: UML](
                           case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                         }
                         val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
-                        val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                        val typeAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = eRef.xmiType.head, hrefAttrib )
+                        val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = typeAttrib, scope = xmiScopes, minimizeEmpty = true )
                         Success( ns :+ hrefNode )
                       }
                   }
@@ -471,9 +496,9 @@ case class ResolvedDocumentSet[Uml <: UML](
                             case _: SerializableDocument[Uml] => href
                             case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                           }
-                          val typeAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = e.xmiType.head, Null )
-                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, typeAttrib )
-                          val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = hrefAttrib, scope = xmiScopes, minimizeEmpty = true )
+                          val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
+                          val typeAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = eRef.xmiType.head, hrefAttrib )
+                          val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = typeAttrib, scope = xmiScopes, minimizeEmpty = true )
                           hrefNode
                         }
                     }
@@ -488,9 +513,26 @@ case class ResolvedDocumentSet[Uml <: UML](
       sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] =
       generateNodeElement( elementOrdering, d, null, f.propertyName, sub, xmiScopes )
 
+    def applyGenerateNodeElement(
+      f: e.MetaPropertyEvaluator,
+      subs: List[UMLElement[Uml]],
+      subElements: Set[UMLElement[Uml]],
+      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
+      subs match {
+        case Nil => return_ { Success( subElements, nodes ) }
+        case x :: xs =>
+          for {
+            node <- callGenerateNodeElement( f, x )
+            result <- node match {
+              case Failure( t ) => return return_ { Failure( t ) }
+              case Success( n ) => applyGenerateNodeElement( f, xs, subElements, n +: nodes )
+            }
+          } yield result
+      }
+
     @tailrec def trampolineSubNode(
-      nodes: Trampoline[Try[Seq[Node]]],
-      f: e.MetaPropertyEvaluator ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+      nodes: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
+      f: e.MetaPropertyEvaluator ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
 
       nodes.resume match {
         //        case -\/( s ) =>
@@ -503,30 +545,34 @@ case class ResolvedDocumentSet[Uml <: UML](
             case Failure( t ) =>
               return_ { Failure( t ) }
 
-            case Success( ns ) =>
+            case Success( ( subElements, ns ) ) =>
               f match {
                 case rf: e.MetaReferenceEvaluator =>
                   rf.evaluate( e ) match {
                     case Failure( t )    => return_ { Failure( t ) }
-                    case Success( None ) => return_ { Success( ns ) }
+                    case Success( None ) => return_ { Success( ( subElements, ns ) ) }
                     case Success( Some( sub ) ) =>
-                      suspend {
-                        append1Node( ns, callGenerateNodeElement( f, sub ) )
-                      }
+                      if ( subElements.contains( sub ) )
+                        return_ { Success( ( subElements, ns ) ) }
+                      else
+                        suspend {
+                          append1Pair( callGenerateNodeElement( f, sub ), subElements + sub, ns )
+                        }
                   }
                 case cf: e.MetaCollectionEvaluator =>
                   cf.evaluate( e ) match {
                     case Failure( t )   => return_ { Failure( t ) }
-                    case Success( Nil ) => return_ { Success( ns ) }
+                    case Success( Nil ) => return_ { Success( ( subElements, ns ) ) }
                     case Success( subs ) =>
                       suspend {
                         val sortedSubs: List[UMLElement[Uml]] = subs.sortBy( _.xmiOrderingKey )
-                        val subNodes = for { sub <- sortedSubs }
-                          yield callGenerateNodeElement( f, sub )
-
-                        val result0: Trampoline[Try[Seq[scala.xml.Node]]] = return_ { Success( ns ) }
-                        val resultN = ( result0 /: subNodes )( appendNodes _ )
-                        resultN
+                        val subNodes = for {
+                          sub <- sortedSubs
+                          if ( !subElements.contains( sub ) )
+                        } yield sub
+                        suspend {
+                          applyGenerateNodeElement( f, subNodes, subElements, ns )
+                        }
                       }
                   }
               }
@@ -549,7 +595,10 @@ case class ResolvedDocumentSet[Uml <: UML](
           val xRef0: Try[Seq[Node]] = Success( Seq() )
           val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode _ )
           val xRefs = ( xRefA /: refEvaluators )( foldReference _ )
-          val xRefsAndSub0: Trampoline[Try[Seq[Node]]] = return_ { xRefs }
+          val xRefsAndSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( xRefs match {
+            case Failure( t )    => Failure( t )
+            case Success( refs ) => Success( Set(), refs )
+          } )
           val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode _ )
           wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
         }
