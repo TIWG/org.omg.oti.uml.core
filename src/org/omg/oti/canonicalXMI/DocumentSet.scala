@@ -164,7 +164,7 @@ case class DocumentSet[Uml <: UML](
           None
         }
         else {
-          //System.out.println( s" => unresolved! from ${e.xmiType.head} (ID=${e.id} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.id})" )
+          System.out.println( s" => unresolved! from ${e.xmiType.head} (ID=${e.id} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.id})" )
           Some( UnresolvedElementCrossReference( d, e, eRef ) )
         }
       case Some( dRef ) =>

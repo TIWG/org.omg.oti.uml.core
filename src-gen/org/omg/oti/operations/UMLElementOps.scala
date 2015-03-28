@@ -132,13 +132,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	// Start of user code for additional features
 
   /**
-   * The element or the first owner of the element that is a package with a URI; none if no such owner package exists.
+   * The element or the first owner of the element that is a package with an effective URI; none if no such owner package exists.
    */
-  @annotation.tailrec final def getPackageOwnerWithURI: Option[UMLPackage[Uml]] =
+  @annotation.tailrec final def getPackageOwnerWithEffectiveURI: Option[UMLPackage[Uml]] =
     self match {
-      case p: UMLPackage[Uml] if ( p.URI.isDefined ) => Some( p )
+      case p: UMLPackage[Uml] if ( p.getEffectiveURI.isDefined ) => Some( p )
       case _ => owner match {
-        case Some( o ) => o.getPackageOwnerWithURI
+        case Some( o ) => o.getPackageOwnerWithEffectiveURI
         case None      => None
       }
     }
@@ -300,8 +300,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def xmiID: Iterable[String] = Iterable( id )
   def xmiUUID: Iterable[String] = uuid.toIterable
-  def xmiElementLabel: String = mofMetaclassName // ( 0 ).toLower + mofMetaclassName.drop( 1 )
-
+  def xmiElementLabel: String = mofMetaclassName
+  def metaclass_name: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
+  
   def xmiOrderingKey: String = element_xmiOrderingKey
   def element_xmiOrderingKey: String = xmiElementLabel + xmiUUID.headOption.getOrElse( xmiID.headOption.getOrElse( "" ) )
 

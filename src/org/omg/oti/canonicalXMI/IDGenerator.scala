@@ -151,7 +151,7 @@ trait IDGenerator[Uml <: UML] {
       case Some( is ) =>
         is.name match {
           case None      => Failure( illegalElementException( "InstanceValue must refer to a named InstanceSpecification", is ) )
-          case Some( n ) => Success( ownerID + "_" + xmlSafeID( iv.getContainedElement_eContainingFeature.getName ) + "." + n )
+          case Some( n ) => Success( ownerID + "_" + xmlSafeID( iv.getContainedElement_eContainingFeature.getName + "." + n ) )
         }
     }
   }
@@ -224,7 +224,7 @@ trait IDGenerator[Uml <: UML] {
       }
       suffix3 match {
         case Failure( t ) => Failure( t )
-        case Success( s ) => Success( ownerID + "_" + xmlSafeID( cf.getName ) + s )
+        case Success( s ) => Success( ownerID + "_" + xmlSafeID( cf.getName + s ) )
       }
   }
 
@@ -234,7 +234,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule1b: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) =>
-      Success( ownerID + "." + xmlSafeID( ne.name.getOrElse( "" ) ) )
+      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
   }
 
   /**
@@ -359,7 +359,8 @@ object IDGenerator {
         i <- name.length - 1 until 0 by -1
         char_i = name.charAt( i )
       } {
-        if ( isNCNamePart( char_i ) ) validNCName.insert( 0, char_i )
+        if ( char_i == ' ') validNCName.insert( 0, '_' )
+        else if ( isNCNamePart( char_i ) ) validNCName.insert( 0, char_i )
         else validNCName.insert( 0, escapeChar( char_i ) )
       }
       val char_0 = name.charAt( 0 )
