@@ -242,7 +242,8 @@ object DocumentSet {
 
     import ops._
     val ( roots, anonymousRoots ) = specificationRootPackages partition ( _.getEffectiveURI.isDefined )
-    if ( anonymousRoots.nonEmpty ) Failure( illegalElementException( "Document-level packages must have an effective URI for export", anonymousRoots ) )
+    if ( anonymousRoots.nonEmpty ) 
+      Failure( illegalElementException( "Document-level packages must have an effective URI for export", anonymousRoots ) )
     else {
       val serializableDocuments = for {
         root <- roots
