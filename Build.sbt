@@ -2,7 +2,7 @@ import com.banno.license.Plugin.LicenseKeys._
 
 name := "org.omg.oti"
   
-version in ThisBuild := "0.10.7"
+version in ThisBuild := "0.10.8"
 
 organization := "JPL, Caltech"
 

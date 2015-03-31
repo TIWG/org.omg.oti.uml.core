@@ -1,3 +1,9 @@
+Version 0.10.8 March 31, 2015
+
+Fixed the logic for serializing composite properties: 
+given a list of composite properties, if an owned element is the value of 2 composite properties p1, p2
+and p1 is before p2, then the owned element is serialized as the value of p2, not p1.
+
 Version 0.10.7 March 30, 2015
 
 Package.URI is serialized using Package.getEffectiveURI

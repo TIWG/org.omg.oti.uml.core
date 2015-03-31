@@ -307,19 +307,20 @@ case class ResolvedDocumentSet[Uml <: UML](
     }
 
   @tailrec final protected def append1Pair(
+    sub: UMLElement[Uml],
     t: Trampoline[Try[scala.xml.Node]],
-    subElements: Set[UMLElement[Uml]],
-    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
+    subElements: List[(UMLElement[Uml], scala.xml.Node)],
+    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
     //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
 
     t.resume match {
       //case -\/( s ) => suspend { append1Node( nodes, s() ) }
-      case -\/( s ) => append1Pair( s(), subElements, nodes )
+      case -\/( s ) => append1Pair( sub, s(), subElements, nodes )
       case \/-( r ) => r match {
         case Failure( t ) => return_ { Failure( t ) }
-        case Success( n ) => return_ { Success( (subElements, n +: nodes ) )}
+        case Success( n ) => return_ { Success( ( (sub, n) :: subElements, nodes ) )}
       }
     }
   }
@@ -361,7 +362,7 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
-    t: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
+    t: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]],
     prefix: String,
     label: String,
     xmlAttributesAndLocalReferences: scala.xml.MetaData,
@@ -377,7 +378,7 @@ case class ResolvedDocumentSet[Uml <: UML](
         wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
       case \/-( Failure( t ) ) =>
         return_ { Failure( t ) }
-      case \/-( Success( ( es, nodes ) ) ) =>
+      case \/-( Success( ( ens, nodes ) ) ) =>
         import scala.xml._
         val node = Elem(
           prefix = prefix,
@@ -385,7 +386,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           attributes = xmlAttributesAndLocalReferences,
           scope = xmiScopes,
           minimizeEmpty = true,
-          nodes: _* )
+          (ens.map(_._2) ++ nodes): _* )
         return_ { Success( node ) }
     }
   }
@@ -516,8 +517,8 @@ case class ResolvedDocumentSet[Uml <: UML](
     def applyGenerateNodeElement(
       f: e.MetaPropertyEvaluator,
       subs: List[UMLElement[Uml]],
-      subElements: Set[UMLElement[Uml]],
-      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
+      subElements: List[(UMLElement[Uml], scala.xml.Node)],
+      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] =
       subs match {
         case Nil => return_ { Success( subElements, nodes ) }
         case x :: xs =>
@@ -525,14 +526,14 @@ case class ResolvedDocumentSet[Uml <: UML](
             node <- callGenerateNodeElement( f, x )
             result <- node match {
               case Failure( t ) => return return_ { Failure( t ) }
-              case Success( n ) => applyGenerateNodeElement( f, xs, subElements, n +: nodes )
+              case Success( n ) => applyGenerateNodeElement( f, xs, (x, n) :: subElements, nodes )
             }
           } yield result
       }
 
     @tailrec def trampolineSubNode(
-      nodes: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
-      f: e.MetaPropertyEvaluator ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
+      nodes: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]],
+      f: e.MetaPropertyEvaluator ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = {
 
       nodes.resume match {
         //        case -\/( s ) =>
@@ -545,33 +546,34 @@ case class ResolvedDocumentSet[Uml <: UML](
             case Failure( t ) =>
               return_ { Failure( t ) }
 
-            case Success( ( subElements, ns ) ) =>
+            case Success( ( subElementPairs, ns ) ) =>
               f match {
                 case rf: e.MetaReferenceEvaluator =>
                   rf.evaluate( e ) match {
                     case Failure( t )    => return_ { Failure( t ) }
-                    case Success( None ) => return_ { Success( ( subElements, ns ) ) }
+                    case Success( None ) => return_ { Success( ( subElementPairs, ns ) ) }
                     case Success( Some( sub ) ) =>
-                      if ( subElements.contains( sub ) )
-                        return_ { Success( ( subElements, ns ) ) }
-                      else
-                        suspend {
-                          append1Pair( callGenerateNodeElement( f, sub ), subElements + sub, ns )
-                        }
+                      val remainingPairs = for {
+                        ( e, n ) <- subElementPairs
+                        if ( e != sub )
+                      } yield ( e, n )                      
+                      suspend {
+                        append1Pair( sub, callGenerateNodeElement( f, sub ), remainingPairs, ns )
+                      }
                   }
                 case cf: e.MetaCollectionEvaluator =>
                   cf.evaluate( e ) match {
                     case Failure( t )   => return_ { Failure( t ) }
-                    case Success( Nil ) => return_ { Success( ( subElements, ns ) ) }
+                    case Success( Nil ) => return_ { Success( ( subElementPairs, ns ) ) }
                     case Success( subs ) =>
                       suspend {
                         val sortedSubs: List[UMLElement[Uml]] = subs.sortBy( _.xmiOrderingKey )
-                        val subNodes = for {
-                          sub <- sortedSubs
-                          if ( !subElements.contains( sub ) )
-                        } yield sub
+                        val remainingPairs = for {
+                          ( e, n ) <- subElementPairs
+                          if ( ! sortedSubs.contains( e ) )
+                        } yield ( e, n )                           
                         suspend {
-                          applyGenerateNodeElement( f, subNodes, subElements, ns )
+                          applyGenerateNodeElement( f, sortedSubs, remainingPairs, ns )
                         }
                       }
                   }
@@ -595,9 +597,9 @@ case class ResolvedDocumentSet[Uml <: UML](
           val xRef0: Try[Seq[Node]] = Success( Seq() )
           val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode _ )
           val xRefs = ( xRefA /: refEvaluators )( foldReference _ )
-          val xRefsAndSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( xRefs match {
+          val xRefsAndSub0: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = return_( xRefs match {
             case Failure( t )    => Failure( t )
-            case Success( refs ) => Success( Set(), refs )
+            case Success( refs ) => Success( List(), refs )
           } )
           val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode _ )
           wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
