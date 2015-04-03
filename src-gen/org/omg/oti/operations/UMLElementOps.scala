@@ -413,6 +413,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     
   def isAncestorOf( other: UMLElement[Uml] ): Boolean
   
+  def toWrappedObjectString : String = ???
+  
   // End of user code
 
 } //UMLElement

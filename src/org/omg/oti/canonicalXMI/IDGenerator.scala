@@ -310,6 +310,36 @@ trait IDGenerator[Uml <: UML] {
             Failure( t )
         }
     }
+  
+  def checkIDs(): Boolean = {
+    val id2Element = scala.collection.mutable.HashMap[String, UMLElement[Uml]]()
+    var res : Boolean = true
+
+    println("\n>>> IDs Checking...")
+      
+    getElement2IDMap foreach { case (e1,id) => id match {    
+      case Failure(t) => 
+        println(s"***ID computation failed for ${e1.toWrappedObjectString}")
+        println("\tCause: "+t.getCause)
+        println("---------------------------")
+        res = false
+        
+        case Success(x) =>  id2Element.get(x) match {
+          case None => id2Element.update(x, e1)
+            
+          case Some (e2) => 
+            println(s"*** Duplicate ID: $x")
+            println(s"\t-> ${e1.toWrappedObjectString}")           
+            println(s"\t-> ${e2.toWrappedObjectString}")
+            println("---------------------------")
+            res = false
+        } // duplicate id check
+      } // Failure check
+    } // foreach    
+    println("<<<... IDs Checked\n")
+    res
+  } // end CheckIds
+  
 }
 
 object IDGenerator {

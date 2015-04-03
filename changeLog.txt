@@ -1,3 +1,7 @@
+Version 0.10.9 April 03, 2015
+Adds a checkID(): Boolean operation to the IDGenerator class to check unicity of generated IDs and point out failures in ID computation if any registered.
+Adds a toWrappedObjectString : String operation to the UMLElementOps trait, defined with "???". Required to be implemented if checkID is used.
+
 Version 0.10.8 March 31, 2015
 
 Fixed the logic for serializing composite properties: 
