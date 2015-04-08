@@ -93,19 +93,21 @@ trait IDGenerator[Uml <: UML] {
 
     case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
       require( d1 != d2 )
-      val builtInURITo = d2.documentURL.resolve("#"+to.id).toString
+      val builtInURITo = d2.documentURL.resolve("#"+getXMI_ID(to).get).toString
       val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo ).getOrElse( builtInURITo )
       val fragmentIndex = mappedURITo.lastIndexOf('#')
       require( fragmentIndex > 0)
       
-      val fragment = xmlSafeID( d2.nsPrefix+"."+mappedURITo.substring(fragmentIndex+1) )
+      // It's not needed to add the prefix since it's already included in the computed ID
+      val fragment = xmlSafeID( /*d2.nsPrefix+"."+*/mappedURITo.substring(fragmentIndex+1) )
       Success( xmlSafeID( fragment ) )
      
     case ( Some( d1 ), Some( d2: SerializableDocument[Uml] ) ) =>
       if ( d1 == d2 ) getXMI_ID( to )        
       else (for { 
         id <- getXMI_ID(to)
-        fragment = xmlSafeID( d2.nsPrefix+"."+id )
+      // It's not needed to add the prefix since it's already included in the computed ID
+        fragment = xmlSafeID( /*d2.nsPrefix+"."+*/id )
       } yield fragment)
   }
 
@@ -216,7 +218,7 @@ trait IDGenerator[Uml <: UML] {
                   }
               }
             case ( o1, o2 ) =>
-              require( u == 1, s" o1=${o1.id}, o2=${o2.get.id}" )
+              require( u == 1, s" o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
               Success( "" )
           }
         case ( Success( s ), _ ) =>
@@ -238,7 +240,7 @@ trait IDGenerator[Uml <: UML] {
   }
 
   /**
-   * Rule #2
+   * Rule #2:  any Element on which Rule#1 does not apply and which is owned as an ordered set
    */
   val crule2: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, e ) if ( cf.isOrdered && cf.getUpperBound != 1 ) =>
@@ -248,7 +250,7 @@ trait IDGenerator[Uml <: UML] {
   }
 
   /**
-   * Rule #3
+   * Rule #3: any Element on which Rule#2 does not apply and which is a DirectedRelationship
    */
   val crule3: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, dr: UMLDirectedRelationship[Uml] ) =>
@@ -262,7 +264,7 @@ trait IDGenerator[Uml <: UML] {
   }
 
   /**
-   * Rule #4
+   * Rule #4: any Element on which Rule#3 does not apply and which is a uml::Slot
    */
   val crule4: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, s: UMLSlot[Uml] ) =>
@@ -276,7 +278,7 @@ trait IDGenerator[Uml <: UML] {
   }
 
   /**
-   * Rule #5
+   * Rule #5: any Element on which Rule#4 does not apply and which is uml::Comment
    */
   val crule5: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, c: UMLComment[Uml] ) =>
@@ -284,7 +286,7 @@ trait IDGenerator[Uml <: UML] {
   }
 
   /**
-   * Rule #6
+   * Rule #6: any Element on which Rule#5 does not apply and which is uml::Image
    */
   val crule6: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, i: UMLImage[Uml] ) =>

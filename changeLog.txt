@@ -1,3 +1,8 @@
+Version 0.10.10 April 04, 2015
+ID generation algorithm was modified:
+* to avoid referring to UMLElement.id and to call getXMI_ID() directly
+* to fix the duplication of the target's root package name in the ID of DirectedRelationships 
+
 Version 0.10.9 April 03, 2015
 Adds a checkID(): Boolean operation to the IDGenerator class to check unicity of generated IDs and point out failures in ID computation if any registered.
 Adds a toWrappedObjectString : String operation to the UMLElementOps trait, defined with "???". Required to be implemented if checkID is used.
