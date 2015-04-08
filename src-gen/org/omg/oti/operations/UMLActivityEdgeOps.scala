@@ -114,7 +114,7 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
 		// Start of user code for "isConsistentWith"
-    	???
+    	redefiningElement.isInstanceOf[UMLActivityEdge[Uml]]
     	// End of user code
 	}
 
@@ -127,7 +127,9 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 */
 	def validate_source_and_target: Boolean  = {
 		// Start of user code for "source_and_target"
-    	???
+    	if (activity != null)
+       source.get.containingActivity == activity && target.get.containingActivity == activity
+      else true
     	// End of user code
 	}
 

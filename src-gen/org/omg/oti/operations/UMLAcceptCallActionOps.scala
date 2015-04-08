@@ -68,11 +68,23 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_result_pins: Boolean  = {
-		// Start of user code for "result_pins"
-    	???
-    	// End of user code
-	}
+	def validate_result_pins: Boolean  = {    
+    	// Start of user code for "result_pins"     
+      var events: Seq[Option[UMLEvent[Uml]]] = null
+      trigger.foreach { 
+        t => events.add(t.event)
+      }
+            
+      var parameter: Seq[UMLParameter[Uml]] = events.head.asInstanceOf[UMLCallEvent[Uml]].operation.get.inputParameters.distinct
+                  
+      var s: Seq[Int] = { 1 to result.size }
+      s.forall { i =>  
+        parameter(i)._type == result(i)._type && 
+        parameter(i).isOrdered == result(i).isOrdered && 
+        parameter(i).compatibleWith(result(i).asInstanceOf[Option[UMLOutputPin[Uml]]]) //okay to cast to option???
+      }
+      // End of user code
+  }
 
 	/**
 	 * <!-- begin-model-doc -->
@@ -84,8 +96,8 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 */
 	def validate_trigger_call_event: Boolean  = {
 		// Start of user code for "trigger_call_event"
-    	???
-    	// End of user code
+  	trigger.size == 1 && trigger.toSeq.head.event.isInstanceOf[UMLCallEvent[Uml]]
+  	// End of user code
 	}
 
 	/**
@@ -97,8 +109,8 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 */
 	def validate_unmarshall: Boolean  = {
 		// Start of user code for "unmarshall"
-    	???
-    	// End of user code
+  	isUnmarshall
+  	// End of user code
 	}
 
 	// Start of user code for additional features

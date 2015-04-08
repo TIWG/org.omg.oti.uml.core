@@ -65,7 +65,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_has_parameters: Boolean  = {
 		// Start of user code for "has_parameters"
-    	???
+    	activity.get.ownedParameter.contains(parameter)
     	// End of user code
 	}
 
@@ -78,7 +78,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_no_edges: Boolean  = {
 		// Start of user code for "no_edges"
-    	???
+    	incoming.isEmpty || outgoing.isEmpty
     	// End of user code
 	}
 
@@ -93,7 +93,9 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_no_incoming_edges: Boolean  = {
 		// Start of user code for "no_incoming_edges"
-    	???
+    if (!outgoing.isEmpty && incoming.isEmpty)
+    	parameter.get.direction == UMLParameterDirectionKind.in || parameter.get.direction == UMLParameterDirectionKind.inout
+    else true
     	// End of user code
 	}
 
@@ -109,7 +111,11 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_no_outgoing_edges: Boolean  = {
 		// Start of user code for "no_outgoing_edges"
-    	???
+    	if (!incoming.isEmpty && outgoing.isEmpty) {
+       parameter.get.direction == UMLParameterDirectionKind.out ||
+       parameter.get.direction == UMLParameterDirectionKind.inout ||
+       parameter.get.direction == UMLParameterDirectionKind._return
+      } else true
     	// End of user code
 	}
 
@@ -122,7 +128,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_same_type: Boolean  = {
 		// Start of user code for "same_type"
-    	???
+      _type == parameter.get._type
     	// End of user code
 	}
 

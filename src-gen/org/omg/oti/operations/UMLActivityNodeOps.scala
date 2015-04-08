@@ -127,7 +127,9 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 */
 	def containingActivity: Option[UMLActivity[Uml]]  = {
 		// Start of user code for "containingActivity"
-    	???
+    	if (inStructuredNode != null) 
+        inStructuredNode.get.containingActivity
+      else activity
     	// End of user code
 	}
 
@@ -140,7 +142,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
 		// Start of user code for "isConsistentWith"
-    	???
+    	redefiningElement.isInstanceOf[UMLActivityNode[Uml]]
     	// End of user code
 	}
 

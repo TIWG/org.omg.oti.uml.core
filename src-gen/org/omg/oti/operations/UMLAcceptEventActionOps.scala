@@ -78,10 +78,20 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		(trigger->forAll(event.oclIsKindOf(SignalEvent)) and 
 	 * 		 trigger.event.oclAsType(SignalEvent).signal->forAll(s | s.conformsTo(type)))
 	 */
-	def validate_conforming_type: Boolean  = {
-		// Start of user code for "conforming_type"
-    	???
-    	// End of user code
+	def validate_conforming_type: Boolean = {
+	    // Start of user code for "conforming_type"
+	    if (!isUnmarshall) {
+	      var t: Option[UMLType[Uml]] = result.head._type
+	      result.isEmpty || 
+        t == null ||
+        trigger.forall { tr =>
+          tr.event.isInstanceOf[UMLSignalEvent[Uml]] &&
+          tr.event.asInstanceOf[UMLSignalEvent[Uml]].signal.forall {
+            s => s.conformsTo(t)
+          }
+        }
+	    } else true
+	    // End of user code
 	}
 
 	/**
@@ -91,10 +101,10 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *
 	 * @body input->size() = 0
 	 */
-	def validate_no_input_pins: Boolean  = {
-		// Start of user code for "no_input_pins"
-    	???
-    	// End of user code
+	def validate_no_input_pins: Boolean = {
+	    // Start of user code for "no_input_pins"
+	    input.size == 0
+	    // End of user code
 	}
 
 	/**
@@ -107,10 +117,13 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *                              event.oclIsKindOf(CallEvent))))
 	 * implies output->size() = 0
 	 */
-	def validate_no_output_pins: Boolean  = {
-		// Start of user code for "no_output_pins"
-    	???
-    	// End of user code
+	def validate_no_output_pins: Boolean = {
+	    // Start of user code for "no_output_pins"
+	    if ( self.isInstanceOf[UMLAcceptEventAction[Uml]] &&
+	       trigger.forall { t => t.event.isInstanceOf[UMLChangeEvent[Uml]] || t.event.isInstanceOf[UMLCallEvent[Uml]] } ) {
+	      output.size == 0
+	    } else true
+	    // End of user code
 	}
 
 	/**
@@ -121,10 +134,12 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * @body not isUnmarshall and trigger->exists(event.oclIsKindOf(SignalEvent) or event.oclIsKindOf(TimeEvent)) implies 
 	 * 	output->size() = 1 and output->first().is(1,1)
 	 */
-	def validate_one_output_pin: Boolean  = {
-		// Start of user code for "one_output_pin"
-    	???
-    	// End of user code
+	def validate_one_output_pin: Boolean = {
+	    // Start of user code for "one_output_pin"
+	    if (!isUnmarshall && trigger.exists { t => t.event.isInstanceOf[UMLSignal[Uml]] || t.event.isInstanceOf[UMLTimeEvent[Uml]] }) {
+	      output.size == 1 && output.head.is(1, 1)
+	    } else true
+	    // End of user code
 	}
 
 	/**
@@ -142,10 +157,20 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		result->at(i).isOrdered = attribute->at(i).isOrdered and
 	 * 		result->at(i).includesMultiplicity(attribute->at(i)))
 	 */
-	def validate_unmarshall_signal_events: Boolean  = {
-		// Start of user code for "unmarshall_signal_events"
-    	???
-    	// End of user code
+	def validate_unmarshall_signal_events: Boolean = {
+	    // Start of user code for "unmarshall_signal_events"
+	    if (isUnmarshall && self.isInstanceOf[UMLAcceptEventAction[Uml]]) {
+	      if (trigger.size == 1 && trigger.toSeq.head.event.isInstanceOf[UMLSignalEvent[Uml]]) {
+	        var attribute: Seq[UMLProperty[Uml]] = trigger.toSeq.head.event.asInstanceOf[UMLSignalEvent[Uml]].signal.get.allAttributes.distinct
+	        var s: Seq[Int] = { 1 to result.size }
+	        attribute.size > 0 && result.size == attribute.size && s.forall { i =>  
+	          result(i)._type == attribute(i)._type && 
+	          result(i).isOrdered == attribute(i).isOrdered && 
+	          result(i).includesMultiplicity(attribute(i).asInstanceOf[Option[UMLOutputPin[Uml]]]) 
+	        }
+	      } else true  
+	    } else true
+	    // End of user code
 	}
 
 	// Start of user code for additional features
