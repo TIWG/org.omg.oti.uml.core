@@ -78,18 +78,15 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		(trigger->forAll(event.oclIsKindOf(SignalEvent)) and 
 	 * 		 trigger.event.oclAsType(SignalEvent).signal->forAll(s | s.conformsTo(type)))
 	 */
-	def validate_conforming_type: Boolean = {
+	def validate_conforming_type: Boolean = { 
 	    // Start of user code for "conforming_type"
 	    if (!isUnmarshall) {
 	      var t: Option[UMLType[Uml]] = result.head._type
 	      result.isEmpty || 
         t == null ||
-        trigger.forall { tr =>
-          tr.event.isInstanceOf[UMLSignalEvent[Uml]] &&
-          tr.event.asInstanceOf[UMLSignalEvent[Uml]].signal.forall {
-            s => s.conformsTo(t)
-          }
-        }
+        trigger.forall { tr => tr.event.isInstanceOf[UMLSignalEvent[Uml]] } &&
+        trigger.forall { tr => tr.event.asInstanceOf[UMLSignalEvent[Uml]].signal.forall { s => s.conformsTo(t) } }
+        //trigger.collect { case t: UMLTrigger[Uml] => t.event.asInstanceOf[UMLSignalEvent[Uml]] }.collect { case s: UMLSignal[Uml] => s }.forall { s => s.conformsTo(t) }
 	    } else true
 	    // End of user code
 	}
@@ -157,7 +154,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * 		result->at(i).isOrdered = attribute->at(i).isOrdered and
 	 * 		result->at(i).includesMultiplicity(attribute->at(i)))
 	 */
-	def validate_unmarshall_signal_events: Boolean = {
+	def validate_unmarshall_signal_events: Boolean = { ??? //cast attribute(i) OK?
 	    // Start of user code for "unmarshall_signal_events"
 	    if (isUnmarshall && self.isInstanceOf[UMLAcceptEventAction[Uml]]) {
 	      if (trigger.size == 1 && trigger.toSeq.head.event.isInstanceOf[UMLSignalEvent[Uml]]) {

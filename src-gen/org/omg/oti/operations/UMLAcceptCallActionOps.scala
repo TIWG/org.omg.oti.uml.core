@@ -68,7 +68,7 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_result_pins: Boolean  = {    
+	def validate_result_pins: Boolean  = { ??? //should be a way to avoid null instantiation
     	// Start of user code for "result_pins"     
       var events: Seq[Option[UMLEvent[Uml]]] = null
       trigger.foreach { 
@@ -81,7 +81,7 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
       s.forall { i =>  
         parameter(i)._type == result(i)._type && 
         parameter(i).isOrdered == result(i).isOrdered && 
-        parameter(i).compatibleWith(result(i).asInstanceOf[Option[UMLOutputPin[Uml]]]) //okay to cast to option???
+        parameter(i).compatibleWith(Some(result(i)))
       }
       // End of user code
   }

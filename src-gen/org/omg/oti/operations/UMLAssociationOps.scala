@@ -77,7 +77,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_association_ends: Boolean  = {
 		// Start of user code for "association_ends"
-    	???
+    	if (memberEnd.size > 2) 
+        ownedEnd.containsAll(memberEnd)
+      else true
     	// End of user code
 	}
 
@@ -90,7 +92,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_binary_associations: Boolean  = {
 		// Start of user code for "binary_associations"
-    	???
+    	if ( memberEnd.exists { me => me.aggregation != UMLAggregationKind.none } ) {
+       memberEnd.size == 2 && memberEnd.exists { me => me.aggregation == UMLAggregationKind.none } 
+      } else true
     	// End of user code
 	}
 
@@ -102,7 +106,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_ends_must_be_typed: Boolean  = {
 		// Start of user code for "ends_must_be_typed"
-    	???
+    	memberEnd.forall { me => !me._type.isEmpty }
     	// End of user code
 	}
 
@@ -113,9 +117,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 *
 	 * @body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
 	 */
-	def validate_specialized_end_number: Boolean  = {
+	def validate_specialized_end_number: Boolean  = { ??? //need Assosiation translation
 		// Start of user code for "specialized_end_number"
-    	???
+    	//parents.selectByKindOf(case a: Association => a.forall { p => p.memberEnd.size == self.memberEnd.size } )
     	// End of user code
 	}
 
@@ -128,9 +132,11 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * 	forAll(i | general->select(oclIsKindOf(Association)).oclAsType(Association)->
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
 	 */
-	def validate_specialized_end_types: Boolean  = {
+	def validate_specialized_end_types: Boolean  = { ??? //need Assosiation translation
 		// Start of user code for "specialized_end_types"
-    	???
+//    	Seq(1 to memberEnd.size).forall { i => 
+//        general.selectByKindOf(Association).forall { ga => 
+//          self.memberEnd(i)._type.conformsTo(ga.memberEnd(i)._type) } }
     	// End of user code
 	}
 

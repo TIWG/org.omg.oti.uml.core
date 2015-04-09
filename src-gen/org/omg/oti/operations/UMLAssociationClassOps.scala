@@ -65,7 +65,8 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 */
 	def validate_cannot_be_defined: Boolean  = {
 		// Start of user code for "cannot_be_defined"
-    	???
+    	!self.endType.contains(self) && 
+      !self.endType.collect{ case c: UMLClassifier[Uml] => c.allParents }.flatten.contains(self)
     	// End of user code
 	}
 
@@ -78,7 +79,7 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 */
 	def validate_disjoint_attributes_ends: Boolean  = {
 		// Start of user code for "disjoint_attributes_ends"
-    	???
+    	ownedAttribute.intersect(ownedEnd.toSeq).isEmpty
     	// End of user code
 	}
 

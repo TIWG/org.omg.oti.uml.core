@@ -68,9 +68,14 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
 	 * endif
 	 */
-	def validate_insertAt_pin: Boolean  = {
+	def validate_insertAt_pin: Boolean  = { ??? //UnlimitedNatual used correctly?
 		// Start of user code for "insertAt_pin"
-    	???
+    	if (!variable.get.isOrdered) 
+        insertAt == null
+      else if (!isReplaceAll) 
+        insertAt != null && insertAt.forall { pin => 
+          pin._type.get.name == "UnlimitedNatural" && pin.is(1, 1) }
+      else true
     	// End of user code
 	}
 
@@ -83,7 +88,7 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 */
 	def validate_required_value: Boolean  = {
 		// Start of user code for "required_value"
-    	???
+    	value != null
     	// End of user code
 	}
 

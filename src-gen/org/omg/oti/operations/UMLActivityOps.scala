@@ -105,9 +105,16 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *    p.direction <> ParameterDirectionKind::inout implies node->select(
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p)->size()= 1)
 	 */
-	def validate_maximum_one_parameter_node: Boolean  = {
+	def validate_maximum_one_parameter_node: Boolean  = { ??? //use of Some()
 		// Start of user code for "maximum_one_parameter_node"
-    	???
+    	ownedParameter.forall { p => 
+        if ( p.direction != UMLParameterDirectionKind.inout ) {
+          node.filter { n => 
+            n.isInstanceOf[UMLActivityParameterNode[Uml]] && 
+            n.asInstanceOf[UMLActivityParameterNode[Uml]].parameter == Some(p) }
+          .size == 1  
+        } else true
+      } 
     	// End of user code
 	}
 
@@ -125,9 +132,17 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *   associatedNodes->select(outgoing->notEmpty())->size()<=1
 	 * )
 	 */
-	def validate_maximum_two_parameter_nodes: Boolean  = {
+	def validate_maximum_two_parameter_nodes: Boolean  = { ??? //use of Some()
 		// Start of user code for "maximum_two_parameter_nodes"
-    	???
+    	ownedParameter.forall { p => 
+        if (p.direction == UMLParameterDirectionKind.inout) {
+          var associatedNodes: Set[UMLActivityNode[Uml]] = 
+            node.filter { n => n.isInstanceOf[UMLActivityParameterNode[Uml]] && n.asInstanceOf[UMLActivityParameterNode[Uml]].parameter == Some(p) }
+          associatedNodes.size == 2 && 
+          associatedNodes.filter { an => !an.incoming.isEmpty }.size <= 1 &&
+          associatedNodes.filter { an => !an.outgoing.isEmpty }.size <= 1
+        } else true
+      }
     	// End of user code
 	}
 

@@ -105,7 +105,8 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 */
 	def validate_dimension_not_contained: Boolean  = {
 		// Start of user code for "dimension_not_contained"
-    	???
+    	if (isDimension) superPartition.isEmpty
+      else false
     	// End of user code
 	}
 
@@ -128,9 +129,20 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *                                                                       a.memberEnd->exists(end2 | end1<>end2 and end2.type = representedSuperClassifier))))
 	 * )
 	 */
-	def validate_represents_classifier: Boolean  = {
+	def validate_represents_classifier: Boolean  = { 
 		// Start of user code for "represents_classifier"
-    	???
+    	if ( !isExternal && represents.isInstanceOf[UMLClassifier[Uml]] && !superPartition.isEmpty ) {
+       var representedClassifier: UMLClassifier[Uml] = represents.asInstanceOf[UMLClassifier[Uml]]
+       if ( superPartition.get.represents.isInstanceOf[UMLClassifier[Uml]] ) {
+         var representedSuperClassifier: Option[UMLClassifier[Uml]] = superPartition.get.represents.asInstanceOf[Option[UMLClassifier[Uml]]]
+         ( (representedSuperClassifier.isInstanceOf[UMLBehavioredClassifier[Uml]] && 
+             representedClassifier.isInstanceOf[UMLBehavior[Uml]] &&
+             representedSuperClassifier.asInstanceOf[UMLBehavioredClassifier[Uml]].ownedBehavior.contains(representedClassifier.asInstanceOf[UMLBehavior[Uml]]) ) ||
+         ( representedSuperClassifier.isInstanceOf[UMLClass[Uml]] && 
+             representedSuperClassifier.asInstanceOf[UMLClass[Uml]].nestedClassifier.contains(representedClassifier) ) ||
+         ( ??? /*need Association translation*/ ) )
+       } else true
+      } else true
     	// End of user code
 	}
 
@@ -149,7 +161,14 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 */
 	def validate_represents_property: Boolean  = {
 		// Start of user code for "represents_property"
-    	???
+    	if ( represents.isInstanceOf[UMLProperty[Uml]] && 
+          !superPartition.isEmpty && 
+          superPartition.get.represents.isInstanceOf[UMLClassifier[Uml]] ) {
+            var representedClassifier: Option[UMLClassifier[Uml]] = superPartition.get.represents.asInstanceOf[Option[UMLClassifier[Uml]]]
+            superPartition.get.subpartition.filterNot { ap => ap.isExternal }.forall { 
+              p => p.represents.isInstanceOf[UMLProperty[Uml]] && p.owner == representedClassifier
+        }
+      } else true      
     	// End of user code
 	}
 
@@ -166,7 +185,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 */
 	def validate_represents_property_and_is_contained: Boolean  = {
 		// Start of user code for "represents_property_and_is_contained"
-    	???
+    	if ( represents.isInstanceOf[UMLProperty[Uml]] && !superPartition.isEmpty )
+        (represents.isInstanceOf[UMLClassifier[Uml]]  && represents.get.owner == superPartition.get.represents) || 
+        (represents.isInstanceOf[UMLProperty[Uml]]  && represents.get.owner == superPartition.get.represents.asInstanceOf[UMLProperty[Uml]]._type)
+      else true
     	// End of user code
 	}
 

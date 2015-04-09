@@ -72,7 +72,11 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def context: Option[UMLClassifier[Uml]] = {
 		// Start of user code for "context"
-	    ???
+      var behavior: Option[UMLBehavior[Uml]] = self.containingBehavior;
+      
+      if (behavior == null) null
+      else if (behavior.get.context == null) behavior
+      else behavior.get.context
 	    // End of user code
 	}
 
@@ -104,7 +108,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def allActions: Set[UMLAction[Uml]]  = {
 		// Start of user code for "allActions"
-    	???
+      Set(self)
     	// End of user code
 	}
 
@@ -118,7 +122,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def allOwnedNodes: Set[UMLActivityNode[Uml]]  = {
 		// Start of user code for "allOwnedNodes"
-    	???
+    input.toSet.union(output.toSet)
     	// End of user code
 	}
 
@@ -136,7 +140,9 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def containingBehavior: Option[UMLBehavior[Uml]]  = {
 		// Start of user code for "containingBehavior"
-    	???
+    	if (inStructuredNode != null) inStructuredNode.get.containingBehavior
+      else if (activity != null) activity
+      else action_interaction
     	// End of user code
 	}
 
