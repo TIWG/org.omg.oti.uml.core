@@ -249,11 +249,19 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined )
       self.tagValues.get( OTI_SPECIFICATION_ROOT_documentURL.get ) match {
         case Some( Seq( url: UMLLiteralString[_] ) ) if ( url.value.isDefined ) =>
-          url.value
+          url.value            
         case _ =>
-          None
+          URI match {
+            case Some(x) => Option.apply(x+".xmi")
+            case None => None
+          }
       }
-    else None
+    else
+      URI match {
+        case Some(x) => Option.apply(x+".xmi")
+        case None => None
+      }
+
     
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
