@@ -415,6 +415,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   
   def toWrappedObjectString : String = ???
   
+  // isSpecicationRoot allows knowing whether this element is a root of an OMG specification
+  // it is true if the <<SpecificationRoot>> stereotype is applied, and false otherwise
+  def isSpecificationRoot: Boolean = OTI_SPECIFICATION_ROOT_S match {
+      case Some(s) => hasStereotype(s)    
+      case None => false
+    }
+  
   // End of user code
 
 } //UMLElement

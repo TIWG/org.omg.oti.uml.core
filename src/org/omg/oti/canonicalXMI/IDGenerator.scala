@@ -137,7 +137,8 @@ trait IDGenerator[Uml <: UML] {
       } )
 
   val rule0: Element2IDRule = {
-    case root: UMLPackage[Uml] if ( resolvedDocumentSet.lookupDocumentByScope(root).isDefined ) =>
+    case root: UMLPackage[Uml] if ( resolvedDocumentSet.lookupDocumentByScope(root).isDefined || 
+        root.isSpecificationRoot) =>
       root.name match {
         case None      => Failure( illegalElementException( "Document package scope must be explicitly named", root ) )
         case Some( n ) => Success( xmlSafeID(n) )
