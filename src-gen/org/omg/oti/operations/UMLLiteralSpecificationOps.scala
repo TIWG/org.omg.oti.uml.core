@@ -43,6 +43,9 @@ package org.omg.oti.operations
 import org.omg.oti.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
+import scala.util.Try
+import scala.util.Failure
+import scala.util.Success
 // End of user code
 
 /**
@@ -64,6 +67,8 @@ trait UMLLiteralSpecificationOps[Uml <: UML] { self: UMLLiteralSpecification[Uml
    */
   override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
 
+  override def serializeValue : Try[Option[String]] = Success( self.stringValue )
+  
 	// End of user code
 
 } //UMLLiteralSpecification

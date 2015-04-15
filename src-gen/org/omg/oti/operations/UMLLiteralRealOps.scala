@@ -66,7 +66,7 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 */
 	override def isComputable: Boolean  = {
 		// Start of user code for "isComputable"
-    	???
+    true
     	// End of user code
 	}
 
@@ -80,11 +80,12 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 */
 	override def realValue: Option[Double]  = {
 		// Start of user code for "realValue"
-    	???
+    Option.apply(value)
     	// End of user code
 	}
 
 	// Start of user code for additional features
+  override def stringValue: Option[String]  = Option.apply(value.toString)  
 	// End of user code
 
 } //UMLLiteralReal

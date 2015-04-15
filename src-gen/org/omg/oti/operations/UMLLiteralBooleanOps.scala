@@ -66,7 +66,7 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	 */
 	override def booleanValue: Option[Boolean]  = {
 		// Start of user code for "booleanValue"
-    	???
+    	Option.apply(self.value)
     	// End of user code
 	}
 
@@ -80,11 +80,12 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	 */
 	override def isComputable: Boolean  = {
 		// Start of user code for "isComputable"
-    	???
+    	true
     	// End of user code
 	}
 
 	// Start of user code for additional features
+  override def stringValue: Option[String]  = Option.apply(value.toString)  
 	// End of user code
 
 } //UMLLiteralBoolean

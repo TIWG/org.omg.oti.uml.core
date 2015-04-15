@@ -43,6 +43,9 @@ package org.omg.oti.operations
 import org.omg.oti.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
+import scala.util.Try
+import scala.util.Failure
+import scala.util.Success
 // End of user code
 
 /**
@@ -66,7 +69,7 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 */
 	override def isComputable: Boolean  = {
 		// Start of user code for "isComputable"
-    	???
+    	true
     	// End of user code
 	}
 
@@ -80,11 +83,13 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 */
 	override def isNull: Boolean  = {
 		// Start of user code for "isNull"
-    	???
+    	true
     	// End of user code
 	}
 
 	// Start of user code for additional features
+  override def serializeValue : Try[Option[String]] = Failure( new IllegalArgumentException( s"No value=>string serialization support for ${xmiType.head} (ID=${xmiID.head})" ) )
+  override def stringValue: Option[String]  = Some("***NULL***")  
 	// End of user code
 
 } //UMLLiteralNull

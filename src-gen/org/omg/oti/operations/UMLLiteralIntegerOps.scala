@@ -66,7 +66,7 @@ trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 	 */
 	override def integerValue: Option[Integer]  = {
 		// Start of user code for "integerValue"
-    	???
+    	Option.apply(value)
     	// End of user code
 	}
 
@@ -80,11 +80,12 @@ trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 	 */
 	override def isComputable: Boolean  = {
 		// Start of user code for "isComputable"
-    	???
+    	true
     	// End of user code
 	}
 
 	// Start of user code for additional features
+  override def stringValue: Option[String]  = Option.apply(value.toString)  
 	// End of user code
 
 } //UMLLiteralInteger

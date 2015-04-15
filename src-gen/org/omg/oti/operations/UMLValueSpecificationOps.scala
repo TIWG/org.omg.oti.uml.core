@@ -43,6 +43,10 @@ package org.omg.oti.operations
 import org.omg.oti.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
+import scala.util.Try
+import scala.util.Failure
+import scala.util.Success
+
 // End of user code
 
 /**
@@ -303,6 +307,8 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
    */
   final def compositeReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] =
     Set(self) ++ self.allOwnedElements.flatMap(_.compositeReferencesFromStereotypeTagPropertyValues)
+    
+  def serializeValue : Try[Option[String]] = Failure( new IllegalArgumentException( s"No value=>string serialization support for ${xmiType.head} (ID=${xmiID.head})" ) )
 	// End of user code
 
 } //UMLValueSpecification

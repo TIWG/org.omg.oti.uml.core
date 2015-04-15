@@ -221,15 +221,15 @@ object DocumentSet {
   val UML_ns = "http://www.omg.org/spec/UML/20131001"
   val MOFEXT_ns = "http://www.omg.org/spec/MOF/20131001"
 
-  def serializeValueSpecificationAsTagValue[Uml <: UML]( value: UMLValueSpecification[Uml] ): Try[Option[String]] =
-    value match {
+  def serializeValueSpecificationAsTagValue[Uml <: UML]( value: UMLValueSpecification[Uml] ): Try[Option[String]] = value.serializeValue
+ /*   value match {
       case l: UMLLiteralBoolean[Uml] => Success( Some( l.value.toString ) )
       case l: UMLLiteralInteger[Uml] => Success( Some( l.value.toString ) )
       case l: UMLLiteralReal[Uml]    => Success( Some( l.value.toString ) )
       case l: UMLLiteralString[Uml]  => Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
       case iv: UMLInstanceValue[Uml] => Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID.head ) } )
       case v                         => Failure( new IllegalArgumentException( s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
-    }
+    }*/
 
   def constructDocumentSetCrossReferenceGraph[Uml <: UML](
     specificationRootPackages: Set[UMLPackage[Uml]],

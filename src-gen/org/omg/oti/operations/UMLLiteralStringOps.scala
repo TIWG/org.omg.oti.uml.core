@@ -80,7 +80,7 @@ trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 	 */
 	override def stringValue: Option[String]  = {
 		// Start of user code for "stringValue"
-    	???
+    	self.value
     	// End of user code
 	}
 
