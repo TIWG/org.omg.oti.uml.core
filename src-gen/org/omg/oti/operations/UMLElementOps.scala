@@ -298,7 +298,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
     tagValues.groupBy( _._1.owningStereotype.get )
 
-  def xmiID: Iterable[String] = Iterable( id )
+  def xmiID: Iterable[String] = id.toIterable
   def xmiUUID: Iterable[String] = uuid.toIterable
   def xmiElementLabel: String = mofMetaclassName
   def metaclass_name: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
@@ -395,7 +395,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
 
-  def id: String
+  def id: Option[String]
 
   def uuid: Option[String]
 

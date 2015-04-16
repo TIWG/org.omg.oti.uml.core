@@ -407,4 +407,13 @@ object IDGenerator {
     }
   }
   
+  def computeStereotypeApplicationID (eID: String, stID: String) = eID+".stereotypeApplication_"+stID
+  
+  def uuidFromId (id: Option[String]): Option[String] = id match {
+    case Some(s) => Some(uuidFromId(s))
+    case None => None
+  } 
+  
+  def uuidFromId (id: String): String = "omg.org."+id
+
 }

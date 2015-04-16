@@ -75,18 +75,19 @@ case class ResolvedDocumentSet[Uml <: UML](
 
   type ValueSpecificationTagConverter = Function1[UMLValueSpecification[Uml], Try[Option[String]]]
 
-  def getStereptype_ID_UUID( s: UMLStereotype[Uml] ): ( String, String ) =
+  def getStereotype_ID_UUID( s: UMLStereotype[Uml] ): ( String, String ) =
     element2document.get( s ) match {
       case None =>
         throw new IllegalArgumentException( s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})" )
 
       case Some( d: BuiltInDocument[Uml] ) =>
-        val builtInURI = d.documentURL.resolve( "#"+s.id ).toString
+        require(s.id.isDefined)
+        val builtInURI = d.documentURL.resolve( "#"+s.id.get ).toString
         val mappedURI = ds.builtInURIMapper.resolve( builtInURI ).getOrElse( builtInURI )
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
-        val fragment = IDGenerator.xmlSafeID( d.nsPrefix+"."+mappedURI.substring( fragmentIndex + 1 ) )
-        ( fragment, "org.omg."+fragment )
+        val fragment = IDGenerator.xmlSafeID(/* d.nsPrefix+"."+*/mappedURI.substring( fragmentIndex + 1 ) )
+        ( fragment, IDGenerator.uuidFromId(fragment) )
 
       case Some( d: SerializableDocument[Uml] ) =>
         ( s.xmiID.head, s.xmiUUID.head )
@@ -260,10 +261,10 @@ case class ResolvedDocumentSet[Uml <: UML](
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
               val appliedStereotypes = e.getAppliedStereotypes filter { case ( s, p ) => element2document.contains( s ) }
-              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => getStereptype_ID_UUID( s )._1 }
+              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => getStereotype_ID_UUID( s )._1 }
               val orderedTagValueElements = ordering map {
                 case ( s, p ) =>
-                  val ( sID, sUUID ) = getStereptype_ID_UUID( s )
+                  val ( sID, sUUID ) = getStereotype_ID_UUID( s )
                   val tagValueAttributes: List[Elem] =
                     scala.xml.Elem(
                       prefix = null,
@@ -275,7 +276,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                       ( allTagValues.get( s ) match {
                         case None => Nil
                         case Some( tagValues ) =>
-                          val properties = tagValues.keys.toList.sortBy( _.xmiUUID.head )
+                          val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head >  _.xmiUUID.head )
                           val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
                           val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) _ )
                           tagValueAttributeN match {
@@ -283,11 +284,13 @@ case class ResolvedDocumentSet[Uml <: UML](
                             case Success( tagValueAttribute ) => tagValueAttribute
                           }
                       } )
+                  val stAppID = IDGenerator.computeStereotypeApplicationID (e.xmiID.head, sID)
+                  val stAppUUID = IDGenerator.uuidFromId(stAppID)               
                   val xmiTagValueAttributes =
                     new PrefixedAttribute(
-                      pre = "xmi", key = "id", value = e.xmiID.head+"-"+sID,
+                      pre = "xmi", key = "id", value = stAppID,
                       new PrefixedAttribute(
-                        pre = "xmi", key = "uuid", value = e.xmiUUID.head+"-"+sUUID,
+                        pre = "xmi", key = "uuid", value = stAppUUID,
                         new PrefixedAttribute(
                           pre = "xmi", key = "type", value = s.profile.get.name.get+":"+s.name.get,
                           Null ) ) )
@@ -474,17 +477,18 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Failure( t )    => Failure( t )
                 case Success( None ) => Success( ns )
                 case Success( Some( eRef ) ) =>
+                  require(eRef.id.isDefined)
                   element2document.get( eRef ) match {
                     case None =>
                       System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) {
-                        val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
+                        val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id.get, Null )
                         val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                         Success( ns :+ idrefNode )
                       } else {
-                        val href = dRef.documentURL+"#"+eRef.id
+                        val href = dRef.documentURL+"#"+eRef.id.get
                         val externalHRef = dRef match {
                           case _: SerializableDocument[Uml] => href
                           case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
@@ -503,17 +507,18 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Success( Nil ) => Success( ns )
                 case Success( eRefs ) =>
                   val hRefs = eRefs flatMap { eRef =>
+                    require(eRef.id.isDefined)
                     element2document.get( eRef ) match {
                       case None =>
                         System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                         None
                       case Some( dRef ) =>
                         if ( d == dRef ) {
-                          val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
+                          val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id.get, Null )
                           val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           idrefNode
                         } else {
-                          val href = dRef.uri+"#"+eRef.id
+                          val href = dRef.uri+"#"+eRef.id.get
                           val externalHRef = dRef match {
                             case _: SerializableDocument[Uml] => href
                             case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
