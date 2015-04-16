@@ -117,6 +117,8 @@ case class ResolvedDocumentSet[Uml <: UML](
     Success( Unit )
   }
 
+  import scala.xml._
+
   protected def foldTagValues(
     tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]],
     xmiScopes: scala.xml.NamespaceBinding )(
@@ -128,25 +130,44 @@ case class ResolvedDocumentSet[Uml <: UML](
         tagValues.get( property ) match {
           case None =>
             Success( attributes )
+            
           case Some( values ) =>
-            val stringValues = values flatMap { v =>
-              valueSpecificationTagConverter( v ) match {
+            val valueTable : Seq[(Option[String], Boolean)] = for {
+              v <- values
+            } yield valueSpecificationTagConverter( v ) match {
                 case Failure( t ) => return Failure( t )
-                case Success( s ) => s
-              }
+                case Success(None) => v.serializeAsRef match {
+                  case Success(s) => (s, true)
+                  case Failure( t ) => return Failure( t )
+                }
+                case Success(s) => (s, false)
             }
 
-            Success( ( attributes /: stringValues ) {
-              case ( xs, value ) =>
-                scala.xml.Elem(
-                  prefix = null,
-                  label = property.name.get,
-                  attributes = scala.xml.Null,
-                  scope = xmiScopes,
-                  minimizeEmpty = true,
-                  scala.xml.Text( value ) ) ::
+            Success( ( attributes /: valueTable ) {
+                case ( xs, (Some(strValue), false) ) =>
+                  scala.xml.Elem(
+                    prefix = null,
+                    label = property.name.get,
+                    attributes = scala.xml.Null,
+                    scope = xmiScopes,
+                    minimizeEmpty = true,
+                    scala.xml.Text( strValue ) ) ::
+                    xs
+                    
+                case ( xs, (Some(idRef), true) ) =>
+                  val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = idRef, Null )           
+                  scala.xml.Elem(
+                    prefix = null,
+                    label = property.name.get,
+                    attributes = idrefAttrib,
+                    scope = xmiScopes,
+                    minimizeEmpty = true) ::
+                    xs
+                    
+                case ( xs, (None, _)) => 
                   xs
-            } )
+            })
+              
         }
     }
 

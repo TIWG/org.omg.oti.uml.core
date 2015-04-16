@@ -88,7 +88,6 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	}
 
 	// Start of user code for additional features
-  override def serializeValue : Try[Option[String]] = Failure( new IllegalArgumentException( s"No value=>string serialization support for ${xmiType.head} (ID=${xmiID.head})" ) )
   override def stringValue: Option[String]  = Some("***NULL***")  
 	// End of user code
 

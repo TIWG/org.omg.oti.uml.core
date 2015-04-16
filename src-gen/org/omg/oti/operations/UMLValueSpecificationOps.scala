@@ -308,7 +308,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
   final def compositeReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] =
     Set(self) ++ self.allOwnedElements.flatMap(_.compositeReferencesFromStereotypeTagPropertyValues)
     
-  def serializeValue : Try[Option[String]] = Failure( new IllegalArgumentException( s"No value=>string serialization support for ${xmiType.head} (ID=${xmiID.head})" ) )
+  def serializeAsRef : Try[Option[String]] = Success( None )
 	// End of user code
 
 } //UMLValueSpecification

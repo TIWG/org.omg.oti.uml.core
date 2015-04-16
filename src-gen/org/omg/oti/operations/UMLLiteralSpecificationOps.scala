@@ -66,9 +66,6 @@ trait UMLLiteralSpecificationOps[Uml <: UML] { self: UMLLiteralSpecification[Uml
    * from the element on which the stereotype is applied. 
    */
   override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
-
-  override def serializeValue : Try[Option[String]] = Success( self.stringValue )
-  
 	// End of user code
 
 } //UMLLiteralSpecification
