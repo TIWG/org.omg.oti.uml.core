@@ -260,20 +260,13 @@ case class ResolvedDocumentSet[Uml <: UML](
              */
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
-              val appliedStereotypes = e.getAppliedStereotypes filter { case ( s, p ) => element2document.contains( s ) }
-              val ordering = appliedStereotypes.toList.sortBy { case ( s, p ) => getStereotype_ID_UUID( s )._1 }
+              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter { case s => element2document.contains( s ) }
+              val ordering = appliedStereotypes.toList.sortBy { case s => getStereotype_ID_UUID( s )._1 }
               val orderedTagValueElements = ordering map {
-                case ( s, p ) =>
+                case s =>
                   val ( sID, sUUID ) = getStereotype_ID_UUID( s )
                   val tagValueAttributes: List[Elem] =
-                    scala.xml.Elem(
-                      prefix = null,
-                      label = p.name.get,
-                      attributes = scala.xml.Null,
-                      scope = xmiScopes,
-                      minimizeEmpty = true,
-                      scala.xml.Text( e.xmiID.head ) ) ::
-                      ( allTagValues.get( s ) match {
+                       allTagValues.get( s ) match {
                         case None => Nil
                         case Some( tagValues ) =>
                           val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head >  _.xmiUUID.head )
@@ -283,7 +276,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                             case Failure( t )                 => return Failure( t )
                             case Success( tagValueAttribute ) => tagValueAttribute
                           }
-                      } )
+                      }
                   val stAppID = IDGenerator.computeStereotypeApplicationID (e.xmiID.head, sID)
                   val stAppUUID = IDGenerator.uuidFromId(stAppID)               
                   val xmiTagValueAttributes =
@@ -318,7 +311,7 @@ case class ResolvedDocumentSet[Uml <: UML](
             val filepath = uri.getPath+".xmi"
             val xmlFile = new java.io.File( filepath )
             System.out.println( s"### File: ${filepath}" )
-            val xmlPrettyPrinter = new PrettyPrinter( width = 200, step = 2 )
+            val xmlPrettyPrinter = new PrettyPrinter( width = 300, step = 2 )
             val xmlOutput = xmlPrettyPrinter.format( xmi )
 
             val bw = new PrintWriter( new FileWriter( xmlFile ) )
