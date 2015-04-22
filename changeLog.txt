@@ -1,6 +1,41 @@
+Version 0.10.16 April 22, 2015
+Fixes issues:
+TIWG-5: closing tag indentation
+TIWG-22: Serialized files are not UTF-8 encoded
++ Improves the fix provided for TIWG-3 so that it applies to any tag value which are references to elements
+
+Version 0.10.15 April 20, 2015
+Fixes issues:
+TIWG-3: serialization of base_xxx properties
+TIWG-18: base_xxx properties are serialized twice
+TIWG-5: closing tag indentation
+
+Version 0.10.14 April 16, 2015
+Fixes issue with ordering of serialized tag values.
+Fixes:
+TIWG-15: Some of the rules for ID computation are not located in the IDGenerator class 
+TIWG-16: ID and UUID computation rules can be improved
+TIWG-17: ID and UUID should have the same type
+
+Known issue: extra tag value(s) generated in case of the OTI profile: to be investigated
+
+Version 0.10.13 April 16, 2015
+Fixes TIWG-3: the serialization of tag values is now delegated to ValueSpecification wrappers. Tag values which are references (i.e. "ElementValue") are now properly serialized assuming the tool specific implementation of "ElementValue":
+* redefines UMLValueSpecificationOps::stringValue so that it returns None
+* redefines UMLValueSpecificationOps::serializeAsRef so that it returns the xmi:id of the referenced element
+
+Version 0.10.12 April 15, 2015
+First step for fixing TIWG-3: the serialization of tag values is now delegated to ValueSpecification wrappers. 
+Remaining issue: the tag value which are references (i.e. "ElementValue") are not yet serialized
+Version 0.10.11 April 13, 2015 
+Adding fix for TIWG-13: ID computation algorithm shall not look over a specification root
+
+Version 0.10.11 April 13, 2015
+Adds a fix for TIWG-13: ID computation algorithm shall not look over a specification root
+
 Version 0.10.10 April 04, 2015
 ID generation algorithm was modified:
-* to avoid referring to UMLElement.id and to call getXMI_ID() directly
+* to avoid referring to UMLElement.id and to call getXMI_ID() directly (TIWG-8)
 * to fix the duplication of the target's root package name in the ID of DirectedRelationships 
 
 Version 0.10.9 April 03, 2015

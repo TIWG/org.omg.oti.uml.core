@@ -62,7 +62,9 @@ import scalax.collection.io.edge.CEdgeParameters
 import scalax.collection.io.json.Descriptor
 import scalax.collection.io.json.descriptor.CEdgeDescriptor
 import scalax.collection.io.json.descriptor.NodeDescriptor
-import java.io.FileWriter
+//import java.io.FileWriter
+import java.io.OutputStreamWriter
+import java.io.FileOutputStream
 import java.io.BufferedWriter
 import java.io.PrintWriter
 
@@ -127,7 +129,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       property: UMLProperty[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[List[scala.xml.Elem]] =
     tagValueAttribute match {
       case Failure( t ) => Failure( t )
-      case Success( attributes ) =>
+      case Success( attributes ) =>       
         tagValues.get( property ) match {
           case None =>
             Success( attributes )
@@ -139,6 +141,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Failure( t ) => return Failure( t )
                 case Success(None) => v.serializeAsRef match {
                   case Success(s) => (s, true)
+                  case Success(None) => (None, true)
                   case Failure( t ) => return Failure( t )
                 }
                 case Success(s) => (s, false)
@@ -314,7 +317,8 @@ case class ResolvedDocumentSet[Uml <: UML](
             val xmlPrettyPrinter = new PrettyPrinter( width = 300, step = 2 )
             val xmlOutput = xmlPrettyPrinter.format( xmi )
 
-            val bw = new PrintWriter( new FileWriter( xmlFile ) )
+//            val bw = new PrintWriter( new FileWriter( xmlFile ) )
+            val bw = new PrintWriter( new OutputStreamWriter(new FileOutputStream(xmlFile), "UTF-8") )
             bw.println( "<?xml version='1.0' encoding='UTF-8'?>" )
             bw.println( xmlOutput )
             bw.close()
