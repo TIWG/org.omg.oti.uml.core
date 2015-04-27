@@ -344,6 +344,29 @@ trait IDGenerator[Uml <: UML] {
     res
   } // end CheckIds
   
+  def listIDs(): Unit = {
+    println(s"element2id size=${element2id.size}")
+    for ((x, id) <- element2id) {
+      val idStr = id match {
+         case Success(s) => id.get
+           
+         case Failure(t) => 
+           println("***Fail!***")
+           t.toString()
+      } 
+      x match {
+        case ne: UMLNamedElement[Uml] => 
+          val nameStr = ne.name match {
+            case Some(n) => n
+            case None => "(unamed)"
+          }
+          println("<" + ne.mofMetaclassName + ">" + nameStr + "\t=> ID: " + idStr)
+
+        case e: UMLElement[Uml] => println("<" + e.mofMetaclassName + ">\t=> ID: " + idStr)
+      }
+    }
+  }
+  
 }
 
 object IDGenerator {
