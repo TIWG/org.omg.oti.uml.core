@@ -120,6 +120,24 @@ case class ResolvedDocumentSet[Uml <: UML](
     Success( Unit )
   }
 
+  def serializePkg(pkg: UMLPackage[Uml])( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[Unit] = {
+
+    val doc = ds.serializableDocuments find { _.scope == pkg}
+   
+    doc match {
+      case Some(d) => 
+          serialize( d ) match {
+            case Failure( t ) => return Failure( t )
+            case Success( _ ) => ()
+          }
+          
+      case None => 
+        Failure(new IllegalArgumentException( s"/!\ Serialization failed: no document found for ${pkg.qualifiedName.get}" ))
+    }
+    Success( Unit )
+  }
+
+  
   import scala.xml._
 
   protected def foldTagValues(

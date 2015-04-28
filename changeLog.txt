@@ -1,3 +1,7 @@
+Version 0.10.18 April 28, 2015 
+Improvement of error messages in case of unresolved references
+Adds a feature for serializing only one 1st level package at a time (normative file generation)
+
 Version 0.10.17 April 27, 2015 
 Minor adjustments:
 DocumentSet.scala -> fixes exception in case of unresolved (and not ignored) elements
