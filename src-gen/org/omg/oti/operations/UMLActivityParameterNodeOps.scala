@@ -65,7 +65,13 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_has_parameters: Boolean  = {
 		// Start of user code for "has_parameters"
-    	activity.get.ownedParameter.contains(parameter)
+    	activity match {
+        case None => false
+        case Some(act) => parameter match {
+          case None => false
+          case Some(p) => act.ownedParameter.contains(p)
+        }
+      }
     	// End of user code
 	}
 
@@ -93,10 +99,16 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_no_incoming_edges: Boolean  = {
 		// Start of user code for "no_incoming_edges"
-    if (!outgoing.isEmpty && incoming.isEmpty)
-    	parameter.get.direction == UMLParameterDirectionKind.in || parameter.get.direction == UMLParameterDirectionKind.inout
-    else true
-    	// End of user code
+    ??? // == okay?
+    if (!outgoing.isEmpty && incoming.isEmpty) {
+      parameter match {
+        case None => true
+        case Some(p) => 
+          p.direction == UMLParameterDirectionKind.in || 
+          p.direction == UMLParameterDirectionKind.inout
+      }
+    } else true
+  	// End of user code
 	}
 
 	/**
@@ -112,9 +124,13 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	def validate_no_outgoing_edges: Boolean  = {
 		// Start of user code for "no_outgoing_edges"
     	if (!incoming.isEmpty && outgoing.isEmpty) {
-       parameter.get.direction == UMLParameterDirectionKind.out ||
-       parameter.get.direction == UMLParameterDirectionKind.inout ||
-       parameter.get.direction == UMLParameterDirectionKind._return
+        parameter match {
+          case None => true
+          case Some(p) => 
+            p.direction == UMLParameterDirectionKind.out ||
+            p.direction == UMLParameterDirectionKind.inout ||
+            p.direction == UMLParameterDirectionKind._return
+        }
       } else true
     	// End of user code
 	}
@@ -128,8 +144,11 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 */
 	def validate_same_type: Boolean  = {
 		// Start of user code for "same_type"
-      _type == parameter.get._type
-    	// End of user code
+    parameter match {
+      case None => false
+      case Some(p) => _type == p._type
+    }
+  	// End of user code
 	}
 
 	// Start of user code for additional features

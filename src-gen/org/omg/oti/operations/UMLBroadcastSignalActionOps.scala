@@ -65,7 +65,10 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 */
 	def validate_no_onport: Boolean  = {
 		// Start of user code for "no_onport"
-    	???
+    	onPort match {
+        case Some(_) => false
+        case None => true
+      }
     	// End of user code
 	}
 
@@ -78,7 +81,10 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 */
 	def validate_number_of_arguments: Boolean  = {
 		// Start of user code for "number_of_arguments"
-    	???
+    signal match {
+      case Some(sig) => sig.allAttributes.size == argument.size
+      case None => false
+    }
     	// End of user code
 	}
 
@@ -93,9 +99,13 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 * 	argument->at(i).isOrdered = attribute->at(i).isOrdered and
 	 * 	argument->at(i).compatibleWith(attribute->at(i)))
 	 */
-	def validate_type_ordering_multiplicity: Boolean  = {
+	def validate_type_ordering_multiplicity: Boolean  = { ??? //seq start and end as well as conforms to
 		// Start of user code for "type_ordering_multiplicity"
-    	???
+    	val attribute: Seq[UMLProperty[Uml]] = signal.get.allAttributes.distinct
+      (0 until argument.size).forall { i => 
+        argument(i)._type == attribute(i)._type &&
+        argument(i).isOrdered == attribute(i).isOrdered &&
+        argument(i).compatibleWith(Some(attribute(i))) }
     	// End of user code
 	}
 

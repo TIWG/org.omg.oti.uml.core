@@ -68,15 +68,30 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
 	 * endif
 	 */
-	def validate_insertAt_pin: Boolean  = { ??? //UnlimitedNatural used correctly
+	def validate_insertAt_pin: Boolean  = {
 		// Start of user code for "insertAt_pin"
-    	if (!structuralFeature.get.isOrdered) 
-        insertAt == null
-      else if (!isReplaceAll) 
-        insertAt != null && insertAt.forall { pin => 
-          pin._type.get.name == "UnlimitedNatural" && pin.is(1, 1) }
-      else true
-    	// End of user code
+    ??? //verify trues and falses
+    structuralFeature match {
+      case Some(sf) => 
+        sf.isOrdered match {
+          case false => insertAt match {
+            case None => true
+            case Some(_) => false
+          }
+          case true => isReplaceAll match {
+            case false => insertAt match {
+              case Some(pin) => pin._type match {
+                case Some(t) => isUnlimitedNatural(t) && pin.is(1, 1)
+                case None => true
+              }
+              case None => true
+            }
+            case true => true
+          }
+        }
+      case None => false
+    }
+    // End of user code
 	}
 
 	/**

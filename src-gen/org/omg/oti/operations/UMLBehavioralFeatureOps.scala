@@ -76,7 +76,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]  = {
 		// Start of user code for "inputParameters"
-    	???
+    	ownedParameter.filter { op => op.direction == UMLParameterDirectionKind.in || op.direction == UMLParameterDirectionKind.inout }
     	// End of user code
 	}
 
@@ -94,8 +94,8 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
 		// Start of user code for "isDistinguishableFrom"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -108,7 +108,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]  = {
 		// Start of user code for "outputParameters"
-    	???
+    	ownedParameter.filter { op => op.direction == UMLParameterDirectionKind.out || op.direction == UMLParameterDirectionKind._return }
     	// End of user code
 	}
 
@@ -121,8 +121,11 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 */
 	def validate_abstract_no_method: Boolean  = {
 		// Start of user code for "abstract_no_method"
-    	???
-    	// End of user code
+  	isAbstract match {
+      case true => method.isEmpty
+      case false => true
+    }
+  	// End of user code
 	}
 
 	// Start of user code for additional features

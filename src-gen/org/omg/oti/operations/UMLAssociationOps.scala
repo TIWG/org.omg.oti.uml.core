@@ -92,10 +92,11 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_binary_associations: Boolean  = {
 		// Start of user code for "binary_associations"
-    	if ( memberEnd.exists { me => me.aggregation != UMLAggregationKind.none } ) {
-       memberEnd.size == 2 && memberEnd.exists { me => me.aggregation == UMLAggregationKind.none } 
-      } else true
-    	// End of user code
+    ??? //needs to be verified
+  	if ( memberEnd.exists { me => me.aggregation != UMLAggregationKind.none } ) {
+      memberEnd.size == 2 && memberEnd.exists { me => me.aggregation == UMLAggregationKind.none } 
+    } else true
+  	// End of user code
 	}
 
 	/**
@@ -106,8 +107,12 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_ends_must_be_typed: Boolean  = {
 		// Start of user code for "ends_must_be_typed"
-    	memberEnd.forall { me => !me._type.isEmpty }
-    	// End of user code
+  	memberEnd.forall { prop => prop._type match {
+      case Some(_) => true
+      case None => false
+      }
+    }
+  	// End of user code
 	}
 
 	/**
@@ -117,9 +122,21 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 *
 	 * @body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
 	 */
-	def validate_specialized_end_number: Boolean  = { ??? //need Assosiation translation
+	def validate_specialized_end_number: Boolean  = { 
 		// Start of user code for "specialized_end_number"
-    	//parents.selectByKindOf(case a: Association => a.forall { p => p.memberEnd.size == self.memberEnd.size } )
+    ??? //verify which is better
+    parents.filter { c => c match {
+      case a: UMLAssociation[Uml] => true
+      case _ => false
+    }}.forall { 
+      case a: UMLAssociation[Uml] => a.memberEnd.size == self.memberEnd.size
+      case _ => false 
+    }
+    
+    parents.forall {
+      case a: UMLAssociation[Uml] => a.memberEnd.size == self.memberEnd.size
+      case _ => false
+    }
     	// End of user code
 	}
 
@@ -132,11 +149,18 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * 	forAll(i | general->select(oclIsKindOf(Association)).oclAsType(Association)->
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
 	 */
-	def validate_specialized_end_types: Boolean  = { ??? //need Assosiation translation
+	def validate_specialized_end_types: Boolean  = { ??? //need Assosiation translation and is Seq zero-based?
 		// Start of user code for "specialized_end_types"
-//    	Seq(1 to memberEnd.size).forall { i => 
-//        general.selectByKindOf(Association).forall { ga => 
-//          self.memberEnd(i)._type.conformsTo(ga.memberEnd(i)._type) } }
+  	??? //custom conformsTo in UMLOps could not be called for some reason
+    (0 until memberEnd.size).forall { i => 
+      general.forall { 
+        case a: UMLAssociation[Uml] => self.memberEnd(i)._type match {
+          case Some(t) => t.conformsTo(a.memberEnd(i)._type)
+          case None => false
+        }
+        case _ => false 
+      }
+    }
     	// End of user code
 	}
 
