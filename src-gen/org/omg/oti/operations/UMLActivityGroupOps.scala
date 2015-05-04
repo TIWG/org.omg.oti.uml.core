@@ -98,10 +98,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def containingActivity: Option[UMLActivity[Uml]]  = {
 		// Start of user code for "containingActivity"
-    superGroup match {
-      case None => inActivity
-      case Some(sg) => sg.containingActivity
-    }
+    	???
     	// End of user code
 	}
 
@@ -115,8 +112,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def validate_nodes_and_edges: Boolean  = {
 		// Start of user code for "nodes_and_edges"
-    	containedNode.forall { a => a.activity == self.containingActivity } && 
-      containedEdge.forall { a => a.activity == self.containingActivity }
+    	???
     	// End of user code
 	}
 
@@ -132,8 +128,7 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def validate_not_contained: Boolean  = {
 		// Start of user code for "not_contained"
-    	val subgroups = closure[UMLActivityGroup[Uml], UMLActivityGroup[Uml]]( self, _.subgroup )      
-      ???
+    	???
     	// End of user code
 	}
 

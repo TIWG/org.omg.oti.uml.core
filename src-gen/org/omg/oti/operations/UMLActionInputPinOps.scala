@@ -90,13 +90,9 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 */
 	def validate_no_control_or_object_flow: Boolean  = {
 		// Start of user code for "no_control_or_object_flow"
-    fromAction match {
-      case None => false
-      case Some(act) => 
-        act.incoming.union(outgoing.toSet).isEmpty &&
-        act.input.isEmpty && 
-        act.output.isEmpty
-    }	
+    	fromAction.get.incoming.union(outgoing).isEmpty &&
+      fromAction.get.input.isEmpty &&
+      fromAction.get.output.isEmpty
     	// End of user code
 	}
 
@@ -109,10 +105,7 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 */
 	def validate_one_output_pin: Boolean  = {
 		// Start of user code for "one_output_pin"
-    	fromAction match {
-        case None => false
-        case Some(act) => act.output.size == 1
-      }
+    	fromAction.get.output.size == 1
     	// End of user code
 	}
 

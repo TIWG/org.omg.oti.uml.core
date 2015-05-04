@@ -287,10 +287,13 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_compositeMetaProperties,
 			parameterableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
+			Seq(MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter)))
+				/* Workaround waiting for a generic fix
+        *MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
+        * MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+        * MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)
+        * 
+        */
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -308,7 +311,11 @@ trait UMLOperation[Uml <: UML]
 			templateableElement_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
 				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
-				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
+				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter),
+        //Workaround waiting for a generic fix
+        MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
+        MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+        MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

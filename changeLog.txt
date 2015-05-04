@@ -1,3 +1,8 @@
+Version 0.11.0 May 04, 2015
+Rolled back to 729 before applying modification (the 730 had not finalized source code)
+Workaround implemented for TIWG-4 and TIWG-6 for UML::Profile and UML:Operation
+Workaround for dealing with package name duplication in UML2.5 (was resulting in ID duplication)
+
 Version 0.10.18 April 28, 2015 
 Improvement of error messages in case of unresolved references
 Adds a feature for serializing only one 1st level package at a time (normative file generation)

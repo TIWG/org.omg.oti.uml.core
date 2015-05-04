@@ -1661,31 +1661,6 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
   
-  /**
-   * Corresponds to OCL's type1.conformsTo(type2)
-   */
-  def conformsTo( type1: Option[UMLType[Uml]], type2: Option[UMLType[Uml]] ): Boolean = 
-    ( type1, type2 ) match {
-    case ( None, None ) => false
-    case ( None, Some( _ ) ) => false
-    case ( Some( _ ), None ) => false
-    case ( Some( t1 ), Some( t2 ) ) => conformsTo( t1, t2 )
-  }
-  
-  def conformsTo( type1: UMLType[Uml], type2: UMLType[Uml] ): Boolean = 
-    type1.conformsTo(Some( type2 ))
-  
-  /**
-   * The UML PrimitiveType library is an M1 model in UML.
-   * We need special support to recognize whether an M1 type is PrimitiveType::UnlimitedNatural
-   */
-  def isUnlimitedNatural( t: UMLType[Uml] ): Boolean = {
-    ??? //need to figure out how to match type UnlimitedNatural
-    t match {
-      case _/*: UnlimitedNatural*/ => true
-      case _ => false
-    } 
-  }  
   // End of user code
 
 }

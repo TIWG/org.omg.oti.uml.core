@@ -49,87 +49,71 @@ import scala.language.postfixOps
  * <!-- begin-model-doc -->
  * An AcceptCallAction is an AcceptEventAction that handles the receipt of a synchronous call request. In addition to the values from the Operation input parameters, the Action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller. An AcceptCallAction is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent ReplyAction will complete immediately with no effect.
  * <!-- end-model-doc -->
- * <!-- Start of user code documentation -->
+ * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
+trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>	
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- begin-model-doc -->
-   * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
-   * <!-- end-model-doc -->
-   *
-   * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
-   * result->size() = parameter->size() and
-   * Sequence{1..result->size()}->forAll(i |
-   * 	parameter->at(i).type.conformsTo(result->at(i).type) and
-   * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
-   * 	parameter->at(i).compatibleWith(result->at(i)))
-   */
-  def validate_result_pins: Boolean = {
-    // Start of user code for "result_pins"     
-    trigger.toList match {
-      case (t: UMLTrigger[Uml]) :: Nil =>
-        t.event match {
-          case Some(ev: UMLCallEvent[Uml]) =>
-            ev.operation match {
-              case Some(operation) =>
-                val operation_parameters = operation.ownedParameter
-                if (operation_parameters.size == result.size) {
-                  (0 until result.size) forall { i =>
-                    val parameter_i = operation_parameters.get(i)
-                    val result_i = result.get(i)
-                    conformsTo(parameter_i._type, result_i._type) &&
-                      parameter_i.isOrdered == result_i.isOrdered &&
-                      parameter_i.compatibleWith(Some(result_i))
-                  }
-                } else false
-              case None => false
-            }
-          case _ => false
-        }
-      case _ => false
-    }
-    // End of user code
+	/**
+	 * <!-- begin-model-doc -->
+	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
+	 * <!-- end-model-doc -->
+	 *
+	 * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
+	 * result->size() = parameter->size() and
+	 * Sequence{1..result->size()}->forAll(i | 
+	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
+	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
+	 * 	parameter->at(i).compatibleWith(result->at(i)))
+	 */
+	def validate_result_pins: Boolean  = { ??? //should be a way to avoid null instantiation
+    	// Start of user code for "result_pins"     
+      var events: Seq[Option[UMLEvent[Uml]]] = null
+      trigger.foreach { 
+        t => events.add(t.event)
+      }
+            
+      var parameter: Seq[UMLParameter[Uml]] = events.head.asInstanceOf[UMLCallEvent[Uml]].operation.get.inputParameters.distinct
+                  
+      var s: Seq[Int] = { 1 to result.size }
+      s.forall { i =>  
+        parameter(i)._type == result(i)._type && 
+        parameter(i).isOrdered == result(i).isOrdered && 
+        parameter(i).compatibleWith(Some(result(i)))
+      }
+      // End of user code
   }
 
-  /**
-   * <!-- begin-model-doc -->
-   * The action must have exactly one trigger, which must be for a CallEvent.
-   * <!-- end-model-doc -->
-   *
-   * @body trigger->size()=1 and
-   * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
-   */
-  def validate_trigger_call_event: Boolean = {
-    // Start of user code for "trigger_call_event"
-    trigger.toList match {
-      case (t: UMLTrigger[Uml]) :: Nil =>
-        t.event match {
-          case Some(_: UMLCallEvent[Uml]) => true
-          case _                          => false
-        }
-      case _ => false
-    }
-    // End of user code
-  }
+	/**
+	 * <!-- begin-model-doc -->
+	 * The action must have exactly one trigger, which must be for a CallEvent.
+	 * <!-- end-model-doc -->
+	 *
+	 * @body trigger->size()=1 and
+	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
+	 */
+	def validate_trigger_call_event: Boolean  = {
+		// Start of user code for "trigger_call_event"
+  	trigger.size == 1 && trigger.toSeq.head.event.isInstanceOf[UMLCallEvent[Uml]]
+  	// End of user code
+	}
 
-  /**
-   * <!-- begin-model-doc -->
-   * isUnmrashall must be true for an AcceptCallAction.
-   * <!-- end-model-doc -->
-   *
-   * @body isUnmarshall = true
-   */
-  def validate_unmarshall: Boolean = {
-    // Start of user code for "unmarshall"
-    isUnmarshall
-    // End of user code
-  }
+	/**
+	 * <!-- begin-model-doc -->
+	 * isUnmrashall must be true for an AcceptCallAction.
+	 * <!-- end-model-doc -->
+	 *
+	 * @body isUnmarshall = true
+	 */
+	def validate_unmarshall: Boolean  = {
+		// Start of user code for "unmarshall"
+  	isUnmarshall
+  	// End of user code
+	}
 
-  // Start of user code for additional features
-  // End of user code
+	// Start of user code for additional features
+	// End of user code
 
 } //UMLAcceptCallAction

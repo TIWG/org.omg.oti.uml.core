@@ -115,26 +115,65 @@ trait IDGenerator[Uml <: UML] {
     element2id.getOrElseUpdate(
       self,
       {
-        val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) => !r.isDefinedAt( self ) )
-        if ( r.nonEmpty ) r.head( self )
-        else self.owner match {
-          case None => Failure( illegalElementException( "Element without an owner is not supported", self ) )
-          case Some( owner ) =>
-            val cf = self.getContainedElement_eContainingFeature
-            cf.getName match {
-              case null => Failure( illegalElementException( "Element container's containing StructuralFeature must be named", self ) )
-              case ""   => Failure( illegalElementException( "Element container's containing StructuralFeature must be named", self ) )
-              case _ =>
-                getXMI_ID( owner ) match {
-                  case Failure( t ) => Failure( t )
-                  case Success( ownerID ) =>
-                    val c = containmentRules.toStream.dropWhile( ( c: ContainedElement2IDRule ) => !c.isDefinedAt( owner, ownerID, cf, self ) )
-                    if ( c.nonEmpty ) c.head( owner, ownerID, cf, self )
-                    else Failure( illegalElementException( "Unsupported", self ) )
+        resolvedDocumentSet.element2document.get( self ) match {
+          case None => 
+            Failure( illegalElementException( "Unknown document for element reference ", self ) )
+            
+          case Some(d: BuiltInDocument[Uml]) => builtInID(self)
+           
+          case Some(d: SerializableDocument[Uml]) => 
+            /* Implement a temporary workaround to deal with ID duplication in UML2.5
+             * 
+             */
+            computeID(self) match {
+              case Success(s) =>
+                self match {
+                  case pi: UMLPackageImport[Uml] =>
+                    if (s.endsWith("._0"))
+                      Success(s +"-"+pi.importedPackage.get.name.get)
+                    else
+                      Success(s)
+                      
+                  case _ => Success(s)
                 }
-            }
+                
+              case Failure(t) =>
+                Failure(t)
+            } 
+          
+          case Some(d) =>
+            Failure( illegalElementException( "Unknown document kind for element reference ", self ))
         }
       } )
+
+  def computeID( self: UMLElement[Uml] ): Try[String] = {
+    val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) => !r.isDefinedAt( self ) )
+    if ( r.nonEmpty ) r.head( self )
+    else self.owner match {
+      case None => Failure( illegalElementException( "Element without an owner is not supported", self ) )
+      case Some( owner ) =>
+        val cf = self.getContainedElement_eContainingFeature
+        cf.getName match {
+          case null => Failure( illegalElementException( "Element container's containing StructuralFeature must be named", self ) )
+          case ""   => Failure( illegalElementException( "Element container's containing StructuralFeature must be named", self ) )
+          case _ =>
+            getXMI_ID( owner ) match {
+              case Failure( t ) => Failure( t )
+              case Success( ownerID ) =>
+                val c = containmentRules.toStream.dropWhile( ( c: ContainedElement2IDRule ) => !c.isDefinedAt( owner, ownerID, cf, self ) )
+                if ( c.nonEmpty ) c.head( owner, ownerID, cf, self )
+                else Failure( illegalElementException( "Unsupported", self ) )
+            }
+        }
+    }
+  }
+  
+  /* the builtInID method is intended to provide the xmi:id as serialized in the file,
+  * as opposed to as computed by the IDGenerator.computeID
+  * Implementation is tool specific  
+  */
+  def builtInID( self: UMLElement[Uml] ): Try[String] = ???
+
 
   val rule0: Element2IDRule = {
     case root: UMLPackage[Uml] if ( resolvedDocumentSet.lookupDocumentByScope(root).isDefined

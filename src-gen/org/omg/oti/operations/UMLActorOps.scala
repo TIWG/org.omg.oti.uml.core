@@ -74,7 +74,7 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 */
 	def validate_associations: Boolean  = {
 		// Start of user code for "associations"
-    	???
+    	??? //need Association translation
     	// End of user code
 	}
 
@@ -87,10 +87,7 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 */
 	def validate_must_have_name: Boolean  = {
 		// Start of user code for "must_have_name"
-    name match {
-      case Some(_) => true
-      case None => false
-    }
+    	!name.isEmpty
     	// End of user code
 	}
 

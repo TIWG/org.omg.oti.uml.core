@@ -94,13 +94,7 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 */
 	def validate_class_behavior: Boolean  = {
 		// Start of user code for "class_behavior"
-    	classifierBehavior match {
-        case Some(cb) => cb.specification match {
-          case Some(_) => false
-          case None => true
-        }
-        case None => true
-      }
+    	???
     	// End of user code
 	}
 

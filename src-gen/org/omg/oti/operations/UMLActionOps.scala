@@ -72,13 +72,11 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def context: Option[UMLClassifier[Uml]] = {
 		// Start of user code for "context"
-      self.containingBehavior match {
-        case None => None
-        case Some(behavior) => behavior.context match {
-          case None => Some( behavior )
-          case Some(_) => behavior.context
-        }
-      }
+      var behavior: Option[UMLBehavior[Uml]] = self.containingBehavior;
+      
+      if (behavior == null) null
+      else if (behavior.get.context == null) behavior
+      else behavior.get.context
 	    // End of user code
 	}
 
@@ -142,13 +140,9 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 */
 	def containingBehavior: Option[UMLBehavior[Uml]]  = {
 		// Start of user code for "containingBehavior"
-    inStructuredNode match {
-      case Some(isn) => isn.containingBehavior
-      case None => activity match {
-        case Some(_) => activity
-        case None => action_interaction
-      }
-    }
+    	if (inStructuredNode != null) inStructuredNode.get.containingBehavior
+      else if (activity != null) activity
+      else action_interaction
     	// End of user code
 	}
 

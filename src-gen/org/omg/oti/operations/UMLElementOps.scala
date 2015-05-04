@@ -396,9 +396,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
 
   def id: Option[String]
-
+  
   def uuid: Option[String]
 
+   /* the builtInID method is intended to provide the xmi:id as serialized in the file,
+   * as opposed to as computed by the IDGenerator  
+   */
+   def builtInID: Option[String] = ???
+    
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
 
   /**
