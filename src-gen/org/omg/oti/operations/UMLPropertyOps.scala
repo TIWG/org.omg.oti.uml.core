@@ -476,6 +476,7 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	// Start of user code for additional features
+
   def owningStereotype: Option[UMLStereotype[Uml]] = namespace.selectByKindOf { case x: UMLStereotype[Uml] => x }
 
   def isLogicallyNavigable: Boolean =

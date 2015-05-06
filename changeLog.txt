@@ -1,3 +1,8 @@
+Version 0.12.0 May 6, 2015
+Reverting the type of UMLElementOps:id from Option[String] to String: this information must be provided by the UML implementation.
+Updates to the canonicalXMI serialization -- See TIWG-23, TIWG-4, TIWG-6
+Add metaclass-specific operations to support the composite structure analysis in the new 'org.omg.oti.trees' project.
+
 Version 0.11.0 May 04, 2015
 Rolled back to 729 before applying modification (the 730 had not finalized source code)
 Workaround implemented for TIWG-4 and TIWG-6 for UML::Profile and UML:Operation

@@ -243,25 +243,26 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     allNestingPackagesTransitively.flatMap( _.importedPackages )
 
   /**
-   * The OTI::SpecificationRoot::documentURL stereotype property, if applied.
+   * The OTI::SpecificationRoot::documentURL stereotype property, if applied;
+   * otherwise, ".xmi" appended to the effective URI, if any;
+   * otherwise, none
    */
-  def getDocumentURL: Option[String] =
+  def getDocumentURL: Option[String] = {
     if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined )
       self.tagValues.get( OTI_SPECIFICATION_ROOT_documentURL.get ) match {
         case Some( Seq( url: UMLLiteralString[_] ) ) if ( url.value.isDefined ) =>
-          url.value            
+          return url.value
         case _ =>
-          URI match {
-            case Some(x) => Option.apply(x+".xmi")
-            case None => None
-          }
+          ()
       }
-    else
-      URI match {
-        case Some(x) => Option.apply(x+".xmi")
-        case None => None
-      }
-
+    getEffectiveURI match {
+      case Some( uri ) =>
+        if (uri.endsWith(".xmi")) Some( uri )
+        else Some( uri+".xmi" )
+      case None =>
+        None
+    }
+    }
     
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.

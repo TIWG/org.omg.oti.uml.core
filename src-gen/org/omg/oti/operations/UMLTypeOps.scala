@@ -103,6 +103,11 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	}
 
 	// Start of user code for additional features
+
+  def endType_associationExceptRedefinedOrDerived: Set[UMLAssociation[Uml]] = {
+    val nonDerivedEndTypeAssociations = endType_association.filter(_.isConsistentlyNonDerived)
+    nonDerivedEndTypeAssociations -- nonDerivedEndTypeAssociations.flatMap(_.getRedefinedOrSpecializedAssociations)
+  }
 	// End of user code
 
 } //UMLType

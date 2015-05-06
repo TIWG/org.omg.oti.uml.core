@@ -274,13 +274,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         case None =>
           Set[RelationTriple[Uml]]()
         case Some( s ) =>
-          val refs = (vs flatMap (_.forwardReferencesFromStereotypeTagValue))
+          val refs = vs flatMap (_.forwardReferencesFromStereotypeTagValue)
           (refs map (StereotypePropertyTriple(sub=self, rels=s, relp=p, _))).toSet[RelationTriple[Uml]]
       }
-    } toSet;
+    } toSet
 
     val acc0: Try[Set[RelationTriple[Uml]]] = Success( triples )
-    val accN = ( acc0 /: self.referenceMetaProperties )( addEvaluatedTriples _ )
+    val accN = ( acc0 /: self.referenceMetaProperties )( addEvaluatedTriples )
     accN
   }
   
@@ -298,7 +298,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
     tagValues.groupBy( _._1.owningStereotype.get )
 
-  def xmiID: Iterable[String] = id.toIterable
+  def xmiID: Iterable[String] = Iterable(id)
   def xmiUUID: Iterable[String] = uuid.toIterable
   def xmiElementLabel: String = mofMetaclassName
   def metaclass_name: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
@@ -395,8 +395,21 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
 
-  def id: Option[String]
+  /**
+   * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.
+   * This "xmi:id" is a local with respect to the "XMI" document in which the UML Element is serialized.
+   *
+   * @return the tool-specific "xmi:id" identifier for the UML Element.
+   * @throws java.lang.IllegalArgumentException if there is no tool-specific "xmi:id" available.
+   */
+  def id: String
   
+  /**
+   * Every UML Element should have a tool-specific "xmi:uuid" identifier of some kind.
+   * This "xmi:uuid" should be globally unique.
+   *
+   * @return the tool-specific "xmi:uuid" global identifier for the UML Element, if any.
+   */
   def uuid: Option[String]
 
    /* the builtInID method is intended to provide the xmi:id as serialized in the file,

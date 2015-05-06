@@ -255,7 +255,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 */
 	def allAttributes: Seq[UMLProperty[Uml]]  = {
 		// Start of user code for "allAttributes"
-    	???
+    	attribute ++ parents.flatMap(_.allAttributes).toList.sortBy(_.id)
     	// End of user code
 	}
 
@@ -283,7 +283,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 */
 	def allParents: Set[UMLClassifier[Uml]]  = {
 		// Start of user code for "allParents"
-    	???
+    	closure[UMLClassifier[Uml], UMLClassifier[Uml]](self, _.parents)
     	// End of user code
 	}
 
@@ -347,7 +347,12 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 */
 	override def conformsTo(other: Option[UMLType[Uml]]): Boolean  = {
 		// Start of user code for "conformsTo"
-    	???
+    	other match {
+				case Some(otherClassifier: UMLClassifier[Uml]) =>
+          this == otherClassifier || allParents.contains(otherClassifier)
+        case _ =>
+          false
+			}
     	// End of user code
 	}
 
@@ -480,7 +485,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 */
 	def parents: Set[UMLClassifier[Uml]]  = {
 		// Start of user code for "parents"
-    	???
+    	general
     	// End of user code
 	}
 
@@ -540,6 +545,12 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	}
 
 	// Start of user code for additional features
+
+	def allAttributesExceptRedefined: Seq[UMLProperty[Uml]] = {
+		val redefinedroperties = allAttributes flatMap (_.redefinedProperty)
+		allAttributes.filterNot(redefinedroperties.contains(_))
+	}
+
 	// End of user code
 
 } //UMLClassifier

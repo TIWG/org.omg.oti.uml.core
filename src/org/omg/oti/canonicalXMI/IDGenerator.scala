@@ -81,8 +81,13 @@ trait IDGenerator[Uml <: UML] {
     pkg.allOwnedElements filter (resolvedDocumentSet.element2document.contains(_)) foreach ( getXMI_ID( _ ) )
     Success( Unit )
   }
-  
-  protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
+   protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
+    getXMI_IDREF_or_HREF_fragment_internal( from, to ) match {
+    case Success( fragment ) => Success( fragment )
+    case Failure( _ ) => getXMI_IDREF_or_HREF_fragment( from, getMappedOrReferencedElement( to ) )
+  }
+    
+  protected def getXMI_IDREF_or_HREF_fragment_internal( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
     ( resolvedDocumentSet.element2document.get( from ),
       resolvedDocumentSet.element2document.get( to ) ) match {
     case ( None, _ ) => 
@@ -93,7 +98,9 @@ trait IDGenerator[Uml <: UML] {
 
     case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
       require( d1 != d2 )
-      val builtInURITo = d2.documentURL.resolve("#"+getXMI_ID(to).get).toString
+      // Based on the built-in 'to' element ID, construct the built-in URI for the 'to' element.
+      val builtInURITo = d2.documentURL.resolve("#"+to.id).toString
+      // use the builtInURIMapper to convert the built-in URI of the 'to' element into an OMG URI
       val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo ).getOrElse( builtInURITo )
       val fragmentIndex = mappedURITo.lastIndexOf('#')
       require( fragmentIndex > 0)
@@ -103,14 +110,29 @@ trait IDGenerator[Uml <: UML] {
       Success( xmlSafeID( fragment ) )
      
     case ( Some( d1 ), Some( d2: SerializableDocument[Uml] ) ) =>
-      if ( d1 == d2 ) getXMI_ID( to )        
+      if ( d1 == d2 ) getXMI_ID( getMappedOrReferencedElement( to ) )        
       else (for { 
-        id <- getXMI_ID(to)
-      // It's not needed to add the prefix since it's already included in the computed ID
+        id <- getXMI_ID( getMappedOrReferencedElement( to ) ) 
+        // It's not needed to add the prefix since it's already included in the computed ID
         fragment = xmlSafeID( /*d2.nsPrefix+"."+*/id )
       } yield fragment)
   }
 
+  /**
+   * @param ref A referenced element.
+   * @return ref or the result of mapping ref according to a particular UML tool.
+   *
+   * Example: for OMG SysML 1.4, the MD model of OMG SysML 1.4 defines
+   * the SYsML profile with a metamodel reference import to a fake OMG UML 2.5 metamodel.
+   * This is necessary to make the diagrams for the OMG SysML 1.4 spec.
+   * However, for exporting the OMG SysML 1.4 canonical XMI from the MD model,
+   * it is necessary to map the fake MD OMG UML 2.5 metamodel to
+   * the genuine OMG UML 2.5 metamodel.
+   *
+   * The default implementation is to return ref (i.e., no mapping).
+   */
+  def getMappedOrReferencedElement( ref: UMLElement[Uml] ): UMLElement[Uml] = ref
+  
   def getXMI_ID( self: UMLElement[Uml] ): Try[String] =
     element2id.getOrElseUpdate(
       self,
@@ -259,7 +281,7 @@ trait IDGenerator[Uml <: UML] {
                   }
               }
             case ( o1, o2 ) =>
-              require( u == 1, s" o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
+              require( u == 1, s" o1=${o1.id}, o2=${o2.get.id} / o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
               Success( "" )
           }
         case ( Success( s ), _ ) =>
@@ -402,10 +424,10 @@ trait IDGenerator[Uml <: UML] {
           println("<" + ne.mofMetaclassName + ">" + nameStr + "\t=> ID: " + idStr)
 
         case e: UMLElement[Uml] => println("<" + e.mofMetaclassName + ">\t=> ID: " + idStr)
-      }
+}
     }
   }
-  
+
 }
 
 object IDGenerator {

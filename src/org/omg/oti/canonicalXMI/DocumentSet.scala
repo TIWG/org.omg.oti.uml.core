@@ -136,7 +136,9 @@ case class DocumentSet[Uml <: UML](
    * - the map of elements to theirs serialization document
    * - the unresolved cross references
    */
-  def resolve( ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean ): ( ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]] ) = {
+  def resolve(
+    ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean,
+    unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] ): ( ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]] ) = {
 
     val element2document: Map[UMLElement[Uml], Document[Uml]] =
       ( serializableDocuments ++ builtInDocuments ) flatMap {
@@ -162,18 +164,28 @@ case class DocumentSet[Uml <: UML](
       case None =>
         if ( ignoreCrossReferencedElementFilter( eRef ) ) {
           None
-        }
-        else {
-          e match {
-            case ne: UMLNamedElement[Uml] => 
-              System.out.println( s" => unresolved! from ${ne.qualifiedName.get} (${e.xmiType.head}) (in ${d.uri}) to ${eRef.xmiType.head}" )
-              
-            case _ => 
-              System.out.println( s" => unresolved! from ${e.xmiType.head} (in ${d.uri}) to ${eRef.xmiType.head}" )
-              
+        } else {
+          val found = unresolvedElementMapper( eRef ) match {
+            case Some( mRef ) => element2document.get( mRef ) match {
+              case Some( dRef ) =>
+                if ( d != dRef )
+                  // add cross-reference edge only if the source is not a built-in document
+                  d match {
+                    case sd: SerializableDocument[Uml] => g += DocumentEdge( sd, dRef )
+                    case _: BuiltInDocument[Uml]       => ()
+                  }
+                true
+              case None =>
+                false
+            }
+            case None =>
+              false
           }
-         //System.out.println( s" => unresolved! from ${e.xmiType.head} (ID=${e.id} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.id})" )
-          Some( UnresolvedElementCrossReference( d, e, eRef ) )
+          if ( found ) None
+          else {
+            System.out.println( s" => unresolved! from ${e.xmiType.head} (ID=${e.id} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.id})" )
+            Some( UnresolvedElementCrossReference( d, e, eRef ) )
+          }
         }
       case Some( dRef ) =>
         if ( d != dRef )
@@ -185,7 +197,7 @@ case class DocumentSet[Uml <: UML](
         None
     }
 
-    ( ResolvedDocumentSet( this, g, element2document ), unresolved.flatten )
+    ( ResolvedDocumentSet( this, g, element2document, unresolvedElementMapper ), unresolved.flatten )
   }
 
   /**
@@ -229,13 +241,17 @@ object DocumentSet {
   val UML_ns = "http://www.omg.org/spec/UML/20131001"
   val MOFEXT_ns = "http://www.omg.org/spec/MOF/20131001"
 
-  def serializeValueSpecificationAsTagValue[Uml <: UML]( value: UMLValueSpecification[Uml] ): Try[Option[String]] = 
-    try {
-      val s = value.stringValue
-      Success(s)
-    }
-    catch {
-      case ex: Throwable => Failure(ex)
+  /**
+   * Check http://solitaire.omg.org/browse/TIWG-3
+   */
+  def serializeValueSpecificationAsTagValue[Uml <: UML]( value: UMLValueSpecification[Uml] ): Try[Option[String]] =
+    value match {
+      case l: UMLLiteralBoolean[Uml] => Success( Some( l.value.toString ) )
+      case l: UMLLiteralInteger[Uml] => Success( Some( l.value.toString ) )
+      case l: UMLLiteralReal[Uml]    => Success( Some( l.value.toString ) )
+      case l: UMLLiteralString[Uml]  => Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
+      case iv: UMLInstanceValue[Uml] => Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID.head ) } )
+      case v                         => Failure( new IllegalArgumentException( s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
     }
 
   def constructDocumentSetCrossReferenceGraph[Uml <: UML](
@@ -244,12 +260,13 @@ object DocumentSet {
     builtInURIMapper: CatalogURIMapper,
     builtInDocuments: Set[BuiltInDocument[Uml]],
     builtInDocumentEdges: Set[DocumentEdge[Document[Uml]]],
-    ignoreCrossReferencedElementFilter: Function1[UMLElement[Uml], Boolean] )(
+    ignoreCrossReferencedElementFilter: Function1[UMLElement[Uml], Boolean],
+    unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] )(
       implicit ops: UMLOps[Uml], nodeT: TypeTag[Document[Uml]], edgeT: TypeTag[DocumentEdge[Document[Uml]]] ): Try[( ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]] )] = {
 
     import ops._
     val ( roots, anonymousRoots ) = specificationRootPackages partition ( _.getEffectiveURI.isDefined )
-    if ( anonymousRoots.nonEmpty ) 
+    if ( anonymousRoots.nonEmpty )
       Failure( illegalElementException( "Document-level packages must have an effective URI for export", anonymousRoots ) )
     else {
       val serializableDocuments = for {
@@ -257,21 +274,24 @@ object DocumentSet {
         rootURI <- root.getEffectiveURI
         rootURL <- root.getDocumentURL
       } yield {
-        System.out.println(s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}")
+        System.out.println( s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}" )
         SerializableDocument(
-        uri = new java.net.URI( rootURI ),
-        nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
-        documentURL =  new java.net.URI( rootURL ),
-        scope = root )
+          uri = new java.net.URI( rootURI ),
+          nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
+          documentURL = new java.net.URI( rootURL ),
+          scope = root )
       }
-      
+
       val ds = DocumentSet(
         serializableDocuments,
         builtInDocuments,
         builtInDocumentEdges,
         documentURIMapper,
         builtInURIMapper )
-      Success( ds.resolve( ignoreCrossReferencedElementFilter ) )
+      Success(
+        ds.resolve(
+          ignoreCrossReferencedElementFilter,
+          unresolvedElementMapper ) )
     }
   }
 }

@@ -106,7 +106,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 */
 	def validate_ends_must_be_typed: Boolean  = {
 		// Start of user code for "ends_must_be_typed"
-    	memberEnd.forall { me => !me._type.isEmpty }
+    	memberEnd.forall(_._type.isDefined)
     	// End of user code
 	}
 
@@ -157,7 +157,16 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
         }
       case _ => None
     }
-  
+
+	def isConsistentlyNonDerived: Boolean =
+		!isDerived & memberEnd.forall{ p => !p.isDerived & !p.isDerivedUnion }
+
+  def getRedefinedOrSpecializedAssociations: Set[UMLAssociation[Uml]] = {
+    val redefined = memberEnd.flatMap(_.redefinedProperty).flatMap(_.association).toSet
+    val specialized = general.selectByKindOf { case a: UMLAssociation[Uml] => a }
+    redefined ++ specialized
+  }
+
 	// End of user code
 
 } //UMLAssociation

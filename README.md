@@ -49,7 +49,9 @@ See in particular UMLElement:
   def getContainedElement_eContainingFeature: EStructuralFeature
   def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterator[UMLElement[Uml]]
 ```
+
 and UMLOps:
+
 
 ```
   type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
@@ -60,18 +62,26 @@ and UMLOps:
 ### With SBT
 
 ```
-sbt compile
+sbt pack
 ```
+
+This will:
+
+- fetch library dependencies (emfLibs, graphLibs, resolverLibs, scalazLibs), 
+
+- 'pack' library dependencies (see {graphLibs,resolverLibs,scalazLibs}/target/pack/{lib,lib.srcs,lib.javadoc}; except for emfLibs)
+
+- compile the oti sources
 
 ### With Eclipse
 
 1) Open a shell window to execute the following:
 
 ```
-sbt graphLibs/pack
-sbt resolverLibs/pack
+sbt pack
 ```
-This will download dependencies from the Scala Graph library in the folder: graphLibs/target/pack and resolverLibs/target/pack
+
+This will download dependencies (see {graphLibs,resolverLibs,scalazLibs}/target/pack/{lib,lib.srcs,lib.javadoc})
 
 2) Eclipse' .classpath
 

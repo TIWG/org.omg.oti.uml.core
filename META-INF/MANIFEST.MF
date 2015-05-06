@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Generic OTI API
 Bundle-SymbolicName: org.omg.oti
-Bundle-Version: 0.11.0.qualifier
+Bundle-Version: 0.12.0.qualifier
 Export-Package: org.omg.oti,
  org.omg.oti.api,
  org.omg.oti.operations

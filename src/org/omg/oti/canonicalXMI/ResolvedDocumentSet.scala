@@ -71,32 +71,41 @@ import java.io.PrintWriter
 import scalaz._, Scalaz._, Free._
 
 case class ResolvedDocumentSet[Uml <: UML](
-  val ds: DocumentSet[Uml],
-  val g: DocumentSet[Uml]#MutableDocumentSetGraph,
-  val element2document: Map[UMLElement[Uml], Document[Uml]] ) {
+   ds: DocumentSet[Uml],
+   g: DocumentSet[Uml]#MutableDocumentSetGraph,
+   element2document: Map[UMLElement[Uml], Document[Uml]],
+   unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] ) {
 
   type ValueSpecificationTagConverter = Function1[UMLValueSpecification[Uml], Try[Option[String]]]
 
+  def element2mappedDocument( e: UMLElement[Uml] ): Option[Document[Uml]] =
+    element2document.get( e ) match {
+      case Some( d ) => Some( d )
+      case None => unresolvedElementMapper( e ) match {
+        case Some( em ) => element2document.get( em )
+        case None       => None
+      }
+    }
+
   def getStereotype_ID_UUID( s: UMLStereotype[Uml] ): ( String, String ) =
-    element2document.get( s ) match {
+    element2mappedDocument( s ) match {
       case None =>
         throw new IllegalArgumentException( s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})" )
 
       case Some( d: BuiltInDocument[Uml] ) =>
-        require(s.id.isDefined)
-        val builtInURI = d.documentURL.resolve( "#"+s.id.get ).toString
+        val builtInURI = d.documentURL.resolve( "#"+s.id ).toString
         val mappedURI = ds.builtInURIMapper.resolve( builtInURI ).getOrElse( builtInURI )
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
-        val fragment = IDGenerator.xmlSafeID(/* d.nsPrefix+"."+*/mappedURI.substring( fragmentIndex + 1 ) )
-        ( fragment, IDGenerator.uuidFromId(fragment) )
+        val fragment = IDGenerator.xmlSafeID( /* d.nsPrefix+"."+*/ mappedURI.substring( fragmentIndex + 1 ) )
+        ( fragment, IDGenerator.uuidFromId( fragment ) )
 
       case Some( d: SerializableDocument[Uml] ) =>
         ( s.xmiID.head, s.xmiUUID.head )
     }
 
   def lookupDocumentByScope( e: UMLElement[Uml] ): Option[Document[Uml]] =
-    element2document.get( e ) match {
+    element2mappedDocument( e ) match {
       case None      => None
       case Some( d ) => if ( d.scope == e ) Some( d ) else None
     }
@@ -120,24 +129,23 @@ case class ResolvedDocumentSet[Uml <: UML](
     Success( Unit )
   }
 
-  def serializePkg(pkg: UMLPackage[Uml])( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[Unit] = {
+  def serializePkg( pkg: UMLPackage[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[Unit] = {
 
-    val doc = ds.serializableDocuments find { _.scope == pkg}
-   
+    val doc = ds.serializableDocuments find { _.scope == pkg }
+
     doc match {
-      case Some(d) => 
-          serialize( d ) match {
-            case Failure( t ) => return Failure( t )
-            case Success( _ ) => ()
-          }
-          
-      case None => 
-        Failure(new IllegalArgumentException( s"/!\ Serialization failed: no document found for ${pkg.qualifiedName.get}" ))
+      case Some( d ) =>
+        serialize( d ) match {
+          case Failure( t ) => return Failure( t )
+          case Success( _ ) => ()
+        }
+
+      case None =>
+        Failure( new IllegalArgumentException( s"/!\ Serialization failed: no document found for ${pkg.qualifiedName.get}" ) )
     }
     Success( Unit )
   }
 
-  
   import scala.xml._
 
   protected def foldTagValues(
@@ -147,49 +155,46 @@ case class ResolvedDocumentSet[Uml <: UML](
       property: UMLProperty[Uml] )( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[List[scala.xml.Elem]] =
     tagValueAttribute match {
       case Failure( t ) => Failure( t )
-      case Success( attributes ) =>       
+      case Success( attributes ) =>
         tagValues.get( property ) match {
           case None =>
             Success( attributes )
-            
           case Some( values ) =>
-            val valueTable : Seq[(Option[String], Boolean)] = for {
+            val valueTable: Seq[( Option[String], Boolean )] = for {
               v <- values
             } yield valueSpecificationTagConverter( v ) match {
+              case Failure( t ) => return Failure( t )
+              case Success( None ) => v.serializeAsRef match {
+                case Success( s ) => ( s, true )
                 case Failure( t ) => return Failure( t )
-                case Success(None) => v.serializeAsRef match {
-                  case Success(s) => (s, true)
-                  case Success(None) => (None, true)
-                  case Failure( t ) => return Failure( t )
-                }
-                case Success(s) => (s, false)
+              }
+              case Success( s ) => ( s, false )
             }
 
             Success( ( attributes /: valueTable ) {
-                case ( xs, (Some(strValue), false) ) =>
-                  scala.xml.Elem(
-                    prefix = null,
-                    label = property.name.get,
-                    attributes = scala.xml.Null,
-                    scope = xmiScopes,
-                    minimizeEmpty = true,
-                    scala.xml.Text( strValue ) ) ::
-                    xs
-                    
-                case ( xs, (Some(idRef), true) ) =>
-                  val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = idRef, Null )           
-                  scala.xml.Elem(
-                    prefix = null,
-                    label = property.name.get,
-                    attributes = idrefAttrib,
-                    scope = xmiScopes,
-                    minimizeEmpty = true) ::
-                    xs
-                    
-                case ( xs, (None, _)) => 
+              case ( xs, ( Some( strValue ), false ) ) =>
+                scala.xml.Elem(
+                  prefix = null,
+                  label = property.name.get,
+                  attributes = scala.xml.Null,
+                  scope = xmiScopes,
+                  minimizeEmpty = true,
+                  scala.xml.Text( strValue ) ) ::
                   xs
-            })
-              
+
+              case ( xs, ( Some( idRef ), true ) ) =>
+                val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = idRef, Null )
+                scala.xml.Elem(
+                  prefix = null,
+                  label = property.name.get,
+                  attributes = idrefAttrib,
+                  scope = xmiScopes,
+                  minimizeEmpty = true ) ::
+                  xs
+
+              case ( xs, ( None, _ ) ) =>
+                xs
+            } )
         }
     }
 
@@ -205,7 +210,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           e <- d.extent
           ( s, p ) <- e.getAppliedStereotypes
           pf <- s.profile
-          if ( element2document.contains( pf ) )
+          if element2document.contains( pf )
         } yield pf ) toSet
 
         val emptyScope: NamespaceBinding = null
@@ -240,7 +245,9 @@ case class ResolvedDocumentSet[Uml <: UML](
         // val result = free.run
 
         result match {
-          case Failure( t ) => return Failure( t )
+          case Failure( t ) =>
+            Failure( t )
+
           case Success( top ) =>
 
             /**
@@ -281,25 +288,25 @@ case class ResolvedDocumentSet[Uml <: UML](
              */
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
-              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter { case s => element2document.contains( s ) }
-              val ordering = appliedStereotypes.toList.sortBy { case s => getStereotype_ID_UUID( s )._1 }
+              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter ( element2document.contains ) toList
+              val ordering = appliedStereotypes.sortBy( getStereotype_ID_UUID( _ )._1 )
               val orderedTagValueElements = ordering map {
                 case s =>
                   val ( sID, sUUID ) = getStereotype_ID_UUID( s )
                   val tagValueAttributes: List[Elem] =
-                       allTagValues.get( s ) match {
-                        case None => Nil
-                        case Some( tagValues ) =>
-                          val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head >  _.xmiUUID.head )
-                          val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
-                          val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) _ )
-                          tagValueAttributeN match {
-                            case Failure( t )                 => return Failure( t )
-                            case Success( tagValueAttribute ) => tagValueAttribute
-                          }
-                      }
-                  val stAppID = IDGenerator.computeStereotypeApplicationID (e.xmiID.head, sID)
-                  val stAppUUID = IDGenerator.uuidFromId(stAppID)               
+                    allTagValues.get( s ) match {
+                      case None => Nil
+                      case Some( tagValues ) =>
+                        val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head > _.xmiUUID.head )
+                        val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
+                        val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) _ )
+                        tagValueAttributeN match {
+                          case Failure( t )                 => return Failure( t )
+                          case Success( tagValueAttribute ) => tagValueAttribute
+                        }
+                    }
+                  val stAppID = IDGenerator.computeStereotypeApplicationID( e.xmiID.head, sID )
+                  val stAppUUID = IDGenerator.uuidFromId( stAppID )
                   val xmiTagValueAttributes =
                     new PrefixedAttribute(
                       pre = "xmi", key = "id", value = stAppID,
@@ -326,17 +333,17 @@ case class ResolvedDocumentSet[Uml <: UML](
               scope = xmiScopes,
               minimizeEmpty = true,
               ( top :: mofTag :: stereotypeTagValues ): _* )
-            val dir = ( new java.io.File( uri ) ).getParentFile
+            val dir = new java.io.File( uri ).getParentFile
             dir.mkdirs()
 
             val filepath = uri.getPath+".xmi"
             val xmlFile = new java.io.File( filepath )
-            System.out.println( s"### File: ${filepath}" )
+            System.out.println( s"### File: $filepath" )
             val xmlPrettyPrinter = new PrettyPrinter( width = 300, step = 2 )
             val xmlOutput = xmlPrettyPrinter.format( xmi )
 
-//            val bw = new PrintWriter( new FileWriter( xmlFile ) )
-            val bw = new PrintWriter( new OutputStreamWriter(new FileOutputStream(xmlFile), "UTF-8") )
+            //            val bw = new PrintWriter( new FileWriter( xmlFile ) )
+            val bw = new PrintWriter( new OutputStreamWriter( new FileOutputStream( xmlFile ), "UTF-8" ) )
             bw.println( "<?xml version='1.0' encoding='UTF-8'?>" )
             bw.println( xmlOutput )
             bw.close()
@@ -348,8 +355,8 @@ case class ResolvedDocumentSet[Uml <: UML](
   @tailrec final protected def append1Pair(
     sub: UMLElement[Uml],
     t: Trampoline[Try[scala.xml.Node]],
-    subElements: List[(UMLElement[Uml], scala.xml.Node)],
-    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = {
+    subElements: Set[UMLElement[Uml]],
+    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
     //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
@@ -359,7 +366,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       case -\/( s ) => append1Pair( sub, s(), subElements, nodes )
       case \/-( r ) => r match {
         case Failure( t ) => return_ { Failure( t ) }
-        case Success( n ) => return_ { Success( ( (sub, n) :: subElements, nodes ) )}
+        case Success( n ) => return_ { Success( ( subElements + sub, nodes :+ n ) ) }
       }
     }
   }
@@ -401,7 +408,7 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
-    t: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]],
+    t: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
     prefix: String,
     label: String,
     xmlAttributesAndLocalReferences: scala.xml.MetaData,
@@ -425,7 +432,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           attributes = xmlAttributesAndLocalReferences,
           scope = xmiScopes,
           minimizeEmpty = true,
-          (ens.map(_._2) ++ nodes): _* )
+          nodes: _* )
         return_ { Success( node ) }
     }
   }
@@ -492,18 +499,17 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Failure( t )    => Failure( t )
                 case Success( None ) => Success( ns )
                 case Success( Some( eRef ) ) =>
-                  require(eRef.id.isDefined)
-                  element2document.get( eRef ) match {
+                  element2mappedDocument( eRef ) match {
                     case None =>
                       System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) {
-                        val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id.get, Null )
+                        val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
                         val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                         Success( ns :+ idrefNode )
                       } else {
-                        val href = dRef.documentURL+"#"+eRef.id.get
+                        val href = dRef.documentURL+"#"+eRef.id
                         val externalHRef = dRef match {
                           case _: SerializableDocument[Uml] => href
                           case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
@@ -522,18 +528,18 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Success( Nil ) => Success( ns )
                 case Success( eRefs ) =>
                   val hRefs = eRefs flatMap { eRef =>
-                    require(eRef.id.isDefined)
-                    element2document.get( eRef ) match {
+                    require( eRef.id.isDefined )
+                    element2mappedDocument( eRef ) match {
                       case None =>
                         System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                         None
                       case Some( dRef ) =>
                         if ( d == dRef ) {
-                          val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id.get, Null )
+                          val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = eRef.id, Null )
                           val idrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idrefAttrib, scope = xmiScopes, minimizeEmpty = true )
                           idrefNode
                         } else {
-                          val href = dRef.uri+"#"+eRef.id.get
+                          val href = dRef.uri+"#"+eRef.id
                           val externalHRef = dRef match {
                             case _: SerializableDocument[Uml] => href
                             case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
@@ -555,26 +561,64 @@ case class ResolvedDocumentSet[Uml <: UML](
       sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] =
       generateNodeElement( elementOrdering, d, null, f.propertyName, sub, xmiScopes )
 
-    def applyGenerateNodeElement(
+    def callGenerateNodeReference(
+      f: e.MetaPropertyEvaluator,
+      sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] = {
+      val idRefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = sub.id, Null )
+      val idRefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idRefAttrib, scope = xmiScopes, minimizeEmpty = true )
+      return_ { Success( idRefNode ) }
+    }
+
+    def applyGenerateNodeElementsOrReferences(
       f: e.MetaPropertyEvaluator,
       subs: List[UMLElement[Uml]],
-      subElements: List[(UMLElement[Uml], scala.xml.Node)],
-      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] =
+      subElements: Set[UMLElement[Uml]],
+      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
       subs match {
         case Nil => return_ { Success( subElements, nodes ) }
         case x :: xs =>
           for {
-            node <- callGenerateNodeElement( f, x )
+            node <- if ( subElements.contains( x ) )
+              append1Pair( x, callGenerateNodeReference( f, x ), subElements, nodes )
+            else
+              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes )
             result <- node match {
-              case Failure( t ) => return return_ { Failure( t ) }
-              case Success( n ) => applyGenerateNodeElement( f, xs, (x, n) :: subElements, nodes )
+              case Failure( t )          => return return_ { Failure( t ) }
+              case Success( ( es, ns ) ) => applyGenerateNodeElementsOrReferences( f, xs, es, ns )
             }
           } yield result
       }
 
+    /**
+     * @see XMI2.5 ptc/14-09-21 9.4.1
+     * Instance of Model Element:
+     * A Property, type is not a PrimitiveType or Enumeration, isComposite = true
+     *
+     * XMI Representation:
+     * Choice of:
+     * 1. Nested XMIObjectElement
+     * 2. Nested XMIReferenceElement
+     * 2. Nested XMIReferenceAttribute
+     * Normally, serialized properties with isComposite = true are serialized as nested XMIObjectElements.
+     * In the case where the model is split across more than one file then
+     * a nested XMIReferenceElement would be used.
+     * Exceptionally, even within one file, it may be the case that
+     * a containing object has more than one serialized class-typed property with isComposite = true that
+     * contain the same object or include it among their collection of objects.
+     * In such an exceptional case, because of MOF constraints,
+     * only one of those properties can have an opposite with a non-empty slot.
+     * Objects of the property with the non-empty opposite slot are serialized as nested XMIObjectElements,
+     * and the other references to the same object are serialized either
+     * as XMIReferenceAttributes or nested XMIReferenceElements.
+     *
+     * @see XMI2.5 ptc/14-09-21 9.4.2
+     * No special serialization rules need to be defined for subsetted Properties.
+     * Following EMOF rule 1, when one of the subsetted or subsetting Properties is derived,
+     * it is not serialized by default. Properties that are not derived are serialized.
+     */
     @tailrec def trampolineSubNode(
-      nodes: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]],
-      f: e.MetaPropertyEvaluator ): Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = {
+      nodes: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
+      f: e.MetaPropertyEvaluator ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
 
       nodes.resume match {
         //        case -\/( s ) =>
@@ -587,36 +631,24 @@ case class ResolvedDocumentSet[Uml <: UML](
             case Failure( t ) =>
               return_ { Failure( t ) }
 
-            case Success( ( subElementPairs, ns ) ) =>
+            case Success( ( subElements, ns ) ) =>
               f match {
                 case rf: e.MetaReferenceEvaluator =>
                   rf.evaluate( e ) match {
                     case Failure( t )    => return_ { Failure( t ) }
-                    case Success( None ) => return_ { Success( ( subElementPairs, ns ) ) }
+                    case Success( None ) => return_ { Success( ( subElements, ns ) ) }
                     case Success( Some( sub ) ) =>
-                      val remainingPairs = for {
-                        ( e, n ) <- subElementPairs
-                        if ( e != sub )
-                      } yield ( e, n )                      
-                      suspend {
-                        append1Pair( sub, callGenerateNodeElement( f, sub ), remainingPairs, ns )
-                      }
+                      if ( subElements.contains( sub ) )
+                        suspend { append1Pair( sub, callGenerateNodeReference( f, sub ), subElements, ns ) }
+                      else
+                        suspend { append1Pair( sub, callGenerateNodeElement( f, sub ), subElements, ns ) }
                   }
                 case cf: e.MetaCollectionEvaluator =>
                   cf.evaluate( e ) match {
                     case Failure( t )   => return_ { Failure( t ) }
-                    case Success( Nil ) => return_ { Success( ( subElementPairs, ns ) ) }
+                    case Success( Nil ) => return_ { Success( ( subElements, ns ) ) }
                     case Success( subs ) =>
-                      suspend {
-                        val sortedSubs: List[UMLElement[Uml]] = subs.sortBy( _.xmiOrderingKey )
-                        val remainingPairs = for {
-                          ( e, n ) <- subElementPairs
-                          if ( ! sortedSubs.contains( e ) )
-                        } yield ( e, n )                           
-                        suspend {
-                          applyGenerateNodeElement( f, sortedSubs, remainingPairs, ns )
-                        }
-                      }
+                      suspend { applyGenerateNodeElementsOrReferences( f, subs, subElements, ns ) }
                   }
               }
           }
@@ -626,23 +658,23 @@ case class ResolvedDocumentSet[Uml <: UML](
     val refEvaluators: Seq[e.MetaPropertyEvaluator] = e.referenceMetaProperties
     val subEvaluators: Seq[e.MetaPropertyEvaluator] = e.compositeMetaProperties
     val duplicates = refEvaluators.toSet.intersect( subEvaluators.toSet )
-    require( duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: ${duplicates}" )
+    require( duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: $duplicates" )
 
     val mofAttributes0: Try[MetaData] = Success( Null )
-    ( mofAttributes0 /: e.mofXMI_metaAtttributes.reverse )( foldAttribute _ ) match {
+    ( mofAttributes0 /: e.mofXMI_metaAtttributes.reverse )( foldAttribute ) match {
       case Failure( t ) =>
         return_ { Failure( t ) }
 
       case Success( mofAttributesN ) =>
         suspend {
           val xRef0: Try[Seq[Node]] = Success( Seq() )
-          val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode _ )
-          val xRefs = ( xRefA /: refEvaluators )( foldReference _ )
-          val xRefsAndSub0: Trampoline[Try[( List[(UMLElement[Uml], scala.xml.Node)], Seq[scala.xml.Node] )]] = return_( xRefs match {
+          val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode )
+          val xRefs = ( xRefA /: refEvaluators )( foldReference )
+          val xRefsAndSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( xRefs match {
             case Failure( t )    => Failure( t )
-            case Success( refs ) => Success( List(), refs )
+            case Success( refs ) => Success( Set(), refs )
           } )
-          val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode _ )
+          val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode )
           wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
         }
     }
