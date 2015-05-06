@@ -4,7 +4,7 @@ name := "org.omg.oti"
 
 scalaVersion := Versions.scala
 
-version in ThisBuild := "0.10.19"
+version in ThisBuild := "0.12.0"
 
 organization := "JPL, Caltech"
 
