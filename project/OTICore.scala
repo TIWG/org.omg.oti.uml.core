@@ -1,5 +1,8 @@
+import java.io.File
+
 import com.banno.license.Plugin.LicenseKeys._
 import com.typesafe.sbt.SbtGit._
+import net.virtualvoid.sbt.graph.Plugin.graphSettings
 import sbt.Keys._
 import sbt._
 import xerial.sbt.Pack._
@@ -70,11 +73,47 @@ object OTICore extends Build {
         })
     )
 
+  // ======================
+
+  lazy val otiSettings = Seq(
+    scalaVersion := Versions.scala,
+    organization := "gov.nasa.jpl.mbee.omg.oti",
+    organizationName := "JPL, Caltech",
+    organizationHomepage := Some(url("https://mbse.jpl.nasa.gov")),
+    publishMavenStyle := false,
+    publishTo := {
+      Option.apply(System.getProperty("OTI_LOCAL_REPOSITORY")) match {
+        case Some(dir) => Some(Resolver.file("file", new File(dir))(Resolver.ivyStylePatterns))
+        case None => sys.error("Set -DOTI_LOCAL_REPOSITORY=<dir> where <dir> is a local Ivy repository directory")
+      }
+    },
+    resolvers += {
+      Option.apply(System.getProperty("OTI_LOCAL_REPOSITORY")) match {
+        case Some(dir) => Resolver.file("file", new File(dir))(Resolver.ivyStylePatterns)
+        case None => sys.error("Set -DOTI_LOCAL_REPOSITORY=<dir> where <dir> is a local Ivy repository directory")
+      }
+    }
+  )
+
+  lazy val commonSettings =
+    Defaults.coreDefaultSettings ++
+      Defaults.runnerSettings ++
+      Defaults.baseTasks ++
+      graphSettings ++
+      com.banno.license.Plugin.licenseSettings
+
+  lazy val sourcePublishSettings = Seq(
+    // include all test artifacts
+    publishArtifact in Test := true
+  )
+
   lazy val core = Project(
     "oti-core",
-    file(".")).settings(
-      Defaults.coreDefaultSettings ++ Defaults.runnerSettings ++ Defaults.baseTasks ++ packSettings ++ com.banno.license.Plugin.licenseSettings ++ Seq(
-        scalaVersion := Versions.scala,
+    file(".")).
+    settings(otiSettings: _*).
+    settings(commonSettings: _*).
+    settings(packSettings: _*).
+    settings(
         removeExistingHeaderBlock := true,
         clean <<= clean.dependsOn( clean in graphLibs, clean in resolverLibs, clean in scalazLibs, clean in emfLibs ),
         pack <<= pack.dependsOn( pack in graphLibs, pack in resolverLibs, pack in scalazLibs ),
@@ -91,7 +130,6 @@ object OTICore extends Build {
         classDirectory in Compile := baseDirectory.value / "bin",
         classDirectory in Test := baseDirectory.value / "bin",
         shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Project.extract(state).get(GitKeys.gitCurrentBranch) + "> " }
-      )
     ).dependsOn(
       scalazLibs,
       resolverLibs,

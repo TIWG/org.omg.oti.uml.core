@@ -1,21 +1,7 @@
 import com.banno.license.Plugin.LicenseKeys._
 
-name := "org.omg.oti"
-
-scalaVersion := Versions.scala
 
 version in ThisBuild := "0.12.0"
-
-organization := "JPL, Caltech"
-
-// enable publishing the jar produced by `test:package`
-publishArtifact in (Test, packageBin) := true
-
-// enable publishing the test API jar
-publishArtifact in (Test, packageDoc) := true
-
-// enable publishing the test sources jar
-publishArtifact in (Test, packageSrc) := true
 
 license := """|
  | License Terms
