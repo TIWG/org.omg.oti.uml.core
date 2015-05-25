@@ -206,12 +206,12 @@ case class ResolvedDocumentSet[Uml <: UML](
         import DocumentSet._
 
         val uri = ruri.getOrElse( d.uri )
-        val referencedProfiles = ( for {
+        val referencedProfiles = for {
           e <- d.extent
           ( s, p ) <- e.getAppliedStereotypes
           pf <- s.profile
           if element2document.contains( pf )
-        } yield pf ) toSet
+        } yield pf
 
         val emptyScope: NamespaceBinding = null
 
@@ -288,7 +288,7 @@ case class ResolvedDocumentSet[Uml <: UML](
              */
             val stereotypeTagValues = elementOrdering.toList flatMap { e =>
               val allTagValues = e.stereotypeTagValues
-              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter ( element2document.contains ) toList
+              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter element2document.contains toList
               val ordering = appliedStereotypes.sortBy( getStereotype_ID_UUID( _ )._1 )
               val orderedTagValueElements = ordering map {
                 case s =>
@@ -299,7 +299,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                       case Some( tagValues ) =>
                         val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head > _.xmiUUID.head )
                         val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
-                        val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) _ )
+                        val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) )
                         tagValueAttributeN match {
                           case Failure( t )                 => return Failure( t )
                           case Success( tagValueAttribute ) => tagValueAttribute
