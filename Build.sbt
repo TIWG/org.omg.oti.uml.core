@@ -1,8 +1,5 @@
 import com.banno.license.Plugin.LicenseKeys._
 
-
-version in ThisBuild := "0.12.0"
-
 license := """|
  | License Terms
  |

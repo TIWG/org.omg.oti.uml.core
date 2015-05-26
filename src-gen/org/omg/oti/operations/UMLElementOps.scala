@@ -44,7 +44,6 @@ import org.omg.oti._
 import org.omg.oti.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
-import org.eclipse.emf.ecore.EStructuralFeature
 import scala.language.existentials
 import scala.reflect.runtime.universe._
 import scala.reflect._
@@ -391,9 +390,47 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
-  def getContainedElement_eContainingFeature: EStructuralFeature
+  /**
+   * @See MOF2.5
+   *
+   * Section 15.9 Additional Operations
+   * [6] This returns the single Property with a slot that represents
+   *     the current owner of the Object based on current instance values;
+   *     may be null for top level objects.
+   *
+   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *
+   * @return The single (M2)Property, if any, that represents the current owner of the (M1)Element object.
+   */
+  def getContainedElementContainingMetamodelProperty: Option[Uml#MetamodelProperty]
 
-  def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterable[UMLElement[Uml]]
+  /**
+   * @See MOF 2.5
+   *
+   * Section 9.4
+   * get(property: Property) : Object
+   * Gets the value of the given property.
+   * If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
+   * If Property has multiplicity upper bound >1, get() returns a ReflectiveCollection containing the values of the Property.
+   * If there are no values, the ReflectiveCollection returned is empty.
+   * Exception: throws IllegalArgumentException if Property is not a member of the Class from class().
+   *
+   * Section 15.5
+   * Object::get(Property p): Element
+   * modeled as ObjectInstance::get(Property p): ElementInstance
+   * -- If a foreign association end, then navigate link, else access slot or derive the value
+   * post: (p.namespace.isOclType(Association) and result = navigate(p)) or
+   *       self.propertySlot(p) <> null and (
+   *        (self.propertySlot(p).value <> null and result = self.propertySlot(p).value) or result = p.default) or
+   *        (p.isDerivedUnion and result = unionedProperties(p)->union(s| s = self.get(s)) or
+   *        (p.isDerived and result = self.extInvoke(‘get’, p))
+   *
+   * @param f (M2)Property
+   * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
+   * @throws IllegalArgumentException if `f` is not an (M2)Property of the (M2)Class that is the metaclass of the element.
+   */
+  def getElementMetamodelPropertyValue( f: Uml#MetamodelProperty ): Try[Iterable[UMLElement[Uml]]]
 
   /**
    * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.

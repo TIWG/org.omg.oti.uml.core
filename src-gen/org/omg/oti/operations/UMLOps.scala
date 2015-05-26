@@ -44,7 +44,6 @@ import org.omg.oti.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
 import org.omg.oti._
-import org.eclipse.emf.ecore.EStructuralFeature
 import scala.reflect.{ classTag, ClassTag }
 import scala.util.Try
 // End of user code
@@ -78,6 +77,24 @@ class EarlyInit[T: TypeTag] {
  * <!-- End of user code documentation -->
  */
 trait UMLOps[Uml <: UML] { self =>
+
+  def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
+
+  def isMetamodelPropertyOrdered(p: Uml#MetamodelProperty): Boolean
+
+  /**
+   * A well-formed metamodel property must have a name.
+   *
+   * @param p metamodel property
+   * @return p's name
+   */
+	def getMetamodelPropertyName(p: Uml#MetamodelProperty): String
+
+  /**
+   *
+   */
+  def getMetamodelPropertyUpperBound(p: Uml#MetamodelProperty): Int
+
 
 	implicit val ABSTRACTION: TypeTag[Uml#Abstraction] 
 	implicit val ACCEPT_CALL_ACTION: TypeTag[Uml#AcceptCallAction] 
@@ -1537,7 +1554,7 @@ trait UMLOps[Uml <: UML] { self =>
   type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
   type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
-  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
+  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, Uml#MetamodelProperty, UMLElement[Uml] ), Try[String]]
 
   class FilterableUMLOption[U]( o: Option[U] ) {
 
@@ -1638,7 +1655,7 @@ trait UMLOps[Uml <: UML] { self =>
    */
   val OTI_ID_uuid: Option[Uml#Property]
 
-  val SLOT_VALUE: EStructuralFeature
+  val SLOT_VALUE: Uml#MetamodelProperty
 
   def closure[U, V <: U]( x: U, relation: U => Iterable[V] ): Set[V] = {
 

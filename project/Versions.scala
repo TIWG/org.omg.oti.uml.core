@@ -1,15 +1,37 @@
 
+// see JPLMBEECOmmonScalaLibraries.Version
 object Versions {
-  val scala = "2.11.6"
 
-  val xmlResolver = "1.2"
+    // scalaLibs
 
-  val emf_ecore = "2.10.1"
+    val scala = "2.11.6"
+    val scala_suffix = "2.11"
 
-  val graph_core = "1.9.1"
-  val graph_constrained = "1.9.0"
-  val graph_dot = "1.10.0"
-  val graph_json = "1.9.2"
+    // otherLibs
 
-  val scalaz = "7.1.1"
+    val config = "1.2.1"
+    val scalaCheck = "1.12.2"
+    val scalaTest = "2.2.4"
+    val specs2 = "3.6"
+    val parboiled = "2.1.0"
+    val akka = "2.3.9"
+    val spray = "1.3.3"
+    val shapeless = "2.1.0"
+    val scalaz = "7.1.1"
+    val scalaz_stream = "0.7a"
+    val play = "2.4.0-RC5"
+
+    // owlapiLibs
+
+    /** @see http://mvnrepository.com/artifact/net.sourceforge.owlapi/owlapi-distribution */
+    val owlapi = "4.0.1"
+
+    /** @see http://mvnrepository.com/artifact/xml-resolver/xml-resolver/ */
+    val xmlResolver = "1.2"
+
+    // graphLibs
+    val graph_core = "1.9.1"
+    val graph_constrained = "1.9.0"
+    val graph_dot = "1.10.0"
+    val graph_json = "1.9.2"
 }
