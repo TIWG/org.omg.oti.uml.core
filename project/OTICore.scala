@@ -1,7 +1,6 @@
 import java.io.File
 
 import com.banno.license.Plugin.LicenseKeys._
-import com.typesafe.sbt.SbtGit._
 import net.virtualvoid.sbt.graph.Plugin.graphSettings
 import sbt.Keys._
 import sbt._
