@@ -34,7 +34,15 @@ object OTICore extends Build {
       Defaults.runnerSettings ++
       Defaults.baseTasks ++
       graphSettings ++
-      com.banno.license.Plugin.licenseSettings
+      com.banno.license.Plugin.licenseSettings ++
+      Seq(
+        sourceDirectories in Compile ~= { _.filter(_.exists) },
+        sourceDirectories in Test ~= { _.filter(_.exists) },
+        unmanagedSourceDirectories in Compile ~= { _.filter(_.exists) },
+        unmanagedSourceDirectories in Test ~= { _.filter(_.exists) },
+        unmanagedResourceDirectories in Compile ~= { _.filter(_.exists) },
+        unmanagedResourceDirectories in Test ~= { _.filter(_.exists) }
+      )
 
   lazy val core = Project(
     "oti-core",

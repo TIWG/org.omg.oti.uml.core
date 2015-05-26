@@ -57,44 +57,62 @@ and UMLOps:
   type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
 ```
  
-## Building
+## Building 
 
-### With SBT
+This project builds with SBT.
 
 ```
-sbt pack
+sbt -DOTI_LOCAL_REPOSITORY=<dir> publish
 ```
+
+where `<dir>` is a directory in the file system that will be used for publishing the OTI Core API libraries.
 
 This will:
 
 - fetch library dependencies (emfLibs, graphLibs, resolverLibs, scalazLibs), 
 
-- 'pack' library dependencies (see {graphLibs,resolverLibs,scalazLibs}/target/pack/{lib,lib.srcs,lib.javadoc}; except for emfLibs)
+- update the license header in the sources
 
-- compile the oti sources
+- compile the sources into jar files
 
-### With Eclipse
+- generate the scaladoc for the sources
 
-1) Open a shell window to execute the following:
+- publish the jar files, sources and javadoc to the `OTI_LOCAL_REPOSITORY`
 
-```
-sbt pack
-```
+## Working with SBT and IDEs
 
-This will download dependencies (see {graphLibs,resolverLibs,scalazLibs}/target/pack/{lib,lib.srcs,lib.javadoc})
+It is possible to use both SBT and an IDE (Eclipse or IntelliJ) to work on this project.
 
-2) Eclipse' .classpath
+### IntelliJ IDEA Community Edition (with JetBrains Scala plugin)
 
-It is already configured to look for specific jar files "packed" by SBT:
+1. File | New > Project from Existing Sources...
+2. Select the location of the project
+3. Use the SBT model for importing the project
+4. In the SBT configuration dialog, expand 'Global SBT Settings'
+5. Under 'JVM Options', edit 'VM Parameters' and add: `-DOTI_LOCAL_REPOSITORY=<dir>`
 
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-constrained_2.11-1.9.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-core_2.11-1.9.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-dot_2.11-1.10.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graph-json_2.11-1.9.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/graphlibs_2.11-0.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/lift-json_2.11-2.6-M4.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/paranamer-2.4.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-parser-combinators_2.11-1.0.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scala-xml_2.11-1.0.2.jar" sourcepath="graphLibs/target/pack/lib.srcs/scala-xml_2.11-1.0.2-sources.jar"/>
-	<classpathentry exported="true" kind="lib" path="graphLibs/target/pack/lib/scalap-2.11.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="resolverLibs/target/pack/lib/xml-resolver-1.2.jar"/>
+If you change the SBT build specification, IntelliJ should automatically refresh the project.
+To manually refresh it, use View | Tool Windows > SBT, then click on the refresh icon.
+
+### Eclipse (with Scala IDE plugin)
+
+See https://github.com/typesafehub/sbteclipse
+
+1. Add to ~/.sbt/0.13/plugins/plugins.sbt
+
+    `// https://github.com/typesafehub/sbteclipse`
+    
+    `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0-RC2")`
+
+2. Use SBT to create the Eclipse metadata files (.project, .classpath)
+
+    `sbt -DOTI_LOCAL_REPOSITORY=<dir> eclipse`
+
+3. File | Import ...
+4. Choose: "Existing Projects into Workspace"
+5. Select the location of the project
+6. In Options, make sure to *UNCHECK* "Copy projects into workspace"
+
+If you change the SBT build specification, close the project in Eclipse.
+Use SBT to re-generate the Eclipse metadata.
+Re-open the project in Eclipse.
