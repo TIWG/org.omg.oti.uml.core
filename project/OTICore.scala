@@ -45,7 +45,7 @@ object OTICore extends Build {
     settings(commonSettings: _*).
     settings(packSettings: _*).
     settings(        
-        version := "0.12.0-748",
+        version := "0.12.0-750",
         removeExistingHeaderBlock := true,
         packExpandedClasspath := false,
         packLibJars := Seq.empty,
