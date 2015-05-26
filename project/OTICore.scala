@@ -45,7 +45,13 @@ object OTICore extends Build {
     settings(commonSettings: _*).
     settings(packSettings: _*).
     settings(        
-        version := "0.12.0-750",
+        version := "0.12.0-" + {
+          val svnProc = Process(command="svn", arguments=Seq("info"))
+          val sedCommand="s/^.*Revision:[[:space:]]\\{1,\\}\\([[:digit:]]\\{1,\\}\\).*$/\\1/p"
+          val sedProc = Process(command="sed", arguments=Seq("-n", sedCommand))
+          val svnRevision = svnProc.#|(sedProc).!!
+          svnRevision
+        },
         removeExistingHeaderBlock := true,
         packExpandedClasspath := false,
         packLibJars := Seq.empty,
