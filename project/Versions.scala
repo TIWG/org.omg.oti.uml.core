@@ -4,7 +4,7 @@ import sbt.Process
 // see JPLMBEECOmmonScalaLibraries.Version
 object Versions {
 
-  val version_prefix = "0.13.0"
+  val version_prefix = "0.14.0"
   val version_suffix = {
     val svnProc = Process(command = "svn", arguments = Seq("info"))
     val sedCommand = "s/^.*Revision:[[:space:]]\\{1,\\}\\([[:digit:]]\\{1,\\}\\).*$/\\1/p"
