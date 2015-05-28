@@ -56,6 +56,13 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 
 	import self.ops._
 
+	def combinedFragmentFromEnclosingOperand(interactionFragment: UMLInteractionFragment[Uml]): Option[UMLInteractionFragment[Uml]] = {
+      for {
+    	eo <- interactionFragment.enclosingOperand
+    	cf <- eo.operand_combinedFragment
+      } yield cf
+    }
+	
 	/**
 	 * <!-- begin-model-doc -->
 	 * The Action referenced by the ActionExecutionSpecification must be owned by the Interaction owning that ActionExecutionSpecification.
@@ -68,9 +75,18 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	 * (parentInteraction->size() = 1) and self.action.interaction->asSet() = parentInteraction
 	 */
 	def validate_action_referenced: Boolean  = {
-		// Start of user code for "action_referenced"
-    	???
-    	// End of user code
+	  // Start of user code for "action_referenced"
+      self.action match {
+        case Some(a) => 
+          val parentInteraction: Set[UMLInteractionFragment[Uml]] = 
+			  closure[UMLInteractionFragment[Uml], UMLInteractionFragment[Uml]](
+					  self, combinedFragmentFromEnclosingOperand(_).toSet + self).flatMap( _.enclosingInteraction )
+
+		  if (parentInteraction.size == 1)
+			a.action_interaction == parentInteraction.head
+		  else false
+      }
+      // End of user code
 	}
 
 	// Start of user code for additional features

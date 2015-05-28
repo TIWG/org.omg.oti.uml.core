@@ -68,21 +68,30 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_result_pins: Boolean  = { ??? //should be a way to avoid null instantiation
+	def validate_result_pins: Boolean  = { 
     	// Start of user code for "result_pins"     
-      var events: Seq[Option[UMLEvent[Uml]]] = null
-      trigger.foreach { 
-        t => events.add(t.event)
-      }
-            
-      var parameter: Seq[UMLParameter[Uml]] = events.head.asInstanceOf[UMLCallEvent[Uml]].operation.get.inputParameters.distinct
-                  
-      var s: Seq[Int] = { 1 to result.size }
-      s.forall { i =>  
-        parameter(i)._type == result(i)._type && 
-        parameter(i).isOrdered == result(i).isOrdered && 
-        parameter(i).compatibleWith(Some(result(i)))
-      }
+      trigger.toList match {
+      case (t: UMLTrigger[Uml]) :: Nil =>
+        t.event match {
+          case Some(ev: UMLCallEvent[Uml]) =>
+            ev.operation match {
+              case Some(operation) =>
+                val operation_parameters = operation.ownedParameter
+                if (operation_parameters.size == result.size) {
+                  (0 until result.size) forall { i =>
+                    val parameter_i = operation_parameters.get(i)
+                    val result_i = result.get(i)
+                    conformsTo(parameter_i._type, result_i._type) &&
+                      parameter_i.isOrdered == result_i.isOrdered &&
+                      parameter_i.compatibleWith(Some(result_i))
+                  }
+                } else false
+              case None => false
+            }
+          case _ => false
+        }
+      case _ => false
+    }
       // End of user code
   }
 
@@ -96,7 +105,14 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 */
 	def validate_trigger_call_event: Boolean  = {
 		// Start of user code for "trigger_call_event"
-  	trigger.size == 1 && trigger.toSeq.head.event.isInstanceOf[UMLCallEvent[Uml]]
+  	trigger.toList match {
+      case (t: UMLTrigger[Uml]) :: Nil =>
+        t.event match {
+          case Some(_: UMLCallEvent[Uml]) => true
+          case _                          => false
+        }
+      case _ => false
+    }
   	// End of user code
 	}
 

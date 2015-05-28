@@ -127,10 +127,13 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 */
 	def validate_source_and_target: Boolean  = {
 		// Start of user code for "source_and_target"
-    	if (activity != null)
-       source.get.containingActivity == activity && target.get.containingActivity == activity
-      else true
-    	// End of user code
+  	if (activity.isDefined)
+      (source, target) match {
+        case (Some(s), Some(t)) => s.containingActivity == activity && t.containingActivity == activity
+        case _ => false
+    }
+    else true
+  	// End of user code
 	}
 
 	// Start of user code for additional features

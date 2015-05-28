@@ -98,8 +98,10 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def containingActivity: Option[UMLActivity[Uml]]  = {
 		// Start of user code for "containingActivity"
-    	???
-    	// End of user code
+  	if (superGroup.isDefined) 
+      superGroup.get.containingActivity
+    else inActivity
+  	// End of user code
 	}
 
 	/**
@@ -112,10 +114,11 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def validate_nodes_and_edges: Boolean  = {
 		// Start of user code for "nodes_and_edges"
-    	???
-    	// End of user code
+  	containedNode.forall { a => a.activity == self.containingActivity } && 
+    containedEdge.forall { a => a.activity == self.containingActivity }
+  	// End of user code
 	}
-
+  
 	/**
 	 * <!-- begin-model-doc -->
 	 * No containedNode or containedEdge of an ActivityGroup may be contained by its subgroups or its superGroups, transitively.
@@ -128,8 +131,11 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 */
 	def validate_not_contained: Boolean  = {
 		// Start of user code for "not_contained"
-    	???
-    	// End of user code
+  	val subgroups: Set[UMLActivityGroup[Uml]] = closure[UMLActivityGroup[Uml], UMLActivityGroup[Uml]]( self, sub => sub.subgroup + sub)
+    val supergroups: Set[UMLActivityGroup[Uml]] = closure[UMLActivityGroup[Uml], UMLActivityGroup[Uml]]( self, sup => sup.superGroup.toSet + sup)
+    ( subgroups forall { g: UMLActivityGroup[Uml] => !g.containedNode.contains(containedNode) } ) &&
+    ( supergroups forall { g: UMLActivityGroup[Uml] => !g.containedEdge.contains(containedEdge) } )
+  	// End of user code
 	}
 
 	// Start of user code for additional features

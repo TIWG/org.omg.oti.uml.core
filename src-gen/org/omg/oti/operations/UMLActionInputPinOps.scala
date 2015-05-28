@@ -75,8 +75,17 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 */
 	def validate_input_pin: Boolean  = {
 		// Start of user code for "input_pin"
-    	fromAction.get.input.forall { i => i.isInstanceOf[UMLActionInputPin[Uml]] }
-    	// End of user code
+    fromAction match {
+      case Some(action) => 
+        action.input.forall { p =>
+          p match {
+            case (_: UMLActionInputPin[Uml]) => true
+            case _ => false
+          }
+        }
+      case None => false
+    }
+  	// End of user code
 	}
 
 	/**
@@ -90,10 +99,14 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 */
 	def validate_no_control_or_object_flow: Boolean  = {
 		// Start of user code for "no_control_or_object_flow"
-    	fromAction.get.incoming.union(outgoing).isEmpty &&
-      fromAction.get.input.isEmpty &&
-      fromAction.get.output.isEmpty
-    	// End of user code
+    fromAction match {
+      case Some(action) => 
+        action.incoming.union(action.outgoing).isEmpty &&
+        action.input.forall ( _.incoming.isEmpty ) && 
+        action.output.forall ( _.incoming.isEmpty )
+      case None => false
+    }
+  	// End of user code
 	}
 
 	/**
@@ -105,7 +118,10 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 */
 	def validate_one_output_pin: Boolean  = {
 		// Start of user code for "one_output_pin"
-    	fromAction.get.output.size == 1
+    	fromAction match {
+        case Some(action) => action.output.size == 1 
+        case None => false
+      }
     	// End of user code
 	}
 
