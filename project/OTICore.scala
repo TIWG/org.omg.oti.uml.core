@@ -1,6 +1,7 @@
 import java.io.File
 
 import com.banno.license.Plugin.LicenseKeys._
+import com.typesafe.sbt.GitVersioning
 import net.virtualvoid.sbt.graph.Plugin.graphSettings
 import sbt.Keys._
 import sbt._
@@ -45,6 +46,7 @@ object OTICore extends Build {
       Defaults.baseTasks ++
       graphSettings ++
       com.banno.license.Plugin.licenseSettings ++
+      aether.AetherPlugin.autoImport.overridePublishSettings ++
       Seq(
         sourceDirectories in Compile ~= { _.filter(_.exists) },
         sourceDirectories in Test ~= { _.filter(_.exists) },
@@ -57,6 +59,7 @@ object OTICore extends Build {
   lazy val core = Project(
     "oti-core",
     file(".")).
+    enablePlugins(aether.AetherPlugin).
     settings(otiSettings: _*).
     settings(commonSettings: _*).
     settings(
