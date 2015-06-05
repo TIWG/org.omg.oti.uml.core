@@ -29,12 +29,12 @@ object Versions {
   val scalaTest = "2.2.4"
   val specs2 = "3.6"
   val parboiled = "2.1.0"
-  val akka = "2.3.9"
+  val akka = "2.3.11"
   val spray = "1.3.3"
   val shapeless = "2.1.0"
   val scalaz = "7.1.1"
   val scalaz_stream = "0.7a"
-  val play = "2.4.0-RC5"
+  val play = "2.4.0"
 
   // owlapiLibs
 
@@ -45,7 +45,7 @@ object Versions {
   val xmlResolver = "1.2"
 
   // graphLibs
-  val graph_core = "1.9.1"
+  val graph_core = "1.9.2"
   val graph_constrained = "1.9.0"
   val graph_dot = "1.10.0"
   val graph_json = "1.9.2"
