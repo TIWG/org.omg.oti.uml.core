@@ -154,8 +154,26 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
 }
 
 object CatalogURIMapper {
-  
-  def createCatalogURIMapper( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] = {    
+
+  /**
+   *
+   * @deprecated Use instead createMapperFromCatalogFiles
+   * @param catalogFiles
+   * @param verbosity
+   * @return
+   */
+  @deprecated
+  def createCatalogURIMapper( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] =
+    createMapperFromCatalogFiles( catalogFiles, verbosity )
+
+    /**
+   * Creates a CatalogURIMapper from Catalog files.
+   *
+   * @param catalogFiles
+   * @param verbosity
+   * @return
+   */
+  def createMapperFromCatalogFiles( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] = {
     val catalog = new CatalogManager() 
     catalog.setUseStaticCatalog(false)
     catalog.setRelativeCatalogs(true)
@@ -169,6 +187,29 @@ object CatalogURIMapper {
       }
     }
       
+    Success( mapper )
+  }
+
+  /**
+   * Creates a CatalogURIMapper from Catalog file URIs
+   *
+   * @param catalogURIs URIs of the Catalog files
+   * @param verbosity
+   * @return
+   */
+  def createMapperFromCatalogURIs( catalogURIs: Seq[URI], verbosity: Int = 0 ): Try[CatalogURIMapper] = {
+    val catalog = new CatalogManager()
+    catalog.setUseStaticCatalog(false)
+    catalog.setRelativeCatalogs(true)
+    catalog.setVerbosity(verbosity)
+    val mapper = new CatalogURIMapper( catalog )
+    catalogURIs.foreach { catalogURI =>
+      mapper.parseCatalog(catalogURI) match {
+        case Failure( t ) => return Failure( t )
+        case Success( _ ) => ()
+      }
+    }
+
     Success( mapper )
   }
     
