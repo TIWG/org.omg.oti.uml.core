@@ -674,6 +674,18 @@ case class ResolvedDocumentSet[Uml <: UML](
             case Failure( t )    => Failure( t )
             case Success( refs ) => Success( Set(), refs )
           } )
+          // TODO TIWG-25
+          // @see http://solitaire.omg.org/secure/EditComment!default.jspa?id=37483&commentId=12422
+          // Per Canonical XMI B5.2 Property Elements
+          // Issue 17261: clarify the ordering
+          // Properties of an element are ordered by the class in which they are defined.
+          // Properties defined by a superclass appear before those of its subclasses.
+          // Where a class inherits from more than one direct superclass, properties
+          // from the class with the alphabetically earlier class name appear
+          // before those of an alphabetically later class name.
+          // This means traverse the subEvaluators in reverse order (to ensure that the most-specific
+          // composite meta-property is the 1st serialization of an object as a nested element)
+          // but serialize the objects in order.
           val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode )
           wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
         }
