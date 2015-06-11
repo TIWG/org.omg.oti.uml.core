@@ -100,8 +100,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 */
 	def validate_boolean_value: Boolean  = {
 		// Start of user code for "boolean_value"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -112,8 +112,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 */
 	def validate_no_side_effects: Boolean  = {
 		// Start of user code for "no_side_effects"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -125,8 +125,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 */
 	def validate_not_apply_to_self: Boolean  = {
 		// Start of user code for "not_apply_to_self"
-    	???
-    	// End of user code
+  	!( constrainedElement.contains(self) )
+  	// End of user code
 	}
 
 	// Start of user code for additional features

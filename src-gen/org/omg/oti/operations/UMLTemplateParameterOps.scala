@@ -84,8 +84,11 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 */
 	def validate_must_be_compatible: Boolean  = {
 		// Start of user code for "must_be_compatible"
-    	???
-    	// End of user code
+  	default match {
+      case Some(d) => d.isCompatibleWith(parameteredElement)
+      case None => true
+    }
+  	// End of user code
 	}
 
 	// Start of user code for additional features

@@ -67,7 +67,10 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 
 	/**
 	 * <!-- begin-model-doc -->
-	 * The query isCompatibleWith() determines if this ParameterableElement is compatible with the specified ParameterableElement. By default, this ParameterableElement is compatible with another ParameterableElement p if the kind of this ParameterableElement is the same as or a subtype of the kind of p. Subclasses of ParameterableElement should override this operation to specify different compatibility constraints.
+	 * The query isCompatibleWith() determines if this ParameterableElement is compatible with the specified ParameterableElement. 
+   * By default, this ParameterableElement is compatible with another ParameterableElement p if the kind of this ParameterableElement is the same 
+   * as or a subtype of the kind of p. Subclasses of ParameterableElement should override this operation to specify different compatibility constraints.
+   *
 	 * <!-- end-model-doc -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
@@ -75,8 +78,8 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 */
 	def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean  = {
 		// Start of user code for "isCompatibleWith"
-    	???
-    	// End of user code
+  	??? // TODO: this depends on the OTI equivalent of OCL's "oclType()"
+    // End of user code
 	}
 
 	/**
@@ -89,8 +92,8 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 */
 	def isTemplateParameter: Boolean  = {
 		// Start of user code for "isTemplateParameter"
-    	???
-    	// End of user code
+  	templateParameter.isDefined
+  	// End of user code
 	}
 
 	// Start of user code for additional features

@@ -217,8 +217,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def excludeCollisions(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]]  = {
 		// Start of user code for "excludeCollisions"
-    	???
-    	// End of user code
+  	??? //reject??
+  	// End of user code
 	}
 
 	/**
@@ -240,8 +240,25 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def getNamesOfMember(element: Option[UMLNamedElement[Uml]]): Set[String]  = {
 		// Start of user code for "getNamesOfMember"
-    	???
-    	// End of user code
+  	element match {
+      case Some(e) => 
+        if ( ownedMember.contains(e) && e.name.isDefined ) {
+          e.name.toSet //need to check for name.isDefined above ???
+        }
+        else {
+          val elementImports = elementImport filter { ei => ei.importedElement == e }
+          if ( elementImports.isEmpty ) {
+            ??? //packageImport filter { pi => pi.importedPackage. }
+          }
+          else {
+            ( for {
+                ei <- elementImports
+            } yield ei.getName ) flatten //need flatten ???
+          }
+        }
+      case None => Set("") //verify this ???
+    }
+  	// End of user code
 	}
 
 	/**
@@ -254,8 +271,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def importMembers(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]]  = {
 		// Start of user code for "importMembers"
-    	???
-    	// End of user code
+    ??? //need to verify
+  	self.excludeCollisions(imps).filter { imp => self.ownedMember.forall { mem => imp.isDistinguishableFrom(Some(mem), Some(self)) } }
+  	// End of user code
 	}
 
 	/**
@@ -286,8 +304,12 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def membersAreDistinguishable: Boolean  = {
 		// Start of user code for "membersAreDistinguishable"
-    	???
-    	// End of user code
+  	member.forall { 
+      mem => member.filterNot { m => m == mem }.forall { 
+        other => mem.isDistinguishableFrom(Some(other), Some(self)) 
+        }
+      }
+  	// End of user code
 	}
 
 	/**
@@ -300,8 +322,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def visibleMembers: Set[UMLPackageableElement[Uml]]  = {
 		// Start of user code for "visibleMembers"
-    	member.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
-    	// End of user code
+  	member.selectByKindOf { case pe: UMLPackageableElement[Uml] => pe } //is this correct (someone else did) ???
+  	// End of user code
 	}
 
 	/**
@@ -313,8 +335,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def validate_cannot_import_ownedMembers: Boolean  = {
 		// Start of user code for "cannot_import_ownedMembers"
-    	???
-    	// End of user code
+  	??? //elementImport.importedElement not found
+  	// End of user code
 	}
 
 	/**
@@ -326,8 +348,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def validate_cannot_import_self: Boolean  = {
 		// Start of user code for "cannot_import_self"
-    	???
-    	// End of user code
+  	??? //packageImport.importedPackage not found
+  	// End of user code
 	}
 
 	/**
@@ -339,8 +361,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 */
 	def validate_members_distinguishable: Boolean  = {
 		// Start of user code for "members_distinguishable"
-    	???
-    	// End of user code
+  	membersAreDistinguishable
+  	// End of user code
 	}
 
 	// Start of user code for additional features

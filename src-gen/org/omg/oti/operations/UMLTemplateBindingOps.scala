@@ -95,8 +95,18 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 */
 	def validate_one_parameter_substitution: Boolean  = {
 		// Start of user code for "one_parameter_substitution"
-    	???
-    	// End of user code
+  	signature match {
+      case Some(s) => s.parameter.forall { 
+        p => parameterSubstitution.filter { 
+          b => b.formal match {
+            case Some(f) => f == p 
+            case None => false
+          } 
+        }.size <= 1 
+      }
+      case None => false
+    }
+  	// End of user code
 	}
 
 	/**
@@ -108,8 +118,17 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 */
 	def validate_parameter_substitution_formal: Boolean  = {
 		// Start of user code for "parameter_substitution_formal"
-    	???
-    	// End of user code
+    signature match {
+      case Some(s) => 
+        parameterSubstitution.forall { b => 
+          b.formal match {
+            case Some(f) => s.parameter.contains(f)
+            case None => false
+          }
+        }
+      case None => false
+    }
+  	// End of user code
 	}
 
 	// Start of user code for additional features

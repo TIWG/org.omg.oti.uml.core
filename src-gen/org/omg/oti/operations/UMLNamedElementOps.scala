@@ -102,8 +102,15 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 */
 	def qualifiedName: Option[String] = {
 		// Start of user code for "qualifiedName"
-	    ???
-	    // End of user code
+    ( name /: allNamespaces ){
+      case (None, _) => None
+      case (Some(n1), ns) =>
+        ns.name match {
+          case None => None
+          case Some(n2) => Some( n1+separator+n2 )
+        }
+    }
+    // End of user code
 	}
 
 	/**
@@ -228,8 +235,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 */
 	def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
 		// Start of user code for "isDistinguishableFrom"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -240,10 +247,10 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = ('::')
 	 */
-	def separator: Option[String]  = {
+	def separator: String  = {
 		// Start of user code for "separator"
-    	???
-    	// End of user code
+    "::"
+  	// End of user code
 	}
 
 	/**
@@ -255,8 +262,10 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 */
 	def validate_has_no_qualified_name: Boolean  = {
 		// Start of user code for "has_no_qualified_name"
-    	???
-    	// End of user code
+  	if ( name.isEmpty || allNamespaces.exists { _.name.isEmpty } ) {
+      qualifiedName.isEmpty
+    } else true
+  	// End of user code
 	}
 
 	/**
@@ -268,9 +277,11 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name | ns.name.concat(self.separator()).concat(agg))
 	 */
 	def validate_has_qualified_name: Boolean  = {
-		// Start of user code for "has_qualified_name"
-    	???
-    	// End of user code
+		// Start of user code for "has_qualified_name"  	
+    if ( name.isDefined && allNamespaces.forall { _.name.isDefined } ) {
+      qualifiedName.isDefined
+    } else true
+  	// End of user code
 	}
 
 	/**
@@ -282,8 +293,10 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 */
 	def validate_visibility_needs_ownership: Boolean  = {
 		// Start of user code for "visibility_needs_ownership"
-    	???
-    	// End of user code
+  	if (namespace.isEmpty && owner.isDefined) {
+      visibility.isEmpty 
+    } else true
+  	// End of user code
 	}
 
 	// Start of user code for additional features

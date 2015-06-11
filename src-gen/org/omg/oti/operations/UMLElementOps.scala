@@ -84,8 +84,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 */
 	def allOwnedElements: Set[UMLElement[Uml]]  = {
 		// Start of user code for "allOwnedElements"
-    	???
-    	// End of user code
+  	closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
+  	// End of user code
 	}
 
 	/**
@@ -98,8 +98,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 */
 	def mustBeOwned: Boolean  = {
 		// Start of user code for "mustBeOwned"
-    	???
-    	// End of user code
+  	true
+  	// End of user code
 	}
 
 	/**
@@ -111,8 +111,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 */
 	def validate_has_owner: Boolean  = {
 		// Start of user code for "has_owner"
-    	???
-    	// End of user code
+  	if (mustBeOwned) {
+      owner.isDefined 
+    } else true
+  	// End of user code
 	}
 
 	/**
@@ -124,8 +126,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 */
 	def validate_not_own_self: Boolean  = {
 		// Start of user code for "not_own_self"
-    	???
-    	// End of user code
+  	!( allOwnedElements.contains(self) )
+  	// End of user code
 	}
 
 	// Start of user code for additional features

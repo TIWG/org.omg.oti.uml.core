@@ -65,8 +65,8 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 */
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]] = {
 		// Start of user code for "deploymentTarget"
-	    ???
-	    // End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -87,8 +87,8 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 */
 	def importedMember_namespace: Set[UMLNamespace[Uml]] = {
 		// Start of user code for "namespace"
-	    ???
-	    // End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -118,8 +118,10 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 */
 	def validate_namespace_needs_visibility: Boolean  = {
 		// Start of user code for "namespace_needs_visibility"
-    	???
-    	// End of user code
+  	if (visibility.isEmpty) {
+      namespace.isEmpty 
+    } else true     
+  	// End of user code
 	}
 
 	// Start of user code for additional features

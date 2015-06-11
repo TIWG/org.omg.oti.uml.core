@@ -85,8 +85,8 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	 */
 	def validate_public_or_private: Boolean  = {
 		// Start of user code for "public_or_private"
-    	???
-    	// End of user code
+  	visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
+  	// End of user code
 	}
 
 	// Start of user code for additional features

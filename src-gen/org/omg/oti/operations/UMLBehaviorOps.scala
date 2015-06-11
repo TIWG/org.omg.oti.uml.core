@@ -43,6 +43,7 @@ package org.omg.oti.operations
 import org.omg.oti.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
+import javax.lang.model.element.NestingKind
 // End of user code
 
 /**
@@ -77,8 +78,15 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def context: Option[UMLBehavioredClassifier[Uml]] = {
 		// Start of user code for "context"
-	    ???
-	    // End of user code
+	  if (nestedClassifier_nestingClass.isEmpty) {
+      self.behavioredClassifier(self.owner) match {
+        case Some(b: UMLBehavior[Uml]) => 
+          if (b.context.isDefined) {
+            b.context
+          } else Some(b)
+      }
+    } else None
+    // End of user code
 	}
 
 	/**
@@ -118,8 +126,15 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def behavioredClassifier(from: Option[UMLElement[Uml]]): Option[UMLBehavioredClassifier[Uml]]  = {
 		// Start of user code for "behavioredClassifier"
-    	???
-    	// End of user code
+    from match {
+      case Some(bc: UMLBehavioredClassifier[Uml]) => Some(bc)
+      case Some(f) => 
+        if (f.owner.isDefined) {
+          self.behavioredClassifier(f.owner)
+        } else None
+      case _ => None
+    }
+    // End of user code
 	}
 
 	/**
@@ -132,7 +147,10 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]  = {
 		// Start of user code for "inputParameters"
-    	???
+    	ownedParameter.filter { op => 
+        op.direction == UMLParameterDirectionKind.in || 
+        op.direction == UMLParameterDirectionKind.inout
+      }
     	// End of user code
 	}
 
@@ -146,7 +164,10 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]  = {
 		// Start of user code for "outputParameters"
-    	???
+    	ownedParameter.filter { op => 
+        op.direction == UMLParameterDirectionKind.out ||
+        op.direction == UMLParameterDirectionKind.inout ||
+        op.direction == UMLParameterDirectionKind._return }
     	// End of user code
 	}
 
@@ -159,8 +180,11 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def validate_feature_of_context_classifier: Boolean  = {
 		// Start of user code for "feature_of_context_classifier"
-    	???
-    	// End of user code
+    (context, specification) match {
+      case ( Some(c), Some(s) ) => c.feature.contains(s)
+      case _ => false
+    }
+    // End of user code
 	}
 
 	/**
@@ -172,8 +196,12 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def validate_most_one_behavior: Boolean  = {
 		// Start of user code for "most_one_behavior"
-    	???
-    	// End of user code
+    (specification, context) match {
+      case ( Some(s), Some(c) ) => c.ownedBehavior.filter { ob => ob.specification == s }.size == 1
+      case ( Some(_), None ) => false
+      case _ => true
+    }
+  	// End of user code
 	}
 
 	/**
@@ -185,8 +213,11 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 */
 	def validate_parameters_match: Boolean  = {
 		// Start of user code for "parameters_match"
-    	???
-    	// End of user code
+    specification match {
+      case Some(s) => ownedParameter.size == s.ownedParameter.size
+      case None => true
+    }	
+  	// End of user code
 	}
 
 	// Start of user code for additional features

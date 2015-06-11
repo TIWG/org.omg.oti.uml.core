@@ -90,8 +90,13 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 */
 	def getName: Option[String]  = {
 		// Start of user code for "getName"
-    	???
-    	// End of user code
+    if (alias.isDefined)
+      alias
+    else importedElement match {
+      case Some(ie) => ie.name
+      case None => None
+    }
+  	// End of user code
 	}
 
 	/**
@@ -103,8 +108,14 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 */
 	def validate_imported_element_is_public: Boolean  = {
 		// Start of user code for "imported_element_is_public"
-    	???
-    	// End of user code
+  	importedElement match {
+      case Some(ie) => ie.visibility match {
+        case Some(v) => v == UMLVisibilityKind.public
+        case None => false
+      }
+      case None => true
+    }
+  	// End of user code
 	}
 
 	/**
@@ -116,8 +127,8 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 */
 	def validate_visibility_public_or_private: Boolean  = {
 		// Start of user code for "visibility_public_or_private"
-    	???
-    	// End of user code
+  	visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
+  	// End of user code
 	}
 
 	// Start of user code for additional features

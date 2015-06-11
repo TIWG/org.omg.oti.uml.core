@@ -66,8 +66,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def lower: Integer = {
 		// Start of user code for "lower"
-	    ???
-	    // End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -80,8 +80,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def upper: Integer = {
 		// Start of user code for "upper"
-	    ???
-	    // End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -94,8 +94,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def compatibleWith(other: Option[UMLMultiplicityElement[Uml]]): Boolean  = {
 		// Start of user code for "compatibleWith"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -108,8 +108,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def includesMultiplicity(M: Option[UMLMultiplicityElement[Uml]]): Boolean  = {
 		// Start of user code for "includesMultiplicity"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -122,8 +122,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def is(lowerbound: Integer, upperbound: Integer): Boolean  = {
 		// Start of user code for "is"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -136,8 +136,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def isMultivalued: Boolean  = {
 		// Start of user code for "isMultivalued"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -150,8 +150,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def lowerBound: Option[Integer]  = {
 		// Start of user code for "lowerBound"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -164,8 +164,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def upperBound: Integer  = {
 		// Start of user code for "upperBound"
-    	???
-    	// End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -177,8 +177,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_lower_ge_0: Boolean  = {
 		// Start of user code for "lower_ge_0"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -190,8 +190,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_lower_is_integer: Boolean  = {
 		// Start of user code for "lower_is_integer"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -203,8 +203,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_upper_ge_lower: Boolean  = {
 		// Start of user code for "upper_ge_lower"
-    	???
-    	// End of user code
+  	???
+  	// End of user code
 	}
 
 	/**
@@ -216,8 +216,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_upper_is_unlimitedNatural: Boolean  = {
 		// Start of user code for "upper_is_unlimitedNatural"
-    	???
-    	// End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -228,8 +228,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_value_specification_constant: Boolean  = {
 		// Start of user code for "value_specification_constant"
-    	???
-    	// End of user code
+    ???
+    // End of user code
 	}
 
 	/**
@@ -240,8 +240,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def validate_value_specification_no_side_effects: Boolean  = {
 		// Start of user code for "value_specification_no_side_effects"
-    	???
-    	// End of user code
+    ???
+    // End of user code
 	}
 
 	// Start of user code for additional features

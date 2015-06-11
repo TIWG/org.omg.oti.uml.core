@@ -86,8 +86,8 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 */
 	def isTemplate: Boolean  = {
 		// Start of user code for "isTemplate"
-    	???
-    	// End of user code
+  	ownedTemplateSignature.isDefined
+  	// End of user code
 	}
 
 	/**
@@ -100,8 +100,8 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 */
 	def parameterableElements: Set[UMLParameterableElement[Uml]]  = {
 		// Start of user code for "parameterableElements"
-    	???
-    	// End of user code
+  	allOwnedElements.selectByKindOf { case pe: UMLParameterableElement[Uml] => pe }
+  	// End of user code
 	}
 
 	// Start of user code for additional features

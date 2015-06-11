@@ -84,8 +84,8 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 	 */
 	def validate_own_elements: Boolean  = {
 		// Start of user code for "own_elements"
-    	???
-    	// End of user code
+  	??? //difference in sets
+  	// End of user code
 	}
 
 	/**
@@ -98,8 +98,10 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 	 */
 	def validate_unique_parameters: Boolean  = {
 		// Start of user code for "unique_parameters"
-    	???
-    	// End of user code
+    val namedParameters = parameter.selectByKindOf { case ne: UMLNamedElement[Uml] => ne }
+    namedParameters.size == parameter.size && 
+    (namedParameters.flatMap{_.name}).size == parameter.size
+  	// End of user code
 	}
 
 	// Start of user code for additional features
