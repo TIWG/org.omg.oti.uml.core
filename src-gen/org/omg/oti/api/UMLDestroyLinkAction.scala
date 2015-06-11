@@ -91,7 +91,7 @@ trait UMLDestroyLinkAction[Uml <: UML]
 	def destroyLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeLinkAction_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]]("endData", _.endData)))
+			Seq (MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]]("endData", _.endData, false, Set(LinkAction_endData))))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

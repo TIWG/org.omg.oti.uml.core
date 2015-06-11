@@ -95,14 +95,16 @@ trait UMLLinkAction[Uml <: UML]
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		linkAction_compositeMetaProperties
 
+	protected val LinkAction_endData = MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData)
+  protected val LinkAction_inputValue = MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)
+
 	/**
 	 * The XMI composite meta-properties relevant to class UMLLinkAction
 	 */
 	def linkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData),
-				MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)))
+			Seq (LinkAction_endData, LinkAction_inputValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

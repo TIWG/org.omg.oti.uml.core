@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
          prefer="public">
-         
+
 	<rewriteURI rewritePrefix="file:./www.omg.org/" uriStartString="http://www.omg.org/"/>
-	
+
 </catalog>

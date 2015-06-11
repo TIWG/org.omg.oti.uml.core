@@ -100,7 +100,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

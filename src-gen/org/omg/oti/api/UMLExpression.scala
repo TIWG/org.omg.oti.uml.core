@@ -100,7 +100,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand)))
+			Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -149,6 +149,12 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_compositeMetaProperties
 
+	protected val StructuredActivityNode_edge = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge)
+	protected val StructuredActivityNode_node = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node)
+	protected val StructuredActivityNode_structuredNodeInput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput)
+	protected val StructuredActivityNode_structuredNodeOutput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput)
+	protected val StructuredActivityNode_variable = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)
+
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStructuredActivityNode
 	 */
@@ -157,11 +163,11 @@ trait UMLStructuredActivityNode[Uml <: UML]
 			action_compositeMetaProperties,
 			activityGroup_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)))
+			Seq (StructuredActivityNode_edge,
+				StructuredActivityNode_node,
+				StructuredActivityNode_structuredNodeInput,
+				StructuredActivityNode_structuredNodeOutput,
+				StructuredActivityNode_variable))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

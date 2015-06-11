@@ -119,10 +119,8 @@ trait UMLProfile[Uml <: UML]
 	def profile_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]]("metaclassReference", _.metaclassReference)
-          /* Workaround waiting for a generic fix
-           * ,MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]]("metamodelReference", _.metamodelReference)
-           */
+			Seq (MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]]("metaclassReference", _.metaclassReference),
+           MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]]("metamodelReference", _.metamodelReference)
           ))
 
 	/**
@@ -137,10 +135,7 @@ trait UMLProfile[Uml <: UML]
 	def profile_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_referenceMetaProperties,
-			 /* Workaround waiting for a generic fix
-       * Seq ()
-       */
-      Seq(MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]]("metamodelReference", _.metamodelReference))
+			 Seq()
       )
 
 	/**

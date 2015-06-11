@@ -165,7 +165,7 @@ trait UMLClause[Uml <: UML]
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]]("body", _.body),
-				MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
+				MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput, true),
 				MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("decider", _.decider),
 				MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("predecessorClause", _.predecessorClause),
 				MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("successorClause", _.successorClause),

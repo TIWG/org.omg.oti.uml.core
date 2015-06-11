@@ -112,7 +112,7 @@ trait UMLUnmarshallAction[Uml <: UML]
 		appendUnique(
 			action_compositeMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]]("object", _._object),
-				MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+				MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]]("result", _.result, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

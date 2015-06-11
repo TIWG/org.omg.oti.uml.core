@@ -121,7 +121,7 @@ trait UMLConditionalNode[Uml <: UML]
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]]("clause", _.clause),
-				MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result)))
+				MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result, true, Set(StructuredActivityNode_structuredNodeOutput))))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

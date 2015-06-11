@@ -195,9 +195,9 @@ trait UMLInterface[Uml <: UML]
 	def interface_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier),
+			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier, true),
 				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation),
+				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true),
 				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception),
 				MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]]("protocol", _.protocol)))
 

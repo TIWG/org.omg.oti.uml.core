@@ -118,14 +118,16 @@ trait UMLTimeInterval[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		timeInterval_referenceMetaProperties
 
+	protected val TimeInterval_max = MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("max", _.max, false, Set(Interval_max))
+	protected val TimeInterval_min = MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("min", _.min, false, Set(Interval_min))
+
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTimeInterval
 	 */
 	def timeInterval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interval_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("max", _.max),
-				MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]]("min", _.min)))
+			Seq (TimeInterval_max, TimeInterval_min))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -145,13 +145,14 @@ trait UMLParameterableElement[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		parameterableElement_referenceMetaProperties
 
+	protected val ParameterableElement_templateParameter = MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)
 	/**
 	 * The XMI reference meta-properties relevant to class UMLParameterableElement
 	 */
 	def parameterableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
+			Seq (ParameterableElement_templateParameter))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

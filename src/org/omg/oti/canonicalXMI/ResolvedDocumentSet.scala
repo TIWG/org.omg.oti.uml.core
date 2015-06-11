@@ -39,33 +39,17 @@
  */
 package org.omg.oti.canonicalXMI
 
-import org.omg.oti.operations._
 import scala.annotation.tailrec
 import scala.language.higherKinds
 import scala.language.implicitConversions
 import scala.language.postfixOps
-import scala.reflect.runtime.universe
-import scala.reflect.runtime.universe._
 import org.omg.oti.api._
 import scala.util.Try
 import scala.util.Failure
 import scala.util.Success
-import scalax.collection.config.CoreConfig
-import scalax.collection.mutable.ArraySet.Hints
-import scalax.collection.GraphEdge._
 import scalax.collection.GraphPredef._
-import scalax.collection.constrained._
-import scalax.collection.constrained.constraints.NoneConstraint
-import scalax.collection.constrained.generic.GraphConstrainedCompanion
-import scalax.collection.edge.CBase._
-import scalax.collection.io.edge.CEdgeParameters
-import scalax.collection.io.json.Descriptor
-import scalax.collection.io.json.descriptor.CEdgeDescriptor
-import scalax.collection.io.json.descriptor.NodeDescriptor
-//import java.io.FileWriter
 import java.io.OutputStreamWriter
 import java.io.FileOutputStream
-import java.io.BufferedWriter
 import java.io.PrintWriter
 
 import scalaz._, Scalaz._, Free._
@@ -206,149 +190,154 @@ case class ResolvedDocumentSet[Uml <: UML](
         import DocumentSet._
 
         val uri = ruri.getOrElse( d.uri )
-        val referencedProfiles = for {
-          e <- d.extent
-          ( s, p ) <- e.getAppliedStereotypes
-          pf <- s.profile
-          if element2document.contains( pf )
-        } yield pf
-
-        val emptyScope: NamespaceBinding = null
-
-        val profileScopes = ( emptyScope /: referencedProfiles ) {
-          case ( scopes, referencedProfile ) =>
-            ( referencedProfile.name, referencedProfile.getEffectiveURI ) match {
-              case ( None, _ )                      => scopes
-              case ( _, None )                      => scopes
-              case ( Some( name ), Some( ns_uri ) ) => NamespaceBinding( name, ns_uri, scopes )
-            }
-        }
-
-        val xmiScopes =
-          NamespaceBinding( "xmi", XMI_ns,
-            NamespaceBinding( "xsi", XSI_ns,
-              NamespaceBinding( "uml", UML_ns,
-                NamespaceBinding( "mofext", MOFEXT_ns, profileScopes ) ) ) )
-
-        val elementOrdering = scala.collection.mutable.ArrayBuffer[UMLElement[Uml]]()
-
-        val free: Free[Function0, Try[scala.xml.Node]] =
-          generateNodeElement(
-            elementOrdering,
-            d, "uml", d.scope.xmiElementLabel,
-            d.scope, xmiScopes )
-
-        val result: Try[scala.xml.Node] =
-          free.go( f => Comonad[Function0].copoint( f ) )( Applicative[Function0] )
-
-        // alternatively:
-        // val result = free.run
-
-        result match {
-          case Failure( t ) =>
-            Failure( t )
-
-          case Success( top ) =>
-
-            /**
-             * @issue: Canonical XMI B4 mofext:Tag
-             */
-            val mofTag = Elem(
-              prefix = "mofext",
-              label = "Tag",
-              attributes =
-                new PrefixedAttribute(
-                  pre = "xmi", key = "id", value = d.scope.xmiID.head+"_mofext.Tag",
-                  new PrefixedAttribute(
-                    pre = "xmi", key = "uuid", value = d.scope.xmiUUID.head+"_mofext.Tag",
-                    new PrefixedAttribute(
-                      pre = "xmi", key = "type", value = "mofext:Tag",
-                      d.scope match {
-                        case ne: UMLNamedElement[Uml] =>
-                          ne.name match {
-                            case None =>
-                              Null
-                            case Some( name ) =>
-                              new UnprefixedAttribute(
-                                key = "name", value = "org.omg.xmi.nsPrefix",
-                                new UnprefixedAttribute(
-                                  key = "value", value = name,
-                                  new UnprefixedAttribute(
-                                    key = "element", value = d.scope.xmiID.head,
-                                    Null ) ) )
-                          }
-                        case _ =>
-                          Null
-                      } ) ) ),
-              scope = xmiScopes,
-              minimizeEmpty = true )
-
-            /**
-             *
-             */
-            val stereotypeTagValues = elementOrdering.toList flatMap { e =>
-              val allTagValues = e.stereotypeTagValues
-              val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter element2document.contains toList
-              val ordering = appliedStereotypes.sortBy( getStereotype_ID_UUID( _ )._1 )
-              val orderedTagValueElements = ordering map {
-                case s =>
-                  val ( sID, sUUID ) = getStereotype_ID_UUID( s )
-                  val tagValueAttributes: List[Elem] =
-                    allTagValues.get( s ) match {
-                      case None => Nil
-                      case Some( tagValues ) =>
-                        val properties = tagValues.keys.toList.sortWith( _.xmiUUID.head > _.xmiUUID.head )
-                        val tagValueAttribute0: Try[List[Elem]] = Success( Nil )
-                        val tagValueAttributeN = ( tagValueAttribute0 /: properties )( foldTagValues( tagValues, xmiScopes ) )
-                        tagValueAttributeN match {
-                          case Failure( t )                 => return Failure( t )
-                          case Success( tagValueAttribute ) => tagValueAttribute
-                        }
-                    }
-                  val stAppID = IDGenerator.computeStereotypeApplicationID( e.xmiID.head, sID )
-                  val stAppUUID = IDGenerator.uuidFromId( stAppID )
-                  val xmiTagValueAttributes =
-                    new PrefixedAttribute(
-                      pre = "xmi", key = "id", value = stAppID,
-                      new PrefixedAttribute(
-                        pre = "xmi", key = "uuid", value = stAppUUID,
-                        new PrefixedAttribute(
-                          pre = "xmi", key = "type", value = s.profile.get.name.get+":"+s.name.get,
-                          Null ) ) )
-                  Elem(
-                    prefix = s.profile.get.name.get,
-                    label = s.name.get,
-                    attributes = xmiTagValueAttributes,
-                    scope = xmiScopes,
-                    minimizeEmpty = true,
-                    tagValueAttributes: _* )
-              }
-              orderedTagValueElements
-            }
-
-            val xmi = Elem(
-              prefix = "xmi",
-              label = "XMI",
-              attributes = Null,
-              scope = xmiScopes,
-              minimizeEmpty = true,
-              ( top :: mofTag :: stereotypeTagValues ): _* )
-            val dir = new java.io.File( uri ).getParentFile
+        Try(new java.io.File( uri )) match {
+          case Failure(f) => Failure(new IllegalArgumentException(s"Cannot serialize document ${d.uri} mapped for save to $ruri: ${f.getMessage}", f))
+          case Success(furi) =>
+            val dir = furi.getParentFile
             dir.mkdirs()
 
-            val filepath = uri.getPath+".xmi"
-            val xmlFile = new java.io.File( filepath )
-            System.out.println( s"### File: $filepath" )
-            val xmlPrettyPrinter = new PrettyPrinter( width = 300, step = 2 )
-            val xmlOutput = xmlPrettyPrinter.format( xmi )
+            val referencedProfiles = for {
+              e <- d.extent
+              ( s, p ) <- e.getAppliedStereotypes
+              pf <- s.profile
+              if element2document.contains( pf )
+            } yield pf
 
-            //            val bw = new PrintWriter( new FileWriter( xmlFile ) )
-            val bw = new PrintWriter( new OutputStreamWriter( new FileOutputStream( xmlFile ), "UTF-8" ) )
-            bw.println( "<?xml version='1.0' encoding='UTF-8'?>" )
-            bw.println( xmlOutput )
-            bw.close()
+            val emptyScope: NamespaceBinding = null
 
-            Success( Unit )
+            val profileScopes = ( emptyScope /: referencedProfiles ) {
+              case ( scopes, referencedProfile ) =>
+                ( referencedProfile.name, referencedProfile.getEffectiveURI ) match {
+                  case ( None, _ )                      => scopes
+                  case ( _, None )                      => scopes
+                  case ( Some( name ), Some( ns_uri ) ) => NamespaceBinding( name, ns_uri, scopes )
+                }
+            }
+
+            val xmiScopes =
+              NamespaceBinding( "xmi", XMI_ns,
+                NamespaceBinding( "xsi", XSI_ns,
+                  NamespaceBinding( "uml", UML_ns,
+                    NamespaceBinding( "mofext", MOFEXT_ns, profileScopes ) ) ) )
+
+            val elementOrdering = scala.collection.mutable.ArrayBuffer[UMLElement[Uml]]()
+
+            val free: Free[Function0, Try[scala.xml.Node]] =
+              generateNodeElement(
+                elementOrdering,
+                d, "uml", d.scope.xmiElementLabel,
+                d.scope, xmiScopes )
+
+            val result: Try[scala.xml.Node] =
+              free.go( f => Comonad[Function0].copoint( f ) )( Applicative[Function0] )
+
+            // alternatively:
+            // val result = free.run
+
+            result match {
+              case Failure(t) =>
+                Failure(t)
+
+              case Success(top) =>
+
+                /**
+                 * @issue: Canonical XMI B4 mofext:Tag
+                 */
+                val mofTag = Elem(
+                  prefix = "mofext",
+                  label = "Tag",
+                  attributes =
+                    new PrefixedAttribute(
+                      pre = "xmi", key = "id", value = d.scope.xmiID.head + "_mofext.Tag",
+                      new PrefixedAttribute(
+                        pre = "xmi", key = "uuid", value = d.scope.xmiUUID.head + "_mofext.Tag",
+                        new PrefixedAttribute(
+                          pre = "xmi", key = "type", value = "mofext:Tag",
+                          d.scope match {
+                            case ne: UMLNamedElement[Uml] =>
+                              ne.name match {
+                                case None =>
+                                  Null
+                                case Some(name) =>
+                                  new UnprefixedAttribute(
+                                    key = "name", value = "org.omg.xmi.nsPrefix",
+                                    new UnprefixedAttribute(
+                                      key = "value", value = name,
+                                      new UnprefixedAttribute(
+                                        key = "element", value = d.scope.xmiID.head,
+                                        Null)))
+                              }
+                            case _ =>
+                              Null
+                          }))),
+                  scope = xmiScopes,
+                  minimizeEmpty = true)
+
+                /**
+                 *
+                 */
+                val stereotypeTagValues = elementOrdering.toList flatMap { e =>
+                  val allTagValues = e.stereotypeTagValues
+                  val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter element2document.contains toList
+                  val ordering = appliedStereotypes.sortBy(getStereotype_ID_UUID(_)._1)
+                  val orderedTagValueElements = ordering map {
+                    case s =>
+                      val (sID, _) = getStereotype_ID_UUID(s)
+                      val tagValueAttributes: List[Elem] =
+                        allTagValues.get(s) match {
+                          case None => Nil
+                          case Some(tagValues) =>
+                            val properties = tagValues.keys.toList.sortWith(_.xmiUUID.head > _.xmiUUID.head)
+                            val tagValueAttribute0: Try[List[Elem]] = Success(Nil)
+                            val tagValueAttributeN = (tagValueAttribute0 /: properties)(foldTagValues(tagValues, xmiScopes))
+                            tagValueAttributeN match {
+                              case Failure(t) => return Failure(t)
+                              case Success(tagValueAttribute) => tagValueAttribute
+                            }
+                        }
+                      val stAppID = IDGenerator.computeStereotypeApplicationID(e.xmiID.head, sID)
+                      val stAppUUID = IDGenerator.uuidFromId(stAppID)
+                      val xmiTagValueAttributes =
+                        new PrefixedAttribute(
+                          pre = "xmi", key = "id", value = stAppID,
+                          new PrefixedAttribute(
+                            pre = "xmi", key = "uuid", value = stAppUUID,
+                            new PrefixedAttribute(
+                              pre = "xmi", key = "type", value = s.profile.get.name.get + ":" + s.name.get,
+                              Null)))
+                      Elem(
+                        prefix = s.profile.get.name.get,
+                        label = s.name.get,
+                        attributes = xmiTagValueAttributes,
+                        scope = xmiScopes,
+                        minimizeEmpty = true,
+                        tagValueAttributes: _*)
+                  }
+                  orderedTagValueElements
+                }
+
+                val xmi = Elem(
+                  prefix = "xmi",
+                  label = "XMI",
+                  attributes = Null,
+                  scope = xmiScopes,
+                  minimizeEmpty = true,
+                  top :: mofTag :: stereotypeTagValues: _*)
+
+                val filepath = uri.getPath + ".xmi"
+                val xmlFile = new java.io.File(filepath)
+                System.out.println(s"### File: $filepath")
+                val xmlPrettyPrinter = new PrettyPrinter(width = 300, step = 2)
+                val xmlOutput = xmlPrettyPrinter.format(xmi)
+
+                //            val bw = new PrintWriter( new FileWriter( xmlFile ) )
+                val bw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(xmlFile), "UTF-8"))
+                bw.println("<?xml version='1.0' encoding='UTF-8'?>")
+                bw.println(xmlOutput)
+                bw.close()
+
+                Success(Unit)
+            }
         }
     }
 
@@ -365,7 +354,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       //case -\/( s ) => suspend { append1Node( nodes, s() ) }
       case -\/( s ) => append1Pair( sub, s(), subElements, nodes )
       case \/-( r ) => r match {
-        case Failure( t ) => return_ { Failure( t ) }
+        case Failure( f ) => return_ { Failure( f ) }
         case Success( n ) => return_ { Success( ( subElements + sub, nodes :+ n ) ) }
       }
     }
@@ -382,7 +371,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       //case -\/( s ) => suspend { append1Node( nodes, s() ) }
       case -\/( s ) => append1Node( nodes, s() )
       case \/-( r ) => r match {
-        case Failure( t ) => return_ { Failure( t ) }
+        case Failure( f ) => return_ { Failure( f ) }
         case Success( n ) => return_ { Success( nodes :+ n ) }
       }
     }
@@ -399,7 +388,7 @@ case class ResolvedDocumentSet[Uml <: UML](
     t1.resume match {
       //case -\/( s )             => suspend { appendNodes( s(), t2 ) }
       case -\/( s )            => appendNodes( s(), t2 )
-      case \/-( Failure( t ) ) => return_ { Failure( t ) }
+      case \/-( Failure( f ) ) => return_ { Failure( f ) }
       case \/-( Success( ns ) ) =>
         suspend {
           append1Node( ns, t2 )
@@ -408,6 +397,7 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
+                                          xRefs: Try[Seq[Node]],
     t: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
     prefix: String,
     label: String,
@@ -421,19 +411,26 @@ case class ResolvedDocumentSet[Uml <: UML](
       //      case -\/( s ) =>
       //        suspend { wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes ) }
       case -\/( s ) =>
-        wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
-      case \/-( Failure( t ) ) =>
-        return_ { Failure( t ) }
-      case \/-( Success( ( ens, nodes ) ) ) =>
-        import scala.xml._
-        val node = Elem(
-          prefix = prefix,
-          label = label,
-          attributes = xmlAttributesAndLocalReferences,
-          scope = xmiScopes,
-          minimizeEmpty = true,
-          nodes: _* )
-        return_ { Success( node ) }
+        wrapNodes( xRefs, s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
+      case \/-( Failure( f ) ) =>
+        return_ { Failure( f ) }
+      case \/-( Success( ( _, nodes ) ) ) =>
+        xRefs match {
+          case Failure(f) =>
+            return_ {
+              Failure(f)
+            }
+          case Success(pre_nodes) =>
+            import scala.xml._
+            val node = Elem(
+              prefix = prefix,
+              label = label,
+              attributes = xmlAttributesAndLocalReferences,
+              scope = xmiScopes,
+              minimizeEmpty = true,
+              pre_nodes ++ nodes.reverse: _*)
+            return_ { Success(node) }
+        }
     }
   }
 
@@ -589,6 +586,27 @@ case class ResolvedDocumentSet[Uml <: UML](
           } yield result
       }
 
+
+    def applyGenerateNodeElementsOrSkip(
+                                               f: e.MetaPropertyEvaluator,
+                                               subs: List[UMLElement[Uml]],
+                                               subElements: Set[UMLElement[Uml]],
+                                               nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
+      subs match {
+        case Nil => return_ { Success( subElements, nodes ) }
+        case x :: xs =>
+          for {
+            node <- if ( subElements.contains( x ) )
+              return return_ { Success( subElements, nodes ) }
+            else
+              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes )
+            result <- node match {
+              case Failure( t )          => return return_ { Failure( t ) }
+              case Success( ( es, ns ) ) => applyGenerateNodeElementsOrSkip( f, xs, es, ns )
+            }
+          } yield result
+      }
+
     /**
      * @see XMI2.5 ptc/14-09-21 9.4.1
      * Instance of Model Element:
@@ -639,7 +657,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                     case Success( None ) => return_ { Success( ( subElements, ns ) ) }
                     case Success( Some( sub ) ) =>
                       if ( subElements.contains( sub ) )
-                        suspend { append1Pair( sub, callGenerateNodeReference( f, sub ), subElements, ns ) }
+                        return_ { Success( ( subElements, ns ) ) }
                       else
                         suspend { append1Pair( sub, callGenerateNodeElement( f, sub ), subElements, ns ) }
                   }
@@ -670,10 +688,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           val xRef0: Try[Seq[Node]] = Success( Seq() )
           val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode )
           val xRefs = ( xRefA /: refEvaluators )( foldReference )
-          val xRefsAndSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( xRefs match {
-            case Failure( t )    => Failure( t )
-            case Success( refs ) => Success( Set(), refs )
-          } )
+
           // TODO TIWG-25
           // @see http://solitaire.omg.org/secure/EditComment!default.jspa?id=37483&commentId=12422
           // Per Canonical XMI B5.2 Property Elements
@@ -686,8 +701,11 @@ case class ResolvedDocumentSet[Uml <: UML](
           // This means traverse the subEvaluators in reverse order (to ensure that the most-specific
           // composite meta-property is the 1st serialization of an object as a nested element)
           // but serialize the objects in order.
-          val xRefsAndSubN = ( xRefsAndSub0 /: subEvaluators )( trampolineSubNode )
-          wrapNodes( xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
+
+          val xSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( Success( ( Set(), Seq() ) ) )
+          val xRefsAndSubN = ( xSub0 /: subEvaluators.reverse )( trampolineSubNode )
+
+          wrapNodes( xRefs, xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
         }
     }
   }

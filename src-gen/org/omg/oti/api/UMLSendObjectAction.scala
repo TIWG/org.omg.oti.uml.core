@@ -101,7 +101,7 @@ trait UMLSendObjectAction[Uml <: UML]
 	def sendObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]]("request", _.request),
+			Seq (MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]]("request", _.request, false, Set(InvocationAction_argument)),
 				MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]]("target", _.target)))
 
 	/**

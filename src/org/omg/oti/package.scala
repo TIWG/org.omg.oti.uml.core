@@ -67,7 +67,7 @@ package object oti {
     implicit val UType: TypeTag[U]
     val attributePrefix: Option[String]
     val attributeName: String
-    val f: Function1[U, Iterable[DT]]
+    val f: U => Iterable[DT]
 
     def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]): Try[Iterable[String]] =
       e match {
@@ -197,8 +197,77 @@ package object oti {
                                                         metaPropertyFunction: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]])
     extends IllegalArgumentException(s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
 
+  /**
+   * A MetaPropertyFunction provides information about properties defined on an element's metaclass
+   * like MOF Reflection would.
+   *
+   * With MOF Reflection, given an Element E, its metaclass, MC, is: MC = E.metaclass (see MOF 9.2)
+   *
+   * MOF is difficult to understand because reflection is described using UML without explicitly
+   * distinguishing the use of UML for semantically distinct levels of modeling.
+   * Semantically, MOF requires, at minimum, distinguishing between two levels of modeling.
+   * That is, the MOF architecture is fundamentally a pattern relating two levels of modeling.
+   * This pattern can be stacked to yield an architecture involving multiple levels of modeling (3, 4, ...)
+   *
+   * The problem is that the 2-level pattern is described by reference to a single modeling language, a subset of UML.
+   * For example, MOF 9.2 Reflection defines:
+   *
+   * Element::/metaclass: Class
+   *
+   * Here, Element and Class are metaclasses defined in UML; however, they belong to distinct levels of modeling.
+   * An explicit distinction would be:
+   *
+   * [M1]Element::/metaclass: [M2]Class
+   *
+   * where [L]C denotes the modeling level L that a class C belongs to.
+   *
+   * Then, for XMI serialization, it necessary to obtain the information about the properties defined on an [M2]Class
+   * and to determine which elements are the values of such properties.
+   *
+   * See XMI2.5, ptc/14-09-21, 7.8.5 Class-typed Property Representation
+   * See MOF5.2, ptc/14-09-18, 15.9 Additional Operations
+   *
+   * @tparam Uml
+   * @tparam U The metaclass on which the property is defined
+   * @tparam V The metaclass that is the type of the property
+   */
   sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]] {
     val propertyName: String
+
+    /**
+     * Ordering matters for serialization per Canonical XMI ptc/2013-08-31:
+     *
+     * B5.3 Property Content for Class-typed Properties
+     * For ordering of elements within the serialization of a class-typed property value (usually an association end),
+     * where the property does not have isOrdered=’true’ in the metamodel, the ordering is as follows:
+     * • All nested elements precede all link elements (those referencing another element)
+     *   Within the set of nested elements the order is alphabetically ordered by the value of the xmi:uuid.
+     * • Within the set of link elements all links using xmi:idref preceded elements using href.
+     *   The set of xmi:idref elements is alphabetically ordered by the value of the xmi:idref, and the set
+     *   of href elements is alphabetically ordered by the value of the href.
+     * B5.4 Property Content for DataType-typed Properties
+     * For ordering of elements within the serialization of a data-typed property value,
+     * where the property does not have isOrdered=’true’ in the metamodel,
+     * there will be no links nor xmi:uuids and the ordering is as follows.
+     * Note that for structured Datatypes the properties will be ordered as per B5.1.
+     * • For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
+     *   taken in order (if the values of the first properties are identical the second is compared and so on)
+     * • For simple datatypes the nested elements are sorted alphabetically by their values.
+     * Note that alphabetic ordering is used – so that, even if the property is of type Integer,
+     * “10” will precede “9”.
+     */
+    val isOrdered: Boolean
+
+    /**
+     * Redefined properties matters for serialization per XMI 2.5 ptc/14-09-21:
+     *
+     * 9.4.2 CMOF Package
+     * The following additional rules are defined to suppress redundant information. They can be overriden using XMI tags:
+     * In the case where a Property redefines another Property, only the redefining Property is serialized.
+     * (Note that when serializing an instance of a concrete supertype whose Property has been redefined,
+     * the supertype is unaware of the redefinition, and the Property as defined on the supertype is serialized.)
+     */
+    val redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]]
 
@@ -207,7 +276,9 @@ package object oti {
 
   case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]](
                                                                                             propertyName: String,
-                                                                                            f: U => Option[V])(implicit val u: ClassTag[U])
+                                                                                            f: U => Option[V],
+                                                                                            isOrdered: Boolean = false,
+                                                                                            redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())(implicit val u: ClassTag[U])
     extends MetaPropertyFunction[Uml, U, V] {
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = Some(this)
@@ -220,7 +291,7 @@ package object oti {
         case _ => Failure(IllegalMetaPropertyEvaluation(e, this))
       }
 
-    override def toString: String = s"MetaPropertyReference($propertyName on ${u.getClass.getName})"
+    override def toString: String = s"MetaPropertyReference($propertyName on ${u.getClass.getName}${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {
@@ -239,7 +310,9 @@ package object oti {
 
   case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]](
                                                                                              propertyName: String,
-                                                                                             f: U => Iterable[V])(implicit val u: ClassTag[U])
+                                                                                             f: U => Iterable[V],
+                                                                                             isOrdered: Boolean = false,
+                                                                                             redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())(implicit val u: ClassTag[U])
     extends MetaPropertyFunction[Uml, U, V] {
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = None
@@ -259,7 +332,7 @@ package object oti {
       }
     }
 
-    override def toString: String = s"MetaPropertyCollection($propertyName on ${u.getClass.getName})"
+    override def toString: String = s"MetaPropertyCollection($propertyName on ${u.getClass.getName}${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {
@@ -333,7 +406,7 @@ package object oti {
 
   import operations._
 
-  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]](source: T, targets: Set[T], next: Function1[T, Set[T]]): Set[Seq[(T, T)]] = {
+  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]](source: T, targets: Set[T], next: T => Set[T]): Set[Seq[(T, T)]] = {
 
     val paths = scala.collection.mutable.HashSet[Seq[(T, T)]]()
 
@@ -343,7 +416,7 @@ package object oti {
         t2 <- next(t1)
         path = candidate :+(t1, t2)
         follow <- if (targets.contains(t2)) {
-          paths += path;
+          paths += path
           None
         } else Some(path)
       } yield follow

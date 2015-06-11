@@ -146,11 +146,65 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   /**
    * directed, non-derived, composite association end properties
+   *
+   * The order is according to Canonical XMI (ptc/2013-08-31), B5.2:
+   * B5.2 Property Elements
+   *
+   * Issue 17261: clarify the ordering
+   * Properties of an element are ordered by the class in which they are defined.
+   * Properties defined by a superclass appear before those of its subclasses.
+   * Where a class inherits from more than one direct superclass,
+   * properties from the class with the alphabetically earlier class name appear
+   * before those of an alphabetically later class name.
+   *
+   * Issue 17262: add note to clarify the ordering
+   * Note that if a property is redefined in a subclass,
+   * its position in the order remains the position of the original redefined property within the parent class.
+   *
+   * In OTI, B5.2 is interpreted as follows:
+   *
+   * For classes C1, C2 and for composite, non-derived properties P1, P2 such that:
+   * - P1 is defined in C1
+   * - P2 is defined in C2
+   * - C2 is the specific classifier in a generalization relationship with C1 as general classifier
+   * Then:
+   * - compositeMetaProperties contains P1 and P2
+   * - P1 is before P2, regardless of whether P2 directly or indirectly redefines P1
+   *
+   * @see http://solitaire.omg.org/browse/TIWG-29
+   * @see http://solitaire.omg.org/browse/TIWG-25
    */
   def compositeMetaProperties: MetaPropertyFunctions
 
   /**
    * directed, non-derived, reference association end properties
+   *
+   * The order is according to Canonical XMI (ptc/2013-08-31), B5.2:
+   * B5.2 Property Elements
+   *
+   * Issue 17261: clarify the ordering
+   * Properties of an element are ordered by the class in which they are defined.
+   * Properties defined by a superclass appear before those of its subclasses.
+   * Where a class inherits from more than one direct superclass,
+   * properties from the class with the alphabetically earlier class name appear
+   * before those of an alphabetically later class name.
+   *
+   * Issue 17262: add note to clarify the ordering
+   * Note that if a property is redefined in a subclass,
+   * its position in the order remains the position of the original redefined property within the parent class.
+   *
+   * In OTI, B5.2 is interpreted as follows:
+   *
+   * For classes C1, C2 and for non-composite, non-derived properties P1, P2 such that:
+   * - P1 is defined in C1
+   * - P2 is defined in C2
+   * - C2 is the specific classifier in a generalization relationship with C1 as general classifier
+   * Then:
+   * - referenceMetaProperties contains P1 and P2
+   * - P1 is before P2, regardless of whether P2 directly or indirectly redefines P1
+   *
+   * @see http://solitaire.omg.org/browse/TIWG-29
+   * @see http://solitaire.omg.org/browse/TIWG-25
    */
   def referenceMetaProperties: MetaPropertyFunctions
 
@@ -392,6 +446,37 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
 
+  /**
+   * @See MOF2.5
+   *
+   * Section 15.9 Additional Operations
+   * [6] This returns the single Property with a slot that represents
+   *     the current owner of the Object based on current instance values;
+   *     may be null for top level objects.
+   *
+   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *
+   * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
+   */
+  def getContainingMetaPropertyEvaluator: Try[Option[MetaPropertyEvaluator]] =
+    owner match {
+      case None => Success(None)
+      case Some(o) =>
+        val props: Seq[MetaPropertyEvaluator] = o.compositeMetaProperties.reverse.flatMap {
+          case mp: MetaReferenceEvaluator => mp.evaluate(o) match {
+            case Failure(f) => return Failure(f)
+            case Success(Some(e)) if e == self => Some[MetaPropertyEvaluator](mp)
+            case _ => None
+          }
+          case mp: MetaCollectionEvaluator => mp.evaluate(o) match {
+            case Failure(f) => return Failure(f)
+            case Success(es) if es.contains(self) => Some[MetaPropertyEvaluator](mp)
+            case _ => None
+          }
+        }
+        Success( props.headOption )
+    }
   /**
    * @See MOF2.5
    *
