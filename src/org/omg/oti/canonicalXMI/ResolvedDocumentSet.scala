@@ -43,6 +43,7 @@ import scala.annotation.tailrec
 import scala.language.higherKinds
 import scala.language.implicitConversions
 import scala.language.postfixOps
+import org.omg.oti._
 import org.omg.oti.api._
 import scala.util.Try
 import scala.util.Failure
@@ -341,28 +342,35 @@ case class ResolvedDocumentSet[Uml <: UML](
         }
     }
 
+
+  type MetaPropertyFunctionSet = Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+  type UMLElementSet = Set[UMLElement[Uml]]
+  import scala.xml.NodeSeq
+  type SerializationState = ( UMLElementSet, NodeSeq, MetaPropertyFunctionSet )
+
   @tailrec final protected def append1Pair(
     sub: UMLElement[Uml],
     t: Trampoline[Try[scala.xml.Node]],
     subElements: Set[UMLElement[Uml]],
-    nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
+    nodes: Seq[scala.xml.Node],
+                                            redefinitions: MetaPropertyFunctionSet): Trampoline[Try[SerializationState]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
     //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
 
     t.resume match {
       //case -\/( s ) => suspend { append1Node( nodes, s() ) }
-      case -\/( s ) => append1Pair( sub, s(), subElements, nodes )
+      case -\/( s ) => append1Pair( sub, s(), subElements, nodes, redefinitions )
       case \/-( r ) => r match {
         case Failure( f ) => return_ { Failure( f ) }
-        case Success( n ) => return_ { Success( ( subElements + sub, nodes :+ n ) ) }
+        case Success( n ) => return_ { Success( ( subElements + sub, nodes :+ n, redefinitions ) ) }
       }
     }
   }
 
   @tailrec final protected def append1Node(
-    nodes: Seq[scala.xml.Node],
-    t: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+    nodes: NodeSeq,
+    t: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[NodeSeq]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
     //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
@@ -378,8 +386,8 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def appendNodes(
-    t1: Trampoline[Try[Seq[scala.xml.Node]]],
-    t2: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[Seq[scala.xml.Node]]] = {
+    t1: Trampoline[Try[NodeSeq]],
+    t2: Trampoline[Try[scala.xml.Node]] ): Trampoline[Try[NodeSeq]] = {
 
     //    assert(
     //      Thread.currentThread().getStackTrace.count( _.getMethodName == "appendNodes" ) == 1,
@@ -397,8 +405,8 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
-                                          xRefs: Try[Seq[Node]],
-    t: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
+                                          xRefs: Try[NodeSeq],
+    t: Trampoline[Try[SerializationState]],
     prefix: String,
     label: String,
     xmlAttributesAndLocalReferences: scala.xml.MetaData,
@@ -414,7 +422,7 @@ case class ResolvedDocumentSet[Uml <: UML](
         wrapNodes( xRefs, s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
       case \/-( Failure( f ) ) =>
         return_ { Failure( f ) }
-      case \/-( Success( ( _, nodes ) ) ) =>
+      case \/-( Success( ( _, nodes, _ ) ) ) =>
         xRefs match {
           case Failure(f) =>
             return_ {
@@ -469,7 +477,7 @@ case class ResolvedDocumentSet[Uml <: UML](
             } )
       }
 
-    def foldAttributeNode( nodes: Try[Seq[Node]], f: e.MetaAttributeFunction ): Try[Seq[Node]] =
+    def foldAttributeNode( nodes: Try[NodeSeq], f: e.MetaAttributeFunction ): Try[NodeSeq] =
       ( nodes, f.evaluate( e ) ) match {
         case ( Failure( t ), _ ) => Failure( t )
         case ( _, Failure( t ) ) => Failure( t )
@@ -486,7 +494,7 @@ case class ResolvedDocumentSet[Uml <: UML](
      * when it is never present [as of XMI 2.4 this is standard XMI].
      *
      */
-    def foldReference( nodes: Try[Seq[Node]], f: e.MetaPropertyEvaluator ): Try[Seq[Node]] =
+    def foldReference( nodes: Try[NodeSeq], f: e.MetaPropertyEvaluator ): Try[NodeSeq] =
       nodes match {
         case Failure( t ) => Failure( t )
         case Success( ns ) =>
@@ -567,42 +575,44 @@ case class ResolvedDocumentSet[Uml <: UML](
     }
 
     def applyGenerateNodeElementsOrReferences(
-      f: e.MetaPropertyEvaluator,
-      subs: List[UMLElement[Uml]],
-      subElements: Set[UMLElement[Uml]],
-      nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
+                                               f: e.MetaPropertyEvaluator,
+                                               subs: List[UMLElement[Uml]],
+                                               subElements: Set[UMLElement[Uml]],
+                                               nodes: NodeSeq,
+                                               redefined: MetaPropertyFunctionSet): Trampoline[Try[SerializationState]] =
       subs match {
-        case Nil => return_ { Success( subElements, nodes ) }
+        case Nil => return_ { Success( subElements, nodes, redefined ) }
         case x :: xs =>
           for {
             node <- if ( subElements.contains( x ) )
-              append1Pair( x, callGenerateNodeReference( f, x ), subElements, nodes )
+              append1Pair( x, callGenerateNodeReference( f, x ), subElements, nodes, redefined )
             else
-              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes )
+              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes, redefined )
             result <- node match {
               case Failure( t )          => return return_ { Failure( t ) }
-              case Success( ( es, ns ) ) => applyGenerateNodeElementsOrReferences( f, xs, es, ns )
+              case Success( ( es, ns, rs ) ) => applyGenerateNodeElementsOrReferences( f, xs, es, ns, rs )
             }
           } yield result
       }
 
 
     def applyGenerateNodeElementsOrSkip(
-                                               f: e.MetaPropertyEvaluator,
-                                               subs: List[UMLElement[Uml]],
-                                               subElements: Set[UMLElement[Uml]],
-                                               nodes: Seq[scala.xml.Node] ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] =
+                                         f: e.MetaPropertyEvaluator,
+                                         subs: List[UMLElement[Uml]],
+                                         subElements: Set[UMLElement[Uml]],
+                                         nodes: NodeSeq,
+                                         redefined: MetaPropertyFunctionSet ): Trampoline[Try[SerializationState]] =
       subs match {
-        case Nil => return_ { Success( subElements, nodes ) }
+        case Nil => return_ { Success( subElements, nodes, redefined ) }
         case x :: xs =>
           for {
             node <- if ( subElements.contains( x ) )
-              return return_ { Success( subElements, nodes ) }
+              return return_ { Success( subElements, nodes, redefined ) }
             else
-              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes )
+              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes, redefined )
             result <- node match {
               case Failure( t )          => return return_ { Failure( t ) }
-              case Success( ( es, ns ) ) => applyGenerateNodeElementsOrSkip( f, xs, es, ns )
+              case Success( ( es, ns, rs ) ) => applyGenerateNodeElementsOrSkip( f, xs, es, ns, rs )
             }
           } yield result
       }
@@ -635,8 +645,8 @@ case class ResolvedDocumentSet[Uml <: UML](
      * it is not serialized by default. Properties that are not derived are serialized.
      */
     @tailrec def trampolineSubNode(
-      nodes: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]],
-      f: e.MetaPropertyEvaluator ): Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = {
+                                    nodes: Trampoline[Try[SerializationState]],
+                                    f: e.MetaPropertyEvaluator ): Trampoline[Try[SerializationState]] = {
 
       nodes.resume match {
         //        case -\/( s ) =>
@@ -649,24 +659,24 @@ case class ResolvedDocumentSet[Uml <: UML](
             case Failure( t ) =>
               return_ { Failure( t ) }
 
-            case Success( ( subElements, ns ) ) =>
+            case Success( ( subElements, ns, redefined ) ) =>
               f match {
                 case rf: e.MetaReferenceEvaluator =>
                   rf.evaluate( e ) match {
                     case Failure( t )    => return_ { Failure( t ) }
-                    case Success( None ) => return_ { Success( ( subElements, ns ) ) }
+                    case Success( None ) => return_ { Success( ( subElements, ns, redefined ) ) }
                     case Success( Some( sub ) ) =>
                       if ( subElements.contains( sub ) )
-                        return_ { Success( ( subElements, ns ) ) }
+                        return_ { Success( ( subElements, ns, f.redefinedMetaProperties ++ redefined ) ) }
                       else
-                        suspend { append1Pair( sub, callGenerateNodeElement( f, sub ), subElements, ns ) }
+                        suspend { append1Pair( sub, callGenerateNodeElement( f, sub ), subElements, ns, redefined ) }
                   }
                 case cf: e.MetaCollectionEvaluator =>
                   cf.evaluate( e ) match {
                     case Failure( t )   => return_ { Failure( t ) }
-                    case Success( Nil ) => return_ { Success( ( subElements, ns ) ) }
+                    case Success( Nil ) => return_ { Success( ( subElements, ns, redefined ) ) }
                     case Success( subs ) =>
-                      suspend { applyGenerateNodeElementsOrReferences( f, subs, subElements, ns ) }
+                      suspend { applyGenerateNodeElementsOrReferences( f, subs, subElements, ns, redefined ) }
                   }
               }
           }
@@ -685,7 +695,7 @@ case class ResolvedDocumentSet[Uml <: UML](
 
       case Success( mofAttributesN ) =>
         suspend {
-          val xRef0: Try[Seq[Node]] = Success( Seq() )
+          val xRef0: Try[NodeSeq] = Success( Seq() )
           val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode )
           val xRefs = ( xRefA /: refEvaluators )( foldReference )
 
@@ -702,7 +712,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           // composite meta-property is the 1st serialization of an object as a nested element)
           // but serialize the objects in order.
 
-          val xSub0: Trampoline[Try[( Set[UMLElement[Uml]], Seq[scala.xml.Node] )]] = return_( Success( ( Set(), Seq() ) ) )
+          val xSub0: Trampoline[Try[SerializationState]] = return_( Success( ( Set(), Seq(), Set() ) ) )
           val xRefsAndSubN = ( xSub0 /: subEvaluators.reverse )( trampolineSubNode )
 
           wrapNodes( xRefs, xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
