@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * CallAction is an abstract class for Actions that invoke a Behavior with given argument values and (if the invocation is synchronous) receive reply values.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,35 +56,38 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return the in and inout ownedParameters of the Behavior or Operation being called. (This operation is abstract and should be overridden by subclasses of CallAction.)
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inputParameters -->
+	 * <!-- End of user code doc for inputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 */
-	def inputParameters: Seq[UMLParameter[Uml]]  = {
+	def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return the inout, out and return ownedParameters of the Behavior or Operation being called. (This operation is abstract and should be overridden by subclasses of CallAction.)
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for outputParameters -->
+	 * <!-- End of user code doc for outputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 */
-	def outputParameters: Seq[UMLParameter[Uml]]  = {
+	def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The number of argument InputPins must be the same as the number of input (in and inout) ownedParameters of the called Behavior or Operation. The type, ordering and multiplicity of each argument InputPin must be consistent with the corresponding input Parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_argument_pins -->
+	 * <!-- End of user code doc for validate_argument_pins -->
 	 *
 	 * @body let parameter: OrderedSet(Parameter) = self.inputParameters() in
 	 * argument->size() = parameter->size() and
@@ -94,16 +96,17 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * 	argument->at(i).isOrdered = parameter->at(i).isOrdered and
 	 * 	argument->at(i).compatibleWith(parameter->at(i)))
 	 */
-	def validate_argument_pins: Boolean  = {
+	def validate_argument_pins: Boolean = {
 		// Start of user code for "argument_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The number of result OutputPins must be the same as the number of output (inout, out and return) ownedParameters of the called Behavior or Operation. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_result_pins -->
+	 * <!-- End of user code doc for validate_result_pins -->
 	 *
 	 * @body let parameter: OrderedSet(Parameter) = self.outputParameters() in
 	 * result->size() = parameter->size() and
@@ -112,20 +115,21 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_result_pins: Boolean  = {
+	def validate_result_pins: Boolean = {
 		// Start of user code for "result_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Only synchronous CallActions can have result OutputPins.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_synchronous_call -->
+	 * <!-- End of user code doc for validate_synchronous_call -->
 	 *
 	 * @body result->notEmpty() implies isSynchronous
 	 */
-	def validate_synchronous_call: Boolean  = {
+	def validate_synchronous_call: Boolean = {
 		// Start of user code for "synchronous_call"
     	???
     	// End of user code
@@ -133,5 +137,4 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCallAction
+} //UMLCallActionOps

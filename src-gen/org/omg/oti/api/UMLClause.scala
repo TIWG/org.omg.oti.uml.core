@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Clause is an Element that represents a single branch of a ConditionalNode, including a test and a body section. The body section is executed only if (but not necessarily if) the test section evaluates to true.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLClause[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLClauseOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLClause[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of ExecutableNodes that are executed if the test evaluates to true and the Clause is chosen over other Clauses within the ConditionalNode that also have tests that evaluate to true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for body -->
+	 * <!-- End of user code doc for body -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.body_clause
@@ -66,9 +68,10 @@ trait UMLClause[Uml <: UML]
 	def body: Set[UMLExecutableNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPins on Actions within the body section whose values are moved to the result OutputPins of the containing ConditionalNode after execution of the body.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for bodyOutput -->
+	 * <!-- End of user code doc for bodyOutput -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.bodyOutput_clause
@@ -76,9 +79,10 @@ trait UMLClause[Uml <: UML]
 	def bodyOutput: Seq[UMLOutputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An OutputPin on an Action in the test section whose Boolean value determines the result of the test.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for decider -->
+	 * <!-- End of user code doc for decider -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.decider_clause
@@ -86,9 +90,10 @@ trait UMLClause[Uml <: UML]
 	def decider: Option[UMLOutputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A set of Clauses whose tests must all evaluate to false before this Clause can evaluate its test.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for predecessorClause -->
+	 * <!-- End of user code doc for predecessorClause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClause.successorClause
@@ -96,9 +101,10 @@ trait UMLClause[Uml <: UML]
 	def predecessorClause: Set[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A set of Clauses that may not evaluate their tests unless the test for this Clause evaluates to false.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for successorClause -->
+	 * <!-- End of user code doc for successorClause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClause.predecessorClause
@@ -106,9 +112,10 @@ trait UMLClause[Uml <: UML]
 	def successorClause: Set[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of ExecutableNodes that are executed in order to provide a test result for the Clause.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for test -->
+	 * <!-- End of user code doc for test -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.test_clause
@@ -116,8 +123,8 @@ trait UMLClause[Uml <: UML]
 	def test: Set[UMLExecutableNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for clause_conditionalNode -->
+	 * <!-- End of user code doc for clause_conditionalNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConditionalNode.clause
@@ -126,12 +133,18 @@ trait UMLClause[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		clause_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLClause
+	 *
+	 * <!-- Start of user code doc for clause_metaAttributes -->
+	 * <!-- End of user code doc for clause_metaAttributes -->
 	 */
 	def clause_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -140,12 +153,18 @@ trait UMLClause[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		clause_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLClause
+	 *
+	 * <!-- Start of user code doc for clause_compositeMetaProperties -->
+	 * <!-- End of user code doc for clause_compositeMetaProperties -->
 	 */
 	def clause_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -154,18 +173,24 @@ trait UMLClause[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		clause_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLClause
+	 *
+	 * <!-- Start of user code doc for clause_referenceMetaProperties -->
+	 * <!-- End of user code doc for clause_referenceMetaProperties -->
 	 */
 	def clause_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]]("body", _.body),
-				MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput, true),
+				MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
 				MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]]("decider", _.decider),
 				MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("predecessorClause", _.predecessorClause),
 				MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]]("successorClause", _.successorClause),
@@ -173,12 +198,18 @@ trait UMLClause[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		clause_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLClause
+	 *
+	 * <!-- Start of user code doc for clause_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for clause_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def clause_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
@@ -189,4 +220,6 @@ trait UMLClause[Uml <: UML]
 		successorClause ++
 		test 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLClause

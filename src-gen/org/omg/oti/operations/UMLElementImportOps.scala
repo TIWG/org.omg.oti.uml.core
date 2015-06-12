@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ElementImport identifies a NamedElement in a Namespace other than the one that owns that NamedElement and allows the NamedElement to be referenced using an unqualified name in the Namespace owning the ElementImport.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the PackageableElement whose name is to be added to a Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importedElement -->
+	 * <!-- End of user code doc for importedElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackageableElement.importedElement_import
@@ -67,9 +67,10 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	def importedElement: Option[UMLPackageableElement[Uml]] = target.selectByKindOf { case x: UMLPackageableElement[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Namespace that imports a PackageableElement from another Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importingNamespace -->
+	 * <!-- End of user code doc for importingNamespace -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLNamespace.elementImport
@@ -77,9 +78,10 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	def importingNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query getName() returns the name under which the imported PackageableElement will be known in the importing namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for getName -->
+	 * <!-- End of user code doc for getName -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if alias->notEmpty() then
@@ -88,7 +90,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 *   importedElement.name
 	 * endif)
 	 */
-	def getName: Option[String]  = {
+	def getName: Option[String] = {
 		// Start of user code for "getName"
     if (alias.isDefined)
       alias
@@ -100,13 +102,14 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An importedElement has either public visibility or no visibility at all.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_imported_element_is_public -->
+	 * <!-- End of user code doc for validate_imported_element_is_public -->
 	 *
 	 * @body importedElement.visibility <> null implies importedElement.visibility = VisibilityKind::public
 	 */
-	def validate_imported_element_is_public: Boolean  = {
+	def validate_imported_element_is_public: Boolean = {
 		// Start of user code for "imported_element_is_public"
   	importedElement match {
       case Some(ie) => ie.visibility match {
@@ -119,13 +122,14 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The visibility of an ElementImport is either public or private.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_visibility_public_or_private -->
+	 * <!-- End of user code doc for validate_visibility_public_or_private -->
 	 *
 	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
 	 */
-	def validate_visibility_public_or_private: Boolean  = {
+	def validate_visibility_public_or_private: Boolean = {
 		// Start of user code for "visibility_public_or_private"
   	visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
   	// End of user code
@@ -142,5 +146,4 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
   })
 
 	// End of user code
-
-} //UMLElementImport
+} //UMLElementImportOps

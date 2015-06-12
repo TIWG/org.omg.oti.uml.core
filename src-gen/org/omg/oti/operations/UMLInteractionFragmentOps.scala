@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * InteractionFragment is an abstract notion of the most general interaction unit. An InteractionFragment is a piece of an Interaction. Each InteractionFragment is conceptually like an Interaction by itself.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interaction enclosing this InteractionFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for enclosingInteraction -->
+	 * <!-- End of user code doc for enclosingInteraction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.fragment
@@ -67,9 +67,10 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	def enclosingInteraction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The operand enclosing this InteractionFragment (they may nest recursively).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for enclosingOperand -->
+	 * <!-- End of user code doc for enclosingOperand -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionOperand.fragment
@@ -77,9 +78,10 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	def enclosingOperand: Option[UMLInteractionOperand[Uml]] = namespace.selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The general ordering relationships contained in this fragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for generalOrdering -->
+	 * <!-- End of user code doc for generalOrdering -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLGeneralOrdering.generalOrdering_interactionFragment
@@ -88,5 +90,4 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInteractionFragment
+} //UMLInteractionFragmentOps

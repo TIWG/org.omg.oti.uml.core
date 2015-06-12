@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ElementImport identifies a NamedElement in a Namespace other than the one that owns that NamedElement and allows the NamedElement to be referenced using an unqualified name in the Namespace owning the ElementImport.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLElementImport[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]
 	with UMLElementImportOps[Uml] {
@@ -56,18 +57,20 @@ trait UMLElementImport[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the name that should be added to the importing Namespace in lieu of the name of the imported PackagableElement. The alias must not clash with any other member in the importing Namespace. By default, no alias is used.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for alias -->
+	 * <!-- End of user code doc for alias -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def alias: Option[String]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the PackageableElement whose name is to be added to a Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importedElement -->
+	 * <!-- End of user code doc for importedElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackageableElement.importedElement_import
@@ -75,9 +78,10 @@ trait UMLElementImport[Uml <: UML]
 	def importedElement: Option[UMLPackageableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Namespace that imports a PackageableElement from another Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importingNamespace -->
+	 * <!-- End of user code doc for importingNamespace -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLNamespace.elementImport
@@ -85,17 +89,18 @@ trait UMLElementImport[Uml <: UML]
 	def importingNamespace: Option[UMLNamespace[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the visibility of the imported PackageableElement within the importingNamespace, i.e., whether the  importedElement will in turn be visible to other Namespaces. If the ElementImport is public, the importedElement will be visible outside the importingNamespace while, if the ElementImport is private, it will not.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for visibility -->
+	 * <!-- End of user code doc for visibility -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def visibility: UMLVisibilityKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for metaclassReference_profile -->
+	 * <!-- End of user code doc for metaclassReference_profile -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProfile.metaclassReference
@@ -104,12 +109,18 @@ trait UMLElementImport[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		elementImport_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLElementImport
+	 *
+	 * <!-- Start of user code doc for elementImport_metaAttributes -->
+	 * <!-- End of user code doc for elementImport_metaAttributes -->
 	 */
 	def elementImport_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,12 +129,18 @@ trait UMLElementImport[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		elementImport_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLElementImport
+	 *
+	 * <!-- Start of user code doc for elementImport_compositeMetaProperties -->
+	 * <!-- End of user code doc for elementImport_compositeMetaProperties -->
 	 */
 	def elementImport_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -132,12 +149,18 @@ trait UMLElementImport[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		elementImport_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLElementImport
+	 *
+	 * <!-- Start of user code doc for elementImport_referenceMetaProperties -->
+	 * <!-- End of user code doc for elementImport_referenceMetaProperties -->
 	 */
 	def elementImport_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -146,16 +169,24 @@ trait UMLElementImport[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		elementImport_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLElementImport
+	 *
+	 * <!-- Start of user code doc for elementImport_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for elementImport_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def elementImport_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		importedElement ++
 		importingNamespace 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLElementImport

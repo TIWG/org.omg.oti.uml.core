@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A BehavioredClassifier may have InterfaceRealizations, and owns a set of Behaviors one of which may specify the behavior of the BehavioredClassifier itself.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLBehavioredClassifier[Uml <: UML]
 	extends UMLClassifier[Uml]
 	with UMLBehavioredClassifierOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Behavior that specifies the behavior of the BehavioredClassifier itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for classifierBehavior -->
+	 * <!-- End of user code doc for classifierBehavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.classifierBehavior_behavioredClassifier
@@ -66,9 +68,10 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def classifierBehavior: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of InterfaceRealizations owned by the BehavioredClassifier. Interface realizations reference the Interfaces of which the BehavioredClassifier is an implementation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interfaceRealization -->
+	 * <!-- End of user code doc for interfaceRealization -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterfaceRealization.implementingClassifier
@@ -76,9 +79,10 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def interfaceRealization: Set[UMLInterfaceRealization[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Behaviors owned by a BehavioredClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedBehavior -->
+	 * <!-- End of user code doc for ownedBehavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.ownedBehavior_behavioredClassifier
@@ -86,8 +90,8 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def ownedBehavior: Set[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for context_behavior -->
+	 * <!-- End of user code doc for context_behavior -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.context
@@ -96,12 +100,18 @@ trait UMLBehavioredClassifier[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		behavioredClassifier_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLBehavioredClassifier
+	 *
+	 * <!-- Start of user code doc for behavioredClassifier_metaAttributes -->
+	 * <!-- End of user code doc for behavioredClassifier_metaAttributes -->
 	 */
 	def behavioredClassifier_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,12 +120,18 @@ trait UMLBehavioredClassifier[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		behavioredClassifier_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLBehavioredClassifier
+	 *
+	 * <!-- Start of user code doc for behavioredClassifier_compositeMetaProperties -->
+	 * <!-- End of user code doc for behavioredClassifier_compositeMetaProperties -->
 	 */
 	def behavioredClassifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,12 +141,18 @@ trait UMLBehavioredClassifier[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		behavioredClassifier_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLBehavioredClassifier
+	 *
+	 * <!-- Start of user code doc for behavioredClassifier_referenceMetaProperties -->
+	 * <!-- End of user code doc for behavioredClassifier_referenceMetaProperties -->
 	 */
 	def behavioredClassifier_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,15 +161,23 @@ trait UMLBehavioredClassifier[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		behavioredClassifier_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLBehavioredClassifier
+	 *
+	 * <!-- Start of user code doc for behavioredClassifier_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for behavioredClassifier_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def behavioredClassifier_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
 		classifierBehavior 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLBehavioredClassifier

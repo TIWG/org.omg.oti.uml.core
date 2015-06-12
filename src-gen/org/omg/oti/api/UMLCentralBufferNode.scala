@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CentralBufferNode is an ObjectNode for managing flows from multiple sources and targets.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCentralBufferNode[Uml <: UML]
 	extends UMLObjectNode[Uml]
 	with UMLCentralBufferNodeOps[Uml] {
@@ -57,12 +58,18 @@ trait UMLCentralBufferNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		centralBufferNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCentralBufferNode
+	 *
+	 * <!-- Start of user code doc for centralBufferNode_metaAttributes -->
+	 * <!-- End of user code doc for centralBufferNode_metaAttributes -->
 	 */
 	def centralBufferNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -71,12 +78,18 @@ trait UMLCentralBufferNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		centralBufferNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCentralBufferNode
+	 *
+	 * <!-- Start of user code doc for centralBufferNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for centralBufferNode_compositeMetaProperties -->
 	 */
 	def centralBufferNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -85,12 +98,18 @@ trait UMLCentralBufferNode[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		centralBufferNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCentralBufferNode
+	 *
+	 * <!-- Start of user code doc for centralBufferNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for centralBufferNode_referenceMetaProperties -->
 	 */
 	def centralBufferNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -99,15 +118,23 @@ trait UMLCentralBufferNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		centralBufferNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCentralBufferNode
+	 *
+	 * <!-- Start of user code doc for centralBufferNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for centralBufferNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def centralBufferNode_forwardReferencesFromMetamodelAssociations: Elements =
 		objectNode_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCentralBufferNode

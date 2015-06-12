@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * MessageEnd is an abstract specialization of NamedElement that represents what can occur at the end of a Message.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns a set including the enclosing InteractionFragment this MessageEnd is enclosed within.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for enclosingFragment -->
+	 * <!-- End of user code doc for enclosingFragment -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (if self->select(oclIsKindOf(Gate))->notEmpty() 
@@ -92,49 +92,52 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 *   endif
 	 * endif)
 	 */
-	def enclosingFragment: Set[UMLInteractionFragment[Uml]]  = {
+	def enclosingFragment: Set[UMLInteractionFragment[Uml]] = {
 		// Start of user code for "enclosingFragment"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns value true if this MessageEnd is a receiveEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isReceive -->
+	 * <!-- End of user code doc for isReceive -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (message.receiveEvent->asSet()->includes(self))
 	 */
-	def isReceive: Boolean  = {
+	def isReceive: Boolean = {
 		// Start of user code for "isReceive"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns value true if this MessageEnd is a sendEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isSend -->
+	 * <!-- End of user code doc for isSend -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (message.sendEvent->asSet()->includes(self))
 	 */
-	def isSend: Boolean  = {
+	def isSend: Boolean = {
 		// Start of user code for "isSend"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns a set including the MessageEnd (if exists) at the opposite end of the Message for this MessageEnd.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for oppositeEnd -->
+	 * <!-- End of user code doc for oppositeEnd -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (message->asSet().messageEnd->asSet()->excluding(self))
 	 */
-	def oppositeEnd: Set[UMLMessageEnd[Uml]]  = {
+	def oppositeEnd: Set[UMLMessageEnd[Uml]] = {
 		// Start of user code for "oppositeEnd"
     	???
     	// End of user code
@@ -142,5 +145,4 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLMessageEnd
+} //UMLMessageEndOps

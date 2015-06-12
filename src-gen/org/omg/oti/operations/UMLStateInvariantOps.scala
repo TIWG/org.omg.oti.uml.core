@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStateInvariantOps[Uml <: UML] { self: UMLStateInvariant[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Constraint that should hold at runtime for this StateInvariant.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for invariant -->
+	 * <!-- End of user code doc for invariant -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.invariant_stateInvariant
@@ -68,5 +68,4 @@ trait UMLStateInvariantOps[Uml <: UML] { self: UMLStateInvariant[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStateInvariant
+} //UMLStateInvariantOps

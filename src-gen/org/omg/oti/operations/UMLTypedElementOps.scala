@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TypedElement is a NamedElement that may have a Type specified for it.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLTypedElementOps[Uml <: UML] { self: UMLTypedElement[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTypedElement
+} //UMLTypedElementOps

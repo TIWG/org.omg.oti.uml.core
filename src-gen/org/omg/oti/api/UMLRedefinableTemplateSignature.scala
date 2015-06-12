@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A RedefinableTemplateSignature supports the addition of formal template parameters in a specialization of a template classifier.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLRedefinableTemplateSignature[Uml <: UML]
 	extends UMLRedefinableElement[Uml]
 	with UMLTemplateSignature[Uml]
@@ -57,9 +58,10 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifier that owns this RedefinableTemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.ownedTemplateSignature
@@ -67,9 +69,10 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	def classifier: Option[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The signatures extended by this RedefinableTemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extendedSignature -->
+	 * <!-- End of user code doc for extendedSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature_redefinableTemplateSignature
@@ -77,18 +80,20 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The formal template parameters of the extended signatures.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inheritedParameter -->
+	 * <!-- End of user code doc for inheritedParameter -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.inheritedParameter_redefinableTemplateSignature
+	 * @body result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
 	 */
 	def inheritedParameter: Set[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for extendedSignature_redefinableTemplateSignature -->
+	 * <!-- End of user code doc for extendedSignature_redefinableTemplateSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature
@@ -97,12 +102,18 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		redefinableTemplateSignature_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLRedefinableTemplateSignature
+	 *
+	 * <!-- Start of user code doc for redefinableTemplateSignature_metaAttributes -->
+	 * <!-- End of user code doc for redefinableTemplateSignature_metaAttributes -->
 	 */
 	def redefinableTemplateSignature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -112,12 +123,18 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		redefinableTemplateSignature_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLRedefinableTemplateSignature
+	 *
+	 * <!-- Start of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
+	 * <!-- End of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
 	 */
 	def redefinableTemplateSignature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -127,12 +144,18 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		redefinableTemplateSignature_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLRedefinableTemplateSignature
+	 *
+	 * <!-- Start of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
+	 * <!-- End of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
 	 */
 	def redefinableTemplateSignature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -142,12 +165,18 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLRedefinableTemplateSignature
+	 *
+	 * <!-- Start of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
@@ -155,4 +184,6 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 		classifier ++
 		extendedSignature 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLRedefinableTemplateSignature

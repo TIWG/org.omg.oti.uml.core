@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An AcceptCallAction is an AcceptEventAction that handles the receipt of a synchronous call request. In addition to the values from the Operation input parameters, the Action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller. An AcceptCallAction is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent ReplyAction will complete immediately with no effect.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_result_pins -->
+	 * <!-- End of user code doc for validate_result_pins -->
 	 *
 	 * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
 	 * result->size() = parameter->size() and
@@ -68,8 +68,8 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_result_pins: Boolean  = { 
-    	// Start of user code for "result_pins"     
+	def validate_result_pins: Boolean = {
+		// Start of user code for "result_pins"     
       trigger.toList match {
       case (t: UMLTrigger[Uml]) :: Nil =>
         t.event match {
@@ -93,17 +93,18 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
       case _ => false
     }
       // End of user code
-  }
+	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The action must have exactly one trigger, which must be for a CallEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_trigger_call_event -->
+	 * <!-- End of user code doc for validate_trigger_call_event -->
 	 *
 	 * @body trigger->size()=1 and
 	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
 	 */
-	def validate_trigger_call_event: Boolean  = {
+	def validate_trigger_call_event: Boolean = {
 		// Start of user code for "trigger_call_event"
   	trigger.toList match {
       case (t: UMLTrigger[Uml]) :: Nil =>
@@ -117,13 +118,14 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * isUnmrashall must be true for an AcceptCallAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_unmarshall -->
+	 * <!-- End of user code doc for validate_unmarshall -->
 	 *
 	 * @body isUnmarshall = true
 	 */
-	def validate_unmarshall: Boolean  = {
+	def validate_unmarshall: Boolean = {
 		// Start of user code for "unmarshall"
   	isUnmarshall
   	// End of user code
@@ -131,5 +133,4 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLAcceptCallAction
+} //UMLAcceptCallActionOps

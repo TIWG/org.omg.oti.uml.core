@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A GeneralizationSet is a PackageableElement whose instances represent sets of Generalization relationships.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,28 +56,30 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Every Generalization associated with a particular GeneralizationSet must have the same general Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_generalization_same_classifier -->
+	 * <!-- End of user code doc for validate_generalization_same_classifier -->
 	 *
 	 * @body generalization->collect(general)->asSet()->size() <= 1
 	 */
-	def validate_generalization_same_classifier: Boolean  = {
+	def validate_generalization_same_classifier: Boolean = {
 		// Start of user code for "generalization_same_classifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifier that maps to a GeneralizationSet may neither be a specific nor a general Classifier in any of the Generalization relationships defined for that GeneralizationSet. In other words, a power type may not be an instance of itself nor may its instances be its subclasses.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_maps_to_generalization_set -->
+	 * <!-- End of user code doc for validate_maps_to_generalization_set -->
 	 *
 	 * @body powertype <> null implies generalization->forAll( gen | 
 	 *     not (gen.general = powertype) and not gen.general.allParents()->includes(powertype) and not (gen.specific = powertype) and not powertype.allParents()->includes(gen.specific)
 	 *   )
 	 */
-	def validate_maps_to_generalization_set: Boolean  = {
+	def validate_maps_to_generalization_set: Boolean = {
 		// Start of user code for "maps_to_generalization_set"
     	???
     	// End of user code
@@ -86,5 +87,4 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLGeneralizationSet
+} //UMLGeneralizationSetOps

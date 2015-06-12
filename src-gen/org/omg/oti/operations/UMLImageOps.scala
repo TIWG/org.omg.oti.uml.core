@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Physical definition of a graphical image.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLImageOps[Uml <: UML] { self: UMLImage[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for icon_stereotype -->
+	 * <!-- End of user code doc for icon_stereotype -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStereotype.icon
@@ -67,5 +66,4 @@ trait UMLImageOps[Uml <: UML] { self: UMLImage[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLImage
+} //UMLImageOps

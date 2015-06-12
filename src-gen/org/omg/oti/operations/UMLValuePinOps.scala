@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ValuePin is an InputPin that provides a value by evaluating a ValueSpecification.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,26 +56,28 @@ trait UMLValuePinOps[Uml <: UML] { self: UMLValuePin[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the value ValueSpecification must conform to the type of the ValuePin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_compatible_type -->
+	 * <!-- End of user code doc for validate_compatible_type -->
 	 *
 	 * @body value.type.conformsTo(type)
 	 */
-	def validate_compatible_type: Boolean  = {
+	def validate_compatible_type: Boolean = {
 		// Start of user code for "compatible_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ValuePin may have no incoming ActivityEdges.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_incoming_edges -->
+	 * <!-- End of user code doc for validate_no_incoming_edges -->
 	 *
 	 * @body incoming->isEmpty()
 	 */
-	def validate_no_incoming_edges: Boolean  = {
+	def validate_no_incoming_edges: Boolean = {
 		// Start of user code for "no_incoming_edges"
     	???
     	// End of user code
@@ -84,5 +85,4 @@ trait UMLValuePinOps[Uml <: UML] { self: UMLValuePin[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLValuePin
+} //UMLValuePinOps

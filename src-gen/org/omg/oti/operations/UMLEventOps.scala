@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Event is the specification of some occurrence that may potentially trigger effects by an object.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLEventOps[Uml <: UML] { self: UMLEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLEvent
+} //UMLEventOps

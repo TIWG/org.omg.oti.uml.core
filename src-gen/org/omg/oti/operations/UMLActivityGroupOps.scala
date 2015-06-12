@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * ActivityGroup is an abstract class for defining sets of ActivityNodes and ActivityEdges in an Activity.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Activity containing the ActivityGroup, if it is directly owned by an Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inActivity -->
+	 * <!-- End of user code doc for inActivity -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivity.group
@@ -67,9 +67,10 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	def inActivity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Other ActivityGroups immediately contained in this ActivityGroup.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for subgroup -->
+	 * <!-- End of user code doc for subgroup -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityGroup.superGroup
@@ -77,9 +78,10 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	def subgroup: Set[UMLActivityGroup[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ActivityGroup immediately containing this ActivityGroup, if it is directly owned by another ActivityGroup.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for superGroup -->
+	 * <!-- End of user code doc for superGroup -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivityGroup.subgroup
@@ -87,16 +89,17 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	def superGroup: Option[UMLActivityGroup[Uml]] = owner.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Activity that directly or indirectly contains this ActivityGroup.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for containingActivity -->
+	 * <!-- End of user code doc for containingActivity -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..1"
 	 * @body result = (if superGroup<>null then superGroup.containingActivity()
 	 * else inActivity
 	 * endif)
 	 */
-	def containingActivity: Option[UMLActivity[Uml]]  = {
+	def containingActivity: Option[UMLActivity[Uml]] = {
 		// Start of user code for "containingActivity"
   	if (superGroup.isDefined) 
       superGroup.get.containingActivity
@@ -105,31 +108,33 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All containedNodes and containeEdges of an ActivityGroup must be in the same Activity as the group.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_nodes_and_edges -->
+	 * <!-- End of user code doc for validate_nodes_and_edges -->
 	 *
 	 * @body containedNode->forAll(activity = self.containingActivity()) and 
 	 * containedEdge->forAll(activity = self.containingActivity())
 	 */
-	def validate_nodes_and_edges: Boolean  = {
+	def validate_nodes_and_edges: Boolean = {
 		// Start of user code for "nodes_and_edges"
   	containedNode.forall { a => a.activity == self.containingActivity } && 
     containedEdge.forall { a => a.activity == self.containingActivity }
   	// End of user code
 	}
-  
+
 	/**
-	 * <!-- begin-model-doc -->
 	 * No containedNode or containedEdge of an ActivityGroup may be contained by its subgroups or its superGroups, transitively.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_contained -->
+	 * <!-- End of user code doc for validate_not_contained -->
 	 *
 	 * @body subgroup->closure(subgroup).containedNode->excludesAll(containedNode) and
 	 * superGroup->closure(superGroup).containedNode->excludesAll(containedNode) and 
 	 * subgroup->closure(subgroup).containedEdge->excludesAll(containedEdge) and 
 	 * superGroup->closure(superGroup).containedEdge->excludesAll(containedEdge)
 	 */
-	def validate_not_contained: Boolean  = {
+	def validate_not_contained: Boolean = {
 		// Start of user code for "not_contained"
   	val subgroups: Set[UMLActivityGroup[Uml]] = closure[UMLActivityGroup[Uml], UMLActivityGroup[Uml]]( self, sub => sub.subgroup + sub)
     val supergroups: Set[UMLActivityGroup[Uml]] = closure[UMLActivityGroup[Uml], UMLActivityGroup[Uml]]( self, sup => sup.superGroup.toSet + sup)
@@ -140,5 +145,4 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivityGroup
+} //UMLActivityGroupOps

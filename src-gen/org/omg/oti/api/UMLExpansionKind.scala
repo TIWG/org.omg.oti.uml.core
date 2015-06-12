@@ -40,35 +40,42 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc -->
  * ExpansionKind is an enumeration type used to specify how an ExpansionRegion executes its contents.
- * <!-- end-model-doc -->
+ *
+ * <!-- Start of user code documentation -->
+ * <!-- End of user code documentation -->
  */
 object UMLExpansionKind extends Enumeration {
 	
 	/**
 	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLExpansionKind = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* The content of the ExpansionRegion is executed iteratively for the elements of the input collections, in the order of the input elements, if the collections are ordered.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * The content of the ExpansionRegion is executed iteratively for the elements of the input collections, in the order of the input elements, if the collections are ordered.
+	 *
+	 * <!-- Start of user code doc for iterative -->
+	 * <!-- End of user code doc for iterative -->
+ 	 */
 	val iterative = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* The content of the ExpansionRegion is executed concurrently for the elements of the input collections.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * The content of the ExpansionRegion is executed concurrently for the elements of the input collections.
+	 *
+	 * <!-- Start of user code doc for parallel -->
+	 * <!-- End of user code doc for parallel -->
+ 	 */
 	val parallel = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* A stream of input collection elements flows into a single execution of the content of the ExpansionRegion, in the order of the collection elements if the input collections are ordered.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * A stream of input collection elements flows into a single execution of the content of the ExpansionRegion, in the order of the collection elements if the input collections are ordered.
+	 *
+	 * <!-- Start of user code doc for stream -->
+	 * <!-- End of user code doc for stream -->
+ 	 */
 	val stream = Value
 }

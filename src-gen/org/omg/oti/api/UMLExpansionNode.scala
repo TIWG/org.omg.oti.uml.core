@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExpansionNode is an ObjectNode used to indicate a collection input or output for an ExpansionRegion. A collection input of an ExpansionRegion contains a collection that is broken into its individual elements inside the region, whose content is executed once per element. A collection output of an ExpansionRegion combines individual elements produced by the execution of the region into a collection for use outside the region.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExpansionNode[Uml <: UML]
 	extends UMLObjectNode[Uml]
 	with UMLExpansionNodeOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExpansionNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExpansionRegion for which the ExpansionNode is an input.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for regionAsInput -->
+	 * <!-- End of user code doc for regionAsInput -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLExpansionRegion.inputElement
@@ -66,9 +68,10 @@ trait UMLExpansionNode[Uml <: UML]
 	def regionAsInput: Option[UMLExpansionRegion[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExpansionRegion for which the ExpansionNode is an output.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for regionAsOutput -->
+	 * <!-- End of user code doc for regionAsOutput -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLExpansionRegion.outputElement
@@ -77,12 +80,18 @@ trait UMLExpansionNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		expansionNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExpansionNode
+	 *
+	 * <!-- Start of user code doc for expansionNode_metaAttributes -->
+	 * <!-- End of user code doc for expansionNode_metaAttributes -->
 	 */
 	def expansionNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,12 +100,18 @@ trait UMLExpansionNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		expansionNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExpansionNode
+	 *
+	 * <!-- Start of user code doc for expansionNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for expansionNode_compositeMetaProperties -->
 	 */
 	def expansionNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,12 +120,18 @@ trait UMLExpansionNode[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		expansionNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExpansionNode
+	 *
+	 * <!-- Start of user code doc for expansionNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for expansionNode_referenceMetaProperties -->
 	 */
 	def expansionNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -120,16 +141,24 @@ trait UMLExpansionNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		expansionNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExpansionNode
+	 *
+	 * <!-- Start of user code doc for expansionNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for expansionNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def expansionNode_forwardReferencesFromMetamodelAssociations: Elements =
 		objectNode_forwardReferencesFromMetamodelAssociations ++
 		regionAsInput ++
 		regionAsOutput 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExpansionNode

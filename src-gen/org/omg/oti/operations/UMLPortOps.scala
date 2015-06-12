@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Port is a property of an EncapsulatedClassifier that specifies a distinct interaction point between that EncapsulatedClassifier and its environment or between the (behavior of the) EncapsulatedClassifier and its internal parts. Ports are connected to Properties of the EncapsulatedClassifier by Connectors through which requests can be made to invoke BehavioralFeatures. A Port may specify the services an EncapsulatedClassifier provides (offers) to its environment as well as the services that an EncapsulatedClassifier expects (requires) of its environment.  A Port may have an associated ProtocolStateMachine.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCclassifier offers to its environment via this Port, and which it will handle either directly or by forwarding it to a part of its internal structure. This association is derived according to the value of isConjugated. If isConjugated is false, provided is derived as the union of the sets of Interfaces realized by the type of the port and its supertypes, or directly from the type of the Port if the Port is typed by an Interface. If isConjugated is true, it is derived as the union of the sets of Interfaces used by the type of the Port and its supertypes.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for provided -->
+	 * <!-- End of user code doc for provided -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.provided_port
@@ -72,9 +72,10 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCassifier expects its environment to handle via this port. This association is derived according to the value of isConjugated. If isConjugated is false, required is derived as the union of the sets of Interfaces used by the type of the Port and its supertypes. If isConjugated is true, it is derived as the union of the sets of Interfaces realized by the type of the Port and its supertypes, or directly from the type of the Port if the Port is typed by an Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for required -->
+	 * <!-- End of user code doc for required -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.required_port
@@ -87,8 +88,8 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedPort_encapsulatedClassifier -->
+	 * <!-- End of user code doc for ownedPort_encapsulatedClassifier -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLEncapsulatedClassifier.ownedPort
@@ -100,9 +101,10 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The union of the sets of Interfaces realized by the type of the Port and its supertypes, or directly the type of the Port if the Port is typed by an Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for basicProvided -->
+	 * <!-- End of user code doc for basicProvided -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (if type.oclIsKindOf(Interface) 
@@ -110,60 +112,64 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	 * else type.oclAsType(Classifier).allRealizedInterfaces() 
 	 * endif)
 	 */
-	def basicProvided: Set[UMLInterface[Uml]]  = {
+	def basicProvided: Set[UMLInterface[Uml]] = {
 		// Start of user code for "basicProvided"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The union of the sets of Interfaces used by the type of the Port and its supertypes.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for basicRequired -->
+	 * <!-- End of user code doc for basicRequired -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = ( type.oclAsType(Classifier).allUsedInterfaces() )
 	 */
-	def basicRequired: Set[UMLInterface[Uml]]  = {
+	def basicRequired: Set[UMLInterface[Uml]] = {
 		// Start of user code for "basicRequired"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A defaultValue for port cannot be specified when the type of the Port is an Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_default_value -->
+	 * <!-- End of user code doc for validate_default_value -->
 	 *
 	 * @body type.oclIsKindOf(Interface) implies defaultValue->isEmpty()
 	 */
-	def validate_default_value: Boolean  = {
+	def validate_default_value: Boolean = {
 		// Start of user code for "default_value"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All Ports are owned by an EncapsulatedClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_encapsulated_owner -->
+	 * <!-- End of user code doc for validate_encapsulated_owner -->
 	 *
 	 * @body owner = encapsulatedClassifier
 	 */
-	def validate_encapsulated_owner: Boolean  = {
+	def validate_encapsulated_owner: Boolean = {
 		// Start of user code for "encapsulated_owner"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Port.aggregation must be composite.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_port_aggregation -->
+	 * <!-- End of user code doc for validate_port_aggregation -->
 	 *
 	 * @body aggregation = AggregationKind::composite
 	 */
-	def validate_port_aggregation: Boolean  = {
+	def validate_port_aggregation: Boolean = {
 		// Start of user code for "port_aggregation"
     	???
     	// End of user code
@@ -171,5 +177,4 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLPort
+} //UMLPortOps

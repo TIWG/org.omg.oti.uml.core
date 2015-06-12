@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Transition represents an arc between exactly one source Vertex and exactly one Target vertex (the source and targets may be the same Vertex). It may form part of a compound transition, which takes the StateMachine from one steady State configuration to another, representing the full response of the StateMachine to an occurrence of an Event that triggered it.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the Region that owns this Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for container -->
+	 * <!-- End of user code doc for container -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLRegion.transition
@@ -67,9 +67,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	def container: Option[UMLRegion[Uml]] = namespace.selectByKindOf { case x: UMLRegion[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies an optional behavior to be performed when the Transition fires.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for effect -->
+	 * <!-- End of user code doc for effect -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.effect_transition
@@ -77,9 +78,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	def effect: Option[UMLBehavior[Uml]] = ownedElement.selectByKindOf { case x: UMLBehavior[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Transition that is redefined by this Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedTransition -->
+	 * <!-- End of user code doc for redefinedTransition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition_transition
@@ -87,9 +89,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	def redefinedTransition: Option[UMLTransition[Uml]] = redefinedElement.selectByKindOf { case x: UMLTransition[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Classifier in which context this element may be redefined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinitionContext -->
+	 * <!-- End of user code doc for redefinitionContext -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.redefinitionContext_transition
@@ -107,9 +110,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Triggers that may fire the transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for trigger -->
+	 * <!-- End of user code doc for trigger -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTrigger.trigger_transition
@@ -117,8 +121,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	def trigger: Set[UMLTrigger[Uml]] = ownedElement.selectByKindOf { case x: UMLTrigger[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedTransition_transition -->
+	 * <!-- End of user code doc for redefinedTransition_transition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition
@@ -126,151 +130,162 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	def redefinedTransition_transition: Set[UMLTransition[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLTransition[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query containingStateMachine() returns the StateMachine that contains the Transition either directly or transitively.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for containingStateMachine -->
+	 * <!-- End of user code doc for containingStateMachine -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (container.containingStateMachine())
 	 */
-	def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
+	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isConsistentWith() specifies that a redefining Transition is consistent with a redefined Transition provided that the redefining Transition has the following relation to the redefined Transition: A redefining Transition redefines all properties of the corresponding redefined Transition except the source State and the Trigger.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
 	 * true)
 	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
+	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A fork segment must not have Guards or Triggers.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_fork_segment_guards -->
+	 * <!-- End of user code doc for validate_fork_segment_guards -->
 	 *
 	 * @body (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (guard = null and trigger->isEmpty())
 	 */
-	def validate_fork_segment_guards: Boolean  = {
+	def validate_fork_segment_guards: Boolean = {
 		// Start of user code for "fork_segment_guards"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A fork segment must always target a State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_fork_segment_state -->
+	 * <!-- End of user code doc for validate_fork_segment_state -->
 	 *
 	 * @body (source.oclIsKindOf(Pseudostate) and  source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (target.oclIsKindOf(State))
 	 */
-	def validate_fork_segment_state: Boolean  = {
+	def validate_fork_segment_state: Boolean = {
 		// Start of user code for "fork_segment_state"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An initial Transition at the topmost level Region of a StateMachine that has no Trigger.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_initial_transition -->
+	 * <!-- End of user code doc for validate_initial_transition -->
 	 *
 	 * @body (source.oclIsKindOf(Pseudostate) and container.stateMachine->notEmpty()) implies
 	 * 	trigger->isEmpty()
 	 */
-	def validate_initial_transition: Boolean  = {
+	def validate_initial_transition: Boolean = {
 		// Start of user code for "initial_transition"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A join segment must not have Guards or Triggers.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_join_segment_guards -->
+	 * <!-- End of user code doc for validate_join_segment_guards -->
 	 *
 	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (guard = null and trigger->isEmpty())
 	 */
-	def validate_join_segment_guards: Boolean  = {
+	def validate_join_segment_guards: Boolean = {
 		// Start of user code for "join_segment_guards"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A join segment must always originate from a State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_join_segment_state -->
+	 * <!-- End of user code doc for validate_join_segment_state -->
 	 *
 	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (source.oclIsKindOf(State))
 	 */
-	def validate_join_segment_state: Boolean  = {
+	def validate_join_segment_state: Boolean = {
 		// Start of user code for "join_segment_state"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Transitions outgoing Pseudostates may not have a Trigger.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_outgoing_pseudostates -->
+	 * <!-- End of user code doc for validate_outgoing_pseudostates -->
 	 *
 	 * @body source.oclIsKindOf(Pseudostate) and (source.oclAsType(Pseudostate).kind <> PseudostateKind::initial) implies trigger->isEmpty()
 	 */
-	def validate_outgoing_pseudostates: Boolean  = {
+	def validate_outgoing_pseudostates: Boolean = {
 		// Start of user code for "outgoing_pseudostates"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Transition with kind external can source any Vertex except entry points.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_state_is_external -->
+	 * <!-- End of user code doc for validate_state_is_external -->
 	 *
 	 * @body (kind = TransitionKind::external) implies
 	 * 	not (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint)
 	 */
-	def validate_state_is_external: Boolean  = {
+	def validate_state_is_external: Boolean = {
 		// Start of user code for "state_is_external"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Transition with kind internal must have a State as its source, and its source and target must be equal.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_state_is_internal -->
+	 * <!-- End of user code doc for validate_state_is_internal -->
 	 *
 	 * @body (kind = TransitionKind::internal) implies
 	 * 		(source.oclIsKindOf (State) and source = target)
 	 */
-	def validate_state_is_internal: Boolean  = {
+	def validate_state_is_internal: Boolean = {
 		// Start of user code for "state_is_internal"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Transition with kind local must have a composite State or an entry point as its source.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_state_is_local -->
+	 * <!-- End of user code doc for validate_state_is_local -->
 	 *
 	 * @body (kind = TransitionKind::local) implies
 	 * 		((source.oclIsKindOf (State) and source.oclAsType(State).isComposite) or
 	 * 		(source.oclIsKindOf (Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint))
 	 */
-	def validate_state_is_local: Boolean  = {
+	def validate_state_is_local: Boolean = {
 		// Start of user code for "state_is_local"
     	???
     	// End of user code
@@ -278,5 +293,4 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTransition
+} //UMLTransitionOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DurationInterval defines the range between two Durations.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLDurationInterval[Uml <: UML]
 	extends UMLInterval[Uml]
 	with UMLDurationIntervalOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLDurationInterval[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Refers to the Duration denoting the maximum value of the range.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for max -->
+	 * <!-- End of user code doc for max -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLDuration.max_durationInterval
@@ -66,9 +68,10 @@ trait UMLDurationInterval[Uml <: UML]
 	override def max: Option[UMLDuration[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Refers to the Duration denoting the minimum value of the range.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for min -->
+	 * <!-- End of user code doc for min -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLDuration.min_durationInterval
@@ -76,8 +79,8 @@ trait UMLDurationInterval[Uml <: UML]
 	override def min: Option[UMLDuration[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_durationConstraint -->
+	 * <!-- End of user code doc for specification_durationConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDurationConstraint.specification
@@ -86,12 +89,18 @@ trait UMLDurationInterval[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		durationInterval_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLDurationInterval
+	 *
+	 * <!-- Start of user code doc for durationInterval_metaAttributes -->
+	 * <!-- End of user code doc for durationInterval_metaAttributes -->
 	 */
 	def durationInterval_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +109,18 @@ trait UMLDurationInterval[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		durationInterval_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLDurationInterval
+	 *
+	 * <!-- Start of user code doc for durationInterval_compositeMetaProperties -->
+	 * <!-- End of user code doc for durationInterval_compositeMetaProperties -->
 	 */
 	def durationInterval_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -114,33 +129,45 @@ trait UMLDurationInterval[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		durationInterval_referenceMetaProperties
 
-	protected val DurationInterval_max = MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.max, false, Set(Interval_max))
-	protected val DurationInterval_min = MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.min, false, Set(Interval_min))
-
 	/**
 	 * The XMI reference meta-properties relevant to class UMLDurationInterval
+	 *
+	 * <!-- Start of user code doc for durationInterval_referenceMetaProperties -->
+	 * <!-- End of user code doc for durationInterval_referenceMetaProperties -->
 	 */
 	def durationInterval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interval_referenceMetaProperties,
-			Seq (DurationInterval_max, DurationInterval_min))
+			Seq (MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.max),
+				MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.min)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		durationInterval_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLDurationInterval
+	 *
+	 * <!-- Start of user code doc for durationInterval_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for durationInterval_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def durationInterval_forwardReferencesFromMetamodelAssociations: Elements =
 		interval_forwardReferencesFromMetamodelAssociations ++
 		max ++
 		min 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLDurationInterval

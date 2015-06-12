@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadLinkObjectEndQualifierAction is an Action that retrieves a qualifier end value from a link object.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin from which the link object is obtained.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_readLinkObjectEndQualifierAction
@@ -67,9 +67,10 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin where the result value is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
@@ -77,104 +78,112 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The association of the Association end of the qualifier Property must be an AssociationClass.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_association_of_association -->
+	 * <!-- End of user code doc for validate_association_of_association -->
 	 *
 	 * @body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
 	 */
-	def validate_association_of_association: Boolean  = {
+	def validate_association_of_association: Boolean = {
 		// Start of user code for "association_of_association"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ends of the Association must not be static.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_ends_of_association -->
+	 * <!-- End of user code doc for validate_ends_of_association -->
 	 *
 	 * @body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
 	 */
-	def validate_ends_of_association: Boolean  = {
+	def validate_ends_of_association: Boolean = {
 		// Start of user code for "ends_of_association"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
+	 * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity_of_object: Boolean  = {
+	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the qualifier Property is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
+	 * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
 	 *
 	 * @body qualifier.is(1,1)
 	 */
-	def validate_multiplicity_of_qualifier: Boolean  = {
+	def validate_multiplicity_of_qualifier: Boolean = {
 		// Start of user code for "multiplicity_of_qualifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the result OutputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
+	 * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
 	 * @body result.is(1,1)
 	 */
-	def validate_multiplicity_of_result: Boolean  = {
+	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The qualifier Property must be a qualifier of an Association end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_qualifier_attribute -->
+	 * <!-- End of user code doc for validate_qualifier_attribute -->
 	 *
 	 * @body qualifier.associationEnd <> null
 	 */
-	def validate_qualifier_attribute: Boolean  = {
+	def validate_qualifier_attribute: Boolean = {
 		// Start of user code for "qualifier_attribute"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the result OutputPin is the same as the type of the qualifier Property.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
+	 * <!-- End of user code doc for validate_same_type -->
 	 *
 	 * @body result.type = qualifier.type
 	 */
-	def validate_same_type: Boolean  = {
+	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the object InputPin is the AssociationClass that owns the Association end that has the given qualifier Property.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_of_object -->
+	 * <!-- End of user code doc for validate_type_of_object -->
 	 *
 	 * @body object.type = qualifier.associationEnd.association
 	 */
-	def validate_type_of_object: Boolean  = {
+	def validate_type_of_object: Boolean = {
 		// Start of user code for "type_of_object"
     	???
     	// End of user code
@@ -182,5 +191,4 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReadLinkObjectEndQualifierAction
+} //UMLReadLinkObjectEndQualifierActionOps

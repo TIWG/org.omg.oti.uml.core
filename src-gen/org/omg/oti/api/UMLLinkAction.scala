@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * LinkAction is an abstract class for all Actions that identify the links to be acted on using LinkEndData.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLLinkAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLLinkActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLLinkAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The LinkEndData identifying the values on the ends of the links acting on by this LinkAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for endData -->
+	 * <!-- End of user code doc for endData -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
 	 * @opposite org.omg.oti.api.UMLLinkEndData.endData_linkAction
@@ -66,9 +68,10 @@ trait UMLLinkAction[Uml <: UML]
 	def endData: Iterable[UMLLinkEndData[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * InputPins used by the LinkEndData of the LinkAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inputValue -->
+	 * <!-- End of user code doc for inputValue -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLInputPin.inputValue_linkAction
@@ -77,12 +80,18 @@ trait UMLLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		linkAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLLinkAction
+	 *
+	 * <!-- Start of user code doc for linkAction_metaAttributes -->
+	 * <!-- End of user code doc for linkAction_metaAttributes -->
 	 */
 	def linkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,29 +100,39 @@ trait UMLLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		linkAction_compositeMetaProperties
 
-	protected val LinkAction_endData = MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData)
-  protected val LinkAction_inputValue = MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)
-
 	/**
 	 * The XMI composite meta-properties relevant to class UMLLinkAction
+	 *
+	 * <!-- Start of user code doc for linkAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for linkAction_compositeMetaProperties -->
 	 */
 	def linkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (LinkAction_endData, LinkAction_inputValue))
+			Seq (MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]]("endData", _.endData),
+				MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		linkAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLLinkAction
+	 *
+	 * <!-- Start of user code doc for linkAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for linkAction_referenceMetaProperties -->
 	 */
 	def linkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -122,15 +141,23 @@ trait UMLLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		linkAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLLinkAction
+	 *
+	 * <!-- Start of user code doc for linkAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for linkAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def linkAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLLinkAction

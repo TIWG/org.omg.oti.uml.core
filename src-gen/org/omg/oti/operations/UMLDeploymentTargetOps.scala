@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A deployment target is the location for a deployed artifact.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of elements that are manifested in an Artifact that is involved in Deployment to a DeploymentTarget.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for deployedElement -->
+	 * <!-- End of user code doc for deployedElement -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageableElement.deployedElement_deploymentTarget
@@ -72,16 +72,16 @@ trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of Deployments for a DeploymentTarget.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for deployment -->
+	 * <!-- End of user code doc for deployment -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeployment.location
 	 */
-	def deployment: Set[UMLDeployment[Uml]] = ownedElement.selectByKindOf { case x: UMLDeployment[Uml] => x }
+	def deployment: Set[UMLDeployment[Uml]] = clientDependency.selectByKindOf { case x: UMLDeployment[Uml] => x }
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDeploymentTarget
+} //UMLDeploymentTargetOps

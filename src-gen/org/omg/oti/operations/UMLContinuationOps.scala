@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Continuation is a syntactic way to define continuations of different branches of an alternative CombinedFragment. Continuations are intuitively similar to labels representing intermediate points in a flow of control.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,41 +56,44 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Continuations always occur as the very first InteractionFragment or the very last InteractionFragment of the enclosing InteractionOperand.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_first_or_last_interaction_fragment -->
+	 * <!-- End of user code doc for validate_first_or_last_interaction_fragment -->
 	 *
 	 * @body  enclosingOperand->notEmpty() and 
 	 *  let peerFragments : OrderedSet(InteractionFragment) =  enclosingOperand.fragment in 
 	 *    ( peerFragments->notEmpty() and 
 	 *    ((peerFragments->first() = self) or  (peerFragments->last() = self)))
 	 */
-	def validate_first_or_last_interaction_fragment: Boolean  = {
+	def validate_first_or_last_interaction_fragment: Boolean = {
 		// Start of user code for "first_or_last_interaction_fragment"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Continuations are always global in the enclosing InteractionFragment e.g., it always covers all Lifelines covered by the enclosing InteractionOperator.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_global -->
+	 * <!-- End of user code doc for validate_global -->
 	 *
 	 * @body enclosingOperand->notEmpty() and
 	 *   let operandLifelines : Set(Lifeline) =  enclosingOperand.covered in 
 	 *     (operandLifelines->notEmpty() and 
 	 *     operandLifelines->forAll(ol :Lifeline |self.covered->includes(ol)))
 	 */
-	def validate_global: Boolean  = {
+	def validate_global: Boolean = {
 		// Start of user code for "global"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Across all Interaction instances having the same context value, every Lifeline instance covered by a Continuation (self) must be common with one covered Lifeline instance of all other Continuation instances with the same name as self, and every Lifeline instance covered by a Continuation instance with the same name as self must be common with one covered Lifeline instance of self. Lifeline instances are common if they have the same selector and represents associationEnd values.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_name -->
+	 * <!-- End of user code doc for validate_same_name -->
 	 *
 	 * @body enclosingOperand.combinedFragment->notEmpty() and
 	 * let parentInteraction : Set(Interaction) = 
@@ -118,7 +120,7 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *   select(represents = cl.represents and selector = cl.selector)->asSet()->size()=1))
 	 *   )
 	 */
-	def validate_same_name: Boolean  = {
+	def validate_same_name: Boolean = {
 		// Start of user code for "same_name"
     	???
     	// End of user code
@@ -126,5 +128,4 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLContinuation
+} //UMLContinuationOps

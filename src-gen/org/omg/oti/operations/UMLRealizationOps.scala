@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Realization is a specialized Abstraction relationship between two sets of model Elements, one representing a specification (the supplier) and the other represents an implementation of the latter (the client). Realization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, etc.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLRealizationOps[Uml <: UML] { self: UMLRealization[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLRealization
+} //UMLRealizationOps

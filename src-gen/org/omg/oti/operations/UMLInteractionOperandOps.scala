@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InteractionOperand is contained in a CombinedFragment. An InteractionOperand represents one operand of the expression given by the enclosing CombinedFragment.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Constraint of the operand.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for guard -->
+	 * <!-- End of user code doc for guard -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionConstraint.guard_interactionOperand
@@ -67,8 +67,8 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	def guard: Option[UMLInteractionConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLInteractionConstraint[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for operand_combinedFragment -->
+	 * <!-- End of user code doc for operand_combinedFragment -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCombinedFragment.operand
@@ -76,24 +76,26 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	def operand_combinedFragment: Option[UMLCombinedFragment[Uml]] = owner.selectByKindOf { case x: UMLCombinedFragment[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The guard must contain only references to values local to the Lifeline on which it resides, or values global to the whole Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_guard_contain_references -->
+	 * <!-- End of user code doc for validate_guard_contain_references -->
 	 *
 	 */
-	def validate_guard_contain_references: Boolean  = {
+	def validate_guard_contain_references: Boolean = {
 		// Start of user code for "guard_contain_references"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The guard must be placed directly prior to (above) the OccurrenceSpecification that will become the first OccurrenceSpecification within this InteractionOperand.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_guard_directly_prior -->
+	 * <!-- End of user code doc for validate_guard_directly_prior -->
 	 *
 	 */
-	def validate_guard_directly_prior: Boolean  = {
+	def validate_guard_directly_prior: Boolean = {
 		// Start of user code for "guard_directly_prior"
     	???
     	// End of user code
@@ -101,5 +103,4 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInteractionOperand
+} //UMLInteractionOperandOps

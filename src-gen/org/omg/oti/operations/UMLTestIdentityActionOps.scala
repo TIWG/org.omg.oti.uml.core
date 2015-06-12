@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TestIdentityAction is an Action that tests if two values are identical objects.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin whose Boolean value indicates whether the two input objects are identical.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_testIdentityAction
@@ -67,39 +67,42 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the InputPins is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body first.is(1,1) and second.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPins have no type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_type -->
+	 * <!-- End of user code doc for validate_no_type -->
 	 *
 	 * @body first.type= null and second.type = null
 	 */
-	def validate_no_type: Boolean  = {
+	def validate_no_type: Boolean = {
 		// Start of user code for "no_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the result OutputPin is Boolean. 
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_result_is_boolean -->
+	 * <!-- End of user code doc for validate_result_is_boolean -->
 	 *
 	 * @body result.type=Boolean
 	 */
-	def validate_result_is_boolean: Boolean  = {
+	def validate_result_is_boolean: Boolean = {
 		// Start of user code for "result_is_boolean"
     	???
     	// End of user code
@@ -107,5 +110,4 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTestIdentityAction
+} //UMLTestIdentityActionOps

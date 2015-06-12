@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConnectorEnd is an endpoint of a Connector, which attaches the Connector to a ConnectableElement.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A derived property referencing the corresponding end on the Association which types the Connector owing this ConnectorEnd, if any. It is derived by selecting the end at the same place in the ordering of Association ends as this ConnectorEnd.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for definingEnd -->
+	 * <!-- End of user code doc for definingEnd -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.definingEnd_connectorEnd
@@ -78,8 +78,8 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for end_connector -->
+	 * <!-- End of user code doc for end_connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConnector.end
@@ -87,53 +87,57 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	def end_connector: Option[UMLConnector[Uml]] = owner.selectByKindOf { case x: UMLConnector[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the ConnectorEnd may not be more general than the multiplicity of the corresponding end of the Association typing the owning Connector, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body self.compatibleWith(definingEnd)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a ConnectorEnd is attached to a Port of the containing Classifier, partWithPort will be empty.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_part_with_port_empty -->
+	 * <!-- End of user code doc for validate_part_with_port_empty -->
 	 *
 	 * @body (role.oclIsKindOf(Port) and role.owner = connector.owner) implies partWithPort->isEmpty()
 	 */
-	def validate_part_with_port_empty: Boolean  = {
+	def validate_part_with_port_empty: Boolean = {
 		// Start of user code for "part_with_port_empty"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a ConnectorEnd references a partWithPort, then the role must be a Port that is defined or inherited by the type of the partWithPort.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_role_and_part_with_port -->
+	 * <!-- End of user code doc for validate_role_and_part_with_port -->
 	 *
 	 * @body partWithPort->notEmpty() implies 
 	 *   (role.oclIsKindOf(Port) and partWithPort.type.oclAsType(Namespace).member->includes(role))
 	 */
-	def validate_role_and_part_with_port: Boolean  = {
+	def validate_role_and_part_with_port: Boolean = {
 		// Start of user code for "role_and_part_with_port"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Property held in self.partWithPort must not be a Port.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_self_part_with_port -->
+	 * <!-- End of user code doc for validate_self_part_with_port -->
 	 *
 	 * @body partWithPort->notEmpty() implies not partWithPort.oclIsKindOf(Port)
 	 */
-	def validate_self_part_with_port: Boolean  = {
+	def validate_self_part_with_port: Boolean = {
 		// Start of user code for "self_part_with_port"
     ???
     // End of user code
@@ -169,5 +173,4 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
     }
 
   // End of user code
-
-} //UMLConnectorEnd
+} //UMLConnectorEndOps

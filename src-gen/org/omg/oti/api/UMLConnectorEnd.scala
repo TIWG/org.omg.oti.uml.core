@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConnectorEnd is an endpoint of a Connector, which attaches the Connector to a ConnectableElement.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLConnectorEnd[Uml <: UML]
 	extends UMLMultiplicityElement[Uml]
 	with UMLConnectorEndOps[Uml] {
@@ -56,19 +57,28 @@ trait UMLConnectorEnd[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A derived property referencing the corresponding end on the Association which types the Connector owing this ConnectorEnd, if any. It is derived by selecting the end at the same place in the ordering of Association ends as this ConnectorEnd.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for definingEnd -->
+	 * <!-- End of user code doc for definingEnd -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.definingEnd_connectorEnd
+	 * @body result = (if connector.type = null 
+	 * then
+	 *   null 
+	 * else
+	 *   let index : Integer = connector.end->indexOf(self) in
+	 *     connector.type.memberEnd->at(index)
+	 * endif)
 	 */
 	def definingEnd: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates the role of the internal structure of a Classifier with the Port to which the ConnectorEnd is attached.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for partWithPort -->
+	 * <!-- End of user code doc for partWithPort -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.partWithPort_connectorEnd
@@ -76,9 +86,10 @@ trait UMLConnectorEnd[Uml <: UML]
 	def partWithPort: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ConnectableElement attached at this ConnectorEnd. When an instance of the containing Classifier is created, a link may (depending on the multiplicities) be created to an instance of the Classifier that types this ConnectableElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for role -->
+	 * <!-- End of user code doc for role -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConnectableElement.end
@@ -86,8 +97,8 @@ trait UMLConnectorEnd[Uml <: UML]
 	def role: Option[UMLConnectableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for end_connector -->
+	 * <!-- End of user code doc for end_connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConnector.end
@@ -96,12 +107,18 @@ trait UMLConnectorEnd[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		connectorEnd_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLConnectorEnd
+	 *
+	 * <!-- Start of user code doc for connectorEnd_metaAttributes -->
+	 * <!-- End of user code doc for connectorEnd_metaAttributes -->
 	 */
 	def connectorEnd_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,12 +127,18 @@ trait UMLConnectorEnd[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		connectorEnd_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLConnectorEnd
+	 *
+	 * <!-- Start of user code doc for connectorEnd_compositeMetaProperties -->
+	 * <!-- End of user code doc for connectorEnd_compositeMetaProperties -->
 	 */
 	def connectorEnd_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,12 +147,18 @@ trait UMLConnectorEnd[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		connectorEnd_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLConnectorEnd
+	 *
+	 * <!-- Start of user code doc for connectorEnd_referenceMetaProperties -->
+	 * <!-- End of user code doc for connectorEnd_referenceMetaProperties -->
 	 */
 	def connectorEnd_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,16 +168,24 @@ trait UMLConnectorEnd[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		connectorEnd_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLConnectorEnd
+	 *
+	 * <!-- Start of user code doc for connectorEnd_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for connectorEnd_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def connectorEnd_forwardReferencesFromMetamodelAssociations: Elements =
 		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
 		partWithPort ++
 		role 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLConnectorEnd

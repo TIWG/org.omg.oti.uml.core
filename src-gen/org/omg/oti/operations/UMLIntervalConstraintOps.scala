@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An IntervalConstraint is a Constraint that is specified by an Interval.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interval that specifies the condition of the IntervalConstraint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInterval.specification_intervalConstraint
@@ -68,5 +68,4 @@ trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLIntervalConstraint
+} //UMLIntervalConstraintOps

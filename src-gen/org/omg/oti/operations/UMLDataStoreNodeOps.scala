@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DataStoreNode is a CentralBufferNode for persistent data.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLDataStoreNodeOps[Uml <: UML] { self: UMLDataStoreNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDataStoreNode
+} //UMLDataStoreNodeOps

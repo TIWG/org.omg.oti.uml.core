@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OperationTemplateParameter exposes an Operation as a formal parameter for a template.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateP
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for validate_match_default_signature -->
+	 * <!-- End of user code doc for validate_match_default_signature -->
 	 *
 	 * @body default->notEmpty() implies (default.oclIsKindOf(Operation) and (let defaultOp : Operation = default.oclAsType(Operation) in 
 	 *     defaultOp.ownedParameter->size() = parameteredElement.ownedParameter->size() and
@@ -66,7 +65,7 @@ trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateP
 	 *         let p1: Parameter = defaultOp.ownedParameter->at(ix), p2 : Parameter = parameteredElement.ownedParameter->at(ix) in
 	 *           p1.type = p2.type and p1.upper = p2.upper and p1.lower = p2.lower and p1.direction = p2.direction and p1.isOrdered = p2.isOrdered and p1.isUnique = p2.isUnique)))
 	 */
-	def validate_match_default_signature: Boolean  = {
+	def validate_match_default_signature: Boolean = {
 		// Start of user code for "match_default_signature"
     	???
     	// End of user code
@@ -74,5 +73,4 @@ trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateP
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLOperationTemplateParameter
+} //UMLOperationTemplateParameterOps

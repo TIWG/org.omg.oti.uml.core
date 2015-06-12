@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Relationship is an abstract concept that specifies some kind of relationship between Elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLRelationshipOps[Uml <: UML] { self: UMLRelationship[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLRelationship
+} //UMLRelationshipOps

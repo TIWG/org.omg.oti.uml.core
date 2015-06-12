@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReduceAction is an Action that reduces a collection to a single value by repeatedly combining the elements of the collection using a reducer Behavior.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that provides the collection to be reduced.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for collection -->
+	 * <!-- End of user code doc for collection -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.collection_reduceAction
@@ -67,9 +67,10 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	def collection: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The output pin on which the result value is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_reduceAction
@@ -77,37 +78,40 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the collection InputPin must be a collection.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_input_type_is_collection -->
+	 * <!-- End of user code doc for validate_input_type_is_collection -->
 	 *
 	 */
-	def validate_input_type_is_collection: Boolean  = {
+	def validate_input_type_is_collection: Boolean = {
 		// Start of user code for "input_type_is_collection"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the output of the reducer Behavior must conform to the type of the result OutputPin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_output_types_are_compatible -->
+	 * <!-- End of user code doc for validate_output_types_are_compatible -->
 	 *
 	 * @body reducer.outputParameters().type->forAll(conformsTo(result.type))
 	 */
-	def validate_output_types_are_compatible: Boolean  = {
+	def validate_output_types_are_compatible: Boolean = {
 		// Start of user code for "output_types_are_compatible"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The reducer Behavior must have two input ownedParameters and one output ownedParameter, where the type of the output Parameter and the type of elements of the input collection conform to the types of the input Parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_reducer_inputs_output -->
+	 * <!-- End of user code doc for validate_reducer_inputs_output -->
 	 *
 	 */
-	def validate_reducer_inputs_output: Boolean  = {
+	def validate_reducer_inputs_output: Boolean = {
 		// Start of user code for "reducer_inputs_output"
     	???
     	// End of user code
@@ -115,5 +119,4 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReduceAction
+} //UMLReduceActionOps

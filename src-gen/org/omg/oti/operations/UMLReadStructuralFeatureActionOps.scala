@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadStructuralFeatureAction is a StructuralFeatureAction that retrieves the values of a StructuralFeature.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin on which the result values are placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readStructuralFeatureAction
@@ -67,27 +67,29 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the StructuralFeature must be compatible with the multiplicity of the result OutputPin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
+	 * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
 	 * @body structuralFeature.compatibleWith(result)
 	 */
-	def validate_multiplicity_of_result: Boolean  = {
+	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type and ordering of the result OutputPin are the same as the type and ordering of the StructuralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_and_ordering -->
+	 * <!-- End of user code doc for validate_type_and_ordering -->
 	 *
 	 * @body result.type =structuralFeature.type and 
 	 * result.isOrdered = structuralFeature.isOrdered
 	 */
-	def validate_type_and_ordering: Boolean  = {
+	def validate_type_and_ordering: Boolean = {
 		// Start of user code for "type_and_ordering"
     	???
     	// End of user code
@@ -95,5 +97,4 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReadStructuralFeatureAction
+} //UMLReadStructuralFeatureActionOps

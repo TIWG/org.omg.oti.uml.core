@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that owns this ExtensionPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for useCase -->
+	 * <!-- End of user code doc for useCase -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.extensionPoint
@@ -67,13 +67,14 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 	def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ExtensionPoint must have a name.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_must_have_name -->
+	 * <!-- End of user code doc for validate_must_have_name -->
 	 *
 	 * @body name->notEmpty ()
 	 */
-	def validate_must_have_name: Boolean  = {
+	def validate_must_have_name: Boolean = {
 		// Start of user code for "must_have_name"
     	???
     	// End of user code
@@ -81,5 +82,4 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExtensionPoint
+} //UMLExtensionPointOps

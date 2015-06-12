@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InteractionConstraint is a Boolean expression that guards an operand in a CombinedFragment.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLInteractionConstraint[Uml <: UML]
 	extends UMLConstraint[Uml]
 	with UMLInteractionConstraintOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLInteractionConstraint[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The maximum number of iterations of a loop
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for maxint -->
+	 * <!-- End of user code doc for maxint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.maxint_interactionConstraint
@@ -66,9 +68,10 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def maxint: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The minimum number of iterations of a loop
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for minint -->
+	 * <!-- End of user code doc for minint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.minint_interactionConstraint
@@ -76,8 +79,8 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def minint: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for guard_interactionOperand -->
+	 * <!-- End of user code doc for guard_interactionOperand -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteractionOperand.guard
@@ -86,12 +89,18 @@ trait UMLInteractionConstraint[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interactionConstraint_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLInteractionConstraint
+	 *
+	 * <!-- Start of user code doc for interactionConstraint_metaAttributes -->
+	 * <!-- End of user code doc for interactionConstraint_metaAttributes -->
 	 */
 	def interactionConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +109,18 @@ trait UMLInteractionConstraint[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interactionConstraint_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInteractionConstraint
+	 *
+	 * <!-- Start of user code doc for interactionConstraint_compositeMetaProperties -->
+	 * <!-- End of user code doc for interactionConstraint_compositeMetaProperties -->
 	 */
 	def interactionConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -115,12 +130,18 @@ trait UMLInteractionConstraint[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interactionConstraint_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInteractionConstraint
+	 *
+	 * <!-- Start of user code doc for interactionConstraint_referenceMetaProperties -->
+	 * <!-- End of user code doc for interactionConstraint_referenceMetaProperties -->
 	 */
 	def interactionConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,15 +150,23 @@ trait UMLInteractionConstraint[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interactionConstraint_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLInteractionConstraint
+	 *
+	 * <!-- Start of user code doc for interactionConstraint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interactionConstraint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interactionConstraint_forwardReferencesFromMetamodelAssociations: Elements =
 		constraint_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLInteractionConstraint

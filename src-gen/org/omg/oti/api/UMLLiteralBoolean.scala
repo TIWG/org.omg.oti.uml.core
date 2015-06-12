@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralBoolean is a specification of a Boolean value.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLLiteralBoolean[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]
 	with UMLLiteralBooleanOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLLiteralBoolean[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specified Boolean value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -66,12 +68,18 @@ trait UMLLiteralBoolean[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		literalBoolean_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLLiteralBoolean
+	 *
+	 * <!-- Start of user code doc for literalBoolean_metaAttributes -->
+	 * <!-- End of user code doc for literalBoolean_metaAttributes -->
 	 */
 	def literalBoolean_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -80,12 +88,18 @@ trait UMLLiteralBoolean[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		literalBoolean_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLLiteralBoolean
+	 *
+	 * <!-- Start of user code doc for literalBoolean_compositeMetaProperties -->
+	 * <!-- End of user code doc for literalBoolean_compositeMetaProperties -->
 	 */
 	def literalBoolean_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -94,12 +108,18 @@ trait UMLLiteralBoolean[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		literalBoolean_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLLiteralBoolean
+	 *
+	 * <!-- Start of user code doc for literalBoolean_referenceMetaProperties -->
+	 * <!-- End of user code doc for literalBoolean_referenceMetaProperties -->
 	 */
 	def literalBoolean_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -108,15 +128,23 @@ trait UMLLiteralBoolean[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		literalBoolean_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLLiteralBoolean
+	 *
+	 * <!-- Start of user code doc for literalBoolean_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for literalBoolean_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def literalBoolean_forwardReferencesFromMetamodelAssociations: Elements =
 		literalSpecification_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLLiteralBoolean

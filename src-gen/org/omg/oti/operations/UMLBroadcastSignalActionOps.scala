@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A BroadcastSignalAction is an InvocationAction that transmits a Signal instance to all the potential target objects in the system. Values from the argument InputPins are used to provide values for the attributes of the Signal. The requestor continues execution immediately after the Signal instances are sent out and cannot receive reply values.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,35 +56,38 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A BroadcaseSignalAction may not specify onPort.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_onport -->
+	 * <!-- End of user code doc for validate_no_onport -->
 	 *
 	 * @body onPort=null
 	 */
-	def validate_no_onport: Boolean  = {
+	def validate_no_onport: Boolean = {
 		// Start of user code for "no_onport"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The number of argument InputPins must be the same as the number of attributes in the signal.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_number_of_arguments -->
+	 * <!-- End of user code doc for validate_number_of_arguments -->
 	 *
 	 * @body argument->size() = signal.allAttributes()->size()
 	 */
-	def validate_number_of_arguments: Boolean  = {
+	def validate_number_of_arguments: Boolean = {
 		// Start of user code for "number_of_arguments"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type, ordering, and multiplicity of an argument InputPin must be the same as the corresponding attribute of the signal.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_ordering_multiplicity -->
+	 * <!-- End of user code doc for validate_type_ordering_multiplicity -->
 	 *
 	 * @body let attribute: OrderedSet(Property) = signal.allAttributes() in
 	 * Sequence{1..argument->size()}->forAll(i | 
@@ -93,7 +95,7 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 	 * 	argument->at(i).isOrdered = attribute->at(i).isOrdered and
 	 * 	argument->at(i).compatibleWith(attribute->at(i)))
 	 */
-	def validate_type_ordering_multiplicity: Boolean  = {
+	def validate_type_ordering_multiplicity: Boolean = {
 		// Start of user code for "type_ordering_multiplicity"
     	???
     	// End of user code
@@ -101,5 +103,4 @@ trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[U
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLBroadcastSignalAction
+} //UMLBroadcastSignalActionOps

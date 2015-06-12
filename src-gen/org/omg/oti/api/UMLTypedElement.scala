@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TypedElement is a NamedElement that may have a Type specified for it.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTypedElement[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLTypedElementOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTypedElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the TypedElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _type -->
+	 * <!-- End of user code doc for _type -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLType.type_typedElement
@@ -67,12 +69,18 @@ trait UMLTypedElement[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		typedElement_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_metaAttributes -->
+	 * <!-- End of user code doc for typedElement_metaAttributes -->
 	 */
 	def typedElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLTypedElement[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		typedElement_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for typedElement_compositeMetaProperties -->
 	 */
 	def typedElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLTypedElement[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		typedElement_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for typedElement_referenceMetaProperties -->
 	 */
 	def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLTypedElement[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		typedElement_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for typedElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def typedElement_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		_type 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTypedElement

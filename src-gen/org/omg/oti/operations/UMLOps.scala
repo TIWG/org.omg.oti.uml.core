@@ -70,47 +70,12 @@ class EarlyInit[T: TypeTag] {
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * The UML 2.5 metamodel
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLOps[Uml <: UML] { self =>
-
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-	def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
-
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-  def isMetamodelPropertyOrdered(p: Uml#MetamodelProperty): Boolean
-
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-	def getMetamodelPropertyName(p: Uml#MetamodelProperty): String
-
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-  def getMetamodelPropertyUpperBound(p: Uml#MetamodelProperty): Int
-
-
 	implicit val ABSTRACTION: TypeTag[Uml#Abstraction] 
 	implicit val ACCEPT_CALL_ACTION: TypeTag[Uml#AcceptCallAction] 
 	implicit val ACCEPT_EVENT_ACTION: TypeTag[Uml#AcceptEventAction] 
@@ -1566,6 +1531,38 @@ trait UMLOps[Uml <: UML] { self =>
 
 	// Start of user code for additional features
   
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
+	def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
+
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
+  def isMetamodelPropertyOrdered(p: Uml#MetamodelProperty): Boolean
+
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
+	def getMetamodelPropertyName(p: Uml#MetamodelProperty): String
+
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
+  def getMetamodelPropertyUpperBound(p: Uml#MetamodelProperty): Int
+
   type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
   type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
@@ -1719,5 +1716,4 @@ trait UMLOps[Uml <: UML] { self =>
     } 
   }    
   // End of user code
-
 }

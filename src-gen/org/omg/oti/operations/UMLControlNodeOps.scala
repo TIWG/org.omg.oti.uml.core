@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ControlNode is an abstract ActivityNode that coordinates flows in an Activity.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLControlNodeOps[Uml <: UML] { self: UMLControlNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLControlNode
+} //UMLControlNodeOps

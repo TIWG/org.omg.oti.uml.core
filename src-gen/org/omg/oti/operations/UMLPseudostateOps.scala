@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Pseudostate is an abstraction that encompasses different types of transient Vertices in the StateMachine graph. A StateMachine instance never comes to rest in a Pseudostate, instead, it will exit and enter the Pseudostate within a single run-to-completion step.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The State that owns this Pseudostate and in which it appears.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for state -->
+	 * <!-- End of user code doc for state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.connectionPoint
@@ -67,9 +67,10 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StateMachine in which this Pseudostate is defined. This only applies to Pseudostates of the kind entryPoint or exitPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for stateMachine -->
+	 * <!-- End of user code doc for stateMachine -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStateMachine.connectionPoint
@@ -77,100 +78,108 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	def stateMachine: Option[UMLStateMachine[Uml]] = namespace.selectByKindOf { case x: UMLStateMachine[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In a complete statemachine, a choice Vertex must have at least one incoming and one outgoing Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_choice_vertex -->
+	 * <!-- End of user code doc for validate_choice_vertex -->
 	 *
 	 * @body (kind = PseudostateKind::choice) implies (incoming->size() >= 1 and outgoing->size() >= 1)
 	 */
-	def validate_choice_vertex: Boolean  = {
+	def validate_choice_vertex: Boolean = {
 		// Start of user code for "choice_vertex"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In a complete StateMachine, a fork Vertex must have at least two outgoing Transitions and exactly one incoming Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_fork_vertex -->
+	 * <!-- End of user code doc for validate_fork_vertex -->
 	 *
 	 * @body (kind = PseudostateKind::fork) implies (incoming->size() = 1 and outgoing->size() >= 2)
 	 */
-	def validate_fork_vertex: Boolean  = {
+	def validate_fork_vertex: Boolean = {
 		// Start of user code for "fork_vertex"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * History Vertices can have at most one outgoing Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_history_vertices -->
+	 * <!-- End of user code doc for validate_history_vertices -->
 	 *
 	 * @body ((kind = PseudostateKind::deepHistory) or (kind = PseudostateKind::shallowHistory)) implies (outgoing->size() <= 1)
 	 */
-	def validate_history_vertices: Boolean  = {
+	def validate_history_vertices: Boolean = {
 		// Start of user code for "history_vertices"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An initial Vertex can have at most one outgoing Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_initial_vertex -->
+	 * <!-- End of user code doc for validate_initial_vertex -->
 	 *
 	 * @body (kind = PseudostateKind::initial) implies (outgoing->size() <= 1)
 	 */
-	def validate_initial_vertex: Boolean  = {
+	def validate_initial_vertex: Boolean = {
 		// Start of user code for "initial_vertex"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In a complete StateMachine, a join Vertex must have at least two incoming Transitions and exactly one outgoing Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_join_vertex -->
+	 * <!-- End of user code doc for validate_join_vertex -->
 	 *
 	 * @body (kind = PseudostateKind::join) implies (outgoing->size() = 1 and incoming->size() >= 2)
 	 */
-	def validate_join_vertex: Boolean  = {
+	def validate_join_vertex: Boolean = {
 		// Start of user code for "join_vertex"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In a complete StateMachine, a junction Vertex must have at least one incoming and one outgoing Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_junction_vertex -->
+	 * <!-- End of user code doc for validate_junction_vertex -->
 	 *
 	 * @body (kind = PseudostateKind::junction) implies (incoming->size() >= 1 and outgoing->size() >= 1)
 	 */
-	def validate_junction_vertex: Boolean  = {
+	def validate_junction_vertex: Boolean = {
 		// Start of user code for "junction_vertex"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The outgoing Transition from an initial vertex may have a behavior, but not a trigger or a guard.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_outgoing_from_initial -->
+	 * <!-- End of user code doc for validate_outgoing_from_initial -->
 	 *
 	 * @body (kind = PseudostateKind::initial) implies (outgoing.guard = null and outgoing.trigger->isEmpty())
 	 */
-	def validate_outgoing_from_initial: Boolean  = {
+	def validate_outgoing_from_initial: Boolean = {
 		// Start of user code for "outgoing_from_initial"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All Transitions incoming a join Vertex must originate in different Regions of an orthogonal State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_transitions_incoming -->
+	 * <!-- End of user code doc for validate_transitions_incoming -->
 	 *
 	 * @body (kind = PseudostateKind::join) implies
 	 * -- for any pair of incoming transitions there exists an orthogonal state which contains the source vetices of these transitions 
@@ -179,16 +188,17 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * 	((contState <> null) and (contState.region
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.source.isContainedInRegion(r1) and t2.source.isContainedInRegion(r2)))))
 	 */
-	def validate_transitions_incoming: Boolean  = {
+	def validate_transitions_incoming: Boolean = {
 		// Start of user code for "transitions_incoming"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All transitions outgoing a fork vertex must target states in different regions of an orthogonal state.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_transitions_outgoing -->
+	 * <!-- End of user code doc for validate_transitions_outgoing -->
 	 *
 	 * @body (kind = PseudostateKind::fork) implies
 	 * -- for any pair of outgoing transitions there exists an orthogonal state which contains the targets of these transitions 
@@ -198,7 +208,7 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.target.isContainedInRegion(r1) and t2.target.isContainedInRegion(r2)))))
 	 * 	
 	 */
-	def validate_transitions_outgoing: Boolean  = {
+	def validate_transitions_outgoing: Boolean = {
 		// Start of user code for "transitions_outgoing"
     	???
     	// End of user code
@@ -206,5 +216,4 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLPseudostate
+} //UMLPseudostateOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Gate is a MessageEnd which serves as a connection point for relating a Message which has a MessageEnd (sendEvent / receiveEvent) outside an InteractionFragment with another Message which has a MessageEnd (receiveEvent / sendEvent)  inside that InteractionFragment.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for actualGate_interactionUse -->
+	 * <!-- End of user code doc for actualGate_interactionUse -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionUse.actualGate
@@ -66,8 +65,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	def actualGate_interactionUse: Option[UMLInteractionUse[Uml]] = owner.selectByKindOf { case x: UMLInteractionUse[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for cfragmentGate_combinedFragment -->
+	 * <!-- End of user code doc for cfragmentGate_combinedFragment -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCombinedFragment.cfragmentGate
@@ -75,8 +74,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	def cfragmentGate_combinedFragment: Option[UMLCombinedFragment[Uml]] = owner.selectByKindOf { case x: UMLCombinedFragment[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for formalGate_interaction -->
+	 * <!-- End of user code doc for formalGate_interaction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.formalGate
@@ -84,9 +83,10 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	def formalGate_interaction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns the name of the gate, either the explicit name (.name) or the constructed name ('out_" or 'in_' concatenated in front of .message.name) if the explicit name is not present.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for getName -->
+	 * <!-- End of user code doc for getName -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if name->notEmpty() then name->asOrderedSet()->first()
@@ -102,16 +102,17 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *   endif
 	 * endif)
 	 */
-	def getName: Option[String]  = {
+	def getName: Option[String] = {
 		// Start of user code for "getName"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the Gate is an inside Combined Fragment Gate, this operation returns the InteractionOperand that the opposite end of this Gate is included within.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for getOperand -->
+	 * <!-- End of user code doc for getOperand -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if isInsideCF() then
@@ -125,59 +126,63 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *   else null
 	 * endif)
 	 */
-	def getOperand: Option[UMLInteractionOperand[Uml]]  = {
+	def getOperand: Option[UMLInteractionOperand[Uml]] = {
 		// Start of user code for "getOperand"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns true value if this Gate is an actualGate of an InteractionUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isActual -->
+	 * <!-- End of user code doc for isActual -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (interactionUse->notEmpty())
 	 */
-	def isActual: Boolean  = {
+	def isActual: Boolean = {
 		// Start of user code for "isActual"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isDistinguishableFrom() specifies that two Gates may coexist in the same Namespace, without an explicit name property. The association end formalGate subsets ownedElement, and since the Gate name attribute
-	 is optional, it is allowed to have two formal gates without an explicit name, but having derived names which are distinct.
-	 * <!-- end-model-doc -->
+	 * is optional, it is allowed to have two formal gates without an explicit name, but having derived names which are distinct.
+	 *
+	 * <!-- Start of user code doc for isDistinguishableFrom -->
+	 * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
+	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns true if this Gate is a formalGate of an Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isFormal -->
+	 * <!-- End of user code doc for isFormal -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (interaction->notEmpty())
 	 */
-	def isFormal: Boolean  = {
+	def isFormal: Boolean = {
 		// Start of user code for "isFormal"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present) is inside of an InteractionOperator of the same CombinedFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isInsideCF -->
+	 * <!-- End of user code doc for isInsideCF -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
@@ -190,16 +195,17 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * in combinedFragment = oppGate.combinedFragment.enclosingOperand.combinedFragment
 	 * endif)
 	 */
-	def isInsideCF: Boolean  = {
+	def isInsideCF: Boolean = {
 		// Start of user code for "isInsideCF"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present)  is outside of the same CombinedFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOutsideCF -->
+	 * <!-- End of user code doc for isOutsideCF -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
@@ -217,16 +223,17 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *      union(oppGate.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)->asSet())
 	 * endif)
 	 */
-	def isOutsideCF: Boolean  = {
+	def isOutsideCF: Boolean = {
 		// Start of user code for "isOutsideCF"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This query returns true if the name of this Gate matches the name of the in parameter Gate, and the messages for the two Gates correspond. The Message for one Gate (say A) corresponds to the Message for another Gate (say B) if (A and B have the same name value) and (if A is a sendEvent then B is a receiveEvent) and (if A is a receiveEvent then B is a sendEvent) and (A and B have the same messageSort value) and (A and B have the same signature value).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for matches -->
+	 * <!-- End of user code doc for matches -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (self.getName() = gateToMatch.getName() and 
@@ -236,96 +243,103 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * self.message.receiveEvent->includes(self) implies gateToMatch.message.sendEvent->includes(gateToMatch) and
 	 * self.message.signature = gateToMatch.message.signature)
 	 */
-	def matches(gateToMatch: Option[UMLGate[Uml]]): Boolean  = {
+	def matches(gateToMatch: Option[UMLGate[Uml]]): Boolean = {
 		// Start of user code for "matches"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * isActual() implies that no other actualGate of the parent InteractionUse returns the same getName() as returned for self
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_actual_gate_distinguishable -->
+	 * <!-- End of user code doc for validate_actual_gate_distinguishable -->
 	 *
 	 * @body isActual() implies interactionUse.actualGate->select(getName() = self.getName())->size()=1
 	 */
-	def validate_actual_gate_distinguishable: Boolean  = {
+	def validate_actual_gate_distinguishable: Boolean = {
 		// Start of user code for "actual_gate_distinguishable"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If this Gate is an actualGate, it must have exactly one matching formalGate within the referred Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_actual_gate_matched -->
+	 * <!-- End of user code doc for validate_actual_gate_matched -->
 	 *
 	 * @body interactionUse->notEmpty() implies interactionUse.refersTo.formalGate->select(matches(self))->size()=1
 	 */
-	def validate_actual_gate_matched: Boolean  = {
+	def validate_actual_gate_matched: Boolean = {
 		// Start of user code for "actual_gate_matched"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * isFormal() implies that no other formalGate of the parent Interaction returns the same getName() as returned for self
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_formal_gate_distinguishable -->
+	 * <!-- End of user code doc for validate_formal_gate_distinguishable -->
 	 *
 	 * @body isFormal() implies interaction.formalGate->select(getName() = self.getName())->size()=1
 	 */
-	def validate_formal_gate_distinguishable: Boolean  = {
+	def validate_formal_gate_distinguishable: Boolean = {
 		// Start of user code for "formal_gate_distinguishable"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * isInsideCF() implies that no other inside cfragmentGate attached to a message with its other end in the same InteractionOperator as self, returns the same getName() as returned for self
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_inside_cf_gate_distinguishable -->
+	 * <!-- End of user code doc for validate_inside_cf_gate_distinguishable -->
 	 *
 	 * @body isInsideCF() implies
 	 * let selfOperand : InteractionOperand = self.getOperand() in
 	 *   combinedFragment.cfragmentGate->select(isInsideCF() and getName() = self.getName())->select(getOperand() = selfOperand)->size()=1
 	 */
-	def validate_inside_cf_gate_distinguishable: Boolean  = {
+	def validate_inside_cf_gate_distinguishable: Boolean = {
 		// Start of user code for "inside_cf_gate_distinguishable"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If this Gate is inside a CombinedFragment, it must have exactly one matching Gate which is outside of that CombinedFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_inside_cf_matched -->
+	 * <!-- End of user code doc for validate_inside_cf_matched -->
 	 *
 	 * @body isInsideCF() implies combinedFragment.cfragmentGate->select(isOutsideCF() and matches(self))->size()=1
 	 */
-	def validate_inside_cf_matched: Boolean  = {
+	def validate_inside_cf_matched: Boolean = {
 		// Start of user code for "inside_cf_matched"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * isOutsideCF() implies that no other outside cfragmentGate of the parent CombinedFragment returns the same getName() as returned for self
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_outside_cf_gate_distinguishable -->
+	 * <!-- End of user code doc for validate_outside_cf_gate_distinguishable -->
 	 *
 	 * @body isOutsideCF() implies combinedFragment.cfragmentGate->select(getName() = self.getName())->size()=1
 	 */
-	def validate_outside_cf_gate_distinguishable: Boolean  = {
+	def validate_outside_cf_gate_distinguishable: Boolean = {
 		// Start of user code for "outside_cf_gate_distinguishable"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If this Gate is outside an 'alt' CombinedFragment,  for every InteractionOperator inside that CombinedFragment there must be exactly one matching Gate inside the CombindedFragment with its opposing end enclosed by that InteractionOperator. If this Gate is outside CombinedFragment with operator other than 'alt',   there must be exactly one matching Gate inside that CombinedFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_outside_cf_matched -->
+	 * <!-- End of user code doc for validate_outside_cf_matched -->
 	 *
 	 * @body isOutsideCF() implies
 	 *  if self.combinedFragment.interactionOperator->asOrderedSet()->first() = InteractionOperatorKind::alt
@@ -335,7 +349,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *  else  self.combinedFragment.cfragmentGate->select(isInsideCF() and matches(self))->size()=1
 	 *  endif
 	 */
-	def validate_outside_cf_matched: Boolean  = {
+	def validate_outside_cf_matched: Boolean = {
 		// Start of user code for "outside_cf_matched"
     	???
     	// End of user code
@@ -343,5 +357,4 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLGate
+} //UMLGateOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for condition_extend -->
+	 * <!-- End of user code doc for condition_extend -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLExtend.condition
@@ -66,8 +65,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	def condition_extend: Option[UMLExtend[Uml]] = owner.selectByKindOf { case x: UMLExtend[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for condition_parameterSet -->
+	 * <!-- End of user code doc for condition_parameterSet -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterSet.condition
@@ -75,8 +74,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	def condition_parameterSet: Option[UMLParameterSet[Uml]] = owner.selectByKindOf { case x: UMLParameterSet[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for invariant_stateInvariant -->
+	 * <!-- End of user code doc for invariant_stateInvariant -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStateInvariant.invariant
@@ -84,8 +83,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	def invariant_stateInvariant: Option[UMLStateInvariant[Uml]] = owner.selectByKindOf { case x: UMLStateInvariant[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for preCondition_protocolTransition -->
+	 * <!-- End of user code doc for preCondition_protocolTransition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.preCondition
@@ -93,37 +92,40 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	def preCondition_protocolTransition: Option[UMLProtocolTransition[Uml]] = guard_transition.selectByKindOf { case x: UMLProtocolTransition[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ValueSpecification for a Constraint must evaluate to a Boolean value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_boolean_value -->
+	 * <!-- End of user code doc for validate_boolean_value -->
 	 *
 	 */
-	def validate_boolean_value: Boolean  = {
+	def validate_boolean_value: Boolean = {
 		// Start of user code for "boolean_value"
   	???
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Evaluating the ValueSpecification for a Constraint must not have side effects.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_side_effects -->
+	 * <!-- End of user code doc for validate_no_side_effects -->
 	 *
 	 */
-	def validate_no_side_effects: Boolean  = {
+	def validate_no_side_effects: Boolean = {
 		// Start of user code for "no_side_effects"
   	???
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Constraint cannot be applied to itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_apply_to_self -->
+	 * <!-- End of user code doc for validate_not_apply_to_self -->
 	 *
 	 * @body not constrainedElement->includes(self)
 	 */
-	def validate_not_apply_to_self: Boolean  = {
+	def validate_not_apply_to_self: Boolean = {
 		// Start of user code for "not_apply_to_self"
   	!( constrainedElement.contains(self) )
   	// End of user code
@@ -131,5 +133,4 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLConstraint
+} //UMLConstraintOps

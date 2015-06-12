@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A stereotype defines how an existing metaclass may be extended, and enables the use of platform or domain specific terminology or notation in place of, or in addition to, the ones used for the extended metaclass.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLStereotype[Uml <: UML]
 	extends UMLClass[Uml]
 	with UMLStereotypeOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLStereotype[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Stereotype can change the graphical appearance of the extended model element by using attached icons. When this association is not null, it references the location of the icon content to be displayed within diagrams presenting the extended model elements.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for icon -->
+	 * <!-- End of user code doc for icon -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLImage.icon_stereotype
@@ -66,18 +68,20 @@ trait UMLStereotype[Uml <: UML]
 	def icon: Set[UMLImage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The profile that directly or indirectly contains this stereotype.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for profile -->
+	 * <!-- End of user code doc for profile -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProfile.profile_stereotype
+	 * @body result = (self.containingProfile())
 	 */
 	def profile: Option[UMLProfile[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedStereotype_owningPackage -->
+	 * <!-- End of user code doc for ownedStereotype_owningPackage -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.ownedStereotype
@@ -85,8 +89,8 @@ trait UMLStereotype[Uml <: UML]
 	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for type_extensionEnd -->
+	 * <!-- End of user code doc for type_extensionEnd -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExtensionEnd._type
@@ -95,12 +99,18 @@ trait UMLStereotype[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		stereotype_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_metaAttributes -->
+	 * <!-- End of user code doc for stereotype_metaAttributes -->
 	 */
 	def stereotype_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,12 +119,18 @@ trait UMLStereotype[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		stereotype_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_compositeMetaProperties -->
+	 * <!-- End of user code doc for stereotype_compositeMetaProperties -->
 	 */
 	def stereotype_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -123,12 +139,18 @@ trait UMLStereotype[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		stereotype_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_referenceMetaProperties -->
+	 * <!-- End of user code doc for stereotype_referenceMetaProperties -->
 	 */
 	def stereotype_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,15 +159,23 @@ trait UMLStereotype[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		stereotype_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for stereotype_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def stereotype_forwardReferencesFromMetamodelAssociations: Elements =
 		class_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLStereotype

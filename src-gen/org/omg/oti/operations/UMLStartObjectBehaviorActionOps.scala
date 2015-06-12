@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StartObjectBehaviorAction is an InvocationAction that starts the execution either of a directly instantiated Behavior or of the classifierBehavior of an object. Argument values may be supplied for the input Parameters of the Behavior. If the Behavior is invoked synchronously, then output values may be obtained for output Parameters.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the type of the object InputPin is a Behavior, then that Behavior. Otherwise, if the type of the object InputPin is a BehavioredClassifier, then the classifierBehavior of that BehavioredClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for behavior -->
+	 * <!-- End of user code doc for behavior -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..1"
 	 * @body result = (if object.type.oclIsKindOf(Behavior) then
@@ -71,74 +71,79 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * endif
 	 * endif)
 	 */
-	def behavior: Option[UMLBehavior[Uml]]  = {
+	def behavior: Option[UMLBehavior[Uml]] = {
 		// Start of user code for "behavior"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return the in and inout ownedParameters of the Behavior being called.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inputParameters -->
+	 * <!-- End of user code doc for inputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 * @body result = (self.behavior().inputParameters())
 	 */
-	override def inputParameters: Seq[UMLParameter[Uml]]  = {
+	override def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return the inout, out and return ownedParameters of the Behavior being called.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for outputParameters -->
+	 * <!-- End of user code doc for outputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 * @body result = (self.behavior().outputParameters())
 	 */
-	override def outputParameters: Seq[UMLParameter[Uml]]  = {
+	override def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin must be 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
+	 * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity_of_object: Boolean  = {
+	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A StartObjectBehaviorAction may not specify onPort.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_onport -->
+	 * <!-- End of user code doc for validate_no_onport -->
 	 *
 	 * @body onPort->isEmpty()
 	 */
-	def validate_no_onport: Boolean  = {
+	def validate_no_onport: Boolean = {
 		// Start of user code for "no_onport"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the object InputPin must be either a Behavior or a BehavioredClassifier with a classifierBehavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_of_object -->
+	 * <!-- End of user code doc for validate_type_of_object -->
 	 *
 	 * @body self.behavior()<>null
 	 */
-	def validate_type_of_object: Boolean  = {
+	def validate_type_of_object: Boolean = {
 		// Start of user code for "type_of_object"
     	???
     	// End of user code
@@ -146,5 +151,4 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStartObjectBehaviorAction
+} //UMLStartObjectBehaviorActionOps

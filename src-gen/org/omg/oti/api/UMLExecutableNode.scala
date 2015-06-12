@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExecutableNode is an abstract class for ActivityNodes whose execution may be controlled using ControlFlows and to which ExceptionHandlers may be attached.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExecutableNode[Uml <: UML]
 	extends UMLActivityNode[Uml]
 	with UMLExecutableNodeOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExecutableNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A set of ExceptionHandlers that are examined if an exception propagates out of the ExceptionNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for handler -->
+	 * <!-- End of user code doc for handler -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExceptionHandler.protectedNode
@@ -66,8 +68,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def handler: Set[UMLExceptionHandler[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for bodyPart_loopNode -->
+	 * <!-- End of user code doc for bodyPart_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.bodyPart
@@ -75,8 +77,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def bodyPart_loopNode: Option[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for body_clause -->
+	 * <!-- End of user code doc for body_clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClause.body
@@ -84,8 +86,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def body_clause: Option[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for executableNode_sequenceNode -->
+	 * <!-- End of user code doc for executableNode_sequenceNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLSequenceNode.executableNode
@@ -93,8 +95,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for handlerBody_exceptionHandler -->
+	 * <!-- End of user code doc for handlerBody_exceptionHandler -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExceptionHandler.handlerBody
@@ -102,8 +104,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def handlerBody_exceptionHandler: Set[UMLExceptionHandler[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for setupPart_loopNode -->
+	 * <!-- End of user code doc for setupPart_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.setupPart
@@ -111,8 +113,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def setupPart_loopNode: Option[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for test_clause -->
+	 * <!-- End of user code doc for test_clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClause.test
@@ -120,8 +122,8 @@ trait UMLExecutableNode[Uml <: UML]
 	def test_clause: Option[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for test_loopNode -->
+	 * <!-- End of user code doc for test_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.test
@@ -130,12 +132,18 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		executableNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExecutableNode
+	 *
+	 * <!-- Start of user code doc for executableNode_metaAttributes -->
+	 * <!-- End of user code doc for executableNode_metaAttributes -->
 	 */
 	def executableNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -144,12 +152,18 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		executableNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExecutableNode
+	 *
+	 * <!-- Start of user code doc for executableNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for executableNode_compositeMetaProperties -->
 	 */
 	def executableNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -158,12 +172,18 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		executableNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExecutableNode
+	 *
+	 * <!-- Start of user code doc for executableNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for executableNode_referenceMetaProperties -->
 	 */
 	def executableNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -172,15 +192,23 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		executableNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExecutableNode
+	 *
+	 * <!-- Start of user code doc for executableNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for executableNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def executableNode_forwardReferencesFromMetamodelAssociations: Elements =
 		activityNode_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExecutableNode

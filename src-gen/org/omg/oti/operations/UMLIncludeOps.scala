@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that is to be included.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for addition -->
+	 * <!-- End of user code doc for addition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.addition_include
@@ -67,9 +67,10 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 	def addition: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase which includes the addition and owns the Include relationship.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for includingCase -->
+	 * <!-- End of user code doc for includingCase -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.include
@@ -78,5 +79,4 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInclude
+} //UMLIncludeOps

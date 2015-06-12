@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Dependency is a Relationship that signifies that a single model Element or a set of model Elements requires other model Elements for their specification or implementation. This means that the complete semantics of the client Element(s) are either semantically or structurally dependent on the definition of the supplier Element(s).
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLDependency[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]
 	with UMLPackageableElement[Uml]
@@ -57,9 +58,10 @@ trait UMLDependency[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Element(s) dependent on the supplier Element(s). In some cases (such as a trace Abstraction) the assignment of direction (that is, the designation of the client Element) is at the discretion of the modeler and is a stipulation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for client -->
+	 * <!-- End of user code doc for client -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLNamedElement.clientDependency
@@ -67,9 +69,10 @@ trait UMLDependency[Uml <: UML]
 	def client: Set[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Element(s) on which the client Element(s) depend in some respect. The modeler may stipulate a sense of Dependency direction suitable for their domain.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for supplier -->
+	 * <!-- End of user code doc for supplier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLNamedElement.supplier_supplierDependency
@@ -77,8 +80,8 @@ trait UMLDependency[Uml <: UML]
 	def supplier: Set[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for roleBinding_collaborationUse -->
+	 * <!-- End of user code doc for roleBinding_collaborationUse -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCollaborationUse.roleBinding
@@ -87,12 +90,18 @@ trait UMLDependency[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		dependency_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLDependency
+	 *
+	 * <!-- Start of user code doc for dependency_metaAttributes -->
+	 * <!-- End of user code doc for dependency_metaAttributes -->
 	 */
 	def dependency_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -102,12 +111,18 @@ trait UMLDependency[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		dependency_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLDependency
+	 *
+	 * <!-- Start of user code doc for dependency_compositeMetaProperties -->
+	 * <!-- End of user code doc for dependency_compositeMetaProperties -->
 	 */
 	def dependency_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -117,12 +132,18 @@ trait UMLDependency[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		dependency_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLDependency
+	 *
+	 * <!-- Start of user code doc for dependency_referenceMetaProperties -->
+	 * <!-- End of user code doc for dependency_referenceMetaProperties -->
 	 */
 	def dependency_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -133,12 +154,18 @@ trait UMLDependency[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		dependency_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLDependency
+	 *
+	 * <!-- Start of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def dependency_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
@@ -146,4 +173,6 @@ trait UMLDependency[Uml <: UML]
 		client ++
 		supplier 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLDependency

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A GeneralOrdering represents a binary relation between two OccurrenceSpecifications, to describe that one OccurrenceSpecification must occur before the other in a valid trace. This mechanism provides the ability to define partial orders of OccurrenceSpecifications that may otherwise not have a specified order.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for generalOrdering_interactionFragment -->
+	 * <!-- End of user code doc for generalOrdering_interactionFragment -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionFragment.generalOrdering
@@ -66,13 +65,14 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]] = owner.selectByKindOf { case x: UMLInteractionFragment[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An occurrence specification must not be ordered relative to itself through a series of general orderings. (In other words, the transitive closure of the general orderings is irreflexive.)
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_irreflexive_transitive_closure -->
+	 * <!-- End of user code doc for validate_irreflexive_transitive_closure -->
 	 *
 	 * @body after->closure(toAfter.after)->excludes(before)
 	 */
-	def validate_irreflexive_transitive_closure: Boolean  = {
+	def validate_irreflexive_transitive_closure: Boolean = {
 		// Start of user code for "irreflexive_transitive_closure"
     	???
     	// End of user code
@@ -80,5 +80,4 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLGeneralOrdering
+} //UMLGeneralOrderingOps

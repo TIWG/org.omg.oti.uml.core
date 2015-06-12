@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A multiplicity is a definition of an inclusive interval of non-negative integers beginning with a lower bound and ending with a (possibly infinite) upper bound. A MultiplicityElement embeds this information to specify the allowable cardinalities for an instantiation of the Element.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLMultiplicityElement[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLMultiplicityElementOps[Uml] {
@@ -56,36 +57,41 @@ trait UMLMultiplicityElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * For a multivalued multiplicity, this attribute specifies whether the values in an instantiation of this MultiplicityElement are sequentially ordered.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOrdered -->
+	 * <!-- End of user code doc for isOrdered -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isOrdered: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * For a multivalued multiplicity, this attributes specifies whether the values in an instantiation of this MultiplicityElement are unique.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isUnique -->
+	 * <!-- End of user code doc for isUnique -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isUnique: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The lower bound of the multiplicity interval.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for lower -->
+	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (lowerBound())
 	 */
 	def lower: Integer
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specification of the lower bound for this multiplicity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for lowerValue -->
+	 * <!-- End of user code doc for lowerValue -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.lowerValue_owningLower
@@ -93,18 +99,21 @@ trait UMLMultiplicityElement[Uml <: UML]
 	def lowerValue: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The upper bound of the multiplicity interval.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for upper -->
+	 * <!-- End of user code doc for upper -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (upperBound())
 	 */
 	def upper: Integer
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specification of the upper bound for this multiplicity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for upperValue -->
+	 * <!-- End of user code doc for upperValue -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.upperValue_owningUpper
@@ -113,12 +122,18 @@ trait UMLMultiplicityElement[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		multiplicityElement_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLMultiplicityElement
+	 *
+	 * <!-- Start of user code doc for multiplicityElement_metaAttributes -->
+	 * <!-- End of user code doc for multiplicityElement_metaAttributes -->
 	 */
 	def multiplicityElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -128,12 +143,18 @@ trait UMLMultiplicityElement[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		multiplicityElement_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLMultiplicityElement
+	 *
+	 * <!-- Start of user code doc for multiplicityElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for multiplicityElement_compositeMetaProperties -->
 	 */
 	def multiplicityElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -143,12 +164,18 @@ trait UMLMultiplicityElement[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		multiplicityElement_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLMultiplicityElement
+	 *
+	 * <!-- Start of user code doc for multiplicityElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for multiplicityElement_referenceMetaProperties -->
 	 */
 	def multiplicityElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -157,15 +184,23 @@ trait UMLMultiplicityElement[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		multiplicityElement_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLMultiplicityElement
+	 *
+	 * <!-- Start of user code doc for multiplicityElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for multiplicityElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def multiplicityElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLMultiplicityElement

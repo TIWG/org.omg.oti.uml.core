@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Comment is a textual annotation that can be attached to a set of Elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedComment_owningElement -->
+	 * <!-- End of user code doc for ownedComment_owningElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLElement.ownedComment
@@ -70,5 +69,4 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
   def getCommentOwnerIndex: Int
 	
   // End of user code
-
-} //UMLComment
+} //UMLCommentOps

@@ -53,9 +53,8 @@ import scala.util.Failure
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Element is a constituent of a model. As such, it has the capability of owning other Elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -65,9 +64,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Comments owned by this Element.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedComment -->
+	 * <!-- End of user code doc for ownedComment -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComment.ownedComment_owningElement
@@ -75,41 +75,44 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allOwnedElements -->
+	 * <!-- End of user code doc for allOwnedElements -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
 	 */
-	def allOwnedElements: Set[UMLElement[Uml]]  = {
+	def allOwnedElements: Set[UMLElement[Uml]] = {
 		// Start of user code for "allOwnedElements"
   	closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for mustBeOwned -->
+	 * <!-- End of user code doc for mustBeOwned -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	def mustBeOwned: Boolean  = {
+	def mustBeOwned: Boolean = {
 		// Start of user code for "mustBeOwned"
   	true
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Elements that must be owned must have an owner.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_has_owner -->
+	 * <!-- End of user code doc for validate_has_owner -->
 	 *
 	 * @body mustBeOwned() implies owner->notEmpty()
 	 */
-	def validate_has_owner: Boolean  = {
+	def validate_has_owner: Boolean = {
 		// Start of user code for "has_owner"
   	if (mustBeOwned) {
       owner.isDefined 
@@ -118,13 +121,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An element may not directly or indirectly own itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_own_self -->
+	 * <!-- End of user code doc for validate_not_own_self -->
 	 *
 	 * @body not allOwnedElements()->includes(self)
 	 */
-	def validate_not_own_self: Boolean  = {
+	def validate_not_own_self: Boolean = {
 		// Start of user code for "not_own_self"
   	!( allOwnedElements.contains(self) )
   	// End of user code
@@ -263,6 +267,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     else Iterable()
 
   def integerToIterable( value: Integer, default: Integer ): Iterable[Integer] =
+    if ( value != default ) Iterable( value )
+    else Iterable()
+
+  def unlimitedNaturalToIterable( value: Integer, default: Integer ): Iterable[Integer] =
     if ( value != default ) Iterable( value )
     else Iterable()
 
@@ -452,10 +460,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * Section 15.9 Additional Operations
    * [6] This returns the single Property with a slot that represents
    *     the current owner of the Object based on current instance values;
-   *     may be null for top level objects.
+   *     may be null for top level objects.
    *
-   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
-   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
    *
    * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
    */
@@ -483,10 +491,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * Section 15.9 Additional Operations
    * [6] This returns the single Property with a slot that represents
    *     the current owner of the Object based on current instance values;
-   *     may be null for top level objects.
+   *     may be null for top level objects.
    *
-   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
-   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
    *
    * @return The single (M2)Property, if any, that represents the current owner of the (M1)Element object.
    */
@@ -511,7 +519,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *       self.propertySlot(p) <> null and (
    *        (self.propertySlot(p).value <> null and result = self.propertySlot(p).value) or result = p.default) or
    *        (p.isDerivedUnion and result = unionedProperties(p)->union(s| s = self.get(s)) or
-   *        (p.isDerived and result = self.extInvoke(‘get’, p))
+   *        (p.isDerived and result = self.extInvoke('get', p))
    *
    * @param f (M2)Property
    * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
@@ -565,5 +573,4 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     }
   
   // End of user code
-
-} //UMLElement
+} //UMLElementOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConsiderIgnoreFragment is a kind of CombinedFragment that is used for the consider and ignore cases, which require lists of pertinent Messages to be specified.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,26 +56,28 @@ trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The interaction operator of a ConsiderIgnoreFragment must be either 'consider' or 'ignore'.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_consider_or_ignore -->
+	 * <!-- End of user code doc for validate_consider_or_ignore -->
 	 *
 	 * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
 	 */
-	def validate_consider_or_ignore: Boolean  = {
+	def validate_consider_or_ignore: Boolean = {
 		// Start of user code for "consider_or_ignore"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The NamedElements must be of a type of element that can be a signature for a message (i.e.., an Operation, or a Signal).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate__type -->
+	 * <!-- End of user code doc for validate__type -->
 	 *
 	 * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
 	 */
-	def validate__type: Boolean  = {
+	def validate__type: Boolean = {
 		// Start of user code for "_type"
     	???
     	// End of user code
@@ -84,5 +85,4 @@ trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLConsiderIgnoreFragment
+} //UMLConsiderIgnoreFragmentOps

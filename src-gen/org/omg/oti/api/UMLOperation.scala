@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Operation is a BehavioralFeature of a Classifier that specifies the name, type, parameters, and constraints for invoking an associated Behavior. An Operation may invoke both the execution of method behaviors as well as other behavioral responses. Operation specializes TemplateableElement in order to support specification of template operations and bound operations. Operation specializes ParameterableElement to specify that an operation can be exposed as a formal template parameter, and provided as an actual parameter in a binding of a template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLOperation[Uml <: UML]
 	extends UMLBehavioralFeature[Uml]
 	with UMLParameterableElement[Uml]
@@ -58,9 +59,10 @@ trait UMLOperation[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Class that owns this operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _class -->
+	 * <!-- End of user code doc for _class -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClass.ownedOperation
@@ -68,19 +70,22 @@ trait UMLOperation[Uml <: UML]
 	def _class: Option[UMLClass[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The return type of the operation, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _type -->
+	 * <!-- End of user code doc for _type -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLType.type_operation
+	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).type else null endif)
 	 */
 	def _type: Option[UMLType[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional Constraint on the result values of an invocation of this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for bodyCondition -->
+	 * <!-- End of user code doc for bodyCondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.bodyCondition_bodyContext
@@ -88,9 +93,10 @@ trait UMLOperation[Uml <: UML]
 	def bodyCondition: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DataType that owns this Operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for datatype -->
+	 * <!-- End of user code doc for datatype -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDataType.ownedOperation
@@ -98,9 +104,10 @@ trait UMLOperation[Uml <: UML]
 	def datatype: Option[UMLDataType[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interface that owns this Operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interface -->
+	 * <!-- End of user code doc for interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInterface.ownedOperation
@@ -108,45 +115,53 @@ trait UMLOperation[Uml <: UML]
 	def interface: Option[UMLInterface[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether the return parameter is ordered or not, if present.  This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOrdered -->
+	 * <!-- End of user code doc for isOrdered -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
 	 */
 	def isOrdered: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether an execution of the BehavioralFeature leaves the state of the system unchanged (isQuery=true) or whether side effects may occur (isQuery=false).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isQuery -->
+	 * <!-- End of user code doc for isQuery -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isQuery: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether the return parameter is unique or not, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isUnique -->
+	 * <!-- End of user code doc for isUnique -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
 	 */
 	def isUnique: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the lower multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for lower -->
+	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
 	 */
 	def lower: Option[Integer]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The parameters owned by this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameter.operation
@@ -154,9 +169,10 @@ trait UMLOperation[Uml <: UML]
 	override def ownedParameter: Seq[UMLParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional set of Constraints specifying the state of the system when the Operation is completed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for postcondition -->
+	 * <!-- End of user code doc for postcondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.postcondition_postContext
@@ -164,9 +180,10 @@ trait UMLOperation[Uml <: UML]
 	def postcondition: Set[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional set of Constraints on the state of the system when the Operation is invoked.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for precondition -->
+	 * <!-- End of user code doc for precondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.precondition_preContext
@@ -174,9 +191,10 @@ trait UMLOperation[Uml <: UML]
 	def precondition: Set[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Types representing exceptions that may be raised during an invocation of this operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for raisedException -->
+	 * <!-- End of user code doc for raisedException -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLType.raisedException_operation
@@ -184,9 +202,10 @@ trait UMLOperation[Uml <: UML]
 	override def raisedException: Set[UMLType[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Operations that are redefined by this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedOperation -->
+	 * <!-- End of user code doc for redefinedOperation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation_operation
@@ -194,9 +213,10 @@ trait UMLOperation[Uml <: UML]
 	def redefinedOperation: Set[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OperationTemplateParameter that exposes this element as a formal parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for templateParameter -->
+	 * <!-- End of user code doc for templateParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOperationTemplateParameter.parameteredElement
@@ -204,17 +224,19 @@ trait UMLOperation[Uml <: UML]
 	override def templateParameter: Option[UMLOperationTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The upper multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for upper -->
+	 * <!-- End of user code doc for upper -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
 	 */
 	def upper: Option[Integer]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for operation_callEvent -->
+	 * <!-- End of user code doc for operation_callEvent -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLCallEvent.operation
@@ -222,8 +244,8 @@ trait UMLOperation[Uml <: UML]
 	def operation_callEvent: Set[UMLCallEvent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for operation_callOperationAction -->
+	 * <!-- End of user code doc for operation_callOperationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLCallOperationAction.operation
@@ -231,8 +253,8 @@ trait UMLOperation[Uml <: UML]
 	def operation_callOperationAction: Set[UMLCallOperationAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedOperation_artifact -->
+	 * <!-- End of user code doc for ownedOperation_artifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.ownedOperation
@@ -240,8 +262,8 @@ trait UMLOperation[Uml <: UML]
 	def ownedOperation_artifact: Option[UMLArtifact[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedOperation_operation -->
+	 * <!-- End of user code doc for redefinedOperation_operation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation
@@ -249,8 +271,8 @@ trait UMLOperation[Uml <: UML]
 	def redefinedOperation_operation: Set[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for referred_protocolTransition -->
+	 * <!-- End of user code doc for referred_protocolTransition -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.referred
@@ -259,12 +281,18 @@ trait UMLOperation[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		operation_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLOperation
+	 *
+	 * <!-- Start of user code doc for operation_metaAttributes -->
+	 * <!-- End of user code doc for operation_metaAttributes -->
 	 */
 	def operation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -275,34 +303,43 @@ trait UMLOperation[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		operation_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLOperation
+	 *
+	 * <!-- Start of user code doc for operation_compositeMetaProperties -->
+	 * <!-- End of user code doc for operation_compositeMetaProperties -->
 	 */
 	def operation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioralFeature_compositeMetaProperties,
 			parameterableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq(MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter)))
-				/* Workaround waiting for a generic fix
-        *MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-        * MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-        * MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)
-        * 
-        */
+			Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
+				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
+				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		operation_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLOperation
+	 *
+	 * <!-- Start of user code doc for operation_referenceMetaProperties -->
+	 * <!-- End of user code doc for operation_referenceMetaProperties -->
 	 */
 	def operation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -311,20 +348,22 @@ trait UMLOperation[Uml <: UML]
 			templateableElement_referenceMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
 				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
-				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter),
-        //Workaround waiting for a generic fix
-        MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-        MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-        MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
+				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		operation_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLOperation
+	 *
+	 * <!-- Start of user code doc for operation_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for operation_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def operation_forwardReferencesFromMetamodelAssociations: Elements =
 		behavioralFeature_forwardReferencesFromMetamodelAssociations ++
@@ -337,4 +376,6 @@ trait UMLOperation[Uml <: UML]
 		redefinedOperation ++
 		templateParameter 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLOperation

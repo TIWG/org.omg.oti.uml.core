@@ -46,10 +46,9 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Action is the fundamental unit of executable functionality. The execution of an Action represents some transformation or processing in the modeled system. Actions provide the ExecutableNodes within Activities and may also be used within Interactions.
- * <!-- end-model-doc -->
- * <!-- Start of user code documentation --> 
+ *
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>	
@@ -57,9 +56,10 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The context Classifier of the Behavior that contains this Action, or the Behavior itself if it has no context.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for context -->
+	 * <!-- End of user code doc for context -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.context_action
@@ -83,8 +83,8 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for action_interaction -->
+	 * <!-- End of user code doc for action_interaction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.action
@@ -92,8 +92,8 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	def action_interaction: Option[UMLInteraction[Uml]] = owner.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for fromAction_actionInputPin -->
+	 * <!-- End of user code doc for fromAction_actionInputPin -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActionInputPin.fromAction
@@ -101,36 +101,38 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	def fromAction_actionInputPin: Option[UMLActionInputPin[Uml]] = owner.selectByKindOf { case x: UMLActionInputPin[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return this Action and all Actions contained directly or indirectly in it. By default only the Action itself is returned, but the operation is overridden for StructuredActivityNodes.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allActions -->
+	 * <!-- End of user code doc for allActions -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (self->asSet())
 	 */
-	def allActions: Set[UMLAction[Uml]]  = {
+	def allActions: Set[UMLAction[Uml]] = {
 		// Start of user code for "allActions"
     Set(self)
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Returns all the ActivityNodes directly or indirectly owned by this Action. This includes at least all the Pins of the Action.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allOwnedNodes -->
+	 * <!-- End of user code doc for allOwnedNodes -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (input.oclAsType(Pin)->asSet()->union(output->asSet()))
 	 */
-	def allOwnedNodes: Set[UMLActivityNode[Uml]]  = {
+	def allOwnedNodes: Set[UMLActivityNode[Uml]] = {
 		// Start of user code for "allOwnedNodes"
     input.toSet.union(output.toSet)
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for containingBehavior -->
+	 * <!-- End of user code doc for containingBehavior -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..1"
 	 * @body result = (if inStructuredNode<>null then inStructuredNode.containingBehavior() 
@@ -140,7 +142,7 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * endif
 	 * )
 	 */
-	def containingBehavior: Option[UMLBehavior[Uml]]  = {
+	def containingBehavior: Option[UMLBehavior[Uml]] = {
 		// Start of user code for "containingBehavior"
   	if (inStructuredNode.isDefined)
       inStructuredNode.get.containingBehavior
@@ -152,5 +154,4 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLAction
+} //UMLActionOps

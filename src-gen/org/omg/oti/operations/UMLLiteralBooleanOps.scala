@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralBoolean is a specification of a Boolean value.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,28 +56,30 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query booleanValue() gives the value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for booleanValue -->
+	 * <!-- End of user code doc for booleanValue -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (value)
 	 */
-	override def booleanValue: Option[Boolean]  = {
+	override def booleanValue: Option[Boolean] = {
 		// Start of user code for "booleanValue"
     	Option.apply(self.value)
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isComputable() is redefined to be true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComputable -->
+	 * <!-- End of user code doc for isComputable -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isComputable: Boolean  = {
+	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
     	true
     	// End of user code
@@ -87,5 +88,4 @@ trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 	// Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
 	// End of user code
-
-} //UMLLiteralBoolean
+} //UMLLiteralBooleanOps

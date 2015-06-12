@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ProtocolStateMachine can be redefined into a more specific ProtocolStateMachine or into behavioral StateMachine. ProtocolConformance declares that the specific ProtocolStateMachine specifies a protocol that conforms to the general ProtocolStateMachine or that the specific behavioral StateMachine abides by the protocol of the general ProtocolStateMachine.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLProtocolConformance[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]
 	with UMLProtocolConformanceOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLProtocolConformance[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the ProtocolStateMachine to which the specific ProtocolStateMachine conforms.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for generalMachine -->
+	 * <!-- End of user code doc for generalMachine -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.generalMachine_protocolConformance
@@ -66,9 +68,10 @@ trait UMLProtocolConformance[Uml <: UML]
 	def generalMachine: Option[UMLProtocolStateMachine[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the ProtocolStateMachine which conforms to the general ProtocolStateMachine.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specificMachine -->
+	 * <!-- End of user code doc for specificMachine -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.conformance
@@ -77,12 +80,18 @@ trait UMLProtocolConformance[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		protocolConformance_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_metaAttributes -->
+	 * <!-- End of user code doc for protocolConformance_metaAttributes -->
 	 */
 	def protocolConformance_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,12 +100,18 @@ trait UMLProtocolConformance[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		protocolConformance_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_compositeMetaProperties -->
+	 * <!-- End of user code doc for protocolConformance_compositeMetaProperties -->
 	 */
 	def protocolConformance_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,12 +120,18 @@ trait UMLProtocolConformance[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		protocolConformance_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_referenceMetaProperties -->
+	 * <!-- End of user code doc for protocolConformance_referenceMetaProperties -->
 	 */
 	def protocolConformance_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,16 +140,24 @@ trait UMLProtocolConformance[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		protocolConformance_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for protocolConformance_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def protocolConformance_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		generalMachine ++
 		specificMachine 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLProtocolConformance

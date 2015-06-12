@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DurationObservation is a reference to a duration during an execution. It points out the NamedElement(s) in the model to observe and whether the observations are when this NamedElement is entered or when it is exited.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLDurationObservation[Uml <: UML]
 	extends UMLObservation[Uml]
 	with UMLDurationObservationOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLDurationObservation[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DurationObservation is determined as the duration between the entering or exiting of a single event Element during execution, or the entering/exiting of one event Element and the entering/exiting of a second.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for event -->
+	 * <!-- End of user code doc for event -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..2"
 	 * @opposite org.omg.oti.api.UMLNamedElement.event_durationObservation
@@ -66,9 +68,10 @@ trait UMLDurationObservation[Uml <: UML]
 	def event: Seq[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The value of firstEvent[i] is related to event[i] (where i is 1 or 2). If firstEvent[i] is true, then the corresponding observation event is the first time instant the execution enters event[i]. If firstEvent[i] is false, then the corresponding observation event is the time instant the execution exits event[i].
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for firstEvent -->
+	 * <!-- End of user code doc for firstEvent -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..2"
 	 */
@@ -76,12 +79,18 @@ trait UMLDurationObservation[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		durationObservation_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLDurationObservation
+	 *
+	 * <!-- Start of user code doc for durationObservation_metaAttributes -->
+	 * <!-- End of user code doc for durationObservation_metaAttributes -->
 	 */
 	def durationObservation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -90,12 +99,18 @@ trait UMLDurationObservation[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		durationObservation_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLDurationObservation
+	 *
+	 * <!-- Start of user code doc for durationObservation_compositeMetaProperties -->
+	 * <!-- End of user code doc for durationObservation_compositeMetaProperties -->
 	 */
 	def durationObservation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,29 +119,43 @@ trait UMLDurationObservation[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		durationObservation_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLDurationObservation
+	 *
+	 * <!-- Start of user code doc for durationObservation_referenceMetaProperties -->
+	 * <!-- End of user code doc for durationObservation_referenceMetaProperties -->
 	 */
 	def durationObservation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			observation_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]]("event", _.event, true)))
+			Seq (MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]]("event", _.event)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		durationObservation_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLDurationObservation
+	 *
+	 * <!-- Start of user code doc for durationObservation_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for durationObservation_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def durationObservation_forwardReferencesFromMetamodelAssociations: Elements =
 		observation_forwardReferencesFromMetamodelAssociations ++
 		event 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLDurationObservation

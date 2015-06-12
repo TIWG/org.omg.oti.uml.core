@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A relationship from an extending UseCase to an extended UseCase that specifies how and when the behavior defined in the extending UseCase can be inserted into the behavior defined in the extended UseCase.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the condition that must hold when the first ExtensionPoint is reached for the extension to take place. If no constraint is associated with the Extend relationship, the extension is unconditional.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for condition -->
+	 * <!-- End of user code doc for condition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.condition_extend
@@ -67,9 +67,10 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	def condition: Option[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that is being extended.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extendedCase -->
+	 * <!-- End of user code doc for extendedCase -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.extendedCase_extend
@@ -77,9 +78,10 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	def extendedCase: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that represents the extension and owns the Extend relationship.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extension -->
+	 * <!-- End of user code doc for extension -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.extend
@@ -87,13 +89,14 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	def extension: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExtensionPoints referenced by the Extend relationship must belong to the UseCase that is being extended.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_extension_points -->
+	 * <!-- End of user code doc for validate_extension_points -->
 	 *
 	 * @body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
 	 */
-	def validate_extension_points: Boolean  = {
+	def validate_extension_points: Boolean = {
 		// Start of user code for "extension_points"
     	???
     	// End of user code
@@ -101,5 +104,4 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExtend
+} //UMLExtendOps

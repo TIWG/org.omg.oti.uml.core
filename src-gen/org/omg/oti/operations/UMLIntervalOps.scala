@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Interval defines the range between two ValueSpecifications.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_intervalConstraint -->
+	 * <!-- End of user code doc for specification_intervalConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLIntervalConstraint.specification
@@ -84,5 +83,4 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
     Set(this) ++ min.toSet ++ max.toSet
 
 	// End of user code
-
-} //UMLInterval
+} //UMLIntervalOps

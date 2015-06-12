@@ -40,42 +40,50 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc -->
  * ParameterDirectionKind is an Enumeration that defines literals used to specify direction of parameters.
- * <!-- end-model-doc -->
+ *
+ * <!-- Start of user code documentation -->
+ * <!-- End of user code documentation -->
  */
 object UMLParameterDirectionKind extends Enumeration {
 	
 	/**
 	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLParameterDirectionKind = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that Parameter values are passed in by the caller. 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that Parameter values are passed as return values back to the caller.
+	 *
+	 * <!-- Start of user code doc for _return -->
+	 * <!-- End of user code doc for _return -->
+ 	 */
+	val _return = Value
+
+	/**
+ 	 * Indicates that Parameter values are passed in by the caller. 
+	 *
+	 * <!-- Start of user code doc for in -->
+	 * <!-- End of user code doc for in -->
+ 	 */
 	val in = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that Parameter values are passed in by the caller and (possibly different) values passed out to the caller.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that Parameter values are passed in by the caller and (possibly different) values passed out to the caller.
+	 *
+	 * <!-- Start of user code doc for inout -->
+	 * <!-- End of user code doc for inout -->
+ 	 */
 	val inout = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that Parameter values are passed out to the caller.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that Parameter values are passed out to the caller.
+	 *
+	 * <!-- Start of user code doc for out -->
+	 * <!-- End of user code doc for out -->
+ 	 */
 	val out = Value
-
-	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that Parameter values are passed as return values back to the caller.
- 	* <!-- end-model-doc --> 
- 	*/
-	val _return = Value
 }

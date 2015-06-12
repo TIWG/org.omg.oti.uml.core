@@ -49,9 +49,8 @@ import scala.util.Success
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralSpecification identifies a literal constant being modeled.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -67,5 +66,4 @@ trait UMLLiteralSpecificationOps[Uml <: UML] { self: UMLLiteralSpecification[Uml
    */
   override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
 	// End of user code
-
-} //UMLLiteralSpecification
+} //UMLLiteralSpecificationOps

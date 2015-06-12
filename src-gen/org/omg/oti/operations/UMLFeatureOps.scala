@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Feature declares a behavioral or structural characteristic of Classifiers.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLFeatureOps[Uml <: UML] { self: UMLFeature[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifiers that have this Feature as a feature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for featuringClassifier -->
+	 * <!-- End of user code doc for featuringClassifier -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.feature
@@ -68,5 +68,4 @@ trait UMLFeatureOps[Uml <: UML] { self: UMLFeature[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLFeature
+} //UMLFeatureOps

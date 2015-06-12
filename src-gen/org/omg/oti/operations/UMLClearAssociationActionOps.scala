@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ClearAssociationAction is an Action that destroys all links of an Association in which a particular object participates.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the object whose participation in the Association is to be cleared.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_clearAssociationAction
@@ -67,26 +67,28 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the InputPin must conform to the type of at least one of the memberEnds of the association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
+	 * <!-- End of user code doc for validate_same_type -->
 	 *
 	 * @body association.memberEnd->exists(self.object.type.conformsTo(type))
 	 */
-	def validate_same_type: Boolean  = {
+	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
     	???
     	// End of user code
@@ -94,5 +96,4 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLClearAssociationAction
+} //UMLClearAssociationActionOps

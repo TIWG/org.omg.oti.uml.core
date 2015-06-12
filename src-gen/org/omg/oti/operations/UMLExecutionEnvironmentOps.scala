@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An execution environment is a node that offers an execution environment for specific types of components that are deployed on it in the form of executable artifacts.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLExecutionEnvironmentOps[Uml <: UML] { self: UMLExecutionEnvironment[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExecutionEnvironment
+} //UMLExecutionEnvironmentOps

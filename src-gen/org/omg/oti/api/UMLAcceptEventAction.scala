@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An AcceptEventAction is an Action that waits for the occurrence of one or more specific Events.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLAcceptEventAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLAcceptEventActionOps[Uml] {
@@ -56,18 +57,20 @@ trait UMLAcceptEventAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates whether there is a single OutputPin for a SignalEvent occurrence, or multiple OutputPins for attribute values of the instance of the Signal associated with a SignalEvent occurrence.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isUnmarshall -->
+	 * <!-- End of user code doc for isUnmarshall -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isUnmarshall: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * OutputPins holding the values received from an Event occurrence.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_acceptEventAction
@@ -75,9 +78,10 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def result: Seq[UMLOutputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Triggers specifying the Events of which the AcceptEventAction waits for occurrences.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for trigger -->
+	 * <!-- End of user code doc for trigger -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLTrigger.trigger_acceptEventAction
@@ -86,12 +90,18 @@ trait UMLAcceptEventAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		acceptEventAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLAcceptEventAction
+	 *
+	 * <!-- Start of user code doc for acceptEventAction_metaAttributes -->
+	 * <!-- End of user code doc for acceptEventAction_metaAttributes -->
 	 */
 	def acceptEventAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,27 +110,39 @@ trait UMLAcceptEventAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		acceptEventAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLAcceptEventAction
+	 *
+	 * <!-- Start of user code doc for acceptEventAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for acceptEventAction_compositeMetaProperties -->
 	 */
 	def acceptEventAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]]("result", _.result, true),
+			Seq (MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]]("result", _.result),
 				MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]]("trigger", _.trigger)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		acceptEventAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLAcceptEventAction
+	 *
+	 * <!-- Start of user code doc for acceptEventAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for acceptEventAction_referenceMetaProperties -->
 	 */
 	def acceptEventAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,15 +151,23 @@ trait UMLAcceptEventAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		acceptEventAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLAcceptEventAction
+	 *
+	 * <!-- Start of user code doc for acceptEventAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for acceptEventAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def acceptEventAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLAcceptEventAction

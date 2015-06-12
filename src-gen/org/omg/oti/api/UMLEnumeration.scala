@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLEnumeration[Uml <: UML]
 	extends UMLDataType[Uml]
 	with UMLEnumerationOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLEnumeration[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ordered set of literals owned by this Enumeration.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedLiteral -->
+	 * <!-- End of user code doc for ownedLiteral -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLEnumerationLiteral.enumeration
@@ -67,12 +69,18 @@ trait UMLEnumeration[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		enumeration_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLEnumeration
+	 *
+	 * <!-- Start of user code doc for enumeration_metaAttributes -->
+	 * <!-- End of user code doc for enumeration_metaAttributes -->
 	 */
 	def enumeration_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,26 +89,38 @@ trait UMLEnumeration[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		enumeration_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLEnumeration
+	 *
+	 * <!-- Start of user code doc for enumeration_compositeMetaProperties -->
+	 * <!-- End of user code doc for enumeration_compositeMetaProperties -->
 	 */
 	def enumeration_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]("ownedLiteral", _.ownedLiteral, true)))
+			Seq (MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]("ownedLiteral", _.ownedLiteral)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		enumeration_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLEnumeration
+	 *
+	 * <!-- Start of user code doc for enumeration_referenceMetaProperties -->
+	 * <!-- End of user code doc for enumeration_referenceMetaProperties -->
 	 */
 	def enumeration_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLEnumeration[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		enumeration_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLEnumeration
+	 *
+	 * <!-- Start of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def enumeration_forwardReferencesFromMetamodelAssociations: Elements =
 		dataType_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLEnumeration

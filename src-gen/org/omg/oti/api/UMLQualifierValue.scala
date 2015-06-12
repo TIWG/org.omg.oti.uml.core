@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A QualifierValue is an Element that is used as part of LinkEndData to provide the value for a single qualifier of the end given by the LinkEndData.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLQualifierValue[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLQualifierValueOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLQualifierValue[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The qualifier Property for which the value is to be specified.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for qualifier -->
+	 * <!-- End of user code doc for qualifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProperty.qualifier_qualifierValue
@@ -66,9 +68,10 @@ trait UMLQualifierValue[Uml <: UML]
 	def qualifier: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin from which the specified value for the qualifier is taken.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.value_qualifierValue
@@ -76,8 +79,8 @@ trait UMLQualifierValue[Uml <: UML]
 	def value: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for qualifier_linkEndData -->
+	 * <!-- End of user code doc for qualifier_linkEndData -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLLinkEndData.qualifier
@@ -86,12 +89,18 @@ trait UMLQualifierValue[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		qualifierValue_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLQualifierValue
+	 *
+	 * <!-- Start of user code doc for qualifierValue_metaAttributes -->
+	 * <!-- End of user code doc for qualifierValue_metaAttributes -->
 	 */
 	def qualifierValue_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +109,18 @@ trait UMLQualifierValue[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		qualifierValue_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLQualifierValue
+	 *
+	 * <!-- Start of user code doc for qualifierValue_compositeMetaProperties -->
+	 * <!-- End of user code doc for qualifierValue_compositeMetaProperties -->
 	 */
 	def qualifierValue_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -114,12 +129,18 @@ trait UMLQualifierValue[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		qualifierValue_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLQualifierValue
+	 *
+	 * <!-- Start of user code doc for qualifierValue_referenceMetaProperties -->
+	 * <!-- End of user code doc for qualifierValue_referenceMetaProperties -->
 	 */
 	def qualifierValue_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,16 +150,24 @@ trait UMLQualifierValue[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		qualifierValue_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLQualifierValue
+	 *
+	 * <!-- Start of user code doc for qualifierValue_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for qualifierValue_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def qualifierValue_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		qualifier ++
 		value 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLQualifierValue

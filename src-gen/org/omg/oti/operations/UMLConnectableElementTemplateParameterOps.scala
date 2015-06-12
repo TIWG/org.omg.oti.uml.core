@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConnectableElementTemplateParameter exposes a ConnectableElement as a formal parameter for a template.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLConnectableElementTemplateParameterOps[Uml <: UML] { self: UMLConnectab
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLConnectableElementTemplateParameter
+} //UMLConnectableElementTemplateParameterOps

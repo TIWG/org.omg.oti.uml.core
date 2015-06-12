@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateableElement is an Element that can optionally be defined as a template and bound to other templates.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The optional TemplateSignature specifying the formal TemplateParameters for this TemplateableElement. If a TemplateableElement has a TemplateSignature, then it is a template.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedTemplateSignature -->
+	 * <!-- End of user code doc for ownedTemplateSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.template
@@ -67,9 +67,10 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The optional TemplateBindings from this TemplateableElement to one or more templates.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for templateBinding -->
+	 * <!-- End of user code doc for templateBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateBinding.boundElement
@@ -77,28 +78,30 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	def templateBinding: Set[UMLTemplateBinding[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateBinding[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isTemplate() returns whether this TemplateableElement is actually a template.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isTemplate -->
+	 * <!-- End of user code doc for isTemplate -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (ownedTemplateSignature <> null)
 	 */
-	def isTemplate: Boolean  = {
+	def isTemplate: Boolean = {
 		// Start of user code for "isTemplate"
   	ownedTemplateSignature.isDefined
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query parameterableElements() returns the set of ParameterableElements that may be used as the parameteredElements for a TemplateParameter of this TemplateableElement. By default, this set includes all the ownedElements. Subclasses may override this operation if they choose to restrict the set of ParameterableElements.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for parameterableElements -->
+	 * <!-- End of user code doc for parameterableElements -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (self.allOwnedElements()->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
 	 */
-	def parameterableElements: Set[UMLParameterableElement[Uml]]  = {
+	def parameterableElements: Set[UMLParameterableElement[Uml]] = {
 		// Start of user code for "parameterableElements"
   	allOwnedElements.selectByKindOf { case pe: UMLParameterableElement[Uml] => pe }
   	// End of user code
@@ -106,5 +109,4 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTemplateableElement
+} //UMLTemplateableElementOps

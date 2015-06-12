@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InteractionConstraint is a Boolean expression that guards an operand in a CombinedFragment.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for guard_interactionOperand -->
+	 * <!-- End of user code doc for guard_interactionOperand -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteractionOperand.guard
@@ -66,82 +65,88 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	def guard_interactionOperand: Option[UMLInteractionOperand[Uml]] = owner.selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The dynamic variables that take part in the constraint must be owned by the ConnectableElement corresponding to the covered Lifeline.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_dynamic_variables -->
+	 * <!-- End of user code doc for validate_dynamic_variables -->
 	 *
 	 */
-	def validate_dynamic_variables: Boolean  = {
+	def validate_dynamic_variables: Boolean = {
 		// Start of user code for "dynamic_variables"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The constraint may contain references to global data or write-once data.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_global_data -->
+	 * <!-- End of user code doc for validate_global_data -->
 	 *
 	 */
-	def validate_global_data: Boolean  = {
+	def validate_global_data: Boolean = {
 		// Start of user code for "global_data"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If maxint is specified, then minint must be specified and the evaluation of maxint must be >= the evaluation of minint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_maxint_greater_equal_minint -->
+	 * <!-- End of user code doc for validate_maxint_greater_equal_minint -->
 	 *
 	 * @body maxint->notEmpty() implies (minint->notEmpty() and 
 	 * maxint->asSequence()->first().integerValue() >=
 	 * minint->asSequence()->first().integerValue() )
 	 */
-	def validate_maxint_greater_equal_minint: Boolean  = {
+	def validate_maxint_greater_equal_minint: Boolean = {
 		// Start of user code for "maxint_greater_equal_minint"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If maxint is specified, then the expression must evaluate to a positive integer.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_maxint_positive -->
+	 * <!-- End of user code doc for validate_maxint_positive -->
 	 *
 	 * @body maxint->notEmpty() implies 
 	 * maxint->asSequence()->first().integerValue() > 0
 	 */
-	def validate_maxint_positive: Boolean  = {
+	def validate_maxint_positive: Boolean = {
 		// Start of user code for "maxint_positive"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Minint/maxint can only be present if the InteractionConstraint is associated with the operand of a loop CombinedFragment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_minint_maxint -->
+	 * <!-- End of user code doc for validate_minint_maxint -->
 	 *
 	 * @body maxint->notEmpty() or minint->notEmpty() implies
 	 * interactionOperand.combinedFragment.interactionOperator =
 	 * InteractionOperatorKind::loop
 	 */
-	def validate_minint_maxint: Boolean  = {
+	def validate_minint_maxint: Boolean = {
 		// Start of user code for "minint_maxint"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If minint is specified, then the expression must evaluate to a non-negative integer.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_minint_non_negative -->
+	 * <!-- End of user code doc for validate_minint_non_negative -->
 	 *
 	 * @body minint->notEmpty() implies 
 	 * minint->asSequence()->first().integerValue() >= 0
 	 */
-	def validate_minint_non_negative: Boolean  = {
+	def validate_minint_non_negative: Boolean = {
 		// Start of user code for "minint_non_negative"
     	???
     	// End of user code
@@ -149,5 +154,4 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInteractionConstraint
+} //UMLInteractionConstraintOps

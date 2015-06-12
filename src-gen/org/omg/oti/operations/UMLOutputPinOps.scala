@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OutputPin is a Pin that holds output values produced by an Action.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for outputValue_opaqueAction -->
+	 * <!-- End of user code doc for outputValue_opaqueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOpaqueAction.outputValue
@@ -66,8 +65,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def outputValue_opaqueAction: Option[UMLOpaqueAction[Uml]] = output_action.selectByKindOf { case x: UMLOpaqueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_callAction -->
+	 * <!-- End of user code doc for result_callAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCallAction.result
@@ -75,8 +74,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_callAction: Option[UMLCallAction[Uml]] = output_action.selectByKindOf { case x: UMLCallAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_clearStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_clearStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClearStructuralFeatureAction.result
@@ -84,8 +83,17 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_clearStructuralFeatureAction: Option[UMLClearStructuralFeatureAction[Uml]] = output_action.selectByKindOf { case x: UMLClearStructuralFeatureAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_conditionalNode -->
+	 * <!-- End of user code doc for result_conditionalNode -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLConditionalNode.result
+	 */
+	def result_conditionalNode: Option[UMLConditionalNode[Uml]] = structuredNodeOutput_structuredActivityNode.selectByKindOf { case x: UMLConditionalNode[Uml] => x }
+
+	/**
+	 * <!-- Start of user code doc for result_createLinkObjectAction -->
+	 * <!-- End of user code doc for result_createLinkObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCreateLinkObjectAction.result
@@ -93,8 +101,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_createLinkObjectAction: Option[UMLCreateLinkObjectAction[Uml]] = output_action.selectByKindOf { case x: UMLCreateLinkObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_createObjectAction -->
+	 * <!-- End of user code doc for result_createObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCreateObjectAction.result
@@ -102,8 +110,17 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_createObjectAction: Option[UMLCreateObjectAction[Uml]] = output_action.selectByKindOf { case x: UMLCreateObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_loopNode -->
+	 * <!-- End of user code doc for result_loopNode -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLLoopNode.result
+	 */
+	def result_loopNode: Option[UMLLoopNode[Uml]] = structuredNodeOutput_structuredActivityNode.selectByKindOf { case x: UMLLoopNode[Uml] => x }
+
+	/**
+	 * <!-- Start of user code doc for result_readExtentAction -->
+	 * <!-- End of user code doc for result_readExtentAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadExtentAction.result
@@ -111,8 +128,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readExtentAction: Option[UMLReadExtentAction[Uml]] = output_action.selectByKindOf { case x: UMLReadExtentAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readIsClassifiedObjectAction -->
+	 * <!-- End of user code doc for result_readIsClassifiedObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadIsClassifiedObjectAction.result
@@ -120,8 +137,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]] = output_action.selectByKindOf { case x: UMLReadIsClassifiedObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkAction -->
+	 * <!-- End of user code doc for result_readLinkAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkAction.result
@@ -129,8 +146,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readLinkAction: Option[UMLReadLinkAction[Uml]] = output_action.selectByKindOf { case x: UMLReadLinkAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkObjectEndAction -->
+	 * <!-- End of user code doc for result_readLinkObjectEndAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndAction.result
@@ -138,8 +155,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]] = output_action.selectByKindOf { case x: UMLReadLinkObjectEndAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkObjectEndQualifierAction -->
+	 * <!-- End of user code doc for result_readLinkObjectEndQualifierAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction.result
@@ -147,8 +164,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]] = output_action.selectByKindOf { case x: UMLReadLinkObjectEndQualifierAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readSelfAction -->
+	 * <!-- End of user code doc for result_readSelfAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadSelfAction.result
@@ -156,8 +173,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readSelfAction: Option[UMLReadSelfAction[Uml]] = output_action.selectByKindOf { case x: UMLReadSelfAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_readStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadStructuralFeatureAction.result
@@ -165,8 +182,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readStructuralFeatureAction: Option[UMLReadStructuralFeatureAction[Uml]] = output_action.selectByKindOf { case x: UMLReadStructuralFeatureAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readVariableAction -->
+	 * <!-- End of user code doc for result_readVariableAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadVariableAction.result
@@ -174,8 +191,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_readVariableAction: Option[UMLReadVariableAction[Uml]] = output_action.selectByKindOf { case x: UMLReadVariableAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_reduceAction -->
+	 * <!-- End of user code doc for result_reduceAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReduceAction.result
@@ -183,8 +200,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_reduceAction: Option[UMLReduceAction[Uml]] = output_action.selectByKindOf { case x: UMLReduceAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_testIdentityAction -->
+	 * <!-- End of user code doc for result_testIdentityAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTestIdentityAction.result
@@ -192,8 +209,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_testIdentityAction: Option[UMLTestIdentityAction[Uml]] = output_action.selectByKindOf { case x: UMLTestIdentityAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_unmarshallAction -->
+	 * <!-- End of user code doc for result_unmarshallAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLUnmarshallAction.result
@@ -201,8 +218,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_unmarshallAction: Option[UMLUnmarshallAction[Uml]] = output_action.selectByKindOf { case x: UMLUnmarshallAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_valueSpecificationAction -->
+	 * <!-- End of user code doc for result_valueSpecificationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecificationAction.result
@@ -210,8 +227,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_valueSpecificationAction: Option[UMLValueSpecificationAction[Uml]] = output_action.selectByKindOf { case x: UMLValueSpecificationAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_writeStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_writeStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLWriteStructuralFeatureAction.result
@@ -219,8 +236,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def result_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]] = output_action.selectByKindOf { case x: UMLWriteStructuralFeatureAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for returnInformation_acceptCallAction -->
+	 * <!-- End of user code doc for returnInformation_acceptCallAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAcceptCallAction.returnInformation
@@ -228,8 +245,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def returnInformation_acceptCallAction: Option[UMLAcceptCallAction[Uml]] = output_action.selectByKindOf { case x: UMLAcceptCallAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for structuredNodeOutput_structuredActivityNode -->
+	 * <!-- End of user code doc for structuredNodeOutput_structuredActivityNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.structuredNodeOutput
@@ -237,16 +254,17 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	def structuredNodeOutput_structuredActivityNode: Option[UMLStructuredActivityNode[Uml]] = output_action.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An OutputPin may have incoming ActivityEdges only when it is owned by a StructuredActivityNode, and these edges must have sources contained (directly or indirectly) in the owning StructuredActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_incoming_edges_structured_only -->
+	 * <!-- End of user code doc for validate_incoming_edges_structured_only -->
 	 *
 	 * @body incoming->notEmpty() implies
 	 * 	action<>null and
 	 * 	action.oclIsKindOf(StructuredActivityNode) and
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(incoming.source)
 	 */
-	def validate_incoming_edges_structured_only: Boolean  = {
+	def validate_incoming_edges_structured_only: Boolean = {
 		// Start of user code for "incoming_edges_structured_only"
     	???
     	// End of user code
@@ -254,5 +272,4 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLOutputPin
+} //UMLOutputPinOps

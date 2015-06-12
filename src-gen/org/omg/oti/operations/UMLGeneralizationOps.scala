@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Generalization is a taxonomic relationship between a more general Classifier and a more specific Classifier. Each instance of the specific Classifier is also an instance of the general Classifier. The specific Classifier inherits the features of the more general Classifier. A Generalization is owned by the specific Classifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The general classifier in the Generalization relationship.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for general -->
+	 * <!-- End of user code doc for general -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.general_generalization
@@ -67,9 +67,10 @@ trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 	def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specializing Classifier in the Generalization relationship.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specific -->
+	 * <!-- End of user code doc for specific -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.generalization
@@ -78,5 +79,4 @@ trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLGeneralization
+} //UMLGeneralizationOps

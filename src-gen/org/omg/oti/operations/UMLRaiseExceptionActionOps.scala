@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A RaiseExceptionAction is an Action that causes an exception to occur. The input value becomes the exception object.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLRaiseExceptionActionOps[Uml <: UML] { self: UMLRaiseExceptionAction[Uml
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An InputPin whose value becomes the exception object.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for exception -->
+	 * <!-- End of user code doc for exception -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.exception_raiseExceptionAction
@@ -68,5 +68,4 @@ trait UMLRaiseExceptionActionOps[Uml <: UML] { self: UMLRaiseExceptionAction[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLRaiseExceptionAction
+} //UMLRaiseExceptionActionOps

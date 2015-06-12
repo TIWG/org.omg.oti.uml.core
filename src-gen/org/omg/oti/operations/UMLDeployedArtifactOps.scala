@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A deployed artifact is an artifact or artifact instance that has been deployed to a deployment target.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLDeployedArtifactOps[Uml <: UML] { self: UMLDeployedArtifact[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDeployedArtifact
+} //UMLDeployedArtifactOps

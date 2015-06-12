@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Observation specifies a value determined by observing an event or events that occur relative to other model Elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLObservationOps[Uml <: UML] { self: UMLObservation[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLObservation
+} //UMLObservationOps

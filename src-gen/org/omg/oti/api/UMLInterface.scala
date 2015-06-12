@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Interfaces declare coherent services that are implemented by BehavioredClassifiers that implement the Interfaces via InterfaceRealizations.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLInterface[Uml <: UML]
 	extends UMLClassifier[Uml]
 	with UMLInterfaceOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLInterface[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References all the Classifiers that are defined (nested) within the Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestedClassifier -->
+	 * <!-- End of user code doc for nestedClassifier -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClassifier.nestedClassifier_interface
@@ -66,9 +68,10 @@ trait UMLInterface[Uml <: UML]
 	def nestedClassifier: Seq[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The attributes (i.e., the Properties) owned by the Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedAttribute -->
+	 * <!-- End of user code doc for ownedAttribute -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.interface
@@ -76,9 +79,10 @@ trait UMLInterface[Uml <: UML]
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Operations owned by the Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedOperation -->
+	 * <!-- End of user code doc for ownedOperation -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.interface
@@ -86,9 +90,10 @@ trait UMLInterface[Uml <: UML]
 	def ownedOperation: Seq[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Receptions that objects providing this Interface are willing to accept.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedReception -->
+	 * <!-- End of user code doc for ownedReception -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLReception.ownedReception_interface
@@ -96,9 +101,10 @@ trait UMLInterface[Uml <: UML]
 	def ownedReception: Set[UMLReception[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References a ProtocolStateMachine specifying the legal sequences of the invocation of the BehavioralFeatures described in the Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for protocol -->
+	 * <!-- End of user code doc for protocol -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.protocol_interface
@@ -106,9 +112,10 @@ trait UMLInterface[Uml <: UML]
 	def protocol: Option[UMLProtocolStateMachine[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References all the Interfaces redefined by this Interface.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedInterface -->
+	 * <!-- End of user code doc for redefinedInterface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.redefinedInterface_interface
@@ -116,8 +123,8 @@ trait UMLInterface[Uml <: UML]
 	def redefinedInterface: Set[UMLInterface[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for contract_interfaceRealization -->
+	 * <!-- End of user code doc for contract_interfaceRealization -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterfaceRealization.contract
@@ -125,8 +132,8 @@ trait UMLInterface[Uml <: UML]
 	def contract_interfaceRealization: Set[UMLInterfaceRealization[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for provided_component -->
+	 * <!-- End of user code doc for provided_component -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComponent.provided
@@ -134,8 +141,8 @@ trait UMLInterface[Uml <: UML]
 	def provided_component: Set[UMLComponent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for provided_port -->
+	 * <!-- End of user code doc for provided_port -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.provided
@@ -143,8 +150,8 @@ trait UMLInterface[Uml <: UML]
 	def provided_port: Set[UMLPort[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedInterface_interface -->
+	 * <!-- End of user code doc for redefinedInterface_interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.redefinedInterface
@@ -152,8 +159,8 @@ trait UMLInterface[Uml <: UML]
 	def redefinedInterface_interface: Set[UMLInterface[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for required_component -->
+	 * <!-- End of user code doc for required_component -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComponent.required
@@ -161,8 +168,8 @@ trait UMLInterface[Uml <: UML]
 	def required_component: Set[UMLComponent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for required_port -->
+	 * <!-- End of user code doc for required_port -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.required
@@ -171,12 +178,18 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interface_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLInterface
+	 *
+	 * <!-- Start of user code doc for interface_metaAttributes -->
+	 * <!-- End of user code doc for interface_metaAttributes -->
 	 */
 	def interface_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -185,30 +198,42 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interface_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInterface
+	 *
+	 * <!-- Start of user code doc for interface_compositeMetaProperties -->
+	 * <!-- End of user code doc for interface_compositeMetaProperties -->
 	 */
 	def interface_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier, true),
+			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier),
 				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true),
+				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation),
 				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception),
 				MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]]("protocol", _.protocol)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interface_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInterface
+	 *
+	 * <!-- Start of user code doc for interface_referenceMetaProperties -->
+	 * <!-- End of user code doc for interface_referenceMetaProperties -->
 	 */
 	def interface_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -217,15 +242,23 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interface_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLInterface
+	 *
+	 * <!-- Start of user code doc for interface_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interface_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interface_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
 		redefinedInterface 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLInterface

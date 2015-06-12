@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InterruptibleActivityRegion is an ActivityGroup that supports the termination of tokens flowing in the portions of an activity within it.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityNodes immediately contained in the InterruptibleActivityRegion.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for node -->
+	 * <!-- End of user code doc for node -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.inInterruptibleRegion
@@ -67,14 +67,15 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	def node: Set[UMLActivityNode[Uml]] = containedNode
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The interruptingEdges of an InterruptibleActivityRegion must have their source in the region and their target outside the region, but within the same Activity containing the region.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_interrupting_edges -->
+	 * <!-- End of user code doc for validate_interrupting_edges -->
 	 *
 	 * @body interruptingEdge->forAll(edge | 
 	 *   node->includes(edge.source) and node->excludes(edge.target) and edge.target.containingActivity() = inActivity)
 	 */
-	def validate_interrupting_edges: Boolean  = {
+	def validate_interrupting_edges: Boolean = {
 		// Start of user code for "interrupting_edges"
     	???
     	// End of user code
@@ -82,5 +83,4 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInterruptibleActivityRegion
+} //UMLInterruptibleActivityRegionOps

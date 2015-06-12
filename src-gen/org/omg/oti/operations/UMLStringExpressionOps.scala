@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StringExpression is an Expression that specifies a String value that is derived by concatenating a sequence of operands with String values or a sequence of subExpressions, some of which might be template parameters.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StringExpression of which this StringExpression is a subExpression.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for owningExpression -->
+	 * <!-- End of user code doc for owningExpression -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStringExpression.subExpression
@@ -67,9 +67,10 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	def owningExpression: Option[UMLStringExpression[Uml]] = owner.selectByKindOf { case x: UMLStringExpression[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query stringValue() returns the String resulting from concatenating, in order, all the component String values of all the operands or subExpressions that are part of the StringExpression.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for stringValue -->
+	 * <!-- End of user code doc for stringValue -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if subExpression->notEmpty()
@@ -77,33 +78,35 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * else operand->iterate(op; stringValue: String = '' | stringValue.concat(op.stringValue()))
 	 * endif)
 	 */
-	override def stringValue: Option[String]  = {
+	override def stringValue: Option[String] = {
 		// Start of user code for "stringValue"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All the operands of a StringExpression must be LiteralStrings
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_operands -->
+	 * <!-- End of user code doc for validate_operands -->
 	 *
 	 * @body operand->forAll (oclIsKindOf (LiteralString))
 	 */
-	def validate_operands: Boolean  = {
+	def validate_operands: Boolean = {
 		// Start of user code for "operands"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a StringExpression has sub-expressions, it cannot have operands and vice versa (this avoids the problem of having to define a collating sequence between operands and subexpressions).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_subexpressions -->
+	 * <!-- End of user code doc for validate_subexpressions -->
 	 *
 	 * @body if subExpression->notEmpty() then operand->isEmpty() else operand->notEmpty() endif
 	 */
-	def validate_subexpressions: Boolean  = {
+	def validate_subexpressions: Boolean = {
 		// Start of user code for "subexpressions"
     	???
     	// End of user code
@@ -123,5 +126,4 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
     expression_forwardReferencesFromStereotypeTagValue ++ subExpression.toSet
 
 	// End of user code
-
-} //UMLStringExpression
+} //UMLStringExpressionOps

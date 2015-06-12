@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A manifestation is the concrete physical rendering of one or more model elements by an artifact.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLManifestationOps[Uml <: UML] { self: UMLManifestation[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for manifestation_artifact -->
+	 * <!-- End of user code doc for manifestation_artifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.manifestation
@@ -67,5 +66,4 @@ trait UMLManifestationOps[Uml <: UML] { self: UMLManifestation[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLManifestation
+} //UMLManifestationOps

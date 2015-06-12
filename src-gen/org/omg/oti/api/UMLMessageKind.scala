@@ -40,42 +40,50 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc -->
  * This is an enumerated type that identifies the type of Message.
- * <!-- end-model-doc -->
+ *
+ * <!-- Start of user code documentation -->
+ * <!-- End of user code documentation -->
  */
 object UMLMessageKind extends Enumeration {
 	
 	/**
 	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLMessageKind = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* sendEvent and receiveEvent are present
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * sendEvent and receiveEvent are present
+	 *
+	 * <!-- Start of user code doc for complete -->
+	 * <!-- End of user code doc for complete -->
+ 	 */
 	val complete = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* sendEvent absent and receiveEvent present
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * sendEvent absent and receiveEvent present
+	 *
+	 * <!-- Start of user code doc for found -->
+	 * <!-- End of user code doc for found -->
+ 	 */
 	val found = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* sendEvent present and receiveEvent absent
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * sendEvent present and receiveEvent absent
+	 *
+	 * <!-- Start of user code doc for lost -->
+	 * <!-- End of user code doc for lost -->
+ 	 */
 	val lost = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* sendEvent and receiveEvent absent (should not appear)
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * sendEvent and receiveEvent absent (should not appear)
+	 *
+	 * <!-- Start of user code doc for unknown -->
+	 * <!-- End of user code doc for unknown -->
+ 	 */
 	val unknown = Value
 }

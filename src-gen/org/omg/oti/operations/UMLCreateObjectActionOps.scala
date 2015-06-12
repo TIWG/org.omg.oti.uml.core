@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CreateObjectAction is an Action that creates an instance of the specified Classifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin on which the newly created object is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_createObjectAction
@@ -67,52 +67,56 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The classifier cannot be abstract.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
+	 * <!-- End of user code doc for validate_classifier_not_abstract -->
 	 *
 	 * @body not classifier.isAbstract 
 	 */
-	def validate_classifier_not_abstract: Boolean  = {
+	def validate_classifier_not_abstract: Boolean = {
 		// Start of user code for "classifier_not_abstract"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The classifier cannot be an AssociationClass.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_classifier_not_association_class -->
+	 * <!-- End of user code doc for validate_classifier_not_association_class -->
 	 *
 	 * @body not classifier.oclIsKindOf(AssociationClass)
 	 */
-	def validate_classifier_not_association_class: Boolean  = {
+	def validate_classifier_not_association_class: Boolean = {
 		// Start of user code for "classifier_not_association_class"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the result OutputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body result.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the result OutputPin must be the same as the classifier of the CreateObjectAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
+	 * <!-- End of user code doc for validate_same_type -->
 	 *
 	 * @body result.type = classifier
 	 */
-	def validate_same_type: Boolean  = {
+	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
     	???
     	// End of user code
@@ -120,5 +124,4 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCreateObjectAction
+} //UMLCreateObjectActionOps

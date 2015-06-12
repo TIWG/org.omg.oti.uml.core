@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StartClassifierBehaviorAction is an Action that starts the classifierBehavior of the input object.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStartClassifierBehaviorActionOps[Uml <: UML] { self: UMLStartClassifier
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that holds the object whose classifierBehavior is to be started.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_startClassifierBehaviorAction
@@ -67,27 +67,29 @@ trait UMLStartClassifierBehaviorActionOps[Uml <: UML] { self: UMLStartClassifier
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin is 1..1
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the InputPin has a type, then the type or one of its ancestors must have a classifierBehavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_has_classifier -->
+	 * <!-- End of user code doc for validate_type_has_classifier -->
 	 *
 	 * @body object.type->notEmpty() implies 
 	 *    (object.type.oclIsKindOf(BehavioredClassifier) and object.type.oclAsType(BehavioredClassifier).classifierBehavior<>null)
 	 */
-	def validate_type_has_classifier: Boolean  = {
+	def validate_type_has_classifier: Boolean = {
 		// Start of user code for "type_has_classifier"
     	???
     	// End of user code
@@ -95,5 +97,4 @@ trait UMLStartClassifierBehaviorActionOps[Uml <: UML] { self: UMLStartClassifier
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStartClassifierBehaviorAction
+} //UMLStartClassifierBehaviorActionOps

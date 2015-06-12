@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Vertex is an abstraction of a node in a StateMachine graph. It can be the source or destination of any number of Transitions.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Region that contains this Vertex.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for container -->
+	 * <!-- End of user code doc for container -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLRegion.subvertex
@@ -67,9 +67,10 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	def container: Option[UMLRegion[Uml]] = namespace.selectByKindOf { case x: UMLRegion[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Transitions entering this Vertex.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for incoming -->
+	 * <!-- End of user code doc for incoming -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.target
@@ -82,9 +83,10 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Transitions departing from this Vertex.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for outgoing -->
+	 * <!-- End of user code doc for outgoing -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.source
@@ -97,9 +99,10 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The operation containingStateMachine() returns the StateMachine in which this Vertex is defined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for containingStateMachine -->
+	 * <!-- End of user code doc for containingStateMachine -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if container <> null
@@ -119,16 +122,17 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * endif
 	 * )
 	 */
-	def containingStateMachine: Option[UMLStateMachine[Uml]]  = {
+	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This utility query returns true if the Vertex is contained in the Region r (input argument).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isContainedInRegion -->
+	 * <!-- End of user code doc for isContainedInRegion -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if (container = r) then
@@ -141,16 +145,17 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * 	endif
 	 * endif)
 	 */
-	def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean  = {
+	def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean = {
 		// Start of user code for "isContainedInRegion"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This utility operation returns true if the Vertex is contained in the State s (input argument).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isContainedInState -->
+	 * <!-- End of user code doc for isContainedInState -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (if not s.isComposite() or container->isEmpty() then
@@ -163,7 +168,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * 	endif
 	 * endif)
 	 */
-	def isContainedInState(s: Option[UMLState[Uml]]): Boolean  = {
+	def isContainedInState(s: Option[UMLState[Uml]]): Boolean = {
 		// Start of user code for "isContainedInState"
     	???
     	// End of user code
@@ -171,5 +176,4 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLVertex
+} //UMLVertexOps

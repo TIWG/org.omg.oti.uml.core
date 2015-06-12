@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Reception is a declaration stating that a Classifier is prepared to react to the receipt of a Signal.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedReception_class -->
+	 * <!-- End of user code doc for ownedReception_class -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClass.ownedReception
@@ -66,8 +65,8 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	def ownedReception_class: Option[UMLClass[Uml]] = featuringClassifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedReception_interface -->
+	 * <!-- End of user code doc for ownedReception_interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInterface.ownedReception
@@ -75,22 +74,24 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	def ownedReception_interface: Option[UMLInterface[Uml]] = featuringClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Reception has the same name as its signal
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_name_as_signal -->
+	 * <!-- End of user code doc for validate_same_name_as_signal -->
 	 *
 	 * @body name = signal.name
 	 */
-	def validate_same_name_as_signal: Boolean  = {
+	def validate_same_name_as_signal: Boolean = {
 		// Start of user code for "same_name_as_signal"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Reception's parameters match the ownedAttributes of its signal by name, type, and multiplicity
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_structure_as_signal -->
+	 * <!-- End of user code doc for validate_same_structure_as_signal -->
 	 *
 	 * @body signal.ownedAttribute->size() = ownedParameter->size() and
 	 * Sequence{1..signal.ownedAttribute->size()}->forAll( i | 
@@ -101,7 +102,7 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 *     ownedParameter->at(i).upperBound() = signal.ownedAttribute->at(i).upperBound()
 	 * )
 	 */
-	def validate_same_structure_as_signal: Boolean  = {
+	def validate_same_structure_as_signal: Boolean = {
 		// Start of user code for "same_structure_as_signal"
     	???
     	// End of user code
@@ -109,5 +110,4 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReception
+} //UMLReceptionOps

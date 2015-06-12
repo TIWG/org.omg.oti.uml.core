@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Message defines a particular communication between Lifelines of an Interaction.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The enclosing Interaction owning the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interaction -->
+	 * <!-- End of user code doc for interaction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.message
@@ -67,9 +67,10 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	def interaction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The derived kind of the Message (complete, lost, found, or unknown).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for messageKind -->
+	 * <!-- End of user code doc for messageKind -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @body result = (messageKind)
@@ -81,35 +82,38 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isDistinguishableFrom() specifies that any two Messages may coexist in the same Namespace, regardless of their names.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isDistinguishableFrom -->
+	 * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
+	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Arguments of a Message must only be: i) attributes of the sending lifeline, ii) constants, iii) symbolic values (which are wildcard values representing any legal value), iv) explicit parameters of the enclosing Interaction, v) attributes of the class owning the Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_arguments -->
+	 * <!-- End of user code doc for validate_arguments -->
 	 *
 	 */
-	def validate_arguments: Boolean  = {
+	def validate_arguments: Boolean = {
 		// Start of user code for "arguments"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Messages cannot cross boundaries of CombinedFragments or their operands.  This is true if and only if both MessageEnds are enclosed within the same InteractionFragment (i.e., an InteractionOperand or an Interaction).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_cannot_cross_boundaries -->
+	 * <!-- End of user code doc for validate_cannot_cross_boundaries -->
 	 *
 	 * @body sendEvent->notEmpty() and receiveEvent->notEmpty() implies
 	 * let sendEnclosingFrag : Set(InteractionFragment) = 
@@ -119,28 +123,30 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * receiveEvent->asOrderedSet()->first().enclosingFragment()
 	 * in  sendEnclosingFrag = receiveEnclosingFrag
 	 */
-	def validate_cannot_cross_boundaries: Boolean  = {
+	def validate_cannot_cross_boundaries: Boolean = {
 		// Start of user code for "cannot_cross_boundaries"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the MessageEnds are both OccurrenceSpecifications, then the connector must go between the Parts represented by the Lifelines of the two MessageEnds.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_occurrence_specifications -->
+	 * <!-- End of user code doc for validate_occurrence_specifications -->
 	 *
 	 */
-	def validate_occurrence_specifications: Boolean  = {
+	def validate_occurrence_specifications: Boolean = {
 		// Start of user code for "occurrence_specifications"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the sendEvent and the receiveEvent of the same Message are on the same Lifeline, the sendEvent must be ordered before the receiveEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_sending_receiving_message_event -->
+	 * <!-- End of user code doc for validate_sending_receiving_message_event -->
 	 *
 	 * @body receiveEvent.oclIsKindOf(MessageOccurrenceSpecification)
 	 * implies
@@ -149,16 +155,17 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * f.events->indexOf(sendEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() ) < 
 	 * f.events->indexOf(receiveEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() )
 	 */
-	def validate_sending_receiving_message_event: Boolean  = {
+	def validate_sending_receiving_message_event: Boolean = {
 		// Start of user code for "sending_receiving_message_event"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In the case when a Message with messageSort reply has a non empty Operation signature, the arguments of the Message must correspond to the out, inout, and return parameters of the Operation. A Parameter corresponds to an Argument if the Argument is of the same Class or a specialization of that of the Parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_signature_is_operation_reply -->
+	 * <!-- End of user code doc for validate_signature_is_operation_reply -->
 	 *
 	 * @body (messageSort = MessageSort::reply) and signature.oclIsKindOf(Operation) implies 
 	 *  let replyParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
@@ -170,16 +177,17 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * e.operand->asSequence()->first().type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
 	 * )
 	 */
-	def validate_signature_is_operation_reply: Boolean  = {
+	def validate_signature_is_operation_reply: Boolean = {
 		// Start of user code for "signature_is_operation_reply"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In the case when a Message with messageSort synchCall or asynchCall has a non empty Operation signature, the arguments of the Message must correspond to the in and inout parameters of the Operation. A Parameter corresponds to an Argument if the Argument is of the same Class or a specialization of that of the Parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_signature_is_operation_request -->
+	 * <!-- End of user code doc for validate_signature_is_operation_request -->
 	 *
 	 * @body (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall) and signature.oclIsKindOf(Operation)  implies 
 	 *  let requestParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
@@ -191,16 +199,17 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
 	 * )
 	 */
-	def validate_signature_is_operation_request: Boolean  = {
+	def validate_signature_is_operation_request: Boolean = {
 		// Start of user code for "signature_is_operation_request"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In the case when the Message signature is a Signal, the arguments of the Message must correspond to the attributes of the Signal. A Message Argument corresponds to a Signal Attribute if the Argument is of the same Class or a specialization of that of the Attribute.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_signature_is_signal -->
+	 * <!-- End of user code doc for validate_signature_is_signal -->
 	 *
 	 * @body (messageSort = MessageSort::asynchSignal ) and signature.oclIsKindOf(Signal) implies
 	 *    let signalAttributes : OrderedSet(Property) = signature.oclAsType(Signal).inheritedMember()->
@@ -213,16 +222,17 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *               let p : Property = signalAttributes->at(self.argument->indexOf(o))
 	 *               in o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier)))
 	 */
-	def validate_signature_is_signal: Boolean  = {
+	def validate_signature_is_signal: Boolean = {
 		// Start of user code for "signature_is_signal"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The signature must either refer an Operation (in which case messageSort is either synchCall or asynchCall or reply) or a Signal (in which case messageSort is asynchSignal). The name of the NamedElement referenced by signature must be the same as that of the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_signature_refer_to -->
+	 * <!-- End of user code doc for validate_signature_refer_to -->
 	 *
 	 * @body signature->notEmpty() implies 
 	 * ((signature.oclIsKindOf(Operation) and 
@@ -230,7 +240,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * ) or (signature.oclIsKindOf(Signal)  and messageSort = MessageSort::asynchSignal )
 	 *  ) and name = signature.name
 	 */
-	def validate_signature_refer_to: Boolean  = {
+	def validate_signature_refer_to: Boolean = {
 		// Start of user code for "signature_refer_to"
     	???
     	// End of user code
@@ -238,5 +248,4 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLMessage
+} //UMLMessageOps

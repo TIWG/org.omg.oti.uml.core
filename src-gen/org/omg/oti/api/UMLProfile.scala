@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A profile defines limited extensions to a reference metamodel with the purpose of adapting the metamodel to a specific platform or domain.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLProfile[Uml <: UML]
 	extends UMLPackage[Uml]
 	with UMLProfileOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLProfile[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References a metaclass that may be extended.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for metaclassReference -->
+	 * <!-- End of user code doc for metaclassReference -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLElementImport.metaclassReference_profile
@@ -66,9 +68,10 @@ trait UMLProfile[Uml <: UML]
 	def metaclassReference: Set[UMLElementImport[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References a package containing (directly or indirectly) metaclasses that may be extended.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for metamodelReference -->
+	 * <!-- End of user code doc for metamodelReference -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageImport.metamodelReference_profile
@@ -76,8 +79,8 @@ trait UMLProfile[Uml <: UML]
 	def metamodelReference: Set[UMLPackageImport[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for appliedProfile_profileApplication -->
+	 * <!-- End of user code doc for appliedProfile_profileApplication -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProfileApplication.appliedProfile
@@ -85,8 +88,8 @@ trait UMLProfile[Uml <: UML]
 	def appliedProfile_profileApplication: Set[UMLProfileApplication[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for profile_stereotype -->
+	 * <!-- End of user code doc for profile_stereotype -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLStereotype.profile
@@ -95,12 +98,18 @@ trait UMLProfile[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		profile_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLProfile
+	 *
+	 * <!-- Start of user code doc for profile_metaAttributes -->
+	 * <!-- End of user code doc for profile_metaAttributes -->
 	 */
 	def profile_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,46 +118,64 @@ trait UMLProfile[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		profile_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLProfile
+	 *
+	 * <!-- Start of user code doc for profile_compositeMetaProperties -->
+	 * <!-- End of user code doc for profile_compositeMetaProperties -->
 	 */
 	def profile_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]]("metaclassReference", _.metaclassReference),
-           MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]]("metamodelReference", _.metamodelReference)
-          ))
+				MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]]("metamodelReference", _.metamodelReference)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		profile_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLProfile
+	 *
+	 * <!-- Start of user code doc for profile_referenceMetaProperties -->
+	 * <!-- End of user code doc for profile_referenceMetaProperties -->
 	 */
 	def profile_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_referenceMetaProperties,
-			 Seq()
-      )
+			Seq ())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		profile_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLProfile
+	 *
+	 * <!-- Start of user code doc for profile_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for profile_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def profile_forwardReferencesFromMetamodelAssociations: Elements =
 		package_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLProfile

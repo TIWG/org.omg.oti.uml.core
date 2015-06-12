@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ParameterableElement is an Element that can be exposed as a formal TemplateParameter for a template, or specified as an actual parameter in a binding of a template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLParameterableElement[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLParameterableElementOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLParameterableElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The formal TemplateParameter that owns this ParameterableElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for owningTemplateParameter -->
+	 * <!-- End of user code doc for owningTemplateParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.ownedParameteredElement
@@ -66,9 +68,10 @@ trait UMLParameterableElement[Uml <: UML]
 	def owningTemplateParameter: Option[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateParameter that exposes this ParameterableElement as a formal parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for templateParameter -->
+	 * <!-- End of user code doc for templateParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.parameteredElement
@@ -76,8 +79,8 @@ trait UMLParameterableElement[Uml <: UML]
 	def templateParameter: Option[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for actual_templateParameterSubstitution -->
+	 * <!-- End of user code doc for actual_templateParameterSubstitution -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.actual
@@ -85,17 +88,17 @@ trait UMLParameterableElement[Uml <: UML]
 	def actual_templateParameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for default_templateParameter -->
+	 * <!-- End of user code doc for default_templateParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.default
 	 */
-	def default_templateParameter: Iterable[UMLTemplateParameter[Uml]]
+	def default_templateParameter: Set[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedActual_owningTemplateParameterSubstitution -->
+	 * <!-- End of user code doc for ownedActual_owningTemplateParameterSubstitution -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.ownedActual
@@ -103,22 +106,28 @@ trait UMLParameterableElement[Uml <: UML]
 	def ownedActual_owningTemplateParameterSubstitution: Option[UMLTemplateParameterSubstitution[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedDefault_templateParameter -->
+	 * <!-- End of user code doc for ownedDefault_templateParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.ownedDefault
 	 */
-	def ownedDefault_templateParameter: Iterable[UMLTemplateParameter[Uml]]
+	def ownedDefault_templateParameter: Option[UMLTemplateParameter[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		parameterableElement_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLParameterableElement
+	 *
+	 * <!-- Start of user code doc for parameterableElement_metaAttributes -->
+	 * <!-- End of user code doc for parameterableElement_metaAttributes -->
 	 */
 	def parameterableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -127,12 +136,18 @@ trait UMLParameterableElement[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		parameterableElement_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLParameterableElement
+	 *
+	 * <!-- Start of user code doc for parameterableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for parameterableElement_compositeMetaProperties -->
 	 */
 	def parameterableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -141,31 +156,44 @@ trait UMLParameterableElement[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		parameterableElement_referenceMetaProperties
 
-	protected val ParameterableElement_templateParameter = MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)
 	/**
 	 * The XMI reference meta-properties relevant to class UMLParameterableElement
+	 *
+	 * <!-- Start of user code doc for parameterableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for parameterableElement_referenceMetaProperties -->
 	 */
 	def parameterableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (ParameterableElement_templateParameter))
+			Seq (MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		parameterableElement_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLParameterableElement
+	 *
+	 * <!-- Start of user code doc for parameterableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for parameterableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def parameterableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		owningTemplateParameter ++
 		templateParameter 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLParameterableElement

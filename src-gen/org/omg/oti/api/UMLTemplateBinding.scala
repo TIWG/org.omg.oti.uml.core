@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTemplateBinding[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]
 	with UMLTemplateBindingOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTemplateBinding[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateableElement that is bound by this TemplateBinding.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for boundElement -->
+	 * <!-- End of user code doc for boundElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateableElement.templateBinding
@@ -66,9 +68,10 @@ trait UMLTemplateBinding[Uml <: UML]
 	def boundElement: Option[UMLTemplateableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateParameterSubstitutions owned by this TemplateBinding.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for parameterSubstitution -->
+	 * <!-- End of user code doc for parameterSubstitution -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.templateBinding
@@ -76,9 +79,10 @@ trait UMLTemplateBinding[Uml <: UML]
 	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateSignature for the template that is the target of this TemplateBinding.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for signature -->
+	 * <!-- End of user code doc for signature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.signature_templateBinding
@@ -87,12 +91,18 @@ trait UMLTemplateBinding[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateBinding_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTemplateBinding
+	 *
+	 * <!-- Start of user code doc for templateBinding_metaAttributes -->
+	 * <!-- End of user code doc for templateBinding_metaAttributes -->
 	 */
 	def templateBinding_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -101,12 +111,18 @@ trait UMLTemplateBinding[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateBinding_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTemplateBinding
+	 *
+	 * <!-- Start of user code doc for templateBinding_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateBinding_compositeMetaProperties -->
 	 */
 	def templateBinding_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -115,12 +131,18 @@ trait UMLTemplateBinding[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateBinding_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateBinding
+	 *
+	 * <!-- Start of user code doc for templateBinding_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateBinding_referenceMetaProperties -->
 	 */
 	def templateBinding_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,16 +151,24 @@ trait UMLTemplateBinding[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateBinding_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateBinding
+	 *
+	 * <!-- Start of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateBinding_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		boundElement ++
 		signature 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTemplateBinding

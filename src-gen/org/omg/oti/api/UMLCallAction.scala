@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * CallAction is an abstract class for Actions that invoke a Behavior with given argument values and (if the invocation is synchronous) receive reply values.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCallAction[Uml <: UML]
 	extends UMLInvocationAction[Uml]
 	with UMLCallActionOps[Uml] {
@@ -56,18 +57,20 @@ trait UMLCallAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If true, the call is synchronous and the caller waits for completion of the invoked Behavior. If false, the call is asynchronous and the caller proceeds immediately and cannot receive return values.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isSynchronous -->
+	 * <!-- End of user code doc for isSynchronous -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isSynchronous: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPins on which the reply values from the invocation are placed (if the call is synchronous).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_callAction
@@ -76,12 +79,18 @@ trait UMLCallAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		callAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCallAction
+	 *
+	 * <!-- Start of user code doc for callAction_metaAttributes -->
+	 * <!-- End of user code doc for callAction_metaAttributes -->
 	 */
 	def callAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -90,26 +99,38 @@ trait UMLCallAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		callAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCallAction
+	 *
+	 * <!-- Start of user code doc for callAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for callAction_compositeMetaProperties -->
 	 */
 	def callAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result, true)))
+			Seq (MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		callAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCallAction
+	 *
+	 * <!-- Start of user code doc for callAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for callAction_referenceMetaProperties -->
 	 */
 	def callAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -118,15 +139,23 @@ trait UMLCallAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		callAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCallAction
+	 *
+	 * <!-- Start of user code doc for callAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for callAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def callAction_forwardReferencesFromMetamodelAssociations: Elements =
 		invocationAction_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCallAction

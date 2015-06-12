@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin on which the Classifier instances are placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readExtentAction
@@ -67,26 +67,28 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the result OutputPin is 0..*.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
+	 * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
 	 * @body result.is(0,*)
 	 */
-	def validate_multiplicity_of_result: Boolean  = {
+	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the result OutputPin is the classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_is_classifier -->
+	 * <!-- End of user code doc for validate_type_is_classifier -->
 	 *
 	 * @body result.type = classifier
 	 */
-	def validate_type_is_classifier: Boolean  = {
+	def validate_type_is_classifier: Boolean = {
 		// Start of user code for "type_is_classifier"
     	???
     	// End of user code
@@ -94,5 +96,4 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReadExtentAction
+} //UMLReadExtentActionOps

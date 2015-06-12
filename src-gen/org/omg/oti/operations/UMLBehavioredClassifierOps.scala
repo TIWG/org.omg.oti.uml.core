@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A BehavioredClassifier may have InterfaceRealizations, and owns a set of Behaviors one of which may specify the behavior of the BehavioredClassifier itself.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,19 +56,32 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * A Behavior that specifies the behavior of the BehavioredClassifier itself.
+	 *
+	 * <!-- Start of user code doc for classifierBehavior -->
+	 * <!-- End of user code doc for classifierBehavior -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLBehavior.classifierBehavior_behavioredClassifier
+	 */
+	def classifierBehavior: Option[UMLBehavior[Uml]] = ownedBehavior headOption
+
+	/**
 	 * The set of InterfaceRealizations owned by the BehavioredClassifier. Interface realizations reference the Interfaces of which the BehavioredClassifier is an implementation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interfaceRealization -->
+	 * <!-- End of user code doc for interfaceRealization -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterfaceRealization.implementingClassifier
 	 */
-	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
+	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = clientDependency.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Behaviors owned by a BehavioredClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedBehavior -->
+	 * <!-- End of user code doc for ownedBehavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.ownedBehavior_behavioredClassifier
@@ -77,8 +89,8 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	def ownedBehavior: Set[UMLBehavior[Uml]] = ownedMember.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for context_behavior -->
+	 * <!-- End of user code doc for context_behavior -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.context
@@ -86,13 +98,14 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	def context_behavior: Set[UMLBehavior[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a behavior is classifier behavior, it does not have a specification.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_class_behavior -->
+	 * <!-- End of user code doc for validate_class_behavior -->
 	 *
 	 * @body classifierBehavior->notEmpty() implies classifierBehavior.specification->isEmpty()
 	 */
-	def validate_class_behavior: Boolean  = {
+	def validate_class_behavior: Boolean = {
 		// Start of user code for "class_behavior"
     	???
     	// End of user code
@@ -100,5 +113,4 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLBehavioredClassifier
+} //UMLBehavioredClassifierOps

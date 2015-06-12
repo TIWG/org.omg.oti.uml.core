@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ActivityFinalNode is a FinalNode that terminates the execution of its owning Activity or StructuredActivityNode.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLActivityFinalNode[Uml <: UML]
 	extends UMLFinalNode[Uml]
 	with UMLActivityFinalNodeOps[Uml] {
@@ -57,12 +58,18 @@ trait UMLActivityFinalNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activityFinalNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLActivityFinalNode
+	 *
+	 * <!-- Start of user code doc for activityFinalNode_metaAttributes -->
+	 * <!-- End of user code doc for activityFinalNode_metaAttributes -->
 	 */
 	def activityFinalNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -71,12 +78,18 @@ trait UMLActivityFinalNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activityFinalNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLActivityFinalNode
+	 *
+	 * <!-- Start of user code doc for activityFinalNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for activityFinalNode_compositeMetaProperties -->
 	 */
 	def activityFinalNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -85,12 +98,18 @@ trait UMLActivityFinalNode[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activityFinalNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLActivityFinalNode
+	 *
+	 * <!-- Start of user code doc for activityFinalNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for activityFinalNode_referenceMetaProperties -->
 	 */
 	def activityFinalNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -99,15 +118,23 @@ trait UMLActivityFinalNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activityFinalNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLActivityFinalNode
+	 *
+	 * <!-- Start of user code doc for activityFinalNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activityFinalNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activityFinalNode_forwardReferencesFromMetamodelAssociations: Elements =
 		finalNode_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLActivityFinalNode

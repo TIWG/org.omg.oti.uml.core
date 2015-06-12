@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,12 +56,12 @@ trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for validate_immutable -->
+	 * <!-- End of user code doc for validate_immutable -->
 	 *
 	 * @body ownedAttribute->forAll(isReadOnly)
 	 */
-	def validate_immutable: Boolean  = {
+	def validate_immutable: Boolean = {
 		// Start of user code for "immutable"
     	???
     	// End of user code
@@ -70,5 +69,4 @@ trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLEnumeration
+} //UMLEnumerationOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the object to be unmarshalled.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_unmarshallAction
@@ -67,61 +67,66 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin is 1..1
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
+	 * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity_of_object: Boolean  = {
+	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The number of result outputPins must be the same as the number of attributes of the unmarshallType.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_number_of_result -->
+	 * <!-- End of user code doc for validate_number_of_result -->
 	 *
 	 * @body unmarshallType.allAttributes()->size() = result->size()
 	 */
-	def validate_number_of_result: Boolean  = {
+	def validate_number_of_result: Boolean = {
 		// Start of user code for "number_of_result"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the object InputPin conform to the unmarshallType.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_object_type -->
+	 * <!-- End of user code doc for validate_object_type -->
 	 *
 	 * @body object.type.conformsTo(unmarshallType)
 	 */
-	def validate_object_type: Boolean  = {
+	def validate_object_type: Boolean = {
 		// Start of user code for "object_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The unmarshallType must have at least one StructuralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_structural_feature -->
+	 * <!-- End of user code doc for validate_structural_feature -->
 	 *
 	 * @body unmarshallType.allAttributes()->size() >= 1
 	 */
-	def validate_structural_feature: Boolean  = {
+	def validate_structural_feature: Boolean = {
 		// Start of user code for "structural_feature"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type, ordering and multiplicity of each attribute of the unmarshallType must be compatible with the type, ordering and multiplicity of the corresponding result OutputPin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_ordering_and_multiplicity -->
+	 * <!-- End of user code doc for validate_type_ordering_and_multiplicity -->
 	 *
 	 * @body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
 	 * Sequence{1..result->size()}->forAll(i | 
@@ -129,7 +134,7 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * 	attribute->at(i).isOrdered=result->at(i).isOrdered and
 	 * 	attribute->at(i).compatibleWith(result->at(i)))
 	 */
-	def validate_type_ordering_and_multiplicity: Boolean  = {
+	def validate_type_ordering_and_multiplicity: Boolean = {
 		// Start of user code for "type_ordering_and_multiplicity"
     	???
     	// End of user code
@@ -137,5 +142,4 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLUnmarshallAction
+} //UMLUnmarshallActionOps

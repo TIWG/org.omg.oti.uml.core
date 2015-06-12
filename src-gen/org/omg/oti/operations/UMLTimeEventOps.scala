@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TimeEvent is an Event that occurs at a specific point in time.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the time of the TimeEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for when -->
+	 * <!-- End of user code doc for when -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTimeExpression.when_timeEvent
@@ -67,13 +67,14 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 	def when: Option[UMLTimeExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeExpression[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ValueSpecification when must return a non-negative Integer.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_when_non_negative -->
+	 * <!-- End of user code doc for validate_when_non_negative -->
 	 *
 	 * @body when.integerValue() >= 0
 	 */
-	def validate_when_non_negative: Boolean  = {
+	def validate_when_non_negative: Boolean = {
 		// Start of user code for "when_non_negative"
     	???
     	// End of user code
@@ -81,5 +82,4 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTimeEvent
+} //UMLTimeEventOps

@@ -45,11 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A link is a tuple of values that refer to typed objects.  An Association classifies a set of links, each of which is an instance of the Association.  Each value in the link refers to an instance of the type of the corresponding end of the Association.
-
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLAssociation[Uml <: UML]
 	extends UMLClassifier[Uml]
 	with UMLRelationship[Uml]
@@ -58,28 +58,32 @@ trait UMLAssociation[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifiers that are used as types of the ends of the Association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for endType -->
+	 * <!-- End of user code doc for endType -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLType.endType_association
+	 * @body result = (memberEnd->collect(type)->asSet())
 	 */
 	def endType: Set[UMLType[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether the Association is derived from other model elements such as other Associations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isDerived -->
+	 * <!-- End of user code doc for isDerived -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDerived: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Each end represents participation of instances of the Classifier connected to the end in links of the Association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for memberEnd -->
+	 * <!-- End of user code doc for memberEnd -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="2..*"
 	 * @opposite org.omg.oti.api.UMLProperty.association
@@ -87,9 +91,10 @@ trait UMLAssociation[Uml <: UML]
 	def memberEnd: Seq[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The navigable ends that are owned by the Association itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for navigableOwnedEnd -->
+	 * <!-- End of user code doc for navigableOwnedEnd -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.navigableOwnedEnd_association
@@ -97,9 +102,10 @@ trait UMLAssociation[Uml <: UML]
 	def navigableOwnedEnd: Set[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ends that are owned by the Association itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedEnd -->
+	 * <!-- End of user code doc for ownedEnd -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.owningAssociation
@@ -107,8 +113,8 @@ trait UMLAssociation[Uml <: UML]
 	def ownedEnd: Iterable[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for association_clearAssociationAction -->
+	 * <!-- End of user code doc for association_clearAssociationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClearAssociationAction.association
@@ -116,8 +122,8 @@ trait UMLAssociation[Uml <: UML]
 	def association_clearAssociationAction: Option[UMLClearAssociationAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for type_connector -->
+	 * <!-- End of user code doc for type_connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnector._type
@@ -126,12 +132,18 @@ trait UMLAssociation[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		association_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLAssociation
+	 *
+	 * <!-- Start of user code doc for association_metaAttributes -->
+	 * <!-- End of user code doc for association_metaAttributes -->
 	 */
 	def association_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -141,43 +153,61 @@ trait UMLAssociation[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		association_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLAssociation
+	 *
+	 * <!-- Start of user code doc for association_compositeMetaProperties -->
+	 * <!-- End of user code doc for association_compositeMetaProperties -->
 	 */
 	def association_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
 			relationship_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd, true)))
+			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		association_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLAssociation
+	 *
+	 * <!-- Start of user code doc for association_referenceMetaProperties -->
+	 * <!-- End of user code doc for association_referenceMetaProperties -->
 	 */
 	def association_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
 			relationship_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd, true),
+			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd),
 				MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("navigableOwnedEnd", _.navigableOwnedEnd)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		association_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLAssociation
+	 *
+	 * <!-- Start of user code doc for association_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for association_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def association_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
@@ -185,4 +215,6 @@ trait UMLAssociation[Uml <: UML]
 		memberEnd ++
 		navigableOwnedEnd 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLAssociation

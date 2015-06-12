@@ -45,12 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
- * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.
-Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.
-A package is used to group elements, and provides a namespace for the grouped elements.
- * <!-- end-model-doc -->
- */
+ * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.A package is used to group elements, and provides a namespace for the grouped elements.
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLPackage[Uml <: UML]
 	extends UMLNamespace[Uml]
 	with UMLPackageableElement[Uml]
@@ -60,28 +59,32 @@ trait UMLPackage[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Provides an identifier for the package that can be used for many purposes. A URI is the universally unique identification of the package following the IETF URI specification, RFC 2396 http://www.ietf.org/rfc/rfc2396.txt and it must comply with those syntax rules.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for URI -->
+	 * <!-- End of user code doc for URI -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def URI: Option[String]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the packaged elements that are Packages.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestedPackage -->
+	 * <!-- End of user code doc for nestedPackage -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackage.nestingPackage
+	 * @body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
 	 */
 	def nestedPackage: Set[UMLPackage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Package that owns this Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestingPackage -->
+	 * <!-- End of user code doc for nestingPackage -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
@@ -89,29 +92,34 @@ trait UMLPackage[Uml <: UML]
 	def nestingPackage: Option[UMLPackage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Stereotypes that are owned by the Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedStereotype -->
+	 * <!-- End of user code doc for ownedStereotype -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLStereotype.ownedStereotype_owningPackage
+	 * @body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
 	 */
 	def ownedStereotype: Set[UMLStereotype[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the packaged elements that are Types.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedType -->
+	 * <!-- End of user code doc for ownedType -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLType._package
+	 * @body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
 	 */
 	def ownedType: Set[UMLType[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the PackageMerges that are owned by this Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for packageMerge -->
+	 * <!-- End of user code doc for packageMerge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageMerge.receivingPackage
@@ -119,9 +127,10 @@ trait UMLPackage[Uml <: UML]
 	def packageMerge: Set[UMLPackageMerge[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the packageable elements that are owned by this Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for packagedElement -->
+	 * <!-- End of user code doc for packagedElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageableElement.packagedElement_owningPackage
@@ -129,9 +138,10 @@ trait UMLPackage[Uml <: UML]
 	def packagedElement: Set[UMLPackageableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the ProfileApplications that indicate which profiles have been applied to the Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for profileApplication -->
+	 * <!-- End of user code doc for profileApplication -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProfileApplication.applyingPackage
@@ -139,8 +149,8 @@ trait UMLPackage[Uml <: UML]
 	def profileApplication: Set[UMLProfileApplication[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for importedPackage_packageImport -->
+	 * <!-- End of user code doc for importedPackage_packageImport -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageImport.importedPackage
@@ -148,8 +158,8 @@ trait UMLPackage[Uml <: UML]
 	def importedPackage_packageImport: Set[UMLPackageImport[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for mergedPackage_packageMerge -->
+	 * <!-- End of user code doc for mergedPackage_packageMerge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageMerge.mergedPackage
@@ -158,28 +168,40 @@ trait UMLPackage[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		package_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLPackage
+	 *
+	 * <!-- Start of user code doc for package_metaAttributes -->
+	 * <!-- End of user code doc for package_metaAttributes -->
 	 */
 	def package_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namespace_metaAttributes,
 			packageableElement_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", _.getEffectiveURI)))
+			Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", _.URI)))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		package_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLPackage
+	 *
+	 * <!-- Start of user code doc for package_compositeMetaProperties -->
+	 * <!-- End of user code doc for package_compositeMetaProperties -->
 	 */
 	def package_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -192,12 +214,18 @@ trait UMLPackage[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		package_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLPackage
+	 *
+	 * <!-- Start of user code doc for package_referenceMetaProperties -->
+	 * <!-- End of user code doc for package_referenceMetaProperties -->
 	 */
 	def package_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -208,12 +236,18 @@ trait UMLPackage[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		package_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLPackage
+	 *
+	 * <!-- Start of user code doc for package_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for package_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def package_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -221,4 +255,6 @@ trait UMLPackage[Uml <: UML]
 		templateableElement_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLPackage

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ActivityFinalNode is a FinalNode that terminates the execution of its owning Activity or StructuredActivityNode.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLActivityFinalNodeOps[Uml <: UML] { self: UMLActivityFinalNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivityFinalNode
+} //UMLActivityFinalNodeOps

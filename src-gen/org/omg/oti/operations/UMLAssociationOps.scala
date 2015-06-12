@@ -46,10 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A link is a tuple of values that refer to typed objects.  An Association classifies a set of links, each of which is an instance of the Association.  Each value in the link refers to an instance of the type of the corresponding end of the Association.
-
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,9 +56,10 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifiers that are used as types of the ends of the Association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for endType -->
+	 * <!-- End of user code doc for endType -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLType.endType_association
@@ -69,13 +68,14 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	def endType: Set[UMLType[Uml]] = relatedElement.selectByKindOf { case x: UMLType[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Ends of Associations with more than two ends must be owned by the Association itself.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_association_ends -->
+	 * <!-- End of user code doc for validate_association_ends -->
 	 *
 	 * @body memberEnd->size() > 2 implies ownedEnd->includesAll(memberEnd)
 	 */
-	def validate_association_ends: Boolean  = {
+	def validate_association_ends: Boolean = {
 		// Start of user code for "association_ends"
     	if (memberEnd.size > 2) 
         ownedEnd.containsAll(memberEnd)
@@ -84,13 +84,14 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Only binary Associations can be aggregations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_binary_associations -->
+	 * <!-- End of user code doc for validate_binary_associations -->
 	 *
 	 * @body memberEnd->exists(aggregation <> AggregationKind::none) implies (memberEnd->size() = 2 and memberEnd->exists(aggregation = AggregationKind::none))
 	 */
-	def validate_binary_associations: Boolean  = {
+	def validate_binary_associations: Boolean = {
 		// Start of user code for "binary_associations"
     	if ( memberEnd.exists { me => me.aggregation != UMLAggregationKind.none } ) {
        memberEnd.size == 2 && memberEnd.exists { me => me.aggregation == UMLAggregationKind.none } 
@@ -99,41 +100,45 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for validate_ends_must_be_typed -->
+	 * <!-- End of user code doc for validate_ends_must_be_typed -->
 	 *
 	 * @body memberEnd->forAll(type->notEmpty())
 	 */
-	def validate_ends_must_be_typed: Boolean  = {
+	def validate_ends_must_be_typed: Boolean = {
 		// Start of user code for "ends_must_be_typed"
     	memberEnd.forall(_._type.isDefined)
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Association specializing another Association has the same number of ends as the other Association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_specialized_end_number -->
+	 * <!-- End of user code doc for validate_specialized_end_number -->
 	 *
 	 * @body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
 	 */
-	def validate_specialized_end_number: Boolean  = { ??? //need Assosiation translation
+	def validate_specialized_end_number: Boolean = {
 		// Start of user code for "specialized_end_number"
+    	???
     	//parents.selectByKindOf(case a: Association => a.forall { p => p.memberEnd.size == self.memberEnd.size } )
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * When an Association specializes another Association, every end of the specific Association corresponds to an end of the general Association, and the specific end reaches the same type or a subtype of the corresponding general end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_specialized_end_types -->
+	 * <!-- End of user code doc for validate_specialized_end_types -->
 	 *
 	 * @body Sequence{1..memberEnd->size()}->
 	 * 	forAll(i | general->select(oclIsKindOf(Association)).oclAsType(Association)->
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
 	 */
-	def validate_specialized_end_types: Boolean  = { ??? //need Assosiation translation
+	def validate_specialized_end_types: Boolean = {
 		// Start of user code for "specialized_end_types"
+    	???
 //    	Seq(1 to memberEnd.size).forall { i => 
 //        general.selectByKindOf(Association).forall { ga => 
 //          self.memberEnd(i)._type.conformsTo(ga.memberEnd(i)._type) } }
@@ -168,5 +173,4 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
   }
 
 	// End of user code
-
-} //UMLAssociation
+} //UMLAssociationOps

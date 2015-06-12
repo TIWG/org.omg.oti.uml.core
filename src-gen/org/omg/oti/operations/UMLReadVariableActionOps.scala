@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadVariableAction is a VariableAction that retrieves the values of a Variable.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin on which the result values are placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readVariableAction
@@ -67,27 +67,29 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the variable must be compatible with the multiplicity of the output pin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_compatible_multiplicity -->
+	 * <!-- End of user code doc for validate_compatible_multiplicity -->
 	 *
 	 * @body variable.compatibleWith(result)
 	 */
-	def validate_compatible_multiplicity: Boolean  = {
+	def validate_compatible_multiplicity: Boolean = {
 		// Start of user code for "compatible_multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type and ordering of the result OutputPin are the same as the type and ordering of the variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_and_ordering -->
+	 * <!-- End of user code doc for validate_type_and_ordering -->
 	 *
 	 * @body result.type =variable.type and 
 	 * result.isOrdered = variable.isOrdered
 	 */
-	def validate_type_and_ordering: Boolean  = {
+	def validate_type_and_ordering: Boolean = {
 		// Start of user code for "type_and_ordering"
     	???
     	// End of user code
@@ -95,5 +97,4 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReadVariableAction
+} //UMLReadVariableActionOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * StructuredClassifiers may contain an internal structure of connected elements each of which plays a role in the overall Behavior modeled by the StructuredClassifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The connectors owned by the StructuredClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedConnector -->
+	 * <!-- End of user code doc for ownedConnector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnector.ownedConnector_structuredClassifier
@@ -67,9 +67,10 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	def ownedConnector: Set[UMLConnector[Uml]] = feature.selectByKindOf { case x: UMLConnector[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Properties specifying instances that the StructuredClassifier owns by composition. This collection is derived, selecting those owned Properties where isComposite is true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for part -->
+	 * <!-- End of user code doc for part -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.part_structuredClassifier
@@ -82,14 +83,15 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All features of type ConnectableElement, equivalent to all direct and inherited roles.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allRoles -->
+	 * <!-- End of user code doc for allRoles -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (allFeatures()->select(oclIsKindOf(ConnectableElement))->collect(oclAsType(ConnectableElement))->asSet())
 	 */
-	def allRoles: Set[UMLConnectableElement[Uml]]  = {
+	def allRoles: Set[UMLConnectableElement[Uml]] = {
 		// Start of user code for "allRoles"
     	allFeatures.selectByKindOf { case c: UMLConnectableElement[Uml] => c }
     	// End of user code
@@ -97,5 +99,4 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStructuredClassifier
+} //UMLStructuredClassifierOps

@@ -45,11 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Class classifies a set of objects and specifies the features that characterize the structure and behavior of those objects.  A Class may have an internal structure and Ports.
-
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLClass[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]
 	with UMLEncapsulatedClassifier[Uml]
@@ -58,37 +58,44 @@ trait UMLClass[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This property is used when the Class is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extension -->
+	 * <!-- End of user code doc for extension -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExtension.metaclass
+	 * @body result = (Extension.allInstances()->select(ext | 
+	 *   let endTypes : Sequence(Classifier) = ext.memberEnd->collect(type.oclAsType(Classifier)) in
+	 *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
 	 */
 	def extension: Set[UMLExtension[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If true, the Class does not provide a complete declaration and cannot be instantiated. An abstract Class is typically used as a target of Associations or Generalizations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isAbstract -->
+	 * <!-- End of user code doc for isAbstract -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	override def isAbstract: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Determines whether an object specified by this Class is active or not. If true, then the owning Class is referred to as an active Class. If false, then such a Class is referred to as a passive Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isActive -->
+	 * <!-- End of user code doc for isActive -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isActive: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifiers owned by the Class that are not ownedBehaviors.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestedClassifier -->
+	 * <!-- End of user code doc for nestedClassifier -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClassifier.nestedClassifier_nestingClass
@@ -96,9 +103,10 @@ trait UMLClass[Uml <: UML]
 	def nestedClassifier: Seq[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The attributes (i.e., the Properties) owned by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedAttribute -->
+	 * <!-- End of user code doc for ownedAttribute -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty._class
@@ -106,9 +114,10 @@ trait UMLClass[Uml <: UML]
 	override def ownedAttribute: Seq[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Operations owned by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedOperation -->
+	 * <!-- End of user code doc for ownedOperation -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation._class
@@ -116,9 +125,10 @@ trait UMLClass[Uml <: UML]
 	def ownedOperation: Seq[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Receptions owned by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedReception -->
+	 * <!-- End of user code doc for ownedReception -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLReception.ownedReception_class
@@ -126,18 +136,20 @@ trait UMLClass[Uml <: UML]
 	def ownedReception: Set[UMLReception[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The superclasses of a Class, derived from its Generalizations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for superClass -->
+	 * <!-- End of user code doc for superClass -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClass.superClass_class
+	 * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
 	 */
 	def superClass: Set[UMLClass[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for superClass_class -->
+	 * <!-- End of user code doc for superClass_class -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClass.superClass
@@ -146,12 +158,18 @@ trait UMLClass[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		class_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLClass
+	 *
+	 * <!-- Start of user code doc for class_metaAttributes -->
+	 * <!-- End of user code doc for class_metaAttributes -->
 	 */
 	def class_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -162,30 +180,42 @@ trait UMLClass[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		class_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLClass
+	 *
+	 * <!-- Start of user code doc for class_compositeMetaProperties -->
+	 * <!-- End of user code doc for class_compositeMetaProperties -->
 	 */
 	def class_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
 			encapsulatedClassifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier, true),
-				MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
-				MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true),
+			Seq (MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier),
+				MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
+				MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation),
 				MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		class_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLClass
+	 *
+	 * <!-- Start of user code doc for class_referenceMetaProperties -->
+	 * <!-- End of user code doc for class_referenceMetaProperties -->
 	 */
 	def class_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -195,16 +225,24 @@ trait UMLClass[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		class_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLClass
+	 *
+	 * <!-- Start of user code doc for class_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for class_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def class_forwardReferencesFromMetamodelAssociations: Elements =
 		behavioredClassifier_forwardReferencesFromMetamodelAssociations ++
 		encapsulatedClassifier_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLClass

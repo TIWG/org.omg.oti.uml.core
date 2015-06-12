@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ClearVariableAction is a VariableAction that removes all values of a Variable.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLClearVariableActionOps[Uml <: UML] { self: UMLClearVariableAction[Uml] 
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLClearVariableAction
+} //UMLClearVariableActionOps

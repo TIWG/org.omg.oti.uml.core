@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Operation is a BehavioralFeature of a Classifier that specifies the name, type, parameters, and constraints for invoking an associated Behavior. An Operation may invoke both the execution of method behaviors as well as other behavioral responses. Operation specializes TemplateableElement in order to support specification of template operations and bound operations. Operation specializes ParameterableElement to specify that an operation can be exposed as a formal template parameter, and provided as an actual parameter in a binding of a template.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Class that owns this operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _class -->
+	 * <!-- End of user code doc for _class -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClass.ownedOperation
@@ -67,9 +67,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def _class: Option[UMLClass[Uml]] = featuringClassifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The return type of the operation, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _type -->
+	 * <!-- End of user code doc for _type -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLType.type_operation
@@ -82,9 +83,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DataType that owns this Operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for datatype -->
+	 * <!-- End of user code doc for datatype -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDataType.ownedOperation
@@ -92,9 +94,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def datatype: Option[UMLDataType[Uml]] = featuringClassifier.selectByKindOf { case x: UMLDataType[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interface that owns this Operation, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interface -->
+	 * <!-- End of user code doc for interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInterface.ownedOperation
@@ -102,9 +105,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def interface: Option[UMLInterface[Uml]] = featuringClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether the return parameter is ordered or not, if present.  This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOrdered -->
+	 * <!-- End of user code doc for isOrdered -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
@@ -116,9 +120,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether the return parameter is unique or not, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isUnique -->
+	 * <!-- End of user code doc for isUnique -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
@@ -130,9 +135,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the lower multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for lower -->
+	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
@@ -144,9 +150,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Operations that are redefined by this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedOperation -->
+	 * <!-- End of user code doc for redefinedOperation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation_operation
@@ -154,9 +161,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def redefinedOperation: Set[UMLOperation[Uml]] = redefinedElement.selectByKindOf { case x: UMLOperation[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The upper multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for upper -->
+	 * <!-- End of user code doc for upper -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
@@ -168,8 +176,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedOperation_artifact -->
+	 * <!-- End of user code doc for ownedOperation_artifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.ownedOperation
@@ -177,8 +185,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def ownedOperation_artifact: Option[UMLArtifact[Uml]] = featuringClassifier.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedOperation_operation -->
+	 * <!-- End of user code doc for redefinedOperation_operation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation
@@ -186,8 +194,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def redefinedOperation_operation: Set[UMLOperation[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLOperation[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for referred_protocolTransition -->
+	 * <!-- End of user code doc for referred_protocolTransition -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.referred
@@ -199,14 +207,14 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isConsistentWith() specifies, for any two Operations in a context in which redefinition is possible, whether redefinition would be consistent. A redefining operation is consistent with a redefined operation if
-	 it has the same number of owned parameters, and for each parameter the following holds:
-	 
-	 - Direction, ordering and uniqueness are the same.
-	 - The corresponding types are covariant, contravariant or invariant.
-	 - The multiplicities are compatible, depending on the parameter direction.
-	 * <!-- end-model-doc -->
+	 * it has the same number of owned parameters, and for each parameter the following holds:
+	 * - Direction, ordering and uniqueness are the same.
+	 * - The corresponding types are covariant, contravariant or invariant.
+	 * - The multiplicities are compatible, depending on the parameter direction.
+	 *
+	 * <!-- Start of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (redefiningElement.oclIsKindOf(Operation) and
@@ -231,47 +239,50 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 *                          redefiningParam.compatibleWith(redefinedParam))
 	 * 		))
 	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
+	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query returnResult() returns the set containing the return parameter of the Operation if one exists, otherwise, it returns an empty set
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for returnResult -->
+	 * <!-- End of user code doc for returnResult -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (ownedParameter->select (direction = ParameterDirectionKind::return))
 	 */
-	def returnResult: Set[UMLParameter[Uml]]  = {
+	def returnResult: Set[UMLParameter[Uml]] = {
 		// Start of user code for "returnResult"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Operation can have at most one return parameter; i.e., an owned parameter with the direction set to 'return.'
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_at_most_one_return -->
+	 * <!-- End of user code doc for validate_at_most_one_return -->
 	 *
 	 * @body self.ownedParameter->select(direction = ParameterDirectionKind::return)->size() <= 1
 	 */
-	def validate_at_most_one_return: Boolean  = {
+	def validate_at_most_one_return: Boolean = {
 		// Start of user code for "at_most_one_return"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A bodyCondition can only be specified for a query Operation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_only_body_for_query -->
+	 * <!-- End of user code doc for validate_only_body_for_query -->
 	 *
 	 * @body bodyCondition <> null implies isQuery
 	 */
-	def validate_only_body_for_query: Boolean  = {
+	def validate_only_body_for_query: Boolean = {
 		// Start of user code for "only_body_for_query"
     	???
     	// End of user code
@@ -279,5 +290,4 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLOperation
+} //UMLOperationOps

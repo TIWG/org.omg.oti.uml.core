@@ -45,11 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
- * A deployment is the allocation of an artifact or artifact instance to a deployment target.
-A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
- * <!-- end-model-doc -->
- */
+ * A deployment is the allocation of an artifact or artifact instance to a deployment target.A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLDeployment[Uml <: UML]
 	extends UMLDependency[Uml]
 	with UMLDeploymentOps[Uml] {
@@ -57,9 +57,10 @@ trait UMLDeployment[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specification of properties that parameterize the deployment and execution of one or more Artifacts.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for configuration -->
+	 * <!-- End of user code doc for configuration -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeploymentSpecification.deployment
@@ -67,9 +68,10 @@ trait UMLDeployment[Uml <: UML]
 	def configuration: Set[UMLDeploymentSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Artifacts that are deployed onto a Node. This association specializes the supplier association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for deployedArtifact -->
+	 * <!-- End of user code doc for deployedArtifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeployedArtifact.deployedArtifact_deploymentForArtifact
@@ -77,9 +79,10 @@ trait UMLDeployment[Uml <: UML]
 	def deployedArtifact: Set[UMLDeployedArtifact[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DeployedTarget which is the target of a Deployment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for location -->
+	 * <!-- End of user code doc for location -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployment
@@ -88,12 +91,18 @@ trait UMLDeployment[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		deployment_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLDeployment
+	 *
+	 * <!-- Start of user code doc for deployment_metaAttributes -->
+	 * <!-- End of user code doc for deployment_metaAttributes -->
 	 */
 	def deployment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -102,12 +111,18 @@ trait UMLDeployment[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		deployment_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLDeployment
+	 *
+	 * <!-- Start of user code doc for deployment_compositeMetaProperties -->
+	 * <!-- End of user code doc for deployment_compositeMetaProperties -->
 	 */
 	def deployment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,12 +131,18 @@ trait UMLDeployment[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		deployment_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLDeployment
+	 *
+	 * <!-- Start of user code doc for deployment_referenceMetaProperties -->
+	 * <!-- End of user code doc for deployment_referenceMetaProperties -->
 	 */
 	def deployment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,16 +151,24 @@ trait UMLDeployment[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		deployment_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLDeployment
+	 *
+	 * <!-- Start of user code doc for deployment_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for deployment_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def deployment_forwardReferencesFromMetamodelAssociations: Elements =
 		dependency_forwardReferencesFromMetamodelAssociations ++
 		deployedArtifact ++
 		location 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLDeployment

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StructuralFeature is a typed feature of a Classifier that specifies the structure of instances of the Classifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLStructuralFeatureOps[Uml <: UML] { self: UMLStructuralFeature[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStructuralFeature
+} //UMLStructuralFeatureOps

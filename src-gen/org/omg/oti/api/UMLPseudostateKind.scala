@@ -40,84 +40,98 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc -->
  * PseudostateKind is an Enumeration type that is used to differentiate various kinds of Pseudostates.
- * <!-- end-model-doc -->
+ *
+ * <!-- Start of user code documentation -->
+ * <!-- End of user code documentation -->
  */
 object UMLPseudostateKind extends Enumeration {
 	
 	/**
 	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLPseudostateKind = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for choice -->
+	 * <!-- End of user code doc for choice -->
+ 	 */
 	val choice = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for deepHistory -->
+	 * <!-- End of user code doc for deepHistory -->
+ 	 */
 	val deepHistory = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for entryPoint -->
+	 * <!-- End of user code doc for entryPoint -->
+ 	 */
 	val entryPoint = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for exitPoint -->
+	 * <!-- End of user code doc for exitPoint -->
+ 	 */
 	val exitPoint = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for fork -->
+	 * <!-- End of user code doc for fork -->
+ 	 */
 	val fork = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for initial -->
+	 * <!-- End of user code doc for initial -->
+ 	 */
 	val initial = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for join -->
+	 * <!-- End of user code doc for join -->
+ 	 */
 	val join = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for junction -->
+	 * <!-- End of user code doc for junction -->
+ 	 */
 	val junction = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for shallowHistory -->
+	 * <!-- End of user code doc for shallowHistory -->
+ 	 */
 	val shallowHistory = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* 
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * 
+	 *
+	 * <!-- Start of user code doc for terminate -->
+	 * <!-- End of user code doc for terminate -->
+ 	 */
 	val terminate = Value
 }

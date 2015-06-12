@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExpansionNode is an ObjectNode used to indicate a collection input or output for an ExpansionRegion. A collection input of an ExpansionRegion contains a collection that is broken into its individual elements inside the region, whose content is executed once per element. A collection output of an ExpansionRegion combines individual elements produced by the execution of the region into a collection for use outside the region.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,13 +56,14 @@ trait UMLExpansionNodeOps[Uml <: UML] { self: UMLExpansionNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * One of regionAsInput or regionAsOutput must be non-empty, but not both.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_region_as_input_or_output -->
+	 * <!-- End of user code doc for validate_region_as_input_or_output -->
 	 *
 	 * @body regionAsInput->notEmpty() xor regionAsOutput->notEmpty()
 	 */
-	def validate_region_as_input_or_output: Boolean  = {
+	def validate_region_as_input_or_output: Boolean = {
 		// Start of user code for "region_as_input_or_output"
     	???
     	// End of user code
@@ -71,5 +71,4 @@ trait UMLExpansionNodeOps[Uml <: UML] { self: UMLExpansionNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExpansionNode
+} //UMLExpansionNodeOps

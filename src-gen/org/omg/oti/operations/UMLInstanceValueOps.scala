@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InstanceValue is a ValueSpecification that identifies an instance.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -72,5 +71,4 @@ trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
     instance.toSet
 
 	// End of user code
-
-} //UMLInstanceValue
+} //UMLInstanceValueOps

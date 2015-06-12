@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,21 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
+	 *
+	 * <!-- Start of user code doc for ownedDefault -->
+	 * <!-- End of user code doc for ownedDefault -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedDefault_templateParameter
+	 */
+	def ownedDefault: Option[UMLParameterableElement[Uml]] = default
+
+	/**
 	 * The TemplateSignature that owns this TemplateParameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for signature -->
+	 * <!-- End of user code doc for signature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.ownedParameter
@@ -67,22 +78,27 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	def signature: Option[UMLTemplateSignature[Uml]] = owner.selectByKindOf { case x: UMLTemplateSignature[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for inheritedParameter_redefinableTemplateSignature -->
+	 * <!-- End of user code doc for inheritedParameter_redefinableTemplateSignature -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.inheritedParameter
 	 */
-	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = parameter_templateSignature.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
+	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = {
+		// Start of user code for "redefinableTemplateSignature"
+		???
+		// End of user code
+	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The default must be compatible with the formal TemplateParameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_must_be_compatible -->
+	 * <!-- End of user code doc for validate_must_be_compatible -->
 	 *
 	 * @body default <> null implies default.isCompatibleWith(parameteredElement)
 	 */
-	def validate_must_be_compatible: Boolean  = {
+	def validate_must_be_compatible: Boolean = {
 		// Start of user code for "must_be_compatible"
   	default match {
       case Some(d) => d.isCompatibleWith(parameteredElement)
@@ -110,5 +126,4 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
       }
   }
   // End of user code
-
-} //UMLTemplateParameter
+} //UMLTemplateParameterOps

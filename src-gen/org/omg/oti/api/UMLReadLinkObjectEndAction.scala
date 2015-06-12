@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadLinkObjectEndAction is an Action that retrieves an end object from a link object.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLReadLinkObjectEndAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReadLinkObjectEndActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The input pin from which the link object is obtained.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_readLinkObjectEndAction
@@ -66,9 +68,10 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	def _object: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Association end to be read.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for end -->
+	 * <!-- End of user code doc for end -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProperty.end_readLinkObjectEndAction
@@ -76,9 +79,10 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	def end: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin where the result value is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readLinkObjectEndAction
@@ -87,12 +91,18 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readLinkObjectEndAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLReadLinkObjectEndAction
+	 *
+	 * <!-- Start of user code doc for readLinkObjectEndAction_metaAttributes -->
+	 * <!-- End of user code doc for readLinkObjectEndAction_metaAttributes -->
 	 */
 	def readLinkObjectEndAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -101,12 +111,18 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readLinkObjectEndAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLReadLinkObjectEndAction
+	 *
+	 * <!-- Start of user code doc for readLinkObjectEndAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readLinkObjectEndAction_compositeMetaProperties -->
 	 */
 	def readLinkObjectEndAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,12 +132,18 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readLinkObjectEndAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLReadLinkObjectEndAction
+	 *
+	 * <!-- Start of user code doc for readLinkObjectEndAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readLinkObjectEndAction_referenceMetaProperties -->
 	 */
 	def readLinkObjectEndAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,15 +152,23 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readLinkObjectEndAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLReadLinkObjectEndAction
+	 *
+	 * <!-- Start of user code doc for readLinkObjectEndAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readLinkObjectEndAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readLinkObjectEndAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		end 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLReadLinkObjectEndAction

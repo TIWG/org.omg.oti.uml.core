@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A trigger for an AnyReceiveEvent is triggered by the receipt of any message that is not explicitly handled by any related trigger.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLAnyReceiveEventOps[Uml <: UML] { self: UMLAnyReceiveEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLAnyReceiveEvent
+} //UMLAnyReceiveEventOps

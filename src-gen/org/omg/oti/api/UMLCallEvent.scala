@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CallEvent models the receipt by an object of a message invoking a call of an Operation.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCallEvent[Uml <: UML]
 	extends UMLMessageEvent[Uml]
 	with UMLCallEventOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLCallEvent[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the Operation whose invocation raised the CalEvent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for operation -->
+	 * <!-- End of user code doc for operation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOperation.operation_callEvent
@@ -67,12 +69,18 @@ trait UMLCallEvent[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		callEvent_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCallEvent
+	 *
+	 * <!-- Start of user code doc for callEvent_metaAttributes -->
+	 * <!-- End of user code doc for callEvent_metaAttributes -->
 	 */
 	def callEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLCallEvent[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		callEvent_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCallEvent
+	 *
+	 * <!-- Start of user code doc for callEvent_compositeMetaProperties -->
+	 * <!-- End of user code doc for callEvent_compositeMetaProperties -->
 	 */
 	def callEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLCallEvent[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		callEvent_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCallEvent
+	 *
+	 * <!-- Start of user code doc for callEvent_referenceMetaProperties -->
+	 * <!-- End of user code doc for callEvent_referenceMetaProperties -->
 	 */
 	def callEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLCallEvent[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		callEvent_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCallEvent
+	 *
+	 * <!-- Start of user code doc for callEvent_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for callEvent_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def callEvent_forwardReferencesFromMetamodelAssociations: Elements =
 		messageEvent_forwardReferencesFromMetamodelAssociations ++
 		operation 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCallEvent

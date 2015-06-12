@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Template Signature bundles the set of formal TemplateParameters for a template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTemplateSignature[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateSignatureOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTemplateSignature[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The formal parameters that are owned by this TemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.signature
@@ -66,9 +68,10 @@ trait UMLTemplateSignature[Uml <: UML]
 	def ownedParameter: Seq[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ordered set of all formal TemplateParameters for this TemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for parameter -->
+	 * <!-- End of user code doc for parameter -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.parameter_templateSignature
@@ -76,9 +79,10 @@ trait UMLTemplateSignature[Uml <: UML]
 	def parameter: Seq[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateableElement that owns this TemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for template -->
+	 * <!-- End of user code doc for template -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateableElement.ownedTemplateSignature
@@ -86,8 +90,8 @@ trait UMLTemplateSignature[Uml <: UML]
 	def template: Option[UMLTemplateableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for signature_templateBinding -->
+	 * <!-- End of user code doc for signature_templateBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateBinding.signature
@@ -96,12 +100,18 @@ trait UMLTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateSignature_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTemplateSignature
+	 *
+	 * <!-- Start of user code doc for templateSignature_metaAttributes -->
+	 * <!-- End of user code doc for templateSignature_metaAttributes -->
 	 */
 	def templateSignature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,44 +120,64 @@ trait UMLTemplateSignature[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateSignature_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTemplateSignature
+	 *
+	 * <!-- Start of user code doc for templateSignature_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateSignature_compositeMetaProperties -->
 	 */
 	def templateSignature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("ownedParameter", _.ownedParameter, true)))
+			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("ownedParameter", _.ownedParameter)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateSignature_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateSignature
+	 *
+	 * <!-- Start of user code doc for templateSignature_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateSignature_referenceMetaProperties -->
 	 */
 	def templateSignature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter, true)))
+			Seq (MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]]("parameter", _.parameter)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateSignature_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateSignature
+	 *
+	 * <!-- Start of user code doc for templateSignature_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateSignature_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateSignature_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		parameter ++
 		template 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTemplateSignature

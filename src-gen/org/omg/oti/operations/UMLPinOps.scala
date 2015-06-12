@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Pin is an ObjectNode and MultiplicityElement that provides input values to an Action or accepts output values from an Action.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,26 +56,28 @@ trait UMLPinOps[Uml <: UML] { self: UMLPin[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A control Pin has a control type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_control_pins -->
+	 * <!-- End of user code doc for validate_control_pins -->
 	 *
 	 * @body isControl implies isControlType
 	 */
-	def validate_control_pins: Boolean  = {
+	def validate_control_pins: Boolean = {
 		// Start of user code for "control_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Pin multiplicity is not unique.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_unique -->
+	 * <!-- End of user code doc for validate_not_unique -->
 	 *
 	 * @body not isUnique
 	 */
-	def validate_not_unique: Boolean  = {
+	def validate_not_unique: Boolean = {
 		// Start of user code for "not_unique"
     	???
     	// End of user code
@@ -84,5 +85,4 @@ trait UMLPinOps[Uml <: UML] { self: UMLPin[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLPin
+} //UMLPinOps

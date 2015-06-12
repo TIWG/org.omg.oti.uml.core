@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExtensionPoint[Uml <: UML]
 	extends UMLRedefinableElement[Uml]
 	with UMLExtensionPointOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExtensionPoint[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that owns this ExtensionPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for useCase -->
+	 * <!-- End of user code doc for useCase -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.extensionPoint
@@ -66,8 +68,8 @@ trait UMLExtensionPoint[Uml <: UML]
 	def useCase: Option[UMLUseCase[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for extensionLocation_extension -->
+	 * <!-- End of user code doc for extensionLocation_extension -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExtend.extensionLocation
@@ -76,12 +78,18 @@ trait UMLExtensionPoint[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		extensionPoint_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExtensionPoint
+	 *
+	 * <!-- Start of user code doc for extensionPoint_metaAttributes -->
+	 * <!-- End of user code doc for extensionPoint_metaAttributes -->
 	 */
 	def extensionPoint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -90,12 +98,18 @@ trait UMLExtensionPoint[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		extensionPoint_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExtensionPoint
+	 *
+	 * <!-- Start of user code doc for extensionPoint_compositeMetaProperties -->
+	 * <!-- End of user code doc for extensionPoint_compositeMetaProperties -->
 	 */
 	def extensionPoint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,12 +118,18 @@ trait UMLExtensionPoint[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		extensionPoint_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExtensionPoint
+	 *
+	 * <!-- Start of user code doc for extensionPoint_referenceMetaProperties -->
+	 * <!-- End of user code doc for extensionPoint_referenceMetaProperties -->
 	 */
 	def extensionPoint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -118,15 +138,23 @@ trait UMLExtensionPoint[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		extensionPoint_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExtensionPoint
+	 *
+	 * <!-- Start of user code doc for extensionPoint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for extensionPoint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def extensionPoint_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
 		useCase 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExtensionPoint

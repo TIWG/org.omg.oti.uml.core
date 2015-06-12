@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An AddVariableValueAction is a WriteVariableAction for adding values to a Variable.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * AddVariableValueActions for ordered Variables must have a single InputPin for the insertion point with type UnlimtedNatural and multiplicity of 1..1 if isReplaceAll=false, otherwise the Action has no InputPin for the insertion point.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_insertAt_pin -->
+	 * <!-- End of user code doc for validate_insertAt_pin -->
 	 *
 	 * @body if not variable.isOrdered then insertAt = null
 	 * else 
@@ -68,7 +68,7 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
 	 * endif
 	 */
-	def validate_insertAt_pin: Boolean  = { ??? //UnlimitedNatual used correctly?
+	def validate_insertAt_pin: Boolean = {
 		// Start of user code for "insertAt_pin"
     	if (!variable.get.isOrdered) 
         insertAt == null
@@ -80,13 +80,14 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A value InputPin is required.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_required_value -->
+	 * <!-- End of user code doc for validate_required_value -->
 	 *
 	 * @body value <> null
 	 */
-	def validate_required_value: Boolean  = {
+	def validate_required_value: Boolean = {
 		// Start of user code for "required_value"
     	value != null
     	// End of user code
@@ -94,5 +95,4 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLAddVariableValueAction
+} //UMLAddVariableValueActionOps

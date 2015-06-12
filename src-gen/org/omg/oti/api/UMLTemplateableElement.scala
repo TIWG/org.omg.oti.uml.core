@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateableElement is an Element that can optionally be defined as a template and bound to other templates.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTemplateableElement[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateableElementOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTemplateableElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The optional TemplateSignature specifying the formal TemplateParameters for this TemplateableElement. If a TemplateableElement has a TemplateSignature, then it is a template.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedTemplateSignature -->
+	 * <!-- End of user code doc for ownedTemplateSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.template
@@ -66,9 +68,10 @@ trait UMLTemplateableElement[Uml <: UML]
 	def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The optional TemplateBindings from this TemplateableElement to one or more templates.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for templateBinding -->
+	 * <!-- End of user code doc for templateBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateBinding.boundElement
@@ -77,12 +80,18 @@ trait UMLTemplateableElement[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateableElement_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTemplateableElement
+	 *
+	 * <!-- Start of user code doc for templateableElement_metaAttributes -->
+	 * <!-- End of user code doc for templateableElement_metaAttributes -->
 	 */
 	def templateableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,12 +100,18 @@ trait UMLTemplateableElement[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateableElement_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTemplateableElement
+	 *
+	 * <!-- Start of user code doc for templateableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateableElement_compositeMetaProperties -->
 	 */
 	def templateableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -106,12 +121,18 @@ trait UMLTemplateableElement[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateableElement_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateableElement
+	 *
+	 * <!-- Start of user code doc for templateableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateableElement_referenceMetaProperties -->
 	 */
 	def templateableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -120,15 +141,23 @@ trait UMLTemplateableElement[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateableElement_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateableElement
+	 *
+	 * <!-- Start of user code doc for templateableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTemplateableElement

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ActivityPartition is a kind of ActivityGroup for identifying ActivityNodes that have some characteristic in common.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityEdges immediately contained in the ActivityPartition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for edge -->
+	 * <!-- End of user code doc for edge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityEdge.inPartition
@@ -67,9 +67,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	def edge: Set[UMLActivityEdge[Uml]] = containedEdge
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityNodes immediately contained in the ActivityPartition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for node -->
+	 * <!-- End of user code doc for node -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.inPartition
@@ -77,9 +78,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	def node: Set[UMLActivityNode[Uml]] = containedNode
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Other ActivityPartitions immediately contained in this ActivityPartition (as its subgroups).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for subpartition -->
+	 * <!-- End of user code doc for subpartition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityPartition.superPartition
@@ -87,9 +89,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	def subpartition: Set[UMLActivityPartition[Uml]] = subgroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Other ActivityPartitions immediately containing this ActivityPartition (as its superGroups).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for superPartition -->
+	 * <!-- End of user code doc for superPartition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivityPartition.subpartition
@@ -97,13 +100,14 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	def superPartition: Option[UMLActivityPartition[Uml]] = superGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ActvivityPartition with isDimension = true may not be contained by another ActivityPartition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_dimension_not_contained -->
+	 * <!-- End of user code doc for validate_dimension_not_contained -->
 	 *
 	 * @body isDimension implies superPartition->isEmpty()
 	 */
-	def validate_dimension_not_contained: Boolean  = {
+	def validate_dimension_not_contained: Boolean = {
 		// Start of user code for "dimension_not_contained"
     	if (isDimension) 
         superPartition.isEmpty
@@ -112,45 +116,31 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * If a non-external ActivityPartition represents a Classifier and has a superPartition, then 
-   * [A] the superPartition must represent a Classifier, 
-   * and
-   * ([B1] the Classifier of the subpartition must be nested (nestedClassifier or ownedBehavior) in the Classifier represented by the superPartition, 
-   *  or 
-   *  [B2] be at the contained end of a composition Association with the Classifier represented by the superPartition.)
+	 * If a non-external ActivityPartition represents a Classifier and has a superPartition, then the superPartition must represent a Classifier, and the Classifier of the subpartition must be nested (nestedClassifier or ownedBehavior) in the Classifier represented by the superPartition, or be at the contained end of a composition Association with the Classifier represented by the superPartition.
+	 *
+	 * <!-- Start of user code doc for validate_represents_classifier -->
+	 * [A] the superPartition must represent a Classifier, 
+	 * and
+	 * ([B1] the Classifier of the subpartition must be nested (nestedClassifier or ownedBehavior) in the Classifier represented by the superPartition, 
+	 *  or 
+	 *  [B2] be at the contained end of a composition Association with the Classifier represented by the superPartition.)
+	 * <!-- End of user code doc for validate_represents_classifier -->
 	 *
 	 * @body (not isExternal and represents.oclIsKindOf(Classifier) and superPartition->notEmpty()) implies
 	 * (
 	 *    let representedClassifier : Classifier = represents.oclAsType(Classifier) in
 	 *      superPartition.represents.oclIsKindOf(Classifier) and
 	 *       let representedSuperClassifier : Classifier = superPartition.represents.oclAsType(Classifier) in
-	 *        -- [A] 
-   *        (representedSuperClassifier.oclIsKindOf(BehavioredClassifier) and representedClassifier.oclIsKindOf(Behavior) and 
+	 *        (representedSuperClassifier.oclIsKindOf(BehavioredClassifier) and representedClassifier.oclIsKindOf(Behavior) and 
 	 *         representedSuperClassifier.oclAsType(BehavioredClassifier).ownedBehavior->includes(representedClassifier.oclAsType(Behavior))) 
 	 *        or
-	 *        -- [B1]
-   *        (representedSuperClassifier.oclIsKindOf(Class) and  representedSuperClassifier.oclAsType(Class).nestedClassifier->includes(representedClassifier))
+	 *        (representedSuperClassifier.oclIsKindOf(Class) and  representedSuperClassifier.oclAsType(Class).nestedClassifier->includes(representedClassifier))
 	 *        or
-   *        -- [B2]
 	 *        (Association.allInstances()->exists(a | a.memberEnd->exists(end1 | end1.isComposite and end1.type = representedClassifier and 
 	 *                                                                       a.memberEnd->exists(end2 | end1<>end2 and end2.type = representedSuperClassifier))))
 	 * )
-   * [A] or [B1] or [B2] 
-   * [A] and ([B1] or [B2])
-   * But [B1] = [C1] or [C2], so [A] and ( ( [C1] OR [C2] ) OR [B2] ), which is A and C1 || C2 || B2
-   * val as = Set[UMLAssociation[Uml] = representedClassifier.endType_association.filter(_.memberEnd.exists(_.type.toSet.contains(representedSuperClassifier)))
-   * val as = representedClassifier.endType_association flatmap { _.memberEnd.toList match {
-   *   case (end1 :: end2 :: Nil) => 
-   *      (end1.isComposite, end1.type, end2.isComposite, end2.type) match {
-   *        case ( true, Some(representedClassifier), false, Some(representedSuperClassifier)) => Some(true)
-   *        case ( false, Some(representedSuperClassifier), true, Some(representedClassifier)) => Some(true)
-   *        case _ => Some(false)
-   *      }
-   *   case _ => None
-   * } }
 	 */
-	def validate_represents_classifier: Boolean  = { 
+	def validate_represents_classifier: Boolean = {
 		// Start of user code for "represents_classifier"
   	( isExternal, represents, superPartition ) match {
       case ( false, Some(classifier: UMLClassifier[Uml]), Some(sp: UMLClassifier[Uml]) ) => 
@@ -184,9 +174,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If an ActivityPartition represents a Property and has a superPartition representing a Classifier, then all the other non-external subpartitions of the superPartition must represent Properties directly owned by the same Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_represents_property -->
+	 * <!-- End of user code doc for validate_represents_property -->
 	 *
 	 * @body (represents.oclIsKindOf(Property) and superPartition->notEmpty() and superPartition.represents.oclIsKindOf(Classifier)) implies
 	 * (
@@ -196,7 +187,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *        p.represents.oclIsKindOf(Property) and p.owner=representedClassifier)
 	 * )
 	 */
-	def validate_represents_property: Boolean  = {
+	def validate_represents_property: Boolean = {
 		// Start of user code for "represents_property"
   	represents match { 
       case Some(_: UMLProperty[Uml]) => superPartition match {
@@ -218,9 +209,10 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If an ActivityPartition represents a Property and has a superPartition, then the Property must be of a Classifier represented by the superPartition, or of a Classifier that is the type of a Property represented by the superPartition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_represents_property_and_is_contained -->
+	 * <!-- End of user code doc for validate_represents_property_and_is_contained -->
 	 *
 	 * @body (represents.oclIsKindOf(Property) and superPartition->notEmpty()) implies
 	 * (
@@ -228,7 +220,7 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *   (superPartition.represents.oclIsKindOf(Property) and represents.owner = superPartition.represents.oclAsType(Property).type)
 	 * )
 	 */
-	def validate_represents_property_and_is_contained: Boolean  = {
+	def validate_represents_property_and_is_contained: Boolean = {
 		// Start of user code for "represents_property_and_is_contained"
     	if ( represents.isInstanceOf[UMLProperty[Uml]] && !superPartition.isEmpty )
         (represents.isInstanceOf[UMLClassifier[Uml]]  && represents.get.owner == superPartition.get.represents) || 
@@ -239,5 +231,4 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivityPartition
+} //UMLActivityPartitionOps

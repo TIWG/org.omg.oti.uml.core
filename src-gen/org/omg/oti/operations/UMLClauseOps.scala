@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Clause is an Element that represents a single branch of a ConditionalNode, including a test and a body section. The body section is executed only if (but not necessarily if) the test section evaluates to true.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for clause_conditionalNode -->
+	 * <!-- End of user code doc for clause_conditionalNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLConditionalNode.clause
@@ -66,41 +65,44 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	def clause_conditionalNode: Option[UMLConditionalNode[Uml]] = owner.selectByKindOf { case x: UMLConditionalNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The bodyOutput Pins are OutputPins on Actions in the body of the Clause.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_body_output_pins -->
+	 * <!-- End of user code doc for validate_body_output_pins -->
 	 *
 	 * @body _'body'.oclAsType(Action).allActions().output->includesAll(bodyOutput)
 	 */
-	def validate_body_output_pins: Boolean  = {
+	def validate_body_output_pins: Boolean = {
 		// Start of user code for "body_output_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The decider Pin must be on an Action in the test section of the Clause and must be of type Boolean with multiplicity 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_decider_output -->
+	 * <!-- End of user code doc for validate_decider_output -->
 	 *
 	 * @body test.oclAsType(Action).allActions().output->includes(decider) and
 	 * decider.type = Boolean and
 	 * decider.is(1,1)
 	 */
-	def validate_decider_output: Boolean  = {
+	def validate_decider_output: Boolean = {
 		// Start of user code for "decider_output"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The test and body parts of a ConditionalNode must be disjoint with each other.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_test_and_body -->
+	 * <!-- End of user code doc for validate_test_and_body -->
 	 *
 	 * @body test->intersection(_'body')->isEmpty()
 	 */
-	def validate_test_and_body: Boolean  = {
+	def validate_test_and_body: Boolean = {
 		// Start of user code for "test_and_body"
     	???
     	// End of user code
@@ -108,5 +110,4 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLClause
+} //UMLClauseOps

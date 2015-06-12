@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A trigger for an AnyReceiveEvent is triggered by the receipt of any message that is not explicitly handled by any related trigger.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLAnyReceiveEvent[Uml <: UML]
 	extends UMLMessageEvent[Uml]
 	with UMLAnyReceiveEventOps[Uml] {
@@ -57,12 +58,18 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		anyReceiveEvent_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_metaAttributes -->
+	 * <!-- End of user code doc for anyReceiveEvent_metaAttributes -->
 	 */
 	def anyReceiveEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -71,12 +78,18 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		anyReceiveEvent_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_compositeMetaProperties -->
+	 * <!-- End of user code doc for anyReceiveEvent_compositeMetaProperties -->
 	 */
 	def anyReceiveEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -85,12 +98,18 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		anyReceiveEvent_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_referenceMetaProperties -->
+	 * <!-- End of user code doc for anyReceiveEvent_referenceMetaProperties -->
 	 */
 	def anyReceiveEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -99,15 +118,23 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		anyReceiveEvent_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for anyReceiveEvent_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def anyReceiveEvent_forwardReferencesFromMetamodelAssociations: Elements =
 		messageEvent_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLAnyReceiveEvent

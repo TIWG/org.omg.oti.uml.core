@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Interval defines the range between two ValueSpecifications.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLInterval[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLIntervalOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLInterval[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Refers to the ValueSpecification denoting the maximum value of the range.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for max -->
+	 * <!-- End of user code doc for max -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.max_interval
@@ -66,9 +68,10 @@ trait UMLInterval[Uml <: UML]
 	def max: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Refers to the ValueSpecification denoting the minimum value of the range.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for min -->
+	 * <!-- End of user code doc for min -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.min_interval
@@ -76,8 +79,8 @@ trait UMLInterval[Uml <: UML]
 	def min: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_intervalConstraint -->
+	 * <!-- End of user code doc for specification_intervalConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLIntervalConstraint.specification
@@ -86,12 +89,18 @@ trait UMLInterval[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interval_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLInterval
+	 *
+	 * <!-- Start of user code doc for interval_metaAttributes -->
+	 * <!-- End of user code doc for interval_metaAttributes -->
 	 */
 	def interval_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +109,18 @@ trait UMLInterval[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interval_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInterval
+	 *
+	 * <!-- Start of user code doc for interval_compositeMetaProperties -->
+	 * <!-- End of user code doc for interval_compositeMetaProperties -->
 	 */
 	def interval_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -114,33 +129,45 @@ trait UMLInterval[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interval_referenceMetaProperties
 
-	protected val Interval_max = MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max)
-	protected val Interval_min = MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)
-
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInterval
+	 *
+	 * <!-- Start of user code doc for interval_referenceMetaProperties -->
+	 * <!-- End of user code doc for interval_referenceMetaProperties -->
 	 */
 	def interval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_referenceMetaProperties,
-			Seq (Interval_max, Interval_min))
+			Seq (MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max),
+				MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interval_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLInterval
+	 *
+	 * <!-- Start of user code doc for interval_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interval_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interval_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		max ++
 		min 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLInterval

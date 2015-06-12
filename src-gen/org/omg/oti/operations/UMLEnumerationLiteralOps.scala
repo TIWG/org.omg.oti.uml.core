@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An EnumerationLiteral is a user-defined data value for an Enumeration.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Enumeration that this EnumerationLiteral is a member of.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for enumeration -->
+	 * <!-- End of user code doc for enumeration -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLEnumeration.ownedLiteral
@@ -68,5 +68,4 @@ trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLEnumerationLiteral
+} //UMLEnumerationLiteralOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ValueSpecification is the specification of a (possibly empty) set of values. A ValueSpecification is a ParameterableElement that may be exposed as a formal TemplateParameter and provided as the actual parameter in the binding of a template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLValueSpecification[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLTypedElement[Uml]
@@ -57,8 +58,8 @@ trait UMLValueSpecification[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for argument_interactionUse -->
+	 * <!-- End of user code doc for argument_interactionUse -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionUse.argument
@@ -66,8 +67,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def argument_interactionUse: Option[UMLInteractionUse[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for argument_message -->
+	 * <!-- End of user code doc for argument_message -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLMessage.argument
@@ -75,8 +76,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def argument_message: Option[UMLMessage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for changeExpression_changeEvent -->
+	 * <!-- End of user code doc for changeExpression_changeEvent -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLChangeEvent.changeExpression
@@ -84,8 +85,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def changeExpression_changeEvent: Option[UMLChangeEvent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for defaultValue_owningParameter -->
+	 * <!-- End of user code doc for defaultValue_owningParameter -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameter.defaultValue
@@ -93,8 +94,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def defaultValue_owningParameter: Option[UMLParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for defaultValue_owningProperty -->
+	 * <!-- End of user code doc for defaultValue_owningProperty -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.defaultValue
@@ -102,8 +103,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def defaultValue_owningProperty: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for expr_duration -->
+	 * <!-- End of user code doc for expr_duration -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDuration.expr
@@ -111,8 +112,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def expr_duration: Option[UMLDuration[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for expr_timeExpression -->
+	 * <!-- End of user code doc for expr_timeExpression -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTimeExpression.expr
@@ -120,8 +121,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def expr_timeExpression: Option[UMLTimeExpression[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for guard_activityEdge -->
+	 * <!-- End of user code doc for guard_activityEdge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivityEdge.guard
@@ -129,8 +130,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def guard_activityEdge: Option[UMLActivityEdge[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for joinSpec_joinNode -->
+	 * <!-- End of user code doc for joinSpec_joinNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLJoinNode.joinSpec
@@ -138,8 +139,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def joinSpec_joinNode: Option[UMLJoinNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for lowerValue_owningLower -->
+	 * <!-- End of user code doc for lowerValue_owningLower -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLMultiplicityElement.lowerValue
@@ -147,8 +148,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def lowerValue_owningLower: Option[UMLMultiplicityElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for max_interval -->
+	 * <!-- End of user code doc for max_interval -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterval.max
@@ -156,8 +157,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def max_interval: Set[UMLInterval[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for maxint_interactionConstraint -->
+	 * <!-- End of user code doc for maxint_interactionConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionConstraint.maxint
@@ -165,8 +166,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def maxint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for min_interval -->
+	 * <!-- End of user code doc for min_interval -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterval.min
@@ -174,8 +175,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def min_interval: Set[UMLInterval[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for minint_interactionConstraint -->
+	 * <!-- End of user code doc for minint_interactionConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionConstraint.minint
@@ -183,8 +184,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def minint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for operand_expression -->
+	 * <!-- End of user code doc for operand_expression -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLExpression.operand
@@ -192,8 +193,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def operand_expression: Option[UMLExpression[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for returnValue_interactionUse -->
+	 * <!-- End of user code doc for returnValue_interactionUse -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInteractionUse.returnValue
@@ -201,8 +202,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def returnValue_interactionUse: Option[UMLInteractionUse[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for selector_lifeline -->
+	 * <!-- End of user code doc for selector_lifeline -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLifeline.selector
@@ -210,8 +211,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def selector_lifeline: Option[UMLLifeline[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_owningConstraint -->
+	 * <!-- End of user code doc for specification_owningConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.specification
@@ -219,8 +220,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def specification_owningConstraint: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_owningInstanceSpec -->
+	 * <!-- End of user code doc for specification_owningInstanceSpec -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInstanceSpecification.specification
@@ -228,8 +229,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def specification_owningInstanceSpec: Option[UMLInstanceSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for upperValue_objectNode -->
+	 * <!-- End of user code doc for upperValue_objectNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLObjectNode.upperValue
@@ -237,8 +238,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def upperValue_objectNode: Option[UMLObjectNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for upperValue_owningUpper -->
+	 * <!-- End of user code doc for upperValue_owningUpper -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLMultiplicityElement.upperValue
@@ -246,8 +247,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for upperValue_pin -->
+	 * <!-- End of user code doc for upperValue_pin -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPin.upperValue
@@ -255,8 +256,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def upperValue_pin: Option[UMLPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for value_owningSlot -->
+	 * <!-- End of user code doc for value_owningSlot -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLSlot.value
@@ -264,8 +265,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def value_owningSlot: Option[UMLSlot[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for value_valuePin -->
+	 * <!-- End of user code doc for value_valuePin -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValuePin.value
@@ -273,8 +274,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def value_valuePin: Option[UMLValuePin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for value_valueSpecificationAction -->
+	 * <!-- End of user code doc for value_valueSpecificationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecificationAction.value
@@ -282,8 +283,8 @@ trait UMLValueSpecification[Uml <: UML]
 	def value_valueSpecificationAction: Option[UMLValueSpecificationAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for weight_activityEdge -->
+	 * <!-- End of user code doc for weight_activityEdge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivityEdge.weight
@@ -292,12 +293,18 @@ trait UMLValueSpecification[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		valueSpecification_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLValueSpecification
+	 *
+	 * <!-- Start of user code doc for valueSpecification_metaAttributes -->
+	 * <!-- End of user code doc for valueSpecification_metaAttributes -->
 	 */
 	def valueSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -307,12 +314,18 @@ trait UMLValueSpecification[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		valueSpecification_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLValueSpecification
+	 *
+	 * <!-- Start of user code doc for valueSpecification_compositeMetaProperties -->
+	 * <!-- End of user code doc for valueSpecification_compositeMetaProperties -->
 	 */
 	def valueSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -322,12 +335,18 @@ trait UMLValueSpecification[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		valueSpecification_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLValueSpecification
+	 *
+	 * <!-- Start of user code doc for valueSpecification_referenceMetaProperties -->
+	 * <!-- End of user code doc for valueSpecification_referenceMetaProperties -->
 	 */
 	def valueSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -337,16 +356,24 @@ trait UMLValueSpecification[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLValueSpecification
+	 *
+	 * <!-- Start of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def valueSpecification_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
 		typedElement_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLValueSpecification

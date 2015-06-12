@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An EncapsulatedClassifier may own Ports to specify typed interaction points.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,17 +56,21 @@ trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Ports owned by the EncapsulatedClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedPort -->
+	 * <!-- End of user code doc for ownedPort -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.ownedPort_encapsulatedClassifier
 	 * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
 	 */
-	def ownedPort: Set[UMLPort[Uml]] = ownedAttribute.selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
+	def ownedPort: Set[UMLPort[Uml]] = {
+		// Start of user code for "ownedPort"
+		ownedAttribute.selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
+		// End of user code
+	}
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLEncapsulatedClassifier
+} //UMLEncapsulatedClassifierOps

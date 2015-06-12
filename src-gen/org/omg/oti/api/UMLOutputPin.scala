@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OutputPin is a Pin that holds output values produced by an Action.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLOutputPin[Uml <: UML]
 	extends UMLPin[Uml]
 	with UMLOutputPinOps[Uml] {
@@ -56,8 +57,8 @@ trait UMLOutputPin[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for bodyOutput_clause -->
+	 * <!-- End of user code doc for bodyOutput_clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClause.bodyOutput
@@ -65,8 +66,8 @@ trait UMLOutputPin[Uml <: UML]
 	def bodyOutput_clause: Set[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for bodyOutput_loopNode -->
+	 * <!-- End of user code doc for bodyOutput_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLLoopNode.bodyOutput
@@ -74,8 +75,8 @@ trait UMLOutputPin[Uml <: UML]
 	def bodyOutput_loopNode: Set[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for decider_clause -->
+	 * <!-- End of user code doc for decider_clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClause.decider
@@ -83,8 +84,8 @@ trait UMLOutputPin[Uml <: UML]
 	def decider_clause: Option[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for decider_loopNode -->
+	 * <!-- End of user code doc for decider_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.decider
@@ -92,8 +93,8 @@ trait UMLOutputPin[Uml <: UML]
 	def decider_loopNode: Option[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for loopVariable_loopNode -->
+	 * <!-- End of user code doc for loopVariable_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.loopVariable
@@ -101,8 +102,8 @@ trait UMLOutputPin[Uml <: UML]
 	def loopVariable_loopNode: Option[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for outputValue_opaqueAction -->
+	 * <!-- End of user code doc for outputValue_opaqueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOpaqueAction.outputValue
@@ -110,8 +111,8 @@ trait UMLOutputPin[Uml <: UML]
 	def outputValue_opaqueAction: Option[UMLOpaqueAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for output_action -->
+	 * <!-- End of user code doc for output_action -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAction.output
@@ -119,8 +120,8 @@ trait UMLOutputPin[Uml <: UML]
 	def output_action: Option[UMLAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_acceptEventAction -->
+	 * <!-- End of user code doc for result_acceptEventAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAcceptEventAction.result
@@ -128,8 +129,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_acceptEventAction: Option[UMLAcceptEventAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_callAction -->
+	 * <!-- End of user code doc for result_callAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCallAction.result
@@ -137,8 +138,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_callAction: Option[UMLCallAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_clearStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_clearStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClearStructuralFeatureAction.result
@@ -146,8 +147,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_clearStructuralFeatureAction: Option[UMLClearStructuralFeatureAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_conditionalNode -->
+	 * <!-- End of user code doc for result_conditionalNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConditionalNode.result
@@ -155,8 +156,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_conditionalNode: Option[UMLConditionalNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_createLinkObjectAction -->
+	 * <!-- End of user code doc for result_createLinkObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCreateLinkObjectAction.result
@@ -164,8 +165,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_createLinkObjectAction: Option[UMLCreateLinkObjectAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_createObjectAction -->
+	 * <!-- End of user code doc for result_createObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCreateObjectAction.result
@@ -173,8 +174,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_createObjectAction: Option[UMLCreateObjectAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_loopNode -->
+	 * <!-- End of user code doc for result_loopNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLoopNode.result
@@ -182,8 +183,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_loopNode: Option[UMLLoopNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readExtentAction -->
+	 * <!-- End of user code doc for result_readExtentAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadExtentAction.result
@@ -191,8 +192,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readExtentAction: Option[UMLReadExtentAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readIsClassifiedObjectAction -->
+	 * <!-- End of user code doc for result_readIsClassifiedObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadIsClassifiedObjectAction.result
@@ -200,8 +201,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkAction -->
+	 * <!-- End of user code doc for result_readLinkAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkAction.result
@@ -209,8 +210,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readLinkAction: Option[UMLReadLinkAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkObjectEndAction -->
+	 * <!-- End of user code doc for result_readLinkObjectEndAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndAction.result
@@ -218,8 +219,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readLinkObjectEndQualifierAction -->
+	 * <!-- End of user code doc for result_readLinkObjectEndQualifierAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction.result
@@ -227,8 +228,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readSelfAction -->
+	 * <!-- End of user code doc for result_readSelfAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadSelfAction.result
@@ -236,8 +237,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readSelfAction: Option[UMLReadSelfAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_readStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadStructuralFeatureAction.result
@@ -245,8 +246,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readStructuralFeatureAction: Option[UMLReadStructuralFeatureAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_readVariableAction -->
+	 * <!-- End of user code doc for result_readVariableAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadVariableAction.result
@@ -254,8 +255,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_readVariableAction: Option[UMLReadVariableAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_reduceAction -->
+	 * <!-- End of user code doc for result_reduceAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReduceAction.result
@@ -263,8 +264,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_reduceAction: Option[UMLReduceAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_testIdentityAction -->
+	 * <!-- End of user code doc for result_testIdentityAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTestIdentityAction.result
@@ -272,8 +273,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_unmarshallAction -->
+	 * <!-- End of user code doc for result_unmarshallAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLUnmarshallAction.result
@@ -281,8 +282,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_unmarshallAction: Option[UMLUnmarshallAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_valueSpecificationAction -->
+	 * <!-- End of user code doc for result_valueSpecificationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecificationAction.result
@@ -290,8 +291,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_valueSpecificationAction: Option[UMLValueSpecificationAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for result_writeStructuralFeatureAction -->
+	 * <!-- End of user code doc for result_writeStructuralFeatureAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLWriteStructuralFeatureAction.result
@@ -299,8 +300,8 @@ trait UMLOutputPin[Uml <: UML]
 	def result_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for returnInformation_acceptCallAction -->
+	 * <!-- End of user code doc for returnInformation_acceptCallAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAcceptCallAction.returnInformation
@@ -308,8 +309,8 @@ trait UMLOutputPin[Uml <: UML]
 	def returnInformation_acceptCallAction: Option[UMLAcceptCallAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for structuredNodeOutput_structuredActivityNode -->
+	 * <!-- End of user code doc for structuredNodeOutput_structuredActivityNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.structuredNodeOutput
@@ -318,12 +319,18 @@ trait UMLOutputPin[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		outputPin_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLOutputPin
+	 *
+	 * <!-- Start of user code doc for outputPin_metaAttributes -->
+	 * <!-- End of user code doc for outputPin_metaAttributes -->
 	 */
 	def outputPin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -332,12 +339,18 @@ trait UMLOutputPin[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		outputPin_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLOutputPin
+	 *
+	 * <!-- Start of user code doc for outputPin_compositeMetaProperties -->
+	 * <!-- End of user code doc for outputPin_compositeMetaProperties -->
 	 */
 	def outputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -346,12 +359,18 @@ trait UMLOutputPin[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		outputPin_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLOutputPin
+	 *
+	 * <!-- Start of user code doc for outputPin_referenceMetaProperties -->
+	 * <!-- End of user code doc for outputPin_referenceMetaProperties -->
 	 */
 	def outputPin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -360,15 +379,23 @@ trait UMLOutputPin[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		outputPin_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLOutputPin
+	 *
+	 * <!-- Start of user code doc for outputPin_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for outputPin_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def outputPin_forwardReferencesFromMetamodelAssociations: Elements =
 		pin_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLOutputPin

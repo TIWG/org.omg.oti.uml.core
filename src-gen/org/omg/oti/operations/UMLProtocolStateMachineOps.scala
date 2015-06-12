@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ProtocolStateMachine is always defined in the context of a Classifier. It specifies which BehavioralFeatures of the Classifier can be called in which State and under which conditions, thus specifying the allowed invocation sequences on the Classifier's BehavioralFeatures. A ProtocolStateMachine specifies the possible and permitted Transitions on the instances of its context Classifier, together with the BehavioralFeatures that carry the Transitions. In this manner, an instance lifecycle can be specified for a Classifier, by defining the order in which the BehavioralFeatures can be activated and the States through which an instance progresses during its existence.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Conformance between ProtocolStateMachine 
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for conformance -->
+	 * <!-- End of user code doc for conformance -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolConformance.specificMachine
@@ -67,8 +67,8 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	def conformance: Set[UMLProtocolConformance[Uml]] = ownedElement.selectByKindOf { case x: UMLProtocolConformance[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for generalMachine_protocolConformance -->
+	 * <!-- End of user code doc for generalMachine_protocolConformance -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolConformance.generalMachine
@@ -76,54 +76,58 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	def generalMachine_protocolConformance: Set[UMLProtocolConformance[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLProtocolConformance[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ProtocolStateMachines cannot have deep or shallow history Pseudostates.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_deep_or_shallow_history -->
+	 * <!-- End of user code doc for validate_deep_or_shallow_history -->
 	 *
 	 * @body region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Pseudostate) implies
 	 * ((v.oclAsType(Pseudostate).kind <>  PseudostateKind::deepHistory) and (v.oclAsType(Pseudostate).kind <> PseudostateKind::shallowHistory))))
 	 */
-	def validate_deep_or_shallow_history: Boolean  = {
+	def validate_deep_or_shallow_history: Boolean = {
 		// Start of user code for "deep_or_shallow_history"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The states of a ProtocolStateMachine cannot have entry, exit, or do activity Behaviors.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_entry_exit_do -->
+	 * <!-- End of user code doc for validate_entry_exit_do -->
 	 *
 	 * @body region->forAll(r | r.subvertex->forAll(v | v.oclIsKindOf(State) implies
 	 * (v.oclAsType(State).entry->isEmpty() and v.oclAsType(State).exit->isEmpty() and v.oclAsType(State).doActivity->isEmpty())))
 	 */
-	def validate_entry_exit_do: Boolean  = {
+	def validate_entry_exit_do: Boolean = {
 		// Start of user code for "entry_exit_do"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ProtocolStateMachine must only have a Classifier context, not a BehavioralFeature context.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_protocol_state_machine_classifier_context -->
+	 * <!-- End of user code doc for validate_protocol_state_machine_classifier_context -->
 	 *
 	 * @body _'context' <> null and specification = null
 	 */
-	def validate_protocol_state_machine_classifier_context: Boolean  = {
+	def validate_protocol_state_machine_classifier_context: Boolean = {
 		// Start of user code for "protocol_state_machine_classifier_context"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All Transitions of a ProtocolStateMachine must be ProtocolTransitions.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_protocol_transitions -->
+	 * <!-- End of user code doc for validate_protocol_transitions -->
 	 *
 	 * @body region->forAll(r | r.transition->forAll(t | t.oclIsTypeOf(ProtocolTransition)))
 	 */
-	def validate_protocol_transitions: Boolean  = {
+	def validate_protocol_transitions: Boolean = {
 		// Start of user code for "protocol_transitions"
     	???
     	// End of user code
@@ -131,5 +135,4 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLProtocolStateMachine
+} //UMLProtocolStateMachineOps

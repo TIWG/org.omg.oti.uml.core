@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A profile application is used to show which profiles have been applied to a package.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Profiles that are applied to a Package through this ProfileApplication.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for appliedProfile -->
+	 * <!-- End of user code doc for appliedProfile -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLProfile.appliedProfile_profileApplication
@@ -67,9 +67,10 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 	def appliedProfile: Option[UMLProfile[Uml]] = target.selectByKindOf { case x: UMLProfile[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The package that owns the profile application.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for applyingPackage -->
+	 * <!-- End of user code doc for applyingPackage -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.profileApplication
@@ -87,5 +88,4 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
   })
 
 	// End of user code
-
-} //UMLProfileApplication
+} //UMLProfileApplicationOps

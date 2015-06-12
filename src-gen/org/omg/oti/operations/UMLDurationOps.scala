@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for max_durationInterval -->
+	 * <!-- End of user code doc for max_durationInterval -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDurationInterval.max
@@ -66,8 +65,8 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	def max_durationInterval: Set[UMLDurationInterval[Uml]] = max_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for min_durationInterval -->
+	 * <!-- End of user code doc for min_durationInterval -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDurationInterval.min
@@ -75,13 +74,14 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	def min_durationInterval: Set[UMLDurationInterval[Uml]] = min_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a Duration has no expr, then it must have a single observation that is a DurationObservation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_expr_requires_observation -->
+	 * <!-- End of user code doc for validate_no_expr_requires_observation -->
 	 *
 	 * @body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
 	 */
-	def validate_no_expr_requires_observation: Boolean  = {
+	def validate_no_expr_requires_observation: Boolean = {
 		// Start of user code for "no_expr_requires_observation"
     	???
     	// End of user code
@@ -106,5 +106,4 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
     Set(this) ++ expr.toSet
 
 	// End of user code
-
-} //UMLDuration
+} //UMLDurationOps

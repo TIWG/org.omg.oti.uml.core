@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A SequenceNode is a StructuredActivityNode that executes a sequence of ExecutableNodes in order.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLSequenceNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]
 	with UMLSequenceNodeOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLSequenceNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ordered set of ExecutableNodes to be sequenced.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for executableNode -->
+	 * <!-- End of user code doc for executableNode -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.executableNode_sequenceNode
@@ -67,12 +69,18 @@ trait UMLSequenceNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		sequenceNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_metaAttributes -->
+	 * <!-- End of user code doc for sequenceNode_metaAttributes -->
 	 */
 	def sequenceNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,26 +89,38 @@ trait UMLSequenceNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		sequenceNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for sequenceNode_compositeMetaProperties -->
 	 */
 	def sequenceNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]]("executableNode", _.executableNode, true, Set(StructuredActivityNode_node))))
+			Seq (MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]]("executableNode", _.executableNode)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		sequenceNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for sequenceNode_referenceMetaProperties -->
 	 */
 	def sequenceNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLSequenceNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		sequenceNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for sequenceNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def sequenceNode_forwardReferencesFromMetamodelAssociations: Elements =
 		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLSequenceNode

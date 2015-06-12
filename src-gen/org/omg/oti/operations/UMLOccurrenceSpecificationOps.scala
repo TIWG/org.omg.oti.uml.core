@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OccurrenceSpecification is the basic semantic unit of Interactions. The sequences of occurrences specified by them are the meanings of Interactions.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLOccurrenceSpecificationOps[Uml <: UML] { self: UMLOccurrenceSpecificati
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLOccurrenceSpecification
+} //UMLOccurrenceSpecificationOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConditionalNode is a StructuredActivityNode that chooses one among some number of alternative collections of ExecutableNodes to execute.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of Clauses composing the ConditionalNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for clause -->
+	 * <!-- End of user code doc for clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLClause.clause_conditionalNode
@@ -67,49 +67,53 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	def clause: Set[UMLClause[Uml]] = ownedElement.selectByKindOf { case x: UMLClause[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Return only this ConditionalNode. This prevents Actions within the ConditionalNode from having their OutputPins used as bodyOutputs or decider Pins in containing LoopNodes or ConditionalNodes.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allActions -->
+	 * <!-- End of user code doc for allActions -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (self->asSet())
 	 */
-	override def allActions: Set[UMLAction[Uml]]  = {
+	override def allActions: Set[UMLAction[Uml]] = {
 		// Start of user code for "allActions"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * No two clauses within a ConditionalNode may be predecessorClauses of each other, either directly or indirectly.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_clause_no_predecessor -->
+	 * <!-- End of user code doc for validate_clause_no_predecessor -->
 	 *
 	 * @body clause->closure(predecessorClause)->intersection(clause)->isEmpty()
 	 */
-	def validate_clause_no_predecessor: Boolean  = {
+	def validate_clause_no_predecessor: Boolean = {
 		// Start of user code for "clause_no_predecessor"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The union of the ExecutableNodes in the test and body parts of all clauses must be the same as the subset of nodes contained in the ConditionalNode (considered as a StructuredActivityNode) that are ExecutableNodes.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_executable_nodes -->
+	 * <!-- End of user code doc for validate_executable_nodes -->
 	 *
 	 * @body clause.test->union(clause._'body') = node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)
 	 */
-	def validate_executable_nodes: Boolean  = {
+	def validate_executable_nodes: Boolean = {
 		// Start of user code for "executable_nodes"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Each clause of a ConditionalNode must have the same number of bodyOutput pins as the ConditionalNode has result OutputPins, and each clause bodyOutput Pin must be compatible with the corresponding result OutputPin (by positional order) in type, multiplicity, ordering, and uniqueness.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_matching_output_pins -->
+	 * <!-- End of user code doc for validate_matching_output_pins -->
 	 *
 	 * @body clause->forAll(
 	 * 	bodyOutput->size()=self.result->size() and
@@ -119,47 +123,50 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * 		bodyOutput->at(i).isUnique = result->at(i).isUnique and
 	 * 		bodyOutput->at(i).compatibleWith(result->at(i))))
 	 */
-	def validate_matching_output_pins: Boolean  = {
+	def validate_matching_output_pins: Boolean = {
 		// Start of user code for "matching_output_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ConditionalNode has no InputPins.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_input_pins -->
+	 * <!-- End of user code doc for validate_no_input_pins -->
 	 *
 	 * @body input->isEmpty()
 	 */
-	def validate_no_input_pins: Boolean  = {
+	def validate_no_input_pins: Boolean = {
 		// Start of user code for "no_input_pins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * No ExecutableNode in the ConditionNode may appear in the test or body part of more than one clause of a ConditionalNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_clause_with_executable_node -->
+	 * <!-- End of user code doc for validate_one_clause_with_executable_node -->
 	 *
 	 * @body node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)->forAll(n | 
 	 * 	self.clause->select(test->union(_'body')->includes(n))->size()=1)
 	 */
-	def validate_one_clause_with_executable_node: Boolean  = {
+	def validate_one_clause_with_executable_node: Boolean = {
 		// Start of user code for "one_clause_with_executable_node"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The result OutputPins have no incoming edges.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_result_no_incoming -->
+	 * <!-- End of user code doc for validate_result_no_incoming -->
 	 *
 	 * @body result.incoming->isEmpty()
 	 */
-	def validate_result_no_incoming: Boolean  = {
+	def validate_result_no_incoming: Boolean = {
 		// Start of user code for "result_no_incoming"
     	???
     	// End of user code
@@ -167,5 +174,4 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLConditionalNode
+} //UMLConditionalNodeOps

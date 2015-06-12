@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConditionalNode is a StructuredActivityNode that chooses one among some number of alternative collections of ExecutableNodes to execute.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLConditionalNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]
 	with UMLConditionalNodeOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLConditionalNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of Clauses composing the ConditionalNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for clause -->
+	 * <!-- End of user code doc for clause -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLClause.clause_conditionalNode
@@ -66,27 +68,30 @@ trait UMLConditionalNode[Uml <: UML]
 	def clause: Set[UMLClause[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isAssured -->
+	 * <!-- End of user code doc for isAssured -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isAssured: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If true, the modeler asserts that the test for at most one Clause of the ConditionalNode will succeed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isDeterminate -->
+	 * <!-- End of user code doc for isDeterminate -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDeterminate: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPins that onto which are moved values from the bodyOutputs of the Clause selected for execution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_conditionalNode
@@ -95,12 +100,18 @@ trait UMLConditionalNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		conditionalNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_metaAttributes -->
+	 * <!-- End of user code doc for conditionalNode_metaAttributes -->
 	 */
 	def conditionalNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,27 +121,39 @@ trait UMLConditionalNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		conditionalNode_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for conditionalNode_compositeMetaProperties -->
 	 */
 	def conditionalNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]]("clause", _.clause),
-				MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result, true, Set(StructuredActivityNode_structuredNodeOutput))))
+				MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]]("result", _.result)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		conditionalNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for conditionalNode_referenceMetaProperties -->
 	 */
 	def conditionalNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,15 +162,23 @@ trait UMLConditionalNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		conditionalNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for conditionalNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def conditionalNode_forwardReferencesFromMetamodelAssociations: Elements =
 		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLConditionalNode

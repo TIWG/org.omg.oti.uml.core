@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InterfaceRealization is a specialized realization relationship between a BehavioredClassifier and an Interface. This relationship signifies that the realizing BehavioredClassifier conforms to the contract specified by the Interface.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLInterfaceRealizationOps[Uml <: UML] { self: UMLInterfaceRealization[Uml
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInterfaceRealization
+} //UMLInterfaceRealizationOps

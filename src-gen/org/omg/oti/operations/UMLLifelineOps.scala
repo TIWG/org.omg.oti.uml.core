@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Lifeline represents an individual participant in the Interaction. While parts and structural features may have multiplicity greater than 1, Lifelines represent only one interacting entity.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Interaction enclosing this Lifeline.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interaction -->
+	 * <!-- End of user code doc for interaction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.lifeline
@@ -67,10 +67,19 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	def interaction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * <!-- Start of user code doc for covered_stateInvariant -->
+	 * <!-- End of user code doc for covered_stateInvariant -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLStateInvariant.covered
+	 */
+	def covered_stateInvariant: Set[UMLStateInvariant[Uml]] = coveredBy.selectByKindOf { case x: UMLStateInvariant[Uml] => x }
+
+	/**
 	 * If a lifeline is in an Interaction referred to by an InteractionUse in an enclosing Interaction,  and that lifeline is common with another lifeline in an Interaction referred to by another InteractonUse within that same enclosing Interaction, it must be common to a lifeline within that enclosing Interaction. By common Lifelines we mean Lifelines with the same selector and represents associations.
-	 
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_interaction_uses_share_lifeline -->
+	 * <!-- End of user code doc for validate_interaction_uses_share_lifeline -->
 	 *
 	 * @body let intUses : Set(InteractionUse) = interaction.interactionUse  in 
 	 * intUses->forAll
@@ -111,48 +120,51 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 *                     )
 	 * )
 	 */
-	def validate_interaction_uses_share_lifeline: Boolean  = {
+	def validate_interaction_uses_share_lifeline: Boolean = {
 		// Start of user code for "interaction_uses_share_lifeline"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The classifier containing the referenced ConnectableElement must be the same classifier, or an ancestor, of the classifier that contains the interaction enclosing this lifeline.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_classifier -->
+	 * <!-- End of user code doc for validate_same_classifier -->
 	 *
 	 * @body represents.namespace->closure(namespace)->includes(interaction._'context')
 	 */
-	def validate_same_classifier: Boolean  = {
+	def validate_same_classifier: Boolean = {
 		// Start of user code for "same_classifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The selector value, if present, must be a LiteralString or a LiteralInteger 
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_selector_int_or_string -->
+	 * <!-- End of user code doc for validate_selector_int_or_string -->
 	 *
 	 * @body self.selector->notEmpty() implies 
 	 * self.selector.oclIsKindOf(LiteralInteger) or 
 	 * self.selector.oclIsKindOf(LiteralString)
 	 */
-	def validate_selector_int_or_string: Boolean  = {
+	def validate_selector_int_or_string: Boolean = {
 		// Start of user code for "selector_int_or_string"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The selector for a Lifeline must only be specified if the referenced Part is multivalued.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_selector_specified -->
+	 * <!-- End of user code doc for validate_selector_specified -->
 	 *
 	 * @body  self.selector->notEmpty() = (self.represents.oclIsKindOf(MultiplicityElement) and self.represents.oclAsType(MultiplicityElement).isMultivalued())
 	 */
-	def validate_selector_specified: Boolean  = {
+	def validate_selector_specified: Boolean = {
 		// Start of user code for "selector_specified"
     	???
     	// End of user code
@@ -160,5 +172,4 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLLifeline
+} //UMLLifelineOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An AddStructuralFeatureValueAction is a WriteStructuralFeatureAction for adding values to a StructuralFeature.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * AddStructuralFeatureActions adding a value to ordered StructuralFeatures must have a single InputPin for the insertion point with type UnlimitedNatural and multiplicity of 1..1 if isReplaceAll=false, and must have no Input Pin for the insertion point when the StructuralFeature is unordered.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_insertAt_pin -->
+	 * <!-- End of user code doc for validate_insertAt_pin -->
 	 *
 	 * @body if not structuralFeature.isOrdered then insertAt = null
 	 * else 
@@ -68,7 +68,7 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
 	 * endif
 	 */
-	def validate_insertAt_pin: Boolean  = { ??? //UnlimitedNatural used correctly
+	def validate_insertAt_pin: Boolean = {
 		// Start of user code for "insertAt_pin"
     	if (!structuralFeature.get.isOrdered) 
         insertAt == null
@@ -80,13 +80,14 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A value InputPin is required.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_required_value -->
+	 * <!-- End of user code doc for validate_required_value -->
 	 *
 	 * @body value<>null
 	 */
-	def validate_required_value: Boolean  = {
+	def validate_required_value: Boolean = {
 		// Start of user code for "required_value"
     	value != null
     	// End of user code
@@ -94,5 +95,4 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLAddStructuralFeatureValueAction
+} //UMLAddStructuralFeatureValueActionOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReduceAction is an Action that reduces a collection to a single value by repeatedly combining the elements of the collection using a reducer Behavior.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLReduceAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReduceActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLReduceAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that provides the collection to be reduced.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for collection -->
+	 * <!-- End of user code doc for collection -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.collection_reduceAction
@@ -66,18 +68,20 @@ trait UMLReduceAction[Uml <: UML]
 	def collection: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates whether the order of the input collection should determine the order in which the reducer Behavior is applied to its elements.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOrdered -->
+	 * <!-- End of user code doc for isOrdered -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isOrdered: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Behavior that is repreatedly applied to two elements of the input collection to produce a value that is of the same type as elements of the collection.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for reducer -->
+	 * <!-- End of user code doc for reducer -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.reducer_reduceAction
@@ -85,9 +89,10 @@ trait UMLReduceAction[Uml <: UML]
 	def reducer: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The output pin on which the result value is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_reduceAction
@@ -96,12 +101,18 @@ trait UMLReduceAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		reduceAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLReduceAction
+	 *
+	 * <!-- Start of user code doc for reduceAction_metaAttributes -->
+	 * <!-- End of user code doc for reduceAction_metaAttributes -->
 	 */
 	def reduceAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,12 +121,18 @@ trait UMLReduceAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		reduceAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLReduceAction
+	 *
+	 * <!-- Start of user code doc for reduceAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for reduceAction_compositeMetaProperties -->
 	 */
 	def reduceAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,12 +142,18 @@ trait UMLReduceAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		reduceAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLReduceAction
+	 *
+	 * <!-- Start of user code doc for reduceAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for reduceAction_referenceMetaProperties -->
 	 */
 	def reduceAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,15 +162,23 @@ trait UMLReduceAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		reduceAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLReduceAction
+	 *
+	 * <!-- Start of user code doc for reduceAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for reduceAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def reduceAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		reducer 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLReduceAction

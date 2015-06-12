@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Comment is a textual annotation that can be attached to a set of Elements.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLComment[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLCommentOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLComment[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Element(s) being commented.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for annotatedElement -->
+	 * <!-- End of user code doc for annotatedElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLElement.annotatedElement_comment
@@ -66,17 +68,18 @@ trait UMLComment[Uml <: UML]
 	def annotatedElement: Set[UMLElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies a string that is the comment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for body -->
+	 * <!-- End of user code doc for body -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def body: Option[String]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedComment_owningElement -->
+	 * <!-- End of user code doc for ownedComment_owningElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLElement.ownedComment
@@ -85,12 +88,18 @@ trait UMLComment[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		comment_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLComment
+	 *
+	 * <!-- Start of user code doc for comment_metaAttributes -->
+	 * <!-- End of user code doc for comment_metaAttributes -->
 	 */
 	def comment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,12 +108,18 @@ trait UMLComment[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		comment_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLComment
+	 *
+	 * <!-- Start of user code doc for comment_compositeMetaProperties -->
+	 * <!-- End of user code doc for comment_compositeMetaProperties -->
 	 */
 	def comment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -113,12 +128,18 @@ trait UMLComment[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		comment_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLComment
+	 *
+	 * <!-- Start of user code doc for comment_referenceMetaProperties -->
+	 * <!-- End of user code doc for comment_referenceMetaProperties -->
 	 */
 	def comment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -127,15 +148,23 @@ trait UMLComment[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		comment_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLComment
+	 *
+	 * <!-- Start of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def comment_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		annotatedElement 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLComment

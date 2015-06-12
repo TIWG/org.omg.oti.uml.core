@@ -49,9 +49,8 @@ import scala.util.Success
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralNull specifies the lack of a value.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -60,28 +59,30 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isComputable() is redefined to be true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComputable -->
+	 * <!-- End of user code doc for isComputable -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isComputable: Boolean  = {
+	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
     	true
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isNull() returns true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isNull -->
+	 * <!-- End of user code doc for isNull -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isNull: Boolean  = {
+	override def isNull: Boolean = {
 		// Start of user code for "isNull"
     	true
     	// End of user code
@@ -90,5 +91,4 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	// Start of user code for additional features
   override def stringValue: Option[String]  = Some("***NULL***")  
 	// End of user code
-
-} //UMLLiteralNull
+} //UMLLiteralNullOps

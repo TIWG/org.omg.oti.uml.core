@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CreateLinkObjectAction is a CreateLinkAction for creating link objects (AssociationClasse instances).
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The output pin on which the newly created link object is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_createLinkObjectAction
@@ -67,39 +67,42 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Association must be an AssociationClass.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_association_class -->
+	 * <!-- End of user code doc for validate_association_class -->
 	 *
 	 * @body self.association().oclIsKindOf(AssociationClass)
 	 */
-	def validate_association_class: Boolean  = {
+	def validate_association_class: Boolean = {
 		// Start of user code for "association_class"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the OutputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body result.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the result OutputPin must be the same as the Association of the CreateLinkObjectAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_of_result -->
+	 * <!-- End of user code doc for validate_type_of_result -->
 	 *
 	 * @body result.type = association()
 	 */
-	def validate_type_of_result: Boolean  = {
+	def validate_type_of_result: Boolean = {
 		// Start of user code for "type_of_result"
     	???
     	// End of user code
@@ -107,5 +110,4 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCreateLinkObjectAction
+} //UMLCreateLinkObjectActionOps

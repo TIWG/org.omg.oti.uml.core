@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CreateLinkAction is a WriteLinkAction for creating links.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCreateLinkAction[Uml <: UML]
 	extends UMLWriteLinkAction[Uml]
 	with UMLCreateLinkActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLCreateLinkAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The LinkEndData that specifies the values to be placed on the Association ends for the new link.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for endData -->
+	 * <!-- End of user code doc for endData -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
 	 * @opposite org.omg.oti.api.UMLLinkEndCreationData.endData_createLinkAction
@@ -67,12 +69,18 @@ trait UMLCreateLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		createLinkAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCreateLinkAction
+	 *
+	 * <!-- Start of user code doc for createLinkAction_metaAttributes -->
+	 * <!-- End of user code doc for createLinkAction_metaAttributes -->
 	 */
 	def createLinkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,26 +89,38 @@ trait UMLCreateLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		createLinkAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCreateLinkAction
+	 *
+	 * <!-- Start of user code doc for createLinkAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for createLinkAction_compositeMetaProperties -->
 	 */
 	def createLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeLinkAction_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]]("endData", _.endData, false, Set(LinkAction_endData))))
+			Seq (MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]]("endData", _.endData)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		createLinkAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCreateLinkAction
+	 *
+	 * <!-- Start of user code doc for createLinkAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for createLinkAction_referenceMetaProperties -->
 	 */
 	def createLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLCreateLinkAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		createLinkAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCreateLinkAction
+	 *
+	 * <!-- Start of user code doc for createLinkAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for createLinkAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def createLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
 		writeLinkAction_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCreateLinkAction

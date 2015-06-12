@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A profile defines limited extensions to a reference metamodel with the purpose of adapting the metamodel to a specific platform or domain.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for appliedProfile_profileApplication -->
+	 * <!-- End of user code doc for appliedProfile_profileApplication -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProfileApplication.appliedProfile
@@ -66,8 +65,8 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	def appliedProfile_profileApplication: Set[UMLProfileApplication[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLProfileApplication[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for profile_stereotype -->
+	 * <!-- End of user code doc for profile_stereotype -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLStereotype.profile
@@ -79,9 +78,10 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An element imported as a metaclassReference is not specialized or generalized in a Profile.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_metaclass_reference_not_specialized -->
+	 * <!-- End of user code doc for validate_metaclass_reference_not_specialized -->
 	 *
 	 * @body metaclassReference.importedElement->
 	 * 	select(c | c.oclIsKindOf(Classifier) and
@@ -91,21 +91,22 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 *     select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier).allParents())->
 	 *        intersection(metaclassReference.importedElement->select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier)))->isEmpty()
 	 */
-	def validate_metaclass_reference_not_specialized: Boolean  = {
+	def validate_metaclass_reference_not_specialized: Boolean = {
 		// Start of user code for "metaclass_reference_not_specialized"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All elements imported either as metaclassReferences or through metamodelReferences are members of the same base reference metamodel.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_references_same_metamodel -->
+	 * <!-- End of user code doc for validate_references_same_metamodel -->
 	 *
 	 * @body metamodelReference.importedPackage.elementImport.importedElement.allOwningPackages()->
 	 *   union(metaclassReference.importedElement.allOwningPackages() )->notEmpty()
 	 */
-	def validate_references_same_metamodel: Boolean  = {
+	def validate_references_same_metamodel: Boolean = {
 		// Start of user code for "references_same_metamodel"
     	???
     	// End of user code
@@ -127,5 +128,4 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
     allNestedProfilesTransitively ++ allNestedProfilesTransitively.flatMap (_.allImportedProfilesTransitively)
     
 	// End of user code
-
-} //UMLProfile
+} //UMLProfileOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLOpaqueBehaviorOps[Uml <: UML] { self: UMLOpaqueBehavior[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLOpaqueBehavior
+} //UMLOpaqueBehaviorOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * StructuralFeatureAction is an abstract class for all Actions that operate on StructuralFeatures.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin from which the object whose StructuralFeature is to be read or written is obtained.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_structuralFeatureAction
@@ -67,69 +67,74 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin must be 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
+	 * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity_of_object: Boolean  = {
+	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The structuralFeature must not be static.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_static -->
+	 * <!-- End of user code doc for validate_not_static -->
 	 *
 	 * @body not structuralFeature.isStatic
 	 */
-	def validate_not_static: Boolean  = {
+	def validate_not_static: Boolean = {
 		// Start of user code for "not_static"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The structuralFeature must either be an owned or inherited feature of the type of the object InputPin, or it must be an owned end of a binary Association whose opposite end had as a type to which the type of the object InputPin conforms.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_object_type -->
+	 * <!-- End of user code doc for validate_object_type -->
 	 *
 	 * @body object.type.oclAsType(Classifier).allFeatures()->includes(structuralFeature) or
 	 * 	object.type.conformsTo(structuralFeature.oclAsType(Property).opposite.type)
 	 */
-	def validate_object_type: Boolean  = {
+	def validate_object_type: Boolean = {
 		// Start of user code for "object_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The structuralFeature must have exactly one featuringClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_featuring_classifier -->
+	 * <!-- End of user code doc for validate_one_featuring_classifier -->
 	 *
 	 * @body structuralFeature.featuringClassifier->size() = 1
 	 */
-	def validate_one_featuring_classifier: Boolean  = {
+	def validate_one_featuring_classifier: Boolean = {
 		// Start of user code for "one_featuring_classifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The visibility of the structuralFeature must allow access from the object performing the ReadStructuralFeatureAction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_visibility -->
+	 * <!-- End of user code doc for validate_visibility -->
 	 *
 	 * @body structuralFeature.visibility = VisibilityKind::public or
 	 * _'context'.allFeatures()->includes(structuralFeature) or
 	 * structuralFeature.visibility=VisibilityKind::protected and
 	 * _'context'.conformsTo(structuralFeature.oclAsType(Property).opposite.type.oclAsType(Classifier))
 	 */
-	def validate_visibility: Boolean  = {
+	def validate_visibility: Boolean = {
 		// Start of user code for "visibility"
     	???
     	// End of user code
@@ -137,5 +142,4 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLStructuralFeatureAction
+} //UMLStructuralFeatureActionOps

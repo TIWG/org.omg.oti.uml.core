@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A JoinNode is a ControlNode that synchronizes multiple flows.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,28 +56,30 @@ trait UMLJoinNodeOps[Uml <: UML] { self: UMLJoinNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If one of the incoming ActivityEdges of a JoinNode is an ObjectFlow, then its outgoing ActivityEdge must be an ObjectFlow. Otherwise its outgoing ActivityEdge must be a ControlFlow.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_incoming_object_flow -->
+	 * <!-- End of user code doc for validate_incoming_object_flow -->
 	 *
 	 * @body if incoming->exists(oclIsKindOf(ObjectFlow)) then outgoing->forAll(oclIsKindOf(ObjectFlow))
 	 * else outgoing->forAll(oclIsKindOf(ControlFlow))
 	 * endif
 	 */
-	def validate_incoming_object_flow: Boolean  = {
+	def validate_incoming_object_flow: Boolean = {
 		// Start of user code for "incoming_object_flow"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A JoinNode has one outgoing ActivityEdge.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_outgoing_edge -->
+	 * <!-- End of user code doc for validate_one_outgoing_edge -->
 	 *
 	 * @body outgoing->size() = 1
 	 */
-	def validate_one_outgoing_edge: Boolean  = {
+	def validate_one_outgoing_edge: Boolean = {
 		// Start of user code for "one_outgoing_edge"
     	???
     	// End of user code
@@ -86,5 +87,4 @@ trait UMLJoinNodeOps[Uml <: UML] { self: UMLJoinNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLJoinNode
+} //UMLJoinNodeOps

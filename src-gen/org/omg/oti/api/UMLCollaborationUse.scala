@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CollaborationUse is used to specify the application of a pattern specified by a Collaboration to a specific situation.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCollaborationUse[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLCollaborationUseOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLCollaborationUse[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Collaboration which is used in this CollaborationUse. The Collaboration defines the cooperation between its roles which are mapped to ConnectableElements relating to the Classifier owning the CollaborationUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _type -->
+	 * <!-- End of user code doc for _type -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLCollaboration.type_collaborationUse
@@ -66,9 +68,10 @@ trait UMLCollaborationUse[Uml <: UML]
 	def _type: Option[UMLCollaboration[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A mapping between features of the Collaboration and features of the owning Classifier. This mapping indicates which ConnectableElement of the Classifier plays which role(s) in the Collaboration. A ConnectableElement may be bound to multiple roles in the same CollaborationUse (that is, it may play multiple roles).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for roleBinding -->
+	 * <!-- End of user code doc for roleBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDependency.roleBinding_collaborationUse
@@ -76,8 +79,8 @@ trait UMLCollaborationUse[Uml <: UML]
 	def roleBinding: Set[UMLDependency[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for collaborationUse_classifier -->
+	 * <!-- End of user code doc for collaborationUse_classifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.collaborationUse
@@ -85,8 +88,8 @@ trait UMLCollaborationUse[Uml <: UML]
 	def collaborationUse_classifier: Option[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for representation_classifier -->
+	 * <!-- End of user code doc for representation_classifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.representation
@@ -95,12 +98,18 @@ trait UMLCollaborationUse[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		collaborationUse_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCollaborationUse
+	 *
+	 * <!-- Start of user code doc for collaborationUse_metaAttributes -->
+	 * <!-- End of user code doc for collaborationUse_metaAttributes -->
 	 */
 	def collaborationUse_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,12 +118,18 @@ trait UMLCollaborationUse[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		collaborationUse_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCollaborationUse
+	 *
+	 * <!-- Start of user code doc for collaborationUse_compositeMetaProperties -->
+	 * <!-- End of user code doc for collaborationUse_compositeMetaProperties -->
 	 */
 	def collaborationUse_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -123,12 +138,18 @@ trait UMLCollaborationUse[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		collaborationUse_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCollaborationUse
+	 *
+	 * <!-- Start of user code doc for collaborationUse_referenceMetaProperties -->
+	 * <!-- End of user code doc for collaborationUse_referenceMetaProperties -->
 	 */
 	def collaborationUse_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,15 +158,23 @@ trait UMLCollaborationUse[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		collaborationUse_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCollaborationUse
+	 *
+	 * <!-- Start of user code doc for collaborationUse_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for collaborationUse_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def collaborationUse_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		_type 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCollaborationUse

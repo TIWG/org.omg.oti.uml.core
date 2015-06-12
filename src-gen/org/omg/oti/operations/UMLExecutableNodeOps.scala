@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExecutableNode is an abstract class for ActivityNodes whose execution may be controlled using ControlFlows and to which ExceptionHandlers may be attached.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,16 +56,25 @@ trait UMLExecutableNodeOps[Uml <: UML] { self: UMLExecutableNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A set of ExceptionHandlers that are examined if an exception propagates out of the ExceptionNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for handler -->
+	 * <!-- End of user code doc for handler -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExceptionHandler.protectedNode
 	 */
 	def handler: Set[UMLExceptionHandler[Uml]] = ownedElement.selectByKindOf { case x: UMLExceptionHandler[Uml] => x }
 
+	/**
+	 * <!-- Start of user code doc for executableNode_sequenceNode -->
+	 * <!-- End of user code doc for executableNode_sequenceNode -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLSequenceNode.executableNode
+	 */
+	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]] = inStructuredNode.selectByKindOf { case x: UMLSequenceNode[Uml] => x }
+
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExecutableNode
+} //UMLExecutableNodeOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateParameterSubstitution relates the actual parameter to a formal TemplateParameter as part of a template binding.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTemplateParameterSubstitution[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateParameterSubstitutionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement that is the actual parameter for this TemplateParameterSubstitution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for actual -->
+	 * <!-- End of user code doc for actual -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.actual_templateParameterSubstitution
@@ -66,9 +68,10 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def actual: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The formal TemplateParameter that is associated with this TemplateParameterSubstitution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for formal -->
+	 * <!-- End of user code doc for formal -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.formal_templateParameterSubstitution
@@ -76,9 +79,10 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def formal: Option[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement that is owned by this TemplateParameterSubstitution as its actual parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedActual -->
+	 * <!-- End of user code doc for ownedActual -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedActual_owningTemplateParameterSubstitution
@@ -86,9 +90,10 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def ownedActual: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateBinding that owns this TemplateParameterSubstitution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for templateBinding -->
+	 * <!-- End of user code doc for templateBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateBinding.parameterSubstitution
@@ -97,12 +102,18 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateParameterSubstitution_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTemplateParameterSubstitution
+	 *
+	 * <!-- Start of user code doc for templateParameterSubstitution_metaAttributes -->
+	 * <!-- End of user code doc for templateParameterSubstitution_metaAttributes -->
 	 */
 	def templateParameterSubstitution_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -111,12 +122,18 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateParameterSubstitution_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTemplateParameterSubstitution
+	 *
+	 * <!-- Start of user code doc for templateParameterSubstitution_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateParameterSubstitution_compositeMetaProperties -->
 	 */
 	def templateParameterSubstitution_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,12 +142,18 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateParameterSubstitution_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateParameterSubstitution
+	 *
+	 * <!-- Start of user code doc for templateParameterSubstitution_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateParameterSubstitution_referenceMetaProperties -->
 	 */
 	def templateParameterSubstitution_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -140,12 +163,18 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateParameterSubstitution_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateParameterSubstitution
+	 *
+	 * <!-- Start of user code doc for templateParameterSubstitution_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateParameterSubstitution_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateParameterSubstitution_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
@@ -153,4 +182,6 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 		formal ++
 		templateBinding 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTemplateParameterSubstitution

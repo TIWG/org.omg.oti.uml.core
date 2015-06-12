@@ -45,11 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
- * An artifact is the specification of a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.
-An artifact is the source of a deployment to a node.
- * <!-- end-model-doc -->
- */
+ * An artifact is the specification of a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.An artifact is the source of a deployment to a node.
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLArtifact[Uml <: UML]
 	extends UMLClassifier[Uml]
 	with UMLDeployedArtifact[Uml]
@@ -58,18 +58,20 @@ trait UMLArtifact[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A concrete name that is used to refer to the Artifact in a physical context. Example: file system name, universal resource locator.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for fileName -->
+	 * <!-- End of user code doc for fileName -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def fileName: Option[String]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of model elements that are manifested in the Artifact. That is, these model elements are utilized in the construction (or generation) of the artifact.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for manifestation -->
+	 * <!-- End of user code doc for manifestation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLManifestation.manifestation_artifact
@@ -77,9 +79,10 @@ trait UMLArtifact[Uml <: UML]
 	def manifestation: Set[UMLManifestation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Artifacts that are defined (nested) within the Artifact. The association is a specialization of the ownedMember association from Namespace to NamedElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestedArtifact -->
+	 * <!-- End of user code doc for nestedArtifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLArtifact.nestedArtifact_artifact
@@ -87,9 +90,10 @@ trait UMLArtifact[Uml <: UML]
 	def nestedArtifact: Set[UMLArtifact[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The attributes or association ends defined for the Artifact. The association is a specialization of the ownedMember association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedAttribute -->
+	 * <!-- End of user code doc for ownedAttribute -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.ownedAttribute_artifact
@@ -97,9 +101,10 @@ trait UMLArtifact[Uml <: UML]
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Operations defined for the Artifact. The association is a specialization of the ownedMember association.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedOperation -->
+	 * <!-- End of user code doc for ownedOperation -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.ownedOperation_artifact
@@ -107,8 +112,8 @@ trait UMLArtifact[Uml <: UML]
 	def ownedOperation: Seq[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for nestedArtifact_artifact -->
+	 * <!-- End of user code doc for nestedArtifact_artifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.nestedArtifact
@@ -117,12 +122,18 @@ trait UMLArtifact[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		artifact_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLArtifact
+	 *
+	 * <!-- Start of user code doc for artifact_metaAttributes -->
+	 * <!-- End of user code doc for artifact_metaAttributes -->
 	 */
 	def artifact_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -132,12 +143,18 @@ trait UMLArtifact[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		artifact_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLArtifact
+	 *
+	 * <!-- Start of user code doc for artifact_compositeMetaProperties -->
+	 * <!-- End of user code doc for artifact_compositeMetaProperties -->
 	 */
 	def artifact_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,12 +167,18 @@ trait UMLArtifact[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		artifact_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLArtifact
+	 *
+	 * <!-- Start of user code doc for artifact_referenceMetaProperties -->
+	 * <!-- End of user code doc for artifact_referenceMetaProperties -->
 	 */
 	def artifact_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -165,16 +188,24 @@ trait UMLArtifact[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		artifact_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLArtifact
+	 *
+	 * <!-- Start of user code doc for artifact_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for artifact_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def artifact_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
 		deployedArtifact_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLArtifact

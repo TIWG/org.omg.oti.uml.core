@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Continuation is a syntactic way to define continuations of different branches of an alternative CombinedFragment. Continuations are intuitively similar to labels representing intermediate points in a flow of control.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLContinuation[Uml <: UML]
 	extends UMLInteractionFragment[Uml]
 	with UMLContinuationOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLContinuation[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * True: when the Continuation is at the end of the enclosing InteractionFragment and False when it is in the beginning.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for setting -->
+	 * <!-- End of user code doc for setting -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -66,12 +68,18 @@ trait UMLContinuation[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		continuation_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLContinuation
+	 *
+	 * <!-- Start of user code doc for continuation_metaAttributes -->
+	 * <!-- End of user code doc for continuation_metaAttributes -->
 	 */
 	def continuation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -80,12 +88,18 @@ trait UMLContinuation[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		continuation_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLContinuation
+	 *
+	 * <!-- Start of user code doc for continuation_compositeMetaProperties -->
+	 * <!-- End of user code doc for continuation_compositeMetaProperties -->
 	 */
 	def continuation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -94,12 +108,18 @@ trait UMLContinuation[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		continuation_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLContinuation
+	 *
+	 * <!-- Start of user code doc for continuation_referenceMetaProperties -->
+	 * <!-- End of user code doc for continuation_referenceMetaProperties -->
 	 */
 	def continuation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -108,15 +128,23 @@ trait UMLContinuation[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		continuation_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLContinuation
+	 *
+	 * <!-- Start of user code doc for continuation_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for continuation_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def continuation_forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLContinuation

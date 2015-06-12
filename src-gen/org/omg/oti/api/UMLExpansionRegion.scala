@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExpansionRegion is a StructuredActivityNode that executes its content multiple times corresponding to elements of input collection(s).
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExpansionRegion[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]
 	with UMLExpansionRegionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExpansionRegion[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExpansionNodes that hold the input collections for the ExpansionRegion.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inputElement -->
+	 * <!-- End of user code doc for inputElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLExpansionNode.regionAsInput
@@ -66,18 +68,20 @@ trait UMLExpansionRegion[Uml <: UML]
 	def inputElement: Set[UMLExpansionNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The mode in which the ExpansionRegion executes its contents. If parallel, executions are concurrent. If iterative, executions are sequential. If stream, a stream of values flows into a single execution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for mode -->
+	 * <!-- End of user code doc for mode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def mode: UMLExpansionKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExpansionNodes that form the output collections of the ExpansionRegion.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for outputElement -->
+	 * <!-- End of user code doc for outputElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExpansionNode.regionAsOutput
@@ -86,12 +90,18 @@ trait UMLExpansionRegion[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		expansionRegion_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_metaAttributes -->
+	 * <!-- End of user code doc for expansionRegion_metaAttributes -->
 	 */
 	def expansionRegion_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +110,18 @@ trait UMLExpansionRegion[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		expansionRegion_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_compositeMetaProperties -->
+	 * <!-- End of user code doc for expansionRegion_compositeMetaProperties -->
 	 */
 	def expansionRegion_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -114,12 +130,18 @@ trait UMLExpansionRegion[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		expansionRegion_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_referenceMetaProperties -->
+	 * <!-- End of user code doc for expansionRegion_referenceMetaProperties -->
 	 */
 	def expansionRegion_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,16 +151,24 @@ trait UMLExpansionRegion[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		expansionRegion_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for expansionRegion_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def expansionRegion_forwardReferencesFromMetamodelAssociations: Elements =
 		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
 		inputElement ++
 		outputElement 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExpansionRegion

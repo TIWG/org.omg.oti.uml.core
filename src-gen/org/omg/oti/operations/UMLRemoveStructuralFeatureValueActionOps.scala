@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A RemoveStructuralFeatureValueAction is a WriteStructuralFeatureAction that removes values from a StructuralFeature.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStru
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * RemoveStructuralFeatureValueActions removing a value from ordered, non-unique StructuralFeatures must have a single removeAt InputPin and no value InputPin, if isRemoveDuplicates is false. The removeAt InputPin must be of type Unlimited Natural with multiplicity 1..1. Otherwise, the Action has a value InputPin and no removeAt InputPin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_removeAt_and_value -->
+	 * <!-- End of user code doc for validate_removeAt_and_value -->
 	 *
 	 * @body if structuralFeature.isOrdered and not structuralFeature.isUnique and  not isRemoveDuplicates then
 	 *   value = null and
@@ -70,7 +70,7 @@ trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStru
 	 *   removeAt = null and value <> null
 	 * endif
 	 */
-	def validate_removeAt_and_value: Boolean  = {
+	def validate_removeAt_and_value: Boolean = {
 		// Start of user code for "removeAt_and_value"
     	???
     	// End of user code
@@ -78,5 +78,4 @@ trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStru
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLRemoveStructuralFeatureValueAction
+} //UMLRemoveStructuralFeatureValueActionOps

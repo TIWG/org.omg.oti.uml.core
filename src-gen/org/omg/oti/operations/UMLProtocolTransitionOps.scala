@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ProtocolTransition specifies a legal Transition for an Operation. Transitions of ProtocolStateMachines have the following information: a pre-condition (guard), a Trigger, and a post-condition. Every ProtocolTransition is associated with at most one BehavioralFeature belonging to the context Classifier of the ProtocolStateMachine.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,21 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * Specifies the precondition of the Transition. It specifies the Condition that should be verified before triggering the Transition. This guard condition added to the source State will be evaluated as part of the precondition of the Operation referred by the Transition if any.
+	 *
+	 * <!-- Start of user code doc for preCondition -->
+	 * <!-- End of user code doc for preCondition -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLConstraint.preCondition_protocolTransition
+	 */
+	def preCondition: Option[UMLConstraint[Uml]] = guard
+
+	/**
 	 * This association refers to the associated Operation. It is derived from the Operation of the CallEvent Trigger when applicable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for referred -->
+	 * <!-- End of user code doc for referred -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.referred_protocolTransition
@@ -72,41 +83,44 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ProtocolTransition never has associated Behaviors.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_associated_actions -->
+	 * <!-- End of user code doc for validate_associated_actions -->
 	 *
 	 * @body effect = null
 	 */
-	def validate_associated_actions: Boolean  = {
+	def validate_associated_actions: Boolean = {
 		// Start of user code for "associated_actions"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ProtocolTransition always belongs to a ProtocolStateMachine.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_belongs_to_psm -->
+	 * <!-- End of user code doc for validate_belongs_to_psm -->
 	 *
 	 * @body container.belongsToPSM()
 	 */
-	def validate_belongs_to_psm: Boolean  = {
+	def validate_belongs_to_psm: Boolean = {
 		// Start of user code for "belongs_to_psm"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a ProtocolTransition refers to an Operation (i.e., has a CallEvent trigger corresponding to an Operation), then that Operation should apply to the context Classifier of the StateMachine of the ProtocolTransition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_refers_to_operation -->
+	 * <!-- End of user code doc for validate_refers_to_operation -->
 	 *
 	 * @body if (referred()->notEmpty() and containingStateMachine()._'context'->notEmpty()) then 
 	 *     containingStateMachine()._'context'.oclAsType(BehavioredClassifier).allFeatures()->includesAll(referred())
 	 * else true endif
 	 */
-	def validate_refers_to_operation: Boolean  = {
+	def validate_refers_to_operation: Boolean = {
 		// Start of user code for "refers_to_operation"
     	???
     	// End of user code
@@ -114,5 +128,4 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLProtocolTransition
+} //UMLProtocolTransitionOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Activity containing the ActivityNode, if it is directly owned by an Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for activity -->
+	 * <!-- End of user code doc for activity -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivity.node
@@ -67,9 +67,10 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * InterruptibleActivityRegions containing the ActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inInterruptibleRegion -->
+	 * <!-- End of user code doc for inInterruptibleRegion -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.node
@@ -77,9 +78,10 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def inInterruptibleRegion: Set[UMLInterruptibleActivityRegion[Uml]] = inGroup.selectByKindOf { case x: UMLInterruptibleActivityRegion[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityPartitions containing the ActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inPartition -->
+	 * <!-- End of user code doc for inPartition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityPartition.node
@@ -87,9 +89,10 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StructuredActivityNode containing the ActvityNode, if it is directly owned by a StructuredActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inStructuredNode -->
+	 * <!-- End of user code doc for inStructuredNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.node
@@ -97,9 +100,10 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityNodes from a generalization of the Activity containining this ActivityNode that are redefined by this ActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedNode -->
+	 * <!-- End of user code doc for redefinedNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode_activityNode
@@ -107,8 +111,8 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def redefinedNode: Set[UMLActivityNode[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedNode_activityNode -->
+	 * <!-- End of user code doc for redefinedNode_activityNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode
@@ -116,16 +120,17 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	def redefinedNode_activityNode: Set[UMLActivityNode[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Activity that directly or indirectly contains this ActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for containingActivity -->
+	 * <!-- End of user code doc for containingActivity -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..1"
 	 * @body result = (if inStructuredNode<>null then inStructuredNode.containingActivity()
 	 * else activity
 	 * endif)
 	 */
-	def containingActivity: Option[UMLActivity[Uml]]  = {
+	def containingActivity: Option[UMLActivity[Uml]] = {
 		// Start of user code for "containingActivity"
     	if (inStructuredNode.isDefined) 
         inStructuredNode.get.containingActivity
@@ -134,13 +139,13 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (redefiningElement.oclIsKindOf(ActivityNode))
 	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
+	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
   	redefiningElement match {
       case Some(_: UMLActivityNode[Uml]) => true
@@ -151,5 +156,4 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivityNode
+} //UMLActivityNodeOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CentralBufferNode is an ObjectNode for managing flows from multiple sources and targets.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLCentralBufferNodeOps[Uml <: UML] { self: UMLCentralBufferNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCentralBufferNode
+} //UMLCentralBufferNodeOps

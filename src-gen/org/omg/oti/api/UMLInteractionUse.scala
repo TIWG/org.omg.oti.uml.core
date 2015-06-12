@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InteractionUse refers to an Interaction. The InteractionUse is a shorthand for copying the contents of the referenced Interaction where the InteractionUse is. To be accurate the copying must take into account substituting parameters with arguments and connect the formal Gates with the actual ones.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLInteractionUse[Uml <: UML]
 	extends UMLInteractionFragment[Uml]
 	with UMLInteractionUseOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLInteractionUse[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The actual gates of the InteractionUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for actualGate -->
+	 * <!-- End of user code doc for actualGate -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLGate.actualGate_interactionUse
@@ -66,9 +68,10 @@ trait UMLInteractionUse[Uml <: UML]
 	def actualGate: Set[UMLGate[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The actual arguments of the Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for argument -->
+	 * <!-- End of user code doc for argument -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.argument_interactionUse
@@ -76,9 +79,10 @@ trait UMLInteractionUse[Uml <: UML]
 	def argument: Seq[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Refers to the Interaction that defines its meaning.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for refersTo -->
+	 * <!-- End of user code doc for refersTo -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.refersTo_interactionUse
@@ -86,9 +90,10 @@ trait UMLInteractionUse[Uml <: UML]
 	def refersTo: Option[UMLInteraction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The value of the executed Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for returnValue -->
+	 * <!-- End of user code doc for returnValue -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.returnValue_interactionUse
@@ -96,9 +101,10 @@ trait UMLInteractionUse[Uml <: UML]
 	def returnValue: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The recipient of the return value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for returnValueRecipient -->
+	 * <!-- End of user code doc for returnValueRecipient -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.returnValueRecipient_interactionUse
@@ -107,12 +113,18 @@ trait UMLInteractionUse[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interactionUse_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLInteractionUse
+	 *
+	 * <!-- Start of user code doc for interactionUse_metaAttributes -->
+	 * <!-- End of user code doc for interactionUse_metaAttributes -->
 	 */
 	def interactionUse_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -121,12 +133,18 @@ trait UMLInteractionUse[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interactionUse_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInteractionUse
+	 *
+	 * <!-- Start of user code doc for interactionUse_compositeMetaProperties -->
+	 * <!-- End of user code doc for interactionUse_compositeMetaProperties -->
 	 */
 	def interactionUse_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,12 +155,18 @@ trait UMLInteractionUse[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interactionUse_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInteractionUse
+	 *
+	 * <!-- Start of user code doc for interactionUse_referenceMetaProperties -->
+	 * <!-- End of user code doc for interactionUse_referenceMetaProperties -->
 	 */
 	def interactionUse_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -152,16 +176,24 @@ trait UMLInteractionUse[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interactionUse_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLInteractionUse
+	 *
+	 * <!-- Start of user code doc for interactionUse_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interactionUse_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interactionUse_forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations ++
 		refersTo ++
 		returnValueRecipient 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLInteractionUse

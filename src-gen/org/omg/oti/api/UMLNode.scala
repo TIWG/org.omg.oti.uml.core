@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Node is computational resource upon which artifacts may be deployed for execution. Nodes can be interconnected through communication paths to define network structures.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLNode[Uml <: UML]
 	extends UMLClass[Uml]
 	with UMLDeploymentTarget[Uml]
@@ -57,9 +58,10 @@ trait UMLNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Nodes that are defined (nested) within the Node.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for nestedNode -->
+	 * <!-- End of user code doc for nestedNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLNode.nestedNode_node
@@ -67,8 +69,8 @@ trait UMLNode[Uml <: UML]
 	def nestedNode: Set[UMLNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for nestedNode_node -->
+	 * <!-- End of user code doc for nestedNode_node -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLNode.nestedNode
@@ -77,12 +79,18 @@ trait UMLNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		node_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLNode
+	 *
+	 * <!-- Start of user code doc for node_metaAttributes -->
+	 * <!-- End of user code doc for node_metaAttributes -->
 	 */
 	def node_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -92,12 +100,18 @@ trait UMLNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		node_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLNode
+	 *
+	 * <!-- Start of user code doc for node_compositeMetaProperties -->
+	 * <!-- End of user code doc for node_compositeMetaProperties -->
 	 */
 	def node_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -107,12 +121,18 @@ trait UMLNode[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		node_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLNode
+	 *
+	 * <!-- Start of user code doc for node_referenceMetaProperties -->
+	 * <!-- End of user code doc for node_referenceMetaProperties -->
 	 */
 	def node_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -122,16 +142,24 @@ trait UMLNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		node_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLNode
+	 *
+	 * <!-- Start of user code doc for node_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for node_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def node_forwardReferencesFromMetamodelAssociations: Elements =
 		class_forwardReferencesFromMetamodelAssociations ++
 		deploymentTarget_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLNode

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InstanceSpecification that owns this Slot.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for owningInstance -->
+	 * <!-- End of user code doc for owningInstance -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInstanceSpecification.slot
@@ -77,5 +77,4 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
   })
 
 	// End of user code
-
-} //UMLSlot
+} //UMLSlotOps

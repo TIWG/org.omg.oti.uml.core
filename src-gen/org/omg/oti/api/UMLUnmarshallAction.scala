@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLUnmarshallAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLUnmarshallActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLUnmarshallAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the object to be unmarshalled.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_unmarshallAction
@@ -66,9 +68,10 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def _object: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPins on which are placed the values of the StructuralFeatures of the input object.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_unmarshallAction
@@ -76,9 +79,10 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def result: Seq[UMLOutputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the object to be unmarshalled.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for unmarshallType -->
+	 * <!-- End of user code doc for unmarshallType -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.unmarshallType_unmarshallAction
@@ -87,12 +91,18 @@ trait UMLUnmarshallAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		unmarshallAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLUnmarshallAction
+	 *
+	 * <!-- Start of user code doc for unmarshallAction_metaAttributes -->
+	 * <!-- End of user code doc for unmarshallAction_metaAttributes -->
 	 */
 	def unmarshallAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -101,27 +111,39 @@ trait UMLUnmarshallAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		unmarshallAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLUnmarshallAction
+	 *
+	 * <!-- Start of user code doc for unmarshallAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for unmarshallAction_compositeMetaProperties -->
 	 */
 	def unmarshallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]]("object", _._object),
-				MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]]("result", _.result, true)))
+				MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		unmarshallAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLUnmarshallAction
+	 *
+	 * <!-- Start of user code doc for unmarshallAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for unmarshallAction_referenceMetaProperties -->
 	 */
 	def unmarshallAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,15 +152,23 @@ trait UMLUnmarshallAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		unmarshallAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLUnmarshallAction
+	 *
+	 * <!-- Start of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def unmarshallAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		unmarshallType 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLUnmarshallAction

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InteractionUse refers to an Interaction. The InteractionUse is a shorthand for copying the contents of the referenced Interaction where the InteractionUse is. To be accurate the copying must take into account substituting parameters with arguments and connect the formal Gates with the actual ones.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The actual gates of the InteractionUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for actualGate -->
+	 * <!-- End of user code doc for actualGate -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLGate.actualGate_interactionUse
@@ -67,9 +67,10 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	def actualGate: Set[UMLGate[Uml]] = ownedElement.selectByKindOf { case x: UMLGate[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InteractionUse must cover all Lifelines of the enclosing Interaction that are common with the lifelines covered by the referred Interaction. Lifelines are common if they have the same selector and represents associationEnd values.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_all_lifelines -->
+	 * <!-- End of user code doc for validate_all_lifelines -->
 	 *
 	 * @body let parentInteraction : Set(Interaction) = enclosingInteraction->asSet()->
 	 * union(enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
@@ -87,55 +88,59 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * )
 	 *  implies self.covered->asSet()->includes(intLifeline)))
 	 */
-	def validate_all_lifelines: Boolean  = {
+	def validate_all_lifelines: Boolean = {
 		// Start of user code for "all_lifelines"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The arguments must only be constants, parameters of the enclosing Interaction or attributes of the classifier owning the enclosing Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_arguments_are_constants -->
+	 * <!-- End of user code doc for validate_arguments_are_constants -->
 	 *
 	 */
-	def validate_arguments_are_constants: Boolean  = {
+	def validate_arguments_are_constants: Boolean = {
 		// Start of user code for "arguments_are_constants"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The arguments of the InteractionUse must correspond to parameters of the referred Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_arguments_correspond_to_parameters -->
+	 * <!-- End of user code doc for validate_arguments_correspond_to_parameters -->
 	 *
 	 */
-	def validate_arguments_correspond_to_parameters: Boolean  = {
+	def validate_arguments_correspond_to_parameters: Boolean = {
 		// Start of user code for "arguments_correspond_to_parameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Actual Gates of the InteractionUse must match Formal Gates of the referred Interaction. Gates match when their names are equal and their messages correspond.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_gates_match -->
+	 * <!-- End of user code doc for validate_gates_match -->
 	 *
 	 * @body actualGate->notEmpty() implies 
 	 * refersTo.formalGate->forAll( fg : Gate | self.actualGate->select(matches(fg))->size()=1) and
 	 * self.actualGate->forAll(ag : Gate | refersTo.formalGate->select(matches(ag))->size()=1)
 	 */
-	def validate_gates_match: Boolean  = {
+	def validate_gates_match: Boolean = {
 		// Start of user code for "gates_match"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The returnValueRecipient must be a Property of a ConnectableElement that is represented by a Lifeline covered by this InteractionUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_returnValueRecipient_coverage -->
+	 * <!-- End of user code doc for validate_returnValueRecipient_coverage -->
 	 *
 	 * @body returnValueRecipient->asSet()->notEmpty() implies
 	 * let covCE : Set(ConnectableElement) = covered.represents->asSet() in 
@@ -143,20 +148,21 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * let allProps : Set(Property) = classes.attribute->union(classes.allParents().attribute)->asSet() in 
 	 * allProps->includes(returnValueRecipient)
 	 */
-	def validate_returnValueRecipient_coverage: Boolean  = {
+	def validate_returnValueRecipient_coverage: Boolean = {
 		// Start of user code for "returnValueRecipient_coverage"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the returnValue must correspond to the type of the returnValueRecipient.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_returnValue_type_recipient_correspondence -->
+	 * <!-- End of user code doc for validate_returnValue_type_recipient_correspondence -->
 	 *
 	 * @body returnValue.type->asSequence()->notEmpty() implies returnValue.type->asSequence()->first() = returnValueRecipient.type->asSequence()->first()
 	 */
-	def validate_returnValue_type_recipient_correspondence: Boolean  = {
+	def validate_returnValue_type_recipient_correspondence: Boolean = {
 		// Start of user code for "returnValue_type_recipient_correspondence"
     	???
     	// End of user code
@@ -164,5 +170,4 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInteractionUse
+} //UMLInteractionUseOps

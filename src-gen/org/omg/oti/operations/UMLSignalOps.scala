@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Signal is a specification of a kind of communication between objects in which a reaction is asynchronously triggered in the receiver without a reply.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLSignalOps[Uml <: UML] { self: UMLSignal[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLSignal
+} //UMLSignalOps

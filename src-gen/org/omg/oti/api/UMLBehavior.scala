@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * Behavior is a specification of how its context BehavioredClassifier changes state over time. This specification may be either a definition of possible behavior execution or emergent behavior, or a selective illustration of an interesting subset of possible executions. The latter form is typically used for capturing examples, such as a trace of a particular execution.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLBehavior[Uml <: UML]
 	extends UMLClass[Uml]
 	with UMLBehaviorOps[Uml] {
@@ -56,28 +57,42 @@ trait UMLBehavior[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The BehavioredClassifier that is the context for the execution of the Behavior. A Behavior that is directly owned as a nestedClassifier does not have a context. Otherwise, to determine the context of a Behavior, find the first BehavioredClassifier reached by following the chain of owner relationships from the Behavior, if any. If there is such a BehavioredClassifier, then it is the context, unless it is itself a Behavior with a non-empty context, in which case that is also the context for the original Behavior. For example, following this algorithm, the context of an entry Behavior in a StateMachine is the BehavioredClassifier that owns the StateMachine. The features of the context BehavioredClassifier as well as the Elements visible to the context Classifier are visible to the Behavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for context -->
+	 * <!-- End of user code doc for context -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.context_behavior
+	 * @body result = (if nestingClass <> null then
+	 *     null
+	 * else
+	 *     let b:BehavioredClassifier = self.behavioredClassifier(self.owner) in
+	 *     if b.oclIsKindOf(Behavior) and b.oclAsType(Behavior)._'context' <> null then 
+	 *         b.oclAsType(Behavior)._'context'
+	 *     else 
+	 *         b 
+	 *     endif
+	 * endif
+	 *         )
 	 */
 	def context: Option[UMLBehavioredClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Tells whether the Behavior can be invoked while it is still executing from a previous invocation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isReentrant -->
+	 * <!-- End of user code doc for isReentrant -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReentrant: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References a list of Parameters to the Behavior which describes the order and type of arguments that can be given when the Behavior is invoked and of the values which will be returned when the Behavior completes its execution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameter.ownedParameter_behavior
@@ -85,9 +100,10 @@ trait UMLBehavior[Uml <: UML]
 	def ownedParameter: Seq[UMLParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterSets owned by this Behavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameterSet -->
+	 * <!-- End of user code doc for ownedParameterSet -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameterSet.ownedParameterSet_behavior
@@ -95,9 +111,10 @@ trait UMLBehavior[Uml <: UML]
 	def ownedParameterSet: Set[UMLParameterSet[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional set of Constraints specifying what is fulfilled after the execution of the Behavior is completed, if its precondition was fulfilled before its invocation.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for postcondition -->
+	 * <!-- End of user code doc for postcondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.postcondition_behavior
@@ -105,9 +122,10 @@ trait UMLBehavior[Uml <: UML]
 	def postcondition: Set[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional set of Constraints specifying what must be fulfilled before the Behavior is invoked.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for precondition -->
+	 * <!-- End of user code doc for precondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.precondition_behavior
@@ -115,9 +133,10 @@ trait UMLBehavior[Uml <: UML]
 	def precondition: Set[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Behavior that this Behavior redefines. A subtype of Behavior may redefine any other subtype of Behavior. If the Behavior implements a BehavioralFeature, it replaces the redefined Behavior. If the Behavior is a classifierBehavior, it extends the redefined Behavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedBehavior -->
+	 * <!-- End of user code doc for redefinedBehavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.redefinedBehavior_behavior
@@ -125,9 +144,10 @@ trait UMLBehavior[Uml <: UML]
 	def redefinedBehavior: Set[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates a BehavioralFeature that the Behavior implements. The BehavioralFeature must be owned by the BehavioredClassifier that owns the Behavior or be inherited by it. The Parameters of the BehavioralFeature and the implementing Behavior must match. A Behavior does not need to have a specification, in which case it either is the classifierBehavior of a BehavioredClassifier or it can only be invoked by another Behavior of the Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavioralFeature.method
@@ -135,8 +155,8 @@ trait UMLBehavior[Uml <: UML]
 	def specification: Option[UMLBehavioralFeature[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for behavior_behaviorExecutionSpecification -->
+	 * <!-- End of user code doc for behavior_behaviorExecutionSpecification -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehaviorExecutionSpecification.behavior
@@ -144,8 +164,8 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_behaviorExecutionSpecification: Set[UMLBehaviorExecutionSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for behavior_callBehaviorAction -->
+	 * <!-- End of user code doc for behavior_callBehaviorAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLCallBehaviorAction.behavior
@@ -153,8 +173,8 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_callBehaviorAction: Set[UMLCallBehaviorAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for behavior_opaqueExpression -->
+	 * <!-- End of user code doc for behavior_opaqueExpression -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOpaqueExpression.behavior
@@ -162,8 +182,8 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for classifierBehavior_behavioredClassifier -->
+	 * <!-- End of user code doc for classifierBehavior_behavioredClassifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.classifierBehavior
@@ -171,8 +191,8 @@ trait UMLBehavior[Uml <: UML]
 	def classifierBehavior_behavioredClassifier: Option[UMLBehavioredClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for contract_connector -->
+	 * <!-- End of user code doc for contract_connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnector.contract
@@ -180,8 +200,8 @@ trait UMLBehavior[Uml <: UML]
 	def contract_connector: Set[UMLConnector[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for decisionInput_decisionNode -->
+	 * <!-- End of user code doc for decisionInput_decisionNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDecisionNode.decisionInput
@@ -189,8 +209,8 @@ trait UMLBehavior[Uml <: UML]
 	def decisionInput_decisionNode: Set[UMLDecisionNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for doActivity_state -->
+	 * <!-- End of user code doc for doActivity_state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.doActivity
@@ -198,8 +218,8 @@ trait UMLBehavior[Uml <: UML]
 	def doActivity_state: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for effect_transition -->
+	 * <!-- End of user code doc for effect_transition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.effect
@@ -207,8 +227,8 @@ trait UMLBehavior[Uml <: UML]
 	def effect_transition: Option[UMLTransition[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for entry_state -->
+	 * <!-- End of user code doc for entry_state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.entry
@@ -216,8 +236,8 @@ trait UMLBehavior[Uml <: UML]
 	def entry_state: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for exit_state -->
+	 * <!-- End of user code doc for exit_state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.exit
@@ -225,8 +245,8 @@ trait UMLBehavior[Uml <: UML]
 	def exit_state: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedBehavior_behavioredClassifier -->
+	 * <!-- End of user code doc for ownedBehavior_behavioredClassifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.ownedBehavior
@@ -234,8 +254,8 @@ trait UMLBehavior[Uml <: UML]
 	def ownedBehavior_behavioredClassifier: Option[UMLBehavioredClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedBehavior_behavior -->
+	 * <!-- End of user code doc for redefinedBehavior_behavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.redefinedBehavior
@@ -243,8 +263,8 @@ trait UMLBehavior[Uml <: UML]
 	def redefinedBehavior_behavior: Set[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for reducer_reduceAction -->
+	 * <!-- End of user code doc for reducer_reduceAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLReduceAction.reducer
@@ -252,8 +272,8 @@ trait UMLBehavior[Uml <: UML]
 	def reducer_reduceAction: Set[UMLReduceAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for selection_objectFlow -->
+	 * <!-- End of user code doc for selection_objectFlow -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLObjectFlow.selection
@@ -261,8 +281,8 @@ trait UMLBehavior[Uml <: UML]
 	def selection_objectFlow: Set[UMLObjectFlow[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for selection_objectNode -->
+	 * <!-- End of user code doc for selection_objectNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLObjectNode.selection
@@ -270,8 +290,8 @@ trait UMLBehavior[Uml <: UML]
 	def selection_objectNode: Set[UMLObjectNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for transformation_objectFlow -->
+	 * <!-- End of user code doc for transformation_objectFlow -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLObjectFlow.transformation
@@ -280,12 +300,18 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		behavior_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLBehavior
+	 *
+	 * <!-- Start of user code doc for behavior_metaAttributes -->
+	 * <!-- End of user code doc for behavior_metaAttributes -->
 	 */
 	def behavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -294,12 +320,18 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		behavior_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLBehavior
+	 *
+	 * <!-- Start of user code doc for behavior_compositeMetaProperties -->
+	 * <!-- End of user code doc for behavior_compositeMetaProperties -->
 	 */
 	def behavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -311,12 +343,18 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		behavior_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLBehavior
+	 *
+	 * <!-- Start of user code doc for behavior_referenceMetaProperties -->
+	 * <!-- End of user code doc for behavior_referenceMetaProperties -->
 	 */
 	def behavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -326,16 +364,24 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		behavior_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLBehavior
+	 *
+	 * <!-- Start of user code doc for behavior_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for behavior_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def behavior_forwardReferencesFromMetamodelAssociations: Elements =
 		class_forwardReferencesFromMetamodelAssociations ++
 		redefinedBehavior ++
 		specification 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLBehavior

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ActionExecutionSpecification is a kind of ExecutionSpecification representing the execution of an Action.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -56,17 +55,11 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 
 	import self.ops._
 
-	def combinedFragmentFromEnclosingOperand(interactionFragment: UMLInteractionFragment[Uml]): Option[UMLInteractionFragment[Uml]] = {
-      for {
-    	eo <- interactionFragment.enclosingOperand
-    	cf <- eo.operand_combinedFragment
-      } yield cf
-    }
-	
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Action referenced by the ActionExecutionSpecification must be owned by the Interaction owning that ActionExecutionSpecification.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_action_referenced -->
+	 * <!-- End of user code doc for validate_action_referenced -->
 	 *
 	 * @body (enclosingInteraction->notEmpty() or enclosingOperand.combinedFragment->notEmpty()) and
 	 * let parentInteraction : Set(Interaction) = enclosingInteraction.oclAsType(Interaction)->asSet()->union(
@@ -74,8 +67,8 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()) in
 	 * (parentInteraction->size() = 1) and self.action.interaction->asSet() = parentInteraction
 	 */
-	def validate_action_referenced: Boolean  = {
-	  // Start of user code for "action_referenced"
+	def validate_action_referenced: Boolean = {
+		// Start of user code for "action_referenced"
       self.action match {
         case Some(a) => 
           val parentInteraction: Set[UMLInteractionFragment[Uml]] = 
@@ -90,6 +83,11 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	}
 
 	// Start of user code for additional features
+	def combinedFragmentFromEnclosingOperand(interactionFragment: UMLInteractionFragment[Uml]): Option[UMLInteractionFragment[Uml]] = {
+		for {
+	    	eo <- interactionFragment.enclosingOperand
+	    	cf <- eo.operand_combinedFragment
+		} yield cf
+	}
 	// End of user code
-
-} //UMLActionExecutionSpecification
+} //UMLActionExecutionSpecificationOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If an OpaqueExpression is specified using a UML Behavior, then this refers to the single required return Parameter of that Behavior. When the Behavior completes execution, the values on this Parameter give the result of evaluating the OpaqueExpression.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameter.result_opaqueExpression
@@ -76,8 +76,8 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for mapping_abstraction -->
+	 * <!-- End of user code doc for mapping_abstraction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAbstraction.mapping
@@ -85,96 +85,103 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	def mapping_abstraction: Option[UMLAbstraction[Uml]] = owner.selectByKindOf { case x: UMLAbstraction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isIntegral() tells whether an expression is intended to produce an Integer.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isIntegral -->
+	 * <!-- End of user code doc for isIntegral -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (false)
 	 */
-	def isIntegral: Boolean  = {
+	def isIntegral: Boolean = {
 		// Start of user code for "isIntegral"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isNonNegative() tells whether an integer expression has a non-negative value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isNonNegative -->
+	 * <!-- End of user code doc for isNonNegative -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (false)
 	 */
-	def isNonNegative: Boolean  = {
+	def isNonNegative: Boolean = {
 		// Start of user code for "isNonNegative"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isPositive() tells whether an integer expression has a positive value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isPositive -->
+	 * <!-- End of user code doc for isPositive -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (false)
 	 */
-	def isPositive: Boolean  = {
+	def isPositive: Boolean = {
 		// Start of user code for "isPositive"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query value() gives an integer value for an expression intended to produce one.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (0)
 	 */
-	def value: Integer  = {
+	def value: Integer = {
 		// Start of user code for "value"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the language attribute is not empty, then the size of the body and language arrays must be the same.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_language_body_size -->
+	 * <!-- End of user code doc for validate_language_body_size -->
 	 *
 	 * @body language->notEmpty() implies (_'body'->size() = language->size())
 	 */
-	def validate_language_body_size: Boolean  = {
+	def validate_language_body_size: Boolean = {
 		// Start of user code for "language_body_size"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The behavior must have exactly one return result parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_return_result_parameter -->
+	 * <!-- End of user code doc for validate_one_return_result_parameter -->
 	 *
 	 * @body behavior <> null implies
 	 *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
 	 */
-	def validate_one_return_result_parameter: Boolean  = {
+	def validate_one_return_result_parameter: Boolean = {
 		// Start of user code for "one_return_result_parameter"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The behavior may only have return result parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_only_return_result_parameters -->
+	 * <!-- End of user code doc for validate_only_return_result_parameters -->
 	 *
 	 * @body behavior <> null implies behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
 	 */
-	def validate_only_return_result_parameters: Boolean  = {
+	def validate_only_return_result_parameters: Boolean = {
 		// Start of user code for "only_return_result_parameters"
     	???
     	// End of user code
@@ -199,5 +206,4 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
     Set(this) ++ behavior.toSet
 
 	// End of user code
-
-} //UMLOpaqueExpression
+} //UMLOpaqueExpressionOps

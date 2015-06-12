@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * VariableAction is an abstract class for Actions that operate on a specified Variable.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLVariableAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLVariableActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLVariableAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Variable to be read or written.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for variable -->
+	 * <!-- End of user code doc for variable -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLVariable.variable_variableAction
@@ -67,12 +69,18 @@ trait UMLVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		variableAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLVariableAction
+	 *
+	 * <!-- Start of user code doc for variableAction_metaAttributes -->
+	 * <!-- End of user code doc for variableAction_metaAttributes -->
 	 */
 	def variableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		variableAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLVariableAction
+	 *
+	 * <!-- Start of user code doc for variableAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for variableAction_compositeMetaProperties -->
 	 */
 	def variableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		variableAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLVariableAction
+	 *
+	 * <!-- Start of user code doc for variableAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for variableAction_referenceMetaProperties -->
 	 */
 	def variableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		variableAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLVariableAction
+	 *
+	 * <!-- Start of user code doc for variableAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for variableAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def variableAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		variable 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLVariableAction

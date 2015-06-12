@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ParameterSet designates alternative sets of inputs or outputs that a Behavior may use.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A constraint that should be satisfied for the owner of the Parameters in an input ParameterSet to start execution using the values provided for those Parameters, or the owner of the Parameters in an output ParameterSet to end execution providing the values for those Parameters, if all preconditions and conditions on input ParameterSets were satisfied.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for condition -->
+	 * <!-- End of user code doc for condition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.condition_parameterSet
@@ -67,8 +67,8 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	def condition: Set[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedParameterSet_behavior -->
+	 * <!-- End of user code doc for ownedParameterSet_behavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.ownedParameterSet
@@ -76,8 +76,8 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	def ownedParameterSet_behavior: Option[UMLBehavior[Uml]] = namespace.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedParameterSet_behavioralFeature -->
+	 * <!-- End of user code doc for ownedParameterSet_behavioralFeature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavioralFeature.ownedParameterSet
@@ -85,9 +85,10 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	def ownedParameterSet_behavioralFeature: Option[UMLBehavioralFeature[Uml]] = namespace.selectByKindOf { case x: UMLBehavioralFeature[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a parameterized entity has input Parameters that are in a ParameterSet, then any inputs that are not in a ParameterSet must be streaming. Same for output Parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_input -->
+	 * <!-- End of user code doc for validate_input -->
 	 *
 	 * @body ((parameter->exists(direction = ParameterDirectionKind::_'in')) implies 
 	 *     behavioralFeature.ownedParameter->select(p | p.direction = ParameterDirectionKind::_'in' and p.parameterSet->isEmpty())->forAll(isStream))
@@ -95,33 +96,35 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	 * ((parameter->exists(direction = ParameterDirectionKind::out)) implies 
 	 *     behavioralFeature.ownedParameter->select(p | p.direction = ParameterDirectionKind::out and p.parameterSet->isEmpty())->forAll(isStream))  
 	 */
-	def validate_input: Boolean  = {
+	def validate_input: Boolean = {
 		// Start of user code for "input"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Parameters in a ParameterSet must all be inputs or all be outputs of the same parameterized entity, and the ParameterSet is owned by that entity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_parameterized_entity -->
+	 * <!-- End of user code doc for validate_same_parameterized_entity -->
 	 *
 	 * @body parameter->forAll(p1, p2 | self.owner = p1.owner and self.owner = p2.owner and p1.direction = p2.direction)
 	 */
-	def validate_same_parameterized_entity: Boolean  = {
+	def validate_same_parameterized_entity: Boolean = {
 		// Start of user code for "same_parameterized_entity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Two ParameterSets cannot have exactly the same set of Parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_two_parameter_sets -->
+	 * <!-- End of user code doc for validate_two_parameter_sets -->
 	 *
 	 * @body parameter->forAll(parameterSet->forAll(s1, s2 | s1->size() = s2->size() implies s1.parameter->exists(p | not s2.parameter->includes(p))))
 	 */
-	def validate_two_parameter_sets: Boolean  = {
+	def validate_two_parameter_sets: Boolean = {
 		// Start of user code for "two_parameter_sets"
     	???
     	// End of user code
@@ -129,5 +132,4 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLParameterSet
+} //UMLParameterSetOps

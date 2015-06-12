@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A State models a situation during which some (usually implicit) invariant condition holds.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLState[Uml <: UML]
 	extends UMLNamespace[Uml]
 	with UMLRedefinableElement[Uml]
@@ -58,9 +59,10 @@ trait UMLState[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The entry and exit connection points used in conjunction with this (submachine) State, i.e., as targets and sources, respectively, in the Region with the submachine State. A connection point reference references the corresponding definition of a connection point Pseudostate in the StateMachine referenced by the submachine State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for connection -->
+	 * <!-- End of user code doc for connection -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnectionPointReference.state
@@ -68,9 +70,10 @@ trait UMLState[Uml <: UML]
 	def connection: Set[UMLConnectionPointReference[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The entry and exit Pseudostates of a composite State. These can only be entry or exit Pseudostates, and they must have different names. They can only be defined for composite States.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for connectionPoint -->
+	 * <!-- End of user code doc for connectionPoint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPseudostate.state
@@ -78,9 +81,10 @@ trait UMLState[Uml <: UML]
 	def connectionPoint: Set[UMLPseudostate[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A list of Triggers that are candidates to be retained by the StateMachine if they trigger no Transitions out of the State (not consumed). A deferred Trigger is retained until the StateMachine reaches a State configuration where it is no longer deferred.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for deferrableTrigger -->
+	 * <!-- End of user code doc for deferrableTrigger -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTrigger.deferrableTrigger_state
@@ -88,9 +92,10 @@ trait UMLState[Uml <: UML]
 	def deferrableTrigger: Set[UMLTrigger[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional Behavior that is executed while being in the State. The execution starts when this State is entered, and ceases either by itself when done, or when the State is exited, whichever comes first.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for doActivity -->
+	 * <!-- End of user code doc for doActivity -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.doActivity_state
@@ -98,9 +103,10 @@ trait UMLState[Uml <: UML]
 	def doActivity: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional Behavior that is executed whenever this State is entered regardless of the Transition taken to reach the State. If defined, entry Behaviors are always executed to completion prior to any internal Behavior or Transitions performed within the State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for entry -->
+	 * <!-- End of user code doc for entry -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.entry_state
@@ -108,9 +114,10 @@ trait UMLState[Uml <: UML]
 	def entry: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An optional Behavior that is executed whenever this State is exited regardless of which Transition was taken out of the State. If defined, exit Behaviors are always executed to completion only after all internal and transition Behaviors have completed execution.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for exit -->
+	 * <!-- End of user code doc for exit -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.exit_state
@@ -118,45 +125,54 @@ trait UMLState[Uml <: UML]
 	def exit: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A state with isComposite=true is said to be a composite State. A composite State is a State that contains at least one Region.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComposite -->
+	 * <!-- End of user code doc for isComposite -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (region->notEmpty())
 	 */
 	def isComposite: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A State with isOrthogonal=true is said to be an orthogonal composite State An orthogonal composite State contains two or more Regions.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isOrthogonal -->
+	 * <!-- End of user code doc for isOrthogonal -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (region->size () > 1)
 	 */
 	def isOrthogonal: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A State with isSimple=true is said to be a simple State A simple State does not have any Regions and it does not refer to any submachine StateMachine.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isSimple -->
+	 * <!-- End of user code doc for isSimple -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = ((region->isEmpty()) and not isSubmachineState())
 	 */
 	def isSimple: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A State with isSubmachineState=true is said to be a submachine State Such a State refers to another StateMachine(submachine).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isSubmachineState -->
+	 * <!-- End of user code doc for isSubmachineState -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (submachine <> null)
 	 */
 	def isSubmachineState: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The State of which this State is a redefinition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedState -->
+	 * <!-- End of user code doc for redefinedState -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.redefinedState_state
@@ -164,19 +180,27 @@ trait UMLState[Uml <: UML]
 	def redefinedState: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Classifier in which context this element may be redefined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinitionContext -->
+	 * <!-- End of user code doc for redefinitionContext -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.redefinitionContext_state
+	 * @body result = (let sm : StateMachine = containingStateMachine() in
+	 * if sm._'context' = null or sm.general->notEmpty() then
+	 *   sm
+	 * else
+	 *   sm._'context'
+	 * endif)
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Regions owned directly by the State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for region -->
+	 * <!-- End of user code doc for region -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRegion.state
@@ -184,9 +208,10 @@ trait UMLState[Uml <: UML]
 	def region: Set[UMLRegion[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies conditions that are always true when this State is the current State. In ProtocolStateMachines state invariants are additional conditions to the preconditions of the outgoing Transitions, and to the postcondition of the incoming Transitions.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for stateInvariant -->
+	 * <!-- End of user code doc for stateInvariant -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.stateInvariant_owningState
@@ -194,9 +219,10 @@ trait UMLState[Uml <: UML]
 	def stateInvariant: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StateMachine that is to be inserted in place of the (submachine) State.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for submachine -->
+	 * <!-- End of user code doc for submachine -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStateMachine.submachineState
@@ -204,8 +230,8 @@ trait UMLState[Uml <: UML]
 	def submachine: Option[UMLStateMachine[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for inState_objectNode -->
+	 * <!-- End of user code doc for inState_objectNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLObjectNode.inState
@@ -213,8 +239,8 @@ trait UMLState[Uml <: UML]
 	def inState_objectNode: Set[UMLObjectNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedState_state -->
+	 * <!-- End of user code doc for redefinedState_state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLState.redefinedState
@@ -223,12 +249,18 @@ trait UMLState[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		state_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLState
+	 *
+	 * <!-- Start of user code doc for state_metaAttributes -->
+	 * <!-- End of user code doc for state_metaAttributes -->
 	 */
 	def state_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -239,12 +271,18 @@ trait UMLState[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		state_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLState
+	 *
+	 * <!-- Start of user code doc for state_compositeMetaProperties -->
+	 * <!-- End of user code doc for state_compositeMetaProperties -->
 	 */
 	def state_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -262,12 +300,18 @@ trait UMLState[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		state_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLState
+	 *
+	 * <!-- Start of user code doc for state_referenceMetaProperties -->
+	 * <!-- End of user code doc for state_referenceMetaProperties -->
 	 */
 	def state_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -279,12 +323,18 @@ trait UMLState[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		state_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLState
+	 *
+	 * <!-- Start of user code doc for state_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for state_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def state_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -293,4 +343,6 @@ trait UMLState[Uml <: UML]
 		redefinedState ++
 		submachine 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLState

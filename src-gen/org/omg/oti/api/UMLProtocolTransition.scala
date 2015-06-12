@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ProtocolTransition specifies a legal Transition for an Operation. Transitions of ProtocolStateMachines have the following information: a pre-condition (guard), a Trigger, and a post-condition. Every ProtocolTransition is associated with at most one BehavioralFeature belonging to the context Classifier of the ProtocolStateMachine.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLProtocolTransition[Uml <: UML]
 	extends UMLTransition[Uml]
 	with UMLProtocolTransitionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLProtocolTransition[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the post condition of the Transition which is the Condition that should be obtained once the Transition is triggered. This post condition is part of the post condition of the Operation connected to the Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for postCondition -->
+	 * <!-- End of user code doc for postCondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.postCondition_owningTransition
@@ -66,9 +68,10 @@ trait UMLProtocolTransition[Uml <: UML]
 	def postCondition: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the precondition of the Transition. It specifies the Condition that should be verified before triggering the Transition. This guard condition added to the source State will be evaluated as part of the precondition of the Operation referred by the Transition if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for preCondition -->
+	 * <!-- End of user code doc for preCondition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.preCondition_protocolTransition
@@ -76,23 +79,31 @@ trait UMLProtocolTransition[Uml <: UML]
 	def preCondition: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This association refers to the associated Operation. It is derived from the Operation of the CallEvent Trigger when applicable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for referred -->
+	 * <!-- End of user code doc for referred -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation.referred_protocolTransition
+	 * @body result = (trigger->collect(event)->select(oclIsKindOf(CallEvent))->collect(oclAsType(CallEvent).operation)->asSet())
 	 */
 	def referred: Set[UMLOperation[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		protocolTransition_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLProtocolTransition
+	 *
+	 * <!-- Start of user code doc for protocolTransition_metaAttributes -->
+	 * <!-- End of user code doc for protocolTransition_metaAttributes -->
 	 */
 	def protocolTransition_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -101,12 +112,18 @@ trait UMLProtocolTransition[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		protocolTransition_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLProtocolTransition
+	 *
+	 * <!-- Start of user code doc for protocolTransition_compositeMetaProperties -->
+	 * <!-- End of user code doc for protocolTransition_compositeMetaProperties -->
 	 */
 	def protocolTransition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,12 +133,18 @@ trait UMLProtocolTransition[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		protocolTransition_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLProtocolTransition
+	 *
+	 * <!-- Start of user code doc for protocolTransition_referenceMetaProperties -->
+	 * <!-- End of user code doc for protocolTransition_referenceMetaProperties -->
 	 */
 	def protocolTransition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,15 +153,23 @@ trait UMLProtocolTransition[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		protocolTransition_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLProtocolTransition
+	 *
+	 * <!-- Start of user code doc for protocolTransition_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for protocolTransition_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def protocolTransition_forwardReferencesFromMetamodelAssociations: Elements =
 		transition_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLProtocolTransition

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Message defines a particular communication between Lifelines of an Interaction.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLMessage[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLMessageOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLMessage[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The arguments of the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for argument -->
+	 * <!-- End of user code doc for argument -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.argument_message
@@ -66,9 +68,10 @@ trait UMLMessage[Uml <: UML]
 	def argument: Seq[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Connector on which this Message is sent.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for connector -->
+	 * <!-- End of user code doc for connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConnector.connector_message
@@ -76,9 +79,10 @@ trait UMLMessage[Uml <: UML]
 	def connector: Option[UMLConnector[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The enclosing Interaction owning the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interaction -->
+	 * <!-- End of user code doc for interaction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInteraction.message
@@ -86,27 +90,31 @@ trait UMLMessage[Uml <: UML]
 	def interaction: Option[UMLInteraction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The derived kind of the Message (complete, lost, found, or unknown).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for messageKind -->
+	 * <!-- End of user code doc for messageKind -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (messageKind)
 	 */
 	def messageKind: UMLMessageKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The sort of communication reflected by the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for messageSort -->
+	 * <!-- End of user code doc for messageSort -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def messageSort: UMLMessageSort.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Receiving of the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for receiveEvent -->
+	 * <!-- End of user code doc for receiveEvent -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLMessageEnd.receiveEvent_endMessage
@@ -114,9 +122,10 @@ trait UMLMessage[Uml <: UML]
 	def receiveEvent: Option[UMLMessageEnd[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Sending of the Message.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for sendEvent -->
+	 * <!-- End of user code doc for sendEvent -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLMessageEnd.sendEvent_endMessage
@@ -124,9 +133,10 @@ trait UMLMessage[Uml <: UML]
 	def sendEvent: Option[UMLMessageEnd[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The signature of the Message is the specification of its content. It refers either an Operation or a Signal.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for signature -->
+	 * <!-- End of user code doc for signature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLNamedElement.signature_message
@@ -134,8 +144,8 @@ trait UMLMessage[Uml <: UML]
 	def signature: Option[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for message_messageEnd -->
+	 * <!-- End of user code doc for message_messageEnd -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
 	 * @opposite org.omg.oti.api.UMLMessageEnd.message
@@ -143,8 +153,8 @@ trait UMLMessage[Uml <: UML]
 	def message_messageEnd: Set[UMLMessageEnd[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for realizingMessage_informationFlow -->
+	 * <!-- End of user code doc for realizingMessage_informationFlow -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInformationFlow.realizingMessage
@@ -153,12 +163,18 @@ trait UMLMessage[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		message_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_metaAttributes -->
+	 * <!-- End of user code doc for message_metaAttributes -->
 	 */
 	def message_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -167,12 +183,18 @@ trait UMLMessage[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		message_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_compositeMetaProperties -->
+	 * <!-- End of user code doc for message_compositeMetaProperties -->
 	 */
 	def message_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -181,12 +203,18 @@ trait UMLMessage[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		message_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_referenceMetaProperties -->
+	 * <!-- End of user code doc for message_referenceMetaProperties -->
 	 */
 	def message_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -198,12 +226,18 @@ trait UMLMessage[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		message_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for message_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def message_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
@@ -213,4 +247,6 @@ trait UMLMessage[Uml <: UML]
 		sendEvent ++
 		signature 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLMessage

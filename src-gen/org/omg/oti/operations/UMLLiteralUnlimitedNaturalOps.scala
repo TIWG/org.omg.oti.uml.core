@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,28 +56,30 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isComputable() is redefined to be true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComputable -->
+	 * <!-- End of user code doc for isComputable -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isComputable: Boolean  = {
+	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query unlimitedValue() gives the value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for unlimitedValue -->
+	 * <!-- End of user code doc for unlimitedValue -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (value)
 	 */
-	override def unlimitedValue: Option[Integer]  = {
+	override def unlimitedValue: Option[Integer] = {
 		// Start of user code for "unlimitedValue"
     	???
     	// End of user code
@@ -86,5 +87,4 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLLiteralUnlimitedNatural
+} //UMLLiteralUnlimitedNaturalOps

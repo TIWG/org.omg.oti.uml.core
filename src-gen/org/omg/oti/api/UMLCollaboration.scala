@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Collaboration describes a structure of collaborating elements (roles), each performing a specialized function, which collectively accomplish some desired functionality. 
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLCollaboration[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]
 	with UMLStructuredClassifier[Uml]
@@ -57,9 +58,10 @@ trait UMLCollaboration[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Represents the participants in the Collaboration.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for collaborationRole -->
+	 * <!-- End of user code doc for collaborationRole -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnectableElement.collaborationRole_collaboration
@@ -67,8 +69,8 @@ trait UMLCollaboration[Uml <: UML]
 	def collaborationRole: Set[UMLConnectableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for type_collaborationUse -->
+	 * <!-- End of user code doc for type_collaborationUse -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLCollaborationUse._type
@@ -77,12 +79,18 @@ trait UMLCollaboration[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		collaboration_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLCollaboration
+	 *
+	 * <!-- Start of user code doc for collaboration_metaAttributes -->
+	 * <!-- End of user code doc for collaboration_metaAttributes -->
 	 */
 	def collaboration_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -92,12 +100,18 @@ trait UMLCollaboration[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		collaboration_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLCollaboration
+	 *
+	 * <!-- Start of user code doc for collaboration_compositeMetaProperties -->
+	 * <!-- End of user code doc for collaboration_compositeMetaProperties -->
 	 */
 	def collaboration_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -107,12 +121,18 @@ trait UMLCollaboration[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		collaboration_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLCollaboration
+	 *
+	 * <!-- Start of user code doc for collaboration_referenceMetaProperties -->
+	 * <!-- End of user code doc for collaboration_referenceMetaProperties -->
 	 */
 	def collaboration_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -122,16 +142,24 @@ trait UMLCollaboration[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		collaboration_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLCollaboration
+	 *
+	 * <!-- Start of user code doc for collaboration_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for collaboration_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def collaboration_forwardReferencesFromMetamodelAssociations: Elements =
 		behavioredClassifier_forwardReferencesFromMetamodelAssociations ++
 		structuredClassifier_forwardReferencesFromMetamodelAssociations ++
 		collaborationRole 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLCollaboration

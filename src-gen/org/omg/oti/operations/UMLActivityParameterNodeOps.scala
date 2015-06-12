@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ActivityParameterNode is an ObjectNode for accepting values from the input Parameters or providing values to the output Parameters of an Activity.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,13 +56,14 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The parameter of an ActivityParameterNode must be from the containing Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_has_parameters -->
+	 * <!-- End of user code doc for validate_has_parameters -->
 	 *
 	 * @body activity.ownedParameter->includes(parameter)
 	 */
-	def validate_has_parameters: Boolean  = {
+	def validate_has_parameters: Boolean = {
 		// Start of user code for "has_parameters"
   	activity match {
       case Some(a) => a.ownedParameter.contains(parameter)
@@ -73,28 +73,30 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ActivityParameterNode may have all incoming ActivityEdges or all outgoing ActivityEdges, but it must not have both incoming and outgoing ActivityEdges.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_edges -->
+	 * <!-- End of user code doc for validate_no_edges -->
 	 *
 	 * @body incoming->isEmpty() or outgoing->isEmpty()
 	 */
-	def validate_no_edges: Boolean  = {
+	def validate_no_edges: Boolean = {
 		// Start of user code for "no_edges"
   	incoming.isEmpty || outgoing.isEmpty
   	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ActivityParameterNode with no incoming ActivityEdges and one or more outgoing ActivityEdges must have a parameter with direction in or inout.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_incoming_edges -->
+	 * <!-- End of user code doc for validate_no_incoming_edges -->
 	 *
 	 * @body (outgoing->notEmpty() and incoming->isEmpty()) implies 
 	 * 	(parameter.direction = ParameterDirectionKind::_'in' or 
 	 * 	 parameter.direction = ParameterDirectionKind::inout)
 	 */
-	def validate_no_incoming_edges: Boolean  = {
+	def validate_no_incoming_edges: Boolean = {
 		// Start of user code for "no_incoming_edges"
     if (!outgoing.isEmpty && incoming.isEmpty)
     	parameter match { 
@@ -106,16 +108,17 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ActivityParameterNode with no outgoing ActivityEdges and one or more incoming ActivityEdges must have a parameter with direction out, inout, or return.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
+	 * <!-- End of user code doc for validate_no_outgoing_edges -->
 	 *
 	 * @body (incoming->notEmpty() and outgoing->isEmpty()) implies 
 	 * 	(parameter.direction = ParameterDirectionKind::out or 
 	 * 	 parameter.direction = ParameterDirectionKind::inout or 
 	 * 	 parameter.direction = ParameterDirectionKind::return)
 	 */
-	def validate_no_outgoing_edges: Boolean  = {
+	def validate_no_outgoing_edges: Boolean = {
 		// Start of user code for "no_outgoing_edges"
     	if (!incoming.isEmpty && outgoing.isEmpty) {
         parameter match {
@@ -130,13 +133,14 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of an ActivityParameterNode is the same as the type of its parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
+	 * <!-- End of user code doc for validate_same_type -->
 	 *
 	 * @body type = parameter.type
 	 */
-	def validate_same_type: Boolean  = {
+	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
     parameter match {
       case Some(p) => self._type == p._type
@@ -147,5 +151,4 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivityParameterNode
+} //UMLActivityParameterNodeOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLConstraint[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLConstraintOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLConstraint[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ordered set of Elements referenced by this Constraint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for constrainedElement -->
+	 * <!-- End of user code doc for constrainedElement -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLElement.constrainedElement_constraint
@@ -66,9 +68,10 @@ trait UMLConstraint[Uml <: UML]
 	def constrainedElement: Seq[UMLElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Namespace that owns the Constraint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for context -->
+	 * <!-- End of user code doc for context -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLNamespace.ownedRule
@@ -76,9 +79,10 @@ trait UMLConstraint[Uml <: UML]
 	def context: Option[UMLNamespace[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A condition that must be true when evaluated in order for the Constraint to be satisfied.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.specification_owningConstraint
@@ -86,8 +90,8 @@ trait UMLConstraint[Uml <: UML]
 	def specification: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for bodyCondition_bodyContext -->
+	 * <!-- End of user code doc for bodyCondition_bodyContext -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOperation.bodyCondition
@@ -95,8 +99,8 @@ trait UMLConstraint[Uml <: UML]
 	def bodyCondition_bodyContext: Option[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for condition_extend -->
+	 * <!-- End of user code doc for condition_extend -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLExtend.condition
@@ -104,8 +108,8 @@ trait UMLConstraint[Uml <: UML]
 	def condition_extend: Option[UMLExtend[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for condition_parameterSet -->
+	 * <!-- End of user code doc for condition_parameterSet -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterSet.condition
@@ -113,8 +117,8 @@ trait UMLConstraint[Uml <: UML]
 	def condition_parameterSet: Option[UMLParameterSet[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for guard_transition -->
+	 * <!-- End of user code doc for guard_transition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.guard
@@ -122,8 +126,8 @@ trait UMLConstraint[Uml <: UML]
 	def guard_transition: Option[UMLTransition[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for invariant_stateInvariant -->
+	 * <!-- End of user code doc for invariant_stateInvariant -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStateInvariant.invariant
@@ -131,8 +135,8 @@ trait UMLConstraint[Uml <: UML]
 	def invariant_stateInvariant: Option[UMLStateInvariant[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for localPostcondition_action -->
+	 * <!-- End of user code doc for localPostcondition_action -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAction.localPostcondition
@@ -140,8 +144,8 @@ trait UMLConstraint[Uml <: UML]
 	def localPostcondition_action: Option[UMLAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for localPrecondition_action -->
+	 * <!-- End of user code doc for localPrecondition_action -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAction.localPrecondition
@@ -149,8 +153,8 @@ trait UMLConstraint[Uml <: UML]
 	def localPrecondition_action: Option[UMLAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for postCondition_owningTransition -->
+	 * <!-- End of user code doc for postCondition_owningTransition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.postCondition
@@ -158,8 +162,8 @@ trait UMLConstraint[Uml <: UML]
 	def postCondition_owningTransition: Option[UMLProtocolTransition[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for postcondition_behavior -->
+	 * <!-- End of user code doc for postcondition_behavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.postcondition
@@ -167,8 +171,8 @@ trait UMLConstraint[Uml <: UML]
 	def postcondition_behavior: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for postcondition_postContext -->
+	 * <!-- End of user code doc for postcondition_postContext -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOperation.postcondition
@@ -176,8 +180,8 @@ trait UMLConstraint[Uml <: UML]
 	def postcondition_postContext: Option[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for preCondition_protocolTransition -->
+	 * <!-- End of user code doc for preCondition_protocolTransition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.preCondition
@@ -185,8 +189,8 @@ trait UMLConstraint[Uml <: UML]
 	def preCondition_protocolTransition: Option[UMLProtocolTransition[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for precondition_behavior -->
+	 * <!-- End of user code doc for precondition_behavior -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.precondition
@@ -194,8 +198,8 @@ trait UMLConstraint[Uml <: UML]
 	def precondition_behavior: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for precondition_preContext -->
+	 * <!-- End of user code doc for precondition_preContext -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOperation.precondition
@@ -203,8 +207,8 @@ trait UMLConstraint[Uml <: UML]
 	def precondition_preContext: Option[UMLOperation[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for stateInvariant_owningState -->
+	 * <!-- End of user code doc for stateInvariant_owningState -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.stateInvariant
@@ -213,12 +217,18 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		constraint_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLConstraint
+	 *
+	 * <!-- Start of user code doc for constraint_metaAttributes -->
+	 * <!-- End of user code doc for constraint_metaAttributes -->
 	 */
 	def constraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -227,12 +237,18 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		constraint_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLConstraint
+	 *
+	 * <!-- Start of user code doc for constraint_compositeMetaProperties -->
+	 * <!-- End of user code doc for constraint_compositeMetaProperties -->
 	 */
 	def constraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -241,30 +257,44 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		constraint_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLConstraint
+	 *
+	 * <!-- Start of user code doc for constraint_referenceMetaProperties -->
+	 * <!-- End of user code doc for constraint_referenceMetaProperties -->
 	 */
 	def constraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement, true)))
+			Seq (MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]]("constrainedElement", _.constrainedElement)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		constraint_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLConstraint
+	 *
+	 * <!-- Start of user code doc for constraint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for constraint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def constraint_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
 		constrainedElement ++
 		context 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLConstraint

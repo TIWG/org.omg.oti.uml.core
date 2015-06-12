@@ -46,10 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
- * A deployment is the allocation of an artifact or artifact instance to a deployment target.
-A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
- * <!-- end-model-doc -->
+ * A deployment is the allocation of an artifact or artifact instance to a deployment target.A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,9 +56,10 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The specification of properties that parameterize the deployment and execution of one or more Artifacts.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for configuration -->
+	 * <!-- End of user code doc for configuration -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeploymentSpecification.deployment
@@ -68,9 +67,10 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 	def configuration: Set[UMLDeploymentSpecification[Uml]] = ownedElement.selectByKindOf { case x: UMLDeploymentSpecification[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DeployedTarget which is the target of a Deployment.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for location -->
+	 * <!-- End of user code doc for location -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployment
@@ -79,5 +79,4 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDeployment
+} //UMLDeploymentOps

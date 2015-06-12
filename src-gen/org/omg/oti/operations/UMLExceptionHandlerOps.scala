@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExceptionHandler is an Element that specifies a handlerBody ExecutableNode to execute in case the specified exception occurs during the execution of the protected ExecutableNode.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExecutableNode protected by the ExceptionHandler. If an exception propagates out of the protectedNode and has a type matching one of the exceptionTypes, then it is caught by this ExceptionHandler.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for protectedNode -->
+	 * <!-- End of user code doc for protectedNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.handler
@@ -67,79 +67,85 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	def protectedNode: Option[UMLExecutableNode[Uml]] = owner.selectByKindOf { case x: UMLExecutableNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ActivityEdge that has a source within the handlerBody of an ExceptionHandler must have its target in the handlerBody also, and vice versa.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_edge_source_target -->
+	 * <!-- End of user code doc for validate_edge_source_target -->
 	 *
 	 * @body let nodes:Set(ActivityNode) = handlerBody.oclAsType(Action).allOwnedNodes() in
 	 * nodes.outgoing->forAll(nodes->includes(target)) and
 	 * nodes.incoming->forAll(nodes->includes(source))
 	 */
-	def validate_edge_source_target: Boolean  = {
+	def validate_edge_source_target: Boolean = {
 		// Start of user code for "edge_source_target"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The exceptionInput must either have no type or every exceptionType must conform to the exceptionInput type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_exception_input_type -->
+	 * <!-- End of user code doc for validate_exception_input_type -->
 	 *
 	 * @body exceptionInput.type=null or 
 	 * exceptionType->forAll(conformsTo(exceptionInput.type.oclAsType(Classifier)))
 	 */
-	def validate_exception_input_type: Boolean  = {
+	def validate_exception_input_type: Boolean = {
 		// Start of user code for "exception_input_type"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The handlerBody has no incoming or outgoing ActivityEdges and the exceptionInput has no incoming ActivityEdges.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_handler_body_edges -->
+	 * <!-- End of user code doc for validate_handler_body_edges -->
 	 *
 	 * @body handlerBody.incoming->isEmpty() and handlerBody.outgoing->isEmpty() and exceptionInput.incoming->isEmpty()
 	 */
-	def validate_handler_body_edges: Boolean  = {
+	def validate_handler_body_edges: Boolean = {
 		// Start of user code for "handler_body_edges"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The handlerBody must have the same owner as the protectedNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_handler_body_owner -->
+	 * <!-- End of user code doc for validate_handler_body_owner -->
 	 *
 	 * @body handlerBody.owner=protectedNode.owner
 	 */
-	def validate_handler_body_owner: Boolean  = {
+	def validate_handler_body_owner: Boolean = {
 		// Start of user code for "handler_body_owner"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The handlerBody is an Action with one InputPin, and that InputPin is the same as the exceptionInput.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_input -->
+	 * <!-- End of user code doc for validate_one_input -->
 	 *
 	 * @body handlerBody.oclIsKindOf(Action) and
 	 * let inputs: OrderedSet(InputPin) = handlerBody.oclAsType(Action).input in
 	 * inputs->size()=1 and inputs->first()=exceptionInput
 	 */
-	def validate_one_input: Boolean  = {
+	def validate_one_input: Boolean = {
 		// Start of user code for "one_input"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the protectedNode is an Action with OutputPins, then the handlerBody must also be an Action with the same number of OutputPins, which are compatible in type, ordering, and multiplicity to those of the protectedNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_output_pins -->
+	 * <!-- End of user code doc for validate_output_pins -->
 	 *
 	 * @body (protectedNode.oclIsKindOf(Action) and protectedNode.oclAsType(Action).output->notEmpty()) implies
 	 * (
@@ -153,7 +159,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 *     	handlerBodyOutput->at(i).compatibleWith(protectedNodeOutput->at(i)))
 	 * )
 	 */
-	def validate_output_pins: Boolean  = {
+	def validate_output_pins: Boolean = {
 		// Start of user code for "output_pins"
     	???
     	// End of user code
@@ -161,5 +167,4 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExceptionHandler
+} //UMLExceptionHandlerOps

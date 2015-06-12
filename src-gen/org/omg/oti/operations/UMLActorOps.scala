@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Actor specifies a role played by a user or any other system that interacts with the subject.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Actor can only have Associations to UseCases, Components, and Classes. Furthermore these Associations must be binary.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_associations -->
+	 * <!-- End of user code doc for validate_associations -->
 	 *
 	 * @body Association.allInstances()->forAll( a |
 	 *   a.memberEnd->collect(type)->includes(self) implies
@@ -72,20 +72,21 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 *       )
 	 *   )
 	 */
-	def validate_associations: Boolean  = {
+	def validate_associations: Boolean = {
 		// Start of user code for "associations"
     	??? //need Association translation
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Actor must have a name.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_must_have_name -->
+	 * <!-- End of user code doc for validate_must_have_name -->
 	 *
 	 * @body name->notEmpty()
 	 */
-	def validate_must_have_name: Boolean  = {
+	def validate_must_have_name: Boolean = {
 		// Start of user code for "must_have_name"
     	!name.isEmpty
     	// End of user code
@@ -93,5 +94,4 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActor
+} //UMLActorOps

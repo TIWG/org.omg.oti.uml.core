@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A CollaborationUse is used to specify the application of a pattern specified by a Collaboration to a specific situation.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A mapping between features of the Collaboration and features of the owning Classifier. This mapping indicates which ConnectableElement of the Classifier plays which role(s) in the Collaboration. A ConnectableElement may be bound to multiple roles in the same CollaborationUse (that is, it may play multiple roles).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for roleBinding -->
+	 * <!-- End of user code doc for roleBinding -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDependency.roleBinding_collaborationUse
@@ -67,8 +67,8 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	def roleBinding: Set[UMLDependency[Uml]] = ownedElement.selectByKindOf { case x: UMLDependency[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for collaborationUse_classifier -->
+	 * <!-- End of user code doc for collaborationUse_classifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.collaborationUse
@@ -76,9 +76,19 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	def collaborationUse_classifier: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * <!-- Start of user code doc for representation_classifier -->
+	 * <!-- End of user code doc for representation_classifier -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLClassifier.representation
+	 */
+	def representation_classifier: Option[UMLClassifier[Uml]] = collaborationUse_classifier
+
+	/**
 	 * All the client elements of a roleBinding are in one Classifier and all supplier elements of a roleBinding are in one Collaboration.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_client_elements -->
+	 * <!-- End of user code doc for validate_client_elements -->
 	 *
 	 * @body roleBinding->collect(client)->forAll(ne1, ne2 |
 	 *   ne1.oclIsKindOf(ConnectableElement) and ne2.oclIsKindOf(ConnectableElement) and
@@ -90,16 +100,17 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 *     let ce1 : ConnectableElement = ne1.oclAsType(ConnectableElement), ce2 : ConnectableElement = ne2.oclAsType(ConnectableElement) in
 	 *       ce1.collaboration = ce2.collaboration)
 	 */
-	def validate_client_elements: Boolean  = {
+	def validate_client_elements: Boolean = {
 		// Start of user code for "client_elements"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Connectors in a Collaboration typing a CollaborationUse must have corresponding Connectors between elements bound in the context Classifier, and these corresponding Connectors must have the same or more general type than the Collaboration Connectors.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_connectors -->
+	 * <!-- End of user code doc for validate_connectors -->
 	 *
 	 * @body type.ownedConnector->forAll(connector |
 	 *   let rolesConnectedInCollab : Set(ConnectableElement) = connector.end.role->asSet(),
@@ -111,20 +122,21 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 *               and (connector.type->notEmpty() and correspondingConnector.type->notEmpty()) implies connector.type->forAll(conformsTo(correspondingConnector.type)) )
 	 * )
 	 */
-	def validate_connectors: Boolean  = {
+	def validate_connectors: Boolean = {
 		// Start of user code for "connectors"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Every collaborationRole in the Collaboration is bound within the CollaborationUse.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_every_role -->
+	 * <!-- End of user code doc for validate_every_role -->
 	 *
 	 * @body type.collaborationRole->forAll(role | roleBinding->exists(rb | rb.supplier->includes(role)))
 	 */
-	def validate_every_role: Boolean  = {
+	def validate_every_role: Boolean = {
 		// Start of user code for "every_role"
     	???
     	// End of user code
@@ -132,5 +144,4 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCollaborationUse
+} //UMLCollaborationUseOps

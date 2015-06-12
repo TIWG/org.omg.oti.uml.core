@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ControlFlow is an ActivityEdge traversed by control tokens or object tokens of control type, which are use to control the execution of ExecutableNodes.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,14 +56,15 @@ trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ControlFlows may not have ObjectNodes at either end, except for ObjectNodes with control type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_object_nodes -->
+	 * <!-- End of user code doc for validate_object_nodes -->
 	 *
 	 * @body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
 	 * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
 	 */
-	def validate_object_nodes: Boolean  = {
+	def validate_object_nodes: Boolean = {
 		// Start of user code for "object_nodes"
     	???
     	// End of user code
@@ -72,5 +72,4 @@ trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLControlFlow
+} //UMLControlFlowOps

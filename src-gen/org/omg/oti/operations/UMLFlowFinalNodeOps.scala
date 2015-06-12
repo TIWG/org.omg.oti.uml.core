@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A FlowFinalNode is a FinalNode that terminates a flow by consuming the tokens offered to it.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLFlowFinalNodeOps[Uml <: UML] { self: UMLFlowFinalNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLFlowFinalNode
+} //UMLFlowFinalNodeOps

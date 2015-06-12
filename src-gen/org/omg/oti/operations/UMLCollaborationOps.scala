@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Collaboration describes a structure of collaborating elements (roles), each performing a specialized function, which collectively accomplish some desired functionality. 
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLCollaborationOps[Uml <: UML] { self: UMLCollaboration[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLCollaboration
+} //UMLCollaborationOps

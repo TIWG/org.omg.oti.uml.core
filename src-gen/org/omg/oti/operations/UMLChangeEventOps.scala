@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ChangeEvent models a change in the system configuration that makes a condition true.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLChangeEventOps[Uml <: UML] { self: UMLChangeEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLChangeEvent
+} //UMLChangeEventOps

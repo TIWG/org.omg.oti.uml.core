@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Trigger specifies a specific point  at which an Event occurrence may trigger an effect in a Behavior. A Trigger may be qualified by the Port on which the Event occurred.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTrigger[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLTriggerOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTrigger[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Event that detected by the Trigger.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for event -->
+	 * <!-- End of user code doc for event -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLEvent.event_trigger
@@ -66,9 +68,10 @@ trait UMLTrigger[Uml <: UML]
 	def event: Option[UMLEvent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A optional Port of through which the given effect is detected.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for port -->
+	 * <!-- End of user code doc for port -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.port_trigger
@@ -76,8 +79,8 @@ trait UMLTrigger[Uml <: UML]
 	def port: Set[UMLPort[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for deferrableTrigger_state -->
+	 * <!-- End of user code doc for deferrableTrigger_state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.deferrableTrigger
@@ -85,8 +88,8 @@ trait UMLTrigger[Uml <: UML]
 	def deferrableTrigger_state: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for replyToCall_replyAction -->
+	 * <!-- End of user code doc for replyToCall_replyAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReplyAction.replyToCall
@@ -94,8 +97,8 @@ trait UMLTrigger[Uml <: UML]
 	def replyToCall_replyAction: Option[UMLReplyAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for trigger_acceptEventAction -->
+	 * <!-- End of user code doc for trigger_acceptEventAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAcceptEventAction.trigger
@@ -103,8 +106,8 @@ trait UMLTrigger[Uml <: UML]
 	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for trigger_transition -->
+	 * <!-- End of user code doc for trigger_transition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.trigger
@@ -113,12 +116,18 @@ trait UMLTrigger[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		trigger_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTrigger
+	 *
+	 * <!-- Start of user code doc for trigger_metaAttributes -->
+	 * <!-- End of user code doc for trigger_metaAttributes -->
 	 */
 	def trigger_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -127,12 +136,18 @@ trait UMLTrigger[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		trigger_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTrigger
+	 *
+	 * <!-- Start of user code doc for trigger_compositeMetaProperties -->
+	 * <!-- End of user code doc for trigger_compositeMetaProperties -->
 	 */
 	def trigger_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -141,12 +156,18 @@ trait UMLTrigger[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		trigger_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTrigger
+	 *
+	 * <!-- Start of user code doc for trigger_referenceMetaProperties -->
+	 * <!-- End of user code doc for trigger_referenceMetaProperties -->
 	 */
 	def trigger_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -156,16 +177,24 @@ trait UMLTrigger[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		trigger_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTrigger
+	 *
+	 * <!-- Start of user code doc for trigger_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for trigger_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def trigger_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		event ++
 		port 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTrigger

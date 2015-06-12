@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An extension is used to indicate that the properties of a metaclass are extended through a stereotype, and gives the ability to flexibly add (and later remove) stereotypes to classes.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExtension[Uml <: UML]
 	extends UMLAssociation[Uml]
 	with UMLExtensionOps[Uml] {
@@ -56,28 +57,33 @@ trait UMLExtension[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates whether an instance of the extending stereotype must be created when an instance of the extended class is created. The attribute value is derived from the value of the lower property of the ExtensionEnd referenced by Extension::ownedEnd; a lower value of 1 means that isRequired is true, but otherwise it is false. Since the default value of ExtensionEnd::lower is 0, the default value of isRequired is false.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isRequired -->
+	 * <!-- End of user code doc for isRequired -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (ownedEnd.lowerBound() = 1)
 	 */
 	def isRequired: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Class that is extended through an Extension. The property is derived from the type of the memberEnd that is not the ownedEnd.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for metaclass -->
+	 * <!-- End of user code doc for metaclass -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClass.extension
+	 * @body result = (metaclassEnd().type.oclAsType(Class))
 	 */
 	def metaclass: Option[UMLClass[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the end of the extension that is typed by a Stereotype.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedEnd -->
+	 * <!-- End of user code doc for ownedEnd -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLExtensionEnd.ownedEnd_extension
@@ -86,12 +92,18 @@ trait UMLExtension[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		extension_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_metaAttributes -->
+	 * <!-- End of user code doc for extension_metaAttributes -->
 	 */
 	def extension_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,12 +112,18 @@ trait UMLExtension[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		extension_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_compositeMetaProperties -->
+	 * <!-- End of user code doc for extension_compositeMetaProperties -->
 	 */
 	def extension_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -114,12 +132,18 @@ trait UMLExtension[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		extension_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_referenceMetaProperties -->
+	 * <!-- End of user code doc for extension_referenceMetaProperties -->
 	 */
 	def extension_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,15 +152,23 @@ trait UMLExtension[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		extension_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for extension_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def extension_forwardReferencesFromMetamodelAssociations: Elements =
 		association_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExtension

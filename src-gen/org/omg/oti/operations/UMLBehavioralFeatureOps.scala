@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A BehavioralFeature is a feature of a Classifier that specifies an aspect of the behavior of its instances.  A BehavioralFeature is implemented (realized) by a Behavior. A BehavioralFeature specifies that a Classifier will respond to a designated request by invoking its implementing method.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterSets owned by this BehavioralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameterSet -->
+	 * <!-- End of user code doc for ownedParameterSet -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameterSet.ownedParameterSet_behavioralFeature
@@ -67,23 +67,25 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	def ownedParameterSet: Set[UMLParameterSet[Uml]] = ownedMember.selectByKindOf { case x: UMLParameterSet[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ownedParameters with direction in and inout.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inputParameters -->
+	 * <!-- End of user code doc for inputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
 	 */
-	def inputParameters: Seq[UMLParameter[Uml]]  = {
+	def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isDistinguishableFrom() determines whether two BehavioralFeatures may coexist in the same Namespace. It specifies that they must have different signatures.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isDistinguishableFrom -->
+	 * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = ((n.oclIsKindOf(BehavioralFeature) and ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->notEmpty()) implies
@@ -92,34 +94,36 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 *               isStream=p.isStream,isOrdered=p.isOrdered,isUnique=p.isUnique,lower=p.lower, upper=p.upper }))
 	 *   )
 	 */
-	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean  = {
+	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ownedParameters with direction out, inout, or return.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for outputParameters -->
+	 * <!-- End of user code doc for outputParameters -->
 	 *
 	 * @operation ordered="true" unique="true" multiplicity="0..*"
 	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
 	 */
-	def outputParameters: Seq[UMLParameter[Uml]]  = {
+	def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * When isAbstract is true there are no methods.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_abstract_no_method -->
+	 * <!-- End of user code doc for validate_abstract_no_method -->
 	 *
 	 * @body isAbstract implies method->isEmpty()
 	 */
-	def validate_abstract_no_method: Boolean  = {
+	def validate_abstract_no_method: Boolean = {
 		// Start of user code for "abstract_no_method"
     	???
     	// End of user code
@@ -127,5 +131,4 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLBehavioralFeature
+} //UMLBehavioralFeatureOps

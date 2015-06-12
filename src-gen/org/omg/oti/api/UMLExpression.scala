@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExpression[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLExpressionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExpression[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies a sequence of operand ValueSpecifications.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for operand -->
+	 * <!-- End of user code doc for operand -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLValueSpecification.operand_expression
@@ -66,9 +68,10 @@ trait UMLExpression[Uml <: UML]
 	def operand: Seq[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The symbol associated with this node in the expression tree.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for symbol -->
+	 * <!-- End of user code doc for symbol -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -76,12 +79,18 @@ trait UMLExpression[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		expression_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExpression
+	 *
+	 * <!-- Start of user code doc for expression_metaAttributes -->
+	 * <!-- End of user code doc for expression_metaAttributes -->
 	 */
 	def expression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -90,26 +99,38 @@ trait UMLExpression[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		expression_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExpression
+	 *
+	 * <!-- Start of user code doc for expression_compositeMetaProperties -->
+	 * <!-- End of user code doc for expression_compositeMetaProperties -->
 	 */
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand, true)))
+			Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		expression_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExpression
+	 *
+	 * <!-- Start of user code doc for expression_referenceMetaProperties -->
+	 * <!-- End of user code doc for expression_referenceMetaProperties -->
 	 */
 	def expression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -118,15 +139,23 @@ trait UMLExpression[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		expression_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExpression
+	 *
+	 * <!-- Start of user code doc for expression_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for expression_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def expression_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExpression

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A special kind of State, which, when entered, signifies that the enclosing Region has completed. If the enclosing Region is directly contained in a StateMachine and all other Regions in that StateMachine also are completed, then it means that the entire StateMachine behavior is completed.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLFinalState[Uml <: UML]
 	extends UMLState[Uml]
 	with UMLFinalStateOps[Uml] {
@@ -57,12 +58,18 @@ trait UMLFinalState[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		finalState_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLFinalState
+	 *
+	 * <!-- Start of user code doc for finalState_metaAttributes -->
+	 * <!-- End of user code doc for finalState_metaAttributes -->
 	 */
 	def finalState_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -71,12 +78,18 @@ trait UMLFinalState[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		finalState_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLFinalState
+	 *
+	 * <!-- Start of user code doc for finalState_compositeMetaProperties -->
+	 * <!-- End of user code doc for finalState_compositeMetaProperties -->
 	 */
 	def finalState_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -85,12 +98,18 @@ trait UMLFinalState[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		finalState_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLFinalState
+	 *
+	 * <!-- Start of user code doc for finalState_referenceMetaProperties -->
+	 * <!-- End of user code doc for finalState_referenceMetaProperties -->
 	 */
 	def finalState_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -99,15 +118,23 @@ trait UMLFinalState[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		finalState_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLFinalState
+	 *
+	 * <!-- Start of user code doc for finalState_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for finalState_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def finalState_forwardReferencesFromMetamodelAssociations: Elements =
 		state_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLFinalState

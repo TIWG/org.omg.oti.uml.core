@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Transition represents an arc between exactly one source Vertex and exactly one Target vertex (the source and targets may be the same Vertex). It may form part of a compound transition, which takes the StateMachine from one steady State configuration to another, representing the full response of the StateMachine to an occurrence of an Event that triggered it.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTransition[Uml <: UML]
 	extends UMLNamespace[Uml]
 	with UMLRedefinableElement[Uml]
@@ -57,9 +58,10 @@ trait UMLTransition[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the Region that owns this Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for container -->
+	 * <!-- End of user code doc for container -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLRegion.transition
@@ -67,9 +69,10 @@ trait UMLTransition[Uml <: UML]
 	def container: Option[UMLRegion[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies an optional behavior to be performed when the Transition fires.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for effect -->
+	 * <!-- End of user code doc for effect -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLBehavior.effect_transition
@@ -77,9 +80,10 @@ trait UMLTransition[Uml <: UML]
 	def effect: Option[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A guard is a Constraint that provides a fine-grained control over the firing of the Transition. The guard is evaluated when an Event occurrence is dispatched by the StateMachine. If the guard is true at that time, the Transition may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for guard -->
+	 * <!-- End of user code doc for guard -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConstraint.guard_transition
@@ -87,18 +91,20 @@ trait UMLTransition[Uml <: UML]
 	def guard: Option[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates the precise type of the Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for kind -->
+	 * <!-- End of user code doc for kind -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def kind: UMLTransitionKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Transition that is redefined by this Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedTransition -->
+	 * <!-- End of user code doc for redefinedTransition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition_transition
@@ -106,19 +112,27 @@ trait UMLTransition[Uml <: UML]
 	def redefinedTransition: Option[UMLTransition[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Classifier in which context this element may be redefined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinitionContext -->
+	 * <!-- End of user code doc for redefinitionContext -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.redefinitionContext_transition
+	 * @body result = (let sm : StateMachine = containingStateMachine() in
+	 * if sm._'context' = null or sm.general->notEmpty() then
+	 *   sm
+	 * else
+	 *   sm._'context'
+	 * endif)
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the originating Vertex (State or Pseudostate) of the Transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for source -->
+	 * <!-- End of user code doc for source -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLVertex.outgoing
@@ -126,9 +140,10 @@ trait UMLTransition[Uml <: UML]
 	def source: Option[UMLVertex[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the target Vertex that is reached when the Transition is taken.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for target -->
+	 * <!-- End of user code doc for target -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLVertex.incoming
@@ -136,9 +151,10 @@ trait UMLTransition[Uml <: UML]
 	def target: Option[UMLVertex[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Triggers that may fire the transition.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for trigger -->
+	 * <!-- End of user code doc for trigger -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTrigger.trigger_transition
@@ -146,8 +162,8 @@ trait UMLTransition[Uml <: UML]
 	def trigger: Set[UMLTrigger[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedTransition_transition -->
+	 * <!-- End of user code doc for redefinedTransition_transition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition
@@ -156,12 +172,18 @@ trait UMLTransition[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		transition_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTransition
+	 *
+	 * <!-- Start of user code doc for transition_metaAttributes -->
+	 * <!-- End of user code doc for transition_metaAttributes -->
 	 */
 	def transition_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -171,12 +193,18 @@ trait UMLTransition[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		transition_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTransition
+	 *
+	 * <!-- Start of user code doc for transition_compositeMetaProperties -->
+	 * <!-- End of user code doc for transition_compositeMetaProperties -->
 	 */
 	def transition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -188,12 +216,18 @@ trait UMLTransition[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		transition_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTransition
+	 *
+	 * <!-- Start of user code doc for transition_referenceMetaProperties -->
+	 * <!-- End of user code doc for transition_referenceMetaProperties -->
 	 */
 	def transition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -205,12 +239,18 @@ trait UMLTransition[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		transition_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTransition
+	 *
+	 * <!-- Start of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def transition_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -220,4 +260,6 @@ trait UMLTransition[Uml <: UML]
 		source ++
 		target 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTransition

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLNamespace[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLNamespaceOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLNamespace[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the ElementImports owned by the Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for elementImport -->
+	 * <!-- End of user code doc for elementImport -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLElementImport.importingNamespace
@@ -66,19 +68,22 @@ trait UMLNamespace[Uml <: UML]
 	def elementImport: Set[UMLElementImport[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importedMember -->
+	 * <!-- End of user code doc for importedMember -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageableElement.importedMember_namespace
+	 * @body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
 	 */
 	def importedMember: Set[UMLPackageableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for member -->
+	 * <!-- End of user code doc for member -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLNamedElement.member_memberNamespace
@@ -86,9 +91,10 @@ trait UMLNamespace[Uml <: UML]
 	def member: Set[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A collection of NamedElements owned by the Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedMember -->
+	 * <!-- End of user code doc for ownedMember -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLNamedElement.namespace
@@ -96,9 +102,10 @@ trait UMLNamespace[Uml <: UML]
 	def ownedMember: Set[UMLNamedElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies a set of Constraints owned by this Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedRule -->
+	 * <!-- End of user code doc for ownedRule -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConstraint.context
@@ -106,9 +113,10 @@ trait UMLNamespace[Uml <: UML]
 	def ownedRule: Set[UMLConstraint[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the PackageImports owned by the Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for packageImport -->
+	 * <!-- End of user code doc for packageImport -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPackageImport.importingNamespace
@@ -117,12 +125,18 @@ trait UMLNamespace[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		namespace_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLNamespace
+	 *
+	 * <!-- Start of user code doc for namespace_metaAttributes -->
+	 * <!-- End of user code doc for namespace_metaAttributes -->
 	 */
 	def namespace_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -131,12 +145,18 @@ trait UMLNamespace[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		namespace_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLNamespace
+	 *
+	 * <!-- Start of user code doc for namespace_compositeMetaProperties -->
+	 * <!-- End of user code doc for namespace_compositeMetaProperties -->
 	 */
 	def namespace_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -147,12 +167,18 @@ trait UMLNamespace[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		namespace_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLNamespace
+	 *
+	 * <!-- Start of user code doc for namespace_referenceMetaProperties -->
+	 * <!-- End of user code doc for namespace_referenceMetaProperties -->
 	 */
 	def namespace_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -161,15 +187,23 @@ trait UMLNamespace[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLNamespace
+	 *
+	 * <!-- Start of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def namespace_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLNamespace

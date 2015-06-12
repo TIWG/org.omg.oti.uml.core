@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An AddStructuralFeatureValueAction is a WriteStructuralFeatureAction for adding values to a StructuralFeature.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	extends UMLWriteStructuralFeatureAction[Uml]
 	with UMLAddStructuralFeatureValueActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the position at which to insert the value in an ordered StructuralFeature. The type of the insertAt InputPin is UnlimitedNatural, but the value cannot be zero. It is omitted for unordered StructuralFeatures.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for insertAt -->
+	 * <!-- End of user code doc for insertAt -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.insertAt_addStructuralFeatureValueAction
@@ -66,9 +68,10 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def insertAt: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies whether existing values of the StructuralFeature should be removed before adding the new value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isReplaceAll -->
+	 * <!-- End of user code doc for isReplaceAll -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,12 +79,18 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		addStructuralFeatureValueAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLAddStructuralFeatureValueAction
+	 *
+	 * <!-- Start of user code doc for addStructuralFeatureValueAction_metaAttributes -->
+	 * <!-- End of user code doc for addStructuralFeatureValueAction_metaAttributes -->
 	 */
 	def addStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -90,12 +99,18 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		addStructuralFeatureValueAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLAddStructuralFeatureValueAction
+	 *
+	 * <!-- Start of user code doc for addStructuralFeatureValueAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for addStructuralFeatureValueAction_compositeMetaProperties -->
 	 */
 	def addStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,12 +119,18 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		addStructuralFeatureValueAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLAddStructuralFeatureValueAction
+	 *
+	 * <!-- Start of user code doc for addStructuralFeatureValueAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for addStructuralFeatureValueAction_referenceMetaProperties -->
 	 */
 	def addStructuralFeatureValueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -118,15 +139,23 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		addStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLAddStructuralFeatureValueAction
+	 *
+	 * <!-- Start of user code doc for addStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for addStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def addStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations: Elements =
 		writeStructuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLAddStructuralFeatureValueAction

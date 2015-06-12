@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Property is a StructuralFeature. A Property related by ownedAttribute to a Classifier (other than an association) represents an attribute and might also represent an association end. It relates an instance of the Classifier to a value or set of values of the type of the attribute. A Property related by memberEnd to an Association represents an end of the Association. The type of the Property is the type of the end of the Association. A Property has the capability of being a DeploymentTarget in a Deployment relationship. This enables modeling the deployment to hierarchical nodes that have Properties functioning as internal parts.  Property specializes ParameterableElement to specify that a Property can be exposed as a formal template parameter, and provided as an actual parameter in a binding of a template.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Class that owns this Property, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _class -->
+	 * <!-- End of user code doc for _class -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClass.ownedAttribute
@@ -67,9 +67,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def _class: Option[UMLClass[Uml]] = namespace.selectByKindOf { case x: UMLClass[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Association of which this Property is a member, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for association -->
+	 * <!-- End of user code doc for association -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAssociation.memberEnd
@@ -77,9 +78,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def association: Option[UMLAssociation[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLAssociation[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Designates the optional association end that owns a qualifier attribute.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for associationEnd -->
+	 * <!-- End of user code doc for associationEnd -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.qualifier
@@ -87,9 +89,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def associationEnd: Option[UMLProperty[Uml]] = owner.selectByKindOf { case x: UMLProperty[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The DataType that owns this Property, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for datatype -->
+	 * <!-- End of user code doc for datatype -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDataType.ownedAttribute
@@ -97,9 +100,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def datatype: Option[UMLDataType[Uml]] = namespace.selectByKindOf { case x: UMLDataType[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interface that owns this Property, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for interface -->
+	 * <!-- End of user code doc for interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInterface.ownedAttribute
@@ -107,9 +111,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def interface: Option[UMLInterface[Uml]] = namespace.selectByKindOf { case x: UMLInterface[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If isComposite is true, the object containing the attribute is a container for the object or value contained in the attribute. This is a derived value, indicating whether the aggregation of the Property is composite or not.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComposite -->
+	 * <!-- End of user code doc for isComposite -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @body result = (aggregation = AggregationKind::composite)
@@ -121,9 +126,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * In the case where the Property is one end of a binary association this gives the other end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for opposite -->
+	 * <!-- End of user code doc for opposite -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.opposite_property
@@ -141,9 +147,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The owning association of this property, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for owningAssociation -->
+	 * <!-- End of user code doc for owningAssociation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAssociation.ownedEnd
@@ -151,9 +158,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def owningAssociation: Option[UMLAssociation[Uml]] = featuringClassifier.selectByKindOf { case x: UMLAssociation[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The properties that are redefined by this property, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedProperty -->
+	 * <!-- End of user code doc for redefinedProperty -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.redefinedProperty_property
@@ -161,8 +169,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def redefinedProperty: Set[UMLProperty[Uml]] = redefinedElement.selectByKindOf { case x: UMLProperty[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for definingEnd_connectorEnd -->
+	 * <!-- End of user code doc for definingEnd_connectorEnd -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnectorEnd.definingEnd
@@ -174,8 +182,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for opposite_property -->
+	 * <!-- End of user code doc for opposite_property -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.opposite
@@ -187,8 +195,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedAttribute_artifact -->
+	 * <!-- End of user code doc for ownedAttribute_artifact -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLArtifact.ownedAttribute
@@ -196,8 +204,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def ownedAttribute_artifact: Option[UMLArtifact[Uml]] = namespace.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedAttribute_owningSignal -->
+	 * <!-- End of user code doc for ownedAttribute_owningSignal -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLSignal.ownedAttribute
@@ -205,17 +213,17 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def ownedAttribute_owningSignal: Option[UMLSignal[Uml]] = namespace.selectByKindOf { case x: UMLSignal[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedAttribute_structuredClassifier -->
+	 * <!-- End of user code doc for ownedAttribute_structuredClassifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredClassifier.ownedAttribute
 	 */
-	def ownedAttribute_structuredClassifier: Iterable[UMLStructuredClassifier[Uml]] = namespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
+	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = namespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for part_structuredClassifier -->
+	 * <!-- End of user code doc for part_structuredClassifier -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredClassifier.part
@@ -227,8 +235,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedProperty_property -->
+	 * <!-- End of user code doc for redefinedProperty_property -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProperty.redefinedProperty
@@ -236,38 +244,41 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def redefinedProperty_property: Set[UMLProperty[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLProperty[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isAttribute() is true if the Property is defined as an attribute of some Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isAttribute -->
+	 * <!-- End of user code doc for isAttribute -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (not classifier->isEmpty())
 	 */
-	def isAttribute: Boolean  = {
+	def isAttribute: Boolean = {
 		// Start of user code for "isAttribute"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isCompatibleWith() determines if this Property is compatible with the specified ParameterableElement. This Property is compatible with ParameterableElement p if the kind of this Property is thesame as or a subtype of the kind of p. Further, if p is a TypedElement, then the type of this Property must be conformant with the type of p.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isCompatibleWith -->
+	 * <!-- End of user code doc for isCompatibleWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (self.oclIsKindOf(p.oclType()) and (p.oclIsKindOf(TypeElement) implies
 	 * self.type.conformsTo(p.oclAsType(TypedElement).type)))
 	 */
-	override def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean  = {
+	override def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean = {
 		// Start of user code for "isCompatibleWith"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isConsistentWith() specifies, for any two Properties in a context in which redefinition is possible, whether redefinition would be logically consistent. A redefining Property is consistent with a redefined Property if the type of the redefining Property conforms to the type of the redefined Property, and the multiplicity of the redefining Property (if specified) is contained in the multiplicity of the redefined Property.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (redefiningElement.oclIsKindOf(Property) and 
@@ -277,30 +288,32 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *   ((prop.upperBound()->notEmpty() and self.upperBound()->notEmpty()) implies prop.lowerBound() <= self.lowerBound()) and 
 	 *   (self.isComposite implies prop.isComposite)))
 	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
+	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isNavigable() indicates whether it is possible to navigate across the property.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isNavigable -->
+	 * <!-- End of user code doc for isNavigable -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (not classifier->isEmpty() or association.navigableOwnedEnd->includes(self))
 	 */
-	def isNavigable: Boolean  = {
+	def isNavigable: Boolean = {
 		// Start of user code for "isNavigable"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query subsettingContext() gives the context for subsetting a Property. It consists, in the case of an attribute, of the corresponding Classifier, and in the case of an association end, all of the Classifiers at the other ends.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for subsettingContext -->
+	 * <!-- End of user code doc for subsettingContext -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (if association <> null
@@ -312,16 +325,17 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *   endif
 	 * endif)
 	 */
-	def subsettingContext: Set[UMLType[Uml]]  = {
+	def subsettingContext: Set[UMLType[Uml]] = {
 		// Start of user code for "subsettingContext"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A binding of a PropertyTemplateParameter representing an attribute must be to an attribute.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_binding_to_attribute -->
+	 * <!-- End of user code doc for validate_binding_to_attribute -->
 	 *
 	 * @body (self.isAttribute()
 	 * and (templateParameterSubstitution->notEmpty())
@@ -329,81 +343,87 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *     ts.formal.oclIsKindOf(Property)
 	 *     and ts.formal.oclAsType(Property).isAttribute())))
 	 */
-	def validate_binding_to_attribute: Boolean  = {
+	def validate_binding_to_attribute: Boolean = {
 		// Start of user code for "binding_to_attribute"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Property can be a DeploymentTarget if it is a kind of Node and functions as a part in the internal structure of an encompassing Node.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_deployment_target -->
+	 * <!-- End of user code doc for validate_deployment_target -->
 	 *
 	 * @body deployment->notEmpty() implies owner.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p = self))
 	 */
-	def validate_deployment_target: Boolean  = {
+	def validate_deployment_target: Boolean = {
 		// Start of user code for "deployment_target"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A derived union is derived.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_derived_union_is_derived -->
+	 * <!-- End of user code doc for validate_derived_union_is_derived -->
 	 *
 	 * @body isDerivedUnion implies isDerived
 	 */
-	def validate_derived_union_is_derived: Boolean  = {
+	def validate_derived_union_is_derived: Boolean = {
 		// Start of user code for "derived_union_is_derived"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A derived union is read only.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_derived_union_is_read_only -->
+	 * <!-- End of user code doc for validate_derived_union_is_read_only -->
 	 *
 	 * @body isDerivedUnion implies isReadOnly
 	 */
-	def validate_derived_union_is_read_only: Boolean  = {
+	def validate_derived_union_is_read_only: Boolean = {
 		// Start of user code for "derived_union_is_read_only"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A multiplicity on the composing end of a composite aggregation must not have an upper bound greater than 1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_composite -->
+	 * <!-- End of user code doc for validate_multiplicity_of_composite -->
 	 *
 	 * @body isComposite and association <> null implies opposite.upperBound() <= 1
 	 */
-	def validate_multiplicity_of_composite: Boolean  = {
+	def validate_multiplicity_of_composite: Boolean = {
 		// Start of user code for "multiplicity_of_composite"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * All qualified Properties must be Association ends
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_qualified_is_association_end -->
+	 * <!-- End of user code doc for validate_qualified_is_association_end -->
 	 *
 	 * @body qualifier->notEmpty() implies association->notEmpty()
 	 */
-	def validate_qualified_is_association_end: Boolean  = {
+	def validate_qualified_is_association_end: Boolean = {
 		// Start of user code for "qualified_is_association_end"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A redefined Property must be inherited from a more general Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_redefined_property_inherited -->
+	 * <!-- End of user code doc for validate_redefined_property_inherited -->
 	 *
 	 * @body (redefinedProperty->notEmpty()) implies
 	 *   (redefinitionContext->notEmpty() and
@@ -411,65 +431,69 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *         ((redefinitionContext->collect(fc|
 	 *           fc.allParents()))->asSet())->collect(c| c.allFeatures())->asSet()->includes(rp)))
 	 */
-	def validate_redefined_property_inherited: Boolean  = {
+	def validate_redefined_property_inherited: Boolean = {
 		// Start of user code for "redefined_property_inherited"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Property may not subset a Property with the same name.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_subsetted_property_names -->
+	 * <!-- End of user code doc for validate_subsetted_property_names -->
 	 *
 	 * @body subsettedProperty->forAll(sp | sp.name <> name)
 	 */
-	def validate_subsetted_property_names: Boolean  = {
+	def validate_subsetted_property_names: Boolean = {
 		// Start of user code for "subsetted_property_names"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Subsetting may only occur when the context of the subsetting property conforms to the context of the subsetted property.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_subsetting_context_conforms -->
+	 * <!-- End of user code doc for validate_subsetting_context_conforms -->
 	 *
 	 * @body subsettedProperty->notEmpty() implies
 	 *   (subsettingContext()->notEmpty() and subsettingContext()->forAll (sc |
 	 *     subsettedProperty->forAll(sp |
 	 *       sp.subsettingContext()->exists(c | sc.conformsTo(c)))))
 	 */
-	def validate_subsetting_context_conforms: Boolean  = {
+	def validate_subsetting_context_conforms: Boolean = {
 		// Start of user code for "subsetting_context_conforms"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A subsetting Property may strengthen the type of the subsetted Property, and its upper bound may be less.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_subsetting_rules -->
+	 * <!-- End of user code doc for validate_subsetting_rules -->
 	 *
 	 * @body subsettedProperty->forAll(sp |
 	 *   self.type.conformsTo(sp.type) and
 	 *     ((self.upperBound()->notEmpty() and sp.upperBound()->notEmpty()) implies
 	 *       self.upperBound() <= sp.upperBound() ))
 	 */
-	def validate_subsetting_rules: Boolean  = {
+	def validate_subsetting_rules: Boolean = {
 		// Start of user code for "subsetting_rules"
     ???
     // End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If a Property is a classifier-owned end of a binary Association, its owner must be the type of the opposite end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_type_of_opposite_end -->
+	 * <!-- End of user code doc for validate_type_of_opposite_end -->
 	 *
 	 * @body (opposite->notEmpty() and owningAssociation->isEmpty()) implies classifier = opposite.type
 	 */
-	def validate_type_of_opposite_end: Boolean  = {
+	def validate_type_of_opposite_end: Boolean = {
 		// Start of user code for "type_of_opposite_end"
     ???
     // End of user code
@@ -547,5 +571,4 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     }
 
   // End of user code
-
-} //UMLProperty
+} //UMLPropertyOps

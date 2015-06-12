@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A package merge defines how the contents of one package are extended by the contents of another package.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Package that is to be merged with the receiving package of the PackageMerge.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for mergedPackage -->
+	 * <!-- End of user code doc for mergedPackage -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.mergedPackage_packageMerge
@@ -67,9 +67,10 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 	def mergedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * References the Package that is being extended with the contents of the merged package of the PackageMerge.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for receivingPackage -->
+	 * <!-- End of user code doc for receivingPackage -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.packageMerge
@@ -87,5 +88,4 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
   })
 
 	// End of user code
-
-} //UMLPackageMerge
+} //UMLPackageMergeOps

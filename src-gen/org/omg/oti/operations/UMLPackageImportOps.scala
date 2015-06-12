@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A PackageImport is a Relationship that imports all the non-private members of a Package into the Namespace owning the PackageImport, so that those Elements may be referred to by their unqualified names in the importingNamespace.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Package whose members are imported into a Namespace.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importedPackage -->
+	 * <!-- End of user code doc for importedPackage -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.importedPackage_packageImport
@@ -67,9 +67,10 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	def importedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the Namespace that imports the members from a Package.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for importingNamespace -->
+	 * <!-- End of user code doc for importingNamespace -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLNamespace.packageImport
@@ -77,13 +78,14 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	def importingNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The visibility of a PackageImport is either public or private.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_public_or_private -->
+	 * <!-- End of user code doc for validate_public_or_private -->
 	 *
 	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
 	 */
-	def validate_public_or_private: Boolean  = {
+	def validate_public_or_private: Boolean = {
 		// Start of user code for "public_or_private"
   	visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
   	// End of user code
@@ -100,5 +102,4 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
   })
 
 	// End of user code
-
-} //UMLPackageImport
+} //UMLPackageImportOps

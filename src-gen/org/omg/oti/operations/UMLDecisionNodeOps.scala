@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DecisionNode is a ControlNode that chooses between outgoing ActivityEdges for the routing of tokens.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,78 +56,84 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The decisionInputFlow of a DecisionNode must be an incoming ActivityEdge of the DecisionNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_decision_input_flow_incoming -->
+	 * <!-- End of user code doc for validate_decision_input_flow_incoming -->
 	 *
 	 * @body incoming->includes(decisionInputFlow)
 	 */
-	def validate_decision_input_flow_incoming: Boolean  = {
+	def validate_decision_input_flow_incoming: Boolean = {
 		// Start of user code for "decision_input_flow_incoming"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ActivityEdges incoming to and outgoing from a DecisionNode, other than the decisionInputFlow (if any), must be either all ObjectFlows or all ControlFlows.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_edges -->
+	 * <!-- End of user code doc for validate_edges -->
 	 *
 	 * @body let allEdges: Set(ActivityEdge) = incoming->union(outgoing) in
 	 * let allRelevantEdges: Set(ActivityEdge) = if decisionInputFlow->notEmpty() then allEdges->excluding(decisionInputFlow) else allEdges endif in
 	 * allRelevantEdges->forAll(oclIsKindOf(ControlFlow)) or allRelevantEdges->forAll(oclIsKindOf(ObjectFlow))
 	 */
-	def validate_edges: Boolean  = {
+	def validate_edges: Boolean = {
 		// Start of user code for "edges"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the DecisionNode has a decisionInputFlow and an incoming ControlFlow, then any decisionInput Behavior has one in Parameter whose type is the same as or a supertype of the type of object tokens offered on the decisionInputFlow.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_incoming_control_one_input_parameter -->
+	 * <!-- End of user code doc for validate_incoming_control_one_input_parameter -->
 	 *
 	 * @body (decisionInput<>null and decisionInputFlow<>null and incoming->exists(oclIsKindOf(ControlFlow))) implies
 	 * 	decisionInput.inputParameters()->size()=1
 	 */
-	def validate_incoming_control_one_input_parameter: Boolean  = {
+	def validate_incoming_control_one_input_parameter: Boolean = {
 		// Start of user code for "incoming_control_one_input_parameter"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the DecisionNode has no decisionInputFlow and an incoming ObjectFlow, then any decisionInput Behavior has one in Parameter whose type is the same as or a supertype of the type of object tokens offered on the incoming ObjectFlow.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_incoming_object_one_input_parameter -->
+	 * <!-- End of user code doc for validate_incoming_object_one_input_parameter -->
 	 *
 	 * @body (decisionInput<>null and decisionInputFlow=null and incoming->forAll(oclIsKindOf(ObjectFlow))) implies
 	 * 	decisionInput.inputParameters()->size()=1
 	 */
-	def validate_incoming_object_one_input_parameter: Boolean  = {
+	def validate_incoming_object_one_input_parameter: Boolean = {
 		// Start of user code for "incoming_object_one_input_parameter"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A DecisionNode has one or two incoming ActivityEdges and at least one outgoing ActivityEdge.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_incoming_outgoing_edges -->
+	 * <!-- End of user code doc for validate_incoming_outgoing_edges -->
 	 *
 	 * @body (incoming->size() = 1 or incoming->size() = 2) and outgoing->size() > 0
 	 */
-	def validate_incoming_outgoing_edges: Boolean  = {
+	def validate_incoming_outgoing_edges: Boolean = {
 		// Start of user code for "incoming_outgoing_edges"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A decisionInput Behavior has no out parameters, no inout parameters, and one return parameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_parameters -->
+	 * <!-- End of user code doc for validate_parameters -->
 	 *
 	 * @body decisionInput<>null implies 
 	 *   (decisionInput.ownedParameter->forAll(par | 
@@ -138,35 +143,37 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *      par.direction <> ParameterDirectionKind::return))
 	 *      
 	 */
-	def validate_parameters: Boolean  = {
+	def validate_parameters: Boolean = {
 		// Start of user code for "parameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the DecisionNode has a decisionInputFlow and an second incoming ObjectFlow, then any decisionInput has two in Parameters, the first of which has a type that is the same as or a supertype of the type of object tokens offered on the non-decisionInputFlow and the second of which has a type that is the same as or a supertype of the type of object tokens offered on the decisionInputFlow.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_two_input_parameters -->
+	 * <!-- End of user code doc for validate_two_input_parameters -->
 	 *
 	 * @body (decisionInput<>null and decisionInputFlow<>null and incoming->forAll(oclIsKindOf(ObjectFlow))) implies
 	 * 	decisionInput.inputParameters()->size()=2
 	 */
-	def validate_two_input_parameters: Boolean  = {
+	def validate_two_input_parameters: Boolean = {
 		// Start of user code for "two_input_parameters"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the DecisionNode has no decisionInputFlow and an incoming ControlFlow, then any decisionInput Behavior has no in parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_zero_input_parameters -->
+	 * <!-- End of user code doc for validate_zero_input_parameters -->
 	 *
 	 * @body (decisionInput<>null and decisionInputFlow=null and incoming->exists(oclIsKindOf(ControlFlow))) implies
 	 *    decisionInput.inputParameters()->isEmpty()
 	 */
-	def validate_zero_input_parameters: Boolean  = {
+	def validate_zero_input_parameters: Boolean = {
 		// Start of user code for "zero_input_parameters"
     	???
     	// End of user code
@@ -174,5 +181,4 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDecisionNode
+} //UMLDecisionNodeOps

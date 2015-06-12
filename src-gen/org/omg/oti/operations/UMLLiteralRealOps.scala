@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A LiteralReal is a specification of a Real value.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,28 +56,30 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isComputable() is redefined to be true.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isComputable -->
+	 * <!-- End of user code doc for isComputable -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (true)
 	 */
-	override def isComputable: Boolean  = {
+	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
     true
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query realValue() gives the value.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for realValue -->
+	 * <!-- End of user code doc for realValue -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (value)
 	 */
-	override def realValue: Option[Double]  = {
+	override def realValue: Option[Double] = {
 		// Start of user code for "realValue"
     Option.apply(value)
     	// End of user code
@@ -87,5 +88,4 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	// Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
 	// End of user code
-
-} //UMLLiteralReal
+} //UMLLiteralRealOps

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ClassifierTemplateParameter exposes a Classifier as a formal template parameter.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,22 +56,24 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The argument to a ClassifierTemplateParameter is a Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_actual_is_classifier -->
+	 * <!-- End of user code doc for validate_actual_is_classifier -->
 	 *
 	 * @body  templateParameterSubstitution.actual->forAll(a | a.oclIsKindOf(Classifier))
 	 */
-	def validate_actual_is_classifier: Boolean  = {
+	def validate_actual_is_classifier: Boolean = {
 		// Start of user code for "actual_is_classifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If there are any constrainingClassifiers, then every argument must be the same as or a specialization of them, or if allowSubstitutable is true, then it can also be substitutable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_constraining_classifiers_constrain_args -->
+	 * <!-- End of user code doc for validate_constraining_classifiers_constrain_args -->
 	 *
 	 * @body templateParameterSubstitution.actual->forAll( a |
 	 *   let arg : Classifier = a.oclAsType(Classifier) in
@@ -82,61 +83,65 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 *       )
 	 * )
 	 */
-	def validate_constraining_classifiers_constrain_args: Boolean  = {
+	def validate_constraining_classifiers_constrain_args: Boolean = {
 		// Start of user code for "constraining_classifiers_constrain_args"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If there are any constrainingClassifiers, then the parameteredElement must be the same as or a specialization of them, or if allowSubstitutable is true, then it can also be substitutable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_constraining_classifiers_constrain_parametered_element -->
+	 * <!-- End of user code doc for validate_constraining_classifiers_constrain_parametered_element -->
 	 *
 	 * @body constrainingClassifier->forAll(
 	 *      cc |  parameteredElement = cc or parameteredElement.conformsTo(cc) or (allowSubstitutable and parameteredElement.isSubstitutableFor(cc))
 	 * )
 	 */
-	def validate_constraining_classifiers_constrain_parametered_element: Boolean  = {
+	def validate_constraining_classifiers_constrain_parametered_element: Boolean = {
 		// Start of user code for "constraining_classifiers_constrain_parametered_element"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If allowSubstitutable is true, then there must be a constrainingClassifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_has_constraining_classifier -->
+	 * <!-- End of user code doc for validate_has_constraining_classifier -->
 	 *
 	 * @body allowSubstitutable implies constrainingClassifier->notEmpty()
 	 */
-	def validate_has_constraining_classifier: Boolean  = {
+	def validate_has_constraining_classifier: Boolean = {
 		// Start of user code for "has_constraining_classifier"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If the parameteredElement is not abstract, then the Classifier used as an argument shall not be abstract.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_matching_abstract -->
+	 * <!-- End of user code doc for validate_matching_abstract -->
 	 *
 	 * @body (not parameteredElement.isAbstract) implies templateParameterSubstitution.actual->forAll(a | not a.oclAsType(Classifier).isAbstract)
 	 */
-	def validate_matching_abstract: Boolean  = {
+	def validate_matching_abstract: Boolean = {
 		// Start of user code for "matching_abstract"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The parameteredElement has no direct features, and if constrainedElement is empty it has no generalizations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_parametered_element_no_features -->
+	 * <!-- End of user code doc for validate_parametered_element_no_features -->
 	 *
 	 * @body parameteredElement.feature->isEmpty() and (constrainingClassifier->isEmpty() implies  parameteredElement.allParents()->isEmpty())
 	 */
-	def validate_parametered_element_no_features: Boolean  = {
+	def validate_parametered_element_no_features: Boolean = {
 		// Start of user code for "parametered_element_no_features"
     	???
     	// End of user code
@@ -144,5 +149,4 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLClassifierTemplateParameter
+} //UMLClassifierTemplateParameterOps

@@ -46,10 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Class classifies a set of objects and specifies the features that characterize the structure and behavior of those objects.  A Class may have an internal structure and Ports.
-
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,9 +56,10 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * This property is used when the Class is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extension -->
+	 * <!-- End of user code doc for extension -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLExtension.metaclass
@@ -75,9 +74,10 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Receptions owned by the Class.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedReception -->
+	 * <!-- End of user code doc for ownedReception -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLReception.ownedReception_class
@@ -85,9 +85,10 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	def ownedReception: Set[UMLReception[Uml]] = feature.selectByKindOf { case x: UMLReception[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The superclasses of a Class, derived from its Generalizations.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for superClass -->
+	 * <!-- End of user code doc for superClass -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClass.superClass_class
@@ -96,8 +97,8 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	def superClass: Set[UMLClass[Uml]] = general.selectByKindOf { case x: UMLClass[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for superClass_class -->
+	 * <!-- End of user code doc for superClass_class -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClass.superClass
@@ -105,13 +106,14 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	def superClass_class: Set[UMLClass[Uml]] = general_classifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Only an active Class may own Receptions and have a classifierBehavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_passive_class -->
+	 * <!-- End of user code doc for validate_passive_class -->
 	 *
 	 * @body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
 	 */
-	def validate_passive_class: Boolean  = {
+	def validate_passive_class: Boolean = {
 		// Start of user code for "passive_class"
     	???
     	// End of user code
@@ -119,5 +121,4 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLClass
+} //UMLClassOps

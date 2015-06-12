@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExecutionOccurrenceSpecification represents moments in time at which Actions or Behaviors start or finish.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLExecutionOccurrenceSpecificationOps[Uml <: UML] { self: UMLExecutionOcc
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLExecutionOccurrenceSpecification
+} //UMLExecutionOccurrenceSpecificationOps

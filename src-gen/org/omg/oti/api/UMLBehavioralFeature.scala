@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A BehavioralFeature is a feature of a Classifier that specifies an aspect of the behavior of its instances.  A BehavioralFeature is implemented (realized) by a Behavior. A BehavioralFeature specifies that a Classifier will respond to a designated request by invoking its implementing method.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLBehavioralFeature[Uml <: UML]
 	extends UMLFeature[Uml]
 	with UMLNamespace[Uml]
@@ -57,27 +58,30 @@ trait UMLBehavioralFeature[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the semantics of concurrent calls to the same passive instance (i.e., an instance originating from a Class with isActive being false). Active instances control access to their own BehavioralFeatures.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for concurrency -->
+	 * <!-- End of user code doc for concurrency -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def concurrency: UMLCallConcurrencyKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If true, then the BehavioralFeature does not have an implementation, and one must be supplied by a more specific Classifier. If false, the BehavioralFeature must have an implementation in the Classifier or one must be inherited.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isAbstract -->
+	 * <!-- End of user code doc for isAbstract -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isAbstract: Boolean
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Behavior that implements the BehavioralFeature. There may be at most one Behavior for a particular pairing of a Classifier (as owner of the Behavior) and a BehavioralFeature (as specification of the Behavior).
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for method -->
+	 * <!-- End of user code doc for method -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.specification
@@ -85,9 +89,10 @@ trait UMLBehavioralFeature[Uml <: UML]
 	def method: Set[UMLBehavior[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ordered set of formal Parameters of this BehavioralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameter.ownedParameter_ownerFormalParam
@@ -95,9 +100,10 @@ trait UMLBehavioralFeature[Uml <: UML]
 	def ownedParameter: Seq[UMLParameter[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterSets owned by this BehavioralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameterSet -->
+	 * <!-- End of user code doc for ownedParameterSet -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLParameterSet.ownedParameterSet_behavioralFeature
@@ -105,9 +111,10 @@ trait UMLBehavioralFeature[Uml <: UML]
 	def ownedParameterSet: Set[UMLParameterSet[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Types representing exceptions that may be raised during an invocation of this BehavioralFeature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for raisedException -->
+	 * <!-- End of user code doc for raisedException -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLType.raisedException_behavioralFeature
@@ -116,12 +123,18 @@ trait UMLBehavioralFeature[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		behavioralFeature_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLBehavioralFeature
+	 *
+	 * <!-- Start of user code doc for behavioralFeature_metaAttributes -->
+	 * <!-- End of user code doc for behavioralFeature_metaAttributes -->
 	 */
 	def behavioralFeature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -131,12 +144,18 @@ trait UMLBehavioralFeature[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		behavioralFeature_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLBehavioralFeature
+	 *
+	 * <!-- Start of user code doc for behavioralFeature_compositeMetaProperties -->
+	 * <!-- End of user code doc for behavioralFeature_compositeMetaProperties -->
 	 */
 	def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -147,12 +166,18 @@ trait UMLBehavioralFeature[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		behavioralFeature_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLBehavioralFeature
+	 *
+	 * <!-- Start of user code doc for behavioralFeature_referenceMetaProperties -->
+	 * <!-- End of user code doc for behavioralFeature_referenceMetaProperties -->
 	 */
 	def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -163,12 +188,18 @@ trait UMLBehavioralFeature[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		behavioralFeature_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLBehavioralFeature
+	 *
+	 * <!-- Start of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def behavioralFeature_forwardReferencesFromMetamodelAssociations: Elements =
 		feature_forwardReferencesFromMetamodelAssociations ++
@@ -176,4 +207,6 @@ trait UMLBehavioralFeature[Uml <: UML]
 		method ++
 		raisedException 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLBehavioralFeature

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ProtocolStateMachine is always defined in the context of a Classifier. It specifies which BehavioralFeatures of the Classifier can be called in which State and under which conditions, thus specifying the allowed invocation sequences on the Classifier's BehavioralFeatures. A ProtocolStateMachine specifies the possible and permitted Transitions on the instances of its context Classifier, together with the BehavioralFeatures that carry the Transitions. In this manner, an instance lifecycle can be specified for a Classifier, by defining the order in which the BehavioralFeatures can be activated and the States through which an instance progresses during its existence.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLProtocolStateMachine[Uml <: UML]
 	extends UMLStateMachine[Uml]
 	with UMLProtocolStateMachineOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Conformance between ProtocolStateMachine 
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for conformance -->
+	 * <!-- End of user code doc for conformance -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolConformance.specificMachine
@@ -66,8 +68,8 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def conformance: Set[UMLProtocolConformance[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for generalMachine_protocolConformance -->
+	 * <!-- End of user code doc for generalMachine_protocolConformance -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolConformance.generalMachine
@@ -75,9 +77,10 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def generalMachine_protocolConformance: Set[UMLProtocolConformance[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the namespace in which the protocol state machine is defined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for protocol_interface -->
+	 * <!-- End of user code doc for protocol_interface -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInterface.protocol
@@ -85,8 +88,8 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def protocol_interface: Option[UMLInterface[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for protocol_port -->
+	 * <!-- End of user code doc for protocol_port -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.protocol
@@ -95,12 +98,18 @@ trait UMLProtocolStateMachine[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		protocolStateMachine_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_metaAttributes -->
+	 * <!-- End of user code doc for protocolStateMachine_metaAttributes -->
 	 */
 	def protocolStateMachine_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,12 +118,18 @@ trait UMLProtocolStateMachine[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		protocolStateMachine_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_compositeMetaProperties -->
+	 * <!-- End of user code doc for protocolStateMachine_compositeMetaProperties -->
 	 */
 	def protocolStateMachine_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -123,12 +138,18 @@ trait UMLProtocolStateMachine[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		protocolStateMachine_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_referenceMetaProperties -->
+	 * <!-- End of user code doc for protocolStateMachine_referenceMetaProperties -->
 	 */
 	def protocolStateMachine_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,15 +158,23 @@ trait UMLProtocolStateMachine[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		protocolStateMachine_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for protocolStateMachine_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def protocolStateMachine_forwardReferencesFromMetamodelAssociations: Elements =
 		stateMachine_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLProtocolStateMachine

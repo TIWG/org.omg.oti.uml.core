@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A SignalEvent represents the receipt of an asynchronous Signal instance.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLSignalEventOps[Uml <: UML] { self: UMLSignalEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLSignalEvent
+} //UMLSignalEventOps

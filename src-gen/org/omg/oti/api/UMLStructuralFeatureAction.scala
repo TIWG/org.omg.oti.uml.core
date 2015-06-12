@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * StructuralFeatureAction is an abstract class for all Actions that operate on StructuralFeatures.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLStructuralFeatureAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLStructuralFeatureActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin from which the object whose StructuralFeature is to be read or written is obtained.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_structuralFeatureAction
@@ -66,9 +68,10 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	def _object: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StructuralFeature to be read or written.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for structuralFeature -->
+	 * <!-- End of user code doc for structuralFeature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLStructuralFeature.structuralFeature_structuralFeatureAction
@@ -77,12 +80,18 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		structuralFeatureAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for structuralFeatureAction_metaAttributes -->
+	 * <!-- End of user code doc for structuralFeatureAction_metaAttributes -->
 	 */
 	def structuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,12 +100,18 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuralFeatureAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for structuralFeatureAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for structuralFeatureAction_compositeMetaProperties -->
 	 */
 	def structuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,12 +120,18 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		structuralFeatureAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for structuralFeatureAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for structuralFeatureAction_referenceMetaProperties -->
 	 */
 	def structuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,15 +140,23 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		structuralFeatureAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for structuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for structuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def structuralFeatureAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		structuralFeature 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLStructuralFeatureAction

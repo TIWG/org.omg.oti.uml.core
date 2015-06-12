@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLTemplateParameter[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateParameterOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLTemplateParameter[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement that is the default for this formal TemplateParameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for default -->
+	 * <!-- End of user code doc for default -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.default_templateParameter
@@ -66,9 +68,10 @@ trait UMLTemplateParameter[Uml <: UML]
 	def default: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedDefault -->
+	 * <!-- End of user code doc for ownedDefault -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedDefault_templateParameter
@@ -76,9 +79,10 @@ trait UMLTemplateParameter[Uml <: UML]
 	def ownedDefault: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of exposing it as the parameteredElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for ownedParameteredElement -->
+	 * <!-- End of user code doc for ownedParameteredElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.owningTemplateParameter
@@ -86,9 +90,10 @@ trait UMLTemplateParameter[Uml <: UML]
 	def ownedParameteredElement: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ParameterableElement exposed by this TemplateParameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for parameteredElement -->
+	 * <!-- End of user code doc for parameteredElement -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLParameterableElement.templateParameter
@@ -96,9 +101,10 @@ trait UMLTemplateParameter[Uml <: UML]
 	def parameteredElement: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The TemplateSignature that owns this TemplateParameter.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for signature -->
+	 * <!-- End of user code doc for signature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.ownedParameter
@@ -106,8 +112,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	def signature: Option[UMLTemplateSignature[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for formal_templateParameterSubstitution -->
+	 * <!-- End of user code doc for formal_templateParameterSubstitution -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.formal
@@ -115,8 +121,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	def formal_templateParameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for inheritedParameter_redefinableTemplateSignature -->
+	 * <!-- End of user code doc for inheritedParameter_redefinableTemplateSignature -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.inheritedParameter
@@ -124,8 +130,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for parameter_templateSignature -->
+	 * <!-- End of user code doc for parameter_templateSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateSignature.parameter
@@ -134,12 +140,18 @@ trait UMLTemplateParameter[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateParameter_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLTemplateParameter
+	 *
+	 * <!-- Start of user code doc for templateParameter_metaAttributes -->
+	 * <!-- End of user code doc for templateParameter_metaAttributes -->
 	 */
 	def templateParameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -148,12 +160,18 @@ trait UMLTemplateParameter[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateParameter_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLTemplateParameter
+	 *
+	 * <!-- Start of user code doc for templateParameter_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateParameter_compositeMetaProperties -->
 	 */
 	def templateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -163,29 +181,39 @@ trait UMLTemplateParameter[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateParameter_referenceMetaProperties
 
-	val TemplateParameter_parameteredElement = MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)
-
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateParameter
+	 *
+	 * <!-- Start of user code doc for templateParameter_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateParameter_referenceMetaProperties -->
 	 */
 	def templateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
-				TemplateParameter_parameteredElement))
+				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateParameter_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateParameter
+	 *
+	 * <!-- Start of user code doc for templateParameter_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateParameter_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateParameter_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
@@ -193,4 +221,6 @@ trait UMLTemplateParameter[Uml <: UML]
 		parameteredElement ++
 		signature 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLTemplateParameter

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A MessageEvent specifies the receipt by an object of either an Operation call or a Signal instance.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLMessageEventOps[Uml <: UML] { self: UMLMessageEvent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLMessageEvent
+} //UMLMessageEventOps

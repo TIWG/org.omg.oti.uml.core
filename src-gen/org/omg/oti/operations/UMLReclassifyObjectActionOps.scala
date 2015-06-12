@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that holds the object to be reclassified.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_reclassifyObjectAction
@@ -67,39 +67,42 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * None of the newClassifiers may be abstract.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
+	 * <!-- End of user code doc for validate_classifier_not_abstract -->
 	 *
 	 * @body not newClassifier->exists(isAbstract)
 	 */
-	def validate_classifier_not_abstract: Boolean  = {
+	def validate_classifier_not_abstract: Boolean = {
 		// Start of user code for "classifier_not_abstract"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The object InputPin has no type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_input_pin -->
+	 * <!-- End of user code doc for validate_input_pin -->
 	 *
 	 * @body object.type = null
 	 */
-	def validate_input_pin: Boolean  = {
+	def validate_input_pin: Boolean = {
 		// Start of user code for "input_pin"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the object InputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body object.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
@@ -107,5 +110,4 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLReclassifyObjectAction
+} //UMLReclassifyObjectActionOps

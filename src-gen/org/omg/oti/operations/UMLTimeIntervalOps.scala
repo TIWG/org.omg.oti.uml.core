@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TimeInterval defines the range between two TimeExpressions.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLTimeIntervalOps[Uml <: UML] { self: UMLTimeInterval[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for specification_timeConstraint -->
+	 * <!-- End of user code doc for specification_timeConstraint -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLTimeConstraint.specification
@@ -67,5 +66,4 @@ trait UMLTimeIntervalOps[Uml <: UML] { self: UMLTimeInterval[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTimeInterval
+} //UMLTimeIntervalOps

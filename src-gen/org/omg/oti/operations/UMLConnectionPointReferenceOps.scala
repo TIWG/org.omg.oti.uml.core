@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ConnectionPointReference represents a usage (as part of a submachine State) of an entry/exit point Pseudostate defined in the StateMachine referenced by the submachine State.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The State in which the ConnectionPointReference is defined.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for state -->
+	 * <!-- End of user code doc for state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.connection
@@ -67,26 +67,28 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The entry Pseudostates must be Pseudostates with kind entryPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_entry_pseudostates -->
+	 * <!-- End of user code doc for validate_entry_pseudostates -->
 	 *
 	 * @body entry->forAll(kind = PseudostateKind::entryPoint)
 	 */
-	def validate_entry_pseudostates: Boolean  = {
+	def validate_entry_pseudostates: Boolean = {
 		// Start of user code for "entry_pseudostates"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The exit Pseudostates must be Pseudostates with kind exitPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_exit_pseudostates -->
+	 * <!-- End of user code doc for validate_exit_pseudostates -->
 	 *
 	 * @body exit->forAll(kind = PseudostateKind::exitPoint)
 	 */
-	def validate_exit_pseudostates: Boolean  = {
+	def validate_exit_pseudostates: Boolean = {
 		// Start of user code for "exit_pseudostates"
     	???
     	// End of user code
@@ -94,5 +96,4 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLConnectionPointReference
+} //UMLConnectionPointReferenceOps

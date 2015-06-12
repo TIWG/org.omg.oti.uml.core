@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A RedefinableTemplateSignature supports the addition of formal template parameters in a specialization of a template classifier.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifier that owns this RedefinableTemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.ownedTemplateSignature
@@ -67,9 +67,10 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	def classifier: Option[UMLClassifier[Uml]] = redefinitionContext headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The signatures extended by this RedefinableTemplateSignature.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for extendedSignature -->
+	 * <!-- End of user code doc for extendedSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature_redefinableTemplateSignature
@@ -77,9 +78,10 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]] = redefinedElement.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The formal template parameters of the extended signatures.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for inheritedParameter -->
+	 * <!-- End of user code doc for inheritedParameter -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTemplateParameter.inheritedParameter_redefinableTemplateSignature
@@ -92,8 +94,8 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for extendedSignature_redefinableTemplateSignature -->
+	 * <!-- End of user code doc for extendedSignature_redefinableTemplateSignature -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature
@@ -101,27 +103,29 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The query isConsistentWith() specifies, for any two RedefinableTemplateSignatures in a context in which redefinition is possible, whether redefinition would be logically consistent. A redefining template signature is always consistent with a redefined template signature, as redefinition only adds new formal parameters.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
 	 * @body result = (redefiningElement.oclIsKindOf(RedefinableTemplateSignature))
 	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean  = {
+	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * If any of the parent Classifiers are a template, then the extendedSignature must include the signature of that Classifier.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_redefines_parents -->
+	 * <!-- End of user code doc for validate_redefines_parents -->
 	 *
 	 * @body classifier.allParents()->forAll(c | c.ownedTemplateSignature->notEmpty() implies self->closure(extendedSignature)->includes(c.ownedTemplateSignature))
 	 */
-	def validate_redefines_parents: Boolean  = {
+	def validate_redefines_parents: Boolean = {
 		// Start of user code for "redefines_parents"
     	???
     	// End of user code
@@ -129,5 +133,4 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLRedefinableTemplateSignature
+} //UMLRedefinableTemplateSignatureOps

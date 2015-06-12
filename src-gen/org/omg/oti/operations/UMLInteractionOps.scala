@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Interaction is a unit of Behavior that focuses on the observable exchange of information between connectable elements.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Actions owned by the Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for action -->
+	 * <!-- End of user code doc for action -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLAction.action_interaction
@@ -67,9 +67,10 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	def action: Set[UMLAction[Uml]] = ownedElement.selectByKindOf { case x: UMLAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the gates that form the message interface between this Interaction and any InteractionUses which reference it.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for formalGate -->
+	 * <!-- End of user code doc for formalGate -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLGate.formalGate_interaction
@@ -77,9 +78,10 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	def formalGate: Set[UMLGate[Uml]] = ownedMember.selectByKindOf { case x: UMLGate[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Specifies the participants in this Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for lifeline -->
+	 * <!-- End of user code doc for lifeline -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLLifeline.interaction
@@ -87,9 +89,10 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	def lifeline: Set[UMLLifeline[Uml]] = ownedMember.selectByKindOf { case x: UMLLifeline[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Messages contained in this Interaction.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for message -->
+	 * <!-- End of user code doc for message -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLMessage.interaction
@@ -97,13 +100,14 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	def message: Set[UMLMessage[Uml]] = ownedMember.selectByKindOf { case x: UMLMessage[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Interaction instance must not be contained within another Interaction instance.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_not_contained -->
+	 * <!-- End of user code doc for validate_not_contained -->
 	 *
 	 * @body enclosingInteraction->isEmpty()
 	 */
-	def validate_not_contained: Boolean  = {
+	def validate_not_contained: Boolean = {
 		// Start of user code for "not_contained"
     	???
     	// End of user code
@@ -111,5 +115,4 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInteraction
+} //UMLInteractionOps

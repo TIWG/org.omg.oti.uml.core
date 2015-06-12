@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Usage is a Dependency in which the client Element requires the supplier Element (or set of Elements) for its full implementation or operation.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLUsageOps[Uml <: UML] { self: UMLUsage[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLUsage
+} //UMLUsageOps

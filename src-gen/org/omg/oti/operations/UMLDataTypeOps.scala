@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DataType is a type whose instances are identified only by their value.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -58,5 +57,4 @@ trait UMLDataTypeOps[Uml <: UML] { self: UMLDataType[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDataType
+} //UMLDataTypeOps

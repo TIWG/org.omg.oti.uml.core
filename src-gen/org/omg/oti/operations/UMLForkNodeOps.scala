@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ForkNode is a ControlNode that splits a flow into multiple concurrent flows.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,27 +56,29 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ActivityEdges incoming to and outgoing from a ForkNode must be either all ObjectFlows or all ControlFlows.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_edges -->
+	 * <!-- End of user code doc for validate_edges -->
 	 *
 	 * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
 	 */
-	def validate_edges: Boolean  = {
+	def validate_edges: Boolean = {
 		// Start of user code for "edges"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A ForkNode has one incoming ActivityEdge.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_one_incoming_edge -->
+	 * <!-- End of user code doc for validate_one_incoming_edge -->
 	 *
 	 * @body incoming->size()=1
 	 */
-	def validate_one_incoming_edge: Boolean  = {
+	def validate_one_incoming_edge: Boolean = {
 		// Start of user code for "one_incoming_edge"
     	???
     	// End of user code
@@ -85,5 +86,4 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLForkNode
+} //UMLForkNodeOps

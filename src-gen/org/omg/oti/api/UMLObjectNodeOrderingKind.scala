@@ -40,42 +40,50 @@
 package org.omg.oti.api
 
 /**
- * <!-- begin-model-doc -->
  * ObjectNodeOrderingKind is an enumeration indicating queuing order for offering the tokens held by an ObjectNode.
- * <!-- end-model-doc -->
+ *
+ * <!-- Start of user code documentation -->
+ * <!-- End of user code documentation -->
  */
 object UMLObjectNodeOrderingKind extends Enumeration {
 	
 	/**
 	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLObjectNodeOrderingKind = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that tokens are queued in a first in, first out manner.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that tokens are queued in a first in, first out manner.
+	 *
+	 * <!-- Start of user code doc for FIFO -->
+	 * <!-- End of user code doc for FIFO -->
+ 	 */
 	val FIFO = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that tokens are queued in a last in, first out manner.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that tokens are queued in a last in, first out manner.
+	 *
+	 * <!-- Start of user code doc for LIFO -->
+	 * <!-- End of user code doc for LIFO -->
+ 	 */
 	val LIFO = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that tokens are ordered.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that tokens are ordered.
+	 *
+	 * <!-- Start of user code doc for ordered -->
+	 * <!-- End of user code doc for ordered -->
+ 	 */
 	val ordered = Value
 
 	/**
- 	* <!-- begin-model-doc --> 
- 	* Indicates that tokens are unordered.
- 	* <!-- end-model-doc --> 
- 	*/
+ 	 * Indicates that tokens are unordered.
+	 *
+	 * <!-- Start of user code doc for unordered -->
+	 * <!-- End of user code doc for unordered -->
+ 	 */
 	val unordered = Value
 }

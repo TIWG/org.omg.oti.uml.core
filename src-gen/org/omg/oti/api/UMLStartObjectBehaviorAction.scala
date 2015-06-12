@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A StartObjectBehaviorAction is an InvocationAction that starts the execution either of a directly instantiated Behavior or of the classifierBehavior of an object. Argument values may be supplied for the input Parameters of the Behavior. If the Behavior is invoked synchronously, then output values may be obtained for output Parameters.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLStartObjectBehaviorAction[Uml <: UML]
 	extends UMLCallAction[Uml]
 	with UMLStartObjectBehaviorActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An InputPin that holds the object that is either a Behavior to be started or has a classifierBehavior to be started.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for _object -->
+	 * <!-- End of user code doc for _object -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.object_startObjectBehaviorAction
@@ -67,12 +69,18 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		startObjectBehaviorAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLStartObjectBehaviorAction
+	 *
+	 * <!-- Start of user code doc for startObjectBehaviorAction_metaAttributes -->
+	 * <!-- End of user code doc for startObjectBehaviorAction_metaAttributes -->
 	 */
 	def startObjectBehaviorAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		startObjectBehaviorAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStartObjectBehaviorAction
+	 *
+	 * <!-- Start of user code doc for startObjectBehaviorAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for startObjectBehaviorAction_compositeMetaProperties -->
 	 */
 	def startObjectBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		startObjectBehaviorAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLStartObjectBehaviorAction
+	 *
+	 * <!-- Start of user code doc for startObjectBehaviorAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for startObjectBehaviorAction_referenceMetaProperties -->
 	 */
 	def startObjectBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		startObjectBehaviorAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLStartObjectBehaviorAction
+	 *
+	 * <!-- Start of user code doc for startObjectBehaviorAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for startObjectBehaviorAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def startObjectBehaviorAction_forwardReferencesFromMetamodelAssociations: Elements =
 		callAction_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLStartObjectBehaviorAction

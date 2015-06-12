@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A ReadSelfAction is an Action that retrieves the context object of the Behavior execution within which the ReadSelfAction execution is taking place.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLReadSelfAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReadSelfActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLReadSelfAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The OutputPin on which the context object is placed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLOutputPin.result_readSelfAction
@@ -67,12 +69,18 @@ trait UMLReadSelfAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readSelfAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLReadSelfAction
+	 *
+	 * <!-- Start of user code doc for readSelfAction_metaAttributes -->
+	 * <!-- End of user code doc for readSelfAction_metaAttributes -->
 	 */
 	def readSelfAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLReadSelfAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readSelfAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLReadSelfAction
+	 *
+	 * <!-- Start of user code doc for readSelfAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readSelfAction_compositeMetaProperties -->
 	 */
 	def readSelfAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLReadSelfAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readSelfAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLReadSelfAction
+	 *
+	 * <!-- Start of user code doc for readSelfAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readSelfAction_referenceMetaProperties -->
 	 */
 	def readSelfAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLReadSelfAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readSelfAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLReadSelfAction
+	 *
+	 * <!-- Start of user code doc for readSelfAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readSelfAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readSelfAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLReadSelfAction

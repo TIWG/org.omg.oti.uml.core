@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Connector specifies links that enables communication between two or more instances. In contrast to Associations, which specify links between any instance of the associated Classifiers, Connectors specify links between instances playing the connected parts only.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Indicates the kind of Connector. This is derived: a Connector with one or more ends connected to a Port which is not on a Part and which is not a behavior port is a delegation; otherwise it is an assembly.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for kind -->
+	 * <!-- End of user code doc for kind -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @body result = (if end->exists(
@@ -77,9 +77,10 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Connector may be redefined when its containing Classifier is specialized. The redefining Connector may have a type that specializes the type of the redefined Connector. The types of the ConnectorEnds of the redefining Connector may specialize the types of the ConnectorEnds of the redefined Connector. The properties of the ConnectorEnds of the redefining Connector may be replaced.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for redefinedConnector -->
+	 * <!-- End of user code doc for redefinedConnector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnector.redefinedConnector_connector
@@ -87,8 +88,8 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	def redefinedConnector: Set[UMLConnector[Uml]] = redefinedElement.selectByKindOf { case x: UMLConnector[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for ownedConnector_structuredClassifier -->
+	 * <!-- End of user code doc for ownedConnector_structuredClassifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredClassifier.ownedConnector
@@ -96,8 +97,8 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	def ownedConnector_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = featuringClassifier.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for redefinedConnector_connector -->
+	 * <!-- End of user code doc for redefinedConnector_connector -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnector.redefinedConnector
@@ -105,9 +106,10 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	def redefinedConnector_connector: Set[UMLConnector[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLConnector[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ConnectableElements attached as roles to each ConnectorEnd owned by a Connector must be owned or inherited roles of the Classifier that owned the Connector, or they must be Ports of such roles.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_roles -->
+	 * <!-- End of user code doc for validate_roles -->
 	 *
 	 * @body structuredClassifier <> null
 	 * and
@@ -115,22 +117,23 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * or
 	 *   e.role.oclIsKindOf(Port) and structuredClassifier.allRoles()->includes(e.partWithPort))
 	 */
-	def validate_roles: Boolean  = {
+	def validate_roles: Boolean = {
 		// Start of user code for "roles"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The types of the ConnectableElements that the ends of a Connector are attached to must conform to the types of the ends of the Association that types the Connector, if any.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_types -->
+	 * <!-- End of user code doc for validate_types -->
 	 *
 	 * @body type<>null implies 
 	 *   let noOfEnds : Integer = end->size() in 
 	 *   (type.memberEnd->size() = noOfEnds) and Sequence{1..noOfEnds}->forAll(i | end->at(i).role.type.conformsTo(type.memberEnd->at(i).type))
 	 */
-	def validate_types: Boolean  = {
+	def validate_types: Boolean = {
 		// Start of user code for "types"
     	???
     	// End of user code
@@ -203,5 +206,4 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
   }    
   
 	// End of user code
-
-} //UMLConnector
+} //UMLConnectorOps

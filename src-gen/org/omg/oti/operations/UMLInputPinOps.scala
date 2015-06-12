@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An InputPin is a Pin that holds input values to be consumed by an Action.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,8 +56,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for collection_reduceAction -->
+	 * <!-- End of user code doc for collection_reduceAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReduceAction.collection
@@ -66,8 +65,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def collection_reduceAction: Option[UMLReduceAction[Uml]] = input_action.selectByKindOf { case x: UMLReduceAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for exception_raiseExceptionAction -->
+	 * <!-- End of user code doc for exception_raiseExceptionAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLRaiseExceptionAction.exception
@@ -75,8 +74,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def exception_raiseExceptionAction: Option[UMLRaiseExceptionAction[Uml]] = input_action.selectByKindOf { case x: UMLRaiseExceptionAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for inputValue_linkAction -->
+	 * <!-- End of user code doc for inputValue_linkAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLLinkAction.inputValue
@@ -84,8 +83,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def inputValue_linkAction: Option[UMLLinkAction[Uml]] = input_action.selectByKindOf { case x: UMLLinkAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for inputValue_opaqueAction -->
+	 * <!-- End of user code doc for inputValue_opaqueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLOpaqueAction.inputValue
@@ -93,8 +92,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def inputValue_opaqueAction: Option[UMLOpaqueAction[Uml]] = input_action.selectByKindOf { case x: UMLOpaqueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for insertAt_addStructuralFeatureValueAction -->
+	 * <!-- End of user code doc for insertAt_addStructuralFeatureValueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAddStructuralFeatureValueAction.insertAt
@@ -102,8 +101,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def insertAt_addStructuralFeatureValueAction: Option[UMLAddStructuralFeatureValueAction[Uml]] = input_action.selectByKindOf { case x: UMLAddStructuralFeatureValueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for insertAt_addVariableValueAction -->
+	 * <!-- End of user code doc for insertAt_addVariableValueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLAddVariableValueAction.insertAt
@@ -111,8 +110,17 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def insertAt_addVariableValueAction: Option[UMLAddVariableValueAction[Uml]] = input_action.selectByKindOf { case x: UMLAddVariableValueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for loopVariableInput_loopNode -->
+	 * <!-- End of user code doc for loopVariableInput_loopNode -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.api.UMLLoopNode.loopVariableInput
+	 */
+	def loopVariableInput_loopNode: Option[UMLLoopNode[Uml]] = structuredNodeInput_structuredActivityNode.selectByKindOf { case x: UMLLoopNode[Uml] => x }
+
+	/**
+	 * <!-- Start of user code doc for object_clearAssociationAction -->
+	 * <!-- End of user code doc for object_clearAssociationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLClearAssociationAction._object
@@ -120,8 +128,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_clearAssociationAction: Option[UMLClearAssociationAction[Uml]] = input_action.selectByKindOf { case x: UMLClearAssociationAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_readIsClassifiedObjectAction -->
+	 * <!-- End of user code doc for object_readIsClassifiedObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadIsClassifiedObjectAction._object
@@ -129,8 +137,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]] = input_action.selectByKindOf { case x: UMLReadIsClassifiedObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_readLinkObjectEndAction -->
+	 * <!-- End of user code doc for object_readLinkObjectEndAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndAction._object
@@ -138,8 +146,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]] = input_action.selectByKindOf { case x: UMLReadLinkObjectEndAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_readLinkObjectEndQualifierAction -->
+	 * <!-- End of user code doc for object_readLinkObjectEndQualifierAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction._object
@@ -147,8 +155,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]] = input_action.selectByKindOf { case x: UMLReadLinkObjectEndQualifierAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_reclassifyObjectAction -->
+	 * <!-- End of user code doc for object_reclassifyObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLReclassifyObjectAction._object
@@ -156,8 +164,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_reclassifyObjectAction: Option[UMLReclassifyObjectAction[Uml]] = input_action.selectByKindOf { case x: UMLReclassifyObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_startClassifierBehaviorAction -->
+	 * <!-- End of user code doc for object_startClassifierBehaviorAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStartClassifierBehaviorAction._object
@@ -165,8 +173,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_startClassifierBehaviorAction: Option[UMLStartClassifierBehaviorAction[Uml]] = input_action.selectByKindOf { case x: UMLStartClassifierBehaviorAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_startObjectBehaviorAction -->
+	 * <!-- End of user code doc for object_startObjectBehaviorAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStartObjectBehaviorAction._object
@@ -174,8 +182,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_startObjectBehaviorAction: Option[UMLStartObjectBehaviorAction[Uml]] = input_action.selectByKindOf { case x: UMLStartObjectBehaviorAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for object_unmarshallAction -->
+	 * <!-- End of user code doc for object_unmarshallAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLUnmarshallAction._object
@@ -183,8 +191,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def object_unmarshallAction: Option[UMLUnmarshallAction[Uml]] = input_action.selectByKindOf { case x: UMLUnmarshallAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for removeAt_removeStructuralFeatureValueAction -->
+	 * <!-- End of user code doc for removeAt_removeStructuralFeatureValueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLRemoveStructuralFeatureValueAction.removeAt
@@ -192,8 +200,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def removeAt_removeStructuralFeatureValueAction: Option[UMLRemoveStructuralFeatureValueAction[Uml]] = input_action.selectByKindOf { case x: UMLRemoveStructuralFeatureValueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for removeAt_removeVariableValueAction -->
+	 * <!-- End of user code doc for removeAt_removeVariableValueAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLRemoveVariableValueAction.removeAt
@@ -201,8 +209,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def removeAt_removeVariableValueAction: Option[UMLRemoveVariableValueAction[Uml]] = input_action.selectByKindOf { case x: UMLRemoveVariableValueAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for request_sendObjectAction -->
+	 * <!-- End of user code doc for request_sendObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLSendObjectAction.request
@@ -210,8 +218,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def request_sendObjectAction: Option[UMLSendObjectAction[Uml]] = argument_invocationAction.selectByKindOf { case x: UMLSendObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for structuredNodeInput_structuredActivityNode -->
+	 * <!-- End of user code doc for structuredNodeInput_structuredActivityNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.structuredNodeInput
@@ -219,8 +227,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def structuredNodeInput_structuredActivityNode: Option[UMLStructuredActivityNode[Uml]] = input_action.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for target_callOperationAction -->
+	 * <!-- End of user code doc for target_callOperationAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLCallOperationAction.target
@@ -228,8 +236,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def target_callOperationAction: Option[UMLCallOperationAction[Uml]] = input_action.selectByKindOf { case x: UMLCallOperationAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for target_destroyObjectAction -->
+	 * <!-- End of user code doc for target_destroyObjectAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLDestroyObjectAction.target
@@ -237,8 +245,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def target_destroyObjectAction: Option[UMLDestroyObjectAction[Uml]] = input_action.selectByKindOf { case x: UMLDestroyObjectAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for target_sendSignalAction -->
+	 * <!-- End of user code doc for target_sendSignalAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLSendSignalAction.target
@@ -246,16 +254,17 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	def target_sendSignalAction: Option[UMLSendSignalAction[Uml]] = input_action.selectByKindOf { case x: UMLSendSignalAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An InputPin may have outgoing ActivityEdges only when it is owned by a StructuredActivityNode, and these edges must target a node contained (directly or indirectly) in the owning StructuredActivityNode.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_outgoing_edges_structured_only -->
+	 * <!-- End of user code doc for validate_outgoing_edges_structured_only -->
 	 *
 	 * @body outgoing->notEmpty() implies
 	 * 	action<>null and
 	 * 	action.oclIsKindOf(StructuredActivityNode) and
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(outgoing.target)
 	 */
-	def validate_outgoing_edges_structured_only: Boolean  = {
+	def validate_outgoing_edges_structured_only: Boolean = {
 		// Start of user code for "outgoing_edges_structured_only"
     	???
     	// End of user code
@@ -263,5 +272,4 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLInputPin
+} //UMLInputPinOps

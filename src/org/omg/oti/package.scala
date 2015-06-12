@@ -189,6 +189,32 @@ package object oti {
     +attributeName.hashCode()
   }
 
+  case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]](
+                                                                             attributePrefix: Option[String] = None,
+                                                                             attributeName: String,
+                                                                             f: Function1[U, Iterable[Integer]])
+    extends MetaAttributeAbstractFunction[Uml, U, Integer] {
+    implicit val UType: TypeTag[U] = typeTag[U]
+
+    override def equals(other: Any): Boolean =
+      other match {
+        case that: MetaAttributeUnlimitedNaturalFunction[Uml, _] =>
+          (that canEqual this) &&
+            attributePrefix == that.attributePrefix &&
+            attributeName == that.attributeName
+        case _ =>
+          false
+      }
+
+    def canEqual(other: Any): Boolean =
+      other.isInstanceOf[MetaAttributeUnlimitedNaturalFunction[Uml, _]]
+
+    override def hashCode: Int =
+      41 * (41 + attributePrefix.hashCode())
+
+    +attributeName.hashCode()
+  }
+
   /**
    * Error type: IllegalMetaPropertyEvaluation
    */

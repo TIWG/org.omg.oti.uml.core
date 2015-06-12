@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * WriteVariableAction is an abstract class for VariableActions that change Variable values.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLWriteVariableAction[Uml <: UML]
 	extends UMLVariableAction[Uml]
 	with UMLWriteVariableActionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLWriteVariableAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the value to be added or removed from the Variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.value_writeVariableAction
@@ -67,12 +69,18 @@ trait UMLWriteVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		writeVariableAction_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLWriteVariableAction
+	 *
+	 * <!-- Start of user code doc for writeVariableAction_metaAttributes -->
+	 * <!-- End of user code doc for writeVariableAction_metaAttributes -->
 	 */
 	def writeVariableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -81,12 +89,18 @@ trait UMLWriteVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		writeVariableAction_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLWriteVariableAction
+	 *
+	 * <!-- Start of user code doc for writeVariableAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for writeVariableAction_compositeMetaProperties -->
 	 */
 	def writeVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -95,12 +109,18 @@ trait UMLWriteVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		writeVariableAction_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLWriteVariableAction
+	 *
+	 * <!-- Start of user code doc for writeVariableAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for writeVariableAction_referenceMetaProperties -->
 	 */
 	def writeVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -109,15 +129,23 @@ trait UMLWriteVariableAction[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		writeVariableAction_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLWriteVariableAction
+	 *
+	 * <!-- Start of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def writeVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
 		variableAction_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLWriteVariableAction

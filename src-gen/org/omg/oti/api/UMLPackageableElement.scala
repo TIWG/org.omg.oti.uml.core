@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A PackageableElement is a NamedElement that may be owned directly by a Package. A PackageableElement is also able to serve as the parameteredElement of a TemplateParameter.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLPackageableElement[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLParameterableElement[Uml]
@@ -57,17 +58,18 @@ trait UMLPackageableElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A PackageableElement must have a visibility specified if it is owned by a Namespace. The default visibility is public.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for visibility -->
+	 * <!-- End of user code doc for visibility -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	override def visibility: Option[UMLVisibilityKind.Value]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for deployedElement_deploymentTarget -->
+	 * <!-- End of user code doc for deployedElement_deploymentTarget -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployedElement
@@ -75,8 +77,8 @@ trait UMLPackageableElement[Uml <: UML]
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for importedElement_import -->
+	 * <!-- End of user code doc for importedElement_import -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLElementImport.importedElement
@@ -84,8 +86,8 @@ trait UMLPackageableElement[Uml <: UML]
 	def importedElement_import: Set[UMLElementImport[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for importedMember_namespace -->
+	 * <!-- End of user code doc for importedMember_namespace -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLNamespace.importedMember
@@ -93,8 +95,8 @@ trait UMLPackageableElement[Uml <: UML]
 	def importedMember_namespace: Set[UMLNamespace[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for packagedElement_component -->
+	 * <!-- End of user code doc for packagedElement_component -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLComponent.packagedElement
@@ -102,8 +104,8 @@ trait UMLPackageableElement[Uml <: UML]
 	def packagedElement_component: Option[UMLComponent[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for packagedElement_owningPackage -->
+	 * <!-- End of user code doc for packagedElement_owningPackage -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.packagedElement
@@ -111,8 +113,8 @@ trait UMLPackageableElement[Uml <: UML]
 	def packagedElement_owningPackage: Option[UMLPackage[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for utilizedElement_manifestation -->
+	 * <!-- End of user code doc for utilizedElement_manifestation -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLManifestation.utilizedElement
@@ -121,12 +123,18 @@ trait UMLPackageableElement[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		packageableElement_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLPackageableElement
+	 *
+	 * <!-- Start of user code doc for packageableElement_metaAttributes -->
+	 * <!-- End of user code doc for packageableElement_metaAttributes -->
 	 */
 	def packageableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -136,12 +144,18 @@ trait UMLPackageableElement[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		packageableElement_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLPackageableElement
+	 *
+	 * <!-- Start of user code doc for packageableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for packageableElement_compositeMetaProperties -->
 	 */
 	def packageableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -151,12 +165,18 @@ trait UMLPackageableElement[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		packageableElement_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLPackageableElement
+	 *
+	 * <!-- Start of user code doc for packageableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for packageableElement_referenceMetaProperties -->
 	 */
 	def packageableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -166,16 +186,24 @@ trait UMLPackageableElement[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLPackageableElement
+	 *
+	 * <!-- Start of user code doc for packageableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for packageableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def packageableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		parameterableElement_forwardReferencesFromMetamodelAssociations ++
 		Set () 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLPackageableElement

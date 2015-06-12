@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Variable is a ConnectableElement that may store values during the execution of an Activity. Reading and writing the values of a Variable provides an alternative means for passing data than the use of ObjectFlows. A Variable may be owned directly by an Activity, in which case it is accessible from anywhere within that activity, or it may be owned by a StructuredActivityNode, in which case it is only accessible within that node.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLVariable[Uml <: UML]
 	extends UMLConnectableElement[Uml]
 	with UMLMultiplicityElement[Uml]
@@ -57,9 +58,10 @@ trait UMLVariable[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An Activity that owns the Variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for activityScope -->
+	 * <!-- End of user code doc for activityScope -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivity.variable
@@ -67,9 +69,10 @@ trait UMLVariable[Uml <: UML]
 	def activityScope: Option[UMLActivity[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A StructuredActivityNode that owns the Variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for scope -->
+	 * <!-- End of user code doc for scope -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.variable
@@ -77,8 +80,8 @@ trait UMLVariable[Uml <: UML]
 	def scope: Option[UMLStructuredActivityNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for variable_variableAction -->
+	 * <!-- End of user code doc for variable_variableAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLVariableAction.variable
@@ -87,12 +90,18 @@ trait UMLVariable[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		variable_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLVariable
+	 *
+	 * <!-- Start of user code doc for variable_metaAttributes -->
+	 * <!-- End of user code doc for variable_metaAttributes -->
 	 */
 	def variable_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -102,12 +111,18 @@ trait UMLVariable[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		variable_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLVariable
+	 *
+	 * <!-- Start of user code doc for variable_compositeMetaProperties -->
+	 * <!-- End of user code doc for variable_compositeMetaProperties -->
 	 */
 	def variable_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -117,12 +132,18 @@ trait UMLVariable[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		variable_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLVariable
+	 *
+	 * <!-- Start of user code doc for variable_referenceMetaProperties -->
+	 * <!-- End of user code doc for variable_referenceMetaProperties -->
 	 */
 	def variable_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -132,12 +153,18 @@ trait UMLVariable[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		variable_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLVariable
+	 *
+	 * <!-- Start of user code doc for variable_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for variable_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def variable_forwardReferencesFromMetamodelAssociations: Elements =
 		connectableElement_forwardReferencesFromMetamodelAssociations ++
@@ -145,4 +172,6 @@ trait UMLVariable[Uml <: UML]
 		activityScope ++
 		scope 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLVariable

@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * VariableAction is an abstract class for Actions that operate on a specified Variable.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,13 +56,14 @@ trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The VariableAction must be in the scope of the variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_scope_of_variable -->
+	 * <!-- End of user code doc for validate_scope_of_variable -->
 	 *
 	 * @body variable.isAccessibleBy(self)
 	 */
-	def validate_scope_of_variable: Boolean  = {
+	def validate_scope_of_variable: Boolean = {
 		// Start of user code for "scope_of_variable"
     	???
     	// End of user code
@@ -71,5 +71,4 @@ trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLVariableAction
+} //UMLVariableActionOps

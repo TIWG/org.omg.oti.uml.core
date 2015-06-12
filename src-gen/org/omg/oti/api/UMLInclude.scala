@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLInclude[Uml <: UML]
 	extends UMLDirectedRelationship[Uml]
 	with UMLNamedElement[Uml]
@@ -57,9 +58,10 @@ trait UMLInclude[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase that is to be included.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for addition -->
+	 * <!-- End of user code doc for addition -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.addition_include
@@ -67,9 +69,10 @@ trait UMLInclude[Uml <: UML]
 	def addition: Option[UMLUseCase[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The UseCase which includes the addition and owns the Include relationship.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for includingCase -->
+	 * <!-- End of user code doc for includingCase -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLUseCase.include
@@ -78,12 +81,18 @@ trait UMLInclude[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		include_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLInclude
+	 *
+	 * <!-- Start of user code doc for include_metaAttributes -->
+	 * <!-- End of user code doc for include_metaAttributes -->
 	 */
 	def include_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -93,12 +102,18 @@ trait UMLInclude[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		include_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInclude
+	 *
+	 * <!-- Start of user code doc for include_compositeMetaProperties -->
+	 * <!-- End of user code doc for include_compositeMetaProperties -->
 	 */
 	def include_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -108,12 +123,18 @@ trait UMLInclude[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		include_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInclude
+	 *
+	 * <!-- Start of user code doc for include_referenceMetaProperties -->
+	 * <!-- End of user code doc for include_referenceMetaProperties -->
 	 */
 	def include_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -123,12 +144,18 @@ trait UMLInclude[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		include_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLInclude
+	 *
+	 * <!-- Start of user code doc for include_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for include_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def include_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
@@ -136,4 +163,6 @@ trait UMLInclude[Uml <: UML]
 		addition ++
 		includingCase 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLInclude

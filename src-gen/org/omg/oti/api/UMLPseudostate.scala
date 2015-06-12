@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Pseudostate is an abstraction that encompasses different types of transient Vertices in the StateMachine graph. A StateMachine instance never comes to rest in a Pseudostate, instead, it will exit and enter the Pseudostate within a single run-to-completion step.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLPseudostate[Uml <: UML]
 	extends UMLVertex[Uml]
 	with UMLPseudostateOps[Uml] {
@@ -56,18 +57,20 @@ trait UMLPseudostate[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Determines the precise type of the Pseudostate and can be one of: entryPoint, exitPoint, initial, deepHistory, shallowHistory, join, fork, junction, terminate or choice.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for kind -->
+	 * <!-- End of user code doc for kind -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def kind: UMLPseudostateKind.Value
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The State that owns this Pseudostate and in which it appears.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for state -->
+	 * <!-- End of user code doc for state -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLState.connectionPoint
@@ -75,9 +78,10 @@ trait UMLPseudostate[Uml <: UML]
 	def state: Option[UMLState[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The StateMachine in which this Pseudostate is defined. This only applies to Pseudostates of the kind entryPoint or exitPoint.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for stateMachine -->
+	 * <!-- End of user code doc for stateMachine -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStateMachine.connectionPoint
@@ -85,8 +89,8 @@ trait UMLPseudostate[Uml <: UML]
 	def stateMachine: Option[UMLStateMachine[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for entry_connectionPointReference -->
+	 * <!-- End of user code doc for entry_connectionPointReference -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConnectionPointReference.entry
@@ -94,8 +98,8 @@ trait UMLPseudostate[Uml <: UML]
 	def entry_connectionPointReference: Option[UMLConnectionPointReference[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for exit_connectionPointReference -->
+	 * <!-- End of user code doc for exit_connectionPointReference -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLConnectionPointReference.exit
@@ -104,12 +108,18 @@ trait UMLPseudostate[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		pseudostate_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_metaAttributes -->
+	 * <!-- End of user code doc for pseudostate_metaAttributes -->
 	 */
 	def pseudostate_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,12 +128,18 @@ trait UMLPseudostate[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		pseudostate_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_compositeMetaProperties -->
+	 * <!-- End of user code doc for pseudostate_compositeMetaProperties -->
 	 */
 	def pseudostate_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -132,12 +148,18 @@ trait UMLPseudostate[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		pseudostate_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_referenceMetaProperties -->
+	 * <!-- End of user code doc for pseudostate_referenceMetaProperties -->
 	 */
 	def pseudostate_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -146,16 +168,24 @@ trait UMLPseudostate[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		pseudostate_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for pseudostate_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def pseudostate_forwardReferencesFromMetamodelAssociations: Elements =
 		vertex_forwardReferencesFromMetamodelAssociations ++
 		state ++
 		stateMachine 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLPseudostate

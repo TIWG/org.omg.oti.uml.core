@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A Component represents a modular part of a system that encapsulates its contents and whose manifestation is replaceable within its environment.  
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interfaces that the Component exposes to its environment. These Interfaces may be Realized by the Component or any of its realizingClassifiers, or they may be the Interfaces that are provided by its public Ports.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for provided -->
+	 * <!-- End of user code doc for provided -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.provided_component
@@ -78,9 +78,10 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The set of Realizations owned by the Component. Realizations reference the Classifiers of which the Component is an abstraction; i.e., that realize its behavior.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for realization -->
+	 * <!-- End of user code doc for realization -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComponentRealization.abstraction
@@ -88,9 +89,10 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	def realization: Set[UMLComponentRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLComponentRealization[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Interfaces that the Component requires from other Components in its environment in order to be able to offer its full set of provided functionality. These Interfaces may be used by the Component or any of its realizingClassifiers, or they may be the Interfaces that are required by its public Ports.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for required -->
+	 * <!-- End of user code doc for required -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterface.required_component
@@ -110,26 +112,28 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Component cannot nest Classifiers.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_nested_classifiers -->
+	 * <!-- End of user code doc for validate_no_nested_classifiers -->
 	 *
 	 * @body nestedClassifier->isEmpty()
 	 */
-	def validate_no_nested_classifiers: Boolean  = {
+	def validate_no_nested_classifiers: Boolean = {
 		// Start of user code for "no_nested_classifiers"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Component nested in a Class cannot have any packaged elements.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_packaged_elements -->
+	 * <!-- End of user code doc for validate_no_packaged_elements -->
 	 *
 	 * @body nestingClass <> null implies packagedElement->isEmpty()
 	 */
-	def validate_no_packaged_elements: Boolean  = {
+	def validate_no_packaged_elements: Boolean = {
 		// Start of user code for "no_packaged_elements"
     	???
     	// End of user code
@@ -137,5 +141,4 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLComponent
+} //UMLComponentOps

@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An ExceptionHandler is an Element that specifies a handlerBody ExecutableNode to execute in case the specified exception occurs during the execution of the protected ExecutableNode.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLExceptionHandler[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLExceptionHandlerOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLExceptionHandler[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ObjectNode within the handlerBody. When the ExceptionHandler catches an exception, the exception token is placed on this ObjectNode, causing the handlerBody to execute.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for exceptionInput -->
+	 * <!-- End of user code doc for exceptionInput -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLObjectNode.exceptionInput_exceptionHandler
@@ -66,9 +68,10 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionInput: Option[UMLObjectNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Classifiers whose instances the ExceptionHandler catches as exceptions. If an exception occurs whose type is any exceptionType, the ExceptionHandler catches the exception and executes the handlerBody.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for exceptionType -->
+	 * <!-- End of user code doc for exceptionType -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.api.UMLClassifier.exceptionType_exceptionHandler
@@ -76,9 +79,10 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionType: Set[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * An ExecutableNode that is executed if the ExceptionHandler catches an exception.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for handlerBody -->
+	 * <!-- End of user code doc for handlerBody -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.handlerBody_exceptionHandler
@@ -86,9 +90,10 @@ trait UMLExceptionHandler[Uml <: UML]
 	def handlerBody: Option[UMLExecutableNode[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The ExecutableNode protected by the ExceptionHandler. If an exception propagates out of the protectedNode and has a type matching one of the exceptionTypes, then it is caught by this ExceptionHandler.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for protectedNode -->
+	 * <!-- End of user code doc for protectedNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLExecutableNode.handler
@@ -97,12 +102,18 @@ trait UMLExceptionHandler[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		exceptionHandler_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLExceptionHandler
+	 *
+	 * <!-- Start of user code doc for exceptionHandler_metaAttributes -->
+	 * <!-- End of user code doc for exceptionHandler_metaAttributes -->
 	 */
 	def exceptionHandler_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -111,12 +122,18 @@ trait UMLExceptionHandler[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		exceptionHandler_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLExceptionHandler
+	 *
+	 * <!-- Start of user code doc for exceptionHandler_compositeMetaProperties -->
+	 * <!-- End of user code doc for exceptionHandler_compositeMetaProperties -->
 	 */
 	def exceptionHandler_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,12 +142,18 @@ trait UMLExceptionHandler[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		exceptionHandler_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLExceptionHandler
+	 *
+	 * <!-- Start of user code doc for exceptionHandler_referenceMetaProperties -->
+	 * <!-- End of user code doc for exceptionHandler_referenceMetaProperties -->
 	 */
 	def exceptionHandler_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -141,12 +164,18 @@ trait UMLExceptionHandler[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		exceptionHandler_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLExceptionHandler
+	 *
+	 * <!-- Start of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def exceptionHandler_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
@@ -155,4 +184,6 @@ trait UMLExceptionHandler[Uml <: UML]
 		handlerBody ++
 		protectedNode 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLExceptionHandler

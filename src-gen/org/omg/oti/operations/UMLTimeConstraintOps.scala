@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A TimeConstraint is a Constraint that refers to a TimeInterval.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * TheTimeInterval constraining the duration.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLTimeInterval.specification_timeConstraint
@@ -67,13 +67,14 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 	override def specification: Option[UMLTimeInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeInterval[Uml] => x } headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A TimeConstraint has one constrainedElement.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_has_one_constrainedElement -->
+	 * <!-- End of user code doc for validate_has_one_constrainedElement -->
 	 *
 	 * @body constrainedElement->size() = 1
 	 */
-	def validate_has_one_constrainedElement: Boolean  = {
+	def validate_has_one_constrainedElement: Boolean = {
 		// Start of user code for "has_one_constrainedElement"
     	???
     	// End of user code
@@ -81,5 +82,4 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLTimeConstraint
+} //UMLTimeConstraintOps

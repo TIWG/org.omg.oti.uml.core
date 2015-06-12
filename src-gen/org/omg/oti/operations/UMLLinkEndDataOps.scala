@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * LinkEndData is an Element that identifies on end of a link to be read or written by a LinkAction. As a link (that is not a link object) cannot be passed as a runtime value to or from an Action, it is instead identified by its end objects and qualifier values, if any. A LinkEndData instance provides these values for a single Association end.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A set of QualifierValues used to provide values for the qualifiers of the end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for qualifier -->
+	 * <!-- End of user code doc for qualifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLQualifierValue.qualifier_linkEndData
@@ -67,8 +67,8 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	def qualifier: Set[UMLQualifierValue[Uml]] = ownedElement.selectByKindOf { case x: UMLQualifierValue[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
-	 * <!-- end-model-doc -->
+	 * <!-- Start of user code doc for endData_linkAction -->
+	 * <!-- End of user code doc for endData_linkAction -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLLinkAction.endData
@@ -76,79 +76,85 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	def endData_linkAction: Option[UMLLinkAction[Uml]] = owner.selectByKindOf { case x: UMLLinkAction[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Returns all the InputPins referenced by this LinkEndData. By default this includes the value and qualifier InputPins, but subclasses may override the operation to add other InputPins.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for allPins -->
+	 * <!-- End of user code doc for allPins -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="0..*"
 	 * @body result = (value->asBag()->union(qualifier.value))
 	 */
-	def allPins: Set[UMLInputPin[Uml]]  = {
+	def allPins: Set[UMLInputPin[Uml]] = {
 		// Start of user code for "allPins"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The value InputPin is not also the qualifier value InputPin.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_end_object_input_pin -->
+	 * <!-- End of user code doc for validate_end_object_input_pin -->
 	 *
 	 * @body value->excludesAll(qualifier.value)
 	 */
-	def validate_end_object_input_pin: Boolean  = {
+	def validate_end_object_input_pin: Boolean = {
 		// Start of user code for "end_object_input_pin"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the value InputPin must be 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body value<>null implies value.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The Property must be an Association memberEnd.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_property_is_association_end -->
+	 * <!-- End of user code doc for validate_property_is_association_end -->
 	 *
 	 * @body end.association <> null
 	 */
-	def validate_property_is_association_end: Boolean  = {
+	def validate_property_is_association_end: Boolean = {
 		// Start of user code for "property_is_association_end"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The qualifiers must be qualifiers of the Association end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_qualifiers -->
+	 * <!-- End of user code doc for validate_qualifiers -->
 	 *
 	 * @body end.qualifier->includesAll(qualifier.qualifier)
 	 */
-	def validate_qualifiers: Boolean  = {
+	def validate_qualifiers: Boolean = {
 		// Start of user code for "qualifiers"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the value InputPin conforms to the type of the Association end.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
+	 * <!-- End of user code doc for validate_same_type -->
 	 *
 	 * @body value<>null implies value.type.conformsTo(end.type)
 	 */
-	def validate_same_type: Boolean  = {
+	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
     	???
     	// End of user code
@@ -156,5 +162,4 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLLinkEndData
+} //UMLLinkEndDataOps

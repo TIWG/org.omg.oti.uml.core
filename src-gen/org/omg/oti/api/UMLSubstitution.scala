@@ -45,10 +45,11 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A substitution is a relationship between two classifiers signifying that the substituting classifier complies with the contract specified by the contract classifier. This implies that instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
- * <!-- end-model-doc -->
- */
+ *
+ * <!-- Start of user code documentation --> 
+ * <!-- End of user code documentation -->
+*/
 trait UMLSubstitution[Uml <: UML]
 	extends UMLRealization[Uml]
 	with UMLSubstitutionOps[Uml] {
@@ -56,9 +57,10 @@ trait UMLSubstitution[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The contract with which the substituting classifier complies.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for contract -->
+	 * <!-- End of user code doc for contract -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.contract_substitution
@@ -66,9 +68,10 @@ trait UMLSubstitution[Uml <: UML]
 	def contract: Option[UMLClassifier[Uml]]
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for substitutingClassifier -->
+	 * <!-- End of user code doc for substitutingClassifier -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLClassifier.substitution
@@ -77,12 +80,18 @@ trait UMLSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		substitution_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLSubstitution
+	 *
+	 * <!-- Start of user code doc for substitution_metaAttributes -->
+	 * <!-- End of user code doc for substitution_metaAttributes -->
 	 */
 	def substitution_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -91,12 +100,18 @@ trait UMLSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		substitution_compositeMetaProperties
 
 	/**
 	 * The XMI composite meta-properties relevant to class UMLSubstitution
+	 *
+	 * <!-- Start of user code doc for substitution_compositeMetaProperties -->
+	 * <!-- End of user code doc for substitution_compositeMetaProperties -->
 	 */
 	def substitution_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,12 +120,18 @@ trait UMLSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		substitution_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLSubstitution
+	 *
+	 * <!-- Start of user code doc for substitution_referenceMetaProperties -->
+	 * <!-- End of user code doc for substitution_referenceMetaProperties -->
 	 */
 	def substitution_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,16 +140,24 @@ trait UMLSubstitution[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		substitution_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLSubstitution
+	 *
+	 * <!-- Start of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def substitution_forwardReferencesFromMetamodelAssociations: Elements =
 		realization_forwardReferencesFromMetamodelAssociations ++
 		contract ++
 		substitutingClassifier 
 
+	// Start of user code for additional features
+	// End of user code
 } //UMLSubstitution

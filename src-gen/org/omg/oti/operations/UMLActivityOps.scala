@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityEdges expressing flow between the nodes of the Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for edge -->
+	 * <!-- End of user code doc for edge -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityEdge.activity
@@ -67,9 +67,10 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	def edge: Set[UMLActivityEdge[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * Top-level ActivityGroups in the Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for group -->
+	 * <!-- End of user code doc for group -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityGroup.inActivity
@@ -77,9 +78,10 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	def group: Set[UMLActivityGroup[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * ActivityNodes coordinated by the Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for node -->
+	 * <!-- End of user code doc for node -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.activity
@@ -87,9 +89,21 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	def node: Set[UMLActivityNode[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
+	 * Top-level StructuredActivityNodes in the Activity.
+	 *
+	 * <!-- Start of user code doc for structuredNode -->
+	 * <!-- End of user code doc for structuredNode -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.activity
+	 */
+	def structuredNode: Set[UMLStructuredActivityNode[Uml]] = group.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
+
+	/**
 	 * Top-level Variables defined by the Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for variable -->
+	 * <!-- End of user code doc for variable -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLVariable.activityScope
@@ -97,15 +111,16 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	def variable: Set[UMLVariable[Uml]] = ownedMember.selectByKindOf { case x: UMLVariable[Uml] => x }
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Parameter with direction other than inout must have exactly one ActivityParameterNode in an Activity.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_maximum_one_parameter_node -->
+	 * <!-- End of user code doc for validate_maximum_one_parameter_node -->
 	 *
 	 * @body ownedParameter->forAll(p | 
 	 *    p.direction <> ParameterDirectionKind::inout implies node->select(
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p)->size()= 1)
 	 */
-	def validate_maximum_one_parameter_node: Boolean  = { 
+	def validate_maximum_one_parameter_node: Boolean = {
 		// Start of user code for "maximum_one_parameter_node"
   	ownedParameter.forall { p => 
       if ( p.direction != UMLParameterDirectionKind.inout ) {
@@ -119,9 +134,10 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * A Parameter with direction inout must have exactly two ActivityParameterNodes in an Activity, at most one with incoming ActivityEdges and at most one with outgoing ActivityEdges.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_maximum_two_parameter_nodes -->
+	 * <!-- End of user code doc for validate_maximum_two_parameter_nodes -->
 	 *
 	 * @body ownedParameter->forAll(p | 
 	 * p.direction = ParameterDirectionKind::inout implies
@@ -132,7 +148,7 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *   associatedNodes->select(outgoing->notEmpty())->size()<=1
 	 * )
 	 */
-	def validate_maximum_two_parameter_nodes: Boolean  = {
+	def validate_maximum_two_parameter_nodes: Boolean = {
 		// Start of user code for "maximum_two_parameter_nodes"
   	ownedParameter.forall { p => 
       if (p.direction == UMLParameterDirectionKind.inout) {
@@ -151,5 +167,4 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLActivity
+} //UMLActivityOps

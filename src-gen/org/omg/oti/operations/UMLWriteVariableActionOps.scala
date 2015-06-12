@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * WriteVariableAction is an abstract class for VariableActions that change Variable values.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] 
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin that gives the value to be added or removed from the Variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.value_writeVariableAction
@@ -67,26 +67,28 @@ trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] 
 	def value: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the value InputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body value<>null implies value.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The type of the value InputPin must conform to the type of the variable.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_value_type -->
+	 * <!-- End of user code doc for validate_value_type -->
 	 *
 	 * @body value <> null implies value.type.conformsTo(variable.type)
 	 */
-	def validate_value_type: Boolean  = {
+	def validate_value_type: Boolean = {
 		// Start of user code for "value_type"
     	???
     	// End of user code
@@ -94,5 +96,4 @@ trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] 
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLWriteVariableAction
+} //UMLWriteVariableActionOps

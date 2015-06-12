@@ -46,9 +46,8 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * <!-- begin-model-doc -->
  * A DestroyObjectAction is an Action that destroys objects.
- * <!-- end-model-doc -->
+ *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
@@ -57,9 +56,10 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	import self.ops._
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The InputPin providing the object to be destroyed.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for target -->
+	 * <!-- End of user code doc for target -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLInputPin.target_destroyObjectAction
@@ -67,26 +67,28 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	def target: Option[UMLInputPin[Uml]] = input headOption
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The multiplicity of the targe IinputPin is 1..1.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
+	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
 	 * @body target.is(1,1)
 	 */
-	def validate_multiplicity: Boolean  = {
+	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
     	???
     	// End of user code
 	}
 
 	/**
-	 * <!-- begin-model-doc -->
 	 * The target InputPin has no type.
-	 * <!-- end-model-doc -->
+	 *
+	 * <!-- Start of user code doc for validate_no_type -->
+	 * <!-- End of user code doc for validate_no_type -->
 	 *
 	 * @body target.type= null
 	 */
-	def validate_no_type: Boolean  = {
+	def validate_no_type: Boolean = {
 		// Start of user code for "no_type"
     	???
     	// End of user code
@@ -94,5 +96,4 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 
 	// Start of user code for additional features
 	// End of user code
-
-} //UMLDestroyObjectAction
+} //UMLDestroyObjectActionOps
