@@ -48,6 +48,17 @@ import scala.util.Try
 import org.omg.oti.api._
 import org.omg.oti.operations._
 
+/**
+ * TIWG-29: This needs to be refactored so that all references to
+ * isMetamodelPropertySlotValue,
+ * isMetamodelPropertyOrdered,
+ * getMetamodelPropertyName,
+ * getMetamodelPropertyUpperBound
+ *
+ * are replaced with accessors based on an element's compositeMetaProperty information.
+ *
+ * @tparam Uml
+ */
 trait IDGenerator[Uml <: UML] { 
   
   implicit val umlOps: UMLOps[Uml]
@@ -76,7 +87,7 @@ trait IDGenerator[Uml <: UML] {
    * Computes the xmi:ID for each element in the domain of the element2document map of the ResolvedDocumentSet
    */
   def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): Try[Unit] = {
-    pkg.allOwnedElements filter (resolvedDocumentSet.element2document.contains(_)) foreach ( getXMI_ID( _ ) )
+    pkg.allOwnedElements filter (resolvedDocumentSet.element2document.contains) foreach ( getXMI_ID )
     Success( Unit )
   }
    protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =

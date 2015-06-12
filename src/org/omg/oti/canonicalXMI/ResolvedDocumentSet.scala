@@ -48,6 +48,7 @@ import org.omg.oti.api._
 import scala.util.Try
 import scala.util.Failure
 import scala.util.Success
+import scala.collection.immutable.SortedMap
 import scalax.collection.GraphPredef._
 import java.io.OutputStreamWriter
 import java.io.FileOutputStream
@@ -349,10 +350,10 @@ case class ResolvedDocumentSet[Uml <: UML](
   type SerializationState = ( UMLElementSet, NodeSeq, MetaPropertyFunctionSet )
 
   @tailrec final protected def append1Pair(
-    sub: UMLElement[Uml],
-    t: Trampoline[Try[scala.xml.Node]],
-    subElements: Set[UMLElement[Uml]],
-    nodes: Seq[scala.xml.Node],
+                                            sub: UMLElement[Uml],
+                                            t: Trampoline[Try[scala.xml.Node]],
+                                            subElements: Set[UMLElement[Uml]],
+                                            nodes: Seq[scala.xml.Node],
                                             redefinitions: MetaPropertyFunctionSet): Trampoline[Try[SerializationState]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
@@ -367,6 +368,27 @@ case class ResolvedDocumentSet[Uml <: UML](
       }
     }
   }
+
+  @tailrec final protected def prependNestedElement(
+                                            sub: UMLElement[Uml],
+                                            t: Trampoline[Try[scala.xml.Node]],
+                                            subElements: Set[UMLElement[Uml]],
+                                            nodes: Seq[scala.xml.Node],
+                                            redefinitions: MetaPropertyFunctionSet): Trampoline[Try[SerializationState]] = {
+
+    //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "append1Node" ) == 1,
+    //      "Verification that the trampolined recursive function 'append1Node' runs stack-free" )
+
+    t.resume match {
+      //case -\/( s ) => suspend { append1Node( nodes, s() ) }
+      case -\/( s ) => prependNestedElement( sub, s(), subElements, nodes, redefinitions )
+      case \/-( r ) => r match {
+        case Failure( f ) => return_ { Failure( f ) }
+        case Success( n ) => return_ { Success( ( subElements + sub, n +: nodes, redefinitions ) ) }
+      }
+    }
+  }
+
 
   @tailrec final protected def append1Node(
     nodes: NodeSeq,
@@ -405,12 +427,13 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   @tailrec final protected def wrapNodes(
-                                          xRefs: Try[NodeSeq],
-    t: Trampoline[Try[SerializationState]],
-    prefix: String,
-    label: String,
-    xmlAttributesAndLocalReferences: scala.xml.MetaData,
-    xmiScopes: scala.xml.NamespaceBinding ): Trampoline[Try[scala.xml.Node]] = {
+                                          xRefAttrs: Try[NodeSeq],
+                                          t: Trampoline[Try[SerializationState]],
+                                          xRefRefs: Try[NodeSeq],
+                                          prefix: String,
+                                          label: String,
+                                          xmlAttributesAndLocalReferences: scala.xml.MetaData,
+                                          xmiScopes: scala.xml.NamespaceBinding ): Trampoline[Try[scala.xml.Node]] = {
 
     //    assert( Thread.currentThread().getStackTrace.count( _.getMethodName == "wrapNodes" ) == 1,
     //      "Verification that the trampolined function 'wrapNodes' runs recursively stack-free" )
@@ -419,16 +442,20 @@ case class ResolvedDocumentSet[Uml <: UML](
       //      case -\/( s ) =>
       //        suspend { wrapNodes( s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes ) }
       case -\/( s ) =>
-        wrapNodes( xRefs, s(), prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
+        wrapNodes( xRefAttrs, s(), xRefRefs, prefix, label, xmlAttributesAndLocalReferences, xmiScopes )
       case \/-( Failure( f ) ) =>
         return_ { Failure( f ) }
-      case \/-( Success( ( _, nodes, _ ) ) ) =>
-        xRefs match {
-          case Failure(f) =>
+      case \/-( Success( ( _, sNodes, _ ) ) ) =>
+        ( xRefAttrs, xRefRefs ) match {
+          case ( Failure(f), _ ) =>
             return_ {
               Failure(f)
             }
-          case Success(pre_nodes) =>
+          case ( _, Failure(f) ) =>
+            return_ {
+              Failure(f)
+            }
+          case (Success(aNodes), Success(rNodes)) =>
             import scala.xml._
             val node = Elem(
               prefix = prefix,
@@ -436,7 +463,7 @@ case class ResolvedDocumentSet[Uml <: UML](
               attributes = xmlAttributesAndLocalReferences,
               scope = xmiScopes,
               minimizeEmpty = true,
-              pre_nodes ++ nodes.reverse: _*)
+              aNodes ++ sNodes ++ rNodes: _*)
             return_ { Success(node) }
         }
     }
@@ -561,40 +588,65 @@ case class ResolvedDocumentSet[Uml <: UML](
           }
       }
 
+    def waitGenerateNodeElement(
+                                 f: e.MetaPropertyEvaluator,
+                                 sub: UMLElement[Uml] ): Try[scala.xml.Node] =
+      callGenerateNodeElement(f, sub).run
+
     def callGenerateNodeElement(
-      f: e.MetaPropertyEvaluator,
-      sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] =
+                                 f: e.MetaPropertyEvaluator,
+                                 sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] =
       generateNodeElement( elementOrdering, d, null, f.propertyName, sub, xmiScopes )
 
-    def callGenerateNodeReference(
-      f: e.MetaPropertyEvaluator,
-      sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] = {
+    def waitGenerateNodeReference(
+                                   f: e.MetaPropertyEvaluator,
+                                   sub: UMLElement[Uml] ): Try[scala.xml.Node] = {
       val idRefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = sub.id, Null )
-      val idRefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = idRefAttrib, scope = xmiScopes, minimizeEmpty = true )
-      return_ { Success( idRefNode ) }
+      val idRefNode: Node = Elem(
+        prefix = null,
+        label = f.propertyName,
+        attributes = idRefAttrib,
+        scope = xmiScopes,
+        minimizeEmpty = true )
+      Success( idRefNode )
     }
 
-    def applyGenerateNodeElementsOrReferences(
-                                               f: e.MetaPropertyEvaluator,
-                                               subs: List[UMLElement[Uml]],
-                                               subElements: Set[UMLElement[Uml]],
-                                               nodes: NodeSeq,
-                                               redefined: MetaPropertyFunctionSet): Trampoline[Try[SerializationState]] =
-      subs match {
-        case Nil => return_ { Success( subElements, nodes, redefined ) }
-        case x :: xs =>
-          for {
-            node <- if ( subElements.contains( x ) )
-              append1Pair( x, callGenerateNodeReference( f, x ), subElements, nodes, redefined )
-            else
-              append1Pair( x, callGenerateNodeElement( f, x ), subElements, nodes, redefined )
-            result <- node match {
-              case Failure( t )          => return return_ { Failure( t ) }
-              case Success( ( es, ns, rs ) ) => applyGenerateNodeElementsOrReferences( f, xs, es, ns, rs )
+    def callGenerateNodeReference(
+                                   f: e.MetaPropertyEvaluator,
+                                   sub: UMLElement[Uml] ): Trampoline[Try[scala.xml.Node]] = {
+      return_ { waitGenerateNodeReference(f, sub) }
+    }
+
+    def prependNestedElementsOrIdReferences(
+                                             f: e.MetaPropertyEvaluator,
+                                             subs: List[UMLElement[Uml]],
+                                             subElements: Set[UMLElement[Uml]],
+                                             nodes: NodeSeq,
+                                             redefined: MetaPropertyFunctionSet): Try[SerializationState] = {
+      val (
+        resultingSubElements: Set[UMLElement[Uml]],
+        nested: SortedMap[String, Node],
+        idrefs: SortedMap[String, Node] ) =
+        ( Tuple3(subElements, SortedMap.empty[String, Node], SortedMap.empty[String, Node]) /: subs ) {
+        case ( ( visitedElements, sub_nested, sub_idrefs ), subElement ) =>
+          if (visitedElements.contains(subElement))
+            waitGenerateNodeReference(f, subElement) match {
+              case Failure(f) => return Failure(f)
+              case Success(subNode) =>
+                Tuple3(visitedElements + subElement, sub_nested, sub_idrefs + (subElement.id -> subNode))
             }
-          } yield result
+          else
+            callGenerateNodeElement(f, subElement).run match {
+              case Failure(f) => return Failure(f)
+              case Success(subNode) =>
+                Tuple3(visitedElements + subElement, sub_nested + (subElement.xmiUUID.head -> subNode), sub_idrefs)
+            }
       }
 
+      val nestedNodes = for { k <- nested.keySet.toSeq } yield nested(k)
+      val idrefNodes = for { k <- idrefs.keySet.toSeq } yield idrefs(k)
+      Success( resultingSubElements, nestedNodes ++ idrefNodes ++ nodes, redefined )
+    }
 
     def applyGenerateNodeElementsOrSkip(
                                          f: e.MetaPropertyEvaluator,
@@ -667,16 +719,28 @@ case class ResolvedDocumentSet[Uml <: UML](
                     case Success( None ) => return_ { Success( ( subElements, ns, redefined ) ) }
                     case Success( Some( sub ) ) =>
                       if ( subElements.contains( sub ) )
+                      /**
+                       * The element is already serialized by a composite meta property.
+                       */
                         return_ { Success( ( subElements, ns, f.redefinedMetaProperties ++ redefined ) ) }
                       else
-                        suspend { append1Pair( sub, callGenerateNodeElement( f, sub ), subElements, ns, redefined ) }
+
+                      /**
+                       * The element has not yet been serialized; this is the 1st composite meta property to do so.
+                       */
+                        suspend { prependNestedElement(
+                          sub,
+                          callGenerateNodeElement( f, sub ),
+                          subElements,
+                          ns,
+                          f.redefinedMetaProperties ++ redefined ) }
                   }
                 case cf: e.MetaCollectionEvaluator =>
                   cf.evaluate( e ) match {
                     case Failure( t )   => return_ { Failure( t ) }
                     case Success( Nil ) => return_ { Success( ( subElements, ns, redefined ) ) }
                     case Success( subs ) =>
-                      suspend { applyGenerateNodeElementsOrReferences( f, subs, subElements, ns, redefined ) }
+                      return_ { prependNestedElementsOrIdReferences( f, subs, subElements, ns, redefined ) }
                   }
               }
           }
@@ -695,11 +759,12 @@ case class ResolvedDocumentSet[Uml <: UML](
 
       case Success( mofAttributesN ) =>
         suspend {
-          val xRef0: Try[NodeSeq] = Success( Seq() )
-          val xRefA = ( xRef0 /: e.metaAttributes )( foldAttributeNode )
-          val xRefs = ( xRefA /: refEvaluators )( foldReference )
+          val xRefA0: Try[NodeSeq] = Success(NodeSeq.Empty)
+          val xRefAs = ( xRefA0 /: e.metaAttributes )( foldAttributeNode )
 
-          // TODO TIWG-25
+          val xRefR0: Try[NodeSeq] = Success(NodeSeq.Empty)
+          val xRefRs = ( xRefR0 /: refEvaluators )( foldReference )
+
           // @see http://solitaire.omg.org/secure/EditComment!default.jspa?id=37483&commentId=12422
           // Per Canonical XMI B5.2 Property Elements
           // Issue 17261: clarify the ordering
@@ -708,14 +773,16 @@ case class ResolvedDocumentSet[Uml <: UML](
           // Where a class inherits from more than one direct superclass, properties
           // from the class with the alphabetically earlier class name appear
           // before those of an alphabetically later class name.
+
           // This means traverse the subEvaluators in reverse order (to ensure that the most-specific
           // composite meta-property is the 1st serialization of an object as a nested element)
-          // but serialize the objects in order.
+          // However, trampolineSubNode prepends additions so that the result is in the correct order
+          // (I.e., sub-nodes for superclass properties are before sub-nodes for specialized class properties)
 
           val xSub0: Trampoline[Try[SerializationState]] = return_( Success( ( Set(), Seq(), Set() ) ) )
-          val xRefsAndSubN = ( xSub0 /: subEvaluators.reverse )( trampolineSubNode )
+          val xSubs = ( xSub0 /: subEvaluators.reverse )( trampolineSubNode )
 
-          wrapNodes( xRefs, xRefsAndSubN, prefix, label, mofAttributesN, xmiScopes )
+          wrapNodes( xRefAs, xSub0, xRefRs, prefix, label, mofAttributesN, xmiScopes )
         }
     }
   }

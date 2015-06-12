@@ -78,21 +78,36 @@ class EarlyInit[T: TypeTag] {
  */
 trait UMLOps[Uml <: UML] { self =>
 
-  def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
+	def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
 
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
   def isMetamodelPropertyOrdered(p: Uml#MetamodelProperty): Boolean
 
-  /**
-   * A well-formed metamodel property must have a name.
-   *
-   * @param p metamodel property
-   * @return p's name
-   */
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
 	def getMetamodelPropertyName(p: Uml#MetamodelProperty): String
 
-  /**
-   *
-   */
+	/**
+	 * TIWG-25, TIWG-29: this method should be replaced with something
+	 * that uses an element's compositeMetaProperty information.
+	 * @param p
+	 * @return
+	 */
   def getMetamodelPropertyUpperBound(p: Uml#MetamodelProperty): Int
 
 

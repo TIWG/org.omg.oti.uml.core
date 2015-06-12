@@ -227,6 +227,8 @@ package object oti {
    * See XMI2.5, ptc/14-09-21, 7.8.5 Class-typed Property Representation
    * See MOF5.2, ptc/14-09-18, 15.9 Additional Operations
    *
+   * TODO: add the upper bound information (to replace getMetamodelPropertyUpperBound)
+   *
    * @tparam Uml
    * @tparam U The metaclass on which the property is defined
    * @tparam V The metaclass that is the type of the property
