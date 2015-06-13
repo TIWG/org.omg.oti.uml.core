@@ -336,7 +336,7 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
 				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet),
 				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
 				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))

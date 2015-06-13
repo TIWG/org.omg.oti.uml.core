@@ -135,7 +135,7 @@ trait UMLTimeObservation[Uml <: UML]
 	def timeObservation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			observation_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTimeObservation[Uml], UMLNamedElement[Uml]]("event", _.event)))
+			Seq (MetaPropertyReference[Uml, UMLTimeObservation[Uml], UMLNamedElement[Uml]]("event", _.event, true)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -111,7 +111,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 */
 	def validate_no_input_pins: Boolean = {
 		// Start of user code for "no_input_pins"
-	    input.size == 0
+	    input.isEmpty
 	    // End of user code
 	}
 
@@ -191,7 +191,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
               case Some(sig) => 
                 val attribs = sig.allAttributes
                 result.size == attribs.size && 
-                (( 0 until result.size ) forall { i => 
+                (result.indices forall { i =>
                   result.get(i)._type == attribs.get(i)._type &&
                   result.get(i).isOrdered == attribs.get(i).isOrdered &&
                   result.get(i).includesMultiplicity(Some(attribs.get(i)))
@@ -200,6 +200,7 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
             }
           case _ => false
         }
+        case _ => false
       }
       case _ => true
     })

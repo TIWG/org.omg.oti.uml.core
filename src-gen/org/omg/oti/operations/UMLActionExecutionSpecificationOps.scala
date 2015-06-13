@@ -71,13 +71,14 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 		// Start of user code for "action_referenced"
       self.action match {
         case Some(a) => 
-          val parentInteraction: Set[UMLInteractionFragment[Uml]] = 
-			  closure[UMLInteractionFragment[Uml], UMLInteractionFragment[Uml]](
-					  self, combinedFragmentFromEnclosingOperand(_).toSet + self).flatMap( _.enclosingInteraction )
+          val parentInteraction: Set[UMLInteractionFragment[Uml]] =
+						closure[UMLInteractionFragment[Uml], UMLInteractionFragment[Uml]](
+							self, combinedFragmentFromEnclosingOperand(_).toSet + self).flatMap( _.enclosingInteraction )
 
-		  if (parentInteraction.size == 1)
-			a.action_interaction == parentInteraction.head
-		  else false
+					if (parentInteraction.size != 1) false
+					else a.action_interaction == parentInteraction.headOption
+
+				case None => true
       }
       // End of user code
 	}

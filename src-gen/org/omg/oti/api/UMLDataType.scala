@@ -116,8 +116,8 @@ trait UMLDataType[Uml <: UML]
 	def dataType_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-				MetaPropertyCollection[Uml, UMLDataType[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation)))
+			Seq (MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
+				MetaPropertyCollection[Uml, UMLDataType[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

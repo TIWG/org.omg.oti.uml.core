@@ -162,13 +162,13 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLConnectableElement
 	 *
 	 * <!-- Start of user code doc for connectableElement_referenceMetaProperties -->
-	 * <!-- End of user code doc for connectableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for connectableElement_referenceMexstaProperties -->
 	 */
 	def connectableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			parameterableElement_referenceMetaProperties,
 			typedElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
+			Seq (MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]]("templateParameter", _.templateParameter, false, Set(ParameterableElement_templateParameter))))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

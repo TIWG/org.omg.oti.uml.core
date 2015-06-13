@@ -166,6 +166,9 @@ trait UMLElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
+	 * The order matters; more general composite meta properties must be before more specific ones.
+	 * - composite meta-properties defined in a superclass are more general than composite meta-properties defined in a subclass
+	 * - subsetted/redefined composite meta-properties are more general than subsetting/redefining composite meta-properties
 	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	def compositeMetaProperties: MetaPropertyFunctions =
@@ -185,6 +188,9 @@ trait UMLElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
+	 * The order matters; more general reference meta properties must be before more specific ones.
+	 * - reference meta-properties defined in a superclass are more general than reference meta-properties defined in a subclass
+	 * - subsetted/redefined reference meta-properties are more general than subsetting/redefining reference meta-properties
 	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	def referenceMetaProperties: MetaPropertyFunctions =

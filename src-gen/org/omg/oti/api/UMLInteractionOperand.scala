@@ -128,7 +128,7 @@ trait UMLInteractionOperand[Uml <: UML]
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment),
+			Seq (MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]]("fragment", _.fragment, true),
 				MetaPropertyReference[Uml, UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]]("guard", _.guard)))
 
 	/**

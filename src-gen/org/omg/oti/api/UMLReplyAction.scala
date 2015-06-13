@@ -127,7 +127,7 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]]("replyValue", _.replyValue),
+			Seq (MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]]("replyValue", _.replyValue, true),
 				MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]]("returnInformation", _.returnInformation)))
 
 	/**

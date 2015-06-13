@@ -127,7 +127,7 @@ trait UMLSlot[Uml <: UML]
 	def slot_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]]("value", _.value)))
+			Seq (MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]]("value", _.value, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

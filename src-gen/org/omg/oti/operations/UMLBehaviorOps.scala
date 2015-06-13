@@ -81,9 +81,9 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	  if (nestedClassifier_nestingClass.isEmpty) {
       self.behavioredClassifier(self.owner) match {
         case Some(b: UMLBehavior[Uml]) => 
-          if (b.context.isDefined) {
-            b.context
-          } else Some(b)
+          if (b.context.isDefined) b.context
+          else Some(b)
+        case _ => None
       }
     } else None
     // End of user code
@@ -212,7 +212,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	def validate_most_one_behavior: Boolean = {
 		// Start of user code for "most_one_behavior"
     (specification, context) match {
-      case ( Some(s), Some(c) ) => c.ownedBehavior.filter { ob => ob.specification == s }.size == 1
+      case ( Some(_), Some(c) ) => c.ownedBehavior.count { ob => ob.specification == self.specification } == 1
       case ( Some(_), None ) => false
       case _ => true
     }

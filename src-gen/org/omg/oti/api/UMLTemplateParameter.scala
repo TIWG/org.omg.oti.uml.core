@@ -188,6 +188,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateParameter_referenceMetaProperties
 
+	val TemplateParameter_parameteredElement = MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)
+
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateParameter
 	 *
@@ -198,7 +200,7 @@ trait UMLTemplateParameter[Uml <: UML]
 		appendUnique(
 			element_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
-				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)))
+				TemplateParameter_parameteredElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

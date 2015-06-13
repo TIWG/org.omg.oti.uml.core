@@ -162,8 +162,8 @@ trait UMLArtifact[Uml <: UML]
 			deployedArtifact_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]]("manifestation", _.manifestation),
 				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]]("nestedArtifact", _.nestedArtifact),
-				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute),
-				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation)))
+				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
+				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

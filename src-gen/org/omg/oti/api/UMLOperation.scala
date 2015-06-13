@@ -322,7 +322,7 @@ trait UMLOperation[Uml <: UML]
 			parameterableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
 				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
 				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
 

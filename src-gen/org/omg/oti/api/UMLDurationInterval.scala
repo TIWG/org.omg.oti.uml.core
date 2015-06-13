@@ -136,6 +136,9 @@ trait UMLDurationInterval[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		durationInterval_referenceMetaProperties
 
+	protected val DurationInterval_max = MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.max, false, Set(Interval_max))
+	protected val DurationInterval_min = MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.min, false, Set(Interval_min))
+
 	/**
 	 * The XMI reference meta-properties relevant to class UMLDurationInterval
 	 *
@@ -145,8 +148,7 @@ trait UMLDurationInterval[Uml <: UML]
 	def durationInterval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interval_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("max", _.max),
-				MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]]("min", _.min)))
+			Seq (DurationInterval_max, DurationInterval_min))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

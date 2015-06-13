@@ -45,11 +45,10 @@ import org.omg.oti.operations._
 // End of user code
 
 /**
+ * <!-- begin-model-doc -->
  * A StructuredActivityNode is an Action that is also an ActivityGroup and whose behavior is specified by the ActivityNodes and ActivityEdges it so contains. Unlike other kinds of ActivityGroup, a StructuredActivityNode owns the ActivityNodes and ActivityEdges it contains, and so a node or edge can only be directly contained in one StructuredActivityNode, though StructuredActivityNodes may be nested.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
-*/
+ * <!-- end-model-doc -->
+ */
 trait UMLStructuredActivityNode[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLActivityGroup[Uml]
@@ -59,10 +58,9 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	import ops._
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The Activity immediately containing the StructuredActivityNode, if it is not contained in another StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLActivity.structuredNode
@@ -70,10 +68,9 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	override def activity: Option[UMLActivity[Uml]]
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The ActivityEdges immediately contained in the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for edge -->
-	 * <!-- End of user code doc for edge -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityEdge.inStructuredNode
@@ -81,20 +78,19 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	def edge: Set[UMLActivityEdge[Uml]]
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * If true, then any object used by an Action within the StructuredActivityNode cannot be accessed by any Action outside the node until the StructuredActivityNode as a whole completes. Any concurrent Actions that would result in accessing such objects are required to have their execution deferred until the completion of the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for mustIsolate -->
-	 * <!-- End of user code doc for mustIsolate -->
+	 
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def mustIsolate: Boolean
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The ActivityNodes immediately contained in the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for node -->
-	 * <!-- End of user code doc for node -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLActivityNode.inStructuredNode
@@ -102,10 +98,9 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	def node: Set[UMLActivityNode[Uml]]
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The InputPins owned by the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for structuredNodeInput -->
-	 * <!-- End of user code doc for structuredNodeInput -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInputPin.structuredNodeInput_structuredActivityNode
@@ -113,10 +108,9 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	def structuredNodeInput: Set[UMLInputPin[Uml]]
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The OutputPins owned by the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for structuredNodeOutput -->
-	 * <!-- End of user code doc for structuredNodeOutput -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOutputPin.structuredNodeOutput_structuredActivityNode
@@ -124,10 +118,9 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	def structuredNodeOutput: Set[UMLOutputPin[Uml]]
 
 	/**
+	 * <!-- begin-model-doc -->
 	 * The Variables defined in the scope of the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for variable -->
-	 * <!-- End of user code doc for variable -->
+	 * <!-- end-model-doc -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLVariable.scope
@@ -136,18 +129,12 @@ trait UMLStructuredActivityNode[Uml <: UML]
 
 	/**
 	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		structuredActivityNode_metaAttributes
 
 	/**
 	 * The XMI meta-attributes relevant to class UMLStructuredActivityNode
-	 *
-	 * <!-- Start of user code doc for structuredActivityNode_metaAttributes -->
-	 * <!-- End of user code doc for structuredActivityNode_metaAttributes -->
 	 */
 	def structuredActivityNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -158,44 +145,38 @@ trait UMLStructuredActivityNode[Uml <: UML]
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_compositeMetaProperties
 
+	protected val StructuredActivityNode_edge = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge)
+	protected val StructuredActivityNode_node = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node)
+	protected val StructuredActivityNode_structuredNodeInput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput)
+	protected val StructuredActivityNode_structuredNodeOutput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput)
+	protected val StructuredActivityNode_variable = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)
+
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStructuredActivityNode
-	 *
-	 * <!-- Start of user code doc for structuredActivityNode_compositeMetaProperties -->
-	 * <!-- End of user code doc for structuredActivityNode_compositeMetaProperties -->
 	 */
 	def structuredActivityNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
 			activityGroup_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput),
-				MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)))
+			Seq (StructuredActivityNode_edge,
+				StructuredActivityNode_node,
+				StructuredActivityNode_structuredNodeInput,
+				StructuredActivityNode_structuredNodeOutput,
+				StructuredActivityNode_variable))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_referenceMetaProperties
 
 	/**
 	 * The XMI reference meta-properties relevant to class UMLStructuredActivityNode
-	 *
-	 * <!-- Start of user code doc for structuredActivityNode_referenceMetaProperties -->
-	 * <!-- End of user code doc for structuredActivityNode_referenceMetaProperties -->
 	 */
 	def structuredActivityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -206,18 +187,12 @@ trait UMLStructuredActivityNode[Uml <: UML]
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		structuredActivityNode_forwardReferencesFromMetamodelAssociations
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to class UMLStructuredActivityNode
-	 *
-	 * <!-- Start of user code doc for structuredActivityNode_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for structuredActivityNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def structuredActivityNode_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
@@ -225,6 +200,4 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		namespace_forwardReferencesFromMetamodelAssociations ++
 		activity 
 
-	// Start of user code for additional features
-	// End of user code
 } //UMLStructuredActivityNode

@@ -192,9 +192,9 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("loopVariable", _.loopVariable),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]]("loopVariableInput", _.loopVariableInput),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("loopVariable", _.loopVariable, true),
+				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]]("loopVariableInput", _.loopVariableInput, true, Set(StructuredActivityNode_structuredNodeInput)),
+				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("result", _.result, true, Set(StructuredActivityNode_structuredNodeOutput))))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -214,7 +214,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput),
+			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput, true),
 				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("bodyPart", _.bodyPart),
 				MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("decider", _.decider),
 				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("setupPart", _.setupPart),

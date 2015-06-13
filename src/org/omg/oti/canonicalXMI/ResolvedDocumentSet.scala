@@ -328,7 +328,6 @@ case class ResolvedDocumentSet[Uml <: UML](
 
                 val filepath = uri.getPath + ".xmi"
                 val xmlFile = new java.io.File(filepath)
-                System.out.println(s"### File: $filepath")
                 val xmlPrettyPrinter = new PrettyPrinter(width = 300, step = 2)
                 val xmlOutput = xmlPrettyPrinter.format(xmi)
 
@@ -533,7 +532,6 @@ case class ResolvedDocumentSet[Uml <: UML](
                 case Success( Some( eRef ) ) =>
                   element2mappedDocument( eRef ) match {
                     case None =>
-                      System.out.println( s"*** foldReference: ref=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                       Success( ns )
                     case Some( dRef ) =>
                       if ( d == dRef ) {
@@ -563,7 +561,6 @@ case class ResolvedDocumentSet[Uml <: UML](
                     require( eRef.id.isDefined )
                     element2mappedDocument( eRef ) match {
                       case None =>
-                        System.out.println( s"*** foldReference: collection=${f.propertyName} -- no document for: ${eRef.id} (from ${e.xmiType.head} ${e.id})" )
                         None
                       case Some( dRef ) =>
                         if ( d == dRef ) {
@@ -645,7 +642,8 @@ case class ResolvedDocumentSet[Uml <: UML](
 
       val nestedNodes = for { k <- nested.keySet.toSeq } yield nested(k)
       val idrefNodes = for { k <- idrefs.keySet.toSeq } yield idrefs(k)
-      Success( resultingSubElements, nestedNodes ++ idrefNodes ++ nodes, redefined )
+      val resultNodes = nestedNodes ++ idrefNodes ++ nodes
+      Success( resultingSubElements, resultNodes, redefined )
     }
 
     def applyGenerateNodeElementsOrSkip(
@@ -782,7 +780,7 @@ case class ResolvedDocumentSet[Uml <: UML](
           val xSub0: Trampoline[Try[SerializationState]] = return_( Success( ( Set(), Seq(), Set() ) ) )
           val xSubs = ( xSub0 /: subEvaluators.reverse )( trampolineSubNode )
 
-          wrapNodes( xRefAs, xSub0, xRefRs, prefix, label, mofAttributesN, xmiScopes )
+          wrapNodes( xRefAs, xSubs, xRefRs, prefix, label, mofAttributesN, xmiScopes )
         }
     }
   }

@@ -425,7 +425,7 @@ trait UMLProperty[Uml <: UML]
 			deploymentTarget_compositeMetaProperties,
 			structuralFeature_compositeMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue),
-				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("qualifier", _.qualifier)))
+				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("qualifier", _.qualifier, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -136,6 +136,9 @@ trait UMLInterval[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interval_referenceMetaProperties
 
+	protected val Interval_max = MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max)
+	protected val Interval_min = MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)
+
 	/**
 	 * The XMI reference meta-properties relevant to class UMLInterval
 	 *
@@ -145,8 +148,7 @@ trait UMLInterval[Uml <: UML]
 	def interval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("max", _.max),
-				MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]]("min", _.min)))
+			Seq (Interval_max, Interval_min))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

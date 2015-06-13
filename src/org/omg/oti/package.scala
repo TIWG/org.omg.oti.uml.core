@@ -106,9 +106,7 @@ package object oti {
       other.isInstanceOf[MetaAttributeBooleanFunction[Uml, _]]
 
     override def hashCode: Int =
-      41 * (41 + attributePrefix.hashCode())
-
-    +attributeName.hashCode()
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
   case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]](
@@ -132,9 +130,41 @@ package object oti {
       other.isInstanceOf[MetaAttributeIntegerFunction[Uml, _]]
 
     override def hashCode: Int =
-      41 * (41 + attributePrefix.hashCode())
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
+  }
 
-    +attributeName.hashCode()
+  case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]](
+                                                                             attributePrefix: Option[String] = None,
+                                                                             attributeName: String,
+                                                                             f: Function1[U, Iterable[String]])
+    extends MetaAttributeAbstractFunction[Uml, U, String] {
+    implicit val UType: TypeTag[U] = typeTag[U]
+
+
+//    override def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]): Try[Iterable[String]] =
+//      e match {
+//        case u: U => Success(f(u).map { n =>
+//          if (n == -1) "*"
+//          else n.toString
+//        })
+//        case _ => Failure(IllegalMetaAttributeEvaluation(e, this))
+//      }
+
+    override def equals(other: Any): Boolean =
+      other match {
+        case that: MetaAttributeIntegerFunction[Uml, _] =>
+          (that canEqual this) &&
+            attributePrefix == that.attributePrefix &&
+            attributeName == that.attributeName
+        case _ =>
+          false
+      }
+
+    def canEqual(other: Any): Boolean =
+      other.isInstanceOf[MetaAttributeIntegerFunction[Uml, _]]
+
+    override def hashCode: Int =
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
   case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]](
@@ -158,9 +188,7 @@ package object oti {
       other.isInstanceOf[MetaAttributeStringFunction[Uml, _]]
 
     override def hashCode: Int =
-      41 * (41 + attributePrefix.hashCode())
-
-    +attributeName.hashCode()
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
   case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]](
@@ -184,35 +212,7 @@ package object oti {
       other.isInstanceOf[MetaAttributeRealFunction[Uml, _]]
 
     override def hashCode: Int =
-      41 * (41 + attributePrefix.hashCode())
-
-    +attributeName.hashCode()
-  }
-
-  case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                             attributePrefix: Option[String] = None,
-                                                                             attributeName: String,
-                                                                             f: Function1[U, Iterable[Integer]])
-    extends MetaAttributeAbstractFunction[Uml, U, Integer] {
-    implicit val UType: TypeTag[U] = typeTag[U]
-
-    override def equals(other: Any): Boolean =
-      other match {
-        case that: MetaAttributeUnlimitedNaturalFunction[Uml, _] =>
-          (that canEqual this) &&
-            attributePrefix == that.attributePrefix &&
-            attributeName == that.attributeName
-        case _ =>
-          false
-      }
-
-    def canEqual(other: Any): Boolean =
-      other.isInstanceOf[MetaAttributeUnlimitedNaturalFunction[Uml, _]]
-
-    override def hashCode: Int =
-      41 * (41 + attributePrefix.hashCode())
-
-    +attributeName.hashCode()
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
   /**
@@ -319,7 +319,7 @@ package object oti {
         case _ => Failure(IllegalMetaPropertyEvaluation(e, this))
       }
 
-    override def toString: String = s"MetaPropertyReference($propertyName on ${u.getClass.getName}${if (isOrdered) " {ordered}" else ""})"
+    override def toString: String = s"MetaPropertyReference($propertyName on $u${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {
@@ -360,7 +360,7 @@ package object oti {
       }
     }
 
-    override def toString: String = s"MetaPropertyCollection($propertyName on ${u.getClass.getName}${if (isOrdered) " {ordered}" else ""})"
+    override def toString: String = s"MetaPropertyCollection($propertyName on $u${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {

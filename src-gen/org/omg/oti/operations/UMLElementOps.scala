@@ -270,9 +270,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     if ( value != default ) Iterable( value )
     else Iterable()
 
-  def unlimitedNaturalToIterable( value: Integer, default: Integer ): Iterable[Integer] =
-    if ( value != default ) Iterable( value )
-    else Iterable()
+  def unlimitedNaturalToIterable( value: Integer, default: Integer ): Iterable[String] =
+    if ( value == default ) Iterable()
+    else if (value == -1) Iterable("*") else Iterable(value.toString)
 
   /**
    * @toto Fix the template instead of generating calls to this method.

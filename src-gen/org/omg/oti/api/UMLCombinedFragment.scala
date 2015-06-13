@@ -127,7 +127,7 @@ trait UMLCombinedFragment[Uml <: UML]
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLGate[Uml]]("cfragmentGate", _.cfragmentGate),
-				MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]]("operand", _.operand)))
+				MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]]("operand", _.operand, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

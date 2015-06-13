@@ -170,7 +170,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_compositeMetaProperties,
 			relationship_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd)))
+			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("ownedEnd", _.ownedEnd, true)))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -191,7 +191,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_referenceMetaProperties,
 			relationship_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd),
+			Seq (MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("memberEnd", _.memberEnd, true),
 				MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]]("navigableOwnedEnd", _.navigableOwnedEnd)))
 
 	/**

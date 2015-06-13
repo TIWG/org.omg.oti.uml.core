@@ -186,7 +186,7 @@ trait UMLPackage[Uml <: UML]
 			namespace_metaAttributes,
 			packageableElement_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", _.URI)))
+			Seq (MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI", _.getEffectiveURI)))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

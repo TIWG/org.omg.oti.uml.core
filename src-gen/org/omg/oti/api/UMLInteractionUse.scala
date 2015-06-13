@@ -150,7 +150,7 @@ trait UMLInteractionUse[Uml <: UML]
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
 			Seq (MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLGate[Uml]]("actualGate", _.actualGate),
-				MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("argument", _.argument),
+				MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("argument", _.argument, true),
 				MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]]("returnValue", _.returnValue)))
 
 	/**

@@ -161,7 +161,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter),
+			Seq (MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
 				MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet)))
 
 	/**

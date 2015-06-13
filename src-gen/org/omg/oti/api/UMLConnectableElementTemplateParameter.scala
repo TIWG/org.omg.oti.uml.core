@@ -125,7 +125,7 @@ trait UMLConnectableElementTemplateParameter[Uml <: UML]
 	def connectableElementTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			templateParameter_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]]("parameteredElement", _.parameteredElement)))
+			Seq (MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]]("parameteredElement", _.parameteredElement, false, Set(TemplateParameter_parameteredElement))))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

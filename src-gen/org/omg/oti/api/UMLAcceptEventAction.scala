@@ -126,7 +126,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]]("result", _.result),
+			Seq (MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]]("result", _.result, true),
 				MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]]("trigger", _.trigger)))
 
 	/**

@@ -107,6 +107,8 @@ trait UMLInvocationAction[Uml <: UML]
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		invocationAction_compositeMetaProperties
 
+	protected val InvocationAction_argument = MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]]("argument", _.argument, true)
+
 	/**
 	 * The XMI composite meta-properties relevant to class UMLInvocationAction
 	 *
@@ -116,7 +118,7 @@ trait UMLInvocationAction[Uml <: UML]
 	def invocationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]]("argument", _.argument)))
+			Seq (InvocationAction_argument))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

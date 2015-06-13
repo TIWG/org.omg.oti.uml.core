@@ -163,7 +163,7 @@ trait UMLExtend[Uml <: UML]
 			directedRelationship_referenceMetaProperties,
 			namedElement_referenceMetaProperties,
 			Seq (MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]]("extendedCase", _.extendedCase),
-				MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]]("extensionLocation", _.extensionLocation)))
+				MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]]("extensionLocation", _.extensionLocation, true)))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object
