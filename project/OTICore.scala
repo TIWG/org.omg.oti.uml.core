@@ -79,6 +79,7 @@ object OTICore extends Build {
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
       classDirectory in Compile := baseDirectory.value / "bin",
+      resourceDirectory in Compile := baseDirectory.value / "resources",
       shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Versions.version_suffix + "> " }
     )
 

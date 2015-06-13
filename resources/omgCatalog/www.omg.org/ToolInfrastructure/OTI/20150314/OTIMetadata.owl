@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY oti "http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#" >
+    <!ENTITY otiv "http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#" >
+    <!ENTITY otip "http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIPatternLibrary#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#"
+     xml:base="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:oti="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#"
+     xmlns:otiv="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#"
+     xmlns:otip="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIPatternLibrary#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#contains -->
+
+    <owl:ObjectProperty rdf:about="&oti;contains">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="&oti;ResourceElement"/>
+        <rdfs:domain rdf:resource="&oti;ResourceModel"/>
+        <owl:inverseOf rdf:resource="&oti;isContainedIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#defines -->
+
+    <owl:ObjectProperty rdf:about="&oti;defines">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="&oti;Profile"/>
+        <rdfs:range rdf:resource="&oti;Stereotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasEssentialRole -->
+
+    <owl:ObjectProperty rdf:about="&oti;hasEssentialRole">
+        <rdfs:domain rdf:resource="&oti;PatternCollaboration"/>
+        <rdfs:range rdf:resource="&oti;ResourceEntity"/>
+        <owl:propertyDisjointWith rdf:resource="&oti;hasOptionalRole"/>
+        <rdfs:subPropertyOf rdf:resource="&oti;hasRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasMetaclass -->
+
+    <owl:ObjectProperty rdf:about="&oti;hasMetaclass">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&oti;Element"/>
+        <rdfs:range rdf:resource="&oti;Metaclass"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasOptionalRole -->
+
+    <owl:ObjectProperty rdf:about="&oti;hasOptionalRole">
+        <rdfs:domain rdf:resource="&oti;PatternCollaboration"/>
+        <rdfs:range rdf:resource="&oti;ResourceEntity"/>
+        <rdfs:subPropertyOf rdf:resource="&oti;hasRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasRole -->
+
+    <owl:ObjectProperty rdf:about="&oti;hasRole">
+        <rdfs:domain rdf:resource="&oti;PatternCollaboration"/>
+        <rdfs:range rdf:resource="&oti;ResourceEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasStereotypeApplied -->
+
+    <owl:ObjectProperty rdf:about="&oti;hasStereotypeApplied">
+        <rdfs:domain rdf:resource="&oti;Element"/>
+        <rdfs:range rdf:resource="&oti;Stereotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#isContainedIn -->
+
+    <owl:ObjectProperty rdf:about="&oti;isContainedIn">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&oti;ResourceElement"/>
+        <rdfs:range rdf:resource="&oti;ResourceModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIPatternLibrary#involvesAppliedStereotype -->
+
+    <owl:ObjectProperty rdf:about="&otip;involvesAppliedStereotype">
+        <rdfs:range rdf:resource="&oti;Stereotype"/>
+        <rdfs:subPropertyOf rdf:resource="&oti;hasEssentialRole"/>
+        <rdfs:domain rdf:resource="&otip;AppliedStereotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIPatternLibrary#involvesExtendedElement -->
+
+    <owl:ObjectProperty rdf:about="&otip;involvesExtendedElement">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&oti;Element"/>
+        <rdfs:subPropertyOf rdf:resource="&oti;hasEssentialRole"/>
+        <rdfs:domain rdf:resource="&otip;AppliedStereotype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#involvesCriteria -->
+
+    <owl:ObjectProperty rdf:about="&otiv;involvesCriteria">
+        <rdfs:domain rdf:resource="&otiv;PatternValidation"/>
+        <rdfs:range rdf:resource="&otiv;ValidationCriteria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&oti;hasName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&oti;PatternCollaboration"/>
+                    <rdf:Description rdf:about="&oti;ResourceEntity"/>
+                    <rdf:Description rdf:about="&otiv;ValidationCriteria"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasQualifiedName -->
+
+    <owl:DatatypeProperty rdf:about="&oti;hasQualifiedName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&oti;PatternCollaboration"/>
+                    <rdf:Description rdf:about="&oti;ResourceEntity"/>
+                    <rdf:Description rdf:about="&otiv;ValidationCriteria"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasURI -->
+
+    <owl:DatatypeProperty rdf:about="&oti;hasURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&oti;ResourceModel"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#hasUUID -->
+
+    <owl:DatatypeProperty rdf:about="&oti;hasUUID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&oti;ResourceElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#hasExplanation -->
+
+    <owl:DatatypeProperty rdf:about="&otiv;hasExplanation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&otiv;PatternValidation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#Element -->
+
+    <owl:Class rdf:about="&oti;Element">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#Metaclass -->
+
+    <owl:Class rdf:about="&oti;Metaclass">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#PatternCollaboration -->
+
+    <owl:Class rdf:about="&oti;PatternCollaboration">
+        <owl:disjointWith rdf:resource="&oti;ResourceEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#Profile -->
+
+    <owl:Class rdf:about="&oti;Profile">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#ResourceElement -->
+
+    <owl:Class rdf:about="&oti;ResourceElement">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceEntity"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&oti;Element"/>
+            <rdf:Description rdf:about="&oti;Metaclass"/>
+            <rdf:Description rdf:about="&oti;Profile"/>
+            <rdf:Description rdf:about="&oti;Stereotype"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#ResourceEntity -->
+
+    <owl:Class rdf:about="&oti;ResourceEntity">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&oti;ResourceElement"/>
+            <rdf:Description rdf:about="&oti;ResourceModel"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#ResourceModel -->
+
+    <owl:Class rdf:about="&oti;ResourceModel">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIMetadata#Stereotype -->
+
+    <owl:Class rdf:about="&oti;Stereotype">
+        <rdfs:subClassOf rdf:resource="&oti;ResourceElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIPatternLibrary#AppliedStereotype -->
+
+    <owl:Class rdf:about="&otip;AppliedStereotype">
+        <rdfs:subClassOf rdf:resource="&oti;PatternCollaboration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#InvalidAppliedStereotype -->
+
+    <owl:Class rdf:about="&otiv;InvalidAppliedStereotype">
+        <rdfs:subClassOf rdf:resource="&otip;AppliedStereotype"/>
+        <rdfs:subClassOf rdf:resource="&otiv;InvalidPatternCollaboration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#InvalidPatternCollaboration -->
+
+    <owl:Class rdf:about="&otiv;InvalidPatternCollaboration">
+        <rdfs:subClassOf rdf:resource="&otiv;PatternValidation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#PatternValidation -->
+
+    <owl:Class rdf:about="&otiv;PatternValidation">
+        <owl:disjointWith rdf:resource="&otiv;ValidationCriteria"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&otiv;InvalidPatternCollaboration"/>
+            <rdf:Description rdf:about="&otiv;ValidPatternCollaboration"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#ValidAppliedStereotype -->
+
+    <owl:Class rdf:about="&otiv;ValidAppliedStereotype">
+        <rdfs:subClassOf rdf:resource="&otip;AppliedStereotype"/>
+        <rdfs:subClassOf rdf:resource="&otiv;ValidPatternCollaboration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#ValidPatternCollaboration -->
+
+    <owl:Class rdf:about="&otiv;ValidPatternCollaboration">
+        <rdfs:subClassOf rdf:resource="&otiv;PatternValidation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/ToolInfrastructure/OTI/20150314/OTIValidation#ValidationCriteria -->
+
+    <owl:Class rdf:about="&otiv;ValidationCriteria"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
