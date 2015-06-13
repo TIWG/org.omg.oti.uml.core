@@ -79,7 +79,8 @@ object OTICore extends Build {
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
       classDirectory in Compile := baseDirectory.value / "bin",
-      resourceDirectory in Compile := baseDirectory.value / "resources",
+      mappings in (Compile, packageBin) <++= baseDirectory map { dir => (dir / "resources").*** pair relativeTo(dir) },
+      mappings in (Compile, packageSrc) <++= baseDirectory map { dir => (dir / "resources").*** pair relativeTo(dir) },
       shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Versions.version_suffix + "> " }
     )
 
