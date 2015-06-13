@@ -192,9 +192,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("loopVariable", _.loopVariable, true),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]]("loopVariableInput", _.loopVariableInput, true, Set(StructuredActivityNode_structuredNodeInput)),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("result", _.result, true, Set(StructuredActivityNode_structuredNodeOutput))))
+			Seq (LoopNode_loopVariable, LoopNode_loopVariableInput, LoopNode_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -115,7 +115,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			intervalConstraint_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]]("specification", _.specification, false, Set(IntervalConstraint_specification))))
+			Seq (DurationConstraint_specification))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

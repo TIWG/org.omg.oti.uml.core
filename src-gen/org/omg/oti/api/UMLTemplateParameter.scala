@@ -188,8 +188,6 @@ trait UMLTemplateParameter[Uml <: UML]
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateParameter_referenceMetaProperties
 
-	val TemplateParameter_parameteredElement = MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("parameteredElement", _.parameteredElement)
-
 	/**
 	 * The XMI reference meta-properties relevant to class UMLTemplateParameter
 	 *

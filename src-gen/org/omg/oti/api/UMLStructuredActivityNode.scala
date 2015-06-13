@@ -149,12 +149,6 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_compositeMetaProperties
 
-	protected val StructuredActivityNode_edge = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]]("edge", _.edge)
-	protected val StructuredActivityNode_node = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]]("node", _.node)
-	protected val StructuredActivityNode_structuredNodeInput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]]("structuredNodeInput", _.structuredNodeInput)
-	protected val StructuredActivityNode_structuredNodeOutput = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]]("structuredNodeOutput", _.structuredNodeOutput)
-	protected val StructuredActivityNode_variable = MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]]("variable", _.variable)
-
 	/**
 	 * The XMI composite meta-properties relevant to class UMLStructuredActivityNode
 	 */

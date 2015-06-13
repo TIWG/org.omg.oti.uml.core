@@ -105,7 +105,7 @@ trait UMLAbstraction[Uml <: UML]
 	def abstraction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]]("mapping", _.mapping)))
+			Seq (Abstraction_mapping))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

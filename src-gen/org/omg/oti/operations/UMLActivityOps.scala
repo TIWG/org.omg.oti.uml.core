@@ -124,10 +124,10 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 		// Start of user code for "maximum_one_parameter_node"
   	ownedParameter.forall { p => 
       if ( p.direction != UMLParameterDirectionKind.inout ) {
-        node.filter { 
-            case apn: UMLActivityParameterNode[Uml] => apn.parameter == p
-            case _ => false
-        }.size == 1  
+        1 == node.count {
+					case apn: UMLActivityParameterNode[Uml] => apn.parameter.contains(p)
+					case _ => false
+        }
       } else true
     } 
   	// End of user code
@@ -154,12 +154,12 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
       if (p.direction == UMLParameterDirectionKind.inout) {
         val associatedNodes: Set[UMLActivityNode[Uml]] = 
           node.filter {
-              case apn: UMLActivityParameterNode[Uml] => apn.parameter == p
+              case apn: UMLActivityParameterNode[Uml] => apn.parameter.contains(p)
               case _ => false
           }
         associatedNodes.size == 2 && 
-        associatedNodes.filter { an => !an.incoming.isEmpty }.size <= 1 &&
-        associatedNodes.filter { an => !an.outgoing.isEmpty }.size <= 1
+        associatedNodes.count { an => !an.incoming.isEmpty } <= 1 &&
+        associatedNodes.count { an => !an.outgoing.isEmpty } <= 1
       } else true
     }
   	// End of user code

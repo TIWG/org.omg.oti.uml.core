@@ -290,56 +290,5 @@ trait UML {
 	type WriteVariableAction <: VariableAction
 
 	// Start of user code for additional types
-	  /**
-	   * 'MetamodelProperty' corresponds to (M2)Property, the use of Property in MOF for reflectively representing
-	   * the properties defined in a metamodel instead of the use of Property as a metaclass of UML itself.
-	   * With MOF reflection, the MOF specification uses MOF metaclasses
-	   * (a subset of metaclasses defined in the UML metamodel) to refer to two distinct layers of modeling
-	   * denoted as M1 and M2 according to common practice:
-	   *  - a layer, M2, for representing a metamodel, which includes classes, properties, etc.. (see EMOF and CMOF)
-	   *  - a layer, M1, for representing a model whose elements are instances of metamodel classes.
-	   *
-	   * To appreciate the importance of and need for explicitly distinguishing among these 2 layers,
-	   * compare the following MOF operations from the MOF 2.5 beta2 specification:
-	   *
-	   * Section 9.2 Element
-	   *
-	   * Element::container(): Element
-	   * -- Returns the parent container of this element, if any.
-	   * -- Returns null if there is no containing element.
-	   *
-	   * Section 15.5 Object Capabilities
-	   *
-	   * Object::container(): Object modeled as Instance::container(): ClassInstance
-	   * post: result = self.get(self.owningProperty())
-	   *
-	   * Section 15.9 Additional Operations
-	   * [6] This returns the single Property with a slot that represents
-	   *     the current owner of the Object based on current instance values;
-	   *     may be null for top level objects.???
-	   *  Object::owningProperty(): Property modeled as ClassInstance::owningProperty(): Property???
-	   *  result = self.classifier.allSlottableProperties()->any(p |???p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
-	   *
-	   * Annotating the above operations with the appropriate layers for a MOF architecture with MOF reflection would be:
-	   *
-	   * Section 9.2 Element
-	   *
-	   * (M1)Element::container(): (M1) Element
-	   * -- Returns the M1-layer parent container of this M1-layer element, if any.
-	   * -- Returns null if there is no containing M1-layer element.
-	   *
-	   * Section 15.5 Object Capabilities
-	   *
-	   * (M1)Object::container(): (M1)Object modeled as (M1)Instance::container(): (M1)ClassInstance
-	   * post: result = self.get(self.owningProperty())
-	   *
-	   * Section 15.9 Additional Operations
-	   * [6] This returns the single Property with a slot that represents
-	   *     the current owner of the Object based on current instance values;
-	   *     may be null for top level objects.???
-	   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property???
-	   *  result = self.classifier.allSlottableProperties()->any(p |???p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
-	   */
-	  type MetamodelProperty
 	  // End of user code
 }

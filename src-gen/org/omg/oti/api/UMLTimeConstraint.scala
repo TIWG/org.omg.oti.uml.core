@@ -115,7 +115,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			intervalConstraint_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]]("specification", _.specification, false, Set(IntervalConstraint_specification))))
+			Seq (TimeConstraint_specification))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

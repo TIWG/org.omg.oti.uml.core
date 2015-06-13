@@ -251,7 +251,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
           e.name.toSet //need to check for name.isDefined above ???
         }
         else {
-          val elementImports = elementImport filter { ei => ei.importedElement == e }
+          val elementImports = elementImport filter { ei => ei.importedElement.contains(e) }
           if ( elementImports.isEmpty ) {
             ??? //packageImport filter { pi => pi.importedPackage. }
           }

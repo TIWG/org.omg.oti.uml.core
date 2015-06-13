@@ -96,7 +96,6 @@ trait UMLIntervalConstraint[Uml <: UML]
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		intervalConstraint_compositeMetaProperties
 
-  protected val IntervalConstraint_specification = MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]]("specification", _.specification)
 	/**
 	 * The XMI composite meta-properties relevant to class UMLIntervalConstraint
 	 *

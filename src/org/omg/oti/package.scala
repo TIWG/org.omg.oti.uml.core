@@ -58,9 +58,9 @@ import scala.util.{Failure, Success, Try}
  */
 package object oti {
 
-  case class IllegalMetaAttributeEvaluation[Uml <: UML](
-                                                         e: UMLElement[Uml],
-                                                         metaAttributeFunction: MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _])
+  case class IllegalMetaAttributeEvaluation[Uml <: UML]
+  (e: UMLElement[Uml],
+   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _])
     extends IllegalArgumentException(s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
 
   sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT] {
@@ -69,7 +69,8 @@ package object oti {
     val attributeName: String
     val f: U => Iterable[DT]
 
-    def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]): Try[Iterable[String]] =
+    def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]):
+    Try[Iterable[String]] =
       e match {
         case u: U => Success(f(u).map(_.toString))
         case _ => Failure(IllegalMetaAttributeEvaluation(e, this))
@@ -85,10 +86,10 @@ package object oti {
 
   }
 
-  case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                             attributePrefix: Option[String] = None,
-                                                                             attributeName: String,
-                                                                             f: Function1[U, Iterable[Boolean]])
+  case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   f: Function1[U, Iterable[Boolean]])
     extends MetaAttributeAbstractFunction[Uml, U, Boolean] {
     implicit val UType: TypeTag[U] = typeTag[U]
 
@@ -109,10 +110,10 @@ package object oti {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
-  case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                             attributePrefix: Option[String] = None,
-                                                                             attributeName: String,
-                                                                             f: Function1[U, Iterable[Integer]])
+  case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   f: Function1[U, Iterable[Integer]])
     extends MetaAttributeAbstractFunction[Uml, U, Integer] {
     implicit val UType: TypeTag[U] = typeTag[U]
 
@@ -133,22 +134,12 @@ package object oti {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
-  case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                             attributePrefix: Option[String] = None,
-                                                                             attributeName: String,
-                                                                             f: Function1[U, Iterable[String]])
+  case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   f: Function1[U, Iterable[String]])
     extends MetaAttributeAbstractFunction[Uml, U, String] {
     implicit val UType: TypeTag[U] = typeTag[U]
-
-
-//    override def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]): Try[Iterable[String]] =
-//      e match {
-//        case u: U => Success(f(u).map { n =>
-//          if (n == -1) "*"
-//          else n.toString
-//        })
-//        case _ => Failure(IllegalMetaAttributeEvaluation(e, this))
-//      }
 
     override def equals(other: Any): Boolean =
       other match {
@@ -167,10 +158,10 @@ package object oti {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
-  case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                            attributePrefix: Option[String] = None,
-                                                                            attributeName: String,
-                                                                            f: Function1[U, Iterable[String]])
+  case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   f: Function1[U, Iterable[String]])
     extends MetaAttributeAbstractFunction[Uml, U, String] {
     implicit val UType: TypeTag[U] = typeTag[U]
 
@@ -191,10 +182,10 @@ package object oti {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
-  case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]](
-                                                                          attributePrefix: Option[String] = None,
-                                                                          attributeName: String,
-                                                                          f: Function1[U, Iterable[Double]])
+  case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   f: Function1[U, Iterable[Double]])
     extends MetaAttributeAbstractFunction[Uml, U, Double] {
     implicit val UType: TypeTag[U] = typeTag[U]
 
@@ -218,9 +209,9 @@ package object oti {
   /**
    * Error type: IllegalMetaPropertyEvaluation
    */
-  case class IllegalMetaPropertyEvaluation[Uml <: UML](
-                                                        e: UMLElement[Uml],
-                                                        metaPropertyFunction: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]])
+  case class IllegalMetaPropertyEvaluation[Uml <: UML]
+  (e: UMLElement[Uml],
+   metaPropertyFunction: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]])
     extends IllegalArgumentException(s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
 
   /**
@@ -247,13 +238,12 @@ package object oti {
    *
    * where [L]C denotes the modeling level L that a class C belongs to.
    *
-   * Then, for XMI serialization, it necessary to obtain the information about the properties defined on an [M2]Class
-   * and to determine which elements are the values of such properties.
+   * For XMI serialization, it necessary to obtain M2-level information about M1-level elements.
+   * This M2-level information involves reflective access to an element's metaclass (I.e., M2) as shown above
+   * but also to the properties of M2-level metaclasses.
    *
    * See XMI2.5, ptc/14-09-21, 7.8.5 Class-typed Property Representation
    * See MOF5.2, ptc/14-09-18, 15.9 Additional Operations
-   *
-   * TODO: add the upper bound information (to replace getMetamodelPropertyUpperBound)
    *
    * @tparam Uml
    * @tparam U The metaclass on which the property is defined
@@ -287,10 +277,24 @@ package object oti {
     val isOrdered: Boolean
 
     /**
+     * Canonical XMI ID generation depends on whether a property is a collection or not.
+     *
+     * B.6
+     * 4) If the object has no identifier, or the base name (after character replacement)
+     * is a duplicate of an earlier (by export order) sibling base name, then:
+     * a. append underscore '_' if the last character is not already underscore ‘_’;
+     * b. append a sequence number, starting with 1 when the object has no name, and 2 if it does.
+     * It is possible that an earlier sibling name contains a '_n' suffix that creates a name
+     * collision. In this case increment the sequence number until no collision exists.
+     */
+    val isCollection: Boolean
+
+    /**
      * Redefined properties matters for serialization per XMI 2.5 ptc/14-09-21:
      *
      * 9.4.2 CMOF Package
-     * The following additional rules are defined to suppress redundant information. They can be overriden using XMI tags:
+     * The following additional rules are defined to suppress redundant information.
+     * They can be overriden using XMI tags:
      * In the case where a Property redefines another Property, only the redefining Property is serialized.
      * (Note that when serializing an instance of a concrete supertype whose Property has been redefined,
      * the supertype is unaware of the redefinition, and the Property as defined on the supertype is serialized.)
@@ -302,12 +306,15 @@ package object oti {
     def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
   }
 
-  case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]](
-                                                                                            propertyName: String,
-                                                                                            f: U => Option[V],
-                                                                                            isOrdered: Boolean = false,
-                                                                                            redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())(implicit val u: ClassTag[U])
+  case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  (propertyName: String,
+   f: U => Option[V],
+   isOrdered: Boolean = false,
+   redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())
+  (implicit val u: ClassTag[U])
     extends MetaPropertyFunction[Uml, U, V] {
+
+    val isCollection: Boolean = false
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = Some(this)
 
@@ -336,12 +343,15 @@ package object oti {
     override def hashCode: Int = propertyName.hashCode()
   }
 
-  case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]](
-                                                                                             propertyName: String,
-                                                                                             f: U => Iterable[V],
-                                                                                             isOrdered: Boolean = false,
-                                                                                             redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())(implicit val u: ClassTag[U])
+  case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  (propertyName: String,
+   f: U => Iterable[V],
+   isOrdered: Boolean = false,
+   redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())
+  (implicit val u: ClassTag[U])
     extends MetaPropertyFunction[Uml, U, V] {
+
+    val isCollection: Boolean = false
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = None
 
@@ -386,17 +396,17 @@ package object oti {
     val obj: UMLElement[Uml]
   }
 
-  case class AssociationTriple[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]](
-                                                                                        override val sub: UMLElement[Uml],
-                                                                                        relf: MetaPropertyFunction[Uml, U, V],
-                                                                                        override val obj: UMLElement[Uml])
+  case class AssociationTriple[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  (override val sub: UMLElement[Uml],
+   relf: MetaPropertyFunction[Uml, U, V],
+   override val obj: UMLElement[Uml])
     extends RelationTriple[Uml]
 
-  case class StereotypePropertyTriple[Uml <: UML](
-                                                   override val sub: UMLElement[Uml],
-                                                   rels: UMLStereotype[Uml],
-                                                   relp: UMLProperty[Uml],
-                                                   override val obj: UMLElement[Uml])
+  case class StereotypePropertyTriple[Uml <: UML]
+  (override val sub: UMLElement[Uml],
+   rels: UMLStereotype[Uml],
+   relp: UMLProperty[Uml],
+   override val obj: UMLElement[Uml])
     extends RelationTriple[Uml]
 
   /**
@@ -418,7 +428,8 @@ package object oti {
    * this shouldn't happen since every element must be contained in a package;
    * however, the Scala compiler doesn't know this...
    */
-  def getPackageOrProfileOwner[Uml <: UML](e: UMLElement[Uml]): Option[UMLPackage[Uml]] =
+  def getPackageOrProfileOwner[Uml <: UML](e: UMLElement[Uml]):
+  Option[UMLPackage[Uml]] =
     e.owningNamespace match {
       case None => None
       case Some(pf: UMLProfile[Uml]) => Some(pf)
@@ -434,7 +445,8 @@ package object oti {
 
   import operations._
 
-  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]](source: T, targets: Set[T], next: T => Set[T]): Set[Seq[(T, T)]] = {
+  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]](source: T, targets: Set[T], next: T => Set[T]):
+  Set[Seq[(T, T)]] = {
 
     val paths = scala.collection.mutable.HashSet[Seq[(T, T)]]()
 
@@ -462,60 +474,72 @@ package object oti {
     growPaths(next(source) map ((n) => Seq((source, n))))
   }
 
-  def getGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     s.general.selectByKindOf({ case s: UMLStereotype[Uml] => s })
   }
 
-  def getGeneralStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     getGeneralStereotypes(s).filter((s1) => s1.profile != s.profile)
   }
 
-  def getGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     getGeneralStereotypes(s).filter((s1) => s1.profile == s.profile)
   }
 
-  def getAllGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getAllGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getGeneralStereotypes(_) + s)
   }
 
-  def getAllGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getAllGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getGeneralStereotypesWithinProfile(_) + s)
   }
 
-  def getGeneralStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] =
+  def getGeneralStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] =
     s.profile match {
       case None => Set()
       case Some(pf) =>
         getAllGeneralStereotypesWithinProfile(s).flatMap(getGeneralStereotypesOutsideProfile(_))
     }
 
-  def getSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     s.general_classifier.selectByKindOf({ case s: UMLStereotype[Uml] => s })
   }
 
-  def getSpecializedStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     getSpecializedStereotypes(s).filter((s1) => s1.profile != s.profile)
   }
 
-  def getSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     getSpecializedStereotypes(s).filter((s1) => s1.profile == s.profile)
   }
 
-  def getAllSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getAllSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getSpecializedStereotypes(_) + s)
   }
 
-  def getAllSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] = {
+  def getAllSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getSpecializedStereotypesWithinProfile(_) + s)
   }
 
-  def getSpecializedStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]): Set[UMLStereotype[Uml]] =
+  def getSpecializedStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  Set[UMLStereotype[Uml]] =
     s.profile match {
       case None => Set()
       case Some(pf) =>

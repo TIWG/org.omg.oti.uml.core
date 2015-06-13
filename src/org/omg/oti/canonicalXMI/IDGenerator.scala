@@ -87,7 +87,7 @@ trait IDGenerator[Uml <: UML] {
    * Computes the xmi:ID for each element in the domain of the element2document map of the ResolvedDocumentSet
    */
   def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): Try[Unit] = {
-    pkg.allOwnedElements filter (resolvedDocumentSet.element2document.contains) foreach ( getXMI_ID )
+    pkg.allOwnedElements filter resolvedDocumentSet.element2document.contains foreach getXMI_ID
     Success( Unit )
   }
    protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
@@ -183,9 +183,10 @@ trait IDGenerator[Uml <: UML] {
     else self.owner match {
       case None => Failure( illegalElementException( "Element without an owner is not supported", self ) )
       case Some( owner ) =>
-        self.getContainedElementContainingMetamodelProperty match {
-          case None => Failure(illegalElementException("Element without an owner is not supported", self))
-          case Some(cf) =>
+        self.getContainingMetaPropertyEvaluator match {
+          case Failure(f) => Failure(f)
+          case Success(None) => Failure(illegalElementException("Element without an owner is not supported", self))
+          case Success(Some(cf)) =>
             getXMI_ID(owner) match {
               case Failure(t) => Failure(t)
               case Success(ownerID) =>
@@ -226,7 +227,7 @@ trait IDGenerator[Uml <: UML] {
           case Some( nInstance ) =>
             iv.getContainedElementContainingMetamodelProperty match {
               case None => Failure(illegalElementException("Element without an owner is not supported", iv))
-              case Some(cf) => Success(ownerID + "_" + xmlSafeID(getMetamodelPropertyName(cf) + "." + nInstance))
+              case Some(cf) => Success(ownerID + "_" + xmlSafeID(cf.propertyName + "." + nInstance))
             }
         }
     }
@@ -274,11 +275,11 @@ trait IDGenerator[Uml <: UML] {
         case _ =>
           suffix1
       }
-      val suffix3 = ( suffix2, getMetamodelPropertyUpperBound(cf) ) match {
+      val suffix3 = ( suffix2, cf.isCollection ) match {
         case ( Failure( t ), _ ) => Failure( t )
-        case ( Success( "" ), u ) =>
+        case ( Success( "" ), isCollection ) =>
           ( owner, owner.owner ) match {
-            case ( s: UMLSlot[Uml], Some( is: UMLInstanceSpecification[Uml] ) ) if isMetamodelPropertySlotValue(cf) =>
+            case ( s: UMLSlot[Uml], Some( is: UMLInstanceSpecification[Uml] ) ) if cf == Slot_value =>
               s.definingFeature match {
                 case None =>
                   Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
@@ -292,7 +293,7 @@ trait IDGenerator[Uml <: UML] {
                   }
               }
             case ( o1, o2 ) =>
-              require( u == 1, s" o1=${o1.id}, o2=${o2.get.id} / o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
+              require( !isCollection, s" o1=${o1.id}, o2=${o2.get.id} / o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
               Success( "" )
           }
         case ( Success( s ), _ ) =>
@@ -300,7 +301,7 @@ trait IDGenerator[Uml <: UML] {
       }
       suffix3 match {
         case Failure( t ) => Failure( t )
-        case Success( s ) => Success( ownerID + "_" + xmlSafeID( getMetamodelPropertyName(cf) + s ) )
+        case Success( s ) => Success( ownerID + "_" + xmlSafeID( cf.propertyName + s ) )
       }
   }
 
@@ -317,13 +318,13 @@ trait IDGenerator[Uml <: UML] {
    * Rule #2:  any Element on which Rule#1 does not apply and which is owned as an ordered set
    */
   val crule2: ContainedElement2IDRule = {
-    case ( owner, ownerID, cf, e ) if isMetamodelPropertyOrdered(cf) && getMetamodelPropertyUpperBound(cf) != 1 =>
+    case ( owner, ownerID, cf, e ) if cf.isOrdered && cf.isCollection =>
       e.getElementMetamodelPropertyValue( cf ) match {
         case Failure(t) => Failure(t)
         case Success(vs) =>
           val values = vs.toList
           require(values.contains(e))
-          Success(ownerID + "_" + xmlSafeID(getMetamodelPropertyName(cf)) + "." + values.indexOf(e))
+          Success(ownerID + "_" + xmlSafeID(cf.propertyName) + "." + values.indexOf(e))
       }
   }
 
@@ -335,7 +336,7 @@ trait IDGenerator[Uml <: UML] {
       dr.target.toList match {
         case List( t ) => getXMI_IDREF_or_HREF_fragment( owner, t ) match {
           case Failure( t )   => Failure( illegalElementException( s"Binary DirectedRelationship must have a target - ${t}", dr ) )
-          case Success( tid ) => Success( ownerID + "._" + xmlSafeID( getMetamodelPropertyName(cf)) + "." + tid )
+          case Success( tid ) => Success( ownerID + "._" + xmlSafeID( cf.propertyName) + "." + tid )
         }
         case _ => Failure( illegalElementException( "Binary DirectedRelationship must have a target", dr ) )
       }
@@ -360,7 +361,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule5: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, c: UMLComment[Uml] ) =>
-      Success( ownerID + "._" + xmlSafeID( getMetamodelPropertyName(cf) ) + "." + c.getCommentOwnerIndex )
+      Success( ownerID + "._" + xmlSafeID( cf.propertyName ) + "." + c.getCommentOwnerIndex )
   }
 
   /**
@@ -370,7 +371,7 @@ trait IDGenerator[Uml <: UML] {
     case ( owner, ownerID, cf, i: UMLImage[Uml] ) =>
       getImageLocationURL( i ) match {
         case Failure( t )           => Failure( t )
-        case Success( locationURL ) => Success( ownerID + "._" + xmlSafeID( getMetamodelPropertyName(cf) ) + "." + xmlSafeID( locationURL ) )
+        case Success( locationURL ) => Success( ownerID + "._" + xmlSafeID( cf.propertyName ) + "." + xmlSafeID( locationURL ) )
       }
   }
 
@@ -428,7 +429,7 @@ trait IDGenerator[Uml <: UML] {
            
          case Failure(t) => 
            println("***Fail!***")
-           t.toString()
+           t.toString
       } 
       x match {
         case ne: UMLNamedElement[Uml] => 

@@ -130,7 +130,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 */
 	def validate_not_own_self: Boolean = {
 		// Start of user code for "not_own_self"
-  	!( allOwnedElements.contains(self) )
+  	!allOwnedElements.contains(self)
   	// End of user code
 	}
 
@@ -141,7 +141,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   @annotation.tailrec final def getPackageOwnerWithEffectiveURI: Option[UMLPackage[Uml]] =
     self match {
-      case p: UMLPackage[Uml] if ( p.getEffectiveURI.isDefined ) => Some( p )
+      case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined => Some( p )
       case _ => owner match {
         case Some( o ) => o.getPackageOwnerWithEffectiveURI
         case None      => None
@@ -498,7 +498,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return The single (M2)Property, if any, that represents the current owner of the (M1)Element object.
    */
-  def getContainedElementContainingMetamodelProperty: Option[Uml#MetamodelProperty]
+  def getContainedElementContainingMetamodelProperty: Option[MetaPropertyEvaluator] =
+    getContainingMetaPropertyEvaluator.get
 
   /**
    * @See MOF 2.5
@@ -525,7 +526,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
    * @throws IllegalArgumentException if `f` is not an (M2)Property of the (M2)Class that is the metaclass of the element.
    */
-  def getElementMetamodelPropertyValue( f: Uml#MetamodelProperty ): Try[Iterable[UMLElement[Uml]]]
+  def getElementMetamodelPropertyValue( f: MetaPropertyEvaluator ): Try[Iterable[UMLElement[Uml]]] =
+    f match {
+      case rf: MetaReferenceEvaluator => for { v <- rf.evaluate(self) } yield v
+      case cf: MetaCollectionEvaluator => cf.evaluate(self)
+    }
 
   /**
    * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.

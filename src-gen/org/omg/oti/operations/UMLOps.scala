@@ -1530,43 +1530,206 @@ trait UMLOps[Uml <: UML] { self =>
 	implicit def umlWriteVariableAction( c: Set[Uml#WriteVariableAction] ): Set[UMLWriteVariableAction[Uml]] = for { e <- c } yield umlWriteVariableAction( e )
 
 	// Start of user code for additional features
-  
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-	def isMetamodelPropertySlotValue(p: Uml#MetamodelProperty): Boolean
 
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-  def isMetamodelPropertyOrdered(p: Uml#MetamodelProperty): Boolean
 
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-	def getMetamodelPropertyName(p: Uml#MetamodelProperty): String
+  // @TODO TIWG-25: This should be generated for all metaclasses.
 
-	/**
-	 * TIWG-25, TIWG-29: this method should be replaced with something
-	 * that uses an element's compositeMetaProperty information.
-	 * @param p
-	 * @return
-	 */
-  def getMetamodelPropertyUpperBound(p: Uml#MetamodelProperty): Int
+  // Start of Metaclass properties (reference, collection)
+
+  val Abstraction_mapping =
+    MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]](
+      "mapping", _.mapping)
+
+  val AcceptCallAction_returnInformation =
+    MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]](
+      "returnInformation", _.returnInformation)
+
+  val Association_ownedEnd =
+    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+      "ownedEnd", _.ownedEnd, true)
+
+  val Association_memberEnd =
+    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+      "memberEnd", _.memberEnd, true)
+
+  val Association_navigableOwnedEnd =
+    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+      "navigableOwnedEnd", _.navigableOwnedEnd)
+
+  val Class_nestedClassifier =
+    MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]](
+      "nestedClassifier", _.nestedClassifier, true)
+
+  val Class_ownedAttribute =
+    MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]](
+      "ownedAttribute", _.ownedAttribute, true)
+
+  val Class_ownedOperation =
+    MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]](
+      "ownedOperation", _.ownedOperation, true)
+
+  val Class_ownedReception =
+    MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]](
+      "ownedReception", _.ownedReception)
+
+  val ConditionalNode_clause =
+    MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]](
+      "clause", _.clause)
+
+  val ConditionalNode_result =
+    MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]](
+      "result", _.result, true,
+      Set(StructuredActivityNode_structuredNodeOutput))
+
+  val ConnectableElement_templateParameter =
+    MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]](
+      "templateParameter", _.templateParameter, false,
+      Set(ParameterableElement_templateParameter))
+
+  val ConnectableElementTemplateParameter_parameteredElement =
+    MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]](
+      "parameteredElement", _.parameteredElement, false,
+      Set(TemplateParameter_parameteredElement))
+
+  val CreateLinkAction_endData =
+    MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
+      "endData", _.endData, false,
+      Set(LinkAction_endData))
+
+  val DestroyLinkAction_endData =
+    MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]](
+      "endData", _.endData, false,
+      Set(LinkAction_endData))
+
+  val DurationConstraint_specification =
+    MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
+      "specification", _.specification, false,
+      Set(IntervalConstraint_specification))
+
+  val DurationInterval_max =
+    MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
+      "max", _.max, false,
+      Set(Interval_max))
+
+  val DurationInterval_min =
+    MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
+      "min", _.min, false,
+      Set(Interval_min))
+
+  val Element_ownedComment =
+    MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
+      "ownedComment", _.ownedComment)
+
+  val Interval_max =
+    MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
+      "max", _.max)
+
+  val Interval_min =
+    MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
+      "min", _.min)
+
+  val IntervalConstraint_specification =
+    MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]](
+      "specification", _.specification)
+
+  val InvocationAction_argument =
+    MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]](
+      "argument", _.argument, true)
+
+  val LinkAction_endData =
+    MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]](
+      "endData", _.endData)
+
+  val LinkAction_inputValue =
+    MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]](
+      "inputValue", _.inputValue)
+
+  val LoopNode_loopVariable =
+    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+      "loopVariable", _.loopVariable, true)
+
+  val LoopNode_loopVariableInput =
+    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]](
+      "loopVariableInput", _.loopVariableInput, true,
+      Set(StructuredActivityNode_structuredNodeInput))
+
+  val LoopNode_result =
+    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+      "result", _.result, true,
+      Set(StructuredActivityNode_structuredNodeOutput))
+
+  val ParameterableElement_templateParameter =
+    MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
+      "templateParameter", _.templateParameter)
+
+  val SendObjectAction_request =
+    MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
+      "request", _.request, false,
+      Set(InvocationAction_argument))
+
+  val SendObjectAction_target =
+    MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
+      "target", _.target)
+
+  val SequenceNode_executableNode =
+    MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]](
+      "executableNode", _.executableNode, true,
+      Set(StructuredActivityNode_node))
+
+  val Slot_value =
+    MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]](
+      "value", _.value, true)
+
+  val StructuredActivityNode_edge =
+    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
+      "edge", _.edge)
+
+  val StructuredActivityNode_node =
+    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]](
+      "node", _.node)
+
+  val StructuredActivityNode_structuredNodeInput =
+    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]](
+      "structuredNodeInput", _.structuredNodeInput)
+
+  val StructuredActivityNode_structuredNodeOutput =
+    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]](
+      "structuredNodeOutput", _.structuredNodeOutput)
+
+  val StructuredActivityNode_variable =
+    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]](
+      "variable", _.variable)
+
+  val TemplateParameter_parameteredElement =
+    MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
+      "parameteredElement", _.parameteredElement)
+
+  val TimeConstraint_specification =
+    MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
+      "specification", _.specification, false,
+      Set(IntervalConstraint_specification))
+
+  val TimeInterval_max =
+    MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
+      "max", _.max, false,
+      Set(Interval_max))
+
+  val TimeInterval_min =
+    MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
+      "min", _.min, false,
+      Set(Interval_min))
+
+  // End of Metaclass properties (reference, collection)
 
   type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
-  type Element2IDRule = PartialFunction[UMLElement[Uml], Try[String]]
-  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, Uml#MetamodelProperty, UMLElement[Uml] ), Try[String]]
+  type Element2IDRule = PartialFunction[
+    UMLElement[Uml],
+    Try[String]]
+
+  type ContainedElement2IDRule = PartialFunction[
+    ( UMLElement[Uml], String, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml] ),
+    Try[String]]
 
   class FilterableUMLOption[U]( o: Option[U] ) {
 
@@ -1575,7 +1738,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( o: Option[U] ) = new FilterableUMLOption( o )
+  implicit def filterable[U]( o: Option[U] ): FilterableUMLOption[U] = new FilterableUMLOption( o )
 
   class FilterableUMLIterator[U]( it: Iterator[U] ) {
 
@@ -1584,7 +1747,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( it: Iterator[U] ) = new FilterableUMLIterator( it )
+  implicit def filterable[U]( it: Iterator[U] ): FilterableUMLIterator[U] = new FilterableUMLIterator( it )
 
   class FilterableUMLIterable[U]( it: Iterable[U] ) {
 
@@ -1593,7 +1756,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( it: Iterable[U] ) = new FilterableUMLIterable( it )
+  implicit def filterable[U]( it: Iterable[U] ): FilterableUMLIterable[U] = new FilterableUMLIterable( it )
 
   class FilterableUMLSeq[U]( s: Seq[U] ) {
 
@@ -1602,7 +1765,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( s: Seq[U] ) = new FilterableUMLSeq( s )
+  implicit def filterable[U]( s: Seq[U] ): FilterableUMLSeq[U] = new FilterableUMLSeq( s )
 
   class FilterableUMLSet[U]( s: Set[U] ) {
 
@@ -1611,7 +1774,7 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( s: Set[U] ) = new FilterableUMLSet( s )
+  implicit def filterable[U]( s: Set[U] ): FilterableUMLSet[U] = new FilterableUMLSet( s )
 
   class FilterableUMLStream[U]( s: Stream[U] ) {
 
@@ -1620,21 +1783,27 @@ trait UMLOps[Uml <: UML] { self =>
 
   }
 
-  implicit def filterable[U]( s: Stream[U] ) = new FilterableUMLStream( s )
+  implicit def filterable[U]( s: Stream[U] ): FilterableUMLStream[U] = new FilterableUMLStream( s )
 
   val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
 
   def cacheLookupOrUpdate( e: Uml#Element ): UMLElement[Uml]
 
-  def cacheLookupOrUpdateAs[U <: Uml#Element: ClassTag, V <: UMLElement[Uml]: ClassTag]( e: U )( implicit uTag: ClassTag[U], vTag: ClassTag[V] ): V = {
-    if ( e == null ) null.asInstanceOf[V]
-    else {
-      val v = cacheLookupOrUpdate( e )
-      val rv = vTag.runtimeClass
-      require( rv.isInstance( v ), s"lookup of ${e.xmiType.head}: ${e.id} got: ${v.xmiType.head}: ${v.id}, not a ${rv.getName}" )
-      v.asInstanceOf[V]
-    }
-  }
+  // @TODO
+  // This does not quite work; perhaps it's that ClassTag is too weak to handle the separation between OTI Core
+  // and a tool-specific OTI adapter.
+  // Experiment using TypeTag instead of ClassTag.
+  // Is this really needed?
+
+//  def cacheLookupOrUpdateAs[U <: Uml#Element: ClassTag, V <: UMLElement[Uml]: ClassTag]( e: U )( implicit uTag: ClassTag[U], vTag: ClassTag[V] ): V = {
+//    if ( e == null ) null.asInstanceOf[V]
+//    else {
+//      val v = cacheLookupOrUpdate( e )
+//      val rv = vTag.runtimeClass
+//      require( rv.isInstance( v ), s"lookup of ${e.xmiType.head}: ${e.id} got: ${v.xmiType.head}: ${v.id}, not a ${rv.getName}" )
+//      v.asInstanceOf[V]
+//    }
+//  }
 
   def illegalElementException[E <: UMLElement[Uml]]( message: String, e: E ) =
     IllegalElementException[Uml, E]( message, Iterable( e ) )
@@ -1667,8 +1836,6 @@ trait UMLOps[Uml <: UML] { self =>
    */
   val OTI_ID_uuid: Option[Uml#Property]
 
-  val SLOT_VALUE: Uml#MetamodelProperty
-
   def closure[U, V <: U]( x: U, relation: U => Iterable[V] ): Set[V] = {
 
     case class RelationClosureVisitor(
@@ -1676,7 +1843,11 @@ trait UMLOps[Uml <: UML] { self =>
       visit: scala.collection.mutable.Buffer[V],
       visited: scala.collection.mutable.Set[V] )
 
-    val visitor = RelationClosureVisitor( scala.collection.mutable.Set[V](), relation( x ).toBuffer, scala.collection.mutable.Set[V]() )
+    val visitor = RelationClosureVisitor(
+      scala.collection.mutable.Set[V](),
+      relation( x ).toBuffer,
+      scala.collection.mutable.Set[V]() )
+
     while ( visitor.visit.nonEmpty ) {
       val y = visitor.visit.remove( 0 )
       visitor.visited += y
@@ -1686,8 +1857,8 @@ trait UMLOps[Uml <: UML] { self =>
         if ( !visitor.visited.contains( yi ) ) { visitor.visit += yi }
       } )
     }
-    visitor.result.toSet
 
+    visitor.result.toSet
   }
   
   /**

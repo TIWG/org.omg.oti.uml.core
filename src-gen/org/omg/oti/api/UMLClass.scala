@@ -197,10 +197,7 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
 			encapsulatedClassifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier, true),
-				MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
-				MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true),
-				MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception)))
+			Seq (Class_nestedClassifier, Class_ownedAttribute, Class_ownedOperation, Class_ownedReception))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

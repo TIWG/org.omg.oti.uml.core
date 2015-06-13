@@ -105,7 +105,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	def acceptCallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			acceptEventAction_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]]("returnInformation", _.returnInformation)))
+			Seq (AcceptCallAction_returnInformation))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
