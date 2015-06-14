@@ -485,21 +485,6 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         }
         Success( props.headOption )
     }
-  /**
-   * @See MOF2.5
-   *
-   * Section 15.9 Additional Operations
-   * [6] This returns the single Property with a slot that represents
-   *     the current owner of the Object based on current instance values;
-   *     may be null for top level objects.
-   *
-   *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
-   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
-   *
-   * @return The single (M2)Property, if any, that represents the current owner of the (M1)Element object.
-   */
-  def getContainedElementContainingMetamodelProperty: Option[MetaPropertyEvaluator] =
-    getContainingMetaPropertyEvaluator.get
 
   /**
    * @See MOF 2.5

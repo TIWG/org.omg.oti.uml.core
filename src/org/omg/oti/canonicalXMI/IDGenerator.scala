@@ -90,7 +90,8 @@ trait IDGenerator[Uml <: UML] {
     pkg.allOwnedElements filter resolvedDocumentSet.element2document.contains foreach getXMI_ID
     Success( Unit )
   }
-   protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
+
+  protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
     getXMI_IDREF_or_HREF_fragment_internal( from, to ) match {
     case Success( fragment ) => Success( fragment )
     case Failure( _ ) => getXMI_IDREF_or_HREF_fragment( from, getMappedOrReferencedElement( to ) )
@@ -225,9 +226,10 @@ trait IDGenerator[Uml <: UML] {
         is.name match {
           case None      => Failure( illegalElementException( "InstanceValue must refer to a named InstanceSpecification", is ) )
           case Some( nInstance ) =>
-            iv.getContainedElementContainingMetamodelProperty match {
-              case None => Failure(illegalElementException("Element without an owner is not supported", iv))
-              case Some(cf) => Success(ownerID + "_" + xmlSafeID(cf.propertyName + "." + nInstance))
+            iv.getContainingMetaPropertyEvaluator match {
+              case Failure( t ) => Failure( t )
+              case Success( None ) => Failure(illegalElementException("Element without an owner is not supported", iv))
+              case Success( Some(cf) ) => Success(ownerID + "_" + xmlSafeID(cf.propertyName + "." + nInstance))
             }
         }
     }
@@ -310,8 +312,8 @@ trait IDGenerator[Uml <: UML] {
    * case (b): not Feature, not ValueSpecification
    */
   val crule1b: ContainedElement2IDRule = {
-    case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) =>
-      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
+    case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) if ne.name.isDefined =>
+      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
   }
 
   /**
