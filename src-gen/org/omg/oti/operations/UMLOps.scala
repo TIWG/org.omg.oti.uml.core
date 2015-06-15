@@ -1529,197 +1529,2648 @@ trait UMLOps[Uml <: UML] { self =>
 	implicit def umlWriteVariableAction( c: Seq[Uml#WriteVariableAction] ): Seq[UMLWriteVariableAction[Uml]] = for { e <- c } yield umlWriteVariableAction( e )
 	implicit def umlWriteVariableAction( c: Set[Uml#WriteVariableAction] ): Set[UMLWriteVariableAction[Uml]] = for { e <- c } yield umlWriteVariableAction( e )
 
+	val Abstraction_mapping =
+		MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]](
+		"mapping", _.mapping, false,
+		Set())
+
+	val AcceptCallAction_returnInformation =
+		MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]](
+		"returnInformation", _.returnInformation, false,
+		Set())
+
+	val AcceptEventAction_isUnmarshall =
+		MetaAttributeBooleanFunction[Uml, UMLAcceptEventAction[Uml]](None, "isUnmarshall",
+		(x) => booleanToIterable(x.isUnmarshall, false))
+
+	val AcceptEventAction_result =
+		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, true,
+		Set())
+
+	val AcceptEventAction_trigger =
+		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]](
+		"trigger", _.trigger, false,
+		Set())
+
+	val Action_isLocallyReentrant =
+		MetaAttributeBooleanFunction[Uml, UMLAction[Uml]](None, "isLocallyReentrant",
+		(x) => booleanToIterable(x.isLocallyReentrant, false))
+
+	val Action_localPostcondition =
+		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
+		"localPostcondition", _.localPostcondition, false,
+		Set())
+
+	val Action_localPrecondition =
+		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
+		"localPrecondition", _.localPrecondition, false,
+		Set())
+
+	val ActionExecutionSpecification_action =
+		MetaPropertyReference[Uml, UMLActionExecutionSpecification[Uml], UMLAction[Uml]](
+		"action", _.action, false,
+		Set())
+
+	val ActionInputPin_fromAction =
+		MetaPropertyReference[Uml, UMLActionInputPin[Uml], UMLAction[Uml]](
+		"fromAction", _.fromAction, false,
+		Set())
+
+	val Activity_edge =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]](
+		"edge", _.edge, false,
+		Set())
+
+	val Activity_group =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]](
+		"group", _.group, false,
+		Set())
+
+	val Activity_isReadOnly =
+		MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isReadOnly",
+		(x) => booleanToIterable(x.isReadOnly, false))
+
+	val Activity_isSingleExecution =
+		MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isSingleExecution",
+		(x) => booleanToIterable(x.isSingleExecution, false))
+
+	val Activity_node =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]](
+		"node", _.node, false,
+		Set())
+
+	val Activity_partition =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]](
+		"partition", _.partition, false,
+		Set())
+
+	val Activity_structuredNode =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]](
+		"structuredNode", _.structuredNode, false,
+		Set())
+
+	val Activity_variable =
+		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]](
+		"variable", _.variable, false,
+		Set())
+
+	val ActivityEdge_activity =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivity[Uml]](
+		"activity", _.activity, false,
+		Set())
+
+	val ActivityEdge_guard =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
+		"guard", _.guard, false,
+		Set())
+
+	val ActivityEdge_inPartition =
+		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]](
+		"inPartition", _.inPartition, false,
+		Set())
+
+	val ActivityEdge_inStructuredNode =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLStructuredActivityNode[Uml]](
+		"inStructuredNode", _.inStructuredNode, false,
+		Set())
+
+	val ActivityEdge_interrupts =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]](
+		"interrupts", _.interrupts, false,
+		Set())
+
+	val ActivityEdge_redefinedEdge =
+		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]](
+		"redefinedEdge", _.redefinedEdge, false,
+		Set())
+
+	val ActivityEdge_source =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
+		"source", _.source, false,
+		Set())
+
+	val ActivityEdge_target =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
+		"target", _.target, false,
+		Set())
+
+	val ActivityEdge_weight =
+		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
+		"weight", _.weight, false,
+		Set())
+
+
+	val ActivityGroup_inActivity =
+		MetaPropertyReference[Uml, UMLActivityGroup[Uml], UMLActivity[Uml]](
+		"inActivity", _.inActivity, false,
+		Set())
+
+	val ActivityNode_activity =
+		MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLActivity[Uml]](
+		"activity", _.activity, false,
+		Set())
+
+	val ActivityNode_inInterruptibleRegion =
+		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]](
+		"inInterruptibleRegion", _.inInterruptibleRegion, false,
+		Set())
+
+	val ActivityNode_inPartition =
+		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]](
+		"inPartition", _.inPartition, false,
+		Set())
+
+	val ActivityNode_inStructuredNode =
+		MetaPropertyReference[Uml, UMLActivityNode[Uml], UMLStructuredActivityNode[Uml]](
+		"inStructuredNode", _.inStructuredNode, false,
+		Set())
+
+	val ActivityNode_incoming =
+		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
+		"incoming", _.incoming, false,
+		Set())
+
+	val ActivityNode_outgoing =
+		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
+		"outgoing", _.outgoing, false,
+		Set())
+
+	val ActivityNode_redefinedNode =
+		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]](
+		"redefinedNode", _.redefinedNode, false,
+		Set())
+
+	val ActivityParameterNode_parameter =
+		MetaPropertyReference[Uml, UMLActivityParameterNode[Uml], UMLParameter[Uml]](
+		"parameter", _.parameter, false,
+		Set())
+
+	val ActivityPartition_edge =
+		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityEdge[Uml]](
+		"edge", _.edge, false,
+		Set())
+
+	val ActivityPartition_isDimension =
+		MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isDimension",
+		(x) => booleanToIterable(x.isDimension, false))
+
+	val ActivityPartition_isExternal =
+		MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isExternal",
+		(x) => booleanToIterable(x.isExternal, false))
+
+	val ActivityPartition_node =
+		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityNode[Uml]](
+		"node", _.node, false,
+		Set())
+
+	val ActivityPartition_represents =
+		MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]](
+		"represents", _.represents, false,
+		Set())
+
+	val ActivityPartition_subpartition =
+		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]](
+		"subpartition", _.subpartition, false,
+		Set())
+
+	val ActivityPartition_superPartition =
+		MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]](
+		"superPartition", _.superPartition, false,
+		Set())
+
+
+	val AddStructuralFeatureValueAction_insertAt =
+		MetaPropertyReference[Uml, UMLAddStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
+		"insertAt", _.insertAt, false,
+		Set())
+
+	val AddStructuralFeatureValueAction_isReplaceAll =
+		MetaAttributeBooleanFunction[Uml, UMLAddStructuralFeatureValueAction[Uml]](None, "isReplaceAll",
+		(x) => booleanToIterable(x.isReplaceAll, false))
+
+	val AddVariableValueAction_insertAt =
+		MetaPropertyReference[Uml, UMLAddVariableValueAction[Uml], UMLInputPin[Uml]](
+		"insertAt", _.insertAt, false,
+		Set())
+
+	val AddVariableValueAction_isReplaceAll =
+		MetaAttributeBooleanFunction[Uml, UMLAddVariableValueAction[Uml]](None, "isReplaceAll",
+		(x) => booleanToIterable(x.isReplaceAll, false))
+
+
+	val Artifact_fileName =
+		MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
+		_.fileName)
+
+	val Artifact_manifestation =
+		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]](
+		"manifestation", _.manifestation, false,
+		Set())
+
+	val Artifact_nestedArtifact =
+		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]](
+		"nestedArtifact", _.nestedArtifact, false,
+		Set())
+
+	val Artifact_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set())
+
+	val Artifact_ownedOperation =
+		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]](
+		"ownedOperation", _.ownedOperation, true,
+		Set())
+
+	val Association_isDerived =
+		MetaAttributeBooleanFunction[Uml, UMLAssociation[Uml]](None, "isDerived",
+		(x) => booleanToIterable(x.isDerived, false))
+
+	val Association_memberEnd =
+		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+		"memberEnd", _.memberEnd, true,
+		Set())
+
+	val Association_navigableOwnedEnd =
+		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+		"navigableOwnedEnd", _.navigableOwnedEnd, false,
+		Set())
+
+	val Association_ownedEnd =
+		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
+		"ownedEnd", _.ownedEnd, true,
+		Set())
+
+
+	val Behavior_isReentrant =
+		MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant",
+		(x) => booleanToIterable(x.isReentrant, true))
+
+	val Behavior_ownedParameter =
+		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]](
+		"ownedParameter", _.ownedParameter, true,
+		Set())
+
+	val Behavior_ownedParameterSet =
+		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]](
+		"ownedParameterSet", _.ownedParameterSet, false,
+		Set())
+
+	val Behavior_postcondition =
+		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
+		"postcondition", _.postcondition, false,
+		Set())
+
+	val Behavior_precondition =
+		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
+		"precondition", _.precondition, false,
+		Set())
+
+	val Behavior_redefinedBehavior =
+		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]](
+		"redefinedBehavior", _.redefinedBehavior, false,
+		Set())
+
+	val Behavior_specification =
+		MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]](
+		"specification", _.specification, false,
+		Set())
+
+	val BehaviorExecutionSpecification_behavior =
+		MetaPropertyReference[Uml, UMLBehaviorExecutionSpecification[Uml], UMLBehavior[Uml]](
+		"behavior", _.behavior, false,
+		Set())
+
+
+	val BehavioralFeature_isAbstract =
+		MetaAttributeBooleanFunction[Uml, UMLBehavioralFeature[Uml]](None, "isAbstract",
+		(x) => booleanToIterable(x.isAbstract, false))
+
+	val BehavioralFeature_method =
+		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLBehavior[Uml]](
+		"method", _.method, false,
+		Set())
+
+	val BehavioralFeature_ownedParameter =
+		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]](
+		"ownedParameter", _.ownedParameter, true,
+		Set())
+
+	val BehavioralFeature_ownedParameterSet =
+		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameterSet[Uml]](
+		"ownedParameterSet", _.ownedParameterSet, false,
+		Set())
+
+	val BehavioralFeature_raisedException =
+		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLType[Uml]](
+		"raisedException", _.raisedException, false,
+		Set())
+
+	val BehavioredClassifier_classifierBehavior =
+		MetaPropertyReference[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
+		"classifierBehavior", _.classifierBehavior, false,
+		Set())
+
+	val BehavioredClassifier_interfaceRealization =
+		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLInterfaceRealization[Uml]](
+		"interfaceRealization", _.interfaceRealization, false,
+		Set())
+
+	val BehavioredClassifier_ownedBehavior =
+		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
+		"ownedBehavior", _.ownedBehavior, false,
+		Set())
+
+	val BroadcastSignalAction_signal =
+		MetaPropertyReference[Uml, UMLBroadcastSignalAction[Uml], UMLSignal[Uml]](
+		"signal", _.signal, false,
+		Set())
+
+	val CallAction_isSynchronous =
+		MetaAttributeBooleanFunction[Uml, UMLCallAction[Uml]](None, "isSynchronous",
+		(x) => booleanToIterable(x.isSynchronous, true))
+
+	val CallAction_result =
+		MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, true,
+		Set())
+
+	val CallBehaviorAction_behavior =
+		MetaPropertyReference[Uml, UMLCallBehaviorAction[Uml], UMLBehavior[Uml]](
+		"behavior", _.behavior, false,
+		Set())
+
+	val CallEvent_operation =
+		MetaPropertyReference[Uml, UMLCallEvent[Uml], UMLOperation[Uml]](
+		"operation", _.operation, false,
+		Set())
+
+	val CallOperationAction_operation =
+		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLOperation[Uml]](
+		"operation", _.operation, false,
+		Set())
+
+	val CallOperationAction_target =
+		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLInputPin[Uml]](
+		"target", _.target, false,
+		Set())
+
+
+	val ChangeEvent_changeExpression =
+		MetaPropertyReference[Uml, UMLChangeEvent[Uml], UMLValueSpecification[Uml]](
+		"changeExpression", _.changeExpression, false,
+		Set())
+
+	val Class_isAbstract =
+		MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isAbstract",
+		(x) => booleanToIterable(x.isAbstract, false))
+
+	val Class_isActive =
+		MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isActive",
+		(x) => booleanToIterable(x.isActive, false))
+
+	val Class_nestedClassifier =
+		MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]](
+		"nestedClassifier", _.nestedClassifier, true,
+		Set())
+
+	val Class_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set(StructuredClassifier_ownedAttribute))
+
+	val Class_ownedOperation =
+		MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]](
+		"ownedOperation", _.ownedOperation, true,
+		Set())
+
+	val Class_ownedReception =
+		MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]](
+		"ownedReception", _.ownedReception, false,
+		Set())
+
+	val Classifier_collaborationUse =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
+		"collaborationUse", _.collaborationUse, false,
+		Set())
+
+	val Classifier_generalization =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralization[Uml]](
+		"generalization", _.generalization, false,
+		Set())
+
+	val Classifier_isAbstract =
+		MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isAbstract",
+		(x) => booleanToIterable(x.isAbstract, false))
+
+	val Classifier_isFinalSpecialization =
+		MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isFinalSpecialization",
+		(x) => booleanToIterable(x.isFinalSpecialization, false))
+
+	val Classifier_ownedTemplateSignature =
+		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLRedefinableTemplateSignature[Uml]](
+		"ownedTemplateSignature", _.ownedTemplateSignature, false,
+		Set(TemplateableElement_ownedTemplateSignature))
+
+	val Classifier_ownedUseCase =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
+		"ownedUseCase", _.ownedUseCase, false,
+		Set())
+
+	val Classifier_powertypeExtent =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralizationSet[Uml]](
+		"powertypeExtent", _.powertypeExtent, false,
+		Set())
+
+	val Classifier_redefinedClassifier =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLClassifier[Uml]](
+		"redefinedClassifier", _.redefinedClassifier, false,
+		Set())
+
+	val Classifier_representation =
+		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
+		"representation", _.representation, false,
+		Set())
+
+	val Classifier_substitution =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLSubstitution[Uml]](
+		"substitution", _.substitution, false,
+		Set())
+
+	val Classifier_templateParameter =
+		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]](
+		"templateParameter", _.templateParameter, false,
+		Set(ParameterableElement_templateParameter))
+
+	val Classifier_useCase =
+		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
+		"useCase", _.useCase, false,
+		Set())
+
+	val ClassifierTemplateParameter_allowSubstitutable =
+		MetaAttributeBooleanFunction[Uml, UMLClassifierTemplateParameter[Uml]](None, "allowSubstitutable",
+		(x) => booleanToIterable(x.allowSubstitutable, true))
+
+	val ClassifierTemplateParameter_constrainingClassifier =
+		MetaPropertyCollection[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
+		"constrainingClassifier", _.constrainingClassifier, false,
+		Set())
+
+	val ClassifierTemplateParameter_parameteredElement =
+		MetaPropertyReference[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
+		"parameteredElement", _.parameteredElement, false,
+		Set(TemplateParameter_parameteredElement))
+
+	val Clause_body =
+		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
+		"body", _.body, false,
+		Set())
+
+	val Clause_bodyOutput =
+		MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
+		"bodyOutput", _.bodyOutput, true,
+		Set())
+
+	val Clause_decider =
+		MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
+		"decider", _.decider, false,
+		Set())
+
+	val Clause_predecessorClause =
+		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
+		"predecessorClause", _.predecessorClause, false,
+		Set())
+
+	val Clause_successorClause =
+		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
+		"successorClause", _.successorClause, false,
+		Set())
+
+	val Clause_test =
+		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
+		"test", _.test, false,
+		Set())
+
+	val ClearAssociationAction_association =
+		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLAssociation[Uml]](
+		"association", _.association, false,
+		Set())
+
+	val ClearAssociationAction__object =
+		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val ClearStructuralFeatureAction_result =
+		MetaPropertyReference[Uml, UMLClearStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+
+	val Collaboration_collaborationRole =
+		MetaPropertyCollection[Uml, UMLCollaboration[Uml], UMLConnectableElement[Uml]](
+		"collaborationRole", _.collaborationRole, false,
+		Set())
+
+	val CollaborationUse_roleBinding =
+		MetaPropertyCollection[Uml, UMLCollaborationUse[Uml], UMLDependency[Uml]](
+		"roleBinding", _.roleBinding, false,
+		Set())
+
+	val CollaborationUse__type =
+		MetaPropertyReference[Uml, UMLCollaborationUse[Uml], UMLCollaboration[Uml]](
+		"type", _._type, false,
+		Set())
+
+	val CombinedFragment_cfragmentGate =
+		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLGate[Uml]](
+		"cfragmentGate", _.cfragmentGate, false,
+		Set())
+
+
+	val CombinedFragment_operand =
+		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]](
+		"operand", _.operand, true,
+		Set())
+
+	val Comment_annotatedElement =
+		MetaPropertyCollection[Uml, UMLComment[Uml], UMLElement[Uml]](
+		"annotatedElement", _.annotatedElement, false,
+		Set())
+
+	val Comment_body =
+		MetaAttributeStringFunction[Uml, UMLComment[Uml]](None, "body",
+		_.body)
+
+
+	val Component_isIndirectlyInstantiated =
+		MetaAttributeBooleanFunction[Uml, UMLComponent[Uml]](None, "isIndirectlyInstantiated",
+		(x) => booleanToIterable(x.isIndirectlyInstantiated, true))
+
+	val Component_packagedElement =
+		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLPackageableElement[Uml]](
+		"packagedElement", _.packagedElement, false,
+		Set())
+
+	val Component_realization =
+		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLComponentRealization[Uml]](
+		"realization", _.realization, false,
+		Set())
+
+	val ComponentRealization_abstraction =
+		MetaPropertyReference[Uml, UMLComponentRealization[Uml], UMLComponent[Uml]](
+		"abstraction", _.abstraction, false,
+		Set())
+
+	val ComponentRealization_realizingClassifier =
+		MetaPropertyCollection[Uml, UMLComponentRealization[Uml], UMLClassifier[Uml]](
+		"realizingClassifier", _.realizingClassifier, false,
+		Set())
+
+	val ConditionalNode_clause =
+		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]](
+		"clause", _.clause, false,
+		Set())
+
+	val ConditionalNode_isAssured =
+		MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isAssured",
+		(x) => booleanToIterable(x.isAssured, false))
+
+	val ConditionalNode_isDeterminate =
+		MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isDeterminate",
+		(x) => booleanToIterable(x.isDeterminate, false))
+
+	val ConditionalNode_result =
+		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]](
+		"result", _.result, true,
+		Set(StructuredActivityNode_structuredNodeOutput))
+
+	val ConnectableElement_templateParameter =
+		MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]](
+		"templateParameter", _.templateParameter, false,
+		Set(ParameterableElement_templateParameter))
+
+	val ConnectableElementTemplateParameter_parameteredElement =
+		MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]](
+		"parameteredElement", _.parameteredElement, false,
+		Set(TemplateParameter_parameteredElement))
+
+	val ConnectionPointReference_entry =
+		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
+		"entry", _.entry, false,
+		Set())
+
+	val ConnectionPointReference_exit =
+		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
+		"exit", _.exit, false,
+		Set())
+
+	val ConnectionPointReference_state =
+		MetaPropertyReference[Uml, UMLConnectionPointReference[Uml], UMLState[Uml]](
+		"state", _.state, false,
+		Set())
+
+	val Connector_contract =
+		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLBehavior[Uml]](
+		"contract", _.contract, false,
+		Set())
+
+	val Connector_end =
+		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnectorEnd[Uml]](
+		"end", _.end, true,
+		Set())
+
+	val Connector_redefinedConnector =
+		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnector[Uml]](
+		"redefinedConnector", _.redefinedConnector, false,
+		Set())
+
+	val Connector__type =
+		MetaPropertyReference[Uml, UMLConnector[Uml], UMLAssociation[Uml]](
+		"type", _._type, false,
+		Set())
+
+	val ConnectorEnd_partWithPort =
+		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLProperty[Uml]](
+		"partWithPort", _.partWithPort, false,
+		Set())
+
+	val ConnectorEnd_role =
+		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLConnectableElement[Uml]](
+		"role", _.role, false,
+		Set())
+
+	val ConsiderIgnoreFragment_message =
+		MetaPropertyCollection[Uml, UMLConsiderIgnoreFragment[Uml], UMLNamedElement[Uml]](
+		"message", _.message, false,
+		Set())
+
+	val Constraint_constrainedElement =
+		MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]](
+		"constrainedElement", _.constrainedElement, true,
+		Set())
+
+	val Constraint_context =
+		MetaPropertyReference[Uml, UMLConstraint[Uml], UMLNamespace[Uml]](
+		"context", _.context, false,
+		Set())
+
+	val Constraint_specification =
+		MetaPropertyReference[Uml, UMLConstraint[Uml], UMLValueSpecification[Uml]](
+		"specification", _.specification, false,
+		Set())
+
+	val Continuation_setting =
+		MetaAttributeBooleanFunction[Uml, UMLContinuation[Uml]](None, "setting",
+		(x) => booleanToIterable(x.setting, true))
+
+
+
+	val CreateLinkAction_endData =
+		MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
+		"endData", _.endData, false,
+		Set(LinkAction_endData))
+
+	val CreateLinkObjectAction_result =
+		MetaPropertyReference[Uml, UMLCreateLinkObjectAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val CreateObjectAction_classifier =
+		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLClassifier[Uml]](
+		"classifier", _.classifier, false,
+		Set())
+
+	val CreateObjectAction_result =
+		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+
+	val DataType_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set())
+
+	val DataType_ownedOperation =
+		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLOperation[Uml]](
+		"ownedOperation", _.ownedOperation, true,
+		Set())
+
+	val DecisionNode_decisionInput =
+		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLBehavior[Uml]](
+		"decisionInput", _.decisionInput, false,
+		Set())
+
+	val DecisionNode_decisionInputFlow =
+		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLObjectFlow[Uml]](
+		"decisionInputFlow", _.decisionInputFlow, false,
+		Set())
+
+	val Dependency_client =
+		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
+		"client", _.client, false,
+		Set())
+
+	val Dependency_supplier =
+		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
+		"supplier", _.supplier, false,
+		Set())
+
+
+	val Deployment_configuration =
+		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeploymentSpecification[Uml]](
+		"configuration", _.configuration, false,
+		Set())
+
+	val Deployment_deployedArtifact =
+		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeployedArtifact[Uml]](
+		"deployedArtifact", _.deployedArtifact, false,
+		Set())
+
+	val Deployment_location =
+		MetaPropertyReference[Uml, UMLDeployment[Uml], UMLDeploymentTarget[Uml]](
+		"location", _.location, false,
+		Set())
+
+	val DeploymentSpecification_deployment =
+		MetaPropertyReference[Uml, UMLDeploymentSpecification[Uml], UMLDeployment[Uml]](
+		"deployment", _.deployment, false,
+		Set())
+
+	val DeploymentSpecification_deploymentLocation =
+		MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "deploymentLocation",
+		_.deploymentLocation)
+
+	val DeploymentSpecification_executionLocation =
+		MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "executionLocation",
+		_.executionLocation)
+
+	val DeploymentTarget_deployment =
+		MetaPropertyCollection[Uml, UMLDeploymentTarget[Uml], UMLDeployment[Uml]](
+		"deployment", _.deployment, false,
+		Set())
+
+	val DestroyLinkAction_endData =
+		MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]](
+		"endData", _.endData, false,
+		Set(LinkAction_endData))
+
+	val DestroyObjectAction_isDestroyLinks =
+		MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyLinks",
+		(x) => booleanToIterable(x.isDestroyLinks, false))
+
+	val DestroyObjectAction_isDestroyOwnedObjects =
+		MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyOwnedObjects",
+		(x) => booleanToIterable(x.isDestroyOwnedObjects, false))
+
+	val DestroyObjectAction_target =
+		MetaPropertyReference[Uml, UMLDestroyObjectAction[Uml], UMLInputPin[Uml]](
+		"target", _.target, false,
+		Set())
+
+
+
+
+	val Duration_expr =
+		MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]](
+		"expr", _.expr, false,
+		Set())
+
+	val Duration_observation =
+		MetaPropertyCollection[Uml, UMLDuration[Uml], UMLObservation[Uml]](
+		"observation", _.observation, false,
+		Set())
+
+	val DurationConstraint_firstEvent =
+		MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](None, "firstEvent",
+		_.firstEvent)
+
+	val DurationConstraint_specification =
+		MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
+		"specification", _.specification, false,
+		Set(IntervalConstraint_specification))
+
+	val DurationInterval_max =
+		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
+		"max", _.max, false,
+		Set(Interval_max))
+
+	val DurationInterval_min =
+		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
+		"min", _.min, false,
+		Set(Interval_min))
+
+	val DurationObservation_event =
+		MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]](
+		"event", _.event, true,
+		Set())
+
+	val DurationObservation_firstEvent =
+		MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](None, "firstEvent",
+		_.firstEvent)
+
+	val Element_ownedComment =
+		MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
+		"ownedComment", _.ownedComment, false,
+		Set())
+
+	val ElementImport_alias =
+		MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](None, "alias",
+		_.alias)
+
+	val ElementImport_importedElement =
+		MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]](
+		"importedElement", _.importedElement, false,
+		Set())
+
+	val ElementImport_importingNamespace =
+		MetaPropertyReference[Uml, UMLElementImport[Uml], UMLNamespace[Uml]](
+		"importingNamespace", _.importingNamespace, false,
+		Set())
+
+
+
+	val Enumeration_ownedLiteral =
+		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
+		"ownedLiteral", _.ownedLiteral, true,
+		Set())
+
+	val EnumerationLiteral_enumeration =
+		MetaPropertyReference[Uml, UMLEnumerationLiteral[Uml], UMLEnumeration[Uml]](
+		"enumeration", _.enumeration, false,
+		Set(InstanceSpecification_classifier))
+
+
+	val ExceptionHandler_exceptionInput =
+		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLObjectNode[Uml]](
+		"exceptionInput", _.exceptionInput, false,
+		Set())
+
+	val ExceptionHandler_exceptionType =
+		MetaPropertyCollection[Uml, UMLExceptionHandler[Uml], UMLClassifier[Uml]](
+		"exceptionType", _.exceptionType, false,
+		Set())
+
+	val ExceptionHandler_handlerBody =
+		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLExecutableNode[Uml]](
+		"handlerBody", _.handlerBody, false,
+		Set())
+
+	val ExceptionHandler_protectedNode =
+		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLExecutableNode[Uml]](
+		"protectedNode", _.protectedNode, false,
+		Set())
+
+	val ExecutableNode_handler =
+		MetaPropertyCollection[Uml, UMLExecutableNode[Uml], UMLExceptionHandler[Uml]](
+		"handler", _.handler, false,
+		Set())
+
+
+	val ExecutionOccurrenceSpecification_execution =
+		MetaPropertyReference[Uml, UMLExecutionOccurrenceSpecification[Uml], UMLExecutionSpecification[Uml]](
+		"execution", _.execution, false,
+		Set())
+
+	val ExecutionSpecification_finish =
+		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
+		"finish", _.finish, false,
+		Set())
+
+	val ExecutionSpecification_start =
+		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
+		"start", _.start, false,
+		Set())
+
+	val ExpansionNode_regionAsInput =
+		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
+		"regionAsInput", _.regionAsInput, false,
+		Set())
+
+	val ExpansionNode_regionAsOutput =
+		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
+		"regionAsOutput", _.regionAsOutput, false,
+		Set())
+
+	val ExpansionRegion_inputElement =
+		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
+		"inputElement", _.inputElement, false,
+		Set())
+
+
+	val ExpansionRegion_outputElement =
+		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
+		"outputElement", _.outputElement, false,
+		Set())
+
+	val Expression_operand =
+		MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]](
+		"operand", _.operand, true,
+		Set())
+
+	val Expression_symbol =
+		MetaAttributeStringFunction[Uml, UMLExpression[Uml]](None, "symbol",
+		_.symbol)
+
+	val Extend_condition =
+		MetaPropertyReference[Uml, UMLExtend[Uml], UMLConstraint[Uml]](
+		"condition", _.condition, false,
+		Set())
+
+	val Extend_extendedCase =
+		MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]](
+		"extendedCase", _.extendedCase, false,
+		Set())
+
+	val Extend_extension =
+		MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]](
+		"extension", _.extension, false,
+		Set())
+
+	val Extend_extensionLocation =
+		MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]](
+		"extensionLocation", _.extensionLocation, true,
+		Set())
+
+	val Extension_ownedEnd =
+		MetaPropertyCollection[Uml, UMLExtension[Uml], UMLExtensionEnd[Uml]](
+		"ownedEnd", _.ownedEnd, false,
+		Set(Association_ownedEnd))
+
+	val ExtensionEnd__type =
+		MetaPropertyReference[Uml, UMLExtensionEnd[Uml], UMLStereotype[Uml]](
+		"type", _._type, false,
+		Set(TypedElement__type))
+
+	val ExtensionPoint_useCase =
+		MetaPropertyReference[Uml, UMLExtensionPoint[Uml], UMLUseCase[Uml]](
+		"useCase", _.useCase, false,
+		Set())
+
+	val Feature_isStatic =
+		MetaAttributeBooleanFunction[Uml, UMLFeature[Uml]](None, "isStatic",
+		(x) => booleanToIterable(x.isStatic, false))
+
+
+
+
+
+
+
+	val GeneralOrdering_after =
+		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
+		"after", _.after, false,
+		Set())
+
+	val GeneralOrdering_before =
+		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
+		"before", _.before, false,
+		Set())
+
+	val Generalization_general =
+		MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]](
+		"general", _.general, false,
+		Set())
+
+	val Generalization_generalizationSet =
+		MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]](
+		"generalizationSet", _.generalizationSet, false,
+		Set())
+
+	val Generalization_isSubstitutable =
+		MetaAttributeBooleanFunction[Uml, UMLGeneralization[Uml]](None, "isSubstitutable",
+		_.isSubstitutable)
+
+	val Generalization_specific =
+		MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]](
+		"specific", _.specific, false,
+		Set())
+
+	val GeneralizationSet_generalization =
+		MetaPropertyCollection[Uml, UMLGeneralizationSet[Uml], UMLGeneralization[Uml]](
+		"generalization", _.generalization, false,
+		Set())
+
+	val GeneralizationSet_isCovering =
+		MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isCovering",
+		(x) => booleanToIterable(x.isCovering, false))
+
+	val GeneralizationSet_isDisjoint =
+		MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isDisjoint",
+		(x) => booleanToIterable(x.isDisjoint, false))
+
+	val GeneralizationSet_powertype =
+		MetaPropertyReference[Uml, UMLGeneralizationSet[Uml], UMLClassifier[Uml]](
+		"powertype", _.powertype, false,
+		Set())
+
+	val Image_content =
+		MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "content",
+		_.content)
+
+	val Image_format =
+		MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "format",
+		_.format)
+
+	val Image_location =
+		MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "location",
+		_.location)
+
+	val Include_addition =
+		MetaPropertyReference[Uml, UMLInclude[Uml], UMLUseCase[Uml]](
+		"addition", _.addition, false,
+		Set())
+
+	val Include_includingCase =
+		MetaPropertyReference[Uml, UMLInclude[Uml], UMLUseCase[Uml]](
+		"includingCase", _.includingCase, false,
+		Set())
+
+	val InformationFlow_conveyed =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLClassifier[Uml]](
+		"conveyed", _.conveyed, false,
+		Set())
+
+	val InformationFlow_informationSource =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
+		"informationSource", _.informationSource, false,
+		Set())
+
+	val InformationFlow_informationTarget =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
+		"informationTarget", _.informationTarget, false,
+		Set())
+
+	val InformationFlow_realization =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLRelationship[Uml]](
+		"realization", _.realization, false,
+		Set())
+
+	val InformationFlow_realizingActivityEdge =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLActivityEdge[Uml]](
+		"realizingActivityEdge", _.realizingActivityEdge, false,
+		Set())
+
+	val InformationFlow_realizingConnector =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLConnector[Uml]](
+		"realizingConnector", _.realizingConnector, false,
+		Set())
+
+	val InformationFlow_realizingMessage =
+		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLMessage[Uml]](
+		"realizingMessage", _.realizingMessage, false,
+		Set())
+
+	val InformationItem_represented =
+		MetaPropertyCollection[Uml, UMLInformationItem[Uml], UMLClassifier[Uml]](
+		"represented", _.represented, false,
+		Set())
+
+
+
+	val InstanceSpecification_classifier =
+		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLClassifier[Uml]](
+		"classifier", _.classifier, false,
+		Set())
+
+	val InstanceSpecification_slot =
+		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLSlot[Uml]](
+		"slot", _.slot, false,
+		Set())
+
+	val InstanceSpecification_specification =
+		MetaPropertyReference[Uml, UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]](
+		"specification", _.specification, false,
+		Set())
+
+	val InstanceValue_instance =
+		MetaPropertyReference[Uml, UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]](
+		"instance", _.instance, false,
+		Set())
+
+	val Interaction_action =
+		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLAction[Uml]](
+		"action", _.action, false,
+		Set())
+
+	val Interaction_formalGate =
+		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLGate[Uml]](
+		"formalGate", _.formalGate, false,
+		Set())
+
+	val Interaction_fragment =
+		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLInteractionFragment[Uml]](
+		"fragment", _.fragment, true,
+		Set())
+
+	val Interaction_lifeline =
+		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLLifeline[Uml]](
+		"lifeline", _.lifeline, false,
+		Set())
+
+	val Interaction_message =
+		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLMessage[Uml]](
+		"message", _.message, false,
+		Set())
+
+	val InteractionConstraint_maxint =
+		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
+		"maxint", _.maxint, false,
+		Set())
+
+	val InteractionConstraint_minint =
+		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
+		"minint", _.minint, false,
+		Set())
+
+	val InteractionFragment_covered =
+		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLLifeline[Uml]](
+		"covered", _.covered, false,
+		Set())
+
+	val InteractionFragment_enclosingInteraction =
+		MetaPropertyReference[Uml, UMLInteractionFragment[Uml], UMLInteraction[Uml]](
+		"enclosingInteraction", _.enclosingInteraction, false,
+		Set())
+
+	val InteractionFragment_enclosingOperand =
+		MetaPropertyReference[Uml, UMLInteractionFragment[Uml], UMLInteractionOperand[Uml]](
+		"enclosingOperand", _.enclosingOperand, false,
+		Set())
+
+	val InteractionFragment_generalOrdering =
+		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]](
+		"generalOrdering", _.generalOrdering, false,
+		Set())
+
+	val InteractionOperand_fragment =
+		MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]](
+		"fragment", _.fragment, true,
+		Set())
+
+	val InteractionOperand_guard =
+		MetaPropertyReference[Uml, UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]](
+		"guard", _.guard, false,
+		Set())
+
+	val InteractionUse_actualGate =
+		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLGate[Uml]](
+		"actualGate", _.actualGate, false,
+		Set())
+
+	val InteractionUse_argument =
+		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
+		"argument", _.argument, true,
+		Set())
+
+	val InteractionUse_refersTo =
+		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLInteraction[Uml]](
+		"refersTo", _.refersTo, false,
+		Set())
+
+	val InteractionUse_returnValue =
+		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
+		"returnValue", _.returnValue, false,
+		Set())
+
+	val InteractionUse_returnValueRecipient =
+		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLProperty[Uml]](
+		"returnValueRecipient", _.returnValueRecipient, false,
+		Set())
+
+	val Interface_nestedClassifier =
+		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]](
+		"nestedClassifier", _.nestedClassifier, true,
+		Set())
+
+	val Interface_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set())
+
+	val Interface_ownedOperation =
+		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]](
+		"ownedOperation", _.ownedOperation, true,
+		Set())
+
+	val Interface_ownedReception =
+		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]](
+		"ownedReception", _.ownedReception, false,
+		Set())
+
+	val Interface_protocol =
+		MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]](
+		"protocol", _.protocol, false,
+		Set())
+
+	val Interface_redefinedInterface =
+		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLInterface[Uml]](
+		"redefinedInterface", _.redefinedInterface, false,
+		Set())
+
+	val InterfaceRealization_contract =
+		MetaPropertyReference[Uml, UMLInterfaceRealization[Uml], UMLInterface[Uml]](
+		"contract", _.contract, false,
+		Set())
+
+	val InterfaceRealization_implementingClassifier =
+		MetaPropertyReference[Uml, UMLInterfaceRealization[Uml], UMLBehavioredClassifier[Uml]](
+		"implementingClassifier", _.implementingClassifier, false,
+		Set())
+
+	val InterruptibleActivityRegion_interruptingEdge =
+		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityEdge[Uml]](
+		"interruptingEdge", _.interruptingEdge, false,
+		Set())
+
+	val InterruptibleActivityRegion_node =
+		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityNode[Uml]](
+		"node", _.node, false,
+		Set())
+
+	val Interval_max =
+		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
+		"max", _.max, false,
+		Set())
+
+	val Interval_min =
+		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
+		"min", _.min, false,
+		Set())
+
+	val IntervalConstraint_specification =
+		MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]](
+		"specification", _.specification, false,
+		Set(Constraint_specification))
+
+	val InvocationAction_argument =
+		MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]](
+		"argument", _.argument, true,
+		Set())
+
+	val InvocationAction_onPort =
+		MetaPropertyReference[Uml, UMLInvocationAction[Uml], UMLPort[Uml]](
+		"onPort", _.onPort, false,
+		Set())
+
+	val JoinNode_isCombineDuplicate =
+		MetaAttributeBooleanFunction[Uml, UMLJoinNode[Uml]](None, "isCombineDuplicate",
+		(x) => booleanToIterable(x.isCombineDuplicate, true))
+
+	val JoinNode_joinSpec =
+		MetaPropertyReference[Uml, UMLJoinNode[Uml], UMLValueSpecification[Uml]](
+		"joinSpec", _.joinSpec, false,
+		Set())
+
+	val Lifeline_coveredBy =
+		MetaPropertyCollection[Uml, UMLLifeline[Uml], UMLInteractionFragment[Uml]](
+		"coveredBy", _.coveredBy, false,
+		Set())
+
+	val Lifeline_decomposedAs =
+		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLPartDecomposition[Uml]](
+		"decomposedAs", _.decomposedAs, false,
+		Set())
+
+	val Lifeline_interaction =
+		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLInteraction[Uml]](
+		"interaction", _.interaction, false,
+		Set())
+
+	val Lifeline_represents =
+		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLConnectableElement[Uml]](
+		"represents", _.represents, false,
+		Set())
+
+	val Lifeline_selector =
+		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLValueSpecification[Uml]](
+		"selector", _.selector, false,
+		Set())
+
+	val LinkAction_endData =
+		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]](
+		"endData", _.endData, false,
+		Set())
+
+	val LinkAction_inputValue =
+		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]](
+		"inputValue", _.inputValue, false,
+		Set())
+
+	val LinkEndCreationData_insertAt =
+		MetaPropertyReference[Uml, UMLLinkEndCreationData[Uml], UMLInputPin[Uml]](
+		"insertAt", _.insertAt, false,
+		Set())
+
+	val LinkEndCreationData_isReplaceAll =
+		MetaAttributeBooleanFunction[Uml, UMLLinkEndCreationData[Uml]](None, "isReplaceAll",
+		(x) => booleanToIterable(x.isReplaceAll, false))
+
+	val LinkEndData_end =
+		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLProperty[Uml]](
+		"end", _.end, false,
+		Set())
+
+	val LinkEndData_qualifier =
+		MetaPropertyCollection[Uml, UMLLinkEndData[Uml], UMLQualifierValue[Uml]](
+		"qualifier", _.qualifier, false,
+		Set())
+
+	val LinkEndData_value =
+		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLInputPin[Uml]](
+		"value", _.value, false,
+		Set())
+
+	val LinkEndDestructionData_destroyAt =
+		MetaPropertyReference[Uml, UMLLinkEndDestructionData[Uml], UMLInputPin[Uml]](
+		"destroyAt", _.destroyAt, false,
+		Set())
+
+	val LinkEndDestructionData_isDestroyDuplicates =
+		MetaAttributeBooleanFunction[Uml, UMLLinkEndDestructionData[Uml]](None, "isDestroyDuplicates",
+		(x) => booleanToIterable(x.isDestroyDuplicates, false))
+
+	val LiteralBoolean_value =
+		MetaAttributeBooleanFunction[Uml, UMLLiteralBoolean[Uml]](None, "value",
+		(x) => booleanToIterable(x.value, false))
+
+	val LiteralInteger_value =
+		MetaAttributeIntegerFunction[Uml, UMLLiteralInteger[Uml]](None, "value",
+		(x) => integerToIterable(x.value, 0))
+
+
+	val LiteralReal_value =
+		MetaAttributeRealFunction[Uml, UMLLiteralReal[Uml]](None, "value",
+		(x) => realToIterable(x.value, 0.0))
+
+
+	val LiteralString_value =
+		MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](None, "value",
+		_.value)
+
+	val LiteralUnlimitedNatural_value =
+		MetaAttributeUnlimitedNaturalFunction[Uml, UMLLiteralUnlimitedNatural[Uml]](None, "value",
+		(x) => unlimitedNaturalToIterable(x.value, 0))
+
+	val LoopNode_bodyOutput =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+		"bodyOutput", _.bodyOutput, true,
+		Set())
+
+	val LoopNode_bodyPart =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
+		"bodyPart", _.bodyPart, false,
+		Set())
+
+	val LoopNode_decider =
+		MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+		"decider", _.decider, false,
+		Set())
+
+	val LoopNode_isTestedFirst =
+		MetaAttributeBooleanFunction[Uml, UMLLoopNode[Uml]](None, "isTestedFirst",
+		(x) => booleanToIterable(x.isTestedFirst, false))
+
+	val LoopNode_loopVariable =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+		"loopVariable", _.loopVariable, true,
+		Set())
+
+	val LoopNode_loopVariableInput =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]](
+		"loopVariableInput", _.loopVariableInput, true,
+		Set(StructuredActivityNode_structuredNodeInput))
+
+	val LoopNode_result =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
+		"result", _.result, true,
+		Set(StructuredActivityNode_structuredNodeOutput))
+
+	val LoopNode_setupPart =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
+		"setupPart", _.setupPart, false,
+		Set())
+
+	val LoopNode_test =
+		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
+		"test", _.test, false,
+		Set())
+
+	val Manifestation_utilizedElement =
+		MetaPropertyReference[Uml, UMLManifestation[Uml], UMLPackageableElement[Uml]](
+		"utilizedElement", _.utilizedElement, false,
+		Set())
+
+
+	val Message_argument =
+		MetaPropertyCollection[Uml, UMLMessage[Uml], UMLValueSpecification[Uml]](
+		"argument", _.argument, true,
+		Set())
+
+	val Message_connector =
+		MetaPropertyReference[Uml, UMLMessage[Uml], UMLConnector[Uml]](
+		"connector", _.connector, false,
+		Set())
+
+	val Message_interaction =
+		MetaPropertyReference[Uml, UMLMessage[Uml], UMLInteraction[Uml]](
+		"interaction", _.interaction, false,
+		Set())
+
+
+	val Message_receiveEvent =
+		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
+		"receiveEvent", _.receiveEvent, false,
+		Set())
+
+	val Message_sendEvent =
+		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
+		"sendEvent", _.sendEvent, false,
+		Set())
+
+	val Message_signature =
+		MetaPropertyReference[Uml, UMLMessage[Uml], UMLNamedElement[Uml]](
+		"signature", _.signature, false,
+		Set())
+
+	val MessageEnd_message =
+		MetaPropertyReference[Uml, UMLMessageEnd[Uml], UMLMessage[Uml]](
+		"message", _.message, false,
+		Set())
+
+
+
+	val Model_viewpoint =
+		MetaAttributeStringFunction[Uml, UMLModel[Uml]](None, "viewpoint",
+		_.viewpoint)
+
+	val MultiplicityElement_isOrdered =
+		MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isOrdered",
+		(x) => booleanToIterable(x.isOrdered, false))
+
+	val MultiplicityElement_isUnique =
+		MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isUnique",
+		(x) => booleanToIterable(x.isUnique, true))
+
+	val MultiplicityElement_lowerValue =
+		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
+		"lowerValue", _.lowerValue, false,
+		Set())
+
+	val MultiplicityElement_upperValue =
+		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
+		"upperValue", _.upperValue, false,
+		Set())
+
+	val NamedElement_name =
+		MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](None, "name",
+		_.name)
+
+	val NamedElement_nameExpression =
+		MetaPropertyReference[Uml, UMLNamedElement[Uml], UMLStringExpression[Uml]](
+		"nameExpression", _.nameExpression, false,
+		Set())
+
+
+	val Namespace_elementImport =
+		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]](
+		"elementImport", _.elementImport, false,
+		Set())
+
+	val Namespace_ownedRule =
+		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLConstraint[Uml]](
+		"ownedRule", _.ownedRule, false,
+		Set())
+
+	val Namespace_packageImport =
+		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLPackageImport[Uml]](
+		"packageImport", _.packageImport, false,
+		Set())
+
+	val Node_nestedNode =
+		MetaPropertyCollection[Uml, UMLNode[Uml], UMLNode[Uml]](
+		"nestedNode", _.nestedNode, false,
+		Set())
+
+	val ObjectFlow_isMulticast =
+		MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMulticast",
+		(x) => booleanToIterable(x.isMulticast, false))
+
+	val ObjectFlow_isMultireceive =
+		MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMultireceive",
+		(x) => booleanToIterable(x.isMultireceive, false))
+
+	val ObjectFlow_selection =
+		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
+		"selection", _.selection, false,
+		Set())
+
+	val ObjectFlow_transformation =
+		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
+		"transformation", _.transformation, false,
+		Set())
+
+	val ObjectNode_inState =
+		MetaPropertyCollection[Uml, UMLObjectNode[Uml], UMLState[Uml]](
+		"inState", _.inState, false,
+		Set())
+
+	val ObjectNode_isControlType =
+		MetaAttributeBooleanFunction[Uml, UMLObjectNode[Uml]](None, "isControlType",
+		(x) => booleanToIterable(x.isControlType, false))
+
+
+	val ObjectNode_selection =
+		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]](
+		"selection", _.selection, false,
+		Set())
+
+	val ObjectNode_upperValue =
+		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLValueSpecification[Uml]](
+		"upperValue", _.upperValue, false,
+		Set())
+
+
+	val OccurrenceSpecification_covered =
+		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]](
+		"covered", _.covered, false,
+		Set(InteractionFragment_covered))
+
+	val OccurrenceSpecification_toAfter =
+		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
+		"toAfter", _.toAfter, false,
+		Set())
+
+	val OccurrenceSpecification_toBefore =
+		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
+		"toBefore", _.toBefore, false,
+		Set())
+
+	val OpaqueAction_body =
+		MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "body",
+		_.body)
+
+	val OpaqueAction_inputValue =
+		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLInputPin[Uml]](
+		"inputValue", _.inputValue, false,
+		Set())
+
+	val OpaqueAction_language =
+		MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "language",
+		_.language)
+
+	val OpaqueAction_outputValue =
+		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLOutputPin[Uml]](
+		"outputValue", _.outputValue, false,
+		Set())
+
+	val OpaqueBehavior_body =
+		MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "body",
+		_.body)
+
+	val OpaqueBehavior_language =
+		MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "language",
+		_.language)
+
+	val OpaqueExpression_behavior =
+		MetaPropertyReference[Uml, UMLOpaqueExpression[Uml], UMLBehavior[Uml]](
+		"behavior", _.behavior, false,
+		Set())
+
+	val OpaqueExpression_body =
+		MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "body",
+		_.body)
+
+	val OpaqueExpression_language =
+		MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "language",
+		_.language)
+
+	val Operation_bodyCondition =
+		MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
+		"bodyCondition", _.bodyCondition, false,
+		Set())
+
+	val Operation__class =
+		MetaPropertyReference[Uml, UMLOperation[Uml], UMLClass[Uml]](
+		"class", _._class, false,
+		Set())
+
+	val Operation_datatype =
+		MetaPropertyReference[Uml, UMLOperation[Uml], UMLDataType[Uml]](
+		"datatype", _.datatype, false,
+		Set())
+
+	val Operation_interface =
+		MetaPropertyReference[Uml, UMLOperation[Uml], UMLInterface[Uml]](
+		"interface", _.interface, false,
+		Set())
+
+	val Operation_isQuery =
+		MetaAttributeBooleanFunction[Uml, UMLOperation[Uml]](None, "isQuery",
+		(x) => booleanToIterable(x.isQuery, false))
+
+	val Operation_ownedParameter =
+		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]](
+		"ownedParameter", _.ownedParameter, true,
+		Set(BehavioralFeature_ownedParameter))
+
+	val Operation_postcondition =
+		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
+		"postcondition", _.postcondition, false,
+		Set())
+
+	val Operation_precondition =
+		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
+		"precondition", _.precondition, false,
+		Set())
+
+	val Operation_raisedException =
+		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]](
+		"raisedException", _.raisedException, false,
+		Set(BehavioralFeature_raisedException))
+
+	val Operation_redefinedOperation =
+		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]](
+		"redefinedOperation", _.redefinedOperation, false,
+		Set())
+
+	val Operation_templateParameter =
+		MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]](
+		"templateParameter", _.templateParameter, false,
+		Set(ParameterableElement_templateParameter))
+
+	val OperationTemplateParameter_parameteredElement =
+		MetaPropertyReference[Uml, UMLOperationTemplateParameter[Uml], UMLOperation[Uml]](
+		"parameteredElement", _.parameteredElement, false,
+		Set(TemplateParameter_parameteredElement))
+
+
+	val Package_URI =
+		MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
+		_.getEffectiveURI)
+
+	val Package_packageMerge =
+		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](
+		"packageMerge", _.packageMerge, false,
+		Set())
+
+	val Package_packagedElement =
+		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageableElement[Uml]](
+		"packagedElement", _.packagedElement, false,
+		Set())
+
+	val Package_profileApplication =
+		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLProfileApplication[Uml]](
+		"profileApplication", _.profileApplication, false,
+		Set())
+
+	val PackageImport_importedPackage =
+		MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLPackage[Uml]](
+		"importedPackage", _.importedPackage, false,
+		Set())
+
+	val PackageImport_importingNamespace =
+		MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLNamespace[Uml]](
+		"importingNamespace", _.importingNamespace, false,
+		Set())
+
+
+	val PackageMerge_mergedPackage =
+		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
+		"mergedPackage", _.mergedPackage, false,
+		Set())
+
+	val PackageMerge_receivingPackage =
+		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
+		"receivingPackage", _.receivingPackage, false,
+		Set())
+
+
+	val Parameter_defaultValue =
+		MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]](
+		"defaultValue", _.defaultValue, false,
+		Set())
+
+
+
+	val Parameter_isException =
+		MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException",
+		(x) => booleanToIterable(x.isException, false))
+
+	val Parameter_isStream =
+		MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isStream",
+		(x) => booleanToIterable(x.isStream, false))
+
+	val Parameter_operation =
+		MetaPropertyReference[Uml, UMLParameter[Uml], UMLOperation[Uml]](
+		"operation", _.operation, false,
+		Set())
+
+	val Parameter_parameterSet =
+		MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]](
+		"parameterSet", _.parameterSet, false,
+		Set())
+
+	val ParameterSet_condition =
+		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLConstraint[Uml]](
+		"condition", _.condition, false,
+		Set())
+
+	val ParameterSet_parameter =
+		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLParameter[Uml]](
+		"parameter", _.parameter, false,
+		Set())
+
+	val ParameterableElement_owningTemplateParameter =
+		MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
+		"owningTemplateParameter", _.owningTemplateParameter, false,
+		Set())
+
+	val ParameterableElement_templateParameter =
+		MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
+		"templateParameter", _.templateParameter, false,
+		Set())
+
+
+	val Pin_isControl =
+		MetaAttributeBooleanFunction[Uml, UMLPin[Uml]](None, "isControl",
+		(x) => booleanToIterable(x.isControl, false))
+
+	val Pin_upperValue =
+		MetaPropertyReference[Uml, UMLPin[Uml], UMLValueSpecification[Uml]](
+		"upperValue", _.upperValue, false,
+		Set(ObjectNode_upperValue, MultiplicityElement_upperValue))
+
+	val Port_isBehavior =
+		MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isBehavior",
+		(x) => booleanToIterable(x.isBehavior, false))
+
+	val Port_isConjugated =
+		MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isConjugated",
+		(x) => booleanToIterable(x.isConjugated, false))
+
+	val Port_isService =
+		MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isService",
+		(x) => booleanToIterable(x.isService, true))
+
+	val Port_protocol =
+		MetaPropertyReference[Uml, UMLPort[Uml], UMLProtocolStateMachine[Uml]](
+		"protocol", _.protocol, false,
+		Set())
+
+	val Port_redefinedPort =
+		MetaPropertyCollection[Uml, UMLPort[Uml], UMLPort[Uml]](
+		"redefinedPort", _.redefinedPort, false,
+		Set())
+
+
+	val Profile_metaclassReference =
+		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]](
+		"metaclassReference", _.metaclassReference, false,
+		Set())
+
+	val Profile_metamodelReference =
+		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]](
+		"metamodelReference", _.metamodelReference, false,
+		Set())
+
+	val ProfileApplication_appliedProfile =
+		MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLProfile[Uml]](
+		"appliedProfile", _.appliedProfile, false,
+		Set())
+
+	val ProfileApplication_applyingPackage =
+		MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLPackage[Uml]](
+		"applyingPackage", _.applyingPackage, false,
+		Set())
+
+	val ProfileApplication_isStrict =
+		MetaAttributeBooleanFunction[Uml, UMLProfileApplication[Uml]](None, "isStrict",
+		(x) => booleanToIterable(x.isStrict, false))
+
+
+	val Property_association =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
+		"association", _.association, false,
+		Set())
+
+	val Property_associationEnd =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLProperty[Uml]](
+		"associationEnd", _.associationEnd, false,
+		Set())
+
+	val Property__class =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLClass[Uml]](
+		"class", _._class, false,
+		Set())
+
+	val Property_datatype =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLDataType[Uml]](
+		"datatype", _.datatype, false,
+		Set())
+
+	val Property_defaultValue =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]](
+		"defaultValue", _.defaultValue, false,
+		Set())
+
+	val Property_interface =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLInterface[Uml]](
+		"interface", _.interface, false,
+		Set())
+
+	val Property_isDerived =
+		MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerived",
+		(x) => booleanToIterable(x.isDerived, false))
+
+	val Property_isDerivedUnion =
+		MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerivedUnion",
+		(x) => booleanToIterable(x.isDerivedUnion, false))
+
+	val Property_isID =
+		MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isID",
+		(x) => booleanToIterable(x.isID, false))
+
+	val Property_owningAssociation =
+		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
+		"owningAssociation", _.owningAssociation, false,
+		Set())
+
+	val Property_qualifier =
+		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
+		"qualifier", _.qualifier, true,
+		Set())
+
+	val Property_redefinedProperty =
+		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
+		"redefinedProperty", _.redefinedProperty, false,
+		Set())
+
+	val Property_subsettedProperty =
+		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
+		"subsettedProperty", _.subsettedProperty, false,
+		Set())
+
+	val ProtocolConformance_generalMachine =
+		MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]](
+		"generalMachine", _.generalMachine, false,
+		Set())
+
+	val ProtocolConformance_specificMachine =
+		MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]](
+		"specificMachine", _.specificMachine, false,
+		Set())
+
+	val ProtocolStateMachine_conformance =
+		MetaPropertyCollection[Uml, UMLProtocolStateMachine[Uml], UMLProtocolConformance[Uml]](
+		"conformance", _.conformance, false,
+		Set())
+
+	val ProtocolTransition_postCondition =
+		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
+		"postCondition", _.postCondition, false,
+		Set())
+
+	val ProtocolTransition_preCondition =
+		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
+		"preCondition", _.preCondition, false,
+		Set())
+
+
+	val Pseudostate_state =
+		MetaPropertyReference[Uml, UMLPseudostate[Uml], UMLState[Uml]](
+		"state", _.state, false,
+		Set())
+
+	val Pseudostate_stateMachine =
+		MetaPropertyReference[Uml, UMLPseudostate[Uml], UMLStateMachine[Uml]](
+		"stateMachine", _.stateMachine, false,
+		Set())
+
+	val QualifierValue_qualifier =
+		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]](
+		"qualifier", _.qualifier, false,
+		Set())
+
+	val QualifierValue_value =
+		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLInputPin[Uml]](
+		"value", _.value, false,
+		Set())
+
+	val RaiseExceptionAction_exception =
+		MetaPropertyReference[Uml, UMLRaiseExceptionAction[Uml], UMLInputPin[Uml]](
+		"exception", _.exception, false,
+		Set())
+
+	val ReadExtentAction_classifier =
+		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLClassifier[Uml]](
+		"classifier", _.classifier, false,
+		Set())
+
+	val ReadExtentAction_result =
+		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadIsClassifiedObjectAction_classifier =
+		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]](
+		"classifier", _.classifier, false,
+		Set())
+
+	val ReadIsClassifiedObjectAction_isDirect =
+		MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect",
+		(x) => booleanToIterable(x.isDirect, false))
+
+	val ReadIsClassifiedObjectAction__object =
+		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val ReadIsClassifiedObjectAction_result =
+		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadLinkAction_result =
+		MetaPropertyReference[Uml, UMLReadLinkAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadLinkObjectEndAction_end =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLProperty[Uml]](
+		"end", _.end, false,
+		Set())
+
+	val ReadLinkObjectEndAction__object =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val ReadLinkObjectEndAction_result =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadLinkObjectEndQualifierAction__object =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val ReadLinkObjectEndQualifierAction_qualifier =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLProperty[Uml]](
+		"qualifier", _.qualifier, false,
+		Set())
+
+	val ReadLinkObjectEndQualifierAction_result =
+		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadSelfAction_result =
+		MetaPropertyReference[Uml, UMLReadSelfAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadStructuralFeatureAction_result =
+		MetaPropertyReference[Uml, UMLReadStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ReadVariableAction_result =
+		MetaPropertyReference[Uml, UMLReadVariableAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+
+	val Reception_signal =
+		MetaPropertyReference[Uml, UMLReception[Uml], UMLSignal[Uml]](
+		"signal", _.signal, false,
+		Set())
+
+	val ReclassifyObjectAction_isReplaceAll =
+		MetaAttributeBooleanFunction[Uml, UMLReclassifyObjectAction[Uml]](None, "isReplaceAll",
+		(x) => booleanToIterable(x.isReplaceAll, false))
+
+	val ReclassifyObjectAction_newClassifier =
+		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
+		"newClassifier", _.newClassifier, false,
+		Set())
+
+	val ReclassifyObjectAction__object =
+		MetaPropertyReference[Uml, UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val ReclassifyObjectAction_oldClassifier =
+		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
+		"oldClassifier", _.oldClassifier, false,
+		Set())
+
+	val RedefinableElement_isLeaf =
+		MetaAttributeBooleanFunction[Uml, UMLRedefinableElement[Uml]](None, "isLeaf",
+		(x) => booleanToIterable(x.isLeaf, false))
+
+	val RedefinableTemplateSignature_classifier =
+		MetaPropertyReference[Uml, UMLRedefinableTemplateSignature[Uml], UMLClassifier[Uml]](
+		"classifier", _.classifier, false,
+		Set(TemplateSignature_template))
+
+	val RedefinableTemplateSignature_extendedSignature =
+		MetaPropertyCollection[Uml, UMLRedefinableTemplateSignature[Uml], UMLRedefinableTemplateSignature[Uml]](
+		"extendedSignature", _.extendedSignature, false,
+		Set())
+
+	val ReduceAction_collection =
+		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLInputPin[Uml]](
+		"collection", _.collection, false,
+		Set())
+
+	val ReduceAction_isOrdered =
+		MetaAttributeBooleanFunction[Uml, UMLReduceAction[Uml]](None, "isOrdered",
+		(x) => booleanToIterable(x.isOrdered, false))
+
+	val ReduceAction_reducer =
+		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLBehavior[Uml]](
+		"reducer", _.reducer, false,
+		Set())
+
+	val ReduceAction_result =
+		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val Region_extendedRegion =
+		MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]](
+		"extendedRegion", _.extendedRegion, false,
+		Set())
+
+	val Region_state =
+		MetaPropertyReference[Uml, UMLRegion[Uml], UMLState[Uml]](
+		"state", _.state, false,
+		Set())
+
+	val Region_stateMachine =
+		MetaPropertyReference[Uml, UMLRegion[Uml], UMLStateMachine[Uml]](
+		"stateMachine", _.stateMachine, false,
+		Set())
+
+	val Region_subvertex =
+		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLVertex[Uml]](
+		"subvertex", _.subvertex, false,
+		Set())
+
+	val Region_transition =
+		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]](
+		"transition", _.transition, false,
+		Set())
+
+
+	val RemoveStructuralFeatureValueAction_isRemoveDuplicates =
+		MetaAttributeBooleanFunction[Uml, UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates",
+		(x) => booleanToIterable(x.isRemoveDuplicates, false))
+
+	val RemoveStructuralFeatureValueAction_removeAt =
+		MetaPropertyReference[Uml, UMLRemoveStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
+		"removeAt", _.removeAt, false,
+		Set())
+
+	val RemoveVariableValueAction_isRemoveDuplicates =
+		MetaAttributeBooleanFunction[Uml, UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates",
+		(x) => booleanToIterable(x.isRemoveDuplicates, false))
+
+	val RemoveVariableValueAction_removeAt =
+		MetaPropertyReference[Uml, UMLRemoveVariableValueAction[Uml], UMLInputPin[Uml]](
+		"removeAt", _.removeAt, false,
+		Set())
+
+	val ReplyAction_replyToCall =
+		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLTrigger[Uml]](
+		"replyToCall", _.replyToCall, false,
+		Set())
+
+	val ReplyAction_replyValue =
+		MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
+		"replyValue", _.replyValue, true,
+		Set())
+
+	val ReplyAction_returnInformation =
+		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
+		"returnInformation", _.returnInformation, false,
+		Set())
+
+	val SendObjectAction_request =
+		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
+		"request", _.request, false,
+		Set(InvocationAction_argument))
+
+	val SendObjectAction_target =
+		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
+		"target", _.target, false,
+		Set())
+
+	val SendSignalAction_signal =
+		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLSignal[Uml]](
+		"signal", _.signal, false,
+		Set())
+
+	val SendSignalAction_target =
+		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLInputPin[Uml]](
+		"target", _.target, false,
+		Set())
+
+	val SequenceNode_executableNode =
+		MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]](
+		"executableNode", _.executableNode, true,
+		Set(StructuredActivityNode_node))
+
+	val Signal_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLSignal[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set())
+
+	val SignalEvent_signal =
+		MetaPropertyReference[Uml, UMLSignalEvent[Uml], UMLSignal[Uml]](
+		"signal", _.signal, false,
+		Set())
+
+	val Slot_definingFeature =
+		MetaPropertyReference[Uml, UMLSlot[Uml], UMLStructuralFeature[Uml]](
+		"definingFeature", _.definingFeature, false,
+		Set())
+
+	val Slot_owningInstance =
+		MetaPropertyReference[Uml, UMLSlot[Uml], UMLInstanceSpecification[Uml]](
+		"owningInstance", _.owningInstance, false,
+		Set())
+
+	val Slot_value =
+		MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]](
+		"value", _.value, true,
+		Set())
+
+	val StartClassifierBehaviorAction__object =
+		MetaPropertyReference[Uml, UMLStartClassifierBehaviorAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val StartObjectBehaviorAction__object =
+		MetaPropertyReference[Uml, UMLStartObjectBehaviorAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val State_connection =
+		MetaPropertyCollection[Uml, UMLState[Uml], UMLConnectionPointReference[Uml]](
+		"connection", _.connection, false,
+		Set())
+
+	val State_connectionPoint =
+		MetaPropertyCollection[Uml, UMLState[Uml], UMLPseudostate[Uml]](
+		"connectionPoint", _.connectionPoint, false,
+		Set())
+
+	val State_deferrableTrigger =
+		MetaPropertyCollection[Uml, UMLState[Uml], UMLTrigger[Uml]](
+		"deferrableTrigger", _.deferrableTrigger, false,
+		Set())
+
+	val State_doActivity =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
+		"doActivity", _.doActivity, false,
+		Set())
+
+	val State_entry =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
+		"entry", _.entry, false,
+		Set())
+
+	val State_exit =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
+		"exit", _.exit, false,
+		Set())
+
+	val State_redefinedState =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLState[Uml]](
+		"redefinedState", _.redefinedState, false,
+		Set())
+
+	val State_region =
+		MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]](
+		"region", _.region, false,
+		Set())
+
+	val State_stateInvariant =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]](
+		"stateInvariant", _.stateInvariant, false,
+		Set())
+
+	val State_submachine =
+		MetaPropertyReference[Uml, UMLState[Uml], UMLStateMachine[Uml]](
+		"submachine", _.submachine, false,
+		Set())
+
+	val StateInvariant_covered =
+		MetaPropertyCollection[Uml, UMLStateInvariant[Uml], UMLLifeline[Uml]](
+		"covered", _.covered, false,
+		Set(InteractionFragment_covered))
+
+	val StateInvariant_invariant =
+		MetaPropertyReference[Uml, UMLStateInvariant[Uml], UMLConstraint[Uml]](
+		"invariant", _.invariant, false,
+		Set())
+
+	val StateMachine_connectionPoint =
+		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLPseudostate[Uml]](
+		"connectionPoint", _.connectionPoint, false,
+		Set())
+
+	val StateMachine_extendedStateMachine =
+		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLStateMachine[Uml]](
+		"extendedStateMachine", _.extendedStateMachine, false,
+		Set(Behavior_redefinedBehavior))
+
+	val StateMachine_region =
+		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLRegion[Uml]](
+		"region", _.region, false,
+		Set())
+
+	val StateMachine_submachineState =
+		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLState[Uml]](
+		"submachineState", _.submachineState, false,
+		Set())
+
+	val Stereotype_icon =
+		MetaPropertyCollection[Uml, UMLStereotype[Uml], UMLImage[Uml]](
+		"icon", _.icon, false,
+		Set())
+
+	val StringExpression_owningExpression =
+		MetaPropertyReference[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]](
+		"owningExpression", _.owningExpression, false,
+		Set())
+
+	val StringExpression_subExpression =
+		MetaPropertyCollection[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]](
+		"subExpression", _.subExpression, true,
+		Set())
+
+	val StructuralFeature_isReadOnly =
+		MetaAttributeBooleanFunction[Uml, UMLStructuralFeature[Uml]](None, "isReadOnly",
+		(x) => booleanToIterable(x.isReadOnly, false))
+
+	val StructuralFeatureAction__object =
+		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val StructuralFeatureAction_structuralFeature =
+		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLStructuralFeature[Uml]](
+		"structuralFeature", _.structuralFeature, false,
+		Set())
+
+	val StructuredActivityNode_activity =
+		MetaPropertyReference[Uml, UMLStructuredActivityNode[Uml], UMLActivity[Uml]](
+		"activity", _.activity, false,
+		Set(ActivityGroup_inActivity, ActivityNode_activity))
+
+	val StructuredActivityNode_edge =
+		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
+		"edge", _.edge, false,
+		Set())
+
+	val StructuredActivityNode_mustIsolate =
+		MetaAttributeBooleanFunction[Uml, UMLStructuredActivityNode[Uml]](None, "mustIsolate",
+		(x) => booleanToIterable(x.mustIsolate, false))
+
+	val StructuredActivityNode_node =
+		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]](
+		"node", _.node, false,
+		Set())
+
+	val StructuredActivityNode_structuredNodeInput =
+		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]](
+		"structuredNodeInput", _.structuredNodeInput, false,
+		Set())
+
+	val StructuredActivityNode_structuredNodeOutput =
+		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]](
+		"structuredNodeOutput", _.structuredNodeOutput, false,
+		Set())
+
+	val StructuredActivityNode_variable =
+		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]](
+		"variable", _.variable, false,
+		Set())
+
+	val StructuredClassifier_ownedAttribute =
+		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLProperty[Uml]](
+		"ownedAttribute", _.ownedAttribute, true,
+		Set())
+
+	val StructuredClassifier_ownedConnector =
+		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLConnector[Uml]](
+		"ownedConnector", _.ownedConnector, false,
+		Set())
+
+	val Substitution_contract =
+		MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]](
+		"contract", _.contract, false,
+		Set())
+
+	val Substitution_substitutingClassifier =
+		MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]](
+		"substitutingClassifier", _.substitutingClassifier, false,
+		Set())
+
+	val TemplateBinding_boundElement =
+		MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateableElement[Uml]](
+		"boundElement", _.boundElement, false,
+		Set())
+
+	val TemplateBinding_parameterSubstitution =
+		MetaPropertyCollection[Uml, UMLTemplateBinding[Uml], UMLTemplateParameterSubstitution[Uml]](
+		"parameterSubstitution", _.parameterSubstitution, false,
+		Set())
+
+	val TemplateBinding_signature =
+		MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateSignature[Uml]](
+		"signature", _.signature, false,
+		Set())
+
+	val TemplateParameter_default =
+		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
+		"default", _.default, false,
+		Set())
+
+	val TemplateParameter_ownedDefault =
+		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
+		"ownedDefault", _.ownedDefault, false,
+		Set())
+
+	val TemplateParameter_ownedParameteredElement =
+		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
+		"ownedParameteredElement", _.ownedParameteredElement, false,
+		Set())
+
+	val TemplateParameter_parameteredElement =
+		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
+		"parameteredElement", _.parameteredElement, false,
+		Set())
+
+	val TemplateParameter_signature =
+		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLTemplateSignature[Uml]](
+		"signature", _.signature, false,
+		Set())
+
+	val TemplateParameterSubstitution_actual =
+		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
+		"actual", _.actual, false,
+		Set())
+
+	val TemplateParameterSubstitution_formal =
+		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]](
+		"formal", _.formal, false,
+		Set())
+
+	val TemplateParameterSubstitution_ownedActual =
+		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
+		"ownedActual", _.ownedActual, false,
+		Set())
+
+	val TemplateParameterSubstitution_templateBinding =
+		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateBinding[Uml]](
+		"templateBinding", _.templateBinding, false,
+		Set())
+
+	val TemplateSignature_ownedParameter =
+		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
+		"ownedParameter", _.ownedParameter, true,
+		Set())
+
+	val TemplateSignature_parameter =
+		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
+		"parameter", _.parameter, true,
+		Set())
+
+	val TemplateSignature_template =
+		MetaPropertyReference[Uml, UMLTemplateSignature[Uml], UMLTemplateableElement[Uml]](
+		"template", _.template, false,
+		Set())
+
+	val TemplateableElement_ownedTemplateSignature =
+		MetaPropertyReference[Uml, UMLTemplateableElement[Uml], UMLTemplateSignature[Uml]](
+		"ownedTemplateSignature", _.ownedTemplateSignature, false,
+		Set())
+
+	val TemplateableElement_templateBinding =
+		MetaPropertyCollection[Uml, UMLTemplateableElement[Uml], UMLTemplateBinding[Uml]](
+		"templateBinding", _.templateBinding, false,
+		Set())
+
+	val TestIdentityAction_first =
+		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
+		"first", _.first, false,
+		Set())
+
+	val TestIdentityAction_result =
+		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val TestIdentityAction_second =
+		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
+		"second", _.second, false,
+		Set())
+
+	val TimeConstraint_firstEvent =
+		MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent",
+		_.firstEvent)
+
+	val TimeConstraint_specification =
+		MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
+		"specification", _.specification, false,
+		Set(IntervalConstraint_specification))
+
+	val TimeEvent_isRelative =
+		MetaAttributeBooleanFunction[Uml, UMLTimeEvent[Uml]](None, "isRelative",
+		(x) => booleanToIterable(x.isRelative, false))
+
+	val TimeEvent_when =
+		MetaPropertyReference[Uml, UMLTimeEvent[Uml], UMLTimeExpression[Uml]](
+		"when", _.when, false,
+		Set())
+
+	val TimeExpression_expr =
+		MetaPropertyReference[Uml, UMLTimeExpression[Uml], UMLValueSpecification[Uml]](
+		"expr", _.expr, false,
+		Set())
+
+	val TimeExpression_observation =
+		MetaPropertyCollection[Uml, UMLTimeExpression[Uml], UMLObservation[Uml]](
+		"observation", _.observation, false,
+		Set())
+
+	val TimeInterval_max =
+		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
+		"max", _.max, false,
+		Set(Interval_max))
+
+	val TimeInterval_min =
+		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
+		"min", _.min, false,
+		Set(Interval_min))
+
+	val TimeObservation_event =
+		MetaPropertyReference[Uml, UMLTimeObservation[Uml], UMLNamedElement[Uml]](
+		"event", _.event, false,
+		Set())
+
+	val TimeObservation_firstEvent =
+		MetaAttributeBooleanFunction[Uml, UMLTimeObservation[Uml]](None, "firstEvent",
+		(x) => booleanToIterable(x.firstEvent, true))
+
+	val Transition_container =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLRegion[Uml]](
+		"container", _.container, false,
+		Set())
+
+	val Transition_effect =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]](
+		"effect", _.effect, false,
+		Set())
+
+	val Transition_guard =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]](
+		"guard", _.guard, false,
+		Set())
+
+
+	val Transition_redefinedTransition =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]](
+		"redefinedTransition", _.redefinedTransition, false,
+		Set())
+
+	val Transition_source =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
+		"source", _.source, false,
+		Set())
+
+	val Transition_target =
+		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
+		"target", _.target, false,
+		Set())
+
+	val Transition_trigger =
+		MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]](
+		"trigger", _.trigger, false,
+		Set())
+
+	val Trigger_event =
+		MetaPropertyReference[Uml, UMLTrigger[Uml], UMLEvent[Uml]](
+		"event", _.event, false,
+		Set())
+
+	val Trigger_port =
+		MetaPropertyCollection[Uml, UMLTrigger[Uml], UMLPort[Uml]](
+		"port", _.port, false,
+		Set())
+
+
+	val TypedElement__type =
+		MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]](
+		"type", _._type, false,
+		Set())
+
+	val UnmarshallAction__object =
+		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]](
+		"object", _._object, false,
+		Set())
+
+	val UnmarshallAction_result =
+		MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, true,
+		Set())
+
+	val UnmarshallAction_unmarshallType =
+		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLClassifier[Uml]](
+		"unmarshallType", _.unmarshallType, false,
+		Set())
+
+
+	val UseCase_extend =
+		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtend[Uml]](
+		"extend", _.extend, false,
+		Set())
+
+	val UseCase_extensionPoint =
+		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtensionPoint[Uml]](
+		"extensionPoint", _.extensionPoint, false,
+		Set())
+
+	val UseCase_include =
+		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLInclude[Uml]](
+		"include", _.include, false,
+		Set())
+
+	val UseCase_subject =
+		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLClassifier[Uml]](
+		"subject", _.subject, false,
+		Set())
+
+	val ValuePin_value =
+		MetaPropertyReference[Uml, UMLValuePin[Uml], UMLValueSpecification[Uml]](
+		"value", _.value, false,
+		Set())
+
+
+	val ValueSpecificationAction_result =
+		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val ValueSpecificationAction_value =
+		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLValueSpecification[Uml]](
+		"value", _.value, false,
+		Set())
+
+	val Variable_activityScope =
+		MetaPropertyReference[Uml, UMLVariable[Uml], UMLActivity[Uml]](
+		"activityScope", _.activityScope, false,
+		Set())
+
+	val Variable_scope =
+		MetaPropertyReference[Uml, UMLVariable[Uml], UMLStructuredActivityNode[Uml]](
+		"scope", _.scope, false,
+		Set())
+
+	val VariableAction_variable =
+		MetaPropertyReference[Uml, UMLVariableAction[Uml], UMLVariable[Uml]](
+		"variable", _.variable, false,
+		Set())
+
+	val Vertex_container =
+		MetaPropertyReference[Uml, UMLVertex[Uml], UMLRegion[Uml]](
+		"container", _.container, false,
+		Set())
+
+
+	val WriteStructuralFeatureAction_result =
+		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
+		"result", _.result, false,
+		Set())
+
+	val WriteStructuralFeatureAction_value =
+		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLInputPin[Uml]](
+		"value", _.value, false,
+		Set())
+
+	val WriteVariableAction_value =
+		MetaPropertyReference[Uml, UMLWriteVariableAction[Uml], UMLInputPin[Uml]](
+		"value", _.value, false,
+		Set())
+
 	// Start of user code for additional features
-
-
-  // @TODO TIWG-25: This should be generated for all metaclasses.
-
-  // Start of Metaclass properties (reference, collection)
-
-  val Abstraction_mapping =
-    MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]](
-      "mapping", _.mapping)
-
-  val AcceptCallAction_returnInformation =
-    MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]](
-      "returnInformation", _.returnInformation)
-
-  val Association_ownedEnd =
-    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
-      "ownedEnd", _.ownedEnd, true)
-
-  val Association_memberEnd =
-    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
-      "memberEnd", _.memberEnd, true)
-
-  val Association_navigableOwnedEnd =
-    MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
-      "navigableOwnedEnd", _.navigableOwnedEnd)
-
-  val Class_nestedClassifier =
-    MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]](
-      "nestedClassifier", _.nestedClassifier, true)
-
-  val Class_ownedAttribute =
-    MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]](
-      "ownedAttribute", _.ownedAttribute, true)
-
-  val Class_ownedOperation =
-    MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]](
-      "ownedOperation", _.ownedOperation, true)
-
-  val Class_ownedReception =
-    MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]](
-      "ownedReception", _.ownedReception)
-
-  val ConditionalNode_clause =
-    MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]](
-      "clause", _.clause)
-
-  val ConditionalNode_result =
-    MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]](
-      "result", _.result, true,
-      Set(StructuredActivityNode_structuredNodeOutput))
-
-  val ConnectableElement_templateParameter =
-    MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]](
-      "templateParameter", _.templateParameter, false,
-      Set(ParameterableElement_templateParameter))
-
-  val ConnectableElementTemplateParameter_parameteredElement =
-    MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]](
-      "parameteredElement", _.parameteredElement, false,
-      Set(TemplateParameter_parameteredElement))
-
-  val CreateLinkAction_endData =
-    MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
-      "endData", _.endData, false,
-      Set(LinkAction_endData))
-
-  val DestroyLinkAction_endData =
-    MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]](
-      "endData", _.endData, false,
-      Set(LinkAction_endData))
-
-  val DurationConstraint_specification =
-    MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
-      "specification", _.specification, false,
-      Set(IntervalConstraint_specification))
-
-  val DurationInterval_max =
-    MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
-      "max", _.max, false,
-      Set(Interval_max))
-
-  val DurationInterval_min =
-    MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
-      "min", _.min, false,
-      Set(Interval_min))
-
-  val Element_ownedComment =
-    MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
-      "ownedComment", _.ownedComment)
-
-  val Interval_max =
-    MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
-      "max", _.max)
-
-  val Interval_min =
-    MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
-      "min", _.min)
-
-  val IntervalConstraint_specification =
-    MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]](
-      "specification", _.specification)
-
-  val InvocationAction_argument =
-    MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]](
-      "argument", _.argument, true)
-
-  val LinkAction_endData =
-    MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]](
-      "endData", _.endData)
-
-  val LinkAction_inputValue =
-    MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]](
-      "inputValue", _.inputValue)
-
-  val LoopNode_loopVariable =
-    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
-      "loopVariable", _.loopVariable, true)
-
-  val LoopNode_loopVariableInput =
-    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]](
-      "loopVariableInput", _.loopVariableInput, true,
-      Set(StructuredActivityNode_structuredNodeInput))
-
-  val LoopNode_result =
-    MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
-      "result", _.result, true,
-      Set(StructuredActivityNode_structuredNodeOutput))
-
-  val ParameterableElement_templateParameter =
-    MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
-      "templateParameter", _.templateParameter)
-
-  val SendObjectAction_request =
-    MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
-      "request", _.request, false,
-      Set(InvocationAction_argument))
-
-  val SendObjectAction_target =
-    MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
-      "target", _.target)
-
-  val SequenceNode_executableNode =
-    MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]](
-      "executableNode", _.executableNode, true,
-      Set(StructuredActivityNode_node))
-
-  val Slot_value =
-    MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]](
-      "value", _.value, true)
-
-  val StructuredActivityNode_edge =
-    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
-      "edge", _.edge)
-
-  val StructuredActivityNode_node =
-    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]](
-      "node", _.node)
-
-  val StructuredActivityNode_structuredNodeInput =
-    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]](
-      "structuredNodeInput", _.structuredNodeInput)
-
-  val StructuredActivityNode_structuredNodeOutput =
-    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]](
-      "structuredNodeOutput", _.structuredNodeOutput)
-
-  val StructuredActivityNode_variable =
-    MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]](
-      "variable", _.variable)
-
-  val TemplateParameter_parameteredElement =
-    MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
-      "parameteredElement", _.parameteredElement)
-
-  val TimeConstraint_specification =
-    MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
-      "specification", _.specification, false,
-      Set(IntervalConstraint_specification))
-
-  val TimeInterval_max =
-    MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
-      "max", _.max, false,
-      Set(Interval_max))
-
-  val TimeInterval_min =
-    MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
-      "min", _.min, false,
-      Set(Interval_min))
-
-  // End of Metaclass properties (reference, collection)
 
   type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
@@ -1885,6 +4336,6 @@ trait UMLOps[Uml <: UML] { self =>
       case _/*: UnlimitedNatural*/ => true
       case _ => false
     } 
-  }    
+  }
   // End of user code
 }

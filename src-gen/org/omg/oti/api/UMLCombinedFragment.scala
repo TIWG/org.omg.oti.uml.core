@@ -126,8 +126,8 @@ trait UMLCombinedFragment[Uml <: UML]
 	def combinedFragment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLGate[Uml]]("cfragmentGate", _.cfragmentGate),
-				MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]]("operand", _.operand, true)))
+			Seq (CombinedFragment_cfragmentGate,
+				CombinedFragment_operand))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -211,11 +211,11 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]]("inInterruptibleRegion", _.inInterruptibleRegion),
-				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("incoming", _.incoming),
-				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]]("outgoing", _.outgoing),
-				MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]]("redefinedNode", _.redefinedNode)))
+			Seq (ActivityNode_inInterruptibleRegion,
+				ActivityNode_inPartition,
+				ActivityNode_incoming,
+				ActivityNode_outgoing,
+				ActivityNode_redefinedNode))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

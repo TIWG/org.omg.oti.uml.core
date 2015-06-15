@@ -125,7 +125,7 @@ trait UMLConsiderIgnoreFragment[Uml <: UML]
 	def considerIgnoreFragment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			combinedFragment_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLConsiderIgnoreFragment[Uml], UMLNamedElement[Uml]]("message", _.message)))
+			Seq (ConsiderIgnoreFragment_message))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

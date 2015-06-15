@@ -105,8 +105,8 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def destroyObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyLinks", (x) => booleanToIterable(x.isDestroyLinks, false)),
-				MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyOwnedObjects", (x) => booleanToIterable(x.isDestroyOwnedObjects, false))))
+			Seq (DestroyObjectAction_isDestroyLinks,
+				DestroyObjectAction_isDestroyOwnedObjects))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -126,7 +126,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def destroyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLDestroyObjectAction[Uml], UMLInputPin[Uml]]("target", _.target)))
+			Seq (DestroyObjectAction_target))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

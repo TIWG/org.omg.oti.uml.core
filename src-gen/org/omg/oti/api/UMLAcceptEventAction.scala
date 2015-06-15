@@ -106,7 +106,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLAcceptEventAction[Uml]](None, "isUnmarshall", (x) => booleanToIterable(x.isUnmarshall, false))))
+			Seq (AcceptEventAction_isUnmarshall))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -126,8 +126,8 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]]("result", _.result, true),
-				MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]]("trigger", _.trigger)))
+			Seq (AcceptEventAction_result,
+				AcceptEventAction_trigger))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

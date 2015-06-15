@@ -222,8 +222,8 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("guard", _.guard),
-				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]]("weight", _.weight)))
+			Seq (ActivityEdge_guard,
+				ActivityEdge_weight))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -243,11 +243,11 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]]("inPartition", _.inPartition),
-				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]]("interrupts", _.interrupts),
-				MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]]("redefinedEdge", _.redefinedEdge),
-				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]]("source", _.source),
-				MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]]("target", _.target)))
+			Seq (ActivityEdge_inPartition,
+				ActivityEdge_interrupts,
+				ActivityEdge_redefinedEdge,
+				ActivityEdge_source,
+				ActivityEdge_target))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

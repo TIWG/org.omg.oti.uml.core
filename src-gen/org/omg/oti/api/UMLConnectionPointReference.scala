@@ -147,8 +147,8 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("entry", _.entry),
-				MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]]("exit", _.exit)))
+			Seq (ConnectionPointReference_entry,
+				ConnectionPointReference_exit))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

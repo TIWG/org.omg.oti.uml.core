@@ -116,7 +116,8 @@ trait UMLSendObjectAction[Uml <: UML]
 	def sendObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (SendObjectAction_request, SendObjectAction_target))
+			Seq (SendObjectAction_request,
+				SendObjectAction_target))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

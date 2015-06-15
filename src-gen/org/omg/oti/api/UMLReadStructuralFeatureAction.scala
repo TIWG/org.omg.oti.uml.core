@@ -105,7 +105,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	def readStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuralFeatureAction_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReadStructuralFeatureAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (ReadStructuralFeatureAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

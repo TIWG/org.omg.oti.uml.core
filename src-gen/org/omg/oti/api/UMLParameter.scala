@@ -196,8 +196,8 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_metaAttributes,
 			multiplicityElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException", (x) => booleanToIterable(x.isException, false)),
-				MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isStream", (x) => booleanToIterable(x.isStream, false))))
+			Seq (Parameter_isException,
+				Parameter_isStream))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -218,7 +218,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_compositeMetaProperties,
 			multiplicityElement_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue)))
+			Seq (Parameter_defaultValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -239,7 +239,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_referenceMetaProperties,
 			multiplicityElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]]("parameterSet", _.parameterSet)))
+			Seq (Parameter_parameterSet))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

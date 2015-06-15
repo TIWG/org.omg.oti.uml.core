@@ -105,7 +105,7 @@ trait UMLEnumeration[Uml <: UML]
 	def enumeration_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]]("ownedLiteral", _.ownedLiteral, true)))
+			Seq (Enumeration_ownedLiteral))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -136,7 +136,7 @@ trait UMLComponentRealization[Uml <: UML]
 	def componentRealization_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLComponentRealization[Uml], UMLClassifier[Uml]]("realizingClassifier", _.realizingClassifier)))
+			Seq (ComponentRealization_realizingClassifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

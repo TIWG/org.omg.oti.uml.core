@@ -136,7 +136,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	def interfaceRealization_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLInterfaceRealization[Uml], UMLInterface[Uml]]("contract", _.contract)))
+			Seq (InterfaceRealization_contract))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

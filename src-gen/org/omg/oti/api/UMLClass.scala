@@ -175,8 +175,8 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_metaAttributes,
 			encapsulatedClassifier_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isAbstract", (x) => booleanToIterable(x.isAbstract, false)),
-				MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isActive", (x) => booleanToIterable(x.isActive, false))))
+			Seq (Class_isAbstract,
+				Class_isActive))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -197,7 +197,10 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
 			encapsulatedClassifier_compositeMetaProperties,
-			Seq (Class_nestedClassifier, Class_ownedAttribute, Class_ownedOperation, Class_ownedReception))
+			Seq (Class_nestedClassifier,
+				Class_ownedAttribute,
+				Class_ownedOperation,
+				Class_ownedReception))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

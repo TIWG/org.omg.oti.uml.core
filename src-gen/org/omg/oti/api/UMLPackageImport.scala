@@ -155,7 +155,7 @@ trait UMLPackageImport[Uml <: UML]
 	def packageImport_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLPackage[Uml]]("importedPackage", _.importedPackage)))
+			Seq (PackageImport_importedPackage))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

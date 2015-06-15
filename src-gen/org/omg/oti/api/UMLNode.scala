@@ -117,7 +117,7 @@ trait UMLNode[Uml <: UML]
 		appendUnique(
 			class_compositeMetaProperties,
 			deploymentTarget_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLNode[Uml], UMLNode[Uml]]("nestedNode", _.nestedNode)))
+			Seq (Node_nestedNode))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

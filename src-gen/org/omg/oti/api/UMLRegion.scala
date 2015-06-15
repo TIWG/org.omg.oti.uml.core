@@ -178,8 +178,8 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLRegion[Uml], UMLVertex[Uml]]("subvertex", _.subvertex),
-				MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]]("transition", _.transition)))
+			Seq (Region_subvertex,
+				Region_transition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -200,7 +200,7 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]]("extendedRegion", _.extendedRegion)))
+			Seq (Region_extendedRegion))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

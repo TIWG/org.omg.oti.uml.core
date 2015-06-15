@@ -84,7 +84,7 @@ trait UMLModel[Uml <: UML]
 	def model_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			package_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLModel[Uml]](None, "viewpoint", _.viewpoint)))
+			Seq (Model_viewpoint))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

@@ -147,8 +147,8 @@ trait UMLStateMachine[Uml <: UML]
 	def stateMachine_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLPseudostate[Uml]]("connectionPoint", _.connectionPoint),
-				MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLRegion[Uml]]("region", _.region)))
+			Seq (StateMachine_connectionPoint,
+				StateMachine_region))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -168,8 +168,8 @@ trait UMLStateMachine[Uml <: UML]
 	def stateMachine_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLStateMachine[Uml]]("extendedStateMachine", _.extendedStateMachine),
-				MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLState[Uml]]("submachineState", _.submachineState)))
+			Seq (StateMachine_extendedStateMachine,
+				StateMachine_submachineState))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

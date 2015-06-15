@@ -147,7 +147,7 @@ trait UMLSlot[Uml <: UML]
 	def slot_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLSlot[Uml], UMLStructuralFeature[Uml]]("definingFeature", _.definingFeature)))
+			Seq (Slot_definingFeature))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

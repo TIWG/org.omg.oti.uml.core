@@ -149,7 +149,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_metaAttributes,
 			relationship_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLAssociation[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false))))
+			Seq (Association_isDerived))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -191,7 +191,8 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_referenceMetaProperties,
 			relationship_referenceMetaProperties,
-			Seq (Association_memberEnd, Association_navigableOwnedEnd))
+			Seq (Association_memberEnd,
+				Association_navigableOwnedEnd))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

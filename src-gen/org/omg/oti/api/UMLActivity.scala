@@ -160,8 +160,8 @@ trait UMLActivity[Uml <: UML]
 	def activity_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavior_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isReadOnly", (x) => booleanToIterable(x.isReadOnly, false)),
-				MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isSingleExecution", (x) => booleanToIterable(x.isSingleExecution, false))))
+			Seq (Activity_isReadOnly,
+				Activity_isSingleExecution))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -181,11 +181,11 @@ trait UMLActivity[Uml <: UML]
 	def activity_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]]("edge", _.edge),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]]("group", _.group),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]]("node", _.node),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]]("structuredNode", _.structuredNode),
-				MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]]("variable", _.variable)))
+			Seq (Activity_edge,
+				Activity_group,
+				Activity_node,
+				Activity_structuredNode,
+				Activity_variable))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -205,7 +205,7 @@ trait UMLActivity[Uml <: UML]
 	def activity_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]]("partition", _.partition)))
+			Seq (Activity_partition))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

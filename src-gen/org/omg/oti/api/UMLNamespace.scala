@@ -161,9 +161,9 @@ trait UMLNamespace[Uml <: UML]
 	def namespace_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]]("elementImport", _.elementImport),
-				MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLConstraint[Uml]]("ownedRule", _.ownedRule),
-				MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLPackageImport[Uml]]("packageImport", _.packageImport)))
+			Seq (Namespace_elementImport,
+				Namespace_ownedRule,
+				Namespace_packageImport))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

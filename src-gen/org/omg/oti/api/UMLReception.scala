@@ -143,7 +143,7 @@ trait UMLReception[Uml <: UML]
 	def reception_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioralFeature_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReception[Uml], UMLSignal[Uml]]("signal", _.signal)))
+			Seq (Reception_signal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

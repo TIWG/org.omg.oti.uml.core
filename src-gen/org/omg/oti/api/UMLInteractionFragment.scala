@@ -138,7 +138,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	def interactionFragment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]]("generalOrdering", _.generalOrdering)))
+			Seq (InteractionFragment_generalOrdering))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -158,7 +158,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	def interactionFragment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLLifeline[Uml]]("covered", _.covered)))
+			Seq (InteractionFragment_covered))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -136,7 +136,7 @@ trait UMLInvocationAction[Uml <: UML]
 	def invocationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLInvocationAction[Uml], UMLPort[Uml]]("onPort", _.onPort)))
+			Seq (InvocationAction_onPort))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -139,7 +139,7 @@ trait UMLArtifact[Uml <: UML]
 		appendUnique(
 			classifier_metaAttributes,
 			deployedArtifact_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName", _.fileName)))
+			Seq (Artifact_fileName))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -160,10 +160,10 @@ trait UMLArtifact[Uml <: UML]
 		appendUnique(
 			classifier_compositeMetaProperties,
 			deployedArtifact_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]]("manifestation", _.manifestation),
-				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]]("nestedArtifact", _.nestedArtifact),
-				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
-				MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true)))
+			Seq (Artifact_manifestation,
+				Artifact_nestedArtifact,
+				Artifact_ownedAttribute,
+				Artifact_ownedOperation))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

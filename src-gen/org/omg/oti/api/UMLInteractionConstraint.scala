@@ -125,8 +125,8 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def interactionConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			constraint_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]]("maxint", _.maxint),
-				MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]]("minint", _.minint)))
+			Seq (InteractionConstraint_maxint,
+				InteractionConstraint_minint))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

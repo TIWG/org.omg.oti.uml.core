@@ -94,8 +94,8 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	def opaqueBehavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavior_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "body", _.body),
-				MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "language", _.language)))
+			Seq (OpaqueBehavior_body,
+				OpaqueBehavior_language))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

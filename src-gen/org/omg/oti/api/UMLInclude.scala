@@ -140,7 +140,7 @@ trait UMLInclude[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLInclude[Uml], UMLUseCase[Uml]]("addition", _.addition)))
+			Seq (Include_addition))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

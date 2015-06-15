@@ -116,8 +116,8 @@ trait UMLGeneralizationSet[Uml <: UML]
 	def generalizationSet_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			packageableElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isCovering", (x) => booleanToIterable(x.isCovering, false)),
-				MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isDisjoint", (x) => booleanToIterable(x.isDisjoint, false))))
+			Seq (GeneralizationSet_isCovering,
+				GeneralizationSet_isDisjoint))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -157,8 +157,8 @@ trait UMLGeneralizationSet[Uml <: UML]
 	def generalizationSet_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLGeneralizationSet[Uml], UMLGeneralization[Uml]]("generalization", _.generalization),
-				MetaPropertyReference[Uml, UMLGeneralizationSet[Uml], UMLClassifier[Uml]]("powertype", _.powertype)))
+			Seq (GeneralizationSet_generalization,
+				GeneralizationSet_powertype))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

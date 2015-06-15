@@ -106,7 +106,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	def classifierTemplateParameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			templateParameter_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLClassifierTemplateParameter[Uml]](None, "allowSubstitutable", (x) => booleanToIterable(x.allowSubstitutable, true))))
+			Seq (ClassifierTemplateParameter_allowSubstitutable))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -146,8 +146,8 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	def classifierTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			templateParameter_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]]("constrainingClassifier", _.constrainingClassifier),
-				MetaPropertyReference[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]]("parameteredElement", _.parameteredElement)))
+			Seq (ClassifierTemplateParameter_constrainingClassifier,
+				ClassifierTemplateParameter_parameteredElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

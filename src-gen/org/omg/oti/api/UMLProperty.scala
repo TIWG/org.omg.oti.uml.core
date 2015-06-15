@@ -400,9 +400,9 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_metaAttributes,
 			deploymentTarget_metaAttributes,
 			structuralFeature_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerived", (x) => booleanToIterable(x.isDerived, false)),
-				MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerivedUnion", (x) => booleanToIterable(x.isDerivedUnion, false)),
-				MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isID", (x) => booleanToIterable(x.isID, false))))
+			Seq (Property_isDerived,
+				Property_isDerivedUnion,
+				Property_isID))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -424,8 +424,8 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_compositeMetaProperties,
 			deploymentTarget_compositeMetaProperties,
 			structuralFeature_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]]("defaultValue", _.defaultValue),
-				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("qualifier", _.qualifier, true)))
+			Seq (Property_defaultValue,
+				Property_qualifier))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -447,9 +447,9 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_referenceMetaProperties,
 			deploymentTarget_referenceMetaProperties,
 			structuralFeature_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]]("association", _.association),
-				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("redefinedProperty", _.redefinedProperty),
-				MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]]("subsettedProperty", _.subsettedProperty)))
+			Seq (Property_association,
+				Property_redefinedProperty,
+				Property_subsettedProperty))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

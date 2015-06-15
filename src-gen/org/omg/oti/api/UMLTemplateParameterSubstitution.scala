@@ -138,7 +138,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("ownedActual", _.ownedActual)))
+			Seq (TemplateParameterSubstitution_ownedActual))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -158,8 +158,8 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]]("actual", _.actual),
-				MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]]("formal", _.formal)))
+			Seq (TemplateParameterSubstitution_actual,
+				TemplateParameterSubstitution_formal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

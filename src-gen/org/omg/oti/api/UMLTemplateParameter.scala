@@ -176,8 +176,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedDefault", _.ownedDefault),
-				MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("ownedParameteredElement", _.ownedParameteredElement)))
+			Seq (TemplateParameter_ownedDefault,
+				TemplateParameter_ownedParameteredElement))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -197,7 +197,7 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]]("default", _.default),
+			Seq (TemplateParameter_default,
 				TemplateParameter_parameteredElement))
 
 	/**

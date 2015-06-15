@@ -84,7 +84,7 @@ trait UMLLiteralBoolean[Uml <: UML]
 	def literalBoolean_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLLiteralBoolean[Uml]](None, "value", (x) => booleanToIterable(x.value, false))))
+			Seq (LiteralBoolean_value))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

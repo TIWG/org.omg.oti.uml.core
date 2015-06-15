@@ -165,9 +165,9 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	def occurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]]("covered", _.covered),
-				MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toAfter", _.toAfter),
-				MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]]("toBefore", _.toBefore)))
+			Seq (OccurrenceSpecification_covered,
+				OccurrenceSpecification_toAfter,
+				OccurrenceSpecification_toBefore))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

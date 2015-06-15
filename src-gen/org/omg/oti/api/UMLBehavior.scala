@@ -316,7 +316,7 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			class_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant", (x) => booleanToIterable(x.isReentrant, true))))
+			Seq (Behavior_isReentrant))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -336,10 +336,10 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-				MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
+			Seq (Behavior_ownedParameter,
+				Behavior_ownedParameterSet,
+				Behavior_postcondition,
+				Behavior_precondition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -359,8 +359,8 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]]("redefinedBehavior", _.redefinedBehavior),
-				MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]]("specification", _.specification)))
+			Seq (Behavior_redefinedBehavior,
+				Behavior_specification))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

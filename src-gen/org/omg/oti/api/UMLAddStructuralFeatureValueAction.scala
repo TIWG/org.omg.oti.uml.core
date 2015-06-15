@@ -95,7 +95,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def addStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLAddStructuralFeatureValueAction[Uml]](None, "isReplaceAll", (x) => booleanToIterable(x.isReplaceAll, false))))
+			Seq (AddStructuralFeatureValueAction_isReplaceAll))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -115,7 +115,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def addStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLAddStructuralFeatureValueAction[Uml], UMLInputPin[Uml]]("insertAt", _.insertAt)))
+			Seq (AddStructuralFeatureValueAction_insertAt))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

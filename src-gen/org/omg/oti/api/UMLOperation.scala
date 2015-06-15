@@ -299,7 +299,7 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_metaAttributes,
 			parameterableElement_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLOperation[Uml]](None, "isQuery", (x) => booleanToIterable(x.isQuery, false))))
+			Seq (Operation_isQuery))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -321,10 +321,10 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_compositeMetaProperties,
 			parameterableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("bodyCondition", _.bodyCondition),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("postcondition", _.postcondition),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]]("precondition", _.precondition)))
+			Seq (Operation_bodyCondition,
+				Operation_ownedParameter,
+				Operation_postcondition,
+				Operation_precondition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -346,9 +346,9 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_referenceMetaProperties,
 			parameterableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]]("raisedException", _.raisedException),
-				MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]]("redefinedOperation", _.redefinedOperation),
-				MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]]("templateParameter", _.templateParameter)))
+			Seq (Operation_raisedException,
+				Operation_redefinedOperation,
+				Operation_templateParameter))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

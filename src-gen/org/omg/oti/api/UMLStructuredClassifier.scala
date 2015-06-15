@@ -139,8 +139,8 @@ trait UMLStructuredClassifier[Uml <: UML]
 	def structuredClassifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
-				MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLConnector[Uml]]("ownedConnector", _.ownedConnector)))
+			Seq (StructuredClassifier_ownedAttribute,
+				StructuredClassifier_ownedConnector))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

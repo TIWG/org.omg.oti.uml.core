@@ -95,7 +95,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	def timeConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			intervalConstraint_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent", _.firstEvent)))
+			Seq (TimeConstraint_firstEvent))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

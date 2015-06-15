@@ -105,7 +105,7 @@ trait UMLActionInputPin[Uml <: UML]
 	def actionInputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			inputPin_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLActionInputPin[Uml], UMLAction[Uml]]("fromAction", _.fromAction)))
+			Seq (ActionInputPin_fromAction))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -125,7 +125,7 @@ trait UMLCallEvent[Uml <: UML]
 	def callEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageEvent_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLCallEvent[Uml], UMLOperation[Uml]]("operation", _.operation)))
+			Seq (CallEvent_operation))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

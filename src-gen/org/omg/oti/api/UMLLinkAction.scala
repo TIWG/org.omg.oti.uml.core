@@ -116,7 +116,8 @@ trait UMLLinkAction[Uml <: UML]
 	def linkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (LinkAction_endData, LinkAction_inputValue))
+			Seq (LinkAction_endData,
+				LinkAction_inputValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

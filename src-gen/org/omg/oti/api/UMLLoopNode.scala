@@ -172,7 +172,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLLoopNode[Uml]](None, "isTestedFirst", (x) => booleanToIterable(x.isTestedFirst, false))))
+			Seq (LoopNode_isTestedFirst))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -192,7 +192,9 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (LoopNode_loopVariable, LoopNode_loopVariableInput, LoopNode_result))
+			Seq (LoopNode_loopVariable,
+				LoopNode_loopVariableInput,
+				LoopNode_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -212,11 +214,11 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("bodyOutput", _.bodyOutput, true),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("bodyPart", _.bodyPart),
-				MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]]("decider", _.decider),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("setupPart", _.setupPart),
-				MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]]("test", _.test)))
+			Seq (LoopNode_bodyOutput,
+				LoopNode_bodyPart,
+				LoopNode_decider,
+				LoopNode_setupPart,
+				LoopNode_test))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

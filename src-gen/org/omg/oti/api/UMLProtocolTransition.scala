@@ -128,8 +128,8 @@ trait UMLProtocolTransition[Uml <: UML]
 	def protocolTransition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			transition_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]]("postCondition", _.postCondition),
-				MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]]("preCondition", _.preCondition)))
+			Seq (ProtocolTransition_postCondition,
+				ProtocolTransition_preCondition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

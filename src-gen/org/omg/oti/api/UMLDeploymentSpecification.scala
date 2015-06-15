@@ -105,8 +105,8 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			artifact_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "deploymentLocation", _.deploymentLocation),
-				MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "executionLocation", _.executionLocation)))
+			Seq (DeploymentSpecification_deploymentLocation,
+				DeploymentSpecification_executionLocation))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

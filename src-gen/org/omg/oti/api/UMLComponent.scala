@@ -143,7 +143,7 @@ trait UMLComponent[Uml <: UML]
 	def component_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			class_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLComponent[Uml]](None, "isIndirectlyInstantiated", (x) => booleanToIterable(x.isIndirectlyInstantiated, true))))
+			Seq (Component_isIndirectlyInstantiated))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -163,8 +163,8 @@ trait UMLComponent[Uml <: UML]
 	def component_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLComponent[Uml], UMLPackageableElement[Uml]]("packagedElement", _.packagedElement),
-				MetaPropertyCollection[Uml, UMLComponent[Uml], UMLComponentRealization[Uml]]("realization", _.realization)))
+			Seq (Component_packagedElement,
+				Component_realization))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

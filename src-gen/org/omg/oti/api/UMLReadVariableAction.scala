@@ -105,7 +105,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	def readVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			variableAction_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReadVariableAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (ReadVariableAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

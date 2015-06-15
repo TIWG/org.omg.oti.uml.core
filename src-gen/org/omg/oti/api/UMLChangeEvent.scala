@@ -105,7 +105,7 @@ trait UMLChangeEvent[Uml <: UML]
 	def changeEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			event_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLChangeEvent[Uml], UMLValueSpecification[Uml]]("changeExpression", _.changeExpression)))
+			Seq (ChangeEvent_changeExpression))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

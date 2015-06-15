@@ -125,7 +125,7 @@ trait UMLVariableAction[Uml <: UML]
 	def variableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLVariableAction[Uml], UMLVariable[Uml]]("variable", _.variable)))
+			Seq (VariableAction_variable))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

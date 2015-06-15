@@ -140,7 +140,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_metaAttributes,
 			namespace_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLBehavioralFeature[Uml]](None, "isAbstract", (x) => booleanToIterable(x.isAbstract, false))))
+			Seq (BehavioralFeature_isAbstract))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -161,8 +161,8 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]]("ownedParameter", _.ownedParameter, true),
-				MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameterSet[Uml]]("ownedParameterSet", _.ownedParameterSet)))
+			Seq (BehavioralFeature_ownedParameter,
+				BehavioralFeature_ownedParameterSet))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -183,8 +183,8 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_referenceMetaProperties,
 			namespace_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLBehavior[Uml]]("method", _.method),
-				MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLType[Uml]]("raisedException", _.raisedException)))
+			Seq (BehavioralFeature_method,
+				BehavioralFeature_raisedException))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

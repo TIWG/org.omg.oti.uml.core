@@ -116,8 +116,8 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isAssured", (x) => booleanToIterable(x.isAssured, false)),
-				MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isDeterminate", (x) => booleanToIterable(x.isDeterminate, false))))
+			Seq (ConditionalNode_isAssured,
+				ConditionalNode_isDeterminate))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -137,7 +137,8 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (ConditionalNode_clause, ConditionalNode_result))
+			Seq (ConditionalNode_clause,
+				ConditionalNode_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

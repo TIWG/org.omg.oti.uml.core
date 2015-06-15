@@ -125,7 +125,7 @@ trait UMLTypedElement[Uml <: UML]
 	def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]]("type", _._type)))
+			Seq (TypedElement__type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -289,14 +289,14 @@ trait UMLState[Uml <: UML]
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
 			vertex_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLState[Uml], UMLConnectionPointReference[Uml]]("connection", _.connection),
-				MetaPropertyCollection[Uml, UMLState[Uml], UMLPseudostate[Uml]]("connectionPoint", _.connectionPoint),
-				MetaPropertyCollection[Uml, UMLState[Uml], UMLTrigger[Uml]]("deferrableTrigger", _.deferrableTrigger),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("doActivity", _.doActivity),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("entry", _.entry),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]]("exit", _.exit),
-				MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]]("region", _.region),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]]("stateInvariant", _.stateInvariant)))
+			Seq (State_connection,
+				State_connectionPoint,
+				State_deferrableTrigger,
+				State_doActivity,
+				State_entry,
+				State_exit,
+				State_region,
+				State_stateInvariant))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -318,8 +318,8 @@ trait UMLState[Uml <: UML]
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
 			vertex_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLState[Uml], UMLState[Uml]]("redefinedState", _.redefinedState),
-				MetaPropertyReference[Uml, UMLState[Uml], UMLStateMachine[Uml]]("submachine", _.submachine)))
+			Seq (State_redefinedState,
+				State_submachine))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

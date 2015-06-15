@@ -195,13 +195,13 @@ trait UMLInformationFlow[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLClassifier[Uml]]("conveyed", _.conveyed),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]]("informationSource", _.informationSource),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]]("informationTarget", _.informationTarget),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLRelationship[Uml]]("realization", _.realization),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLActivityEdge[Uml]]("realizingActivityEdge", _.realizingActivityEdge),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLConnector[Uml]]("realizingConnector", _.realizingConnector),
-				MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLMessage[Uml]]("realizingMessage", _.realizingMessage)))
+			Seq (InformationFlow_conveyed,
+				InformationFlow_informationSource,
+				InformationFlow_informationTarget,
+				InformationFlow_realization,
+				InformationFlow_realizingActivityEdge,
+				InformationFlow_realizingConnector,
+				InformationFlow_realizingMessage))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

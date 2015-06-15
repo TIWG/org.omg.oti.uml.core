@@ -115,7 +115,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	def redefinableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLRedefinableElement[Uml]](None, "isLeaf", (x) => booleanToIterable(x.isLeaf, false))))
+			Seq (RedefinableElement_isLeaf))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

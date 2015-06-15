@@ -116,8 +116,8 @@ trait UMLTemplateableElement[Uml <: UML]
 	def templateableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTemplateableElement[Uml], UMLTemplateSignature[Uml]]("ownedTemplateSignature", _.ownedTemplateSignature),
-				MetaPropertyCollection[Uml, UMLTemplateableElement[Uml], UMLTemplateBinding[Uml]]("templateBinding", _.templateBinding)))
+			Seq (TemplateableElement_ownedTemplateSignature,
+				TemplateableElement_templateBinding))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

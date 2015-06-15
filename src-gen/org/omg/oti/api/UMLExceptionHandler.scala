@@ -158,9 +158,9 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionHandler_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLObjectNode[Uml]]("exceptionInput", _.exceptionInput),
-				MetaPropertyCollection[Uml, UMLExceptionHandler[Uml], UMLClassifier[Uml]]("exceptionType", _.exceptionType),
-				MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLExecutableNode[Uml]]("handlerBody", _.handlerBody)))
+			Seq (ExceptionHandler_exceptionInput,
+				ExceptionHandler_exceptionType,
+				ExceptionHandler_handlerBody))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

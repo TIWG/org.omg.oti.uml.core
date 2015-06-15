@@ -145,8 +145,8 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def generalOrdering_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("after", _.after),
-				MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]]("before", _.before)))
+			Seq (GeneralOrdering_after,
+				GeneralOrdering_before))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

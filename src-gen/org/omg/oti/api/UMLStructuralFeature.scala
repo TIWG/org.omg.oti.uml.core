@@ -106,7 +106,7 @@ trait UMLStructuralFeature[Uml <: UML]
 			feature_metaAttributes,
 			multiplicityElement_metaAttributes,
 			typedElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLStructuralFeature[Uml]](None, "isReadOnly", (x) => booleanToIterable(x.isReadOnly, false))))
+			Seq (StructuralFeature_isReadOnly))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

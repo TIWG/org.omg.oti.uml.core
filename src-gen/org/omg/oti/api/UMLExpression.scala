@@ -95,7 +95,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			valueSpecification_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLExpression[Uml]](None, "symbol", _.symbol)))
+			Seq (Expression_symbol))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -115,7 +115,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]]("operand", _.operand, true)))
+			Seq (Expression_operand))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

@@ -125,7 +125,7 @@ trait UMLBroadcastSignalAction[Uml <: UML]
 	def broadcastSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLBroadcastSignalAction[Uml], UMLSignal[Uml]]("signal", _.signal)))
+			Seq (BroadcastSignalAction_signal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

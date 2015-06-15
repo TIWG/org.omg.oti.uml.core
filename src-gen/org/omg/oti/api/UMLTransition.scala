@@ -210,9 +210,9 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]]("effect", _.effect),
-				MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]]("guard", _.guard),
-				MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]]("trigger", _.trigger)))
+			Seq (Transition_effect,
+				Transition_guard,
+				Transition_trigger))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -233,9 +233,9 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]]("redefinedTransition", _.redefinedTransition),
-				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("source", _.source),
-				MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]]("target", _.target)))
+			Seq (Transition_redefinedTransition,
+				Transition_source,
+				Transition_target))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

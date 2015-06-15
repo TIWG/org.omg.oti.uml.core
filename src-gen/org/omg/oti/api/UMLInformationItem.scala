@@ -125,7 +125,7 @@ trait UMLInformationItem[Uml <: UML]
 	def informationItem_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInformationItem[Uml], UMLClassifier[Uml]]("represented", _.represented)))
+			Seq (InformationItem_represented))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

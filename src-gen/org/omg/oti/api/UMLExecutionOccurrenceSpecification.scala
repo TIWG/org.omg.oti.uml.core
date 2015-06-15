@@ -125,7 +125,7 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	def executionOccurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			occurrenceSpecification_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLExecutionOccurrenceSpecification[Uml], UMLExecutionSpecification[Uml]]("execution", _.execution)))
+			Seq (ExecutionOccurrenceSpecification_execution))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

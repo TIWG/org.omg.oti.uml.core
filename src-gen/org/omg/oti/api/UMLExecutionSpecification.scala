@@ -145,8 +145,8 @@ trait UMLExecutionSpecification[Uml <: UML]
 	def executionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("finish", _.finish),
-				MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]]("start", _.start)))
+			Seq (ExecutionSpecification_finish,
+				ExecutionSpecification_start))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

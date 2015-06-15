@@ -135,7 +135,7 @@ trait UMLStereotype[Uml <: UML]
 	def stereotype_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStereotype[Uml], UMLImage[Uml]]("icon", _.icon)))
+			Seq (Stereotype_icon))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

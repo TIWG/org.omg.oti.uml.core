@@ -136,7 +136,7 @@ trait UMLLinkEndData[Uml <: UML]
 	def linkEndData_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLLinkEndData[Uml], UMLQualifierValue[Uml]]("qualifier", _.qualifier)))
+			Seq (LinkEndData_qualifier))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -156,8 +156,8 @@ trait UMLLinkEndData[Uml <: UML]
 	def linkEndData_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLProperty[Uml]]("end", _.end),
-				MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLInputPin[Uml]]("value", _.value)))
+			Seq (LinkEndData_end,
+				LinkEndData_value))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -117,7 +117,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect", (x) => booleanToIterable(x.isDirect, false))))
+			Seq (ReadIsClassifiedObjectAction_isDirect))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -137,8 +137,8 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]]("object", _._object),
-				MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (ReadIsClassifiedObjectAction__object,
+				ReadIsClassifiedObjectAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -158,7 +158,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]]("classifier", _.classifier)))
+			Seq (ReadIsClassifiedObjectAction_classifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

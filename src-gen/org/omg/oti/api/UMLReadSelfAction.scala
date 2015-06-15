@@ -105,7 +105,7 @@ trait UMLReadSelfAction[Uml <: UML]
 	def readSelfAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLReadSelfAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (ReadSelfAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

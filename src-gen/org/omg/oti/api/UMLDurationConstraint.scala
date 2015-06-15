@@ -95,7 +95,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			intervalConstraint_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](None, "firstEvent", _.firstEvent)))
+			Seq (DurationConstraint_firstEvent))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

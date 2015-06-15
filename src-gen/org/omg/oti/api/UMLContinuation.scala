@@ -84,7 +84,7 @@ trait UMLContinuation[Uml <: UML]
 	def continuation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLContinuation[Uml]](None, "setting", (x) => booleanToIterable(x.setting, true))))
+			Seq (Continuation_setting))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

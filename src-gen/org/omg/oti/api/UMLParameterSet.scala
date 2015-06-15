@@ -134,7 +134,7 @@ trait UMLParameterSet[Uml <: UML]
 	def parameterSet_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLConstraint[Uml]]("condition", _.condition)))
+			Seq (ParameterSet_condition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -154,7 +154,7 @@ trait UMLParameterSet[Uml <: UML]
 	def parameterSet_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLParameter[Uml]]("parameter", _.parameter)))
+			Seq (ParameterSet_parameter))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

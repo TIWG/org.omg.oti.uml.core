@@ -128,7 +128,7 @@ trait UMLStringExpression[Uml <: UML]
 		appendUnique(
 			expression_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]]("subExpression", _.subExpression, true)))
+			Seq (StringExpression_subExpression))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

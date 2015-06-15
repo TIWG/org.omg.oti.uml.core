@@ -84,7 +84,7 @@ trait UMLLiteralString[Uml <: UML]
 	def literalString_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](None, "value", _.value)))
+			Seq (LiteralString_value))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

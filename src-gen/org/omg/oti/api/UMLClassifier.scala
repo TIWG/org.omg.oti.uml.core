@@ -463,8 +463,8 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_metaAttributes,
 			templateableElement_metaAttributes,
 			type_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isAbstract", (x) => booleanToIterable(x.isAbstract, false)),
-				MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isFinalSpecialization", (x) => booleanToIterable(x.isFinalSpecialization, false))))
+			Seq (Classifier_isAbstract,
+				Classifier_isFinalSpecialization))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -487,11 +487,11 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
 			type_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]]("collaborationUse", _.collaborationUse),
-				MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralization[Uml]]("generalization", _.generalization),
-				MetaPropertyReference[Uml, UMLClassifier[Uml], UMLRedefinableTemplateSignature[Uml]]("ownedTemplateSignature", _.ownedTemplateSignature),
-				MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]]("ownedUseCase", _.ownedUseCase),
-				MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLSubstitution[Uml]]("substitution", _.substitution)))
+			Seq (Classifier_collaborationUse,
+				Classifier_generalization,
+				Classifier_ownedTemplateSignature,
+				Classifier_ownedUseCase,
+				Classifier_substitution))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -514,11 +514,11 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
 			type_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralizationSet[Uml]]("powertypeExtent", _.powertypeExtent),
-				MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLClassifier[Uml]]("redefinedClassifier", _.redefinedClassifier),
-				MetaPropertyReference[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]]("representation", _.representation),
-				MetaPropertyReference[Uml, UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]]("templateParameter", _.templateParameter),
-				MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]]("useCase", _.useCase)))
+			Seq (Classifier_powertypeExtent,
+				Classifier_redefinedClassifier,
+				Classifier_representation,
+				Classifier_templateParameter,
+				Classifier_useCase))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

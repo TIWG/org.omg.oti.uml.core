@@ -138,8 +138,8 @@ trait UMLMultiplicityElement[Uml <: UML]
 	def multiplicityElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isOrdered", (x) => booleanToIterable(x.isOrdered, false)),
-				MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isUnique", (x) => booleanToIterable(x.isUnique, true))))
+			Seq (MultiplicityElement_isOrdered,
+				MultiplicityElement_isUnique))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -159,8 +159,8 @@ trait UMLMultiplicityElement[Uml <: UML]
 	def multiplicityElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]]("lowerValue", _.lowerValue),
-				MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]]("upperValue", _.upperValue)))
+			Seq (MultiplicityElement_lowerValue,
+				MultiplicityElement_upperValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

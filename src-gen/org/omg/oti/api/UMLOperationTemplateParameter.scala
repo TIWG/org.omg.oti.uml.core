@@ -125,7 +125,7 @@ trait UMLOperationTemplateParameter[Uml <: UML]
 	def operationTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			templateParameter_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLOperationTemplateParameter[Uml], UMLOperation[Uml]]("parameteredElement", _.parameteredElement)))
+			Seq (OperationTemplateParameter_parameteredElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -116,7 +116,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	def createObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLOutputPin[Uml]]("result", _.result)))
+			Seq (CreateObjectAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -136,7 +136,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	def createObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLClassifier[Uml]]("classifier", _.classifier)))
+			Seq (CreateObjectAction_classifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

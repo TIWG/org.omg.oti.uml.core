@@ -214,11 +214,11 @@ trait UMLInterface[Uml <: UML]
 	def interface_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]]("nestedClassifier", _.nestedClassifier, true),
-				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]]("ownedAttribute", _.ownedAttribute, true),
-				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]]("ownedOperation", _.ownedOperation, true),
-				MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]]("ownedReception", _.ownedReception),
-				MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]]("protocol", _.protocol)))
+			Seq (Interface_nestedClassifier,
+				Interface_ownedAttribute,
+				Interface_ownedOperation,
+				Interface_ownedReception,
+				Interface_protocol))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -238,7 +238,7 @@ trait UMLInterface[Uml <: UML]
 	def interface_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLInterface[Uml], UMLInterface[Uml]]("redefinedInterface", _.redefinedInterface)))
+			Seq (Interface_redefinedInterface))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

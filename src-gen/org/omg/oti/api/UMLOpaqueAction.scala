@@ -116,8 +116,8 @@ trait UMLOpaqueAction[Uml <: UML]
 	def opaqueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "body", _.body),
-				MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "language", _.language)))
+			Seq (OpaqueAction_body,
+				OpaqueAction_language))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -137,8 +137,8 @@ trait UMLOpaqueAction[Uml <: UML]
 	def opaqueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLInputPin[Uml]]("inputValue", _.inputValue),
-				MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLOutputPin[Uml]]("outputValue", _.outputValue)))
+			Seq (OpaqueAction_inputValue,
+				OpaqueAction_outputValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

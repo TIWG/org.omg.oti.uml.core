@@ -113,9 +113,9 @@ trait UMLImage[Uml <: UML]
 	def image_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq (MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "content", _.content),
-				MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "format", _.format),
-				MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "location", _.location)))
+			Seq (Image_content,
+				Image_format,
+				Image_location))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

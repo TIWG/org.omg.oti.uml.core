@@ -136,7 +136,7 @@ trait UMLProtocolConformance[Uml <: UML]
 	def protocolConformance_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]]("generalMachine", _.generalMachine)))
+			Seq (ProtocolConformance_generalMachine))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

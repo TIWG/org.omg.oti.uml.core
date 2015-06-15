@@ -95,7 +95,7 @@ trait UMLFeature[Uml <: UML]
 	def feature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			redefinableElement_metaAttributes,
-			Seq (MetaAttributeBooleanFunction[Uml, UMLFeature[Uml]](None, "isStatic", (x) => booleanToIterable(x.isStatic, false))))
+			Seq (Feature_isStatic))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object

@@ -134,7 +134,7 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def protocolStateMachine_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			stateMachine_compositeMetaProperties,
-			Seq (MetaPropertyCollection[Uml, UMLProtocolStateMachine[Uml], UMLProtocolConformance[Uml]]("conformance", _.conformance)))
+			Seq (ProtocolStateMachine_conformance))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

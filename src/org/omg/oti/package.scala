@@ -554,4 +554,30 @@ package object oti {
       case _ => false
     }
 
+  def booleanToIterable( value: Boolean, default: Boolean ): Iterable[Boolean] =
+    if ( value != default ) Iterable( value )
+    else Iterable()
+
+  def integerToIterable( value: Integer, default: Integer ): Iterable[Integer] =
+    if ( value != default ) Iterable( value )
+    else Iterable()
+
+  def unlimitedNaturalToIterable( value: Integer, default: Integer ): Iterable[String] =
+    if ( value == default ) Iterable()
+    else if (value == -1) Iterable("*") else Iterable(value.toString)
+
+  /**
+   * @toto Fix the template instead of generating calls to this method.
+   * There shouldn't be a Real default value in UML
+   */
+  def realToIterable( value: Double, default: Double ): Iterable[Double] =
+    Iterable( value )
+
+  def stringToIterable( value: Option[String], default: String ): Iterable[String] =
+    value.toIterable
+
+  def stringToIterable( value: String, default: String ): Iterable[String] =
+    if ( value != default ) Iterable( value )
+    else Iterable()
+
 }
