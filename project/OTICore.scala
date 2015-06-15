@@ -86,7 +86,11 @@ object OTICore extends Build {
         (dir, bin, src, doc) =>
           (dir ** "*.dynamicScripts").pair(relativeTo(dir)) ++
             com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
-            Seq(bin, src, doc).map( jar => (jar, "lib/" + jar.name) )
+            Seq(
+              (bin, "lib/" + bin.name),
+              (src, "lib.sources/" + src.name),
+              (doc, "lib.javadoc/" + doc.name)
+            )
       },
       artifacts <+= (name in Universal) { n => Artifact(n, "jar", "jar", Some("resources"), Seq(), None, Map()) },
       packagedArtifacts <+= (packageBin in Universal, name in Universal) map { (p,n) =>
