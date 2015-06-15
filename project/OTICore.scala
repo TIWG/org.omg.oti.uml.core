@@ -85,6 +85,7 @@ object OTICore extends Build {
       mappings in Universal <++= (baseDirectory, packageBin in Compile, packageSrc in Compile, packageDoc in Compile) map {
         (dir, bin, src, doc) =>
           (dir ** "*.dynamicScripts").pair(relativeTo(dir)) ++
+            (dir ** "*.md").pair(relativeTo(dir)) ++
             com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
             Seq(
               (bin, "lib/" + bin.name),
@@ -92,9 +93,9 @@ object OTICore extends Build {
               (doc, "lib.javadoc/" + doc.name)
             )
       },
-      artifacts <+= (name in Universal) { n => Artifact(n, "jar", "jar", Some("resources"), Seq(), None, Map()) },
+      artifacts <+= (name in Universal) { n => Artifact(n, "jar", "jar", Some("resource"), Seq(), None, Map()) },
       packagedArtifacts <+= (packageBin in Universal, name in Universal) map { (p,n) =>
-        Artifact(n, "jar", "jar", Some("resources"), Seq(), None, Map()) -> p
+        Artifact(n, "jar", "jar", Some("resource"), Seq(), None, Map()) -> p
       },
 
       aether.AetherKeys.aetherArtifact <<=
