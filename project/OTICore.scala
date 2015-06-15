@@ -1,10 +1,10 @@
 import java.io.File
 
 import com.banno.license.Plugin.LicenseKeys._
-import com.typesafe.sbt.GitVersioning
 import net.virtualvoid.sbt.graph.Plugin.graphSettings
 import sbt.Keys._
 import sbt._
+import com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._
 
 object OTICore extends Build {
 
@@ -60,6 +60,7 @@ object OTICore extends Build {
     "oti-core",
     file(".")).
     enablePlugins(aether.AetherPlugin).
+    enablePlugins(com.typesafe.sbt.packager.universal.UniversalPlugin).
     settings(otiSettings: _*).
     settings(commonSettings: _*).
     settings(
@@ -79,8 +80,28 @@ object OTICore extends Build {
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
       classDirectory in Compile := baseDirectory.value / "bin",
-      mappings in (Compile, packageBin) <++= baseDirectory map { dir => (dir / "resources").*** pair relativeTo(dir) },
-      mappings in (Compile, packageSrc) <++= baseDirectory map { dir => (dir / "resources").*** pair relativeTo(dir) },
+
+      com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := Some("dynamicScripts/org.omg.oti"),
+      mappings in Universal <++= (baseDirectory, packageBin in Compile, packageSrc in Compile, packageDoc in Compile) map {
+        (dir, bin, src, doc) =>
+          (dir ** "*.dynamicScripts").pair(relativeTo(dir)) ++
+            com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
+            Seq(bin, src, doc).map( jar => (jar, "lib/" + jar.name) )
+      },
+      artifacts <+= (name in Universal) { n => Artifact(n, "jar", "jar", Some("resources"), Seq(), None, Map()) },
+      packagedArtifacts <+= (packageBin in Universal, name in Universal) map { (p,n) =>
+        Artifact(n, "jar", "jar", Some("resources"), Seq(), None, Map()) -> p
+      },
+
+      aether.AetherKeys.aetherArtifact <<=
+        (aether.AetherKeys.aetherCoordinates,
+          aether.AetherKeys.aetherPackageMain,
+          makePom in Compile,
+          packagedArtifacts in Compile) map {
+          (coords: aether.MavenCoordinates, mainArtifact: File, pom: File, artifacts: Map[Artifact, File]) =>
+            aether.AetherPlugin.createArtifact(artifacts, pom, coords, mainArtifact)
+        },
+
       shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Versions.version_suffix + "> " }
     )
 
