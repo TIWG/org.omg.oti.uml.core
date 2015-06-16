@@ -94,7 +94,11 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * @opposite org.omg.oti.api.UMLClass.superClass_class
 	 * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
 	 */
-	def superClass: Set[UMLClass[Uml]] = general.selectByKindOf { case x: UMLClass[Uml] => x }
+	def superClass: Set[UMLClass[Uml]] = {
+		// Start of user code for "superClass"
+		general.selectByKindOf { case x: UMLClass[Uml] => x }
+		// End of user code
+	}
 
 	/**
 	 * <!-- Start of user code doc for superClass_class -->
@@ -103,7 +107,11 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClass.superClass
 	 */
-	def superClass_class: Set[UMLClass[Uml]] = general_classifier.selectByKindOf { case x: UMLClass[Uml] => x }
+	def superClass_class: Set[UMLClass[Uml]] = {
+		// Start of user code for "class"
+		???
+		// End of user code
+	}
 
 	/**
 	 * Only an active Class may own Receptions and have a classifierBehavior.

@@ -75,7 +75,7 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLInterfaceRealization.implementingClassifier
 	 */
-	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = clientDependency.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
+	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
 
 	/**
 	 * Behaviors owned by a BehavioredClassifier.

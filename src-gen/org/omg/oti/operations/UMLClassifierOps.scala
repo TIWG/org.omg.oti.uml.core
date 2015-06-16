@@ -173,7 +173,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLSubstitution.substitutingClassifier
 	 */
-	def substitution: Set[UMLSubstitution[Uml]] = clientDependency.selectByKindOf { case x: UMLSubstitution[Uml] => x }
+	def substitution: Set[UMLSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLSubstitution[Uml] => x }
 
 	/**
 	 * <!-- Start of user code doc for context_action -->
@@ -227,15 +227,6 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @opposite org.omg.oti.api.UMLClass.nestedClassifier
 	 */
 	def nestedClassifier_nestingClass: Option[UMLClass[Uml]] = redefinitionContext.selectByKindOf { case x: UMLClass[Uml] => x } headOption
-
-	/**
-	 * <!-- Start of user code doc for realizingClassifier_componentRealization -->
-	 * <!-- End of user code doc for realizingClassifier_componentRealization -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLComponentRealization.realizingClassifier
-	 */
-	def realizingClassifier_componentRealization: Set[UMLComponentRealization[Uml]] = clientDependency.selectByKindOf { case x: UMLComponentRealization[Uml] => x }
 
 	/**
 	 * <!-- Start of user code doc for redefinedClassifier_classifier -->
