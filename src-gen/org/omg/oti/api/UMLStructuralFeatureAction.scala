@@ -116,7 +116,7 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	def structuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (StructuralFeatureAction__object))
+			Seq (StructuralFeatureAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

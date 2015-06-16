@@ -2057,7 +2057,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"association", _.association, false,
 		Set())
 
-	val ClearAssociationAction__object =
+	val ClearAssociationAction_object =
 		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -2078,7 +2078,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"roleBinding", _.roleBinding, false,
 		Set())
 
-	val CollaborationUse__type =
+	val CollaborationUse_type =
 		MetaPropertyReference[Uml, UMLCollaborationUse[Uml], UMLCollaboration[Uml]](
 		"type", _._type, false,
 		Set())
@@ -2186,7 +2186,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"redefinedConnector", _.redefinedConnector, false,
 		Set())
 
-	val Connector__type =
+	val Connector_type =
 		MetaPropertyReference[Uml, UMLConnector[Uml], UMLAssociation[Uml]](
 		"type", _._type, false,
 		Set())
@@ -2499,10 +2499,10 @@ trait UMLOps[Uml <: UML] { self =>
 		"ownedEnd", _.ownedEnd, false,
 		Set(Association_ownedEnd))
 
-	val ExtensionEnd__type =
+	val ExtensionEnd_type =
 		MetaPropertyReference[Uml, UMLExtensionEnd[Uml], UMLStereotype[Uml]](
 		"type", _._type, false,
-		Set(TypedElement__type))
+		Set(TypedElement_type))
 
 	val ExtensionPoint_useCase =
 		MetaPropertyReference[Uml, UMLExtensionPoint[Uml], UMLUseCase[Uml]](
@@ -3152,7 +3152,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"bodyCondition", _.bodyCondition, false,
 		Set())
 
-	val Operation__class =
+	val Operation_class =
 		MetaPropertyReference[Uml, UMLOperation[Uml], UMLClass[Uml]](
 		"class", _._class, false,
 		Set())
@@ -3361,7 +3361,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"associationEnd", _.associationEnd, false,
 		Set())
 
-	val Property__class =
+	val Property_class =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLClass[Uml]](
 		"class", _._class, false,
 		Set())
@@ -3483,7 +3483,7 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect",
 		(x) => booleanToIterable(x.isDirect, false))
 
-	val ReadIsClassifiedObjectAction__object =
+	val ReadIsClassifiedObjectAction_object =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -3503,7 +3503,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"end", _.end, false,
 		Set())
 
-	val ReadLinkObjectEndAction__object =
+	val ReadLinkObjectEndAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -3513,7 +3513,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"result", _.result, false,
 		Set())
 
-	val ReadLinkObjectEndQualifierAction__object =
+	val ReadLinkObjectEndQualifierAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -3558,7 +3558,7 @@ trait UMLOps[Uml <: UML] { self =>
 		"newClassifier", _.newClassifier, false,
 		Set())
 
-	val ReclassifyObjectAction__object =
+	val ReclassifyObjectAction_object =
 		MetaPropertyReference[Uml, UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -3710,12 +3710,12 @@ trait UMLOps[Uml <: UML] { self =>
 		"value", _.value, true,
 		Set())
 
-	val StartClassifierBehaviorAction__object =
+	val StartClassifierBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartClassifierBehaviorAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
 
-	val StartObjectBehaviorAction__object =
+	val StartObjectBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartObjectBehaviorAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -3819,7 +3819,7 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeBooleanFunction[Uml, UMLStructuralFeature[Uml]](None, "isReadOnly",
 		(x) => booleanToIterable(x.isReadOnly, false))
 
-	val StructuralFeatureAction__object =
+	val StructuralFeatureAction_object =
 		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())
@@ -4077,12 +4077,12 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 
-	val TypedElement__type =
+	val TypedElement_type =
 		MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]](
 		"type", _._type, false,
 		Set())
 
-	val UnmarshallAction__object =
+	val UnmarshallAction_object =
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]](
 		"object", _._object, false,
 		Set())

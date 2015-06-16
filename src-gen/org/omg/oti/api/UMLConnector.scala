@@ -213,7 +213,7 @@ trait UMLConnector[Uml <: UML]
 			feature_referenceMetaProperties,
 			Seq (Connector_contract,
 				Connector_redefinedConnector,
-				Connector__type))
+				Connector_type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

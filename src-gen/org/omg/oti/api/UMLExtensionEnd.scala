@@ -144,7 +144,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	def extensionEnd_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			property_referenceMetaProperties,
-			Seq (ExtensionEnd__type))
+			Seq (ExtensionEnd_type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

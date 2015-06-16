@@ -137,7 +137,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	def readIsClassifiedObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReadIsClassifiedObjectAction__object,
+			Seq (ReadIsClassifiedObjectAction_object,
 				ReadIsClassifiedObjectAction_result))
 
 	/**

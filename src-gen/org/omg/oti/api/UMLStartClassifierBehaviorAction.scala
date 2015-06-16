@@ -105,7 +105,7 @@ trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	def startClassifierBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (StartClassifierBehaviorAction__object))
+			Seq (StartClassifierBehaviorAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

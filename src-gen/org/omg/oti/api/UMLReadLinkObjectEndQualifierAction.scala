@@ -127,7 +127,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	def readLinkObjectEndQualifierAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReadLinkObjectEndQualifierAction__object,
+			Seq (ReadLinkObjectEndQualifierAction_object,
 				ReadLinkObjectEndQualifierAction_result))
 
 	/**

@@ -154,7 +154,7 @@ trait UMLCollaborationUse[Uml <: UML]
 	def collaborationUse_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (CollaborationUse__type))
+			Seq (CollaborationUse_type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

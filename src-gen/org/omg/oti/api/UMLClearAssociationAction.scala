@@ -116,7 +116,7 @@ trait UMLClearAssociationAction[Uml <: UML]
 	def clearAssociationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ClearAssociationAction__object))
+			Seq (ClearAssociationAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

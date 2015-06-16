@@ -127,7 +127,7 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def unmarshallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (UnmarshallAction__object,
+			Seq (UnmarshallAction_object,
 				UnmarshallAction_result))
 
 	/**

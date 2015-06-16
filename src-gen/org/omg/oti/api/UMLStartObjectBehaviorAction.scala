@@ -105,7 +105,7 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	def startObjectBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			callAction_compositeMetaProperties,
-			Seq (StartObjectBehaviorAction__object))
+			Seq (StartObjectBehaviorAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

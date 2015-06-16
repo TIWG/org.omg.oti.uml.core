@@ -137,7 +137,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	def reclassifyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReclassifyObjectAction__object))
+			Seq (ReclassifyObjectAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
