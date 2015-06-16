@@ -1660,7 +1660,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"weight", _.weight, false,
 		Set())
 
-
 	val ActivityGroup_inActivity =
 		MetaPropertyReference[Uml, UMLActivityGroup[Uml], UMLActivity[Uml]](
 		"inActivity", _.inActivity, false,
@@ -1739,7 +1738,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"superPartition", _.superPartition, false,
 		Set())
 
-
 	val AddStructuralFeatureValueAction_insertAt =
 		MetaPropertyReference[Uml, UMLAddStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
 		"insertAt", _.insertAt, false,
@@ -1757,7 +1755,6 @@ trait UMLOps[Uml <: UML] { self =>
 	val AddVariableValueAction_isReplaceAll =
 		MetaAttributeBooleanFunction[Uml, UMLAddVariableValueAction[Uml]](None, "isReplaceAll",
 		(x) => booleanToIterable(x.isReplaceAll, false))
-
 
 	val Artifact_fileName =
 		MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
@@ -1801,7 +1798,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
 		"ownedEnd", _.ownedEnd, true,
 		Set())
-
 
 	val Behavior_isReentrant =
 		MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant",
@@ -1915,7 +1911,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLInputPin[Uml]](
 		"target", _.target, false,
 		Set())
-
 
 	val ChangeEvent_changeExpression =
 		MetaPropertyReference[Uml, UMLChangeEvent[Uml], UMLValueSpecification[Uml]](
@@ -2067,7 +2062,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"result", _.result, false,
 		Set())
 
-
 	val Collaboration_collaborationRole =
 		MetaPropertyCollection[Uml, UMLCollaboration[Uml], UMLConnectableElement[Uml]](
 		"collaborationRole", _.collaborationRole, false,
@@ -2102,7 +2096,6 @@ trait UMLOps[Uml <: UML] { self =>
 	val Comment_body =
 		MetaAttributeStringFunction[Uml, UMLComment[Uml]](None, "body",
 		_.body)
-
 
 	val Component_isIndirectlyInstantiated =
 		MetaAttributeBooleanFunction[Uml, UMLComponent[Uml]](None, "isIndirectlyInstantiated",
@@ -2225,8 +2218,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeBooleanFunction[Uml, UMLContinuation[Uml]](None, "setting",
 		(x) => booleanToIterable(x.setting, true))
 
-
-
 	val CreateLinkAction_endData =
 		MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
 		"endData", _.endData, false,
@@ -2246,7 +2237,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLOutputPin[Uml]](
 		"result", _.result, false,
 		Set())
-
 
 	val DataType_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]](
@@ -2277,7 +2267,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
 		"supplier", _.supplier, false,
 		Set())
-
 
 	val Deployment_configuration =
 		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeploymentSpecification[Uml]](
@@ -2329,9 +2318,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLDestroyObjectAction[Uml], UMLInputPin[Uml]](
 		"target", _.target, false,
 		Set())
-
-
-
 
 	val Duration_expr =
 		MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]](
@@ -2391,7 +2377,6 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 
-
 	val Enumeration_ownedLiteral =
 		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
 		"ownedLiteral", _.ownedLiteral, true,
@@ -2401,7 +2386,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLEnumerationLiteral[Uml], UMLEnumeration[Uml]](
 		"enumeration", _.enumeration, false,
 		Set(InstanceSpecification_classifier))
-
 
 	val ExceptionHandler_exceptionInput =
 		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLObjectNode[Uml]](
@@ -2427,7 +2411,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLExecutableNode[Uml], UMLExceptionHandler[Uml]](
 		"handler", _.handler, false,
 		Set())
-
 
 	val ExecutionOccurrenceSpecification_execution =
 		MetaPropertyReference[Uml, UMLExecutionOccurrenceSpecification[Uml], UMLExecutionSpecification[Uml]](
@@ -2512,12 +2495,6 @@ trait UMLOps[Uml <: UML] { self =>
 	val Feature_isStatic =
 		MetaAttributeBooleanFunction[Uml, UMLFeature[Uml]](None, "isStatic",
 		(x) => booleanToIterable(x.isStatic, false))
-
-
-
-
-
-
 
 	val GeneralOrdering_after =
 		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
@@ -2627,8 +2604,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLInformationItem[Uml], UMLClassifier[Uml]](
 		"represented", _.represented, false,
 		Set())
-
-
 
 	val InstanceSpecification_classifier =
 		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLClassifier[Uml]](
@@ -2900,11 +2875,9 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeIntegerFunction[Uml, UMLLiteralInteger[Uml]](None, "value",
 		(x) => integerToIterable(x.value, 0))
 
-
 	val LiteralReal_value =
 		MetaAttributeRealFunction[Uml, UMLLiteralReal[Uml]](None, "value",
 		(x) => realToIterable(x.value, 0.0))
-
 
 	val LiteralString_value =
 		MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](None, "value",
@@ -2963,7 +2936,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"utilizedElement", _.utilizedElement, false,
 		Set())
 
-
 	val Message_argument =
 		MetaPropertyCollection[Uml, UMLMessage[Uml], UMLValueSpecification[Uml]](
 		"argument", _.argument, true,
@@ -2999,8 +2971,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLMessageEnd[Uml], UMLMessage[Uml]](
 		"message", _.message, false,
 		Set())
-
-
 
 	val Model_viewpoint =
 		MetaAttributeStringFunction[Uml, UMLModel[Uml]](None, "viewpoint",
@@ -3091,7 +3061,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLValueSpecification[Uml]](
 		"upperValue", _.upperValue, false,
 		Set())
-
 
 	val OccurrenceSpecification_covered =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]](
@@ -3206,7 +3175,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"parameteredElement", _.parameteredElement, false,
 		Set(TemplateParameter_parameteredElement))
 
-
 	val Package_URI =
 		MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
 		_.getEffectiveURI)
@@ -3293,7 +3261,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"templateParameter", _.templateParameter, false,
 		Set())
 
-
 	val Pin_isControl =
 		MetaAttributeBooleanFunction[Uml, UMLPin[Uml]](None, "isControl",
 		(x) => booleanToIterable(x.isControl, false))
@@ -3301,7 +3268,7 @@ trait UMLOps[Uml <: UML] { self =>
 	val Pin_upperValue =
 		MetaPropertyReference[Uml, UMLPin[Uml], UMLValueSpecification[Uml]](
 		"upperValue", _.upperValue, false,
-		Set(ObjectNode_upperValue, MultiplicityElement_upperValue))
+		Set(MultiplicityElement_upperValue, ObjectNode_upperValue))
 
 	val Port_isBehavior =
 		MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isBehavior",
@@ -3324,7 +3291,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLPort[Uml], UMLPort[Uml]](
 		"redefinedPort", _.redefinedPort, false,
 		Set())
-
 
 	val Profile_metaclassReference =
 		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]](
@@ -3543,7 +3509,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"result", _.result, false,
 		Set())
 
-
 	val Reception_signal =
 		MetaPropertyReference[Uml, UMLReception[Uml], UMLSignal[Uml]](
 		"signal", _.signal, false,
@@ -3625,7 +3590,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]](
 		"transition", _.transition, false,
 		Set())
-
 
 	val RemoveStructuralFeatureValueAction_isRemoveDuplicates =
 		MetaAttributeBooleanFunction[Uml, UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates",
@@ -3832,7 +3796,7 @@ trait UMLOps[Uml <: UML] { self =>
 	val StructuredActivityNode_activity =
 		MetaPropertyReference[Uml, UMLStructuredActivityNode[Uml], UMLActivity[Uml]](
 		"activity", _.activity, false,
-		Set(ActivityGroup_inActivity, ActivityNode_activity))
+		Set(ActivityNode_activity, ActivityGroup_inActivity))
 
 	val StructuredActivityNode_edge =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
@@ -4076,7 +4040,6 @@ trait UMLOps[Uml <: UML] { self =>
 		"port", _.port, false,
 		Set())
 
-
 	val TypedElement_type =
 		MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]](
 		"type", _._type, false,
@@ -4096,7 +4059,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLClassifier[Uml]](
 		"unmarshallType", _.unmarshallType, false,
 		Set())
-
 
 	val UseCase_extend =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtend[Uml]](
@@ -4122,7 +4084,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLValuePin[Uml], UMLValueSpecification[Uml]](
 		"value", _.value, false,
 		Set())
-
 
 	val ValueSpecificationAction_result =
 		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]](
@@ -4153,7 +4114,6 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaPropertyReference[Uml, UMLVertex[Uml], UMLRegion[Uml]](
 		"container", _.container, false,
 		Set())
-
 
 	val WriteStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
