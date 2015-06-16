@@ -3796,7 +3796,7 @@ trait UMLOps[Uml <: UML] { self =>
 	val StructuredActivityNode_activity =
 		MetaPropertyReference[Uml, UMLStructuredActivityNode[Uml], UMLActivity[Uml]](
 		"activity", _.activity, false,
-		Set(ActivityNode_activity, ActivityGroup_inActivity))
+		Set(ActivityGroup_inActivity, ActivityNode_activity))
 
 	val StructuredActivityNode_edge =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
