@@ -78,9 +78,12 @@ trait IDGenerator[Uml <: UML] {
 
   def lookupElementXMI_ID( e: UMLElement[Uml] ): Try[Option[String]] =
     element2id.get( e ) match {
-      case None                  => Success( None )
-      case Some( Failure( t ) )  => Failure( t )
-      case Some( Success( id ) ) => Success( Some( id ) )
+      case None =>
+        Success( None )
+      case Some( Failure( t ) ) =>
+        Failure( t )
+      case Some( Success( id ) ) =>
+        Success( Some( id ) )
     }
 
   /**
@@ -93,8 +96,10 @@ trait IDGenerator[Uml <: UML] {
 
   protected def getXMI_IDREF_or_HREF_fragment( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
     getXMI_IDREF_or_HREF_fragment_internal( from, to ) match {
-    case Success( fragment ) => Success( fragment )
-    case Failure( _ ) => getXMI_IDREF_or_HREF_fragment( from, getMappedOrReferencedElement( to ) )
+    case Success( fragment ) =>
+      Success( fragment )
+    case Failure( _ ) =>
+      getXMI_IDREF_or_HREF_fragment( from, getMappedOrReferencedElement( to ) )
   }
     
   protected def getXMI_IDREF_or_HREF_fragment_internal( from: UMLElement[Uml], to: UMLElement[Uml] ): Try[String] =
@@ -166,34 +171,39 @@ trait IDGenerator[Uml <: UML] {
                     else
                       Success(s)
                       
-                  case _ => Success(s)
+                  case _ =>
+                    Success(s)
                 }
                 
               case Failure(t) =>
                 Failure(t)
-            } 
-          
-          case Some(d) =>
-            Failure( illegalElementException( "Unknown document kind for element reference ", self ))
+            }
         }
       } )
 
   def computeID( self: UMLElement[Uml] ): Try[String] = {
-    val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) => !r.isDefinedAt( self ) )
+    val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) =>
+      !r.isDefinedAt( self ) )
     if ( r.nonEmpty ) r.head( self )
     else self.owner match {
-      case None => Failure( illegalElementException( "Element without an owner is not supported", self ) )
+      case None =>
+        Failure( illegalElementException( "Element without an owner is not supported(1)", self ) )
       case Some( owner ) =>
         self.getContainingMetaPropertyEvaluator match {
-          case Failure(f) => Failure(f)
-          case Success(None) => Failure(illegalElementException("Element without an owner is not supported", self))
+          case Failure(f) =>
+            Failure(f)
+          case Success(None) =>
+            Failure(illegalElementException("Element without an owner is not supported(2)", self))
           case Success(Some(cf)) =>
             getXMI_ID(owner) match {
               case Failure(t) => Failure(t)
               case Success(ownerID) =>
-                val c = containmentRules.toStream.dropWhile((c: ContainedElement2IDRule) => !c.isDefinedAt(owner, ownerID, cf, self))
-                if (c.nonEmpty) c.head(owner, ownerID, cf, self)
-                else Failure(illegalElementException("Unsupported", self))
+                val c = containmentRules.toStream.dropWhile((c: ContainedElement2IDRule) =>
+                  !c.isDefinedAt(owner, ownerID, cf, self))
+                if (c.nonEmpty)
+                  c.head(owner, ownerID, cf, self)
+                else
+                  Failure(illegalElementException("Unsupported", self))
             }
         }
     }
@@ -207,12 +217,15 @@ trait IDGenerator[Uml <: UML] {
 
 
   val rule0: Element2IDRule = {
-    case root: UMLPackage[Uml] if ( resolvedDocumentSet.lookupDocumentByScope(root).isDefined
-        // Adding condition for stopping the ID computation algorithm when a specification root is reached
-        || root.isSpecificationRoot) =>
+    case root: UMLPackage[Uml] if (
+      resolvedDocumentSet.lookupDocumentByScope(root).isDefined
+      // Adding condition for stopping the ID computation algorithm when a specification root is reached
+      || root.isSpecificationRoot ) =>
       root.name match {
-        case None      => Failure( illegalElementException( "Document package scope must be explicitly named", root ) )
-        case Some( n ) => Success( xmlSafeID(n) )
+        case None =>
+          Failure( illegalElementException( "Document package scope must be explicitly named", root ) )
+        case Some( n ) =>
+          Success( xmlSafeID(n) )
       }
   }
 
@@ -220,19 +233,25 @@ trait IDGenerator[Uml <: UML] {
    * Rule #1 (InstanceValue)
    */
   val crule1: ContainedElement2IDRule = {
-    case ( owner, ownerID, cf, iv: UMLInstanceValue[Uml] ) => iv.instance match {
-      case None => Failure( illegalElementException( "InstanceValue without InstanceSpecification is not supported", iv ) )
-      case Some( is ) =>
-        is.name match {
-          case None      => Failure( illegalElementException( "InstanceValue must refer to a named InstanceSpecification", is ) )
-          case Some( nInstance ) =>
-            iv.getContainingMetaPropertyEvaluator match {
-              case Failure( t ) => Failure( t )
-              case Success( None ) => Failure(illegalElementException("Element without an owner is not supported", iv))
-              case Success( Some(cf) ) => Success(ownerID + "_" + xmlSafeID(cf.propertyName + "." + nInstance))
-            }
-        }
-    }
+    case ( owner, ownerID, cf, iv: UMLInstanceValue[Uml] ) =>
+      iv.instance match {
+        case None =>
+          Failure( illegalElementException( "InstanceValue without InstanceSpecification is not supported", iv ) )
+        case Some( is ) =>
+          is.name match {
+            case None =>
+              Failure( illegalElementException( "InstanceValue must refer to a named InstanceSpecification", is ) )
+            case Some( nInstance ) =>
+              iv.getContainingMetaPropertyEvaluator match {
+                case Failure( t ) =>
+                  Failure( t )
+                case Success( None ) =>
+                  Failure(illegalElementException("Element without an owner is not supported(3)", iv))
+                case Success( Some(cf) ) =>
+                  Success(ownerID + "_" + xmlSafeID(cf.propertyName + "." + nInstance))
+              }
+          }
+      }
   }
 
   /**
@@ -245,7 +264,8 @@ trait IDGenerator[Uml <: UML] {
       val shortID: Try[String] = owner match {
         case s: UMLSlot[Uml] =>
           s.definingFeature match {
-            case None => Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
+            case None =>
+              Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
             case Some( sf ) =>
               val slotValues = s.value.toList
               if ( sf.upper > 1 )
@@ -257,20 +277,27 @@ trait IDGenerator[Uml <: UML] {
           Success( fvn.name.getOrElse( "" ) )
       }
       val suffix1: Try[String] = shortID match {
-        case Failure( t )  => Failure( t )
-        case Success( "" ) => Success( "" )
-        case Success( id ) => Success( "." + xmlSafeID( id ) )
+        case Failure( t ) =>
+          Failure( t )
+        case Success( "" ) =>
+          Success( "" )
+        case Success( id ) =>
+          Success( "." + xmlSafeID( id ) )
       }
       val suffix2: Try[String] = fv match {
         case bf: UMLBehavioralFeature[Uml] =>
           ( suffix1 /: bf.ownedParameter )( ( s, p ) =>
             ( s, p._type ) match {
-              case ( Failure( t ), _ ) => Failure( t )
-              case ( _, None )         => Failure( illegalElementException( "Parameter must have a type", p ) )
+              case ( Failure( t ), _ ) =>
+                Failure( t )
+              case ( _, None ) =>
+                Failure( illegalElementException( "Parameter must have a type", p ) )
               case ( Success( s ), Some( t ) ) =>
                 t.name match {
-                  case None       => Failure( illegalElementException( "Type must have a name", t ) )
-                  case Some( tn ) => Success( s + "_" + xmlSafeID( tn ) )
+                  case None =>
+                    Failure( illegalElementException( "Type must have a name", t ) )
+                  case Some( tn ) =>
+                    Success( s + "_" + xmlSafeID( tn ) )
                 }
 
             } )
@@ -278,7 +305,8 @@ trait IDGenerator[Uml <: UML] {
           suffix1
       }
       val suffix3 = ( suffix2, cf.isCollection ) match {
-        case ( Failure( t ), _ ) => Failure( t )
+        case ( Failure( t ), _ ) =>
+          Failure( t )
         case ( Success( "" ), isCollection ) =>
           ( owner, owner.owner ) match {
             case ( s: UMLSlot[Uml], Some( is: UMLInstanceSpecification[Uml] ) ) if cf == Slot_value =>
@@ -302,8 +330,10 @@ trait IDGenerator[Uml <: UML] {
           Success( s )
       }
       suffix3 match {
-        case Failure( t ) => Failure( t )
-        case Success( s ) => Success( ownerID + "_" + xmlSafeID( cf.propertyName + s ) )
+        case Failure( t ) =>
+          Failure( t )
+        case Success( s ) =>
+          Success( ownerID + "_" + xmlSafeID( cf.propertyName + s ) )
       }
   }
 
@@ -322,7 +352,8 @@ trait IDGenerator[Uml <: UML] {
   val crule2: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, e ) if cf.isOrdered && cf.isCollection =>
       e.getElementMetamodelPropertyValue( cf ) match {
-        case Failure(t) => Failure(t)
+        case Failure(t) =>
+          Failure(t)
         case Success(vs) =>
           val values = vs.toList
           require(values.contains(e))
@@ -336,11 +367,15 @@ trait IDGenerator[Uml <: UML] {
   val crule3: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, dr: UMLDirectedRelationship[Uml] ) =>
       dr.target.toList match {
-        case List( t ) => getXMI_IDREF_or_HREF_fragment( owner, t ) match {
-          case Failure( t )   => Failure( illegalElementException( s"Binary DirectedRelationship must have a target - ${t}", dr ) )
-          case Success( tid ) => Success( ownerID + "._" + xmlSafeID( cf.propertyName) + "." + tid )
+        case List( t ) =>
+          getXMI_IDREF_or_HREF_fragment( owner, t ) match {
+          case Failure( t )   =>
+            Failure( illegalElementException( s"Binary DirectedRelationship must have a target - ${t}", dr ) )
+          case Success( tid ) =>
+            Success( ownerID + "._" + xmlSafeID( cf.propertyName) + "." + tid )
         }
-        case _ => Failure( illegalElementException( "Binary DirectedRelationship must have a target", dr ) )
+        case _ =>
+          Failure( illegalElementException( "Binary DirectedRelationship must have a target", dr ) )
       }
   }
 
@@ -350,11 +385,15 @@ trait IDGenerator[Uml <: UML] {
   val crule4: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, s: UMLSlot[Uml] ) =>
       s.definingFeature match {
-        case None => Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
-        case Some( sf ) => sf.name match {
-          case None        => Failure( illegalElementException( "Slot's defining StructuralFeature must be named", sf ) )
-          case Some( sfn ) => Success( ownerID + "." + xmlSafeID( sfn ) )
-        }
+        case None =>
+          Failure( illegalElementException( "Slot must have a defining StructuralFeature", s ) )
+        case Some( sf ) =>
+          sf.name match {
+            case None =>
+              Failure( illegalElementException( "Slot's defining StructuralFeature must be named", sf ) )
+            case Some( sfn ) =>
+              Success( ownerID + "." + xmlSafeID( sfn ) )
+          }
       }
   }
 
@@ -372,8 +411,10 @@ trait IDGenerator[Uml <: UML] {
   val crule6: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, i: UMLImage[Uml] ) =>
       getImageLocationURL( i ) match {
-        case Failure( t )           => Failure( t )
-        case Success( locationURL ) => Success( ownerID + "._" + xmlSafeID( cf.propertyName ) + "." + xmlSafeID( locationURL ) )
+        case Failure( t ) =>
+          Failure( t )
+        case Success( locationURL ) =>
+          Success( ownerID + "._" + xmlSafeID( cf.propertyName ) + "." + xmlSafeID( locationURL ) )
       }
   }
 
@@ -400,24 +441,27 @@ trait IDGenerator[Uml <: UML] {
 
     println("\n>>> IDs Checking...")
       
-    getElement2IDMap foreach { case (e1,id) => id match {    
-      case Failure(t) => 
-        println(s"***ID computation failed for ${e1.toWrappedObjectString}")
-        println("\tCause: "+t.getCause)
-        println("---------------------------")
-        res = false
-        
-        case Success(x) =>  id2Element.get(x) match {
-          case None => id2Element.update(x, e1)
-            
-          case Some (e2) => 
-            println(s"*** Duplicate ID: $x")
-            println(s"\t-> ${e1.toWrappedObjectString}")           
-            println(s"\t-> ${e2.toWrappedObjectString}")
+    getElement2IDMap foreach {
+      case (e1,id) =>
+        id match {
+          case Failure(t) =>
+            println(s"***ID computation failed for ${e1.toWrappedObjectString}")
+            println("\tCause: "+t.getCause)
             println("---------------------------")
             res = false
-        } // duplicate id check
-      } // Failure check
+        
+          case Success(x) =>
+            id2Element.get(x) match {
+              case None =>
+                id2Element.update(x, e1)
+              case Some (e2) =>
+                println(s"*** Duplicate ID: $x")
+                println(s"\t-> ${e1.toWrappedObjectString}")
+                println(s"\t-> ${e2.toWrappedObjectString}")
+                println("---------------------------")
+                res = false
+            } // duplicate id check
+        } // Failure check
     } // foreach    
     println("<<<... IDs Checked\n")
     res
@@ -427,7 +471,8 @@ trait IDGenerator[Uml <: UML] {
     println(s"element2id size=${element2id.size}")
     for ((x, id) <- element2id) {
       val idStr = id match {
-         case Success(s) => id.get
+         case Success(s) =>
+           id.get
            
          case Failure(t) => 
            println("***Fail!***")
@@ -436,13 +481,16 @@ trait IDGenerator[Uml <: UML] {
       x match {
         case ne: UMLNamedElement[Uml] => 
           val nameStr = ne.name match {
-            case Some(n) => n
-            case None => "(unamed)"
+            case Some(n) =>
+              n
+            case None =>
+              "(unamed)"
           }
           println("<" + ne.mofMetaclassName + ">" + nameStr + "\t=> ID: " + idStr)
 
-        case e: UMLElement[Uml] => println("<" + e.mofMetaclassName + ">\t=> ID: " + idStr)
-}
+        case e: UMLElement[Uml] =>
+          println("<" + e.mofMetaclassName + ">\t=> ID: " + idStr)
+      }
     }
   }
 
@@ -451,8 +499,10 @@ trait IDGenerator[Uml <: UML] {
 object IDGenerator {
   
   def xmlSafeID( self: String ): String = self match {
-    case null => ""
-    case s    => getValidNCName( s )
+    case null =>
+      ""
+    case s =>
+      getValidNCName( s )
   }
 
   /** NCName start character mask. */
@@ -1119,39 +1169,55 @@ object IDGenerator {
     def escapeChar( char: Char ) = {
       val charCode = char.toInt.toHexString.toUpperCase
       val charCodeLength = charCode.length
-      if ( charCodeLength == 1 ) "_u000" + charCode
-      else if ( charCodeLength == 2 ) "_u00" + charCode
-      else if ( charCodeLength == 3 ) "_u0" + charCode
-      else "_u" + charCode
+      if ( charCodeLength == 1 )
+        "_u000" + charCode
+      else if ( charCodeLength == 2 )
+        "_u00" + charCode
+      else if ( charCodeLength == 3 )
+        "_u0" + charCode
+      else
+        "_u" + charCode
     }
 
-    if ( null == name || "" == name ) validNCName.insert( 0, '_' )
+    if ( null == name || "" == name )
+      validNCName.insert( 0, '_' )
     else {
       for {
         i <- name.length - 1 until 0 by -1
         char_i = name.charAt( i )
       } {
-        if ( char_i == ' ') validNCName.insert( 0, '_' )
-        else if ( isNCNamePart( char_i ) ) validNCName.insert( 0, char_i )
-        else validNCName.insert( 0, escapeChar( char_i ) )
+        if ( char_i == ' ')
+          validNCName.insert( 0, '_' )
+        else if ( isNCNamePart( char_i ) )
+          validNCName.insert( 0, char_i )
+        else
+          validNCName.insert( 0, escapeChar( char_i ) )
       }
       val char_0 = name.charAt( 0 )
-      if ( isNCNameStart( char_0 ) ) validNCName.insert( 0, char_0 )
+      if ( isNCNameStart( char_0 ) )
+        validNCName.insert( 0, char_0 )
       else {
-        if ( isNCNamePart( char_0 ) ) validNCName.insert( 0, char_0 )
-        else validNCName.insert( 0, escapeChar( char_0 ) )
+        if ( isNCNamePart( char_0 ) )
+          validNCName.insert( 0, char_0 )
+        else
+          validNCName.insert( 0, escapeChar( char_0 ) )
         validNCName.insert( 0, '_' )
       }
     }
   }
   
-  def computeStereotypeApplicationID (eID: String, stID: String) = eID+".stereotypeApplication_"+stID
+  def computeStereotypeApplicationID (eID: String, stID: String) =
+    eID+".stereotypeApplication_"+stID
   
-  def uuidFromId (id: Option[String]): Option[String] = id match {
-    case Some(s) => Some(uuidFromId(s))
-    case None => None
-  } 
+  def uuidFromId (id: Option[String]): Option[String] =
+    id match {
+      case Some(s) =>
+        Some(uuidFromId(s))
+      case None =>
+        None
+    }
   
-  def uuidFromId (id: String): String = "omg.org."+id
+  def uuidFromId (id: String): String =
+    "omg.org."+id
 
 }
