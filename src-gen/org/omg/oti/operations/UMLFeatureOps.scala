@@ -55,17 +55,6 @@ trait UMLFeatureOps[Uml <: UML] { self: UMLFeature[Uml] =>
 
 	import self.ops._
 
-	/**
-	 * The Classifiers that have this Feature as a feature.
-	 *
-	 * <!-- Start of user code doc for featuringClassifier -->
-	 * <!-- End of user code doc for featuringClassifier -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.feature
-	 */
-	def featuringClassifier: Option[UMLClassifier[Uml]] = namespace.selectByKindOf { case x: UMLClassifier[Uml] => x }
-
 	// Start of user code for additional features
 	// End of user code
 } //UMLFeatureOps

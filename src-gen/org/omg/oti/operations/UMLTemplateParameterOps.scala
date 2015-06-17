@@ -78,19 +78,6 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	def signature: Option[UMLTemplateSignature[Uml]] = owner.selectByKindOf { case x: UMLTemplateSignature[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for inheritedParameter_redefinableTemplateSignature -->
-	 * <!-- End of user code doc for inheritedParameter_redefinableTemplateSignature -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.inheritedParameter
-	 */
-	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = {
-		// Start of user code for "redefinableTemplateSignature"
-		???
-		// End of user code
-	}
-
-	/**
 	 * The default must be compatible with the formal TemplateParameter.
 	 *
 	 * <!-- Start of user code doc for validate_must_be_compatible -->

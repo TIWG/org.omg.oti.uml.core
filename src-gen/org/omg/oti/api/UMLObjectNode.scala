@@ -100,15 +100,15 @@ trait UMLObjectNode[Uml <: UML]
 	def selection: Option[UMLBehavior[Uml]]
 
 	/**
-	 * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperValue is reached. If no upperValue is specified, then there is no limit on how many tokens the ObjectNode can hold.
+	 * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperBound is reached. If no upperBound is specified, then there is no limit on how many tokens the ObjectNode can hold.
 	 *
-	 * <!-- Start of user code doc for upperValue -->
-	 * <!-- End of user code doc for upperValue -->
+	 * <!-- Start of user code doc for upperBound -->
+	 * <!-- End of user code doc for upperBound -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.upperValue_objectNode
+	 * @opposite org.omg.oti.api.UMLValueSpecification.upperBound_objectNode
 	 */
-	def upperValue: Option[UMLValueSpecification[Uml]]
+	def upperBound: Option[UMLValueSpecification[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for exceptionInput_exceptionHandler -->
@@ -159,7 +159,7 @@ trait UMLObjectNode[Uml <: UML]
 		appendUnique(
 			activityNode_compositeMetaProperties,
 			typedElement_compositeMetaProperties,
-			Seq (ObjectNode_upperValue))
+			Seq (ObjectNode_upperBound))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

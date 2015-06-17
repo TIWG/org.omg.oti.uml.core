@@ -274,7 +274,7 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for referred_protocolTransition -->
 	 * <!-- End of user code doc for referred_protocolTransition -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLProtocolTransition.referred
 	 */
 	def referred_protocolTransition: Set[UMLProtocolTransition[Uml]]

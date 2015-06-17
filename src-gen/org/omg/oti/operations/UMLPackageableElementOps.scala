@@ -56,19 +56,6 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	import self.ops._
 
 	/**
-	 * <!-- Start of user code doc for deployedElement_deploymentTarget -->
-	 * <!-- End of user code doc for deployedElement_deploymentTarget -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployedElement
-	 */
-	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]] = {
-		// Start of user code for "deploymentTarget"
-    ???
-    // End of user code
-	}
-
-	/**
 	 * <!-- Start of user code doc for importedElement_import -->
 	 * <!-- End of user code doc for importedElement_import -->
 	 *
@@ -76,19 +63,6 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * @opposite org.omg.oti.api.UMLElementImport.importedElement
 	 */
 	def importedElement_import: Set[UMLElementImport[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLElementImport[Uml] => x }
-
-	/**
-	 * <!-- Start of user code doc for importedMember_namespace -->
-	 * <!-- End of user code doc for importedMember_namespace -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLNamespace.importedMember
-	 */
-	def importedMember_namespace: Set[UMLNamespace[Uml]] = {
-		// Start of user code for "namespace"
-    ???
-    // End of user code
-	}
 
 	/**
 	 * <!-- Start of user code doc for packagedElement_component -->

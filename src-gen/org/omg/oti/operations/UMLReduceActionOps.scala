@@ -110,6 +110,13 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for validate_reducer_inputs_output -->
 	 * <!-- End of user code doc for validate_reducer_inputs_output -->
 	 *
+	 * @body let inputs: OrderedSet(Parameter) = reducer.inputParameters() in
+	 * let outputs: OrderedSet(Parameter) = reducer.outputParameters() in
+	 * inputs->size()=2 and outputs->size()=1 and
+	 * inputs.type->forAll(t | 
+	 * 	outputs.type->forAll(conformsTo(t)) and 
+	 * 	-- Note that the following only checks the case when the collection is via multiple tokens.
+	 * 	collection.upper()>1 implies collection.type.conformsTo(t))
 	 */
 	def validate_reducer_inputs_output: Boolean = {
 		// Start of user code for "reducer_inputs_output"

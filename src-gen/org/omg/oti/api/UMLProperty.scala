@@ -249,7 +249,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for definingEnd_connectorEnd -->
 	 * <!-- End of user code doc for definingEnd_connectorEnd -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLConnectorEnd.definingEnd
 	 */
 	def definingEnd_connectorEnd: Set[UMLConnectorEnd[Uml]]
@@ -285,7 +285,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for opposite_property -->
 	 * <!-- End of user code doc for opposite_property -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLProperty.opposite
 	 */
 	def opposite_property: Option[UMLProperty[Uml]]
@@ -330,7 +330,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for part_structuredClassifier -->
 	 * <!-- End of user code doc for part_structuredClassifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLStructuredClassifier.part
 	 */
 	def part_structuredClassifier: Option[UMLStructuredClassifier[Uml]]

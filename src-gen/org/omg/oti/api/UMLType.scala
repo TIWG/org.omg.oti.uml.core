@@ -62,7 +62,7 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for _package -->
 	 * <!-- End of user code doc for _package -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.ownedType
 	 */
 	def _package: Option[UMLPackage[Uml]]
@@ -71,7 +71,7 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for endType_association -->
 	 * <!-- End of user code doc for endType_association -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLAssociation.endType
 	 */
 	def endType_association: Set[UMLAssociation[Uml]]
@@ -98,7 +98,7 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for type_operation -->
 	 * <!-- End of user code doc for type_operation -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOperation._type
 	 */
 	def type_operation: Set[UMLOperation[Uml]]

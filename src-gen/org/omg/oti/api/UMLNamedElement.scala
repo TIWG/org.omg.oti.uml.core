@@ -166,7 +166,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for inheritedMember_inheritingClassifier -->
 	 * <!-- End of user code doc for inheritedMember_inheritingClassifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClassifier.inheritedMember
 	 */
 	def inheritedMember_inheritingClassifier: Set[UMLClassifier[Uml]]

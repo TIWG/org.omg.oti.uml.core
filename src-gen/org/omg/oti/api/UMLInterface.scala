@@ -135,7 +135,7 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for provided_component -->
 	 * <!-- End of user code doc for provided_component -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComponent.provided
 	 */
 	def provided_component: Set[UMLComponent[Uml]]
@@ -144,7 +144,7 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for provided_port -->
 	 * <!-- End of user code doc for provided_port -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.provided
 	 */
 	def provided_port: Set[UMLPort[Uml]]
@@ -162,7 +162,7 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for required_component -->
 	 * <!-- End of user code doc for required_component -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLComponent.required
 	 */
 	def required_component: Set[UMLComponent[Uml]]
@@ -171,7 +171,7 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for required_port -->
 	 * <!-- End of user code doc for required_port -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLPort.required
 	 */
 	def required_port: Set[UMLPort[Uml]]

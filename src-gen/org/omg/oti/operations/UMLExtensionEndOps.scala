@@ -62,6 +62,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
 	 */
 	override def lower: Integer = {
 		// Start of user code for "lower"
@@ -77,21 +78,6 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * @opposite org.omg.oti.api.UMLExtension.ownedEnd
 	 */
 	def ownedEnd_extension: Option[UMLExtension[Uml]] = owningAssociation.selectByKindOf { case x: UMLExtension[Uml] => x }
-
-	/**
-	 * The query lowerBound() returns the lower bound of the multiplicity as an Integer. This is a redefinition of the default lower bound, which normally, for MultiplicityElements, evaluates to 1 if empty.
-	 *
-	 * <!-- Start of user code doc for lowerBound -->
-	 * <!-- End of user code doc for lowerBound -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
-	 */
-	override def lowerBound: Option[Integer] = {
-		// Start of user code for "lowerBound"
-    	???
-    	// End of user code
-	}
 
 	/**
 	 * The aggregation of an ExtensionEnd is composite.
@@ -113,7 +99,7 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
 	 * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body (lowerBound() = 0 or lowerBound() = 1) and upperBound() = 1
+	 * @body (lower() = 0 or lower() = 1) and upper() = 1
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"

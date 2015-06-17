@@ -91,7 +91,7 @@ trait UMLProfile[Uml <: UML]
 	 * <!-- Start of user code doc for profile_stereotype -->
 	 * <!-- End of user code doc for profile_stereotype -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLStereotype.profile
 	 */
 	def profile_stereotype: Set[UMLStereotype[Uml]]

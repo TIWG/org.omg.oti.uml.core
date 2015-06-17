@@ -88,19 +88,6 @@ trait UMLPortOps[Uml <: UML] { self: UMLPort[Uml] =>
 	}
 
 	/**
-	 * <!-- Start of user code doc for ownedPort_encapsulatedClassifier -->
-	 * <!-- End of user code doc for ownedPort_encapsulatedClassifier -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLEncapsulatedClassifier.ownedPort
-	 */
-	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]] = {
-		// Start of user code for "encapsulatedClassifier"
-	    ownedAttribute_structuredClassifier.selectByKindOf { case x: UMLEncapsulatedClassifier[Uml] => x } headOption
-	    // End of user code
-	}
-
-	/**
 	 * The union of the sets of Interfaces realized by the type of the Port and its supertypes, or directly the type of the Port if the Port is typed by an Interface.
 	 *
 	 * <!-- Start of user code doc for basicProvided -->

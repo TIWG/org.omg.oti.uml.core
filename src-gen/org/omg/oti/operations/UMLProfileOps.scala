@@ -65,19 +65,6 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	def appliedProfile_profileApplication: Set[UMLProfileApplication[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLProfileApplication[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for profile_stereotype -->
-	 * <!-- End of user code doc for profile_stereotype -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStereotype.profile
-	 */
-	def profile_stereotype: Set[UMLStereotype[Uml]] = {
-		// Start of user code for "stereotype"
-	    ???
-	    // End of user code
-	}
-
-	/**
 	 * An element imported as a metaclassReference is not specialized or generalized in a Profile.
 	 *
 	 * <!-- Start of user code doc for validate_metaclass_reference_not_specialized -->

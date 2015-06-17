@@ -75,7 +75,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLFeature.featuringClassifier
 	 */
-	def feature: Set[UMLFeature[Uml]] = ownedMember.selectByKindOf { case x: UMLFeature[Uml] => x }
+	def feature: Set[UMLFeature[Uml]] = member.selectByKindOf { case x: UMLFeature[Uml] => x }
 
 	/**
 	 * The generalizing Classifiers for this Classifier.
@@ -176,32 +176,6 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	def substitution: Set[UMLSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLSubstitution[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for context_action -->
-	 * <!-- End of user code doc for context_action -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLAction.context
-	 */
-	def context_action: Set[UMLAction[Uml]] = {
-		// Start of user code for "action"
-	    ???
-	    // End of user code
-	}
-
-	/**
-	 * <!-- Start of user code doc for general_classifier -->
-	 * <!-- End of user code doc for general_classifier -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.general
-	 */
-	def general_classifier: Set[UMLClassifier[Uml]] = {
-		// Start of user code for "classifier"
-	    general_generalization flatMap (_.specific) // TBD
-	    // End of user code
-	}
-
-	/**
 	 * <!-- Start of user code doc for general_generalization -->
 	 * <!-- End of user code doc for general_generalization -->
 	 *
@@ -241,7 +215,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_region -->
 	 * <!-- End of user code doc for redefinitionContext_region -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRegion.redefinitionContext
 	 */
 	def redefinitionContext_region: Set[UMLRegion[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLRegion[Uml] => x }
@@ -250,7 +224,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_state -->
 	 * <!-- End of user code doc for redefinitionContext_state -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLState.redefinitionContext
 	 */
 	def redefinitionContext_state: Set[UMLState[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLState[Uml] => x }
@@ -259,7 +233,7 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_transition -->
 	 * <!-- End of user code doc for redefinitionContext_transition -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinitionContext
 	 */
 	def redefinitionContext_transition: Set[UMLTransition[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLTransition[Uml] => x }

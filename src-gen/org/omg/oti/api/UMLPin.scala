@@ -68,17 +68,6 @@ trait UMLPin[Uml <: UML]
 	def isControl: Boolean
 
 	/**
-	 * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperBound is reached. If no upperBound is specified, then there is no limit on how many tokens the ObjectNode can hold.
-	 *
-	 * <!-- Start of user code doc for upperValue -->
-	 * <!-- End of user code doc for upperValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.upperValue_pin
-	 */
-	override def upperValue: Option[UMLValueSpecification[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
@@ -118,7 +107,7 @@ trait UMLPin[Uml <: UML]
 		appendUnique(
 			multiplicityElement_compositeMetaProperties,
 			objectNode_compositeMetaProperties,
-			Seq (Pin_upperValue))
+			Seq ())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object

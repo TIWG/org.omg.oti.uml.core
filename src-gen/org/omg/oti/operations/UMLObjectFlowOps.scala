@@ -114,16 +114,16 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	}
 
 	/**
-	 * ObjectNodes connected by an ObjectFlow, with optionally intervening ControlNodes, must have the same upperValues.
+	 * ObjectNodes connected by an ObjectFlow, with optionally intervening ControlNodes, must have the same upperBounds.
 	 *
-	 * <!-- Start of user code doc for validate_same_upper_values -->
-	 * <!-- End of user code doc for validate_same_upper_values -->
+	 * <!-- Start of user code doc for validate_same_upper_bounds -->
+	 * <!-- End of user code doc for validate_same_upper_bounds -->
 	 *
 	 */
-	def validate_same_upper_values: Boolean = {
-		// Start of user code for "same_upper_values"
-    	???
-    	// End of user code
+	def validate_same_upper_bounds: Boolean = {
+		// Start of user code for "same_upper_bounds"
+		???
+		// End of user code
 	}
 
 	/**

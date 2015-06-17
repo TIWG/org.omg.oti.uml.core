@@ -83,7 +83,7 @@ trait UMLStereotype[Uml <: UML]
 	 * <!-- Start of user code doc for ownedStereotype_owningPackage -->
 	 * <!-- End of user code doc for ownedStereotype_owningPackage -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLPackage.ownedStereotype
 	 */
 	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]

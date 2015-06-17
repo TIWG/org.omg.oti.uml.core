@@ -68,6 +68,15 @@ trait UMLEnumeration[Uml <: UML]
 	def ownedLiteral: Seq[UMLEnumerationLiteral[Uml]]
 
 	/**
+	 * <!-- Start of user code doc for classifier_enumerationLiteral -->
+	 * <!-- End of user code doc for classifier_enumerationLiteral -->
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.api.UMLEnumerationLiteral.classifier
+	 */
+	def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]]
+
+	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

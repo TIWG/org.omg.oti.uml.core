@@ -71,7 +71,7 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for deployedElement_deploymentTarget -->
 	 * <!-- End of user code doc for deployedElement_deploymentTarget -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLDeploymentTarget.deployedElement
 	 */
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]]
@@ -89,7 +89,7 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for importedMember_namespace -->
 	 * <!-- End of user code doc for importedMember_namespace -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLNamespace.importedMember
 	 */
 	def importedMember_namespace: Set[UMLNamespace[Uml]]

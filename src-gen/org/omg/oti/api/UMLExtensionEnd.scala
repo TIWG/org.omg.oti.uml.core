@@ -74,6 +74,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
 	 */
 	override def lower: Integer
 

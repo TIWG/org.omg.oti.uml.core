@@ -169,32 +169,6 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	def redefinedProperty: Set[UMLProperty[Uml]] = redefinedElement.selectByKindOf { case x: UMLProperty[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for definingEnd_connectorEnd -->
-	 * <!-- End of user code doc for definingEnd_connectorEnd -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConnectorEnd.definingEnd
-	 */
-	def definingEnd_connectorEnd: Set[UMLConnectorEnd[Uml]] = {
-		// Start of user code for "connectorEnd"
-    ???
-    // End of user code
-	}
-
-	/**
-	 * <!-- Start of user code doc for opposite_property -->
-	 * <!-- End of user code doc for opposite_property -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProperty.opposite
-	 */
-	def opposite_property: Option[UMLProperty[Uml]] = {
-		// Start of user code for "property"
-    ???
-    // End of user code
-	}
-
-	/**
 	 * <!-- Start of user code doc for ownedAttribute_artifact -->
 	 * <!-- End of user code doc for ownedAttribute_artifact -->
 	 *
@@ -220,19 +194,6 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * @opposite org.omg.oti.api.UMLStructuredClassifier.ownedAttribute
 	 */
 	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = namespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
-
-	/**
-	 * <!-- Start of user code doc for part_structuredClassifier -->
-	 * <!-- End of user code doc for part_structuredClassifier -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredClassifier.part
-	 */
-	def part_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = {
-		// Start of user code for "structuredClassifier"
-    ???
-    // End of user code
-	}
 
 	/**
 	 * <!-- Start of user code doc for redefinedProperty_property -->
@@ -284,8 +245,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * @body result = (redefiningElement.oclIsKindOf(Property) and 
 	 *   let prop : Property = redefiningElement.oclAsType(Property) in 
 	 *   (prop.type.conformsTo(self.type) and 
-	 *   ((prop.lowerBound()->notEmpty() and self.lowerBound()->notEmpty()) implies prop.lowerBound() >= self.lowerBound()) and 
-	 *   ((prop.upperBound()->notEmpty() and self.upperBound()->notEmpty()) implies prop.lowerBound() <= self.lowerBound()) and 
+	 *   ((prop.lower()->notEmpty() and self.lower()->notEmpty()) implies prop.lower() >= self.lower()) and 
+	 *   ((prop.upper()->notEmpty() and self.upper()->notEmpty()) implies prop.lower() <= self.lower()) and 
 	 *   (self.isComposite implies prop.isComposite)))
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
@@ -397,7 +358,7 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity_of_composite -->
 	 * <!-- End of user code doc for validate_multiplicity_of_composite -->
 	 *
-	 * @body isComposite and association <> null implies opposite.upperBound() <= 1
+	 * @body isComposite and association <> null implies opposite.upper() <= 1
 	 */
 	def validate_multiplicity_of_composite: Boolean = {
 		// Start of user code for "multiplicity_of_composite"
@@ -476,8 +437,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *
 	 * @body subsettedProperty->forAll(sp |
 	 *   self.type.conformsTo(sp.type) and
-	 *     ((self.upperBound()->notEmpty() and sp.upperBound()->notEmpty()) implies
-	 *       self.upperBound() <= sp.upperBound() ))
+	 *     ((self.upper()->notEmpty() and sp.upper()->notEmpty()) implies
+	 *       self.upper() <= sp.upper() ))
 	 */
 	def validate_subsetting_rules: Boolean = {
 		// Start of user code for "subsetting_rules"

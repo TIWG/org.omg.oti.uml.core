@@ -100,19 +100,6 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	def ownedParameter_ownerFormalParam: Option[UMLBehavioralFeature[Uml]] = namespace.selectByKindOf { case x: UMLBehavioralFeature[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for result_opaqueExpression -->
-	 * <!-- End of user code doc for result_opaqueExpression -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOpaqueExpression.result
-	 */
-	def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]] = {
-		// Start of user code for "opaqueExpression"
-	    ???
-	    // End of user code
-	}
-
-	/**
 	 * A Parameter may only be associated with a Connector end within the context of a Collaboration.
 	 *
 	 * <!-- Start of user code doc for validate_connector_end -->

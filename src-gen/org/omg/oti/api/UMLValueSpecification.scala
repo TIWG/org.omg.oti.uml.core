@@ -229,13 +229,13 @@ trait UMLValueSpecification[Uml <: UML]
 	def specification_owningInstanceSpec: Option[UMLInstanceSpecification[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for upperValue_objectNode -->
-	 * <!-- End of user code doc for upperValue_objectNode -->
+	 * <!-- Start of user code doc for upperBound_objectNode -->
+	 * <!-- End of user code doc for upperBound_objectNode -->
 	 *
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLObjectNode.upperValue
+	 * @opposite org.omg.oti.api.UMLObjectNode.upperBound
 	 */
-	def upperValue_objectNode: Option[UMLObjectNode[Uml]]
+	def upperBound_objectNode: Option[UMLObjectNode[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for upperValue_owningUpper -->
@@ -245,15 +245,6 @@ trait UMLValueSpecification[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLMultiplicityElement.upperValue
 	 */
 	def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for upperValue_pin -->
-	 * <!-- End of user code doc for upperValue_pin -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLPin.upperValue
-	 */
-	def upperValue_pin: Option[UMLPin[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for value_owningSlot -->

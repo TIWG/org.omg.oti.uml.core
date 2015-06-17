@@ -284,7 +284,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for context_action -->
 	 * <!-- End of user code doc for context_action -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLAction.context
 	 */
 	def context_action: Set[UMLAction[Uml]]
@@ -320,7 +320,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for general_classifier -->
 	 * <!-- End of user code doc for general_classifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLClassifier.general
 	 */
 	def general_classifier: Set[UMLClassifier[Uml]]
@@ -401,7 +401,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for redefinitionContext_region -->
 	 * <!-- End of user code doc for redefinitionContext_region -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLRegion.redefinitionContext
 	 */
 	def redefinitionContext_region: Set[UMLRegion[Uml]]
@@ -410,7 +410,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for redefinitionContext_state -->
 	 * <!-- End of user code doc for redefinitionContext_state -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLState.redefinitionContext
 	 */
 	def redefinitionContext_state: Set[UMLState[Uml]]
@@ -419,7 +419,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for redefinitionContext_transition -->
 	 * <!-- End of user code doc for redefinitionContext_transition -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLTransition.redefinitionContext
 	 */
 	def redefinitionContext_transition: Set[UMLTransition[Uml]]

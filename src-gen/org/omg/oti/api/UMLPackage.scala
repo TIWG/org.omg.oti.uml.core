@@ -86,7 +86,7 @@ trait UMLPackage[Uml <: UML]
 	 * <!-- Start of user code doc for nestingPackage -->
 	 * <!-- End of user code doc for nestingPackage -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
 	 */
 	def nestingPackage: Option[UMLPackage[Uml]]

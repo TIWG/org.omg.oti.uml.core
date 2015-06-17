@@ -194,19 +194,6 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	def redefinedOperation_operation: Set[UMLOperation[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLOperation[Uml] => x }
 
 	/**
-	 * <!-- Start of user code doc for referred_protocolTransition -->
-	 * <!-- End of user code doc for referred_protocolTransition -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProtocolTransition.referred
-	 */
-	def referred_protocolTransition: Set[UMLProtocolTransition[Uml]] = {
-		// Start of user code for "protocolTransition"
-	    ???
-	    // End of user code
-	}
-
-	/**
 	 * The query isConsistentWith() specifies, for any two Operations in a context in which redefinition is possible, whether redefinition would be consistent. A redefining operation is consistent with a redefined operation if
 	 * it has the same number of owned parameters, and for each parameter the following holds:
 	 * - Direction, ordering and uniqueness are the same.

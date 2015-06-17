@@ -56,6 +56,22 @@ trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 	import self.ops._
 
 	/**
+	 * The classifier of this EnumerationLiteral derived to be equal to its Enumeration.
+	 *
+	 * <!-- Start of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.api.UMLEnumeration.classifier_enumerationLiteral
+	 * @body result = (enumeration)
+	 */
+	override def classifier: Iterable[UMLEnumeration[Uml]] = {
+		// Start of user code for "classifier"
+		???
+		// End of user code
+	}
+
+	/**
 	 * The Enumeration that this EnumerationLiteral is a member of.
 	 *
 	 * <!-- Start of user code doc for enumeration -->
@@ -64,7 +80,7 @@ trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * @opposite org.omg.oti.api.UMLEnumeration.ownedLiteral
 	 */
-	def enumeration: Option[UMLEnumeration[Uml]] = classifier.selectByKindOf { case x: UMLEnumeration[Uml] => x } headOption
+	def enumeration: Option[UMLEnumeration[Uml]] = namespace.selectByKindOf { case x: UMLEnumeration[Uml] => x }
 
 	// Start of user code for additional features
 	// End of user code

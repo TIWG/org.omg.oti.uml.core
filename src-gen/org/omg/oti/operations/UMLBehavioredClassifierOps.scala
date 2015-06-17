@@ -92,7 +92,7 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for context_behavior -->
 	 * <!-- End of user code doc for context_behavior -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLBehavior.context
 	 */
 	def context_behavior: Set[UMLBehavior[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLBehavior[Uml] => x }

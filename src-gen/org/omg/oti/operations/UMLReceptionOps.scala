@@ -98,8 +98,8 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 *     ownedParameter->at(i).direction = ParameterDirectionKind::_'in' and 
 	 *     ownedParameter->at(i).name = signal.ownedAttribute->at(i).name and
 	 *     ownedParameter->at(i).type = signal.ownedAttribute->at(i).type and
-	 *     ownedParameter->at(i).lowerBound() = signal.ownedAttribute->at(i).lowerBound() and
-	 *     ownedParameter->at(i).upperBound() = signal.ownedAttribute->at(i).upperBound()
+	 *     ownedParameter->at(i).lower() = signal.ownedAttribute->at(i).lower() and
+	 *     ownedParameter->at(i).upper() = signal.ownedAttribute->at(i).upper()
 	 * )
 	 */
 	def validate_same_structure_as_signal: Boolean = {

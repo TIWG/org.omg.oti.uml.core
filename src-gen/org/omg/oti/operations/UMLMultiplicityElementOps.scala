@@ -62,7 +62,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (lowerBound())
+	 * @body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
 	 */
 	def lower: Integer = {
 		// Start of user code for "lower"
@@ -77,7 +77,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for upper -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (upperBound())
+	 * @body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
 	 */
 	def upper: Integer = {
 		// Start of user code for "upper"
@@ -92,7 +92,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for compatibleWith -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((other.lowerBound() <= self.lowerBound()) and ((other.upperBound() = *) or (self.upperBound() <= other.upperBound())))
+	 * @body result = ((other.lower() <= self.lower()) and ((other.upper() = *) or (self.upper() <= other.upper())))
 	 */
 	def compatibleWith(other: Option[UMLMultiplicityElement[Uml]]): Boolean = {
 		// Start of user code for "compatibleWith"
@@ -107,7 +107,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for includesMultiplicity -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((self.lowerBound() <= M.lowerBound()) and (self.upperBound() >= M.upperBound()))
+	 * @body result = ((self.lower() <= M.lower()) and (self.upper() >= M.upper()))
 	 */
 	def includesMultiplicity(M: Option[UMLMultiplicityElement[Uml]]): Boolean = {
 		// Start of user code for "includesMultiplicity"
@@ -122,7 +122,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for is -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (lowerbound = self.lowerBound() and upperbound = self.upperBound())
+	 * @body result = (lowerbound = self.lower() and upperbound = self.upper())
 	 */
 	def is(lowerbound: Integer, upperbound: Integer): Boolean = {
 		// Start of user code for "is"
@@ -137,7 +137,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- End of user code doc for isMultivalued -->
 	 *
 	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (upperBound() > 1)
+	 * @body result = (upper() > 1)
 	 */
 	def isMultivalued: Boolean = {
 		// Start of user code for "isMultivalued"
@@ -146,42 +146,12 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	}
 
 	/**
-	 * The query lowerBound() returns the lower bound of the multiplicity as an integer, which is the integerValue of lowerValue, if this is given, and 1 otherwise.
-	 *
-	 * <!-- Start of user code doc for lowerBound -->
-	 * <!-- End of user code doc for lowerBound -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
-	 */
-	def lowerBound: Option[Integer] = {
-		// Start of user code for "lowerBound"
-  	???
-  	// End of user code
-	}
-
-	/**
-	 * The query upperBound() returns the upper bound of the multiplicity for a bounded multiplicity as an unlimited natural, which is the unlimitedNaturalValue of upperValue, if given, and 1, otherwise.
-	 *
-	 * <!-- Start of user code doc for upperBound -->
-	 * <!-- End of user code doc for upperBound -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
-	 */
-	def upperBound: Integer = {
-		// Start of user code for "upperBound"
-    ???
-    // End of user code
-	}
-
-	/**
 	 * The lower bound must be a non-negative integer literal.
 	 *
 	 * <!-- Start of user code doc for validate_lower_ge_0 -->
 	 * <!-- End of user code doc for validate_lower_ge_0 -->
 	 *
-	 * @body lowerBound() >= 0
+	 * @body lower() >= 0
 	 */
 	def validate_lower_ge_0: Boolean = {
 		// Start of user code for "lower_ge_0"
@@ -209,7 +179,7 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_upper_ge_lower -->
 	 * <!-- End of user code doc for validate_upper_ge_lower -->
 	 *
-	 * @body upperBound() >= lowerBound()
+	 * @body upper() >= lower()
 	 */
 	def validate_upper_ge_lower: Boolean = {
 		// Start of user code for "upper_ge_lower"

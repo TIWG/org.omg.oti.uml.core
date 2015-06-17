@@ -76,21 +76,6 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	}
 
 	/**
-	 * References the Package that owns this Package.
-	 *
-	 * <!-- Start of user code doc for nestingPackage -->
-	 * <!-- End of user code doc for nestingPackage -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLPackage.nestedPackage
-	 */
-	def nestingPackage: Option[UMLPackage[Uml]] = {
-		// Start of user code for "nestingPackage"
-		???
-		// End of user code
-	}
-
-	/**
 	 * References the Stereotypes that are owned by the Package.
 	 *
 	 * <!-- Start of user code doc for ownedStereotype -->
@@ -100,11 +85,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * @opposite org.omg.oti.api.UMLStereotype.ownedStereotype_owningPackage
 	 * @body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
 	 */
-	def ownedStereotype: Set[UMLStereotype[Uml]] = {
-		// Start of user code for "ownedStereotype"
-		packagedElement.selectByKindOf { case x: UMLStereotype[Uml] => x }
-		// End of user code
-	}
+	def ownedStereotype: Set[UMLStereotype[Uml]] = packagedElement.selectByKindOf { case x: UMLStereotype[Uml] => x }
 
 	/**
 	 * References the packaged elements that are Types.

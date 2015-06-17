@@ -172,7 +172,7 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for result_opaqueExpression -->
 	 * <!-- End of user code doc for result_opaqueExpression -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * @opposite org.omg.oti.api.UMLOpaqueExpression.result
 	 */
 	def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]]

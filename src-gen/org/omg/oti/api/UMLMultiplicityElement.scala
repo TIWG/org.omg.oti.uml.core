@@ -83,7 +83,7 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- End of user code doc for lower -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (lowerBound())
+	 * @body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
 	 */
 	def lower: Integer
 
@@ -105,7 +105,7 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- End of user code doc for upper -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (upperBound())
+	 * @body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
 	 */
 	def upper: Integer
 

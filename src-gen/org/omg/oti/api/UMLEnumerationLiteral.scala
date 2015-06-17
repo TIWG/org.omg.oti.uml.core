@@ -57,6 +57,18 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	import ops._
 
 	/**
+	 * The classifier of this EnumerationLiteral derived to be equal to its Enumeration.
+	 *
+	 * <!-- Start of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.api.UMLEnumeration.classifier_enumerationLiteral
+	 * @body result = (enumeration)
+	 */
+	override def classifier: Iterable[UMLEnumeration[Uml]]
+
+	/**
 	 * The Enumeration that this EnumerationLiteral is a member of.
 	 *
 	 * <!-- Start of user code doc for enumeration -->

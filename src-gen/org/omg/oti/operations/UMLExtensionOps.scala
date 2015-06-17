@@ -62,7 +62,7 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- End of user code doc for isRequired -->
 	 *
 	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (ownedEnd.lowerBound() = 1)
+	 * @body result = (ownedEnd.lower() = 1)
 	 */
 	def isRequired: Boolean = {
 		// Start of user code for "isRequired"
