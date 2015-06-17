@@ -57,17 +57,6 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that holds the object to be reclassified.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_reclassifyObjectAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * Specifies whether existing Classifiers should be removed before adding the new Classifiers.
 	 *
 	 * <!-- Start of user code doc for isReplaceAll -->

@@ -57,17 +57,6 @@ trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that holds the object whose classifierBehavior is to be started.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_startClassifierBehaviorAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

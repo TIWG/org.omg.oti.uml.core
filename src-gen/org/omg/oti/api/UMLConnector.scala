@@ -90,34 +90,6 @@ trait UMLConnector[Uml <: UML]
 	def end: Seq[UMLConnectorEnd[Uml]]
 
 	/**
-	 * Indicates the kind of Connector. This is derived: a Connector with one or more ends connected to a Port which is not on a Part and which is not a behavior port is a delegation; otherwise it is an assembly.
-	 *
-	 * <!-- Start of user code doc for kind -->
-	 * <!-- End of user code doc for kind -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if end->exists(
-	 * 		role.oclIsKindOf(Port) 
-	 * 		and partWithPort->isEmpty()
-	 * 		and not role.oclAsType(Port).isBehavior)
-	 * then ConnectorKind::delegation 
-	 * else ConnectorKind::assembly 
-	 * endif)
-	 */
-	def kind: UMLConnectorKind.Value
-
-	/**
-	 * A Connector may be redefined when its containing Classifier is specialized. The redefining Connector may have a type that specializes the type of the redefined Connector. The types of the ConnectorEnds of the redefining Connector may specialize the types of the ConnectorEnds of the redefined Connector. The properties of the ConnectorEnds of the redefining Connector may be replaced.
-	 *
-	 * <!-- Start of user code doc for redefinedConnector -->
-	 * <!-- End of user code doc for redefinedConnector -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConnector.redefinedConnector_connector
-	 */
-	def redefinedConnector: Set[UMLConnector[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for connector_message -->
 	 * <!-- End of user code doc for connector_message -->
 	 *
@@ -127,15 +99,6 @@ trait UMLConnector[Uml <: UML]
 	def connector_message: Set[UMLMessage[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for ownedConnector_structuredClassifier -->
-	 * <!-- End of user code doc for ownedConnector_structuredClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredClassifier.ownedConnector
-	 */
-	def ownedConnector_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for realizingConnector_informationFlow -->
 	 * <!-- End of user code doc for realizingConnector_informationFlow -->
 	 *
@@ -143,15 +106,6 @@ trait UMLConnector[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLInformationFlow.realizingConnector
 	 */
 	def realizingConnector_informationFlow: Set[UMLInformationFlow[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedConnector_connector -->
-	 * <!-- End of user code doc for redefinedConnector_connector -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConnector.redefinedConnector
-	 */
-	def redefinedConnector_connector: Set[UMLConnector[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

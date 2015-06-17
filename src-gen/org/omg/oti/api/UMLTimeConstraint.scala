@@ -67,17 +67,6 @@ trait UMLTimeConstraint[Uml <: UML]
 	def firstEvent: Option[Boolean]
 
 	/**
-	 * TheTimeInterval constraining the duration.
-	 *
-	 * <!-- Start of user code doc for specification -->
-	 * <!-- End of user code doc for specification -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTimeInterval.specification_timeConstraint
-	 */
-	override def specification: Option[UMLTimeInterval[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

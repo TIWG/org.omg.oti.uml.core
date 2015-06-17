@@ -57,28 +57,6 @@ trait UMLPackageImport[Uml <: UML]
 	import ops._
 
 	/**
-	 * Specifies the Package whose members are imported into a Namespace.
-	 *
-	 * <!-- Start of user code doc for importedPackage -->
-	 * <!-- End of user code doc for importedPackage -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackage.importedPackage_packageImport
-	 */
-	def importedPackage: Option[UMLPackage[Uml]]
-
-	/**
-	 * Specifies the Namespace that imports the members from a Package.
-	 *
-	 * <!-- Start of user code doc for importingNamespace -->
-	 * <!-- End of user code doc for importingNamespace -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLNamespace.packageImport
-	 */
-	def importingNamespace: Option[UMLNamespace[Uml]]
-
-	/**
 	 * Specifies the visibility of the imported PackageableElements within the importingNamespace, i.e., whether imported Elements will in turn be visible to other Namespaces. If the PackageImport is public, the imported Elements will be visible outside the importingNamespace, while, if the PackageImport is private, they will not.
 	 *
 	 * <!-- Start of user code doc for visibility -->

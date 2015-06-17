@@ -68,24 +68,6 @@ trait UMLReception[Uml <: UML]
 	def signal: Option[UMLSignal[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for ownedReception_class -->
-	 * <!-- End of user code doc for ownedReception_class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClass.ownedReception
-	 */
-	def ownedReception_class: Option[UMLClass[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedReception_interface -->
-	 * <!-- End of user code doc for ownedReception_interface -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInterface.ownedReception
-	 */
-	def ownedReception_interface: Option[UMLInterface[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -57,17 +57,6 @@ trait UMLInteractionUse[Uml <: UML]
 	import ops._
 
 	/**
-	 * The actual gates of the InteractionUse.
-	 *
-	 * <!-- Start of user code doc for actualGate -->
-	 * <!-- End of user code doc for actualGate -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLGate.actualGate_interactionUse
-	 */
-	def actualGate: Set[UMLGate[Uml]]
-
-	/**
 	 * The actual arguments of the Interaction.
 	 *
 	 * <!-- Start of user code doc for argument -->

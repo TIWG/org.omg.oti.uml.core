@@ -57,18 +57,6 @@ trait UMLNamedElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * Indicates the Dependencies that reference this NamedElement as a client.
-	 *
-	 * <!-- Start of user code doc for clientDependency -->
-	 * <!-- End of user code doc for clientDependency -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDependency.client
-	 * @body result = (Dependency.allInstances()->select(d | d.client->includes(self)))
-	 */
-	def clientDependency: Set[UMLDependency[Uml]]
-
-	/**
 	 * The name of the NamedElement.
 	 *
 	 * <!-- Start of user code doc for name -->
@@ -77,44 +65,6 @@ trait UMLNamedElement[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def name: Option[String]
-
-	/**
-	 * The StringExpression used to define the name of this NamedElement.
-	 *
-	 * <!-- Start of user code doc for nameExpression -->
-	 * <!-- End of user code doc for nameExpression -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStringExpression.nameExpression_namedElement
-	 */
-	def nameExpression: Option[UMLStringExpression[Uml]]
-
-	/**
-	 * Specifies the Namespace that owns the NamedElement.
-	 *
-	 * <!-- Start of user code doc for namespace -->
-	 * <!-- End of user code doc for namespace -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLNamespace.ownedMember
-	 */
-	def namespace: Option[UMLNamespace[Uml]]
-
-	/**
-	 * A name that allows the NamedElement to be identified within a hierarchy of nested Namespaces. It is constructed from the names of the containing Namespaces starting at the root of the hierarchy and ending with the name of the NamedElement itself.
-	 *
-	 * <!-- Start of user code doc for qualifiedName -->
-	 * <!-- End of user code doc for qualifiedName -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if self.name <> null and self.allNamespaces()->select( ns | ns.name=null )->isEmpty()
-	 * then 
-	 *     self.allNamespaces()->iterate( ns : Namespace; agg: String = self.name | ns.name.concat(self.separator()).concat(agg))
-	 * else
-	 *    null
-	 * endif)
-	 */
-	def qualifiedName: Option[String]
 
 	/**
 	 * Determines whether and how the NamedElement is visible outside its owning Namespace.
@@ -145,33 +95,6 @@ trait UMLNamedElement[Uml <: UML]
 	def event_timeObservation: Set[UMLTimeObservation[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for informationSource_informationFlow -->
-	 * <!-- End of user code doc for informationSource_informationFlow -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInformationFlow.informationSource
-	 */
-	def informationSource_informationFlow: Set[UMLInformationFlow[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for informationTarget_informationFlow -->
-	 * <!-- End of user code doc for informationTarget_informationFlow -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInformationFlow.informationTarget
-	 */
-	def informationTarget_informationFlow: Set[UMLInformationFlow[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for inheritedMember_inheritingClassifier -->
-	 * <!-- End of user code doc for inheritedMember_inheritingClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.inheritedMember
-	 */
-	def inheritedMember_inheritingClassifier: Set[UMLClassifier[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for member_memberNamespace -->
 	 * <!-- End of user code doc for member_memberNamespace -->
 	 *
@@ -197,17 +120,6 @@ trait UMLNamedElement[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLMessage.signature
 	 */
 	def signature_message: Set[UMLMessage[Uml]]
-
-	/**
-	 * Indicates the dependencies that reference the supplier.
-	 *
-	 * <!-- Start of user code doc for supplier_supplierDependency -->
-	 * <!-- End of user code doc for supplier_supplierDependency -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDependency.supplier
-	 */
-	def supplier_supplierDependency: Set[UMLDependency[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

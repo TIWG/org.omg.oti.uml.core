@@ -57,17 +57,6 @@ trait UMLActivityNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Activity containing the ActivityNode, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.node
-	 */
-	def activity: Option[UMLActivity[Uml]]
-
-	/**
 	 * ActivityGroups containing the ActivityNode.
 	 *
 	 * <!-- Start of user code doc for inGroup -->
@@ -77,39 +66,6 @@ trait UMLActivityNode[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLActivityGroup.containedNode
 	 */
 	def inGroup: Set[UMLActivityGroup[Uml]]
-
-	/**
-	 * InterruptibleActivityRegions containing the ActivityNode.
-	 *
-	 * <!-- Start of user code doc for inInterruptibleRegion -->
-	 * <!-- End of user code doc for inInterruptibleRegion -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.node
-	 */
-	def inInterruptibleRegion: Set[UMLInterruptibleActivityRegion[Uml]]
-
-	/**
-	 * ActivityPartitions containing the ActivityNode.
-	 *
-	 * <!-- Start of user code doc for inPartition -->
-	 * <!-- End of user code doc for inPartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.node
-	 */
-	def inPartition: Set[UMLActivityPartition[Uml]]
-
-	/**
-	 * The StructuredActivityNode containing the ActvityNode, if it is directly owned by a StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for inStructuredNode -->
-	 * <!-- End of user code doc for inStructuredNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.node
-	 */
-	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]]
 
 	/**
 	 * ActivityEdges that have the ActivityNode as their target.
@@ -132,26 +88,6 @@ trait UMLActivityNode[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLActivityEdge.source
 	 */
 	def outgoing: Set[UMLActivityEdge[Uml]]
-
-	/**
-	 * ActivityNodes from a generalization of the Activity containining this ActivityNode that are redefined by this ActivityNode.
-	 *
-	 * <!-- Start of user code doc for redefinedNode -->
-	 * <!-- End of user code doc for redefinedNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode_activityNode
-	 */
-	def redefinedNode: Set[UMLActivityNode[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedNode_activityNode -->
-	 * <!-- End of user code doc for redefinedNode_activityNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode
-	 */
-	def redefinedNode_activityNode: Set[UMLActivityNode[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

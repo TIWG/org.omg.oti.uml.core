@@ -57,17 +57,6 @@ trait UMLRaiseExceptionAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * An InputPin whose value becomes the exception object.
-	 *
-	 * <!-- Start of user code doc for exception -->
-	 * <!-- End of user code doc for exception -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.exception_raiseExceptionAction
-	 */
-	def exception: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

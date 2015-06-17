@@ -58,28 +58,6 @@ trait UMLVariable[Uml <: UML]
 	import ops._
 
 	/**
-	 * An Activity that owns the Variable.
-	 *
-	 * <!-- Start of user code doc for activityScope -->
-	 * <!-- End of user code doc for activityScope -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.variable
-	 */
-	def activityScope: Option[UMLActivity[Uml]]
-
-	/**
-	 * A StructuredActivityNode that owns the Variable.
-	 *
-	 * <!-- Start of user code doc for scope -->
-	 * <!-- End of user code doc for scope -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.variable
-	 */
-	def scope: Option[UMLStructuredActivityNode[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for variable_variableAction -->
 	 * <!-- End of user code doc for variable_variableAction -->
 	 *

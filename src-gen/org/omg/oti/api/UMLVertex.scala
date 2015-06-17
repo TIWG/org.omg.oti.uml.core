@@ -57,41 +57,6 @@ trait UMLVertex[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Region that contains this Vertex.
-	 *
-	 * <!-- Start of user code doc for container -->
-	 * <!-- End of user code doc for container -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLRegion.subvertex
-	 */
-	def container: Option[UMLRegion[Uml]]
-
-	/**
-	 * Specifies the Transitions entering this Vertex.
-	 *
-	 * <!-- Start of user code doc for incoming -->
-	 * <!-- End of user code doc for incoming -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTransition.target
-	 * @body result = (Transition.allInstances()->select(target=self))
-	 */
-	def incoming: Set[UMLTransition[Uml]]
-
-	/**
-	 * Specifies the Transitions departing from this Vertex.
-	 *
-	 * <!-- Start of user code doc for outgoing -->
-	 * <!-- End of user code doc for outgoing -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTransition.source
-	 * @body result = (Transition.allInstances()->select(source=self))
-	 */
-	def outgoing: Set[UMLTransition[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

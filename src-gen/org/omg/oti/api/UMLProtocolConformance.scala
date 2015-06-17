@@ -57,28 +57,6 @@ trait UMLProtocolConformance[Uml <: UML]
 	import ops._
 
 	/**
-	 * Specifies the ProtocolStateMachine to which the specific ProtocolStateMachine conforms.
-	 *
-	 * <!-- Start of user code doc for generalMachine -->
-	 * <!-- End of user code doc for generalMachine -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.generalMachine_protocolConformance
-	 */
-	def generalMachine: Option[UMLProtocolStateMachine[Uml]]
-
-	/**
-	 * Specifies the ProtocolStateMachine which conforms to the general ProtocolStateMachine.
-	 *
-	 * <!-- Start of user code doc for specificMachine -->
-	 * <!-- End of user code doc for specificMachine -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.conformance
-	 */
-	def specificMachine: Option[UMLProtocolStateMachine[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

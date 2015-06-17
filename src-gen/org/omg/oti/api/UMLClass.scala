@@ -58,20 +58,6 @@ trait UMLClass[Uml <: UML]
 	import ops._
 
 	/**
-	 * This property is used when the Class is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the Class.
-	 *
-	 * <!-- Start of user code doc for extension -->
-	 * <!-- End of user code doc for extension -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtension.metaclass
-	 * @body result = (Extension.allInstances()->select(ext | 
-	 *   let endTypes : Sequence(Classifier) = ext.memberEnd->collect(type.oclAsType(Classifier)) in
-	 *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
-	 */
-	def extension: Set[UMLExtension[Uml]]
-
-	/**
 	 * If true, the Class does not provide a complete declaration and cannot be instantiated. An abstract Class is typically used as a target of Associations or Generalizations.
 	 *
 	 * <!-- Start of user code doc for isAbstract -->
@@ -123,38 +109,6 @@ trait UMLClass[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLOperation._class
 	 */
 	def ownedOperation: Seq[UMLOperation[Uml]]
-
-	/**
-	 * The Receptions owned by the Class.
-	 *
-	 * <!-- Start of user code doc for ownedReception -->
-	 * <!-- End of user code doc for ownedReception -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLReception.ownedReception_class
-	 */
-	def ownedReception: Set[UMLReception[Uml]]
-
-	/**
-	 * The superclasses of a Class, derived from its Generalizations.
-	 *
-	 * <!-- Start of user code doc for superClass -->
-	 * <!-- End of user code doc for superClass -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClass.superClass_class
-	 * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
-	 */
-	def superClass: Set[UMLClass[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for superClass_class -->
-	 * <!-- End of user code doc for superClass_class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClass.superClass
-	 */
-	def superClass_class: Set[UMLClass[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

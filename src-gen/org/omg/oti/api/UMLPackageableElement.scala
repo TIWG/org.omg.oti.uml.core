@@ -77,15 +77,6 @@ trait UMLPackageableElement[Uml <: UML]
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for importedElement_import -->
-	 * <!-- End of user code doc for importedElement_import -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLElementImport.importedElement
-	 */
-	def importedElement_import: Set[UMLElementImport[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for importedMember_namespace -->
 	 * <!-- End of user code doc for importedMember_namespace -->
 	 *
@@ -93,24 +84,6 @@ trait UMLPackageableElement[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLNamespace.importedMember
 	 */
 	def importedMember_namespace: Set[UMLNamespace[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for packagedElement_component -->
-	 * <!-- End of user code doc for packagedElement_component -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLComponent.packagedElement
-	 */
-	def packagedElement_component: Option[UMLComponent[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for packagedElement_owningPackage -->
-	 * <!-- End of user code doc for packagedElement_owningPackage -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLPackage.packagedElement
-	 */
-	def packagedElement_owningPackage: Option[UMLPackage[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for utilizedElement_manifestation -->

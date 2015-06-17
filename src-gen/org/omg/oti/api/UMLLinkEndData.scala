@@ -68,17 +68,6 @@ trait UMLLinkEndData[Uml <: UML]
 	def end: Option[UMLProperty[Uml]]
 
 	/**
-	 * A set of QualifierValues used to provide values for the qualifiers of the end.
-	 *
-	 * <!-- Start of user code doc for qualifier -->
-	 * <!-- End of user code doc for qualifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLQualifierValue.qualifier_linkEndData
-	 */
-	def qualifier: Set[UMLQualifierValue[Uml]]
-
-	/**
 	 * The InputPin that provides the specified value for the given end. This InputPin is omitted if the LinkEndData specifies the "open" end for a ReadLinkAction.
 	 *
 	 * <!-- Start of user code doc for value -->
@@ -88,15 +77,6 @@ trait UMLLinkEndData[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLInputPin.value_linkEndData
 	 */
 	def value: Option[UMLInputPin[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for endData_linkAction -->
-	 * <!-- End of user code doc for endData_linkAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLLinkAction.endData
-	 */
-	def endData_linkAction: Option[UMLLinkAction[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

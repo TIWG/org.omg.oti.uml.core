@@ -69,26 +69,6 @@ trait UMLInteractionOperand[Uml <: UML]
 	def fragment: Seq[UMLInteractionFragment[Uml]]
 
 	/**
-	 * Constraint of the operand.
-	 *
-	 * <!-- Start of user code doc for guard -->
-	 * <!-- End of user code doc for guard -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionConstraint.guard_interactionOperand
-	 */
-	def guard: Option[UMLInteractionConstraint[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for operand_combinedFragment -->
-	 * <!-- End of user code doc for operand_combinedFragment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLCombinedFragment.operand
-	 */
-	def operand_combinedFragment: Option[UMLCombinedFragment[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

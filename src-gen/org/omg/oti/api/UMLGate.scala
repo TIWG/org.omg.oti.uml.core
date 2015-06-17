@@ -57,33 +57,6 @@ trait UMLGate[Uml <: UML]
 	import ops._
 
 	/**
-	 * <!-- Start of user code doc for actualGate_interactionUse -->
-	 * <!-- End of user code doc for actualGate_interactionUse -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionUse.actualGate
-	 */
-	def actualGate_interactionUse: Option[UMLInteractionUse[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for cfragmentGate_combinedFragment -->
-	 * <!-- End of user code doc for cfragmentGate_combinedFragment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLCombinedFragment.cfragmentGate
-	 */
-	def cfragmentGate_combinedFragment: Option[UMLCombinedFragment[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for formalGate_interaction -->
-	 * <!-- End of user code doc for formalGate_interaction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.formalGate
-	 */
-	def formalGate_interaction: Option[UMLInteraction[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

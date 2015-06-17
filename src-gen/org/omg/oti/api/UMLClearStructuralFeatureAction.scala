@@ -57,17 +57,6 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The OutputPin on which is put the input object as modified by the ClearStructuralFeatureAction.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_clearStructuralFeatureAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

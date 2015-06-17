@@ -57,17 +57,6 @@ trait UMLWriteVariableAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that gives the value to be added or removed from the Variable.
-	 *
-	 * <!-- Start of user code doc for value -->
-	 * <!-- End of user code doc for value -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.value_writeVariableAction
-	 */
-	def value: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

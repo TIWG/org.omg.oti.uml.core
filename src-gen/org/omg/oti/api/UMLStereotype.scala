@@ -57,29 +57,6 @@ trait UMLStereotype[Uml <: UML]
 	import ops._
 
 	/**
-	 * Stereotype can change the graphical appearance of the extended model element by using attached icons. When this association is not null, it references the location of the icon content to be displayed within diagrams presenting the extended model elements.
-	 *
-	 * <!-- Start of user code doc for icon -->
-	 * <!-- End of user code doc for icon -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLImage.icon_stereotype
-	 */
-	def icon: Set[UMLImage[Uml]]
-
-	/**
-	 * The profile that directly or indirectly contains this stereotype.
-	 *
-	 * <!-- Start of user code doc for profile -->
-	 * <!-- End of user code doc for profile -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLProfile.profile_stereotype
-	 * @body result = (self.containingProfile())
-	 */
-	def profile: Option[UMLProfile[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for ownedStereotype_owningPackage -->
 	 * <!-- End of user code doc for ownedStereotype_owningPackage -->
 	 *
@@ -87,15 +64,6 @@ trait UMLStereotype[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLPackage.ownedStereotype
 	 */
 	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for type_extensionEnd -->
-	 * <!-- End of user code doc for type_extensionEnd -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtensionEnd._type
-	 */
-	def type_extensionEnd: Set[UMLExtensionEnd[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

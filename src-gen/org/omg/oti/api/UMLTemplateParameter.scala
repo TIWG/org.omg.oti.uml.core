@@ -68,17 +68,6 @@ trait UMLTemplateParameter[Uml <: UML]
 	def default: Option[UMLParameterableElement[Uml]]
 
 	/**
-	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
-	 *
-	 * <!-- Start of user code doc for ownedDefault -->
-	 * <!-- End of user code doc for ownedDefault -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedDefault_templateParameter
-	 */
-	def ownedDefault: Option[UMLParameterableElement[Uml]]
-
-	/**
 	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of exposing it as the parameteredElement.
 	 *
 	 * <!-- Start of user code doc for ownedParameteredElement -->
@@ -99,17 +88,6 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLParameterableElement.templateParameter
 	 */
 	def parameteredElement: Option[UMLParameterableElement[Uml]]
-
-	/**
-	 * The TemplateSignature that owns this TemplateParameter.
-	 *
-	 * <!-- Start of user code doc for signature -->
-	 * <!-- End of user code doc for signature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTemplateSignature.ownedParameter
-	 */
-	def signature: Option[UMLTemplateSignature[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for formal_templateParameterSubstitution -->

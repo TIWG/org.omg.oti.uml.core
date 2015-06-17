@@ -59,29 +59,6 @@ trait UMLOperation[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Class that owns this operation, if any.
-	 *
-	 * <!-- Start of user code doc for _class -->
-	 * <!-- End of user code doc for _class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClass.ownedOperation
-	 */
-	def _class: Option[UMLClass[Uml]]
-
-	/**
-	 * The return type of the operation, if present. This information is derived from the return result for this Operation.
-	 *
-	 * <!-- Start of user code doc for _type -->
-	 * <!-- End of user code doc for _type -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLType.type_operation
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).type else null endif)
-	 */
-	def _type: Option[UMLType[Uml]]
-
-	/**
 	 * An optional Constraint on the result values of an invocation of this Operation.
 	 *
 	 * <!-- Start of user code doc for bodyCondition -->
@@ -93,39 +70,6 @@ trait UMLOperation[Uml <: UML]
 	def bodyCondition: Option[UMLConstraint[Uml]]
 
 	/**
-	 * The DataType that owns this Operation, if any.
-	 *
-	 * <!-- Start of user code doc for datatype -->
-	 * <!-- End of user code doc for datatype -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDataType.ownedOperation
-	 */
-	def datatype: Option[UMLDataType[Uml]]
-
-	/**
-	 * The Interface that owns this Operation, if any.
-	 *
-	 * <!-- Start of user code doc for interface -->
-	 * <!-- End of user code doc for interface -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInterface.ownedOperation
-	 */
-	def interface: Option[UMLInterface[Uml]]
-
-	/**
-	 * Specifies whether the return parameter is ordered or not, if present.  This information is derived from the return result for this Operation.
-	 *
-	 * <!-- Start of user code doc for isOrdered -->
-	 * <!-- End of user code doc for isOrdered -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
-	 */
-	def isOrdered: Boolean
-
-	/**
 	 * Specifies whether an execution of the BehavioralFeature leaves the state of the system unchanged (isQuery=true) or whether side effects may occur (isQuery=false).
 	 *
 	 * <!-- Start of user code doc for isQuery -->
@@ -134,28 +78,6 @@ trait UMLOperation[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isQuery: Boolean
-
-	/**
-	 * Specifies whether the return parameter is unique or not, if present. This information is derived from the return result for this Operation.
-	 *
-	 * <!-- Start of user code doc for isUnique -->
-	 * <!-- End of user code doc for isUnique -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
-	 */
-	def isUnique: Boolean
-
-	/**
-	 * Specifies the lower multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 *
-	 * <!-- Start of user code doc for lower -->
-	 * <!-- End of user code doc for lower -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
-	 */
-	def lower: Option[Integer]
 
 	/**
 	 * The parameters owned by this Operation.
@@ -202,17 +124,6 @@ trait UMLOperation[Uml <: UML]
 	override def raisedException: Set[UMLType[Uml]]
 
 	/**
-	 * The Operations that are redefined by this Operation.
-	 *
-	 * <!-- Start of user code doc for redefinedOperation -->
-	 * <!-- End of user code doc for redefinedOperation -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation_operation
-	 */
-	def redefinedOperation: Set[UMLOperation[Uml]]
-
-	/**
 	 * The OperationTemplateParameter that exposes this element as a formal parameter.
 	 *
 	 * <!-- Start of user code doc for templateParameter -->
@@ -222,17 +133,6 @@ trait UMLOperation[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLOperationTemplateParameter.parameteredElement
 	 */
 	override def templateParameter: Option[UMLOperationTemplateParameter[Uml]]
-
-	/**
-	 * The upper multiplicity of the return parameter, if present. This information is derived from the return result for this Operation.
-	 *
-	 * <!-- Start of user code doc for upper -->
-	 * <!-- End of user code doc for upper -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
-	 */
-	def upper: Option[Integer]
 
 	/**
 	 * <!-- Start of user code doc for operation_callEvent -->
@@ -251,24 +151,6 @@ trait UMLOperation[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLCallOperationAction.operation
 	 */
 	def operation_callOperationAction: Set[UMLCallOperationAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedOperation_artifact -->
-	 * <!-- End of user code doc for ownedOperation_artifact -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLArtifact.ownedOperation
-	 */
-	def ownedOperation_artifact: Option[UMLArtifact[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedOperation_operation -->
-	 * <!-- End of user code doc for redefinedOperation_operation -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOperation.redefinedOperation
-	 */
-	def redefinedOperation_operation: Set[UMLOperation[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for referred_protocolTransition -->

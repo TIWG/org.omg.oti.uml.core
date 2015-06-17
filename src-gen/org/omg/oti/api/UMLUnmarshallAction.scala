@@ -57,17 +57,6 @@ trait UMLUnmarshallAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that gives the object to be unmarshalled.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_unmarshallAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The OutputPins on which are placed the values of the StructuralFeatures of the input object.
 	 *
 	 * <!-- Start of user code doc for result -->

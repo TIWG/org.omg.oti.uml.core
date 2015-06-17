@@ -88,31 +88,6 @@ trait UMLOpaqueExpression[Uml <: UML]
 	def language: Seq[String]
 
 	/**
-	 * If an OpaqueExpression is specified using a UML Behavior, then this refers to the single required return Parameter of that Behavior. When the Behavior completes execution, the values on this Parameter give the result of evaluating the OpaqueExpression.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameter.result_opaqueExpression
-	 * @body result = (if behavior = null then
-	 * 	null
-	 * else
-	 * 	behavior.ownedParameter->first()
-	 * endif)
-	 */
-	def result: Option[UMLParameter[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for mapping_abstraction -->
-	 * <!-- End of user code doc for mapping_abstraction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAbstraction.mapping
-	 */
-	def mapping_abstraction: Option[UMLAbstraction[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

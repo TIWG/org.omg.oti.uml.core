@@ -57,24 +57,6 @@ trait UMLConnectorEnd[Uml <: UML]
 	import ops._
 
 	/**
-	 * A derived property referencing the corresponding end on the Association which types the Connector owing this ConnectorEnd, if any. It is derived by selecting the end at the same place in the ordering of Association ends as this ConnectorEnd.
-	 *
-	 * <!-- Start of user code doc for definingEnd -->
-	 * <!-- End of user code doc for definingEnd -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProperty.definingEnd_connectorEnd
-	 * @body result = (if connector.type = null 
-	 * then
-	 *   null 
-	 * else
-	 *   let index : Integer = connector.end->indexOf(self) in
-	 *     connector.type.memberEnd->at(index)
-	 * endif)
-	 */
-	def definingEnd: Option[UMLProperty[Uml]]
-
-	/**
 	 * Indicates the role of the internal structure of a Classifier with the Port to which the ConnectorEnd is attached.
 	 *
 	 * <!-- Start of user code doc for partWithPort -->
@@ -95,15 +77,6 @@ trait UMLConnectorEnd[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLConnectableElement.end
 	 */
 	def role: Option[UMLConnectableElement[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for end_connector -->
-	 * <!-- End of user code doc for end_connector -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLConnector.end
-	 */
-	def end_connector: Option[UMLConnector[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

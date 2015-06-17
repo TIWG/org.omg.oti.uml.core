@@ -77,17 +77,6 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def isDestroyOwnedObjects: Boolean
 
 	/**
-	 * The InputPin providing the object to be destroyed.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.target_destroyObjectAction
-	 */
-	def target: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

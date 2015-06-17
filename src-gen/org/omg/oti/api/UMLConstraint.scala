@@ -99,24 +99,6 @@ trait UMLConstraint[Uml <: UML]
 	def bodyCondition_bodyContext: Option[UMLOperation[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for condition_extend -->
-	 * <!-- End of user code doc for condition_extend -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLExtend.condition
-	 */
-	def condition_extend: Option[UMLExtend[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for condition_parameterSet -->
-	 * <!-- End of user code doc for condition_parameterSet -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameterSet.condition
-	 */
-	def condition_parameterSet: Option[UMLParameterSet[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for guard_transition -->
 	 * <!-- End of user code doc for guard_transition -->
 	 *
@@ -124,15 +106,6 @@ trait UMLConstraint[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLTransition.guard
 	 */
 	def guard_transition: Option[UMLTransition[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for invariant_stateInvariant -->
-	 * <!-- End of user code doc for invariant_stateInvariant -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStateInvariant.invariant
-	 */
-	def invariant_stateInvariant: Option[UMLStateInvariant[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for localPostcondition_action -->
@@ -178,15 +151,6 @@ trait UMLConstraint[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLOperation.postcondition
 	 */
 	def postcondition_postContext: Option[UMLOperation[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for preCondition_protocolTransition -->
-	 * <!-- End of user code doc for preCondition_protocolTransition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProtocolTransition.preCondition
-	 */
-	def preCondition_protocolTransition: Option[UMLProtocolTransition[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for precondition_behavior -->

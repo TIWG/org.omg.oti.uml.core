@@ -78,15 +78,6 @@ trait UMLComment[Uml <: UML]
 	def body: Option[String]
 
 	/**
-	 * <!-- Start of user code doc for ownedComment_owningElement -->
-	 * <!-- End of user code doc for ownedComment_owningElement -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLElement.ownedComment
-	 */
-	def ownedComment_owningElement: Option[UMLElement[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

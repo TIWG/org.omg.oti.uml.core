@@ -57,17 +57,6 @@ trait UMLReadVariableAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The OutputPin on which the result values are placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_readVariableAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

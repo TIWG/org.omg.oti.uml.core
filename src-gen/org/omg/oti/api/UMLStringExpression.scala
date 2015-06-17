@@ -58,17 +58,6 @@ trait UMLStringExpression[Uml <: UML]
 	import ops._
 
 	/**
-	 * The StringExpression of which this StringExpression is a subExpression.
-	 *
-	 * <!-- Start of user code doc for owningExpression -->
-	 * <!-- End of user code doc for owningExpression -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStringExpression.subExpression
-	 */
-	def owningExpression: Option[UMLStringExpression[Uml]]
-
-	/**
 	 * The StringExpressions that constitute this StringExpression.
 	 *
 	 * <!-- Start of user code doc for subExpression -->

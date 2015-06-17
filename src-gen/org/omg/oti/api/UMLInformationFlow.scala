@@ -69,28 +69,6 @@ trait UMLInformationFlow[Uml <: UML]
 	def conveyed: Set[UMLClassifier[Uml]]
 
 	/**
-	 * Defines from which source the conveyed InformationItems are initiated.
-	 *
-	 * <!-- Start of user code doc for informationSource -->
-	 * <!-- End of user code doc for informationSource -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLNamedElement.informationSource_informationFlow
-	 */
-	def informationSource: Set[UMLNamedElement[Uml]]
-
-	/**
-	 * Defines to which target the conveyed InformationItems are directed.
-	 *
-	 * <!-- Start of user code doc for informationTarget -->
-	 * <!-- End of user code doc for informationTarget -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLNamedElement.informationTarget_informationFlow
-	 */
-	def informationTarget: Set[UMLNamedElement[Uml]]
-
-	/**
 	 * Determines which Relationship will realize the specified flow.
 	 *
 	 * <!-- Start of user code doc for realization -->

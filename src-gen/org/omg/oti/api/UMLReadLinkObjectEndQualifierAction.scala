@@ -57,17 +57,6 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin from which the link object is obtained.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_readLinkObjectEndQualifierAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The qualifier Property to be read.
 	 *
 	 * <!-- Start of user code doc for qualifier -->
@@ -77,17 +66,6 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLProperty.qualifier_readLinkObjectEndQualifierAction
 	 */
 	def qualifier: Option[UMLProperty[Uml]]
-
-	/**
-	 * The OutputPin where the result value is placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

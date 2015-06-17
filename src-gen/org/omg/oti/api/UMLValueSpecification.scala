@@ -67,60 +67,6 @@ trait UMLValueSpecification[Uml <: UML]
 	def argument_interactionUse: Option[UMLInteractionUse[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for argument_message -->
-	 * <!-- End of user code doc for argument_message -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLMessage.argument
-	 */
-	def argument_message: Option[UMLMessage[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for changeExpression_changeEvent -->
-	 * <!-- End of user code doc for changeExpression_changeEvent -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLChangeEvent.changeExpression
-	 */
-	def changeExpression_changeEvent: Option[UMLChangeEvent[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for defaultValue_owningParameter -->
-	 * <!-- End of user code doc for defaultValue_owningParameter -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameter.defaultValue
-	 */
-	def defaultValue_owningParameter: Option[UMLParameter[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for defaultValue_owningProperty -->
-	 * <!-- End of user code doc for defaultValue_owningProperty -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProperty.defaultValue
-	 */
-	def defaultValue_owningProperty: Option[UMLProperty[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for expr_duration -->
-	 * <!-- End of user code doc for expr_duration -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDuration.expr
-	 */
-	def expr_duration: Option[UMLDuration[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for expr_timeExpression -->
-	 * <!-- End of user code doc for expr_timeExpression -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTimeExpression.expr
-	 */
-	def expr_timeExpression: Option[UMLTimeExpression[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for guard_activityEdge -->
 	 * <!-- End of user code doc for guard_activityEdge -->
 	 *
@@ -128,15 +74,6 @@ trait UMLValueSpecification[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLActivityEdge.guard
 	 */
 	def guard_activityEdge: Option[UMLActivityEdge[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for joinSpec_joinNode -->
-	 * <!-- End of user code doc for joinSpec_joinNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLJoinNode.joinSpec
-	 */
-	def joinSpec_joinNode: Option[UMLJoinNode[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for lowerValue_owningLower -->
@@ -184,15 +121,6 @@ trait UMLValueSpecification[Uml <: UML]
 	def minint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for operand_expression -->
-	 * <!-- End of user code doc for operand_expression -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLExpression.operand
-	 */
-	def operand_expression: Option[UMLExpression[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for returnValue_interactionUse -->
 	 * <!-- End of user code doc for returnValue_interactionUse -->
 	 *
@@ -202,15 +130,6 @@ trait UMLValueSpecification[Uml <: UML]
 	def returnValue_interactionUse: Option[UMLInteractionUse[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for selector_lifeline -->
-	 * <!-- End of user code doc for selector_lifeline -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLifeline.selector
-	 */
-	def selector_lifeline: Option[UMLLifeline[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for specification_owningConstraint -->
 	 * <!-- End of user code doc for specification_owningConstraint -->
 	 *
@@ -218,15 +137,6 @@ trait UMLValueSpecification[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLConstraint.specification
 	 */
 	def specification_owningConstraint: Option[UMLConstraint[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for specification_owningInstanceSpec -->
-	 * <!-- End of user code doc for specification_owningInstanceSpec -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInstanceSpecification.specification
-	 */
-	def specification_owningInstanceSpec: Option[UMLInstanceSpecification[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for upperBound_objectNode -->
@@ -245,33 +155,6 @@ trait UMLValueSpecification[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLMultiplicityElement.upperValue
 	 */
 	def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for value_owningSlot -->
-	 * <!-- End of user code doc for value_owningSlot -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSlot.value
-	 */
-	def value_owningSlot: Option[UMLSlot[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for value_valuePin -->
-	 * <!-- End of user code doc for value_valuePin -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValuePin.value
-	 */
-	def value_valuePin: Option[UMLValuePin[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for value_valueSpecificationAction -->
-	 * <!-- End of user code doc for value_valueSpecificationAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecificationAction.value
-	 */
-	def value_valueSpecificationAction: Option[UMLValueSpecificationAction[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for weight_activityEdge -->

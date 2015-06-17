@@ -79,15 +79,6 @@ trait UMLDurationInterval[Uml <: UML]
 	override def min: Option[UMLDuration[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for specification_durationConstraint -->
-	 * <!-- End of user code doc for specification_durationConstraint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDurationConstraint.specification
-	 */
-	def specification_durationConstraint: Option[UMLDurationConstraint[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

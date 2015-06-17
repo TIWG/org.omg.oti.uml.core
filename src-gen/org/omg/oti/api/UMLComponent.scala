@@ -78,54 +78,6 @@ trait UMLComponent[Uml <: UML]
 	def packagedElement: Set[UMLPackageableElement[Uml]]
 
 	/**
-	 * The Interfaces that the Component exposes to its environment. These Interfaces may be Realized by the Component or any of its realizingClassifiers, or they may be the Interfaces that are provided by its public Ports.
-	 *
-	 * <!-- Start of user code doc for provided -->
-	 * <!-- End of user code doc for provided -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.provided_component
-	 * @body result = (let 	ris : Set(Interface) = allRealizedInterfaces(),
-	 *         realizingClassifiers : Set(Classifier) =  self.realization.realizingClassifier->union(self.allParents()->collect(realization.realizingClassifier))->asSet(),
-	 *         allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents())->asSet(),
-	 *         realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(c.allRealizedInterfaces())),
-	 *         ports : Set(Port) = self.ownedPort->union(allParents()->collect(ownedPort))->asSet(),
-	 *         providedByPorts : Set(Interface) = ports.provided->asSet()
-	 * in     ris->union(realizingClassifierInterfaces) ->union(providedByPorts)->asSet())
-	 */
-	def provided: Set[UMLInterface[Uml]]
-
-	/**
-	 * The set of Realizations owned by the Component. Realizations reference the Classifiers of which the Component is an abstraction; i.e., that realize its behavior.
-	 *
-	 * <!-- Start of user code doc for realization -->
-	 * <!-- End of user code doc for realization -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLComponentRealization.abstraction
-	 */
-	def realization: Set[UMLComponentRealization[Uml]]
-
-	/**
-	 * The Interfaces that the Component requires from other Components in its environment in order to be able to offer its full set of provided functionality. These Interfaces may be used by the Component or any of its realizingClassifiers, or they may be the Interfaces that are required by its public Ports.
-	 *
-	 * <!-- Start of user code doc for required -->
-	 * <!-- End of user code doc for required -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.required_component
-	 * @body result = (let 	uis : Set(Interface) = allUsedInterfaces(),
-	 *         realizingClassifiers : Set(Classifier) = self.realization.realizingClassifier->union(self.allParents()->collect(realization.realizingClassifier))->asSet(),
-	 *         allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents())->asSet(),
-	 *         realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(c.allUsedInterfaces())),
-	 *         ports : Set(Port) = self.ownedPort->union(allParents()->collect(ownedPort))->asSet(),
-	 *         usedByPorts : Set(Interface) = ports.required->asSet()
-	 * in	    uis->union(realizingClassifierInterfaces)->union(usedByPorts)->asSet()
-	 * )
-	 */
-	def required: Set[UMLInterface[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -79,15 +79,6 @@ trait UMLTimeInterval[Uml <: UML]
 	override def min: Option[UMLTimeExpression[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for specification_timeConstraint -->
-	 * <!-- End of user code doc for specification_timeConstraint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTimeConstraint.specification
-	 */
-	def specification_timeConstraint: Option[UMLTimeConstraint[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

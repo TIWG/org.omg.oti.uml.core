@@ -57,28 +57,6 @@ trait UMLTemplateableElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * The optional TemplateSignature specifying the formal TemplateParameters for this TemplateableElement. If a TemplateableElement has a TemplateSignature, then it is a template.
-	 *
-	 * <!-- Start of user code doc for ownedTemplateSignature -->
-	 * <!-- End of user code doc for ownedTemplateSignature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTemplateSignature.template
-	 */
-	def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]]
-
-	/**
-	 * The optional TemplateBindings from this TemplateableElement to one or more templates.
-	 *
-	 * <!-- Start of user code doc for templateBinding -->
-	 * <!-- End of user code doc for templateBinding -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTemplateBinding.boundElement
-	 */
-	def templateBinding: Set[UMLTemplateBinding[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

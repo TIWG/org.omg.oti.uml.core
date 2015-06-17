@@ -57,17 +57,6 @@ trait UMLExtensionPoint[Uml <: UML]
 	import ops._
 
 	/**
-	 * The UseCase that owns this ExtensionPoint.
-	 *
-	 * <!-- Start of user code doc for useCase -->
-	 * <!-- End of user code doc for useCase -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLUseCase.extensionPoint
-	 */
-	def useCase: Option[UMLUseCase[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for extensionLocation_extension -->
 	 * <!-- End of user code doc for extensionLocation_extension -->
 	 *

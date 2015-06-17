@@ -78,15 +78,6 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def isReplaceAll: Boolean
 
 	/**
-	 * <!-- Start of user code doc for endData_createLinkAction -->
-	 * <!-- End of user code doc for endData_createLinkAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLCreateLinkAction.endData
-	 */
-	def endData_createLinkAction: Option[UMLCreateLinkAction[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -79,15 +79,6 @@ trait UMLProfile[Uml <: UML]
 	def metamodelReference: Set[UMLPackageImport[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for appliedProfile_profileApplication -->
-	 * <!-- End of user code doc for appliedProfile_profileApplication -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProfileApplication.appliedProfile
-	 */
-	def appliedProfile_profileApplication: Set[UMLProfileApplication[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for profile_stereotype -->
 	 * <!-- End of user code doc for profile_stereotype -->
 	 *

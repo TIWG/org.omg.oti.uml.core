@@ -57,40 +57,6 @@ trait UMLExtension[Uml <: UML]
 	import ops._
 
 	/**
-	 * Indicates whether an instance of the extending stereotype must be created when an instance of the extended class is created. The attribute value is derived from the value of the lower property of the ExtensionEnd referenced by Extension::ownedEnd; a lower value of 1 means that isRequired is true, but otherwise it is false. Since the default value of ExtensionEnd::lower is 0, the default value of isRequired is false.
-	 *
-	 * <!-- Start of user code doc for isRequired -->
-	 * <!-- End of user code doc for isRequired -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (ownedEnd.lower() = 1)
-	 */
-	def isRequired: Boolean
-
-	/**
-	 * References the Class that is extended through an Extension. The property is derived from the type of the memberEnd that is not the ownedEnd.
-	 *
-	 * <!-- Start of user code doc for metaclass -->
-	 * <!-- End of user code doc for metaclass -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClass.extension
-	 * @body result = (metaclassEnd().type.oclAsType(Class))
-	 */
-	def metaclass: Option[UMLClass[Uml]]
-
-	/**
-	 * References the end of the extension that is typed by a Stereotype.
-	 *
-	 * <!-- Start of user code doc for ownedEnd -->
-	 * <!-- End of user code doc for ownedEnd -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLExtensionEnd.ownedEnd_extension
-	 */
-	override def ownedEnd: Iterable[UMLExtensionEnd[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -87,15 +87,6 @@ trait UMLImage[Uml <: UML]
 	def location: Option[String]
 
 	/**
-	 * <!-- Start of user code doc for icon_stereotype -->
-	 * <!-- End of user code doc for icon_stereotype -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStereotype.icon
-	 */
-	def icon_stereotype: Option[UMLStereotype[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -57,17 +57,6 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin from which the object whose StructuralFeature is to be read or written is obtained.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_structuralFeatureAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The StructuralFeature to be read or written.
 	 *
 	 * <!-- Start of user code doc for structuralFeature -->

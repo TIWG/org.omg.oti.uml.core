@@ -68,15 +68,6 @@ trait UMLType[Uml <: UML]
 	def _package: Option[UMLPackage[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for endType_association -->
-	 * <!-- End of user code doc for endType_association -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLAssociation.endType
-	 */
-	def endType_association: Set[UMLAssociation[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for raisedException_behavioralFeature -->
 	 * <!-- End of user code doc for raisedException_behavioralFeature -->
 	 *
@@ -84,15 +75,6 @@ trait UMLType[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLBehavioralFeature.raisedException
 	 */
 	def raisedException_behavioralFeature: Set[UMLBehavioralFeature[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for raisedException_operation -->
-	 * <!-- End of user code doc for raisedException_operation -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOperation.raisedException
-	 */
-	def raisedException_operation: Set[UMLOperation[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for type_operation -->

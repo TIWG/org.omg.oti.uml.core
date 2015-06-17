@@ -68,17 +68,6 @@ trait UMLSlot[Uml <: UML]
 	def definingFeature: Option[UMLStructuralFeature[Uml]]
 
 	/**
-	 * The InstanceSpecification that owns this Slot.
-	 *
-	 * <!-- Start of user code doc for owningInstance -->
-	 * <!-- End of user code doc for owningInstance -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInstanceSpecification.slot
-	 */
-	def owningInstance: Option[UMLInstanceSpecification[Uml]]
-
-	/**
 	 * The value or values held by the Slot.
 	 *
 	 * <!-- Start of user code doc for value -->

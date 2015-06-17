@@ -57,29 +57,6 @@ trait UMLNamespace[Uml <: UML]
 	import ops._
 
 	/**
-	 * References the ElementImports owned by the Namespace.
-	 *
-	 * <!-- Start of user code doc for elementImport -->
-	 * <!-- End of user code doc for elementImport -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLElementImport.importingNamespace
-	 */
-	def elementImport: Set[UMLElementImport[Uml]]
-
-	/**
-	 * References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.
-	 *
-	 * <!-- Start of user code doc for importedMember -->
-	 * <!-- End of user code doc for importedMember -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageableElement.importedMember_namespace
-	 * @body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
-	 */
-	def importedMember: Set[UMLPackageableElement[Uml]]
-
-	/**
 	 * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.
 	 *
 	 * <!-- Start of user code doc for member -->
@@ -100,28 +77,6 @@ trait UMLNamespace[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLNamedElement.namespace
 	 */
 	def ownedMember: Set[UMLNamedElement[Uml]]
-
-	/**
-	 * Specifies a set of Constraints owned by this Namespace.
-	 *
-	 * <!-- Start of user code doc for ownedRule -->
-	 * <!-- End of user code doc for ownedRule -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConstraint.context
-	 */
-	def ownedRule: Set[UMLConstraint[Uml]]
-
-	/**
-	 * References the PackageImports owned by the Namespace.
-	 *
-	 * <!-- Start of user code doc for packageImport -->
-	 * <!-- End of user code doc for packageImport -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageImport.importingNamespace
-	 */
-	def packageImport: Set[UMLPackageImport[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

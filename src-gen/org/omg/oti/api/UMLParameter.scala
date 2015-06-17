@@ -58,17 +58,6 @@ trait UMLParameter[Uml <: UML]
 	import ops._
 
 	/**
-	 * A String that represents a value to be used when no argument is supplied for the Parameter.
-	 *
-	 * <!-- Start of user code doc for default -->
-	 * <!-- End of user code doc for default -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if self.type = String then defaultValue.stringValue() else null endif)
-	 */
-	def default: Option[String]
-
-	/**
 	 * Specifies a ValueSpecification that represents a value to be used when no argument is supplied for the Parameter.
 	 *
 	 * <!-- Start of user code doc for defaultValue -->
@@ -120,17 +109,6 @@ trait UMLParameter[Uml <: UML]
 	def isStream: Boolean
 
 	/**
-	 * The Operation owning this parameter.
-	 *
-	 * <!-- Start of user code doc for operation -->
-	 * <!-- End of user code doc for operation -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOperation.ownedParameter
-	 */
-	def operation: Option[UMLOperation[Uml]]
-
-	/**
 	 * The ParameterSets containing the parameter. See ParameterSet.
 	 *
 	 * <!-- Start of user code doc for parameterSet -->
@@ -140,24 +118,6 @@ trait UMLParameter[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLParameterSet.parameter
 	 */
 	def parameterSet: Set[UMLParameterSet[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedParameter_behavior -->
-	 * <!-- End of user code doc for ownedParameter_behavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.ownedParameter
-	 */
-	def ownedParameter_behavior: Option[UMLBehavior[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedParameter_ownerFormalParam -->
-	 * <!-- End of user code doc for ownedParameter_ownerFormalParam -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavioralFeature.ownedParameter
-	 */
-	def ownedParameter_ownerFormalParam: Option[UMLBehavioralFeature[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for parameter_activityParameterNode -->

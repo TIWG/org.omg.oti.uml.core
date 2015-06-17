@@ -57,17 +57,6 @@ trait UMLWriteStructuralFeatureAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The OutputPin on which is put the input object as modified by the WriteStructuralFeatureAction.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_writeStructuralFeatureAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
-
-	/**
 	 * The InputPin that provides the value to be added or removed from the StructuralFeature.
 	 *
 	 * <!-- Start of user code doc for value -->

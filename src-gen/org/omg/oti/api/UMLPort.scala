@@ -98,18 +98,6 @@ trait UMLPort[Uml <: UML]
 	def protocol: Option[UMLProtocolStateMachine[Uml]]
 
 	/**
-	 * The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCclassifier offers to its environment via this Port, and which it will handle either directly or by forwarding it to a part of its internal structure. This association is derived according to the value of isConjugated. If isConjugated is false, provided is derived as the union of the sets of Interfaces realized by the type of the port and its supertypes, or directly from the type of the Port if the Port is typed by an Interface. If isConjugated is true, it is derived as the union of the sets of Interfaces used by the type of the Port and its supertypes.
-	 *
-	 * <!-- Start of user code doc for provided -->
-	 * <!-- End of user code doc for provided -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.provided_port
-	 * @body result = (if isConjugated then basicRequired() else basicProvided() endif)
-	 */
-	def provided: Set[UMLInterface[Uml]]
-
-	/**
 	 * A Port may be redefined when its containing EncapsulatedClassifier is specialized. The redefining Port may have additional Interfaces to those that are associated with the redefined Port or it may replace an Interface by one of its subtypes.
 	 *
 	 * <!-- Start of user code doc for redefinedPort -->
@@ -119,18 +107,6 @@ trait UMLPort[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLPort.redefinedPort_port
 	 */
 	def redefinedPort: Set[UMLPort[Uml]]
-
-	/**
-	 * The Interfaces specifying the set of Operations and Receptions that the EncapsulatedCassifier expects its environment to handle via this port. This association is derived according to the value of isConjugated. If isConjugated is false, required is derived as the union of the sets of Interfaces used by the type of the Port and its supertypes. If isConjugated is true, it is derived as the union of the sets of Interfaces realized by the type of the Port and its supertypes, or directly from the type of the Port if the Port is typed by an Interface.
-	 *
-	 * <!-- Start of user code doc for required -->
-	 * <!-- End of user code doc for required -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterface.required_port
-	 * @body result = (if isConjugated then basicProvided() else basicRequired() endif)
-	 */
-	def required: Set[UMLInterface[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for onPort_invocationAction -->

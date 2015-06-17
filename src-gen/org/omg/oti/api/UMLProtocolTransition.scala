@@ -68,29 +68,6 @@ trait UMLProtocolTransition[Uml <: UML]
 	def postCondition: Option[UMLConstraint[Uml]]
 
 	/**
-	 * Specifies the precondition of the Transition. It specifies the Condition that should be verified before triggering the Transition. This guard condition added to the source State will be evaluated as part of the precondition of the Operation referred by the Transition if any.
-	 *
-	 * <!-- Start of user code doc for preCondition -->
-	 * <!-- End of user code doc for preCondition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.preCondition_protocolTransition
-	 */
-	def preCondition: Option[UMLConstraint[Uml]]
-
-	/**
-	 * This association refers to the associated Operation. It is derived from the Operation of the CallEvent Trigger when applicable.
-	 *
-	 * <!-- Start of user code doc for referred -->
-	 * <!-- End of user code doc for referred -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOperation.referred_protocolTransition
-	 * @body result = (trigger->collect(event)->select(oclIsKindOf(CallEvent))->collect(oclAsType(CallEvent).operation)->asSet())
-	 */
-	def referred: Set[UMLOperation[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

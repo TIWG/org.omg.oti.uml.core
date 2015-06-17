@@ -58,39 +58,6 @@ trait UMLExtend[Uml <: UML]
 	import ops._
 
 	/**
-	 * References the condition that must hold when the first ExtensionPoint is reached for the extension to take place. If no constraint is associated with the Extend relationship, the extension is unconditional.
-	 *
-	 * <!-- Start of user code doc for condition -->
-	 * <!-- End of user code doc for condition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.condition_extend
-	 */
-	def condition: Option[UMLConstraint[Uml]]
-
-	/**
-	 * The UseCase that is being extended.
-	 *
-	 * <!-- Start of user code doc for extendedCase -->
-	 * <!-- End of user code doc for extendedCase -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLUseCase.extendedCase_extend
-	 */
-	def extendedCase: Option[UMLUseCase[Uml]]
-
-	/**
-	 * The UseCase that represents the extension and owns the Extend relationship.
-	 *
-	 * <!-- Start of user code doc for extension -->
-	 * <!-- End of user code doc for extension -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLUseCase.extend
-	 */
-	def extension: Option[UMLUseCase[Uml]]
-
-	/**
 	 * An ordered list of ExtensionPoints belonging to the extended UseCase, specifying where the respective behavioral fragments of the extending UseCase are to be inserted. The first fragment in the extending UseCase is associated with the first extension point in the list, the second fragment with the second point, and so on. Note that, in most practical cases, the extending UseCase has just a single behavior fragment, so that the list of ExtensionPoints is trivial.
 	 *
 	 * <!-- Start of user code doc for extensionLocation -->

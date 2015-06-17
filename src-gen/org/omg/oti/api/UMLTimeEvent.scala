@@ -67,17 +67,6 @@ trait UMLTimeEvent[Uml <: UML]
 	def isRelative: Boolean
 
 	/**
-	 * Specifies the time of the TimeEvent.
-	 *
-	 * <!-- Start of user code doc for when -->
-	 * <!-- End of user code doc for when -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTimeExpression.when_timeEvent
-	 */
-	def when: Option[UMLTimeExpression[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

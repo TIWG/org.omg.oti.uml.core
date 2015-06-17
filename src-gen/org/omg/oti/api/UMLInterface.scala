@@ -90,28 +90,6 @@ trait UMLInterface[Uml <: UML]
 	def ownedOperation: Seq[UMLOperation[Uml]]
 
 	/**
-	 * Receptions that objects providing this Interface are willing to accept.
-	 *
-	 * <!-- Start of user code doc for ownedReception -->
-	 * <!-- End of user code doc for ownedReception -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLReception.ownedReception_interface
-	 */
-	def ownedReception: Set[UMLReception[Uml]]
-
-	/**
-	 * References a ProtocolStateMachine specifying the legal sequences of the invocation of the BehavioralFeatures described in the Interface.
-	 *
-	 * <!-- Start of user code doc for protocol -->
-	 * <!-- End of user code doc for protocol -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.protocol_interface
-	 */
-	def protocol: Option[UMLProtocolStateMachine[Uml]]
-
-	/**
 	 * References all the Interfaces redefined by this Interface.
 	 *
 	 * <!-- Start of user code doc for redefinedInterface -->

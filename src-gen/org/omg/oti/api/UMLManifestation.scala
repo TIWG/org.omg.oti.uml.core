@@ -68,15 +68,6 @@ trait UMLManifestation[Uml <: UML]
 	def utilizedElement: Option[UMLPackageableElement[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for manifestation_artifact -->
-	 * <!-- End of user code doc for manifestation_artifact -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLArtifact.manifestation
-	 */
-	def manifestation_artifact: Option[UMLArtifact[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

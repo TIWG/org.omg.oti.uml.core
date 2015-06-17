@@ -57,17 +57,6 @@ trait UMLCombinedFragment[Uml <: UML]
 	import ops._
 
 	/**
-	 * Specifies the gates that form the interface between this CombinedFragment and its surroundings
-	 *
-	 * <!-- Start of user code doc for cfragmentGate -->
-	 * <!-- End of user code doc for cfragmentGate -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLGate.cfragmentGate_combinedFragment
-	 */
-	def cfragmentGate: Set[UMLGate[Uml]]
-
-	/**
 	 * Specifies the operation which defines the semantics of this combination of InteractionFragments.
 	 *
 	 * <!-- Start of user code doc for interactionOperator -->

@@ -57,17 +57,6 @@ trait UMLReduceAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that provides the collection to be reduced.
-	 *
-	 * <!-- Start of user code doc for collection -->
-	 * <!-- End of user code doc for collection -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.collection_reduceAction
-	 */
-	def collection: Option[UMLInputPin[Uml]]
-
-	/**
 	 * Indicates whether the order of the input collection should determine the order in which the reducer Behavior is applied to its elements.
 	 *
 	 * <!-- Start of user code doc for isOrdered -->
@@ -87,17 +76,6 @@ trait UMLReduceAction[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLBehavior.reducer_reduceAction
 	 */
 	def reducer: Option[UMLBehavior[Uml]]
-
-	/**
-	 * The output pin on which the result value is placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_reduceAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

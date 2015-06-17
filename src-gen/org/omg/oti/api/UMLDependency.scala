@@ -58,37 +58,6 @@ trait UMLDependency[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Element(s) dependent on the supplier Element(s). In some cases (such as a trace Abstraction) the assignment of direction (that is, the designation of the client Element) is at the discretion of the modeler and is a stipulation.
-	 *
-	 * <!-- Start of user code doc for client -->
-	 * <!-- End of user code doc for client -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLNamedElement.clientDependency
-	 */
-	def client: Set[UMLNamedElement[Uml]]
-
-	/**
-	 * The Element(s) on which the client Element(s) depend in some respect. The modeler may stipulate a sense of Dependency direction suitable for their domain.
-	 *
-	 * <!-- Start of user code doc for supplier -->
-	 * <!-- End of user code doc for supplier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLNamedElement.supplier_supplierDependency
-	 */
-	def supplier: Set[UMLNamedElement[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for roleBinding_collaborationUse -->
-	 * <!-- End of user code doc for roleBinding_collaborationUse -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLCollaborationUse.roleBinding
-	 */
-	def roleBinding_collaborationUse: Option[UMLCollaborationUse[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

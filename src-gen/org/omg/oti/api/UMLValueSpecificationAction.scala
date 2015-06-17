@@ -57,17 +57,6 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The OutputPin on which the result value is placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_valueSpecificationAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
-
-	/**
 	 * The ValueSpecification to be evaluated.
 	 *
 	 * <!-- Start of user code doc for value -->

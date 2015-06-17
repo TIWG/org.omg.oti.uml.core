@@ -59,17 +59,6 @@ trait UMLProperty[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Class that owns this Property, if any.
-	 *
-	 * <!-- Start of user code doc for _class -->
-	 * <!-- End of user code doc for _class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClass.ownedAttribute
-	 */
-	def _class: Option[UMLClass[Uml]]
-
-	/**
 	 * Specifies the kind of aggregation that applies to the Property.
 	 *
 	 * <!-- Start of user code doc for aggregation -->
@@ -78,39 +67,6 @@ trait UMLProperty[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def aggregation: UMLAggregationKind.Value
-
-	/**
-	 * The Association of which this Property is a member, if any.
-	 *
-	 * <!-- Start of user code doc for association -->
-	 * <!-- End of user code doc for association -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAssociation.memberEnd
-	 */
-	def association: Option[UMLAssociation[Uml]]
-
-	/**
-	 * Designates the optional association end that owns a qualifier attribute.
-	 *
-	 * <!-- Start of user code doc for associationEnd -->
-	 * <!-- End of user code doc for associationEnd -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProperty.qualifier
-	 */
-	def associationEnd: Option[UMLProperty[Uml]]
-
-	/**
-	 * The DataType that owns this Property, if any.
-	 *
-	 * <!-- Start of user code doc for datatype -->
-	 * <!-- End of user code doc for datatype -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDataType.ownedAttribute
-	 */
-	def datatype: Option[UMLDataType[Uml]]
 
 	/**
 	 * A ValueSpecification that is evaluated to give a default value for the Property when an instance of the owning Classifier is instantiated.
@@ -122,28 +78,6 @@ trait UMLProperty[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLValueSpecification.defaultValue_owningProperty
 	 */
 	def defaultValue: Option[UMLValueSpecification[Uml]]
-
-	/**
-	 * The Interface that owns this Property, if any.
-	 *
-	 * <!-- Start of user code doc for interface -->
-	 * <!-- End of user code doc for interface -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInterface.ownedAttribute
-	 */
-	def interface: Option[UMLInterface[Uml]]
-
-	/**
-	 * If isComposite is true, the object containing the attribute is a container for the object or value contained in the attribute. This is a derived value, indicating whether the aggregation of the Property is composite or not.
-	 *
-	 * <!-- Start of user code doc for isComposite -->
-	 * <!-- End of user code doc for isComposite -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (aggregation = AggregationKind::composite)
-	 */
-	def isComposite: Boolean
 
 	/**
 	 * Specifies whether the Property is derived, i.e., whether its value or values can be computed from other information.
@@ -176,34 +110,6 @@ trait UMLProperty[Uml <: UML]
 	def isID: Boolean
 
 	/**
-	 * In the case where the Property is one end of a binary association this gives the other end.
-	 *
-	 * <!-- Start of user code doc for opposite -->
-	 * <!-- End of user code doc for opposite -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProperty.opposite_property
-	 * @body result = (if association <> null and association.memberEnd->size() = 2
-	 * then
-	 *     association.memberEnd->any(e | e <> self)
-	 * else
-	 *     null
-	 * endif)
-	 */
-	def opposite: Option[UMLProperty[Uml]]
-
-	/**
-	 * The owning association of this property, if any.
-	 *
-	 * <!-- Start of user code doc for owningAssociation -->
-	 * <!-- End of user code doc for owningAssociation -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAssociation.ownedEnd
-	 */
-	def owningAssociation: Option[UMLAssociation[Uml]]
-
-	/**
 	 * An optional list of ordered qualifier attributes for the end.
 	 *
 	 * <!-- Start of user code doc for qualifier -->
@@ -213,17 +119,6 @@ trait UMLProperty[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLProperty.associationEnd
 	 */
 	def qualifier: Seq[UMLProperty[Uml]]
-
-	/**
-	 * The properties that are redefined by this property, if any.
-	 *
-	 * <!-- Start of user code doc for redefinedProperty -->
-	 * <!-- End of user code doc for redefinedProperty -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProperty.redefinedProperty_property
-	 */
-	def redefinedProperty: Set[UMLProperty[Uml]]
 
 	/**
 	 * The properties of which this Property is constrained to be a subset, if any.
@@ -291,33 +186,6 @@ trait UMLProperty[Uml <: UML]
 	def opposite_property: Option[UMLProperty[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for ownedAttribute_artifact -->
-	 * <!-- End of user code doc for ownedAttribute_artifact -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLArtifact.ownedAttribute
-	 */
-	def ownedAttribute_artifact: Option[UMLArtifact[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedAttribute_owningSignal -->
-	 * <!-- End of user code doc for ownedAttribute_owningSignal -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSignal.ownedAttribute
-	 */
-	def ownedAttribute_owningSignal: Option[UMLSignal[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedAttribute_structuredClassifier -->
-	 * <!-- End of user code doc for ownedAttribute_structuredClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredClassifier.ownedAttribute
-	 */
-	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for partWithPort_connectorEnd -->
 	 * <!-- End of user code doc for partWithPort_connectorEnd -->
 	 *
@@ -352,15 +220,6 @@ trait UMLProperty[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction.qualifier
 	 */
 	def qualifier_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedProperty_property -->
-	 * <!-- End of user code doc for redefinedProperty_property -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProperty.redefinedProperty
-	 */
-	def redefinedProperty_property: Set[UMLProperty[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for returnValueRecipient_interactionUse -->

@@ -68,29 +68,6 @@ trait UMLStructuredClassifier[Uml <: UML]
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
 	/**
-	 * The connectors owned by the StructuredClassifier.
-	 *
-	 * <!-- Start of user code doc for ownedConnector -->
-	 * <!-- End of user code doc for ownedConnector -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConnector.ownedConnector_structuredClassifier
-	 */
-	def ownedConnector: Set[UMLConnector[Uml]]
-
-	/**
-	 * The Properties specifying instances that the StructuredClassifier owns by composition. This collection is derived, selecting those owned Properties where isComposite is true.
-	 *
-	 * <!-- Start of user code doc for part -->
-	 * <!-- End of user code doc for part -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProperty.part_structuredClassifier
-	 * @body result = (ownedAttribute->select(isComposite))
-	 */
-	def part: Set[UMLProperty[Uml]]
-
-	/**
 	 * The roles that instances may play in this StructuredClassifier.
 	 *
 	 * <!-- Start of user code doc for role -->

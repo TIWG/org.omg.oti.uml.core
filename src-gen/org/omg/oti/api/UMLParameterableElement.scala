@@ -97,24 +97,6 @@ trait UMLParameterableElement[Uml <: UML]
 	def default_templateParameter: Set[UMLTemplateParameter[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for ownedActual_owningTemplateParameterSubstitution -->
-	 * <!-- End of user code doc for ownedActual_owningTemplateParameterSubstitution -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.ownedActual
-	 */
-	def ownedActual_owningTemplateParameterSubstitution: Option[UMLTemplateParameterSubstitution[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedDefault_templateParameter -->
-	 * <!-- End of user code doc for ownedDefault_templateParameter -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTemplateParameter.ownedDefault
-	 */
-	def ownedDefault_templateParameter: Option[UMLTemplateParameter[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

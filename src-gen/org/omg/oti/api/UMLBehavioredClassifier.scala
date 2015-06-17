@@ -57,48 +57,6 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	import ops._
 
 	/**
-	 * A Behavior that specifies the behavior of the BehavioredClassifier itself.
-	 *
-	 * <!-- Start of user code doc for classifierBehavior -->
-	 * <!-- End of user code doc for classifierBehavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.classifierBehavior_behavioredClassifier
-	 */
-	def classifierBehavior: Option[UMLBehavior[Uml]]
-
-	/**
-	 * The set of InterfaceRealizations owned by the BehavioredClassifier. Interface realizations reference the Interfaces of which the BehavioredClassifier is an implementation.
-	 *
-	 * <!-- Start of user code doc for interfaceRealization -->
-	 * <!-- End of user code doc for interfaceRealization -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterfaceRealization.implementingClassifier
-	 */
-	def interfaceRealization: Set[UMLInterfaceRealization[Uml]]
-
-	/**
-	 * Behaviors owned by a BehavioredClassifier.
-	 *
-	 * <!-- Start of user code doc for ownedBehavior -->
-	 * <!-- End of user code doc for ownedBehavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.ownedBehavior_behavioredClassifier
-	 */
-	def ownedBehavior: Set[UMLBehavior[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for context_behavior -->
-	 * <!-- End of user code doc for context_behavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.context
-	 */
-	def context_behavior: Set[UMLBehavior[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

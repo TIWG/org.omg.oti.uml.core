@@ -79,15 +79,6 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def before: Option[UMLOccurrenceSpecification[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for generalOrdering_interactionFragment -->
-	 * <!-- End of user code doc for generalOrdering_interactionFragment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionFragment.generalOrdering
-	 */
-	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

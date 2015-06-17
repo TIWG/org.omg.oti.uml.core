@@ -79,15 +79,6 @@ trait UMLQualifierValue[Uml <: UML]
 	def value: Option[UMLInputPin[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for qualifier_linkEndData -->
-	 * <!-- End of user code doc for qualifier_linkEndData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLLinkEndData.qualifier
-	 */
-	def qualifier_linkEndData: Option[UMLLinkEndData[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

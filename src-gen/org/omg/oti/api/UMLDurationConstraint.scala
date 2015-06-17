@@ -67,17 +67,6 @@ trait UMLDurationConstraint[Uml <: UML]
 	def firstEvent: Set[Boolean]
 
 	/**
-	 * The DurationInterval constraining the duration.
-	 *
-	 * <!-- Start of user code doc for specification -->
-	 * <!-- End of user code doc for specification -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLDurationInterval.specification_durationConstraint
-	 */
-	override def specification: Option[UMLDurationInterval[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

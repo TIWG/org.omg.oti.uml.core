@@ -79,17 +79,6 @@ trait UMLLifeline[Uml <: UML]
 	def decomposedAs: Option[UMLPartDecomposition[Uml]]
 
 	/**
-	 * References the Interaction enclosing this Lifeline.
-	 *
-	 * <!-- Start of user code doc for interaction -->
-	 * <!-- End of user code doc for interaction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.lifeline
-	 */
-	def interaction: Option[UMLInteraction[Uml]]
-
-	/**
 	 * References the ConnectableElement within the classifier that contains the enclosing interaction.
 	 *
 	 * <!-- Start of user code doc for represents -->
@@ -119,15 +108,6 @@ trait UMLLifeline[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLOccurrenceSpecification.covered
 	 */
 	def covered_events: Seq[UMLOccurrenceSpecification[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for covered_stateInvariant -->
-	 * <!-- End of user code doc for covered_stateInvariant -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStateInvariant.covered
-	 */
-	def covered_stateInvariant: Set[UMLStateInvariant[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

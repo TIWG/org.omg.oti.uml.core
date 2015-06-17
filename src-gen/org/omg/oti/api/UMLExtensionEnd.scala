@@ -68,26 +68,6 @@ trait UMLExtensionEnd[Uml <: UML]
 	override def _type: Option[UMLStereotype[Uml]]
 
 	/**
-	 * This redefinition changes the default multiplicity of association ends, since model elements are usually extended by 0 or 1 instance of the extension stereotype.
-	 *
-	 * <!-- Start of user code doc for lower -->
-	 * <!-- End of user code doc for lower -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
-	 */
-	override def lower: Integer
-
-	/**
-	 * <!-- Start of user code doc for ownedEnd_extension -->
-	 * <!-- End of user code doc for ownedEnd_extension -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLExtension.ownedEnd
-	 */
-	def ownedEnd_extension: Option[UMLExtension[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

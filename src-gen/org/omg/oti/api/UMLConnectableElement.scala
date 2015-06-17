@@ -58,18 +58,6 @@ trait UMLConnectableElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * A set of ConnectorEnds that attach to this ConnectableElement.
-	 *
-	 * <!-- Start of user code doc for end -->
-	 * <!-- End of user code doc for end -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConnectorEnd.role
-	 * @body result = (ConnectorEnd.allInstances()->select(role = self))
-	 */
-	def end: Set[UMLConnectorEnd[Uml]]
-
-	/**
 	 * The ConnectableElementTemplateParameter for this ConnectableElement parameter.
 	 *
 	 * <!-- Start of user code doc for templateParameter -->
@@ -81,15 +69,6 @@ trait UMLConnectableElement[Uml <: UML]
 	override def templateParameter: Option[UMLConnectableElementTemplateParameter[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for collaborationRole_collaboration -->
-	 * <!-- End of user code doc for collaborationRole_collaboration -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLCollaboration.collaborationRole
-	 */
-	def collaborationRole_collaboration: Set[UMLCollaboration[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for represents_lifeline -->
 	 * <!-- End of user code doc for represents_lifeline -->
 	 *
@@ -97,15 +76,6 @@ trait UMLConnectableElement[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLLifeline.represents
 	 */
 	def represents_lifeline: Set[UMLLifeline[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for role_structuredClassifier -->
-	 * <!-- End of user code doc for role_structuredClassifier -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStructuredClassifier.role
-	 */
-	def role_structuredClassifier: Set[UMLStructuredClassifier[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

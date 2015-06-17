@@ -57,17 +57,6 @@ trait UMLSendObjectAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The request object, which is transmitted to the target object. The object may be copied in transmission, so identity might not be preserved.
-	 *
-	 * <!-- Start of user code doc for request -->
-	 * <!-- End of user code doc for request -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.request_sendObjectAction
-	 */
-	def request: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The target object to which the object is sent.
 	 *
 	 * <!-- Start of user code doc for target -->

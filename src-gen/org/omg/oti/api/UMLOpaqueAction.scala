@@ -67,17 +67,6 @@ trait UMLOpaqueAction[Uml <: UML]
 	def body: Seq[String]
 
 	/**
-	 * The InputPins providing inputs to the OpaqueAction.
-	 *
-	 * <!-- Start of user code doc for inputValue -->
-	 * <!-- End of user code doc for inputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInputPin.inputValue_opaqueAction
-	 */
-	def inputValue: Set[UMLInputPin[Uml]]
-
-	/**
 	 * If provided, a specification of the language used for each of the body Strings.
 	 *
 	 * <!-- Start of user code doc for language -->
@@ -86,17 +75,6 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
 	def language: Seq[String]
-
-	/**
-	 * The OutputPins on which the OpaqueAction provides outputs.
-	 *
-	 * <!-- Start of user code doc for outputValue -->
-	 * <!-- End of user code doc for outputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOutputPin.outputValue_opaqueAction
-	 */
-	def outputValue: Set[UMLOutputPin[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

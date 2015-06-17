@@ -57,28 +57,6 @@ trait UMLLinkAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The LinkEndData identifying the values on the ends of the links acting on by this LinkAction.
-	 *
-	 * <!-- Start of user code doc for endData -->
-	 * <!-- End of user code doc for endData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.api.UMLLinkEndData.endData_linkAction
-	 */
-	def endData: Iterable[UMLLinkEndData[Uml]]
-
-	/**
-	 * InputPins used by the LinkEndData of the LinkAction.
-	 *
-	 * <!-- Start of user code doc for inputValue -->
-	 * <!-- End of user code doc for inputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLInputPin.inputValue_linkAction
-	 */
-	def inputValue: Set[UMLInputPin[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

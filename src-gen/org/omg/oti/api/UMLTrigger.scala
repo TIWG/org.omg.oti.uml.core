@@ -79,15 +79,6 @@ trait UMLTrigger[Uml <: UML]
 	def port: Set[UMLPort[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for deferrableTrigger_state -->
-	 * <!-- End of user code doc for deferrableTrigger_state -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLState.deferrableTrigger
-	 */
-	def deferrableTrigger_state: Option[UMLState[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for replyToCall_replyAction -->
 	 * <!-- End of user code doc for replyToCall_replyAction -->
 	 *
@@ -95,24 +86,6 @@ trait UMLTrigger[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLReplyAction.replyToCall
 	 */
 	def replyToCall_replyAction: Option[UMLReplyAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for trigger_acceptEventAction -->
-	 * <!-- End of user code doc for trigger_acceptEventAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAcceptEventAction.trigger
-	 */
-	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for trigger_transition -->
-	 * <!-- End of user code doc for trigger_transition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTransition.trigger
-	 */
-	def trigger_transition: Option[UMLTransition[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

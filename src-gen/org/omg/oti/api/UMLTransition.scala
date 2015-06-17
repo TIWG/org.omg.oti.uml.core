@@ -58,28 +58,6 @@ trait UMLTransition[Uml <: UML]
 	import ops._
 
 	/**
-	 * Designates the Region that owns this Transition.
-	 *
-	 * <!-- Start of user code doc for container -->
-	 * <!-- End of user code doc for container -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLRegion.transition
-	 */
-	def container: Option[UMLRegion[Uml]]
-
-	/**
-	 * Specifies an optional behavior to be performed when the Transition fires.
-	 *
-	 * <!-- Start of user code doc for effect -->
-	 * <!-- End of user code doc for effect -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.effect_transition
-	 */
-	def effect: Option[UMLBehavior[Uml]]
-
-	/**
 	 * A guard is a Constraint that provides a fine-grained control over the firing of the Transition. The guard is evaluated when an Event occurrence is dispatched by the StateMachine. If the guard is true at that time, the Transition may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
 	 *
 	 * <!-- Start of user code doc for guard -->
@@ -99,34 +77,6 @@ trait UMLTransition[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def kind: UMLTransitionKind.Value
-
-	/**
-	 * The Transition that is redefined by this Transition.
-	 *
-	 * <!-- Start of user code doc for redefinedTransition -->
-	 * <!-- End of user code doc for redefinedTransition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition_transition
-	 */
-	def redefinedTransition: Option[UMLTransition[Uml]]
-
-	/**
-	 * References the Classifier in which context this element may be redefined.
-	 *
-	 * <!-- Start of user code doc for redefinitionContext -->
-	 * <!-- End of user code doc for redefinitionContext -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.redefinitionContext_transition
-	 * @body result = (let sm : StateMachine = containingStateMachine() in
-	 * if sm._'context' = null or sm.general->notEmpty() then
-	 *   sm
-	 * else
-	 *   sm._'context'
-	 * endif)
-	 */
-	override def redefinitionContext: Iterable[UMLClassifier[Uml]]
 
 	/**
 	 * Designates the originating Vertex (State or Pseudostate) of the Transition.
@@ -149,26 +99,6 @@ trait UMLTransition[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLVertex.incoming
 	 */
 	def target: Option[UMLVertex[Uml]]
-
-	/**
-	 * Specifies the Triggers that may fire the transition.
-	 *
-	 * <!-- Start of user code doc for trigger -->
-	 * <!-- End of user code doc for trigger -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTrigger.trigger_transition
-	 */
-	def trigger: Set[UMLTrigger[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedTransition_transition -->
-	 * <!-- End of user code doc for redefinedTransition_transition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTransition.redefinedTransition
-	 */
-	def redefinedTransition_transition: Set[UMLTransition[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

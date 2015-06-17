@@ -70,17 +70,6 @@ trait UMLInstanceSpecification[Uml <: UML]
 	def classifier: Iterable[UMLClassifier[Uml]]
 
 	/**
-	 * A Slot giving the value or values of a StructuralFeature of the instance. An InstanceSpecification can have one Slot per StructuralFeature of its Classifiers, including inherited features. It is not necessary to model a Slot for every StructuralFeature, in which case the InstanceSpecification is a partial description.
-	 *
-	 * <!-- Start of user code doc for slot -->
-	 * <!-- End of user code doc for slot -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLSlot.owningInstance
-	 */
-	def slot: Set[UMLSlot[Uml]]
-
-	/**
 	 * A specification of how to compute, derive, or construct the instance.
 	 *
 	 * <!-- Start of user code doc for specification -->

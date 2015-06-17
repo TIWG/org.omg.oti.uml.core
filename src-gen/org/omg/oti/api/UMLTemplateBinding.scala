@@ -57,39 +57,6 @@ trait UMLTemplateBinding[Uml <: UML]
 	import ops._
 
 	/**
-	 * The TemplateableElement that is bound by this TemplateBinding.
-	 *
-	 * <!-- Start of user code doc for boundElement -->
-	 * <!-- End of user code doc for boundElement -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTemplateableElement.templateBinding
-	 */
-	def boundElement: Option[UMLTemplateableElement[Uml]]
-
-	/**
-	 * The TemplateParameterSubstitutions owned by this TemplateBinding.
-	 *
-	 * <!-- Start of user code doc for parameterSubstitution -->
-	 * <!-- End of user code doc for parameterSubstitution -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.templateBinding
-	 */
-	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
-
-	/**
-	 * The TemplateSignature for the template that is the target of this TemplateBinding.
-	 *
-	 * <!-- Start of user code doc for signature -->
-	 * <!-- End of user code doc for signature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTemplateSignature.signature_templateBinding
-	 */
-	def signature: Option[UMLTemplateSignature[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

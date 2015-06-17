@@ -57,17 +57,6 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that holds the object whose classification is to be tested.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_readIsClassifiedObjectAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The Classifier against which the classification of the input object is tested.
 	 *
 	 * <!-- Start of user code doc for classifier -->
@@ -87,17 +76,6 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDirect: Boolean
-
-	/**
-	 * The OutputPin that holds the Boolean result of the test.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_readIsClassifiedObjectAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

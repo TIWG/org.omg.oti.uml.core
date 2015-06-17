@@ -57,17 +57,6 @@ trait UMLActivityPartition[Uml <: UML]
 	import ops._
 
 	/**
-	 * ActivityEdges immediately contained in the ActivityPartition.
-	 *
-	 * <!-- Start of user code doc for edge -->
-	 * <!-- End of user code doc for edge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.inPartition
-	 */
-	def edge: Set[UMLActivityEdge[Uml]]
-
-	/**
 	 * Indicates whether the ActivityPartition groups other ActivityPartitions along a dimension.
 	 *
 	 * <!-- Start of user code doc for isDimension -->
@@ -88,17 +77,6 @@ trait UMLActivityPartition[Uml <: UML]
 	def isExternal: Boolean
 
 	/**
-	 * ActivityNodes immediately contained in the ActivityPartition.
-	 *
-	 * <!-- Start of user code doc for node -->
-	 * <!-- End of user code doc for node -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.inPartition
-	 */
-	def node: Set[UMLActivityNode[Uml]]
-
-	/**
 	 * An Element represented by the functionality modeled within the ActivityPartition.
 	 *
 	 * <!-- Start of user code doc for represents -->
@@ -108,28 +86,6 @@ trait UMLActivityPartition[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLElement.represents_activityPartition
 	 */
 	def represents: Option[UMLElement[Uml]]
-
-	/**
-	 * Other ActivityPartitions immediately contained in this ActivityPartition (as its subgroups).
-	 *
-	 * <!-- Start of user code doc for subpartition -->
-	 * <!-- End of user code doc for subpartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.superPartition
-	 */
-	def subpartition: Set[UMLActivityPartition[Uml]]
-
-	/**
-	 * Other ActivityPartitions immediately containing this ActivityPartition (as its superGroups).
-	 *
-	 * <!-- Start of user code doc for superPartition -->
-	 * <!-- End of user code doc for superPartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.subpartition
-	 */
-	def superPartition: Option[UMLActivityPartition[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for partition_activity -->

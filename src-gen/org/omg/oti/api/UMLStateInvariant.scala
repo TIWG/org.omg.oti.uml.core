@@ -68,17 +68,6 @@ trait UMLStateInvariant[Uml <: UML]
 	override def covered: Iterable[UMLLifeline[Uml]]
 
 	/**
-	 * A Constraint that should hold at runtime for this StateInvariant.
-	 *
-	 * <!-- Start of user code doc for invariant -->
-	 * <!-- End of user code doc for invariant -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.invariant_stateInvariant
-	 */
-	def invariant: Option[UMLConstraint[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

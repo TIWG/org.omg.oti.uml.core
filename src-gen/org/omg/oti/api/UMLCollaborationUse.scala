@@ -68,35 +68,6 @@ trait UMLCollaborationUse[Uml <: UML]
 	def _type: Option[UMLCollaboration[Uml]]
 
 	/**
-	 * A mapping between features of the Collaboration and features of the owning Classifier. This mapping indicates which ConnectableElement of the Classifier plays which role(s) in the Collaboration. A ConnectableElement may be bound to multiple roles in the same CollaborationUse (that is, it may play multiple roles).
-	 *
-	 * <!-- Start of user code doc for roleBinding -->
-	 * <!-- End of user code doc for roleBinding -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDependency.roleBinding_collaborationUse
-	 */
-	def roleBinding: Set[UMLDependency[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for collaborationUse_classifier -->
-	 * <!-- End of user code doc for collaborationUse_classifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.collaborationUse
-	 */
-	def collaborationUse_classifier: Option[UMLClassifier[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for representation_classifier -->
-	 * <!-- End of user code doc for representation_classifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.representation
-	 */
-	def representation_classifier: Option[UMLClassifier[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

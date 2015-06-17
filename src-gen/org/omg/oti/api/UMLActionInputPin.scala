@@ -57,17 +57,6 @@ trait UMLActionInputPin[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Action used to provide the values of the ActionInputPin.
-	 *
-	 * <!-- Start of user code doc for fromAction -->
-	 * <!-- End of user code doc for fromAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLAction.fromAction_actionInputPin
-	 */
-	def fromAction: Option[UMLAction[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

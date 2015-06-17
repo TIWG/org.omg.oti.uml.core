@@ -58,18 +58,6 @@ trait UMLAssociation[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Classifiers that are used as types of the ends of the Association.
-	 *
-	 * <!-- Start of user code doc for endType -->
-	 * <!-- End of user code doc for endType -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLType.endType_association
-	 * @body result = (memberEnd->collect(type)->asSet())
-	 */
-	def endType: Set[UMLType[Uml]]
-
-	/**
 	 * Specifies whether the Association is derived from other model elements such as other Associations.
 	 *
 	 * <!-- Start of user code doc for isDerived -->

@@ -79,26 +79,6 @@ trait UMLTemplateSignature[Uml <: UML]
 	def parameter: Seq[UMLTemplateParameter[Uml]]
 
 	/**
-	 * The TemplateableElement that owns this TemplateSignature.
-	 *
-	 * <!-- Start of user code doc for template -->
-	 * <!-- End of user code doc for template -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTemplateableElement.ownedTemplateSignature
-	 */
-	def template: Option[UMLTemplateableElement[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for signature_templateBinding -->
-	 * <!-- End of user code doc for signature_templateBinding -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTemplateBinding.signature
-	 */
-	def signature_templateBinding: Set[UMLTemplateBinding[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

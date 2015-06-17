@@ -57,17 +57,6 @@ trait UMLExecutableNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * A set of ExceptionHandlers that are examined if an exception propagates out of the ExceptionNode.
-	 *
-	 * <!-- Start of user code doc for handler -->
-	 * <!-- End of user code doc for handler -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExceptionHandler.protectedNode
-	 */
-	def handler: Set[UMLExceptionHandler[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for bodyPart_loopNode -->
 	 * <!-- End of user code doc for bodyPart_loopNode -->
 	 *
@@ -84,15 +73,6 @@ trait UMLExecutableNode[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLClause.body
 	 */
 	def body_clause: Option[UMLClause[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for executableNode_sequenceNode -->
-	 * <!-- End of user code doc for executableNode_sequenceNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSequenceNode.executableNode
-	 */
-	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for handlerBody_exceptionHandler -->

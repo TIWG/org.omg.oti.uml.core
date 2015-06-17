@@ -57,23 +57,6 @@ trait UMLAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The context Classifier of the Behavior that contains this Action, or the Behavior itself if it has no context.
-	 *
-	 * <!-- Start of user code doc for context -->
-	 * <!-- End of user code doc for context -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.context_action
-	 * @body result = (let behavior: Behavior = self.containingBehavior() in
-	 * if behavior=null then null
-	 * else if behavior._'context' = null then behavior
-	 * else behavior._'context'
-	 * endif
-	 * endif)
-	 */
-	def context: Option[UMLClassifier[Uml]]
-
-	/**
 	 * The ordered set of InputPins representing the inputs to the Action.
 	 *
 	 * <!-- Start of user code doc for input -->
@@ -135,24 +118,6 @@ trait UMLAction[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLActionExecutionSpecification.action
 	 */
 	def action_actionExecutionSpecification: Set[UMLActionExecutionSpecification[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for action_interaction -->
-	 * <!-- End of user code doc for action_interaction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.action
-	 */
-	def action_interaction: Option[UMLInteraction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for fromAction_actionInputPin -->
-	 * <!-- End of user code doc for fromAction_actionInputPin -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActionInputPin.fromAction
-	 */
-	def fromAction_actionInputPin: Option[UMLActionInputPin[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

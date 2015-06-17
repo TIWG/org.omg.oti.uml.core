@@ -57,17 +57,6 @@ trait UMLConditionalNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * The set of Clauses composing the ConditionalNode.
-	 *
-	 * <!-- Start of user code doc for clause -->
-	 * <!-- End of user code doc for clause -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLClause.clause_conditionalNode
-	 */
-	def clause: Set[UMLClause[Uml]]
-
-	/**
 	 * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.
 	 *
 	 * <!-- Start of user code doc for isAssured -->

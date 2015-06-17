@@ -77,17 +77,6 @@ trait UMLMultiplicityElement[Uml <: UML]
 	def isUnique: Boolean
 
 	/**
-	 * The lower bound of the multiplicity interval.
-	 *
-	 * <!-- Start of user code doc for lower -->
-	 * <!-- End of user code doc for lower -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
-	 */
-	def lower: Integer
-
-	/**
 	 * The specification of the lower bound for this multiplicity.
 	 *
 	 * <!-- Start of user code doc for lowerValue -->
@@ -97,17 +86,6 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLValueSpecification.lowerValue_owningLower
 	 */
 	def lowerValue: Option[UMLValueSpecification[Uml]]
-
-	/**
-	 * The upper bound of the multiplicity interval.
-	 *
-	 * <!-- Start of user code doc for upper -->
-	 * <!-- End of user code doc for upper -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
-	 */
-	def upper: Integer
 
 	/**
 	 * The specification of the upper bound for this multiplicity.

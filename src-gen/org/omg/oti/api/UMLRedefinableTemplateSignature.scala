@@ -58,49 +58,6 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Classifier that owns this RedefinableTemplateSignature.
-	 *
-	 * <!-- Start of user code doc for classifier -->
-	 * <!-- End of user code doc for classifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.ownedTemplateSignature
-	 */
-	def classifier: Option[UMLClassifier[Uml]]
-
-	/**
-	 * The signatures extended by this RedefinableTemplateSignature.
-	 *
-	 * <!-- Start of user code doc for extendedSignature -->
-	 * <!-- End of user code doc for extendedSignature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature_redefinableTemplateSignature
-	 */
-	def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]]
-
-	/**
-	 * The formal template parameters of the extended signatures.
-	 *
-	 * <!-- Start of user code doc for inheritedParameter -->
-	 * <!-- End of user code doc for inheritedParameter -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTemplateParameter.inheritedParameter_redefinableTemplateSignature
-	 * @body result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
-	 */
-	def inheritedParameter: Set[UMLTemplateParameter[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for extendedSignature_redefinableTemplateSignature -->
-	 * <!-- End of user code doc for extendedSignature_redefinableTemplateSignature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLRedefinableTemplateSignature.extendedSignature
-	 */
-	def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

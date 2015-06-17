@@ -79,33 +79,6 @@ trait UMLTimeExpression[Uml <: UML]
 	def observation: Set[UMLObservation[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for max_timeInterval -->
-	 * <!-- End of user code doc for max_timeInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTimeInterval.max
-	 */
-	def max_timeInterval: Set[UMLTimeInterval[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for min_timeInterval -->
-	 * <!-- End of user code doc for min_timeInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTimeInterval.min
-	 */
-	def min_timeInterval: Set[UMLTimeInterval[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for when_timeEvent -->
-	 * <!-- End of user code doc for when_timeEvent -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTimeEvent.when
-	 */
-	def when_timeEvent: Option[UMLTimeEvent[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

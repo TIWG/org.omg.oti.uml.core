@@ -57,17 +57,6 @@ trait UMLClearAssociationAction[Uml <: UML]
 	import ops._
 
 	/**
-	 * The InputPin that gives the object whose participation in the Association is to be cleared.
-	 *
-	 * <!-- Start of user code doc for _object -->
-	 * <!-- End of user code doc for _object -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.object_clearAssociationAction
-	 */
-	def _object: Option[UMLInputPin[Uml]]
-
-	/**
 	 * The Association to be cleared.
 	 *
 	 * <!-- Start of user code doc for association -->

@@ -79,28 +79,6 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def formal: Option[UMLTemplateParameter[Uml]]
 
 	/**
-	 * The ParameterableElement that is owned by this TemplateParameterSubstitution as its actual parameter.
-	 *
-	 * <!-- Start of user code doc for ownedActual -->
-	 * <!-- End of user code doc for ownedActual -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLParameterableElement.ownedActual_owningTemplateParameterSubstitution
-	 */
-	def ownedActual: Option[UMLParameterableElement[Uml]]
-
-	/**
-	 * The TemplateBinding that owns this TemplateParameterSubstitution.
-	 *
-	 * <!-- Start of user code doc for templateBinding -->
-	 * <!-- End of user code doc for templateBinding -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLTemplateBinding.parameterSubstitution
-	 */
-	def templateBinding: Option[UMLTemplateBinding[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

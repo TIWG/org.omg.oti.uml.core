@@ -79,39 +79,6 @@ trait UMLActivityGroup[Uml <: UML]
 	def containedNode: Set[UMLActivityNode[Uml]]
 
 	/**
-	 * The Activity containing the ActivityGroup, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for inActivity -->
-	 * <!-- End of user code doc for inActivity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.group
-	 */
-	def inActivity: Option[UMLActivity[Uml]]
-
-	/**
-	 * Other ActivityGroups immediately contained in this ActivityGroup.
-	 *
-	 * <!-- Start of user code doc for subgroup -->
-	 * <!-- End of user code doc for subgroup -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityGroup.superGroup
-	 */
-	def subgroup: Set[UMLActivityGroup[Uml]]
-
-	/**
-	 * The ActivityGroup immediately containing this ActivityGroup, if it is directly owned by another ActivityGroup.
-	 *
-	 * <!-- Start of user code doc for superGroup -->
-	 * <!-- End of user code doc for superGroup -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivityGroup.subgroup
-	 */
-	def superGroup: Option[UMLActivityGroup[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

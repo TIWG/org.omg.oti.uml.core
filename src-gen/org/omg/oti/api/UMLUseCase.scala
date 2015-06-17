@@ -57,39 +57,6 @@ trait UMLUseCase[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Extend relationships owned by this UseCase.
-	 *
-	 * <!-- Start of user code doc for extend -->
-	 * <!-- End of user code doc for extend -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtend.extension
-	 */
-	def extend: Set[UMLExtend[Uml]]
-
-	/**
-	 * The ExtensionPoints owned by this UseCase.
-	 *
-	 * <!-- Start of user code doc for extensionPoint -->
-	 * <!-- End of user code doc for extensionPoint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtensionPoint.useCase
-	 */
-	def extensionPoint: Set[UMLExtensionPoint[Uml]]
-
-	/**
-	 * The Include relationships owned by this UseCase.
-	 *
-	 * <!-- Start of user code doc for include -->
-	 * <!-- End of user code doc for include -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInclude.includingCase
-	 */
-	def include: Set[UMLInclude[Uml]]
-
-	/**
 	 * The subjects to which this UseCase applies. Each subject or its parts realize all the UseCases that apply to it.
 	 *
 	 * <!-- Start of user code doc for subject -->
@@ -99,24 +66,6 @@ trait UMLUseCase[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLClassifier.useCase
 	 */
 	def subject: Set[UMLClassifier[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for addition_include -->
-	 * <!-- End of user code doc for addition_include -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInclude.addition
-	 */
-	def addition_include: Set[UMLInclude[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for extendedCase_extend -->
-	 * <!-- End of user code doc for extendedCase_extend -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtend.extendedCase
-	 */
-	def extendedCase_extend: Set[UMLExtend[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for ownedUseCase_classifier -->

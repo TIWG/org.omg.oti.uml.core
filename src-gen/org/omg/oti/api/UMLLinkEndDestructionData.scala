@@ -78,15 +78,6 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	def isDestroyDuplicates: Boolean
 
 	/**
-	 * <!-- Start of user code doc for endData_destroyLinkAction -->
-	 * <!-- End of user code doc for endData_destroyLinkAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLDestroyLinkAction.endData
-	 */
-	def endData_destroyLinkAction: Option[UMLDestroyLinkAction[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

@@ -100,17 +100,6 @@ trait UMLBehavioralFeature[Uml <: UML]
 	def ownedParameter: Seq[UMLParameter[Uml]]
 
 	/**
-	 * The ParameterSets owned by this BehavioralFeature.
-	 *
-	 * <!-- Start of user code doc for ownedParameterSet -->
-	 * <!-- End of user code doc for ownedParameterSet -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLParameterSet.ownedParameterSet_behavioralFeature
-	 */
-	def ownedParameterSet: Set[UMLParameterSet[Uml]]
-
-	/**
 	 * The Types representing exceptions that may be raised during an invocation of this BehavioralFeature.
 	 *
 	 * <!-- Start of user code doc for raisedException -->

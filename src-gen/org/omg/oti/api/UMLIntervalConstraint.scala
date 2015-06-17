@@ -57,17 +57,6 @@ trait UMLIntervalConstraint[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Interval that specifies the condition of the IntervalConstraint.
-	 *
-	 * <!-- Start of user code doc for specification -->
-	 * <!-- End of user code doc for specification -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInterval.specification_intervalConstraint
-	 */
-	override def specification: Option[UMLInterval[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

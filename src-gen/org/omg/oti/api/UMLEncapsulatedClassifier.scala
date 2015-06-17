@@ -57,18 +57,6 @@ trait UMLEncapsulatedClassifier[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Ports owned by the EncapsulatedClassifier.
-	 *
-	 * <!-- Start of user code doc for ownedPort -->
-	 * <!-- End of user code doc for ownedPort -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.ownedPort_encapsulatedClassifier
-	 * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
-	 */
-	def ownedPort: Set[UMLPort[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

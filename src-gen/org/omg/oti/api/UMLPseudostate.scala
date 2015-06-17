@@ -67,28 +67,6 @@ trait UMLPseudostate[Uml <: UML]
 	def kind: UMLPseudostateKind.Value
 
 	/**
-	 * The State that owns this Pseudostate and in which it appears.
-	 *
-	 * <!-- Start of user code doc for state -->
-	 * <!-- End of user code doc for state -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLState.connectionPoint
-	 */
-	def state: Option[UMLState[Uml]]
-
-	/**
-	 * The StateMachine in which this Pseudostate is defined. This only applies to Pseudostates of the kind entryPoint or exitPoint.
-	 *
-	 * <!-- Start of user code doc for stateMachine -->
-	 * <!-- End of user code doc for stateMachine -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStateMachine.connectionPoint
-	 */
-	def stateMachine: Option[UMLStateMachine[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for entry_connectionPointReference -->
 	 * <!-- End of user code doc for entry_connectionPointReference -->
 	 *

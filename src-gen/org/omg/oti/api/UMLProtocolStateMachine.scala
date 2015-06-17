@@ -57,26 +57,6 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	import ops._
 
 	/**
-	 * Conformance between ProtocolStateMachine 
-	 *
-	 * <!-- Start of user code doc for conformance -->
-	 * <!-- End of user code doc for conformance -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProtocolConformance.specificMachine
-	 */
-	def conformance: Set[UMLProtocolConformance[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for generalMachine_protocolConformance -->
-	 * <!-- End of user code doc for generalMachine_protocolConformance -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProtocolConformance.generalMachine
-	 */
-	def generalMachine_protocolConformance: Set[UMLProtocolConformance[Uml]]
-
-	/**
 	 * Specifies the namespace in which the protocol state machine is defined.
 	 *
 	 * <!-- Start of user code doc for protocol_interface -->

@@ -57,17 +57,6 @@ trait UMLActivityEdge[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Activity containing the ActivityEdge, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.edge
-	 */
-	def activity: Option[UMLActivity[Uml]]
-
-	/**
 	 * A ValueSpecification that is evaluated to determine if a token can traverse the ActivityEdge. If an ActivityEdge has no guard, then there is no restriction on tokens traversing the edge.
 	 *
 	 * <!-- Start of user code doc for guard -->
@@ -90,28 +79,6 @@ trait UMLActivityEdge[Uml <: UML]
 	def inGroup: Set[UMLActivityGroup[Uml]]
 
 	/**
-	 * ActivityPartitions containing the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for inPartition -->
-	 * <!-- End of user code doc for inPartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.edge
-	 */
-	def inPartition: Set[UMLActivityPartition[Uml]]
-
-	/**
-	 * The StructuredActivityNode containing the ActivityEdge, if it is owned by a StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for inStructuredNode -->
-	 * <!-- End of user code doc for inStructuredNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.edge
-	 */
-	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]]
-
-	/**
 	 * The InterruptibleActivityRegion for which this ActivityEdge is an interruptingEdge.
 	 *
 	 * <!-- Start of user code doc for interrupts -->
@@ -121,17 +88,6 @@ trait UMLActivityEdge[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.interruptingEdge
 	 */
 	def interrupts: Option[UMLInterruptibleActivityRegion[Uml]]
-
-	/**
-	 * ActivityEdges from a generalization of the Activity containing this ActivityEdge that are redefined by this ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for redefinedEdge -->
-	 * <!-- End of user code doc for redefinedEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge_activityEdge
-	 */
-	def redefinedEdge: Set[UMLActivityEdge[Uml]]
 
 	/**
 	 * The ActivityNode from which tokens are taken when they traverse the ActivityEdge.
@@ -174,15 +130,6 @@ trait UMLActivityEdge[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLInformationFlow.realizingActivityEdge
 	 */
 	def realizingActivityEdge_informationFlow: Set[UMLInformationFlow[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for redefinedEdge_activityEdge -->
-	 * <!-- End of user code doc for redefinedEdge_activityEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge
-	 */
-	def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

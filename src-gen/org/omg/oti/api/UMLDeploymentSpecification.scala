@@ -57,17 +57,6 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	import ops._
 
 	/**
-	 * The deployment with which the DeploymentSpecification is associated.
-	 *
-	 * <!-- Start of user code doc for deployment -->
-	 * <!-- End of user code doc for deployment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDeployment.configuration
-	 */
-	def deployment: Option[UMLDeployment[Uml]]
-
-	/**
 	 * The location where an Artifact is deployed onto a Node. This is typically a 'directory' or 'memory address.'
 	 *
 	 * <!-- Start of user code doc for deploymentLocation -->

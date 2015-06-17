@@ -57,17 +57,6 @@ trait UMLParameterSet[Uml <: UML]
 	import ops._
 
 	/**
-	 * A constraint that should be satisfied for the owner of the Parameters in an input ParameterSet to start execution using the values provided for those Parameters, or the owner of the Parameters in an output ParameterSet to end execution providing the values for those Parameters, if all preconditions and conditions on input ParameterSets were satisfied.
-	 *
-	 * <!-- Start of user code doc for condition -->
-	 * <!-- End of user code doc for condition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLConstraint.condition_parameterSet
-	 */
-	def condition: Set[UMLConstraint[Uml]]
-
-	/**
 	 * Parameters in the ParameterSet.
 	 *
 	 * <!-- Start of user code doc for parameter -->
@@ -77,24 +66,6 @@ trait UMLParameterSet[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLParameter.parameterSet
 	 */
 	def parameter: Set[UMLParameter[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedParameterSet_behavior -->
-	 * <!-- End of user code doc for ownedParameterSet_behavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.ownedParameterSet
-	 */
-	def ownedParameterSet_behavior: Option[UMLBehavior[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for ownedParameterSet_behavioralFeature -->
-	 * <!-- End of user code doc for ownedParameterSet_behavioralFeature -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavioralFeature.ownedParameterSet
-	 */
-	def ownedParameterSet_behavioralFeature: Option[UMLBehavioralFeature[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

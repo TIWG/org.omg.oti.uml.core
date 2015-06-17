@@ -57,39 +57,6 @@ trait UMLStateMachine[Uml <: UML]
 	import ops._
 
 	/**
-	 * The connection points defined for this StateMachine. They represent the interface of the StateMachine when used as part of submachine State
-	 *
-	 * <!-- Start of user code doc for connectionPoint -->
-	 * <!-- End of user code doc for connectionPoint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPseudostate.stateMachine
-	 */
-	def connectionPoint: Set[UMLPseudostate[Uml]]
-
-	/**
-	 * The StateMachines of which this is an extension.
-	 *
-	 * <!-- Start of user code doc for extendedStateMachine -->
-	 * <!-- End of user code doc for extendedStateMachine -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStateMachine.extendedStateMachine_stateMachine
-	 */
-	def extendedStateMachine: Set[UMLStateMachine[Uml]]
-
-	/**
-	 * The Regions owned directly by the StateMachine.
-	 *
-	 * <!-- Start of user code doc for region -->
-	 * <!-- End of user code doc for region -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLRegion.stateMachine
-	 */
-	def region: Set[UMLRegion[Uml]]
-
-	/**
 	 * References the submachine(s) in case of a submachine State. Multiple machines are referenced in case of a concurrent State.
 	 *
 	 * <!-- Start of user code doc for submachineState -->
@@ -99,15 +66,6 @@ trait UMLStateMachine[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLState.submachine
 	 */
 	def submachineState: Set[UMLState[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for extendedStateMachine_stateMachine -->
-	 * <!-- End of user code doc for extendedStateMachine_stateMachine -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStateMachine.extendedStateMachine
-	 */
-	def extendedStateMachine_stateMachine: Set[UMLStateMachine[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

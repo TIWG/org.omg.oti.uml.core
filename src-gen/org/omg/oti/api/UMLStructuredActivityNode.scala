@@ -59,28 +59,6 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Activity immediately containing the StructuredActivityNode, if it is not contained in another StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.structuredNode
-	 */
-	override def activity: Option[UMLActivity[Uml]]
-
-	/**
-	 * The ActivityEdges immediately contained in the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for edge -->
-	 * <!-- End of user code doc for edge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.inStructuredNode
-	 */
-	def edge: Set[UMLActivityEdge[Uml]]
-
-	/**
 	 * If true, then any object used by an Action within the StructuredActivityNode cannot be accessed by any Action outside the node until the StructuredActivityNode as a whole completes. Any concurrent Actions that would result in accessing such objects are required to have their execution deferred until the completion of the StructuredActivityNode.
 	 *
 	 * <!-- Start of user code doc for mustIsolate -->
@@ -89,50 +67,6 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def mustIsolate: Boolean
-
-	/**
-	 * The ActivityNodes immediately contained in the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for node -->
-	 * <!-- End of user code doc for node -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.inStructuredNode
-	 */
-	def node: Set[UMLActivityNode[Uml]]
-
-	/**
-	 * The InputPins owned by the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for structuredNodeInput -->
-	 * <!-- End of user code doc for structuredNodeInput -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInputPin.structuredNodeInput_structuredActivityNode
-	 */
-	def structuredNodeInput: Set[UMLInputPin[Uml]]
-
-	/**
-	 * The OutputPins owned by the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for structuredNodeOutput -->
-	 * <!-- End of user code doc for structuredNodeOutput -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOutputPin.structuredNodeOutput_structuredActivityNode
-	 */
-	def structuredNodeOutput: Set[UMLOutputPin[Uml]]
-
-	/**
-	 * The Variables defined in the scope of the StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for variable -->
-	 * <!-- End of user code doc for variable -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLVariable.scope
-	 */
-	def variable: Set[UMLVariable[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

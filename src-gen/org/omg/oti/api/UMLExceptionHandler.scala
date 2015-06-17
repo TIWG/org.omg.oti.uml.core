@@ -90,17 +90,6 @@ trait UMLExceptionHandler[Uml <: UML]
 	def handlerBody: Option[UMLExecutableNode[Uml]]
 
 	/**
-	 * The ExecutableNode protected by the ExceptionHandler. If an exception propagates out of the protectedNode and has a type matching one of the exceptionTypes, then it is caught by this ExceptionHandler.
-	 *
-	 * <!-- Start of user code doc for protectedNode -->
-	 * <!-- End of user code doc for protectedNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLExecutableNode.handler
-	 */
-	def protectedNode: Option[UMLExecutableNode[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

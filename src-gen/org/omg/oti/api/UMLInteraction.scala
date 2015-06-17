@@ -58,28 +58,6 @@ trait UMLInteraction[Uml <: UML]
 	import ops._
 
 	/**
-	 * Actions owned by the Interaction.
-	 *
-	 * <!-- Start of user code doc for action -->
-	 * <!-- End of user code doc for action -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLAction.action_interaction
-	 */
-	def action: Set[UMLAction[Uml]]
-
-	/**
-	 * Specifies the gates that form the message interface between this Interaction and any InteractionUses which reference it.
-	 *
-	 * <!-- Start of user code doc for formalGate -->
-	 * <!-- End of user code doc for formalGate -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLGate.formalGate_interaction
-	 */
-	def formalGate: Set[UMLGate[Uml]]
-
-	/**
 	 * The ordered set of fragments in the Interaction.
 	 *
 	 * <!-- Start of user code doc for fragment -->
@@ -89,28 +67,6 @@ trait UMLInteraction[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLInteractionFragment.enclosingInteraction
 	 */
 	def fragment: Seq[UMLInteractionFragment[Uml]]
-
-	/**
-	 * Specifies the participants in this Interaction.
-	 *
-	 * <!-- Start of user code doc for lifeline -->
-	 * <!-- End of user code doc for lifeline -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLLifeline.interaction
-	 */
-	def lifeline: Set[UMLLifeline[Uml]]
-
-	/**
-	 * The Messages contained in this Interaction.
-	 *
-	 * <!-- Start of user code doc for message -->
-	 * <!-- End of user code doc for message -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLMessage.interaction
-	 */
-	def message: Set[UMLMessage[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for refersTo_interactionUse -->

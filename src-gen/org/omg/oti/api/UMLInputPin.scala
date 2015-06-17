@@ -66,15 +66,6 @@ trait UMLInputPin[Uml <: UML]
 	def argument_invocationAction: Option[UMLInvocationAction[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for collection_reduceAction -->
-	 * <!-- End of user code doc for collection_reduceAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReduceAction.collection
-	 */
-	def collection_reduceAction: Option[UMLReduceAction[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for destroyAt_linkEndDestructionData -->
 	 * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
 	 *
@@ -82,15 +73,6 @@ trait UMLInputPin[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLLinkEndDestructionData.destroyAt
 	 */
 	def destroyAt_linkEndDestructionData: Option[UMLLinkEndDestructionData[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for exception_raiseExceptionAction -->
-	 * <!-- End of user code doc for exception_raiseExceptionAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLRaiseExceptionAction.exception
-	 */
-	def exception_raiseExceptionAction: Option[UMLRaiseExceptionAction[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for first_testIdentityAction -->
@@ -102,24 +84,6 @@ trait UMLInputPin[Uml <: UML]
 	def first_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for inputValue_linkAction -->
-	 * <!-- End of user code doc for inputValue_linkAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLinkAction.inputValue
-	 */
-	def inputValue_linkAction: Option[UMLLinkAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for inputValue_opaqueAction -->
-	 * <!-- End of user code doc for inputValue_opaqueAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOpaqueAction.inputValue
-	 */
-	def inputValue_opaqueAction: Option[UMLOpaqueAction[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for input_action -->
 	 * <!-- End of user code doc for input_action -->
 	 *
@@ -127,24 +91,6 @@ trait UMLInputPin[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLAction.input
 	 */
 	def input_action: Option[UMLAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for insertAt_addStructuralFeatureValueAction -->
-	 * <!-- End of user code doc for insertAt_addStructuralFeatureValueAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAddStructuralFeatureValueAction.insertAt
-	 */
-	def insertAt_addStructuralFeatureValueAction: Option[UMLAddStructuralFeatureValueAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for insertAt_addVariableValueAction -->
-	 * <!-- End of user code doc for insertAt_addVariableValueAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAddVariableValueAction.insertAt
-	 */
-	def insertAt_addVariableValueAction: Option[UMLAddVariableValueAction[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for insertAt_linkEndCreationData -->
@@ -156,78 +102,6 @@ trait UMLInputPin[Uml <: UML]
 	def insertAt_linkEndCreationData: Option[UMLLinkEndCreationData[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for loopVariableInput_loopNode -->
-	 * <!-- End of user code doc for loopVariableInput_loopNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLoopNode.loopVariableInput
-	 */
-	def loopVariableInput_loopNode: Option[UMLLoopNode[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_clearAssociationAction -->
-	 * <!-- End of user code doc for object_clearAssociationAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClearAssociationAction._object
-	 */
-	def object_clearAssociationAction: Option[UMLClearAssociationAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_readIsClassifiedObjectAction -->
-	 * <!-- End of user code doc for object_readIsClassifiedObjectAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReadIsClassifiedObjectAction._object
-	 */
-	def object_readIsClassifiedObjectAction: Option[UMLReadIsClassifiedObjectAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_readLinkObjectEndAction -->
-	 * <!-- End of user code doc for object_readLinkObjectEndAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndAction._object
-	 */
-	def object_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_readLinkObjectEndQualifierAction -->
-	 * <!-- End of user code doc for object_readLinkObjectEndQualifierAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction._object
-	 */
-	def object_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_reclassifyObjectAction -->
-	 * <!-- End of user code doc for object_reclassifyObjectAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReclassifyObjectAction._object
-	 */
-	def object_reclassifyObjectAction: Option[UMLReclassifyObjectAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_startClassifierBehaviorAction -->
-	 * <!-- End of user code doc for object_startClassifierBehaviorAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStartClassifierBehaviorAction._object
-	 */
-	def object_startClassifierBehaviorAction: Option[UMLStartClassifierBehaviorAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for object_startObjectBehaviorAction -->
-	 * <!-- End of user code doc for object_startObjectBehaviorAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStartObjectBehaviorAction._object
-	 */
-	def object_startObjectBehaviorAction: Option[UMLStartObjectBehaviorAction[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for object_structuralFeatureAction -->
 	 * <!-- End of user code doc for object_structuralFeatureAction -->
 	 *
@@ -237,33 +111,6 @@ trait UMLInputPin[Uml <: UML]
 	def object_structuralFeatureAction: Option[UMLStructuralFeatureAction[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for object_unmarshallAction -->
-	 * <!-- End of user code doc for object_unmarshallAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLUnmarshallAction._object
-	 */
-	def object_unmarshallAction: Option[UMLUnmarshallAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for removeAt_removeStructuralFeatureValueAction -->
-	 * <!-- End of user code doc for removeAt_removeStructuralFeatureValueAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLRemoveStructuralFeatureValueAction.removeAt
-	 */
-	def removeAt_removeStructuralFeatureValueAction: Option[UMLRemoveStructuralFeatureValueAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for removeAt_removeVariableValueAction -->
-	 * <!-- End of user code doc for removeAt_removeVariableValueAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLRemoveVariableValueAction.removeAt
-	 */
-	def removeAt_removeVariableValueAction: Option[UMLRemoveVariableValueAction[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for replyValue_replyAction -->
 	 * <!-- End of user code doc for replyValue_replyAction -->
 	 *
@@ -271,15 +118,6 @@ trait UMLInputPin[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLReplyAction.replyValue
 	 */
 	def replyValue_replyAction: Option[UMLReplyAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for request_sendObjectAction -->
-	 * <!-- End of user code doc for request_sendObjectAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSendObjectAction.request
-	 */
-	def request_sendObjectAction: Option[UMLSendObjectAction[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for returnInformation_replyAction -->
@@ -300,33 +138,6 @@ trait UMLInputPin[Uml <: UML]
 	def second_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for structuredNodeInput_structuredActivityNode -->
-	 * <!-- End of user code doc for structuredNodeInput_structuredActivityNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.structuredNodeInput
-	 */
-	def structuredNodeInput_structuredActivityNode: Option[UMLStructuredActivityNode[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for target_callOperationAction -->
-	 * <!-- End of user code doc for target_callOperationAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLCallOperationAction.target
-	 */
-	def target_callOperationAction: Option[UMLCallOperationAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for target_destroyObjectAction -->
-	 * <!-- End of user code doc for target_destroyObjectAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDestroyObjectAction.target
-	 */
-	def target_destroyObjectAction: Option[UMLDestroyObjectAction[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for target_sendObjectAction -->
 	 * <!-- End of user code doc for target_sendObjectAction -->
 	 *
@@ -334,15 +145,6 @@ trait UMLInputPin[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLSendObjectAction.target
 	 */
 	def target_sendObjectAction: Option[UMLSendObjectAction[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for target_sendSignalAction -->
-	 * <!-- End of user code doc for target_sendSignalAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSendSignalAction.target
-	 */
-	def target_sendSignalAction: Option[UMLSendSignalAction[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for value_linkEndData -->

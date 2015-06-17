@@ -57,28 +57,6 @@ trait UMLBehavior[Uml <: UML]
 	import ops._
 
 	/**
-	 * The BehavioredClassifier that is the context for the execution of the Behavior. A Behavior that is directly owned as a nestedClassifier does not have a context. Otherwise, to determine the context of a Behavior, find the first BehavioredClassifier reached by following the chain of owner relationships from the Behavior, if any. If there is such a BehavioredClassifier, then it is the context, unless it is itself a Behavior with a non-empty context, in which case that is also the context for the original Behavior. For example, following this algorithm, the context of an entry Behavior in a StateMachine is the BehavioredClassifier that owns the StateMachine. The features of the context BehavioredClassifier as well as the Elements visible to the context Classifier are visible to the Behavior.
-	 *
-	 * <!-- Start of user code doc for context -->
-	 * <!-- End of user code doc for context -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.context_behavior
-	 * @body result = (if nestingClass <> null then
-	 *     null
-	 * else
-	 *     let b:BehavioredClassifier = self.behavioredClassifier(self.owner) in
-	 *     if b.oclIsKindOf(Behavior) and b.oclAsType(Behavior)._'context' <> null then 
-	 *         b.oclAsType(Behavior)._'context'
-	 *     else 
-	 *         b 
-	 *     endif
-	 * endif
-	 *         )
-	 */
-	def context: Option[UMLBehavioredClassifier[Uml]]
-
-	/**
 	 * Tells whether the Behavior can be invoked while it is still executing from a previous invocation.
 	 *
 	 * <!-- Start of user code doc for isReentrant -->
@@ -98,17 +76,6 @@ trait UMLBehavior[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLParameter.ownedParameter_behavior
 	 */
 	def ownedParameter: Seq[UMLParameter[Uml]]
-
-	/**
-	 * The ParameterSets owned by this Behavior.
-	 *
-	 * <!-- Start of user code doc for ownedParameterSet -->
-	 * <!-- End of user code doc for ownedParameterSet -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLParameterSet.ownedParameterSet_behavior
-	 */
-	def ownedParameterSet: Set[UMLParameterSet[Uml]]
 
 	/**
 	 * An optional set of Constraints specifying what is fulfilled after the execution of the Behavior is completed, if its precondition was fulfilled before its invocation.
@@ -182,15 +149,6 @@ trait UMLBehavior[Uml <: UML]
 	def behavior_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for classifierBehavior_behavioredClassifier -->
-	 * <!-- End of user code doc for classifierBehavior_behavioredClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavioredClassifier.classifierBehavior
-	 */
-	def classifierBehavior_behavioredClassifier: Option[UMLBehavioredClassifier[Uml]]
-
-	/**
 	 * <!-- Start of user code doc for contract_connector -->
 	 * <!-- End of user code doc for contract_connector -->
 	 *
@@ -216,15 +174,6 @@ trait UMLBehavior[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLState.doActivity
 	 */
 	def doActivity_state: Option[UMLState[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for effect_transition -->
-	 * <!-- End of user code doc for effect_transition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTransition.effect
-	 */
-	def effect_transition: Option[UMLTransition[Uml]]
 
 	/**
 	 * <!-- Start of user code doc for entry_state -->

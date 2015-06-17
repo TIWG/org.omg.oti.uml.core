@@ -57,17 +57,6 @@ trait UMLGeneralization[Uml <: UML]
 	import ops._
 
 	/**
-	 * The general classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for general -->
-	 * <!-- End of user code doc for general -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.general_generalization
-	 */
-	def general: Option[UMLClassifier[Uml]]
-
-	/**
 	 * Represents a set of instances of Generalization.  A Generalization may appear in many GeneralizationSets.
 	 *
 	 * <!-- Start of user code doc for generalizationSet -->
@@ -87,17 +76,6 @@ trait UMLGeneralization[Uml <: UML]
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def isSubstitutable: Option[Boolean]
-
-	/**
-	 * The specializing Classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for specific -->
-	 * <!-- End of user code doc for specific -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.generalization
-	 */
-	def specific: Option[UMLClassifier[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

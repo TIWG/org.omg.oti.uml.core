@@ -69,18 +69,6 @@ trait UMLPackage[Uml <: UML]
 	def URI: Option[String]
 
 	/**
-	 * References the packaged elements that are Packages.
-	 *
-	 * <!-- Start of user code doc for nestedPackage -->
-	 * <!-- End of user code doc for nestedPackage -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackage.nestingPackage
-	 * @body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
-	 */
-	def nestedPackage: Set[UMLPackage[Uml]]
-
-	/**
 	 * References the Package that owns this Package.
 	 *
 	 * <!-- Start of user code doc for nestingPackage -->
@@ -92,41 +80,6 @@ trait UMLPackage[Uml <: UML]
 	def nestingPackage: Option[UMLPackage[Uml]]
 
 	/**
-	 * References the Stereotypes that are owned by the Package.
-	 *
-	 * <!-- Start of user code doc for ownedStereotype -->
-	 * <!-- End of user code doc for ownedStereotype -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStereotype.ownedStereotype_owningPackage
-	 * @body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
-	 */
-	def ownedStereotype: Set[UMLStereotype[Uml]]
-
-	/**
-	 * References the packaged elements that are Types.
-	 *
-	 * <!-- Start of user code doc for ownedType -->
-	 * <!-- End of user code doc for ownedType -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLType._package
-	 * @body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
-	 */
-	def ownedType: Set[UMLType[Uml]]
-
-	/**
-	 * References the PackageMerges that are owned by this Package.
-	 *
-	 * <!-- Start of user code doc for packageMerge -->
-	 * <!-- End of user code doc for packageMerge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageMerge.receivingPackage
-	 */
-	def packageMerge: Set[UMLPackageMerge[Uml]]
-
-	/**
 	 * Specifies the packageable elements that are owned by this Package.
 	 *
 	 * <!-- Start of user code doc for packagedElement -->
@@ -136,35 +89,6 @@ trait UMLPackage[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLPackageableElement.packagedElement_owningPackage
 	 */
 	def packagedElement: Set[UMLPackageableElement[Uml]]
-
-	/**
-	 * References the ProfileApplications that indicate which profiles have been applied to the Package.
-	 *
-	 * <!-- Start of user code doc for profileApplication -->
-	 * <!-- End of user code doc for profileApplication -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLProfileApplication.applyingPackage
-	 */
-	def profileApplication: Set[UMLProfileApplication[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for importedPackage_packageImport -->
-	 * <!-- End of user code doc for importedPackage_packageImport -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageImport.importedPackage
-	 */
-	def importedPackage_packageImport: Set[UMLPackageImport[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for mergedPackage_packageMerge -->
-	 * <!-- End of user code doc for mergedPackage_packageMerge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPackageMerge.mergedPackage
-	 */
-	def mergedPackage_packageMerge: Set[UMLPackageMerge[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

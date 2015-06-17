@@ -57,17 +57,6 @@ trait UMLElement[Uml <: UML]
 	import ops._
 
 	/**
-	 * The Comments owned by this Element.
-	 *
-	 * <!-- Start of user code doc for ownedComment -->
-	 * <!-- End of user code doc for ownedComment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLComment.ownedComment_owningElement
-	 */
-	def ownedComment: Set[UMLComment[Uml]]
-
-	/**
 	 * The Elements owned by this Element.
 	 *
 	 * <!-- Start of user code doc for ownedElement -->

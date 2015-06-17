@@ -57,28 +57,6 @@ trait UMLActivity[Uml <: UML]
 	import ops._
 
 	/**
-	 * ActivityEdges expressing flow between the nodes of the Activity.
-	 *
-	 * <!-- Start of user code doc for edge -->
-	 * <!-- End of user code doc for edge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.activity
-	 */
-	def edge: Set[UMLActivityEdge[Uml]]
-
-	/**
-	 * Top-level ActivityGroups in the Activity.
-	 *
-	 * <!-- Start of user code doc for group -->
-	 * <!-- End of user code doc for group -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityGroup.inActivity
-	 */
-	def group: Set[UMLActivityGroup[Uml]]
-
-	/**
 	 * If true, this Activity must not make any changes to objects. The default is false (an Activity may make nonlocal changes). (This is an assertion, not an executable property. It may be used by an execution engine to optimize model execution. If the assertion is violated by the Activity, then the model is ill-formed.) 
 	 *
 	 * <!-- Start of user code doc for isReadOnly -->
@@ -99,17 +77,6 @@ trait UMLActivity[Uml <: UML]
 	def isSingleExecution: Boolean
 
 	/**
-	 * ActivityNodes coordinated by the Activity.
-	 *
-	 * <!-- Start of user code doc for node -->
-	 * <!-- End of user code doc for node -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.activity
-	 */
-	def node: Set[UMLActivityNode[Uml]]
-
-	/**
 	 * Top-level ActivityPartitions in the Activity.
 	 *
 	 * <!-- Start of user code doc for partition -->
@@ -119,28 +86,6 @@ trait UMLActivity[Uml <: UML]
 	 * @opposite org.omg.oti.api.UMLActivityPartition.partition_activity
 	 */
 	def partition: Set[UMLActivityPartition[Uml]]
-
-	/**
-	 * Top-level StructuredActivityNodes in the Activity.
-	 *
-	 * <!-- Start of user code doc for structuredNode -->
-	 * <!-- End of user code doc for structuredNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.activity
-	 */
-	def structuredNode: Set[UMLStructuredActivityNode[Uml]]
-
-	/**
-	 * Top-level Variables defined by the Activity.
-	 *
-	 * <!-- Start of user code doc for variable -->
-	 * <!-- End of user code doc for variable -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLVariable.activityScope
-	 */
-	def variable: Set[UMLVariable[Uml]]
 
 	/**
 	 * The XMI meta-attributes relevant to this object

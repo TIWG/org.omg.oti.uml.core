@@ -79,28 +79,6 @@ trait UMLMessage[Uml <: UML]
 	def connector: Option[UMLConnector[Uml]]
 
 	/**
-	 * The enclosing Interaction owning the Message.
-	 *
-	 * <!-- Start of user code doc for interaction -->
-	 * <!-- End of user code doc for interaction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.message
-	 */
-	def interaction: Option[UMLInteraction[Uml]]
-
-	/**
-	 * The derived kind of the Message (complete, lost, found, or unknown).
-	 *
-	 * <!-- Start of user code doc for messageKind -->
-	 * <!-- End of user code doc for messageKind -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (messageKind)
-	 */
-	def messageKind: UMLMessageKind.Value
-
-	/**
 	 * The sort of communication reflected by the Message.
 	 *
 	 * <!-- Start of user code doc for messageSort -->

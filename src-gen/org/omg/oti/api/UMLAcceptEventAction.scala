@@ -78,17 +78,6 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def result: Seq[UMLOutputPin[Uml]]
 
 	/**
-	 * The Triggers specifying the Events of which the AcceptEventAction waits for occurrences.
-	 *
-	 * <!-- Start of user code doc for trigger -->
-	 * <!-- End of user code doc for trigger -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLTrigger.trigger_acceptEventAction
-	 */
-	def trigger: Set[UMLTrigger[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

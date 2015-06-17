@@ -79,24 +79,6 @@ trait UMLDuration[Uml <: UML]
 	def observation: Set[UMLObservation[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for max_durationInterval -->
-	 * <!-- End of user code doc for max_durationInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDurationInterval.max
-	 */
-	def max_durationInterval: Set[UMLDurationInterval[Uml]]
-
-	/**
-	 * <!-- Start of user code doc for min_durationInterval -->
-	 * <!-- End of user code doc for min_durationInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLDurationInterval.min
-	 */
-	def min_durationInterval: Set[UMLDurationInterval[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

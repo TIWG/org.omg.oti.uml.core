@@ -68,39 +68,6 @@ trait UMLInteractionFragment[Uml <: UML]
 	def covered: Iterable[UMLLifeline[Uml]]
 
 	/**
-	 * The Interaction enclosing this InteractionFragment.
-	 *
-	 * <!-- Start of user code doc for enclosingInteraction -->
-	 * <!-- End of user code doc for enclosingInteraction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.fragment
-	 */
-	def enclosingInteraction: Option[UMLInteraction[Uml]]
-
-	/**
-	 * The operand enclosing this InteractionFragment (they may nest recursively).
-	 *
-	 * <!-- Start of user code doc for enclosingOperand -->
-	 * <!-- End of user code doc for enclosingOperand -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionOperand.fragment
-	 */
-	def enclosingOperand: Option[UMLInteractionOperand[Uml]]
-
-	/**
-	 * The general ordering relationships contained in this fragment.
-	 *
-	 * <!-- Start of user code doc for generalOrdering -->
-	 * <!-- End of user code doc for generalOrdering -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLGeneralOrdering.generalOrdering_interactionFragment
-	 */
-	def generalOrdering: Set[UMLGeneralOrdering[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

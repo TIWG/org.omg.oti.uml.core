@@ -67,28 +67,6 @@ trait UMLElementImport[Uml <: UML]
 	def alias: Option[String]
 
 	/**
-	 * Specifies the PackageableElement whose name is to be added to a Namespace.
-	 *
-	 * <!-- Start of user code doc for importedElement -->
-	 * <!-- End of user code doc for importedElement -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackageableElement.importedElement_import
-	 */
-	def importedElement: Option[UMLPackageableElement[Uml]]
-
-	/**
-	 * Specifies the Namespace that imports a PackageableElement from another Namespace.
-	 *
-	 * <!-- Start of user code doc for importingNamespace -->
-	 * <!-- End of user code doc for importingNamespace -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLNamespace.elementImport
-	 */
-	def importingNamespace: Option[UMLNamespace[Uml]]
-
-	/**
 	 * Specifies the visibility of the imported PackageableElement within the importingNamespace, i.e., whether the  importedElement will in turn be visible to other Namespaces. If the ElementImport is public, the importedElement will be visible outside the importingNamespace while, if the ElementImport is private, it will not.
 	 *
 	 * <!-- Start of user code doc for visibility -->

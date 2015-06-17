@@ -79,17 +79,6 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def exit: Set[UMLPseudostate[Uml]]
 
 	/**
-	 * The State in which the ConnectionPointReference is defined.
-	 *
-	 * <!-- Start of user code doc for state -->
-	 * <!-- End of user code doc for state -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLState.connection
-	 */
-	def state: Option[UMLState[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

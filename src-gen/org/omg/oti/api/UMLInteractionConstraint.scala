@@ -79,15 +79,6 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def minint: Option[UMLValueSpecification[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for guard_interactionOperand -->
-	 * <!-- End of user code doc for guard_interactionOperand -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInteractionOperand.guard
-	 */
-	def guard_interactionOperand: Option[UMLInteractionOperand[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

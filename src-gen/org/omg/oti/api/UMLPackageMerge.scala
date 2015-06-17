@@ -57,28 +57,6 @@ trait UMLPackageMerge[Uml <: UML]
 	import ops._
 
 	/**
-	 * References the Package that is to be merged with the receiving package of the PackageMerge.
-	 *
-	 * <!-- Start of user code doc for mergedPackage -->
-	 * <!-- End of user code doc for mergedPackage -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackage.mergedPackage_packageMerge
-	 */
-	def mergedPackage: Option[UMLPackage[Uml]]
-
-	/**
-	 * References the Package that is being extended with the contents of the merged package of the PackageMerge.
-	 *
-	 * <!-- Start of user code doc for receivingPackage -->
-	 * <!-- End of user code doc for receivingPackage -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackage.packageMerge
-	 */
-	def receivingPackage: Option[UMLPackage[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->

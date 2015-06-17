@@ -68,17 +68,6 @@ trait UMLTestIdentityAction[Uml <: UML]
 	def first: Option[UMLInputPin[Uml]]
 
 	/**
-	 * The OutputPin whose Boolean value indicates whether the two input objects are identical.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_testIdentityAction
-	 */
-	def result: Option[UMLOutputPin[Uml]]
-
-	/**
 	 * The OutputPin on which the second input object is placed.
 	 *
 	 * <!-- Start of user code doc for second -->

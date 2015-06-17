@@ -123,15 +123,6 @@ trait UMLClause[Uml <: UML]
 	def test: Set[UMLExecutableNode[Uml]]
 
 	/**
-	 * <!-- Start of user code doc for clause_conditionalNode -->
-	 * <!-- End of user code doc for clause_conditionalNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLConditionalNode.clause
-	 */
-	def clause_conditionalNode: Option[UMLConditionalNode[Uml]]
-
-	/**
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
