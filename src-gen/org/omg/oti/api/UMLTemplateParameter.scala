@@ -218,8 +218,7 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		default ++
-		parameteredElement ++
-		signature 
+		parameteredElement 
 
 	// Start of user code for additional features
 	// End of user code

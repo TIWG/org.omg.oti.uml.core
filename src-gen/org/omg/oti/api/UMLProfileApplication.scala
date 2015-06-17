@@ -165,8 +165,7 @@ trait UMLProfileApplication[Uml <: UML]
 	 */
 	def profileApplication_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		appliedProfile ++
-		applyingPackage 
+		appliedProfile 
 
 	// Start of user code for additional features
 	// End of user code

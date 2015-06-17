@@ -144,7 +144,7 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	 */
 	def enumerationLiteral_forwardReferencesFromMetamodelAssociations: Elements =
 		instanceSpecification_forwardReferencesFromMetamodelAssociations ++
-		enumeration 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

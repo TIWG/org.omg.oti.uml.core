@@ -183,8 +183,7 @@ trait UMLPseudostate[Uml <: UML]
 	 */
 	def pseudostate_forwardReferencesFromMetamodelAssociations: Elements =
 		vertex_forwardReferencesFromMetamodelAssociations ++
-		state ++
-		stateMachine 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

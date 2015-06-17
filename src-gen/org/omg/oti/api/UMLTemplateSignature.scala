@@ -175,8 +175,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 */
 	def templateSignature_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
-		parameter ++
-		template 
+		parameter 
 
 	// Start of user code for additional features
 	// End of user code

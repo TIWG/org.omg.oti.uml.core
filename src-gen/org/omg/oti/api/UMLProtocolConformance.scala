@@ -155,8 +155,7 @@ trait UMLProtocolConformance[Uml <: UML]
 	 */
 	def protocolConformance_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		generalMachine ++
-		specificMachine 
+		generalMachine 
 
 	// Start of user code for additional features
 	// End of user code

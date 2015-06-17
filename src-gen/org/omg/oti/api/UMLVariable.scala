@@ -169,8 +169,7 @@ trait UMLVariable[Uml <: UML]
 	def variable_forwardReferencesFromMetamodelAssociations: Elements =
 		connectableElement_forwardReferencesFromMetamodelAssociations ++
 		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
-		activityScope ++
-		scope 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

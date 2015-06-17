@@ -155,8 +155,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 */
 	def interfaceRealization_forwardReferencesFromMetamodelAssociations: Elements =
 		realization_forwardReferencesFromMetamodelAssociations ++
-		contract ++
-		implementingClassifier 
+		contract 
 
 	// Start of user code for additional features
 	// End of user code

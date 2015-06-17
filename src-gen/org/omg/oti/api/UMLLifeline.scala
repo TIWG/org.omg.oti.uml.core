@@ -210,7 +210,6 @@ trait UMLLifeline[Uml <: UML]
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		coveredBy ++
 		decomposedAs ++
-		interaction ++
 		represents 
 
 	// Start of user code for additional features

@@ -234,10 +234,8 @@ trait UMLActivityNode[Uml <: UML]
 	 */
 	def activityNode_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		activity ++
 		inInterruptibleRegion ++
 		inPartition ++
-		inStructuredNode ++
 		incoming ++
 		outgoing ++
 		redefinedNode 

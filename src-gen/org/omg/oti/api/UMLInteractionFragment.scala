@@ -177,9 +177,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 */
 	def interactionFragment_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
-		covered ++
-		enclosingInteraction ++
-		enclosingOperand 
+		covered 
 
 	// Start of user code for additional features
 	// End of user code

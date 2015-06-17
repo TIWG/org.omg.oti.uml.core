@@ -166,8 +166,7 @@ trait UMLSlot[Uml <: UML]
 	 */
 	def slot_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
-		definingFeature ++
-		owningInstance 
+		definingFeature 
 
 	// Start of user code for additional features
 	// End of user code

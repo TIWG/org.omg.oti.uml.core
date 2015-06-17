@@ -168,8 +168,7 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_forwardReferencesFromMetamodelAssociations: Elements =
 		vertex_forwardReferencesFromMetamodelAssociations ++
 		entry ++
-		exit ++
-		state 
+		exit 
 
 	// Start of user code for additional features
 	// End of user code

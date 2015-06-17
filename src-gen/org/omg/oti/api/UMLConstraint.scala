@@ -292,8 +292,7 @@ trait UMLConstraint[Uml <: UML]
 	 */
 	def constraint_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
-		constrainedElement ++
-		context 
+		constrainedElement 
 
 	// Start of user code for additional features
 	// End of user code

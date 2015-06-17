@@ -255,7 +255,6 @@ trait UMLTransition[Uml <: UML]
 	def transition_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		container ++
 		redefinedTransition ++
 		source ++
 		target 

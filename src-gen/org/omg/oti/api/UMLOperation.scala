@@ -369,9 +369,6 @@ trait UMLOperation[Uml <: UML]
 		behavioralFeature_forwardReferencesFromMetamodelAssociations ++
 		parameterableElement_forwardReferencesFromMetamodelAssociations ++
 		templateableElement_forwardReferencesFromMetamodelAssociations ++
-		_class ++
-		datatype ++
-		interface ++
 		raisedException ++
 		redefinedOperation ++
 		templateParameter 

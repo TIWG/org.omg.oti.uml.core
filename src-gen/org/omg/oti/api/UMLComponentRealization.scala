@@ -155,7 +155,6 @@ trait UMLComponentRealization[Uml <: UML]
 	 */
 	def componentRealization_forwardReferencesFromMetamodelAssociations: Elements =
 		realization_forwardReferencesFromMetamodelAssociations ++
-		abstraction ++
 		realizingClassifier 
 
 	// Start of user code for additional features

@@ -178,8 +178,7 @@ trait UMLGeneralization[Uml <: UML]
 	def generalization_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		general ++
-		generalizationSet ++
-		specific 
+		generalizationSet 
 
 	// Start of user code for additional features
 	// End of user code

@@ -184,7 +184,6 @@ trait UMLExtend[Uml <: UML]
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		extendedCase ++
-		extension ++
 		extensionLocation 
 
 	// Start of user code for additional features

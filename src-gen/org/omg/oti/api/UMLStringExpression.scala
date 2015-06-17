@@ -169,7 +169,7 @@ trait UMLStringExpression[Uml <: UML]
 	def stringExpression_forwardReferencesFromMetamodelAssociations: Elements =
 		expression_forwardReferencesFromMetamodelAssociations ++
 		templateableElement_forwardReferencesFromMetamodelAssociations ++
-		owningExpression 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

@@ -155,8 +155,7 @@ trait UMLSubstitution[Uml <: UML]
 	 */
 	def substitution_forwardReferencesFromMetamodelAssociations: Elements =
 		realization_forwardReferencesFromMetamodelAssociations ++
-		contract ++
-		substitutingClassifier 
+		contract 
 
 	// Start of user code for additional features
 	// End of user code

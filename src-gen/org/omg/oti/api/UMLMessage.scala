@@ -242,7 +242,6 @@ trait UMLMessage[Uml <: UML]
 	def message_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		connector ++
-		interaction ++
 		receiveEvent ++
 		sendEvent ++
 		signature 

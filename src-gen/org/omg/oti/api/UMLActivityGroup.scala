@@ -188,7 +188,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 */
 	def activityGroup_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
-		inActivity 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

@@ -155,8 +155,7 @@ trait UMLPackageMerge[Uml <: UML]
 	 */
 	def packageMerge_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		mergedPackage ++
-		receivingPackage 
+		mergedPackage 
 
 	// Start of user code for additional features
 	// End of user code

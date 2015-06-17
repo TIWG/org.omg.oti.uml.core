@@ -153,7 +153,7 @@ trait UMLExtensionPoint[Uml <: UML]
 	 */
 	def extensionPoint_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		useCase 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

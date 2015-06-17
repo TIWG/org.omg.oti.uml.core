@@ -184,8 +184,7 @@ trait UMLElementImport[Uml <: UML]
 	 */
 	def elementImport_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		importedElement ++
-		importingNamespace 
+		importedElement 
 
 	// Start of user code for additional features
 	// End of user code

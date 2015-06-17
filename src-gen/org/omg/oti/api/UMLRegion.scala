@@ -220,9 +220,7 @@ trait UMLRegion[Uml <: UML]
 	def region_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		extendedRegion ++
-		state ++
-		stateMachine 
+		extendedRegion 
 
 	// Start of user code for additional features
 	// End of user code

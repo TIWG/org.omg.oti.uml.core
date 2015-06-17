@@ -181,7 +181,6 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 	def redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
 		templateSignature_forwardReferencesFromMetamodelAssociations ++
-		classifier ++
 		extendedSignature 
 
 	// Start of user code for additional features

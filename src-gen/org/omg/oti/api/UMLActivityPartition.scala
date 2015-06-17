@@ -222,8 +222,7 @@ trait UMLActivityPartition[Uml <: UML]
 		activityGroup_forwardReferencesFromMetamodelAssociations ++
 		edge ++
 		node ++
-		represents ++
-		superPartition 
+		represents 
 
 	// Start of user code for additional features
 	// End of user code

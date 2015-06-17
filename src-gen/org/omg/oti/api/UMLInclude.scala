@@ -160,8 +160,7 @@ trait UMLInclude[Uml <: UML]
 	def include_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
 		namedElement_forwardReferencesFromMetamodelAssociations ++
-		addition ++
-		includingCase 
+		addition 
 
 	// Start of user code for additional features
 	// End of user code

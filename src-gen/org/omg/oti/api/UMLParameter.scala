@@ -259,7 +259,6 @@ trait UMLParameter[Uml <: UML]
 	def parameter_forwardReferencesFromMetamodelAssociations: Elements =
 		connectableElement_forwardReferencesFromMetamodelAssociations ++
 		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
-		operation ++
 		parameterSet 
 
 	// Start of user code for additional features

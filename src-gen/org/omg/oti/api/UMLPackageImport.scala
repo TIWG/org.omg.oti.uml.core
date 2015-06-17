@@ -174,8 +174,7 @@ trait UMLPackageImport[Uml <: UML]
 	 */
 	def packageImport_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		importedPackage ++
-		importingNamespace 
+		importedPackage 
 
 	// Start of user code for additional features
 	// End of user code

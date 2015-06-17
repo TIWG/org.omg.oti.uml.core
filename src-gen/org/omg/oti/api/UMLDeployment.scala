@@ -166,8 +166,7 @@ trait UMLDeployment[Uml <: UML]
 	 */
 	def deployment_forwardReferencesFromMetamodelAssociations: Elements =
 		dependency_forwardReferencesFromMetamodelAssociations ++
-		deployedArtifact ++
-		location 
+		deployedArtifact 
 
 	// Start of user code for additional features
 	// End of user code

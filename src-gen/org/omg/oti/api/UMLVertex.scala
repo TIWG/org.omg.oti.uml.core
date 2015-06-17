@@ -168,7 +168,7 @@ trait UMLVertex[Uml <: UML]
 	 */
 	def vertex_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
-		container 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

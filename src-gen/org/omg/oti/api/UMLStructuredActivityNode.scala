@@ -223,7 +223,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		action_forwardReferencesFromMetamodelAssociations ++
 		activityGroup_forwardReferencesFromMetamodelAssociations ++
 		namespace_forwardReferencesFromMetamodelAssociations ++
-		activity 
+		Set () 
 
 	// Start of user code for additional features
 	// End of user code

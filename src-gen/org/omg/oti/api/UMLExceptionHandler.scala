@@ -181,8 +181,7 @@ trait UMLExceptionHandler[Uml <: UML]
 		element_forwardReferencesFromMetamodelAssociations ++
 		exceptionInput ++
 		exceptionType ++
-		handlerBody ++
-		protectedNode 
+		handlerBody 
 
 	// Start of user code for additional features
 	// End of user code

@@ -179,8 +179,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		actual ++
-		formal ++
-		templateBinding 
+		formal 
 
 	// Start of user code for additional features
 	// End of user code

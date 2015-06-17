@@ -191,7 +191,6 @@ trait UMLParameterableElement[Uml <: UML]
 	 */
 	def parameterableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
-		owningTemplateParameter ++
 		templateParameter 
 
 	// Start of user code for additional features

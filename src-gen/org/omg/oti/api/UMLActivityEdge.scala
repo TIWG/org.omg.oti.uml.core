@@ -266,9 +266,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 */
 	def activityEdge_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		activity ++
 		inPartition ++
-		inStructuredNode ++
 		interrupts ++
 		redefinedEdge ++
 		source ++

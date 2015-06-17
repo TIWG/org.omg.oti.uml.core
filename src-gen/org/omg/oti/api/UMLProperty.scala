@@ -471,11 +471,6 @@ trait UMLProperty[Uml <: UML]
 		deploymentTarget_forwardReferencesFromMetamodelAssociations ++
 		structuralFeature_forwardReferencesFromMetamodelAssociations ++
 		association ++
-		associationEnd ++
-		_class ++
-		datatype ++
-		interface ++
-		owningAssociation ++
 		redefinedProperty ++
 		subsettedProperty 
 

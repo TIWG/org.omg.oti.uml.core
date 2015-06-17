@@ -166,7 +166,6 @@ trait UMLTemplateBinding[Uml <: UML]
 	 */
 	def templateBinding_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		boundElement ++
 		signature 
 
 	// Start of user code for additional features
