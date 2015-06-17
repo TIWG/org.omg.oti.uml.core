@@ -343,7 +343,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule1b: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) if ne.name.isDefined =>
-      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
+      Success( ownerID + "." + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
   }
 
   /**
