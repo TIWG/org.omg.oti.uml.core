@@ -210,9 +210,12 @@ case class ResolvedDocumentSet[Uml <: UML](
             val profileScopes = ( emptyScope /: referencedProfiles ) {
               case ( scopes, referencedProfile ) =>
                 ( referencedProfile.name, referencedProfile.getEffectiveURI ) match {
-                  case ( None, _ )                      => scopes
-                  case ( _, None )                      => scopes
-                  case ( Some( name ), Some( ns_uri ) ) => NamespaceBinding( name, ns_uri, scopes )
+                  case ( None, _ ) =>
+                    scopes
+                  case ( _, None ) =>
+                    scopes
+                  case ( Some( name ), Some( ns_uri ) ) =>
+                    NamespaceBinding( name, ns_uri, scopes )
                 }
             }
 
@@ -243,8 +246,15 @@ case class ResolvedDocumentSet[Uml <: UML](
               case Success(top) =>
 
                 /**
-                 * @issue: Canonical XMI B4 mofext:Tag
+                 * @issue: Canonical XMI B2 (6) says xmi:type should not be present for a reference (xmi:idref)
+                 * However, this causes problems with Eclipse,
+                 * In general, including xmi:type provides useful information about what the referenced element is.
+                 * So, unlike B2 (6), xmi:type is added to xmi:idref
                  */
+
+                val mofTagRef: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = d.scope.xmiID.head, Null )
+                val mofTagType: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = d.scope.xmiType.head, mofTagRef )
+                val mofTagElement: Node = Elem( prefix = null, label = "element", attributes = mofTagType, scope = xmiScopes, minimizeEmpty = true )
                 val mofTag = Elem(
                   prefix = "mofext",
                   label = "Tag",
@@ -265,24 +275,32 @@ case class ResolvedDocumentSet[Uml <: UML](
                                     key = "name", value = "org.omg.xmi.nsPrefix",
                                     new UnprefixedAttribute(
                                       key = "value", value = name,
-                                      new UnprefixedAttribute(
-                                        key = "element", value = d.scope.xmiID.head,
-                                        Null)))
+                                      Null))
                               }
                             case _ =>
                               Null
                           }))),
                   scope = xmiScopes,
-                  minimizeEmpty = true)
+                  minimizeEmpty = true,
+                  mofTagElement)
+
 
                 /**
-                 *
+                 * @issue: Canonical XMI B2 (6) says xmi:type should not be present for a reference (xmi:idref)
+                 * However, this causes problems with Eclipse,
+                 * In general, including xmi:type provides useful information about what the referenced element is.
+                 * So, unlike B2 (6), xmi:type is added to xmi:idref
                  */
-                val stereotypeTagValues = elementOrdering.toList flatMap { e =>
-                  val allTagValues = e.stereotypeTagValues
-                  val appliedStereotypes = e.getAppliedStereotypesWithoutMetaclassProperties filter element2document.contains toList
-                  val ordering = appliedStereotypes.sortBy(getStereotype_ID_UUID(_)._1)
-                  val orderedTagValueElements = ordering map {
+                val stereotypeTagValues: List[Node] = elementOrdering.toList flatMap { e =>
+                  val allTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
+                    e.stereotypeTagValues
+                  val allAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]] =
+                    e.getAppliedStereotypes
+                  val appliedStereotypes =
+                    allAppliedStereotypes.keys filter element2document.contains
+                  val ordering =
+                    appliedStereotypes.toList.sortBy(getStereotype_ID_UUID(_)._1)
+                  val orderedTagValueElements: List[Node] = ordering map {
                     case s =>
                       val (sID, _) = getStereotype_ID_UUID(s)
                       val tagValueAttributes: List[Elem] =
@@ -293,8 +311,10 @@ case class ResolvedDocumentSet[Uml <: UML](
                             val tagValueAttribute0: Try[List[Elem]] = Success(Nil)
                             val tagValueAttributeN = (tagValueAttribute0 /: properties)(foldTagValues(tagValues, xmiScopes))
                             tagValueAttributeN match {
-                              case Failure(t) => return Failure(t)
-                              case Success(tagValueAttribute) => tagValueAttribute
+                              case Failure(t) =>
+                                return Failure(t)
+                              case Success(tagValueAttribute) =>
+                                tagValueAttribute
                             }
                         }
                       val stAppID = IDGenerator.computeStereotypeApplicationID(e.xmiID.head, sID)
@@ -307,13 +327,18 @@ case class ResolvedDocumentSet[Uml <: UML](
                             new PrefixedAttribute(
                               pre = "xmi", key = "type", value = s.profile.get.name.get + ":" + s.name.get,
                               Null)))
+
+                      val sTagRef: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = e.xmiID.head, Null )
+                      val sTagType: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = e.xmiType.head, sTagRef )
+                      val sTagElement: Node = Elem( prefix = null, label = allAppliedStereotypes(s).name.get, attributes = sTagType, scope = xmiScopes, minimizeEmpty = true )
+
                       Elem(
                         prefix = s.profile.get.name.get,
                         label = s.name.get,
                         attributes = xmiTagValueAttributes,
                         scope = xmiScopes,
                         minimizeEmpty = true,
-                        tagValueAttributes: _*)
+                        sTagElement :: tagValueAttributes: _*)
                   }
                   orderedTagValueElements
                 }
@@ -468,6 +493,17 @@ case class ResolvedDocumentSet[Uml <: UML](
     }
   }
 
+  /**
+   * Add xmi:type for an href element reference -- this is an exception to Canonical XMI ptc13-08-28; B2, #6:
+   * xmi:type is always present except where the element is a reference (using xmi:idref or href)
+   * when it is never present [as of XMI 2.4 this is standard XMI].
+   *
+   * Without xmi:type, Eclipse can't handle hrefs.
+   * Besides Eclipse, it seems that it would be generally useful to have
+   * the extra xmi:type information for hrefs.
+   *
+   * TODO: raise as an issue for Canonical XMI when there is a JIRA for it.
+   */
   protected def generateNodeElement(
     elementOrdering: scala.collection.mutable.ArrayBuffer[UMLElement[Uml]],
     d: SerializableDocument[Uml],
@@ -514,12 +550,6 @@ case class ResolvedDocumentSet[Uml <: UML](
           Success( ns ++ valueNodes )
       }
 
-    /**
-     * Add xmi:type for an href element reference -- this is an exception to Canonical XMI ptc13-08-28; B2, #6:
-     * xmi:type is always present except where the element is a reference (using xmi:idref or href)
-     * when it is never present [as of XMI 2.4 this is standard XMI].
-     *
-     */
     def foldReference( nodes: Try[NodeSeq], f: e.MetaPropertyEvaluator ): Try[NodeSeq] =
       nodes match {
         case Failure( t ) => Failure( t )
@@ -544,6 +574,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                           case _: SerializableDocument[Uml] => href
                           case _: BuiltInDocument[Uml]      => ds.builtInURIMapper.resolve( href ).getOrElse( href )
                         }
+
                         val hrefAttrib: MetaData = new UnprefixedAttribute( key = "href", value = externalHRef, Null )
                         val typeAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "type", value = eRef.xmiType.head, hrefAttrib )
                         val hrefNode: Node = Elem( prefix = null, label = f.propertyName, attributes = typeAttrib, scope = xmiScopes, minimizeEmpty = true )
