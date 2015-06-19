@@ -124,13 +124,8 @@ trait IDGenerator[Uml <: UML] {
       val fragment = xmlSafeID( /*d2.nsPrefix+"."+*/mappedURITo.substring(fragmentIndex+1) )
       Success( xmlSafeID( fragment ) )
      
-    case ( Some( d1 ), Some( d2: SerializableDocument[Uml] ) ) =>
-      if ( d1 == d2 ) getXMI_ID( getMappedOrReferencedElement( to ) )        
-      else for {
-        id <- getXMI_ID( getMappedOrReferencedElement( to ) ) 
-        // It's not needed to add the prefix since it's already included in the computed ID
-        fragment = xmlSafeID( /*d2.nsPrefix+"."+*/id )
-      } yield fragment
+    case ( _, Some( _: SerializableDocument[Uml] ) ) =>
+      getXMI_ID( getMappedOrReferencedElement( to ) )
   }
 
   /**
@@ -156,28 +151,11 @@ trait IDGenerator[Uml <: UML] {
           case None => 
             Failure( illegalElementException( "Unknown document for element reference ", self ) )
             
-          case Some(d: BuiltInDocument[Uml]) => builtInID(self)
+          case Some(d: BuiltInDocument[Uml]) =>
+            builtInID(self)
            
-          case Some(d: SerializableDocument[Uml]) => 
-            /* Implement a temporary workaround to deal with ID duplication in UML2.5
-             * 
-             */
-            computeID(self) match {
-              case Success(s) =>
-                self match {
-                  case pi: UMLPackageImport[Uml] =>
-                    if (s.endsWith("._0"))
-                      Success(s +"-"+pi.importedPackage.get.name.get)
-                    else
-                      Success(s)
-                      
-                  case _ =>
-                    Success(s)
-                }
-                
-              case Failure(t) =>
-                Failure(t)
-            }
+          case Some(d: SerializableDocument[Uml]) =>
+            computeID(self)
         }
       } )
 
@@ -343,7 +321,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule1b: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) if ne.name.isDefined =>
-      Success( ownerID + "." + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
+      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + "." + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
   }
 
   /**
