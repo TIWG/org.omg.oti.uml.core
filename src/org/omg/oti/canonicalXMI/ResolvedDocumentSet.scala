@@ -84,10 +84,10 @@ case class ResolvedDocumentSet[Uml <: UML](
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
         val fragment = IDGenerator.xmlSafeID( /* d.nsPrefix+"."+*/ mappedURI.substring( fragmentIndex + 1 ) )
-        ( fragment, IDGenerator.uuidFromId( fragment ) )
+        Tuple2( fragment, "omg.org."+fragment ) // @TODO get the element's serialization package uuid prefix
 
       case Some( d: SerializableDocument[Uml] ) =>
-        ( s.xmiID.head, s.xmiUUID.head )
+        Tuple2( s.xmiID.head, s.xmiUUID.head )
     }
 
   def lookupDocumentByScope( e: UMLElement[Uml] ): Option[Document[Uml]] =
@@ -318,7 +318,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                             }
                         }
                       val stAppID = IDGenerator.computeStereotypeApplicationID(e.xmiID.head, sID)
-                      val stAppUUID = IDGenerator.uuidFromId(stAppID)
+                      val stAppUUID = "org.omg."+stAppID // @TODO get the element's serialization package uuid prefix
                       val xmiTagValueAttributes =
                         new PrefixedAttribute(
                           pre = "xmi", key = "id", value = stAppID,

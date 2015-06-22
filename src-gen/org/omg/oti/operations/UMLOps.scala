@@ -3955,28 +3955,89 @@ trait UMLOps[Uml <: UML] { self =>
 
   /**
    * OTI::SpecificationRoot stereotype
+   *
+   * An OTI::SpecificationRoot-stereotyped package indicates that
+   * the package corresponds to a published artifact from a specification.
+   * The kind of artifact is specified via the `artifactKind` tag property.
    */
-  val OTI_SPECIFICATION_ROOT_S: Option[Uml#Stereotype]
+  val OTI_SPECIFICATION_ROOT_S: Option[UMLStereotype[Uml]]
 
   /**
    * OTI::SpecificationRoot::packageURI property
+   *
+   * If specified, overrides the Package::URI on the package.
+   * When serializing an OTI::SpecificationRoot-stereotyped package,
+   * the Package::URI of the serialized package will be the value
+   * of the OTI::SpecificationRoot::packageURI, if specified,
+   * or that of Package::URI. It is an error if both are unspecified.
    */
-  val OTI_SPECIFICATION_ROOT_packageURI: Option[Uml#Property]
+  val OTI_SPECIFICATION_ROOT_packageURI: Option[UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::documentURL property
+   *
+   * When serializing an OTI::SpecificationRoot-stereotyped package,
+   * the package will be serialized as a document at the
+   * OTI::SpecificationRoot::documentURL
    */
-  val OTI_SPECIFICATION_ROOT_documentURL: Option[Uml#Property]
+  val OTI_SPECIFICATION_ROOT_documentURL: Option[UMLProperty[Uml]]
 
   /**
-   * OTI::ID stereotype
+   * OTI::SpecificationRoot::uuidPrefix property
+   *
+   * The prefix added to the xmi:id to produce the xmi:uuid
+   * of every element in an OTI::SpecificationRoot-stereotyped
+   * package
    */
-  val OTI_ID_S: Option[Uml#Stereotype]
+  val OTI_SPECIFICATION_ROOT_uuidPrefix: Option[UMLProperty[Uml]]
 
   /**
-   * OTI::ID stereotype
+   * OTI::SpecificationRoot::artifactKind property
+   * a 2x2 matrix describing what an OTI::SpecificationRoot-stereotyped
+   * package is a model of:
+   * - Specified vs. Implemented
+   * - Metamodel, Profile, Model Library
    */
-  val OTI_ID_uuid: Option[Uml#Property]
+  val OTI_SPECIFICATION_ROOT_artifactKind: Option[UMLProperty[Uml]]
+
+  /**
+   *
+   */
+  val OTI_ARTIFACT_KIND: Option[UMLEnumeration[Uml]]
+
+  val OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL: Option[UMLEnumerationLiteral[Uml]]
+  val OTI_ARTIFACT_KIND_SPECIFIED_PROFILE: Option[UMLEnumerationLiteral[Uml]]
+  val OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY: Option[UMLEnumerationLiteral[Uml]]
+  val OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL: Option[UMLEnumerationLiteral[Uml]]
+  val OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE: Option[UMLEnumerationLiteral[Uml]]
+  val OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY: Option[UMLEnumerationLiteral[Uml]]
+
+  /**
+   * OTI::Identity stereotype
+   *
+   * If applied to an element within an OTI::SpecificationRoot-stereotyped
+   * containing package, allows overriding xmi:ID generation,
+   * xmi:UUID generation or both
+   */
+  val OTI_IDENTITY_S: Option[UMLStereotype[Uml]]
+
+  /**
+   * OTI::Identity::xmiID property
+   *
+   * If specified on an element, use the value as xmi:ID
+   * Instead of generating one
+   */
+  val OTI_IDENTITY_xmiID: Option[UMLProperty[Uml]]
+
+	/**
+   * OTI::Identity::xmiUUID property
+   *
+   * If specified on an element, use the value as xmi:UUID
+   * Instead of generating one based on the uuid prefix
+   * of the OTI::SpecificationRoot-stereotyped
+   * containing package and the element's xmi:ID
+   */
+	val OTI_IDENTITY_xmiUUID: Option[UMLProperty[Uml]]
 
   def closure[U, V <: U]( x: U, relation: U => Iterable[V] ): Set[V] = {
 

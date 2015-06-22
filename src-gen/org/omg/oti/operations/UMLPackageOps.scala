@@ -219,6 +219,18 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
 	// Start of user code for additional features
 
+  def oti_packageURI: Option[String] =
+    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_packageURI)
+
+  def oti_documentURL: Option[String] =
+    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_documentURL)
+
+  def oti_uuidPrefix: Option[String] =
+    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_uuidPrefix)
+
+  def oti_artifactKind: Option[UMLEnumerationLiteral[Uml]] =
+    getStereotypeTagPropertyEnumValue(OTI_SPECIFICATION_ROOT_artifactKind)
+
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
 
   def allNestedPackages: Set[UMLPackage[Uml]] = closure( self, ( ( p: UMLPackage[Uml] ) => p.nestedPackage ) )

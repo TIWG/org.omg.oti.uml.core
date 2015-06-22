@@ -335,6 +335,41 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
     tagValues.groupBy( _._1.owningStereotype.get )
 
+  def getStereotypeTagPropertyStringValue(tagProperty: Option[UMLProperty[Uml]]): Option[String] =
+    (for {
+      tag <- tagProperty
+      value <- ( tagValues get tag )
+      result <- value.headOption match {
+        case Some(s: UMLLiteralString[Uml]) =>
+          Some(s.value)
+        case _ =>
+          None
+      }
+    } yield result).flatten
+
+  def getStereotypeTagPropertyEnumValue(tagProperty: Option[UMLProperty[Uml]]): Option[UMLEnumerationLiteral[Uml]] =
+    for {
+      tag <- tagProperty
+      value <- ( tagValues get tag )
+      result <- value.headOption match {
+        case Some(iv: UMLInstanceValue[Uml]) =>
+          iv.instance match {
+            case Some(e: UMLEnumerationLiteral[Uml]) =>
+              Some(e)
+            case _ =>
+              None
+          }
+        case _ =>
+          None
+      }
+    } yield result
+
+  def oti_xmiID: Option[String] =
+    getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiID)
+
+  def oti_xmiUUID: Option[String] =
+    getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiUUID)
+
   def xmiID: Iterable[String] = Iterable(id)
   def xmiUUID: Iterable[String] = uuid.toIterable
   def xmiElementLabel: String = mofMetaclassName

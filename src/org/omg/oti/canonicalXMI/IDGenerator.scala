@@ -142,7 +142,13 @@ trait IDGenerator[Uml <: UML] {
    * The default implementation is to return ref (i.e., no mapping).
    */
   def getMappedOrReferencedElement( ref: UMLElement[Uml] ): UMLElement[Uml] = ref
-  
+
+  /**
+   * The xmi:ID of an element depends on what kind of document it is contained in.
+   * - BuiltInDocument: this is deferred to builtInID, which is implementation-specific.
+   * - SerializableDocument: this is the OTI implementation of Canonical XMI ID
+   * unless it is overriden by an application of the OTI::Identity stereotype
+   */
   def getXMI_ID( self: UMLElement[Uml] ): Try[String] =
     element2id.getOrElseUpdate(
       self,
@@ -155,7 +161,10 @@ trait IDGenerator[Uml <: UML] {
             builtInID(self)
            
           case Some(d: SerializableDocument[Uml]) =>
-            computeID(self)
+            self.oti_xmiID match {
+              case Some(id) => Success(id)
+              case None => computeID(self)
+            }
         }
       } )
 
@@ -321,7 +330,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule1b: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, ne: UMLNamedElement[Uml] ) if ne.name.isDefined =>
-      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + "." + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
+      Success( ownerID + "." + xmlSafeID( ne.metaclass_name ) + "_" + xmlSafeID(cf.propertyName) + "_" + xmlSafeID( ne.name.getOrElse( "" ) ) )
   }
 
   /**
@@ -416,15 +425,17 @@ trait IDGenerator[Uml <: UML] {
   def checkIDs(): Boolean = {
     val id2Element = scala.collection.mutable.HashMap[String, UMLElement[Uml]]()
     var res : Boolean = true
-
+    var duplicates: Integer = 0
+    var failed: Integer = 0
     println("\n>>> IDs Checking...")
       
     getElement2IDMap foreach {
       case (e1,id) =>
         id match {
           case Failure(t) =>
+            failed = failed + 1
             println(s"***ID computation failed for ${e1.toWrappedObjectString}")
-            println("\tCause: "+t.getCause)
+            println("\tCause: "+t.getMessage)
             println("---------------------------")
             res = false
         
@@ -433,6 +444,7 @@ trait IDGenerator[Uml <: UML] {
               case None =>
                 id2Element.update(x, e1)
               case Some (e2) =>
+                duplicates = duplicates + 1
                 println(s"*** Duplicate ID: $x")
                 println(s"\t-> ${e1.toWrappedObjectString}")
                 println(s"\t-> ${e2.toWrappedObjectString}")
@@ -441,7 +453,7 @@ trait IDGenerator[Uml <: UML] {
             } // duplicate id check
         } // Failure check
     } // foreach    
-    println("<<<... IDs Checked\n")
+    println(s"<<<... IDs Checked ($duplicates duplicates, $failed failed)\n")
     res
   } // end CheckIds
   
@@ -1135,7 +1147,7 @@ object IDGenerator {
   def getValidNCName( name: String ): String = {
     val buff = new StringBuffer()
     getValidNCName( name, buff )
-    buff.toString()
+    buff.toString
   }
 
   /**
@@ -1186,16 +1198,5 @@ object IDGenerator {
   
   def computeStereotypeApplicationID (eID: String, stID: String) =
     eID+".stereotypeApplication_"+stID
-  
-  def uuidFromId (id: Option[String]): Option[String] =
-    id match {
-      case Some(s) =>
-        Some(uuidFromId(s))
-      case None =>
-        None
-    }
-  
-  def uuidFromId (id: String): String =
-    "omg.org."+id
 
 }
