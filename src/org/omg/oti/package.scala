@@ -363,8 +363,12 @@ package object oti {
         case u: U =>
           val v = f(u)
           require(v != null)
-          if (v.isEmpty) Success(Nil)
-          else Success(v.toList)
+          if (v.isEmpty)
+            Success(Nil)
+          else if (isOrdered)
+            Success(v.toList)
+          else
+            Success(v.toList.sortBy(_.xmiOrderingKey))
         case _ =>
           Failure(IllegalMetaPropertyEvaluation(e, this))
       }

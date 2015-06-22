@@ -370,8 +370,16 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def oti_xmiUUID: Option[String] =
     getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiUUID)
 
-  def xmiID: Iterable[String] = Iterable(id)
-  def xmiUUID: Iterable[String] = uuid.toIterable
+  def xmiID: Iterable[String] = oti_xmiID match {
+    case None => Iterable(id)
+    case Some(oid) => Iterable(oid)
+  }
+
+  def xmiUUID: Iterable[String] = oti_xmiUUID match {
+    case None => uuid.toIterable
+    case Some(ouuid) => Iterable(ouuid)
+  }
+
   def xmiElementLabel: String = mofMetaclassName
   def metaclass_name: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
   

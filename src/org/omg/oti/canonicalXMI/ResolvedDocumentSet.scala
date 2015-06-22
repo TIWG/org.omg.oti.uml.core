@@ -83,8 +83,8 @@ case class ResolvedDocumentSet[Uml <: UML](
         val mappedURI = ds.builtInURIMapper.resolve( builtInURI ).getOrElse( builtInURI )
         val fragmentIndex = mappedURI.lastIndexOf( '#' )
         require( fragmentIndex > 0 )
-        val fragment = IDGenerator.xmlSafeID( /* d.nsPrefix+"."+*/ mappedURI.substring( fragmentIndex + 1 ) )
-        Tuple2( fragment, "omg.org."+fragment ) // @TODO get the element's serialization package uuid prefix
+        val fragment = IDGenerator.xmlSafeID( mappedURI.substring( fragmentIndex + 1 ) )
+        Tuple2( fragment, "omg.org."+d.nsPrefix.toLowerCase(java.util.Locale.ROOT)+fragment )
 
       case Some( d: SerializableDocument[Uml] ) =>
         Tuple2( s.xmiID.head, s.xmiUUID.head )
@@ -207,7 +207,7 @@ case class ResolvedDocumentSet[Uml <: UML](
 
             val emptyScope: NamespaceBinding = null
 
-            val profileScopes = ( emptyScope /: referencedProfiles ) {
+            val profileScopes = ( emptyScope /: referencedProfiles.toList.sortBy(_.qualifiedName.get) ) {
               case ( scopes, referencedProfile ) =>
                 ( referencedProfile.name, referencedProfile.getEffectiveURI ) match {
                   case ( None, _ ) =>
@@ -318,7 +318,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                             }
                         }
                       val stAppID = IDGenerator.computeStereotypeApplicationID(e.xmiID.head, sID)
-                      val stAppUUID = "org.omg."+stAppID // @TODO get the element's serialization package uuid prefix
+                      val stAppUUID = IDGenerator.computeStereotypeApplicationID(e.xmiUUID.head, sID)
                       val xmiTagValueAttributes =
                         new PrefixedAttribute(
                           pre = "xmi", key = "id", value = stAppID,
