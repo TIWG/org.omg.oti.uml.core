@@ -56,6 +56,7 @@ import scala.util.{Failure, Success, Try}
  * and then operate on the resulting merged packages.
  * (OTI could be used to implement package merge but this is not (yet) done).
  */
+ 
 package object oti {
 
   case class IllegalMetaAttributeEvaluation[Uml <: UML]
@@ -257,22 +258,22 @@ package object oti {
      *
      * B5.3 Property Content for Class-typed Properties
      * For ordering of elements within the serialization of a class-typed property value (usually an association end),
-     * where the property does not have isOrdered=’true’ in the metamodel, the ordering is as follows:
-     * • All nested elements precede all link elements (those referencing another element)
+     * where the property does not have isOrdered='true' in the metamodel, the ordering is as follows:
+     * â€¢ All nested elements precede all link elements (those referencing another element)
      *   Within the set of nested elements the order is alphabetically ordered by the value of the xmi:uuid.
-     * • Within the set of link elements all links using xmi:idref preceded elements using href.
+     * â€¢ Within the set of link elements all links using xmi:idref preceded elements using href.
      *   The set of xmi:idref elements is alphabetically ordered by the value of the xmi:idref, and the set
      *   of href elements is alphabetically ordered by the value of the href.
      * B5.4 Property Content for DataType-typed Properties
      * For ordering of elements within the serialization of a data-typed property value,
-     * where the property does not have isOrdered=’true’ in the metamodel,
+     * where the property does not have isOrdered='true' in the metamodel,
      * there will be no links nor xmi:uuids and the ordering is as follows.
      * Note that for structured Datatypes the properties will be ordered as per B5.1.
-     * • For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
+     * â€¢ For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
      *   taken in order (if the values of the first properties are identical the second is compared and so on)
-     * • For simple datatypes the nested elements are sorted alphabetically by their values.
-     * Note that alphabetic ordering is used – so that, even if the property is of type Integer,
-     * “10” will precede “9”.
+     * â€¢ For simple datatypes the nested elements are sorted alphabetically by their values.
+     * Note that alphabetic ordering is used â€“ so that, even if the property is of type Integer,
+     * â€œ10â€� will precede â€œ9â€�.
      */
     val isOrdered: Boolean
 
@@ -282,7 +283,7 @@ package object oti {
      * B.6
      * 4) If the object has no identifier, or the base name (after character replacement)
      * is a duplicate of an earlier (by export order) sibling base name, then:
-     * a. append underscore '_' if the last character is not already underscore ‘_’;
+     * a. append underscore '_' if the last character is not already underscore '_';
      * b. append a sequence number, starting with 1 when the object has no name, and 2 if it does.
      * It is possible that an earlier sibling name contains a '_n' suffix that creates a name
      * collision. In this case increment the sequence number until no collision exists.
