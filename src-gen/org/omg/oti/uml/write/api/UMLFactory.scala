@@ -267,8 +267,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLParameterSet: Try[UMLParameterSet[Uml]]
 
-  def createUMLParameterableElement: Try[UMLParameterableElement[Uml]]
-
   def createUMLPartDecomposition: Try[UMLPartDecomposition[Uml]]
 
   def createUMLPort: Try[UMLPort[Uml]]
