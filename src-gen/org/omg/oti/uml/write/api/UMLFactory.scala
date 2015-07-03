@@ -11,21 +11,13 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLAcceptEventAction: Try[UMLAcceptEventAction[Uml]]
 
-  def createUMLAction: Try[UMLAction[Uml]]
-
   def createUMLActionExecutionSpecification: Try[UMLActionExecutionSpecification[Uml]]
 
   def createUMLActionInputPin: Try[UMLActionInputPin[Uml]]
 
   def createUMLActivity: Try[UMLActivity[Uml]]
 
-  def createUMLActivityEdge: Try[UMLActivityEdge[Uml]]
-
   def createUMLActivityFinalNode: Try[UMLActivityFinalNode[Uml]]
-
-  def createUMLActivityGroup: Try[UMLActivityGroup[Uml]]
-
-  def createUMLActivityNode: Try[UMLActivityNode[Uml]]
 
   def createUMLActivityParameterNode: Try[UMLActivityParameterNode[Uml]]
 
@@ -45,17 +37,9 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLAssociationClass: Try[UMLAssociationClass[Uml]]
 
-  def createUMLBehavior: Try[UMLBehavior[Uml]]
-
   def createUMLBehaviorExecutionSpecification: Try[UMLBehaviorExecutionSpecification[Uml]]
 
-  def createUMLBehavioralFeature: Try[UMLBehavioralFeature[Uml]]
-
-  def createUMLBehavioredClassifier: Try[UMLBehavioredClassifier[Uml]]
-
   def createUMLBroadcastSignalAction: Try[UMLBroadcastSignalAction[Uml]]
-
-  def createUMLCallAction: Try[UMLCallAction[Uml]]
 
   def createUMLCallBehaviorAction: Try[UMLCallBehaviorAction[Uml]]
 
@@ -68,8 +52,6 @@ trait UMLFactory[Uml <: UML] {
   def createUMLChangeEvent: Try[UMLChangeEvent[Uml]]
 
   def createUMLClass: Try[UMLClass[Uml]]
-
-  def createUMLClassifier: Try[UMLClassifier[Uml]]
 
   def createUMLClassifierTemplateParameter: Try[UMLClassifierTemplateParameter[Uml]]
 
@@ -97,8 +79,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLConditionalNode: Try[UMLConditionalNode[Uml]]
 
-  def createUMLConnectableElement: Try[UMLConnectableElement[Uml]]
-
   def createUMLConnectableElementTemplateParameter: Try[UMLConnectableElementTemplateParameter[Uml]]
 
   def createUMLConnectionPointReference: Try[UMLConnectionPointReference[Uml]]
@@ -115,8 +95,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLControlFlow: Try[UMLControlFlow[Uml]]
 
-  def createUMLControlNode: Try[UMLControlNode[Uml]]
-
   def createUMLCreateLinkAction: Try[UMLCreateLinkAction[Uml]]
 
   def createUMLCreateLinkObjectAction: Try[UMLCreateLinkObjectAction[Uml]]
@@ -131,13 +109,9 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLDependency: Try[UMLDependency[Uml]]
 
-  def createUMLDeployedArtifact: Try[UMLDeployedArtifact[Uml]]
-
   def createUMLDeployment: Try[UMLDeployment[Uml]]
 
   def createUMLDeploymentSpecification: Try[UMLDeploymentSpecification[Uml]]
-
-  def createUMLDeploymentTarget: Try[UMLDeploymentTarget[Uml]]
 
   def createUMLDestroyLinkAction: Try[UMLDestroyLinkAction[Uml]]
 
@@ -147,8 +121,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLDevice: Try[UMLDevice[Uml]]
 
-  def createUMLDirectedRelationship: Try[UMLDirectedRelationship[Uml]]
-
   def createUMLDuration: Try[UMLDuration[Uml]]
 
   def createUMLDurationConstraint: Try[UMLDurationConstraint[Uml]]
@@ -157,27 +129,17 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLDurationObservation: Try[UMLDurationObservation[Uml]]
 
-  def createUMLElement: Try[UMLElement[Uml]]
-
   def createUMLElementImport: Try[UMLElementImport[Uml]]
-
-  def createUMLEncapsulatedClassifier: Try[UMLEncapsulatedClassifier[Uml]]
 
   def createUMLEnumeration: Try[UMLEnumeration[Uml]]
 
   def createUMLEnumerationLiteral: Try[UMLEnumerationLiteral[Uml]]
 
-  def createUMLEvent: Try[UMLEvent[Uml]]
-
   def createUMLExceptionHandler: Try[UMLExceptionHandler[Uml]]
-
-  def createUMLExecutableNode: Try[UMLExecutableNode[Uml]]
 
   def createUMLExecutionEnvironment: Try[UMLExecutionEnvironment[Uml]]
 
   def createUMLExecutionOccurrenceSpecification: Try[UMLExecutionOccurrenceSpecification[Uml]]
-
-  def createUMLExecutionSpecification: Try[UMLExecutionSpecification[Uml]]
 
   def createUMLExpansionNode: Try[UMLExpansionNode[Uml]]
 
@@ -192,10 +154,6 @@ trait UMLFactory[Uml <: UML] {
   def createUMLExtensionEnd: Try[UMLExtensionEnd[Uml]]
 
   def createUMLExtensionPoint: Try[UMLExtensionPoint[Uml]]
-
-  def createUMLFeature: Try[UMLFeature[Uml]]
-
-  def createUMLFinalNode: Try[UMLFinalNode[Uml]]
 
   def createUMLFinalState: Try[UMLFinalState[Uml]]
 
@@ -233,8 +191,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLInteractionConstraint: Try[UMLInteractionConstraint[Uml]]
 
-  def createUMLInteractionFragment: Try[UMLInteractionFragment[Uml]]
-
   def createUMLInteractionOperand: Try[UMLInteractionOperand[Uml]]
 
   def createUMLInteractionUse: Try[UMLInteractionUse[Uml]]
@@ -249,13 +205,9 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLIntervalConstraint: Try[UMLIntervalConstraint[Uml]]
 
-  def createUMLInvocationAction: Try[UMLInvocationAction[Uml]]
-
   def createUMLJoinNode: Try[UMLJoinNode[Uml]]
 
   def createUMLLifeline: Try[UMLLifeline[Uml]]
-
-  def createUMLLinkAction: Try[UMLLinkAction[Uml]]
 
   def createUMLLinkEndCreationData: Try[UMLLinkEndCreationData[Uml]]
 
@@ -271,8 +223,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLLiteralReal: Try[UMLLiteralReal[Uml]]
 
-  def createUMLLiteralSpecification: Try[UMLLiteralSpecification[Uml]]
-
   def createUMLLiteralString: Try[UMLLiteralString[Uml]]
 
   def createUMLLiteralUnlimitedNatural: Try[UMLLiteralUnlimitedNatural[Uml]]
@@ -285,27 +235,13 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLMessage: Try[UMLMessage[Uml]]
 
-  def createUMLMessageEnd: Try[UMLMessageEnd[Uml]]
-
-  def createUMLMessageEvent: Try[UMLMessageEvent[Uml]]
-
   def createUMLMessageOccurrenceSpecification: Try[UMLMessageOccurrenceSpecification[Uml]]
 
   def createUMLModel: Try[UMLModel[Uml]]
 
-  def createUMLMultiplicityElement: Try[UMLMultiplicityElement[Uml]]
-
-  def createUMLNamedElement: Try[UMLNamedElement[Uml]]
-
-  def createUMLNamespace: Try[UMLNamespace[Uml]]
-
   def createUMLNode: Try[UMLNode[Uml]]
 
   def createUMLObjectFlow: Try[UMLObjectFlow[Uml]]
-
-  def createUMLObjectNode: Try[UMLObjectNode[Uml]]
-
-  def createUMLObservation: Try[UMLObservation[Uml]]
 
   def createUMLOccurrenceSpecification: Try[UMLOccurrenceSpecification[Uml]]
 
@@ -327,8 +263,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLPackageMerge: Try[UMLPackageMerge[Uml]]
 
-  def createUMLPackageableElement: Try[UMLPackageableElement[Uml]]
-
   def createUMLParameter: Try[UMLParameter[Uml]]
 
   def createUMLParameterSet: Try[UMLParameterSet[Uml]]
@@ -336,8 +270,6 @@ trait UMLFactory[Uml <: UML] {
   def createUMLParameterableElement: Try[UMLParameterableElement[Uml]]
 
   def createUMLPartDecomposition: Try[UMLPartDecomposition[Uml]]
-
-  def createUMLPin: Try[UMLPin[Uml]]
 
   def createUMLPort: Try[UMLPort[Uml]]
 
@@ -383,15 +315,11 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLReclassifyObjectAction: Try[UMLReclassifyObjectAction[Uml]]
 
-  def createUMLRedefinableElement: Try[UMLRedefinableElement[Uml]]
-
   def createUMLRedefinableTemplateSignature: Try[UMLRedefinableTemplateSignature[Uml]]
 
   def createUMLReduceAction: Try[UMLReduceAction[Uml]]
 
   def createUMLRegion: Try[UMLRegion[Uml]]
-
-  def createUMLRelationship: Try[UMLRelationship[Uml]]
 
   def createUMLRemoveStructuralFeatureValueAction: Try[UMLRemoveStructuralFeatureValueAction[Uml]]
 
@@ -425,13 +353,7 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLStringExpression: Try[UMLStringExpression[Uml]]
 
-  def createUMLStructuralFeature: Try[UMLStructuralFeature[Uml]]
-
-  def createUMLStructuralFeatureAction: Try[UMLStructuralFeatureAction[Uml]]
-
   def createUMLStructuredActivityNode: Try[UMLStructuredActivityNode[Uml]]
-
-  def createUMLStructuredClassifier: Try[UMLStructuredClassifier[Uml]]
 
   def createUMLSubstitution: Try[UMLSubstitution[Uml]]
 
@@ -442,8 +364,6 @@ trait UMLFactory[Uml <: UML] {
   def createUMLTemplateParameterSubstitution: Try[UMLTemplateParameterSubstitution[Uml]]
 
   def createUMLTemplateSignature: Try[UMLTemplateSignature[Uml]]
-
-  def createUMLTemplateableElement: Try[UMLTemplateableElement[Uml]]
 
   def createUMLTestIdentityAction: Try[UMLTestIdentityAction[Uml]]
 
@@ -461,10 +381,6 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLTrigger: Try[UMLTrigger[Uml]]
 
-  def createUMLType: Try[UMLType[Uml]]
-
-  def createUMLTypedElement: Try[UMLTypedElement[Uml]]
-
   def createUMLUnmarshallAction: Try[UMLUnmarshallAction[Uml]]
 
   def createUMLUsage: Try[UMLUsage[Uml]]
@@ -473,20 +389,8 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLValuePin: Try[UMLValuePin[Uml]]
 
-  def createUMLValueSpecification: Try[UMLValueSpecification[Uml]]
-
   def createUMLValueSpecificationAction: Try[UMLValueSpecificationAction[Uml]]
 
   def createUMLVariable: Try[UMLVariable[Uml]]
-
-  def createUMLVariableAction: Try[UMLVariableAction[Uml]]
-
-  def createUMLVertex: Try[UMLVertex[Uml]]
-
-  def createUMLWriteLinkAction: Try[UMLWriteLinkAction[Uml]]
-
-  def createUMLWriteStructuralFeatureAction: Try[UMLWriteStructuralFeatureAction[Uml]]
-
-  def createUMLWriteVariableAction: Try[UMLWriteVariableAction[Uml]]
 
 }
