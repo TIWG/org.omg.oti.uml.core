@@ -1,491 +1,492 @@
 package org.omg.oti.uml.write.api
 
 import org.omg.oti.uml.read.api._
+import scala.util.Try
 
 trait UMLFactory[Uml <: UML] {
 
-  def createUMLAbstraction: UMLAbstraction[Uml]
+  def createUMLAbstraction: Try[UMLAbstraction[Uml]]
 
-  def createUMLAcceptCallAction: UMLAcceptCallAction[Uml]
+  def createUMLAcceptCallAction: Try[UMLAcceptCallAction[Uml]]
 
-  def createUMLAcceptEventAction: UMLAcceptEventAction[Uml]
+  def createUMLAcceptEventAction: Try[UMLAcceptEventAction[Uml]]
 
-  def createUMLAction: UMLAction[Uml]
+  def createUMLAction: Try[UMLAction[Uml]]
 
-  def createUMLActionExecutionSpecification: UMLActionExecutionSpecification[Uml]
+  def createUMLActionExecutionSpecification: Try[UMLActionExecutionSpecification[Uml]]
 
-  def createUMLActionInputPin: UMLActionInputPin[Uml]
+  def createUMLActionInputPin: Try[UMLActionInputPin[Uml]]
 
-  def createUMLActivity: UMLActivity[Uml]
+  def createUMLActivity: Try[UMLActivity[Uml]]
 
-  def createUMLActivityEdge: UMLActivityEdge[Uml]
+  def createUMLActivityEdge: Try[UMLActivityEdge[Uml]]
 
-  def createUMLActivityFinalNode: UMLActivityFinalNode[Uml]
+  def createUMLActivityFinalNode: Try[UMLActivityFinalNode[Uml]]
 
-  def createUMLActivityGroup: UMLActivityGroup[Uml]
+  def createUMLActivityGroup: Try[UMLActivityGroup[Uml]]
 
-  def createUMLActivityNode: UMLActivityNode[Uml]
+  def createUMLActivityNode: Try[UMLActivityNode[Uml]]
 
-  def createUMLActivityParameterNode: UMLActivityParameterNode[Uml]
+  def createUMLActivityParameterNode: Try[UMLActivityParameterNode[Uml]]
 
-  def createUMLActivityPartition: UMLActivityPartition[Uml]
+  def createUMLActivityPartition: Try[UMLActivityPartition[Uml]]
 
-  def createUMLActor: UMLActor[Uml]
+  def createUMLActor: Try[UMLActor[Uml]]
 
-  def createUMLAddStructuralFeatureValueAction: UMLAddStructuralFeatureValueAction[Uml]
+  def createUMLAddStructuralFeatureValueAction: Try[UMLAddStructuralFeatureValueAction[Uml]]
 
-  def createUMLAddVariableValueAction: UMLAddVariableValueAction[Uml]
+  def createUMLAddVariableValueAction: Try[UMLAddVariableValueAction[Uml]]
 
-  def createUMLAnyReceiveEvent: UMLAnyReceiveEvent[Uml]
+  def createUMLAnyReceiveEvent: Try[UMLAnyReceiveEvent[Uml]]
 
-  def createUMLArtifact: UMLArtifact[Uml]
+  def createUMLArtifact: Try[UMLArtifact[Uml]]
 
-  def createUMLAssociation: UMLAssociation[Uml]
+  def createUMLAssociation: Try[UMLAssociation[Uml]]
 
-  def createUMLAssociationClass: UMLAssociationClass[Uml]
+  def createUMLAssociationClass: Try[UMLAssociationClass[Uml]]
 
-  def createUMLBehavior: UMLBehavior[Uml]
+  def createUMLBehavior: Try[UMLBehavior[Uml]]
 
-  def createUMLBehaviorExecutionSpecification: UMLBehaviorExecutionSpecification[Uml]
+  def createUMLBehaviorExecutionSpecification: Try[UMLBehaviorExecutionSpecification[Uml]]
 
-  def createUMLBehavioralFeature: UMLBehavioralFeature[Uml]
+  def createUMLBehavioralFeature: Try[UMLBehavioralFeature[Uml]]
 
-  def createUMLBehavioredClassifier: UMLBehavioredClassifier[Uml]
+  def createUMLBehavioredClassifier: Try[UMLBehavioredClassifier[Uml]]
 
-  def createUMLBroadcastSignalAction: UMLBroadcastSignalAction[Uml]
+  def createUMLBroadcastSignalAction: Try[UMLBroadcastSignalAction[Uml]]
 
-  def createUMLCallAction: UMLCallAction[Uml]
+  def createUMLCallAction: Try[UMLCallAction[Uml]]
 
-  def createUMLCallBehaviorAction: UMLCallBehaviorAction[Uml]
+  def createUMLCallBehaviorAction: Try[UMLCallBehaviorAction[Uml]]
 
-  def createUMLCallEvent: UMLCallEvent[Uml]
+  def createUMLCallEvent: Try[UMLCallEvent[Uml]]
 
-  def createUMLCallOperationAction: UMLCallOperationAction[Uml]
+  def createUMLCallOperationAction: Try[UMLCallOperationAction[Uml]]
 
-  def createUMLCentralBufferNode: UMLCentralBufferNode[Uml]
+  def createUMLCentralBufferNode: Try[UMLCentralBufferNode[Uml]]
 
-  def createUMLChangeEvent: UMLChangeEvent[Uml]
+  def createUMLChangeEvent: Try[UMLChangeEvent[Uml]]
 
-  def createUMLClass: UMLClass[Uml]
+  def createUMLClass: Try[UMLClass[Uml]]
 
-  def createUMLClassifier: UMLClassifier[Uml]
+  def createUMLClassifier: Try[UMLClassifier[Uml]]
 
-  def createUMLClassifierTemplateParameter: UMLClassifierTemplateParameter[Uml]
+  def createUMLClassifierTemplateParameter: Try[UMLClassifierTemplateParameter[Uml]]
 
-  def createUMLClause: UMLClause[Uml]
+  def createUMLClause: Try[UMLClause[Uml]]
 
-  def createUMLClearAssociationAction: UMLClearAssociationAction[Uml]
+  def createUMLClearAssociationAction: Try[UMLClearAssociationAction[Uml]]
 
-  def createUMLClearStructuralFeatureAction: UMLClearStructuralFeatureAction[Uml]
+  def createUMLClearStructuralFeatureAction: Try[UMLClearStructuralFeatureAction[Uml]]
 
-  def createUMLClearVariableAction: UMLClearVariableAction[Uml]
+  def createUMLClearVariableAction: Try[UMLClearVariableAction[Uml]]
 
-  def createUMLCollaboration: UMLCollaboration[Uml]
+  def createUMLCollaboration: Try[UMLCollaboration[Uml]]
 
-  def createUMLCollaborationUse: UMLCollaborationUse[Uml]
+  def createUMLCollaborationUse: Try[UMLCollaborationUse[Uml]]
 
-  def createUMLCombinedFragment: UMLCombinedFragment[Uml]
+  def createUMLCombinedFragment: Try[UMLCombinedFragment[Uml]]
 
-  def createUMLComment: UMLComment[Uml]
+  def createUMLComment: Try[UMLComment[Uml]]
 
-  def createUMLCommunicationPath: UMLCommunicationPath[Uml]
+  def createUMLCommunicationPath: Try[UMLCommunicationPath[Uml]]
 
-  def createUMLComponent: UMLComponent[Uml]
+  def createUMLComponent: Try[UMLComponent[Uml]]
 
-  def createUMLComponentRealization: UMLComponentRealization[Uml]
+  def createUMLComponentRealization: Try[UMLComponentRealization[Uml]]
 
-  def createUMLConditionalNode: UMLConditionalNode[Uml]
+  def createUMLConditionalNode: Try[UMLConditionalNode[Uml]]
 
-  def createUMLConnectableElement: UMLConnectableElement[Uml]
+  def createUMLConnectableElement: Try[UMLConnectableElement[Uml]]
 
-  def createUMLConnectableElementTemplateParameter: UMLConnectableElementTemplateParameter[Uml]
+  def createUMLConnectableElementTemplateParameter: Try[UMLConnectableElementTemplateParameter[Uml]]
 
-  def createUMLConnectionPointReference: UMLConnectionPointReference[Uml]
+  def createUMLConnectionPointReference: Try[UMLConnectionPointReference[Uml]]
 
-  def createUMLConnector: UMLConnector[Uml]
+  def createUMLConnector: Try[UMLConnector[Uml]]
 
-  def createUMLConnectorEnd: UMLConnectorEnd[Uml]
+  def createUMLConnectorEnd: Try[UMLConnectorEnd[Uml]]
 
-  def createUMLConsiderIgnoreFragment: UMLConsiderIgnoreFragment[Uml]
+  def createUMLConsiderIgnoreFragment: Try[UMLConsiderIgnoreFragment[Uml]]
 
-  def createUMLConstraint: UMLConstraint[Uml]
+  def createUMLConstraint: Try[UMLConstraint[Uml]]
 
-  def createUMLContinuation: UMLContinuation[Uml]
+  def createUMLContinuation: Try[UMLContinuation[Uml]]
 
-  def createUMLControlFlow: UMLControlFlow[Uml]
+  def createUMLControlFlow: Try[UMLControlFlow[Uml]]
 
-  def createUMLControlNode: UMLControlNode[Uml]
+  def createUMLControlNode: Try[UMLControlNode[Uml]]
 
-  def createUMLCreateLinkAction: UMLCreateLinkAction[Uml]
+  def createUMLCreateLinkAction: Try[UMLCreateLinkAction[Uml]]
 
-  def createUMLCreateLinkObjectAction: UMLCreateLinkObjectAction[Uml]
+  def createUMLCreateLinkObjectAction: Try[UMLCreateLinkObjectAction[Uml]]
 
-  def createUMLCreateObjectAction: UMLCreateObjectAction[Uml]
+  def createUMLCreateObjectAction: Try[UMLCreateObjectAction[Uml]]
 
-  def createUMLDataStoreNode: UMLDataStoreNode[Uml]
+  def createUMLDataStoreNode: Try[UMLDataStoreNode[Uml]]
 
-  def createUMLDataType: UMLDataType[Uml]
+  def createUMLDataType: Try[UMLDataType[Uml]]
 
-  def createUMLDecisionNode: UMLDecisionNode[Uml]
+  def createUMLDecisionNode: Try[UMLDecisionNode[Uml]]
 
-  def createUMLDependency: UMLDependency[Uml]
+  def createUMLDependency: Try[UMLDependency[Uml]]
 
-  def createUMLDeployedArtifact: UMLDeployedArtifact[Uml]
+  def createUMLDeployedArtifact: Try[UMLDeployedArtifact[Uml]]
 
-  def createUMLDeployment: UMLDeployment[Uml]
+  def createUMLDeployment: Try[UMLDeployment[Uml]]
 
-  def createUMLDeploymentSpecification: UMLDeploymentSpecification[Uml]
+  def createUMLDeploymentSpecification: Try[UMLDeploymentSpecification[Uml]]
 
-  def createUMLDeploymentTarget: UMLDeploymentTarget[Uml]
+  def createUMLDeploymentTarget: Try[UMLDeploymentTarget[Uml]]
 
-  def createUMLDestroyLinkAction: UMLDestroyLinkAction[Uml]
+  def createUMLDestroyLinkAction: Try[UMLDestroyLinkAction[Uml]]
 
-  def createUMLDestroyObjectAction: UMLDestroyObjectAction[Uml]
+  def createUMLDestroyObjectAction: Try[UMLDestroyObjectAction[Uml]]
 
-  def createUMLDestructionOccurrenceSpecification: UMLDestructionOccurrenceSpecification[Uml]
+  def createUMLDestructionOccurrenceSpecification: Try[UMLDestructionOccurrenceSpecification[Uml]]
 
-  def createUMLDevice: UMLDevice[Uml]
+  def createUMLDevice: Try[UMLDevice[Uml]]
 
-  def createUMLDirectedRelationship: UMLDirectedRelationship[Uml]
+  def createUMLDirectedRelationship: Try[UMLDirectedRelationship[Uml]]
 
-  def createUMLDuration: UMLDuration[Uml]
+  def createUMLDuration: Try[UMLDuration[Uml]]
 
-  def createUMLDurationConstraint: UMLDurationConstraint[Uml]
+  def createUMLDurationConstraint: Try[UMLDurationConstraint[Uml]]
 
-  def createUMLDurationInterval: UMLDurationInterval[Uml]
+  def createUMLDurationInterval: Try[UMLDurationInterval[Uml]]
 
-  def createUMLDurationObservation: UMLDurationObservation[Uml]
+  def createUMLDurationObservation: Try[UMLDurationObservation[Uml]]
 
-  def createUMLElement: UMLElement[Uml]
+  def createUMLElement: Try[UMLElement[Uml]]
 
-  def createUMLElementImport: UMLElementImport[Uml]
+  def createUMLElementImport: Try[UMLElementImport[Uml]]
 
-  def createUMLEncapsulatedClassifier: UMLEncapsulatedClassifier[Uml]
+  def createUMLEncapsulatedClassifier: Try[UMLEncapsulatedClassifier[Uml]]
 
-  def createUMLEnumeration: UMLEnumeration[Uml]
+  def createUMLEnumeration: Try[UMLEnumeration[Uml]]
 
-  def createUMLEnumerationLiteral: UMLEnumerationLiteral[Uml]
+  def createUMLEnumerationLiteral: Try[UMLEnumerationLiteral[Uml]]
 
-  def createUMLEvent: UMLEvent[Uml]
+  def createUMLEvent: Try[UMLEvent[Uml]]
 
-  def createUMLExceptionHandler: UMLExceptionHandler[Uml]
+  def createUMLExceptionHandler: Try[UMLExceptionHandler[Uml]]
 
-  def createUMLExecutableNode: UMLExecutableNode[Uml]
+  def createUMLExecutableNode: Try[UMLExecutableNode[Uml]]
 
-  def createUMLExecutionEnvironment: UMLExecutionEnvironment[Uml]
+  def createUMLExecutionEnvironment: Try[UMLExecutionEnvironment[Uml]]
 
-  def createUMLExecutionOccurrenceSpecification: UMLExecutionOccurrenceSpecification[Uml]
+  def createUMLExecutionOccurrenceSpecification: Try[UMLExecutionOccurrenceSpecification[Uml]]
 
-  def createUMLExecutionSpecification: UMLExecutionSpecification[Uml]
+  def createUMLExecutionSpecification: Try[UMLExecutionSpecification[Uml]]
 
-  def createUMLExpansionNode: UMLExpansionNode[Uml]
+  def createUMLExpansionNode: Try[UMLExpansionNode[Uml]]
 
-  def createUMLExpansionRegion: UMLExpansionRegion[Uml]
+  def createUMLExpansionRegion: Try[UMLExpansionRegion[Uml]]
 
-  def createUMLExpression: UMLExpression[Uml]
+  def createUMLExpression: Try[UMLExpression[Uml]]
 
-  def createUMLExtend: UMLExtend[Uml]
+  def createUMLExtend: Try[UMLExtend[Uml]]
 
-  def createUMLExtension: UMLExtension[Uml]
+  def createUMLExtension: Try[UMLExtension[Uml]]
 
-  def createUMLExtensionEnd: UMLExtensionEnd[Uml]
+  def createUMLExtensionEnd: Try[UMLExtensionEnd[Uml]]
 
-  def createUMLExtensionPoint: UMLExtensionPoint[Uml]
+  def createUMLExtensionPoint: Try[UMLExtensionPoint[Uml]]
 
-  def createUMLFeature: UMLFeature[Uml]
+  def createUMLFeature: Try[UMLFeature[Uml]]
 
-  def createUMLFinalNode: UMLFinalNode[Uml]
+  def createUMLFinalNode: Try[UMLFinalNode[Uml]]
 
-  def createUMLFinalState: UMLFinalState[Uml]
+  def createUMLFinalState: Try[UMLFinalState[Uml]]
 
-  def createUMLFlowFinalNode: UMLFlowFinalNode[Uml]
+  def createUMLFlowFinalNode: Try[UMLFlowFinalNode[Uml]]
 
-  def createUMLForkNode: UMLForkNode[Uml]
+  def createUMLForkNode: Try[UMLForkNode[Uml]]
 
-  def createUMLFunctionBehavior: UMLFunctionBehavior[Uml]
+  def createUMLFunctionBehavior: Try[UMLFunctionBehavior[Uml]]
 
-  def createUMLGate: UMLGate[Uml]
+  def createUMLGate: Try[UMLGate[Uml]]
 
-  def createUMLGeneralOrdering: UMLGeneralOrdering[Uml]
+  def createUMLGeneralOrdering: Try[UMLGeneralOrdering[Uml]]
 
-  def createUMLGeneralization: UMLGeneralization[Uml]
+  def createUMLGeneralization: Try[UMLGeneralization[Uml]]
 
-  def createUMLGeneralizationSet: UMLGeneralizationSet[Uml]
+  def createUMLGeneralizationSet: Try[UMLGeneralizationSet[Uml]]
 
-  def createUMLImage: UMLImage[Uml]
+  def createUMLImage: Try[UMLImage[Uml]]
 
-  def createUMLInclude: UMLInclude[Uml]
+  def createUMLInclude: Try[UMLInclude[Uml]]
 
-  def createUMLInformationFlow: UMLInformationFlow[Uml]
+  def createUMLInformationFlow: Try[UMLInformationFlow[Uml]]
 
-  def createUMLInformationItem: UMLInformationItem[Uml]
+  def createUMLInformationItem: Try[UMLInformationItem[Uml]]
 
-  def createUMLInitialNode: UMLInitialNode[Uml]
+  def createUMLInitialNode: Try[UMLInitialNode[Uml]]
 
-  def createUMLInputPin: UMLInputPin[Uml]
+  def createUMLInputPin: Try[UMLInputPin[Uml]]
 
-  def createUMLInstanceSpecification: UMLInstanceSpecification[Uml]
+  def createUMLInstanceSpecification: Try[UMLInstanceSpecification[Uml]]
 
-  def createUMLInstanceValue: UMLInstanceValue[Uml]
+  def createUMLInstanceValue: Try[UMLInstanceValue[Uml]]
 
-  def createUMLInteraction: UMLInteraction[Uml]
+  def createUMLInteraction: Try[UMLInteraction[Uml]]
 
-  def createUMLInteractionConstraint: UMLInteractionConstraint[Uml]
+  def createUMLInteractionConstraint: Try[UMLInteractionConstraint[Uml]]
 
-  def createUMLInteractionFragment: UMLInteractionFragment[Uml]
+  def createUMLInteractionFragment: Try[UMLInteractionFragment[Uml]]
 
-  def createUMLInteractionOperand: UMLInteractionOperand[Uml]
+  def createUMLInteractionOperand: Try[UMLInteractionOperand[Uml]]
 
-  def createUMLInteractionUse: UMLInteractionUse[Uml]
+  def createUMLInteractionUse: Try[UMLInteractionUse[Uml]]
 
-  def createUMLInterface: UMLInterface[Uml]
+  def createUMLInterface: Try[UMLInterface[Uml]]
 
-  def createUMLInterfaceRealization: UMLInterfaceRealization[Uml]
+  def createUMLInterfaceRealization: Try[UMLInterfaceRealization[Uml]]
 
-  def createUMLInterruptibleActivityRegion: UMLInterruptibleActivityRegion[Uml]
+  def createUMLInterruptibleActivityRegion: Try[UMLInterruptibleActivityRegion[Uml]]
 
-  def createUMLInterval: UMLInterval[Uml]
+  def createUMLInterval: Try[UMLInterval[Uml]]
 
-  def createUMLIntervalConstraint: UMLIntervalConstraint[Uml]
+  def createUMLIntervalConstraint: Try[UMLIntervalConstraint[Uml]]
 
-  def createUMLInvocationAction: UMLInvocationAction[Uml]
+  def createUMLInvocationAction: Try[UMLInvocationAction[Uml]]
 
-  def createUMLJoinNode: UMLJoinNode[Uml]
+  def createUMLJoinNode: Try[UMLJoinNode[Uml]]
 
-  def createUMLLifeline: UMLLifeline[Uml]
+  def createUMLLifeline: Try[UMLLifeline[Uml]]
 
-  def createUMLLinkAction: UMLLinkAction[Uml]
+  def createUMLLinkAction: Try[UMLLinkAction[Uml]]
 
-  def createUMLLinkEndCreationData: UMLLinkEndCreationData[Uml]
+  def createUMLLinkEndCreationData: Try[UMLLinkEndCreationData[Uml]]
 
-  def createUMLLinkEndData: UMLLinkEndData[Uml]
+  def createUMLLinkEndData: Try[UMLLinkEndData[Uml]]
 
-  def createUMLLinkEndDestructionData: UMLLinkEndDestructionData[Uml]
+  def createUMLLinkEndDestructionData: Try[UMLLinkEndDestructionData[Uml]]
 
-  def createUMLLiteralBoolean: UMLLiteralBoolean[Uml]
+  def createUMLLiteralBoolean: Try[UMLLiteralBoolean[Uml]]
 
-  def createUMLLiteralInteger: UMLLiteralInteger[Uml]
+  def createUMLLiteralInteger: Try[UMLLiteralInteger[Uml]]
 
-  def createUMLLiteralNull: UMLLiteralNull[Uml]
+  def createUMLLiteralNull: Try[UMLLiteralNull[Uml]]
 
-  def createUMLLiteralReal: UMLLiteralReal[Uml]
+  def createUMLLiteralReal: Try[UMLLiteralReal[Uml]]
 
-  def createUMLLiteralSpecification: UMLLiteralSpecification[Uml]
+  def createUMLLiteralSpecification: Try[UMLLiteralSpecification[Uml]]
 
-  def createUMLLiteralString: UMLLiteralString[Uml]
+  def createUMLLiteralString: Try[UMLLiteralString[Uml]]
 
-  def createUMLLiteralUnlimitedNatural: UMLLiteralUnlimitedNatural[Uml]
+  def createUMLLiteralUnlimitedNatural: Try[UMLLiteralUnlimitedNatural[Uml]]
 
-  def createUMLLoopNode: UMLLoopNode[Uml]
+  def createUMLLoopNode: Try[UMLLoopNode[Uml]]
 
-  def createUMLManifestation: UMLManifestation[Uml]
+  def createUMLManifestation: Try[UMLManifestation[Uml]]
 
-  def createUMLMergeNode: UMLMergeNode[Uml]
+  def createUMLMergeNode: Try[UMLMergeNode[Uml]]
 
-  def createUMLMessage: UMLMessage[Uml]
+  def createUMLMessage: Try[UMLMessage[Uml]]
 
-  def createUMLMessageEnd: UMLMessageEnd[Uml]
+  def createUMLMessageEnd: Try[UMLMessageEnd[Uml]]
 
-  def createUMLMessageEvent: UMLMessageEvent[Uml]
+  def createUMLMessageEvent: Try[UMLMessageEvent[Uml]]
 
-  def createUMLMessageOccurrenceSpecification: UMLMessageOccurrenceSpecification[Uml]
+  def createUMLMessageOccurrenceSpecification: Try[UMLMessageOccurrenceSpecification[Uml]]
 
-  def createUMLModel: UMLModel[Uml]
+  def createUMLModel: Try[UMLModel[Uml]]
 
-  def createUMLMultiplicityElement: UMLMultiplicityElement[Uml]
+  def createUMLMultiplicityElement: Try[UMLMultiplicityElement[Uml]]
 
-  def createUMLNamedElement: UMLNamedElement[Uml]
+  def createUMLNamedElement: Try[UMLNamedElement[Uml]]
 
-  def createUMLNamespace: UMLNamespace[Uml]
+  def createUMLNamespace: Try[UMLNamespace[Uml]]
 
-  def createUMLNode: UMLNode[Uml]
+  def createUMLNode: Try[UMLNode[Uml]]
 
-  def createUMLObjectFlow: UMLObjectFlow[Uml]
+  def createUMLObjectFlow: Try[UMLObjectFlow[Uml]]
 
-  def createUMLObjectNode: UMLObjectNode[Uml]
+  def createUMLObjectNode: Try[UMLObjectNode[Uml]]
 
-  def createUMLObservation: UMLObservation[Uml]
+  def createUMLObservation: Try[UMLObservation[Uml]]
 
-  def createUMLOccurrenceSpecification: UMLOccurrenceSpecification[Uml]
+  def createUMLOccurrenceSpecification: Try[UMLOccurrenceSpecification[Uml]]
 
-  def createUMLOpaqueAction: UMLOpaqueAction[Uml]
+  def createUMLOpaqueAction: Try[UMLOpaqueAction[Uml]]
 
-  def createUMLOpaqueBehavior: UMLOpaqueBehavior[Uml]
+  def createUMLOpaqueBehavior: Try[UMLOpaqueBehavior[Uml]]
 
-  def createUMLOpaqueExpression: UMLOpaqueExpression[Uml]
+  def createUMLOpaqueExpression: Try[UMLOpaqueExpression[Uml]]
 
-  def createUMLOperation: UMLOperation[Uml]
+  def createUMLOperation: Try[UMLOperation[Uml]]
 
-  def createUMLOperationTemplateParameter: UMLOperationTemplateParameter[Uml]
+  def createUMLOperationTemplateParameter: Try[UMLOperationTemplateParameter[Uml]]
 
-  def createUMLOutputPin: UMLOutputPin[Uml]
+  def createUMLOutputPin: Try[UMLOutputPin[Uml]]
 
-  def createUMLPackage: UMLPackage[Uml]
+  def createUMLPackage: Try[UMLPackage[Uml]]
 
-  def createUMLPackageImport: UMLPackageImport[Uml]
+  def createUMLPackageImport: Try[UMLPackageImport[Uml]]
 
-  def createUMLPackageMerge: UMLPackageMerge[Uml]
+  def createUMLPackageMerge: Try[UMLPackageMerge[Uml]]
 
-  def createUMLPackageableElement: UMLPackageableElement[Uml]
+  def createUMLPackageableElement: Try[UMLPackageableElement[Uml]]
 
-  def createUMLParameter: UMLParameter[Uml]
+  def createUMLParameter: Try[UMLParameter[Uml]]
 
-  def createUMLParameterSet: UMLParameterSet[Uml]
+  def createUMLParameterSet: Try[UMLParameterSet[Uml]]
 
-  def createUMLParameterableElement: UMLParameterableElement[Uml]
+  def createUMLParameterableElement: Try[UMLParameterableElement[Uml]]
 
-  def createUMLPartDecomposition: UMLPartDecomposition[Uml]
+  def createUMLPartDecomposition: Try[UMLPartDecomposition[Uml]]
 
-  def createUMLPin: UMLPin[Uml]
+  def createUMLPin: Try[UMLPin[Uml]]
 
-  def createUMLPort: UMLPort[Uml]
+  def createUMLPort: Try[UMLPort[Uml]]
 
-  def createUMLPrimitiveType: UMLPrimitiveType[Uml]
+  def createUMLPrimitiveType: Try[UMLPrimitiveType[Uml]]
 
-  def createUMLProfile: UMLProfile[Uml]
+  def createUMLProfile: Try[UMLProfile[Uml]]
 
-  def createUMLProfileApplication: UMLProfileApplication[Uml]
+  def createUMLProfileApplication: Try[UMLProfileApplication[Uml]]
 
-  def createUMLProperty: UMLProperty[Uml]
+  def createUMLProperty: Try[UMLProperty[Uml]]
 
-  def createUMLProtocolConformance: UMLProtocolConformance[Uml]
+  def createUMLProtocolConformance: Try[UMLProtocolConformance[Uml]]
 
-  def createUMLProtocolStateMachine: UMLProtocolStateMachine[Uml]
+  def createUMLProtocolStateMachine: Try[UMLProtocolStateMachine[Uml]]
 
-  def createUMLProtocolTransition: UMLProtocolTransition[Uml]
+  def createUMLProtocolTransition: Try[UMLProtocolTransition[Uml]]
 
-  def createUMLPseudostate: UMLPseudostate[Uml]
+  def createUMLPseudostate: Try[UMLPseudostate[Uml]]
 
-  def createUMLQualifierValue: UMLQualifierValue[Uml]
+  def createUMLQualifierValue: Try[UMLQualifierValue[Uml]]
 
-  def createUMLRaiseExceptionAction: UMLRaiseExceptionAction[Uml]
+  def createUMLRaiseExceptionAction: Try[UMLRaiseExceptionAction[Uml]]
 
-  def createUMLReadExtentAction: UMLReadExtentAction[Uml]
+  def createUMLReadExtentAction: Try[UMLReadExtentAction[Uml]]
 
-  def createUMLReadIsClassifiedObjectAction: UMLReadIsClassifiedObjectAction[Uml]
+  def createUMLReadIsClassifiedObjectAction: Try[UMLReadIsClassifiedObjectAction[Uml]]
 
-  def createUMLReadLinkAction: UMLReadLinkAction[Uml]
+  def createUMLReadLinkAction: Try[UMLReadLinkAction[Uml]]
 
-  def createUMLReadLinkObjectEndAction: UMLReadLinkObjectEndAction[Uml]
+  def createUMLReadLinkObjectEndAction: Try[UMLReadLinkObjectEndAction[Uml]]
 
-  def createUMLReadLinkObjectEndQualifierAction: UMLReadLinkObjectEndQualifierAction[Uml]
+  def createUMLReadLinkObjectEndQualifierAction: Try[UMLReadLinkObjectEndQualifierAction[Uml]]
 
-  def createUMLReadSelfAction: UMLReadSelfAction[Uml]
+  def createUMLReadSelfAction: Try[UMLReadSelfAction[Uml]]
 
-  def createUMLReadStructuralFeatureAction: UMLReadStructuralFeatureAction[Uml]
+  def createUMLReadStructuralFeatureAction: Try[UMLReadStructuralFeatureAction[Uml]]
 
-  def createUMLReadVariableAction: UMLReadVariableAction[Uml]
+  def createUMLReadVariableAction: Try[UMLReadVariableAction[Uml]]
 
-  def createUMLRealization: UMLRealization[Uml]
+  def createUMLRealization: Try[UMLRealization[Uml]]
 
-  def createUMLReception: UMLReception[Uml]
+  def createUMLReception: Try[UMLReception[Uml]]
 
-  def createUMLReclassifyObjectAction: UMLReclassifyObjectAction[Uml]
+  def createUMLReclassifyObjectAction: Try[UMLReclassifyObjectAction[Uml]]
 
-  def createUMLRedefinableElement: UMLRedefinableElement[Uml]
+  def createUMLRedefinableElement: Try[UMLRedefinableElement[Uml]]
 
-  def createUMLRedefinableTemplateSignature: UMLRedefinableTemplateSignature[Uml]
+  def createUMLRedefinableTemplateSignature: Try[UMLRedefinableTemplateSignature[Uml]]
 
-  def createUMLReduceAction: UMLReduceAction[Uml]
+  def createUMLReduceAction: Try[UMLReduceAction[Uml]]
 
-  def createUMLRegion: UMLRegion[Uml]
+  def createUMLRegion: Try[UMLRegion[Uml]]
 
-  def createUMLRelationship: UMLRelationship[Uml]
+  def createUMLRelationship: Try[UMLRelationship[Uml]]
 
-  def createUMLRemoveStructuralFeatureValueAction: UMLRemoveStructuralFeatureValueAction[Uml]
+  def createUMLRemoveStructuralFeatureValueAction: Try[UMLRemoveStructuralFeatureValueAction[Uml]]
 
-  def createUMLRemoveVariableValueAction: UMLRemoveVariableValueAction[Uml]
+  def createUMLRemoveVariableValueAction: Try[UMLRemoveVariableValueAction[Uml]]
 
-  def createUMLReplyAction: UMLReplyAction[Uml]
+  def createUMLReplyAction: Try[UMLReplyAction[Uml]]
 
-  def createUMLSendObjectAction: UMLSendObjectAction[Uml]
+  def createUMLSendObjectAction: Try[UMLSendObjectAction[Uml]]
 
-  def createUMLSendSignalAction: UMLSendSignalAction[Uml]
+  def createUMLSendSignalAction: Try[UMLSendSignalAction[Uml]]
 
-  def createUMLSequenceNode: UMLSequenceNode[Uml]
+  def createUMLSequenceNode: Try[UMLSequenceNode[Uml]]
 
-  def createUMLSignal: UMLSignal[Uml]
+  def createUMLSignal: Try[UMLSignal[Uml]]
 
-  def createUMLSignalEvent: UMLSignalEvent[Uml]
+  def createUMLSignalEvent: Try[UMLSignalEvent[Uml]]
 
-  def createUMLSlot: UMLSlot[Uml]
+  def createUMLSlot: Try[UMLSlot[Uml]]
 
-  def createUMLStartClassifierBehaviorAction: UMLStartClassifierBehaviorAction[Uml]
+  def createUMLStartClassifierBehaviorAction: Try[UMLStartClassifierBehaviorAction[Uml]]
 
-  def createUMLStartObjectBehaviorAction: UMLStartObjectBehaviorAction[Uml]
+  def createUMLStartObjectBehaviorAction: Try[UMLStartObjectBehaviorAction[Uml]]
 
-  def createUMLState: UMLState[Uml]
+  def createUMLState: Try[UMLState[Uml]]
 
-  def createUMLStateInvariant: UMLStateInvariant[Uml]
+  def createUMLStateInvariant: Try[UMLStateInvariant[Uml]]
 
-  def createUMLStateMachine: UMLStateMachine[Uml]
+  def createUMLStateMachine: Try[UMLStateMachine[Uml]]
 
-  def createUMLStereotype: UMLStereotype[Uml]
+  def createUMLStereotype: Try[UMLStereotype[Uml]]
 
-  def createUMLStringExpression: UMLStringExpression[Uml]
+  def createUMLStringExpression: Try[UMLStringExpression[Uml]]
 
-  def createUMLStructuralFeature: UMLStructuralFeature[Uml]
+  def createUMLStructuralFeature: Try[UMLStructuralFeature[Uml]]
 
-  def createUMLStructuralFeatureAction: UMLStructuralFeatureAction[Uml]
+  def createUMLStructuralFeatureAction: Try[UMLStructuralFeatureAction[Uml]]
 
-  def createUMLStructuredActivityNode: UMLStructuredActivityNode[Uml]
+  def createUMLStructuredActivityNode: Try[UMLStructuredActivityNode[Uml]]
 
-  def createUMLStructuredClassifier: UMLStructuredClassifier[Uml]
+  def createUMLStructuredClassifier: Try[UMLStructuredClassifier[Uml]]
 
-  def createUMLSubstitution: UMLSubstitution[Uml]
+  def createUMLSubstitution: Try[UMLSubstitution[Uml]]
 
-  def createUMLTemplateBinding: UMLTemplateBinding[Uml]
+  def createUMLTemplateBinding: Try[UMLTemplateBinding[Uml]]
 
-  def createUMLTemplateParameter: UMLTemplateParameter[Uml]
+  def createUMLTemplateParameter: Try[UMLTemplateParameter[Uml]]
 
-  def createUMLTemplateParameterSubstitution: UMLTemplateParameterSubstitution[Uml]
+  def createUMLTemplateParameterSubstitution: Try[UMLTemplateParameterSubstitution[Uml]]
 
-  def createUMLTemplateSignature: UMLTemplateSignature[Uml]
+  def createUMLTemplateSignature: Try[UMLTemplateSignature[Uml]]
 
-  def createUMLTemplateableElement: UMLTemplateableElement[Uml]
+  def createUMLTemplateableElement: Try[UMLTemplateableElement[Uml]]
 
-  def createUMLTestIdentityAction: UMLTestIdentityAction[Uml]
+  def createUMLTestIdentityAction: Try[UMLTestIdentityAction[Uml]]
 
-  def createUMLTimeConstraint: UMLTimeConstraint[Uml]
+  def createUMLTimeConstraint: Try[UMLTimeConstraint[Uml]]
 
-  def createUMLTimeEvent: UMLTimeEvent[Uml]
+  def createUMLTimeEvent: Try[UMLTimeEvent[Uml]]
 
-  def createUMLTimeExpression: UMLTimeExpression[Uml]
+  def createUMLTimeExpression: Try[UMLTimeExpression[Uml]]
 
-  def createUMLTimeInterval: UMLTimeInterval[Uml]
+  def createUMLTimeInterval: Try[UMLTimeInterval[Uml]]
 
-  def createUMLTimeObservation: UMLTimeObservation[Uml]
+  def createUMLTimeObservation: Try[UMLTimeObservation[Uml]]
 
-  def createUMLTransition: UMLTransition[Uml]
+  def createUMLTransition: Try[UMLTransition[Uml]]
 
-  def createUMLTrigger: UMLTrigger[Uml]
+  def createUMLTrigger: Try[UMLTrigger[Uml]]
 
-  def createUMLType: UMLType[Uml]
+  def createUMLType: Try[UMLType[Uml]]
 
-  def createUMLTypedElement: UMLTypedElement[Uml]
+  def createUMLTypedElement: Try[UMLTypedElement[Uml]]
 
-  def createUMLUnmarshallAction: UMLUnmarshallAction[Uml]
+  def createUMLUnmarshallAction: Try[UMLUnmarshallAction[Uml]]
 
-  def createUMLUsage: UMLUsage[Uml]
+  def createUMLUsage: Try[UMLUsage[Uml]]
 
-  def createUMLUseCase: UMLUseCase[Uml]
+  def createUMLUseCase: Try[UMLUseCase[Uml]]
 
-  def createUMLValuePin: UMLValuePin[Uml]
+  def createUMLValuePin: Try[UMLValuePin[Uml]]
 
-  def createUMLValueSpecification: UMLValueSpecification[Uml]
+  def createUMLValueSpecification: Try[UMLValueSpecification[Uml]]
 
-  def createUMLValueSpecificationAction: UMLValueSpecificationAction[Uml]
+  def createUMLValueSpecificationAction: Try[UMLValueSpecificationAction[Uml]]
 
-  def createUMLVariable: UMLVariable[Uml]
+  def createUMLVariable: Try[UMLVariable[Uml]]
 
-  def createUMLVariableAction: UMLVariableAction[Uml]
+  def createUMLVariableAction: Try[UMLVariableAction[Uml]]
 
-  def createUMLVertex: UMLVertex[Uml]
+  def createUMLVertex: Try[UMLVertex[Uml]]
 
-  def createUMLWriteLinkAction: UMLWriteLinkAction[Uml]
+  def createUMLWriteLinkAction: Try[UMLWriteLinkAction[Uml]]
 
-  def createUMLWriteStructuralFeatureAction: UMLWriteStructuralFeatureAction[Uml]
+  def createUMLWriteStructuralFeatureAction: Try[UMLWriteStructuralFeatureAction[Uml]]
 
-  def createUMLWriteVariableAction: UMLWriteVariableAction[Uml]
+  def createUMLWriteVariableAction: Try[UMLWriteVariableAction[Uml]]
 
 }
