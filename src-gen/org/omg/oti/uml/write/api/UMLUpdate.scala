@@ -1066,9 +1066,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLExtension[Uml],
    to: Iterable[UMLExtensionEnd[Uml]]): Try[Unit]
 
-  def set_Extension_isRequired
-  (e: UMLExtension[Uml], isRequired: Boolean): Try[Unit]
-
   // ExtensionEnd
 
   def links_ExtensionEnd_extensionEnd_reference_type_Stereotype
@@ -1783,14 +1780,8 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLOperation[Uml],
    to: Option[UMLOperationTemplateParameter[Uml]]): Try[Unit]
 
-  def set_Operation_isOrdered
-  (e: UMLOperation[Uml], isOrdered: Boolean): Try[Unit]
-
   def set_Operation_isQuery
   (e: UMLOperation[Uml], isQuery: Boolean): Try[Unit]
-
-  def set_Operation_isUnique
-  (e: UMLOperation[Uml], isUnique: Boolean): Try[Unit]
 
   def set_Operation_lower
   (e: UMLOperation[Uml], lower: Option[Integer]): Try[Unit]
@@ -2000,9 +1991,6 @@ trait UMLUpdate[Uml <: UML] {
 
   def set_Property_aggregation
   (e: UMLProperty[Uml], aggregation: UMLAggregationKind.Value): Try[Unit]
-
-  def set_Property_isComposite
-  (e: UMLProperty[Uml], isComposite: Boolean): Try[Unit]
 
   def set_Property_isDerived
   (e: UMLProperty[Uml], isDerived: Boolean): Try[Unit]
@@ -2368,18 +2356,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_State_submachineState_reference_submachine_StateMachine
   (from: UMLState[Uml],
    to: Option[UMLStateMachine[Uml]]): Try[Unit]
-
-  def set_State_isComposite
-  (e: UMLState[Uml], isComposite: Boolean): Try[Unit]
-
-  def set_State_isOrthogonal
-  (e: UMLState[Uml], isOrthogonal: Boolean): Try[Unit]
-
-  def set_State_isSimple
-  (e: UMLState[Uml], isSimple: Boolean): Try[Unit]
-
-  def set_State_isSubmachineState
-  (e: UMLState[Uml], isSubmachineState: Boolean): Try[Unit]
 
   // StateInvariant
 
