@@ -188,10 +188,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // ActivityEdge
 
-  def links_ActivityEdge_edge_reference_activity_Activity
-  (from: UMLActivityEdge[Uml],
-   to: Option[UMLActivity[Uml]]): Try[Unit]
-
   def links_ActivityEdge_activityEdge_compose_guard_ValueSpecification
   (from: UMLActivityEdge[Uml],
    to: Option[UMLValueSpecification[Uml]]): Try[Unit]
@@ -199,10 +195,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_ActivityEdge_edge_reference_inPartition_ActivityPartition
   (from: UMLActivityEdge[Uml],
    to: Set[UMLActivityPartition[Uml]]): Try[Unit]
-
-  def links_ActivityEdge_edge_reference_inStructuredNode_StructuredActivityNode
-  (from: UMLActivityEdge[Uml],
-   to: Option[UMLStructuredActivityNode[Uml]]): Try[Unit]
 
   def links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion
   (from: UMLActivityEdge[Uml],
@@ -229,15 +221,8 @@ trait UMLUpdate[Uml <: UML] {
 
   // ActivityGroup
 
-  def links_ActivityGroup_group_reference_inActivity_Activity
-  (from: UMLActivityGroup[Uml],
-   to: Option[UMLActivity[Uml]]): Try[Unit]
 
   // ActivityNode
-
-  def links_ActivityNode_node_reference_activity_Activity
-  (from: UMLActivityNode[Uml],
-   to: Option[UMLActivity[Uml]]): Try[Unit]
 
   def links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion
   (from: UMLActivityNode[Uml],
@@ -246,10 +231,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_ActivityNode_node_reference_inPartition_ActivityPartition
   (from: UMLActivityNode[Uml],
    to: Set[UMLActivityPartition[Uml]]): Try[Unit]
-
-  def links_ActivityNode_node_reference_inStructuredNode_StructuredActivityNode
-  (from: UMLActivityNode[Uml],
-   to: Option[UMLStructuredActivityNode[Uml]]): Try[Unit]
 
   def links_ActivityNode_target_reference_incoming_ActivityEdge
   (from: UMLActivityNode[Uml],
@@ -286,10 +267,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition
   (from: UMLActivityPartition[Uml],
    to: Set[UMLActivityPartition[Uml]]): Try[Unit]
-
-  def links_ActivityPartition_subpartition_reference_superPartition_ActivityPartition
-  (from: UMLActivityPartition[Uml],
-   to: Option[UMLActivityPartition[Uml]]): Try[Unit]
 
   def set_ActivityPartition_isDimension
   (e: UMLActivityPartition[Uml], isDimension: Boolean): Try[Unit]
@@ -667,10 +644,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // ComponentRealization
 
-  def links_ComponentRealization_realization_reference_abstraction_Component
-  (from: UMLComponentRealization[Uml],
-   to: Option[UMLComponent[Uml]]): Try[Unit]
-
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (from: UMLComponentRealization[Uml],
    to: Set[UMLClassifier[Uml]]): Try[Unit]
@@ -713,10 +686,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLConnectionPointReference[Uml],
    to: Set[UMLPseudostate[Uml]]): Try[Unit]
 
-  def links_ConnectionPointReference_connection_reference_state_State
-  (from: UMLConnectionPointReference[Uml],
-   to: Option[UMLState[Uml]]): Try[Unit]
-
   // Connector
 
   def links_Connector_connector_reference_contract_Behavior
@@ -752,10 +721,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Constraint_constraint_reference_constrainedElement_Element
   (from: UMLConstraint[Uml],
    to: Seq[UMLElement[Uml]]): Try[Unit]
-
-  def links_Constraint_ownedRule_reference_context_Namespace
-  (from: UMLConstraint[Uml],
-   to: Option[UMLNamespace[Uml]]): Try[Unit]
 
   def links_Constraint_owningConstraint_compose_specification_ValueSpecification
   (from: UMLConstraint[Uml],
@@ -837,15 +802,8 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLDeployment[Uml],
    to: Set[UMLDeployedArtifact[Uml]]): Try[Unit]
 
-  def links_Deployment_deployment_reference_location_DeploymentTarget
-  (from: UMLDeployment[Uml],
-   to: Option[UMLDeploymentTarget[Uml]]): Try[Unit]
-
   // DeploymentSpecification
 
-  def links_DeploymentSpecification_configuration_reference_deployment_Deployment
-  (from: UMLDeploymentSpecification[Uml],
-   to: Option[UMLDeployment[Uml]]): Try[Unit]
 
   def set_DeploymentSpecification_deploymentLocation
   (e: UMLDeploymentSpecification[Uml], deploymentLocation: Option[String]): Try[Unit]
@@ -936,10 +894,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLElementImport[Uml],
    to: Option[UMLPackageableElement[Uml]]): Try[Unit]
 
-  def links_ElementImport_elementImport_reference_importingNamespace_Namespace
-  (from: UMLElementImport[Uml],
-   to: Option[UMLNamespace[Uml]]): Try[Unit]
-
   def set_ElementImport_alias
   (e: UMLElementImport[Uml], alias: Option[String]): Try[Unit]
 
@@ -957,9 +911,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // EnumerationLiteral
 
-  def links_EnumerationLiteral_ownedLiteral_reference_enumeration_Enumeration
-  (from: UMLEnumerationLiteral[Uml],
-   to: Option[UMLEnumeration[Uml]]): Try[Unit]
 
   // Event
 
@@ -975,10 +926,6 @@ trait UMLUpdate[Uml <: UML] {
    to: Set[UMLClassifier[Uml]]): Try[Unit]
 
   def links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode
-  (from: UMLExceptionHandler[Uml],
-   to: Option[UMLExecutableNode[Uml]]): Try[Unit]
-
-  def links_ExceptionHandler_handler_reference_protectedNode_ExecutableNode
   (from: UMLExceptionHandler[Uml],
    to: Option[UMLExecutableNode[Uml]]): Try[Unit]
 
@@ -1049,10 +996,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLExtend[Uml],
    to: Option[UMLUseCase[Uml]]): Try[Unit]
 
-  def links_Extend_extend_reference_extension_UseCase
-  (from: UMLExtend[Uml],
-   to: Option[UMLUseCase[Uml]]): Try[Unit]
-
   def links_Extend_extension_reference_extensionLocation_ExtensionPoint
   (from: UMLExtend[Uml],
    to: Seq[UMLExtensionPoint[Uml]]): Try[Unit]
@@ -1069,14 +1012,8 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLExtensionEnd[Uml],
    to: Option[UMLStereotype[Uml]]): Try[Unit]
 
-  def set_ExtensionEnd_lower
-  (e: UMLExtensionEnd[Uml], lower: Integer): Try[Unit]
-
   // ExtensionPoint
 
-  def links_ExtensionPoint_extensionPoint_reference_useCase_UseCase
-  (from: UMLExtensionPoint[Uml],
-   to: Option[UMLUseCase[Uml]]): Try[Unit]
 
   // Feature
 
@@ -1122,10 +1059,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLGeneralization[Uml],
    to: Set[UMLGeneralizationSet[Uml]]): Try[Unit]
 
-  def links_Generalization_generalization_reference_specific_Classifier
-  (from: UMLGeneralization[Uml],
-   to: Option[UMLClassifier[Uml]]): Try[Unit]
-
   def set_Generalization_isSubstitutable
   (e: UMLGeneralization[Uml], isSubstitutable: Option[Boolean]): Try[Unit]
 
@@ -1160,10 +1093,6 @@ trait UMLUpdate[Uml <: UML] {
   // Include
 
   def links_Include_include_reference_addition_UseCase
-  (from: UMLInclude[Uml],
-   to: Option[UMLUseCase[Uml]]): Try[Unit]
-
-  def links_Include_include_reference_includingCase_UseCase
   (from: UMLInclude[Uml],
    to: Option[UMLUseCase[Uml]]): Try[Unit]
 
@@ -1267,14 +1196,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLInteractionFragment[Uml],
    to: Iterable[UMLLifeline[Uml]]): Try[Unit]
 
-  def links_InteractionFragment_fragment_reference_enclosingInteraction_Interaction
-  (from: UMLInteractionFragment[Uml],
-   to: Option[UMLInteraction[Uml]]): Try[Unit]
-
-  def links_InteractionFragment_fragment_reference_enclosingOperand_InteractionOperand
-  (from: UMLInteractionFragment[Uml],
-   to: Option[UMLInteractionOperand[Uml]]): Try[Unit]
-
   def links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering
   (from: UMLInteractionFragment[Uml],
    to: Set[UMLGeneralOrdering[Uml]]): Try[Unit]
@@ -1343,10 +1264,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLInterfaceRealization[Uml],
    to: Option[UMLInterface[Uml]]): Try[Unit]
 
-  def links_InterfaceRealization_interfaceRealization_reference_implementingClassifier_BehavioredClassifier
-  (from: UMLInterfaceRealization[Uml],
-   to: Option[UMLBehavioredClassifier[Uml]]): Try[Unit]
-
   // InterruptibleActivityRegion
 
   def links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge
@@ -1401,10 +1318,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition
   (from: UMLLifeline[Uml],
    to: Option[UMLPartDecomposition[Uml]]): Try[Unit]
-
-  def links_Lifeline_lifeline_reference_interaction_Interaction
-  (from: UMLLifeline[Uml],
-   to: Option[UMLInteraction[Uml]]): Try[Unit]
 
   def links_Lifeline_lifeline_reference_represents_ConnectableElement
   (from: UMLLifeline[Uml],
@@ -1548,10 +1461,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLMessage[Uml],
    to: Option[UMLConnector[Uml]]): Try[Unit]
 
-  def links_Message_message_reference_interaction_Interaction
-  (from: UMLMessage[Uml],
-   to: Option[UMLInteraction[Uml]]): Try[Unit]
-
   def links_Message_endMessage_reference_receiveEvent_MessageEnd
   (from: UMLMessage[Uml],
    to: Option[UMLMessageEnd[Uml]]): Try[Unit]
@@ -1600,12 +1509,6 @@ trait UMLUpdate[Uml <: UML] {
 
   def set_MultiplicityElement_isUnique
   (e: UMLMultiplicityElement[Uml], isUnique: Boolean): Try[Unit]
-
-  def set_MultiplicityElement_lower
-  (e: UMLMultiplicityElement[Uml], lower: Integer): Try[Unit]
-
-  def set_MultiplicityElement_upper
-  (e: UMLMultiplicityElement[Uml], upper: Integer): Try[Unit]
 
   // NamedElement
 
@@ -1735,18 +1638,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLOperation[Uml],
    to: Option[UMLConstraint[Uml]]): Try[Unit]
 
-  def links_Operation_ownedOperation_reference_class_Class
-  (from: UMLOperation[Uml],
-   to: Option[UMLClass[Uml]]): Try[Unit]
-
-  def links_Operation_ownedOperation_reference_datatype_DataType
-  (from: UMLOperation[Uml],
-   to: Option[UMLDataType[Uml]]): Try[Unit]
-
-  def links_Operation_ownedOperation_reference_interface_Interface
-  (from: UMLOperation[Uml],
-   to: Option[UMLInterface[Uml]]): Try[Unit]
-
   def links_Operation_operation_compose_ownedParameter_Parameter
   (from: UMLOperation[Uml],
    to: Seq[UMLParameter[Uml]]): Try[Unit]
@@ -1806,20 +1697,12 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLPackageImport[Uml],
    to: Option[UMLPackage[Uml]]): Try[Unit]
 
-  def links_PackageImport_packageImport_reference_importingNamespace_Namespace
-  (from: UMLPackageImport[Uml],
-   to: Option[UMLNamespace[Uml]]): Try[Unit]
-
   def set_PackageImport_visibility
   (e: UMLPackageImport[Uml], visibility: UMLVisibilityKind.Value): Try[Unit]
 
   // PackageMerge
 
   def links_PackageMerge_packageMerge_reference_mergedPackage_Package
-  (from: UMLPackageMerge[Uml],
-   to: Option[UMLPackage[Uml]]): Try[Unit]
-
-  def links_PackageMerge_packageMerge_reference_receivingPackage_Package
   (from: UMLPackageMerge[Uml],
    to: Option[UMLPackage[Uml]]): Try[Unit]
 
@@ -1834,10 +1717,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Parameter_owningParameter_compose_defaultValue_ValueSpecification
   (from: UMLParameter[Uml],
    to: Option[UMLValueSpecification[Uml]]): Try[Unit]
-
-  def links_Parameter_ownedParameter_reference_operation_Operation
-  (from: UMLParameter[Uml],
-   to: Option[UMLOperation[Uml]]): Try[Unit]
 
   def links_Parameter_parameter_reference_parameterSet_ParameterSet
   (from: UMLParameter[Uml],
@@ -1866,10 +1745,6 @@ trait UMLUpdate[Uml <: UML] {
    to: Set[UMLParameter[Uml]]): Try[Unit]
 
   // ParameterableElement
-
-  def links_ParameterableElement_ownedParameteredElement_reference_owningTemplateParameter_TemplateParameter
-  (from: UMLParameterableElement[Uml],
-   to: Option[UMLTemplateParameter[Uml]]): Try[Unit]
 
   def links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter
   (from: UMLParameterableElement[Uml],
@@ -1922,10 +1797,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLProfileApplication[Uml],
    to: Option[UMLProfile[Uml]]): Try[Unit]
 
-  def links_ProfileApplication_profileApplication_reference_applyingPackage_Package
-  (from: UMLProfileApplication[Uml],
-   to: Option[UMLPackage[Uml]]): Try[Unit]
-
   def set_ProfileApplication_isStrict
   (e: UMLProfileApplication[Uml], isStrict: Boolean): Try[Unit]
 
@@ -1935,29 +1806,9 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLProperty[Uml],
    to: Option[UMLAssociation[Uml]]): Try[Unit]
 
-  def links_Property_qualifier_reference_associationEnd_Property
-  (from: UMLProperty[Uml],
-   to: Option[UMLProperty[Uml]]): Try[Unit]
-
-  def links_Property_ownedAttribute_reference_class_Class
-  (from: UMLProperty[Uml],
-   to: Option[UMLClass[Uml]]): Try[Unit]
-
-  def links_Property_ownedAttribute_reference_datatype_DataType
-  (from: UMLProperty[Uml],
-   to: Option[UMLDataType[Uml]]): Try[Unit]
-
   def links_Property_owningProperty_compose_defaultValue_ValueSpecification
   (from: UMLProperty[Uml],
    to: Option[UMLValueSpecification[Uml]]): Try[Unit]
-
-  def links_Property_ownedAttribute_reference_interface_Interface
-  (from: UMLProperty[Uml],
-   to: Option[UMLInterface[Uml]]): Try[Unit]
-
-  def links_Property_ownedEnd_reference_owningAssociation_Association
-  (from: UMLProperty[Uml],
-   to: Option[UMLAssociation[Uml]]): Try[Unit]
 
   def links_Property_associationEnd_compose_qualifier_Property
   (from: UMLProperty[Uml],
@@ -1989,10 +1840,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLProtocolConformance[Uml],
    to: Option[UMLProtocolStateMachine[Uml]]): Try[Unit]
 
-  def links_ProtocolConformance_conformance_reference_specificMachine_ProtocolStateMachine
-  (from: UMLProtocolConformance[Uml],
-   to: Option[UMLProtocolStateMachine[Uml]]): Try[Unit]
-
   // ProtocolStateMachine
 
   def links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance
@@ -2011,13 +1858,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // Pseudostate
 
-  def links_Pseudostate_connectionPoint_reference_state_State
-  (from: UMLPseudostate[Uml],
-   to: Option[UMLState[Uml]]): Try[Unit]
-
-  def links_Pseudostate_connectionPoint_reference_stateMachine_StateMachine
-  (from: UMLPseudostate[Uml],
-   to: Option[UMLStateMachine[Uml]]): Try[Unit]
 
   def set_Pseudostate_kind
   (e: UMLPseudostate[Uml], kind: UMLPseudostateKind.Value): Try[Unit]
@@ -2151,10 +1991,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // RedefinableTemplateSignature
 
-  def links_RedefinableTemplateSignature_ownedTemplateSignature_reference_classifier_Classifier
-  (from: UMLRedefinableTemplateSignature[Uml],
-   to: Option[UMLClassifier[Uml]]): Try[Unit]
-
   def links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature
   (from: UMLRedefinableTemplateSignature[Uml],
    to: Set[UMLRedefinableTemplateSignature[Uml]]): Try[Unit]
@@ -2181,14 +2017,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Region_region_reference_extendedRegion_Region
   (from: UMLRegion[Uml],
    to: Option[UMLRegion[Uml]]): Try[Unit]
-
-  def links_Region_region_reference_state_State
-  (from: UMLRegion[Uml],
-   to: Option[UMLState[Uml]]): Try[Unit]
-
-  def links_Region_region_reference_stateMachine_StateMachine
-  (from: UMLRegion[Uml],
-   to: Option[UMLStateMachine[Uml]]): Try[Unit]
 
   def links_Region_container_compose_subvertex_Vertex
   (from: UMLRegion[Uml],
@@ -2276,10 +2104,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Slot_slot_reference_definingFeature_StructuralFeature
   (from: UMLSlot[Uml],
    to: Option[UMLStructuralFeature[Uml]]): Try[Unit]
-
-  def links_Slot_slot_reference_owningInstance_InstanceSpecification
-  (from: UMLSlot[Uml],
-   to: Option[UMLInstanceSpecification[Uml]]): Try[Unit]
 
   def links_Slot_owningSlot_compose_value_ValueSpecification
   (from: UMLSlot[Uml],
@@ -2375,10 +2199,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // StringExpression
 
-  def links_StringExpression_subExpression_reference_owningExpression_StringExpression
-  (from: UMLStringExpression[Uml],
-   to: Option[UMLStringExpression[Uml]]): Try[Unit]
-
   def links_StringExpression_owningExpression_compose_subExpression_StringExpression
   (from: UMLStringExpression[Uml],
    to: Seq[UMLStringExpression[Uml]]): Try[Unit]
@@ -2400,10 +2220,6 @@ trait UMLUpdate[Uml <: UML] {
    to: Option[UMLStructuralFeature[Uml]]): Try[Unit]
 
   // StructuredActivityNode
-
-  def links_StructuredActivityNode_structuredNode_reference_activity_Activity
-  (from: UMLStructuredActivityNode[Uml],
-   to: Option[UMLActivity[Uml]]): Try[Unit]
 
   def links_StructuredActivityNode_inStructuredNode_compose_edge_ActivityEdge
   (from: UMLStructuredActivityNode[Uml],
@@ -2444,15 +2260,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLSubstitution[Uml],
    to: Option[UMLClassifier[Uml]]): Try[Unit]
 
-  def links_Substitution_substitution_reference_substitutingClassifier_Classifier
-  (from: UMLSubstitution[Uml],
-   to: Option[UMLClassifier[Uml]]): Try[Unit]
-
   // TemplateBinding
-
-  def links_TemplateBinding_templateBinding_reference_boundElement_TemplateableElement
-  (from: UMLTemplateBinding[Uml],
-   to: Option[UMLTemplateableElement[Uml]]): Try[Unit]
 
   def links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution
   (from: UMLTemplateBinding[Uml],
@@ -2480,10 +2288,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLTemplateParameter[Uml],
    to: Option[UMLParameterableElement[Uml]]): Try[Unit]
 
-  def links_TemplateParameter_ownedParameter_reference_signature_TemplateSignature
-  (from: UMLTemplateParameter[Uml],
-   to: Option[UMLTemplateSignature[Uml]]): Try[Unit]
-
   // TemplateParameterSubstitution
 
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement
@@ -2498,10 +2302,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLTemplateParameterSubstitution[Uml],
    to: Option[UMLParameterableElement[Uml]]): Try[Unit]
 
-  def links_TemplateParameterSubstitution_parameterSubstitution_reference_templateBinding_TemplateBinding
-  (from: UMLTemplateParameterSubstitution[Uml],
-   to: Option[UMLTemplateBinding[Uml]]): Try[Unit]
-
   // TemplateSignature
 
   def links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter
@@ -2511,10 +2311,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter
   (from: UMLTemplateSignature[Uml],
    to: Seq[UMLTemplateParameter[Uml]]): Try[Unit]
-
-  def links_TemplateSignature_ownedTemplateSignature_reference_template_TemplateableElement
-  (from: UMLTemplateSignature[Uml],
-   to: Option[UMLTemplateableElement[Uml]]): Try[Unit]
 
   // TemplateableElement
 
@@ -2588,10 +2384,6 @@ trait UMLUpdate[Uml <: UML] {
   (e: UMLTimeObservation[Uml], firstEvent: Boolean): Try[Unit]
 
   // Transition
-
-  def links_Transition_transition_reference_container_Region
-  (from: UMLTransition[Uml],
-   to: Option[UMLRegion[Uml]]): Try[Unit]
 
   def links_Transition_transition_compose_effect_Behavior
   (from: UMLTransition[Uml],
@@ -2687,13 +2479,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // Variable
 
-  def links_Variable_variable_reference_activityScope_Activity
-  (from: UMLVariable[Uml],
-   to: Option[UMLActivity[Uml]]): Try[Unit]
-
-  def links_Variable_variable_reference_scope_StructuredActivityNode
-  (from: UMLVariable[Uml],
-   to: Option[UMLStructuredActivityNode[Uml]]): Try[Unit]
 
   // VariableAction
 
@@ -2703,9 +2488,6 @@ trait UMLUpdate[Uml <: UML] {
 
   // Vertex
 
-  def links_Vertex_subvertex_reference_container_Region
-  (from: UMLVertex[Uml],
-   to: Option[UMLRegion[Uml]]): Try[Unit]
 
   // WriteLinkAction
 
