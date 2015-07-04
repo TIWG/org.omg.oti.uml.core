@@ -735,9 +735,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLConnector[Uml],
    to: Option[UMLAssociation[Uml]]): Try[Unit]
 
-  def set_Connector_kind
-  (e: UMLConnector[Uml], kind: UMLConnectorKind.Value): Try[Unit]
-
   // ConnectorEnd
 
   def links_ConnectorEnd_connectorEnd_reference_partWithPort_Property
@@ -1567,9 +1564,6 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLMessage[Uml],
    to: Option[UMLNamedElement[Uml]]): Try[Unit]
 
-  def set_Message_messageKind
-  (e: UMLMessage[Uml], messageKind: UMLMessageKind.Value): Try[Unit]
-
   def set_Message_messageSort
   (e: UMLMessage[Uml], messageSort: UMLMessageSort.Value): Try[Unit]
 
@@ -1621,9 +1615,6 @@ trait UMLUpdate[Uml <: UML] {
 
   def set_NamedElement_name
   (e: UMLNamedElement[Uml], name: Option[String]): Try[Unit]
-
-  def set_NamedElement_qualifiedName
-  (e: UMLNamedElement[Uml], qualifiedName: Option[String]): Try[Unit]
 
   def set_NamedElement_visibility
   (e: UMLNamedElement[Uml], visibility: Option[UMLVisibilityKind.Value]): Try[Unit]
@@ -1783,12 +1774,6 @@ trait UMLUpdate[Uml <: UML] {
   def set_Operation_isQuery
   (e: UMLOperation[Uml], isQuery: Boolean): Try[Unit]
 
-  def set_Operation_lower
-  (e: UMLOperation[Uml], lower: Option[Integer]): Try[Unit]
-
-  def set_Operation_upper
-  (e: UMLOperation[Uml], upper: Option[Integer]): Try[Unit]
-
   // OperationTemplateParameter
 
   def links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation
@@ -1857,9 +1842,6 @@ trait UMLUpdate[Uml <: UML] {
   def links_Parameter_parameter_reference_parameterSet_ParameterSet
   (from: UMLParameter[Uml],
    to: Set[UMLParameterSet[Uml]]): Try[Unit]
-
-  def set_Parameter_default
-  (e: UMLParameter[Uml], default: Option[String]): Try[Unit]
 
   def set_Parameter_direction
   (e: UMLParameter[Uml], direction: UMLParameterDirectionKind.Value): Try[Unit]
