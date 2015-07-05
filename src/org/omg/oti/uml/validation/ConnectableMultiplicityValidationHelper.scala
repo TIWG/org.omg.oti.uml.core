@@ -46,39 +46,89 @@ import org.omg.oti.uml.read.operations.UMLOps
 import scala.util._
 
 /**
-* The different catetories of validation for the lower or upper value of a multiplicity element
-* that is a kind of parameter or property.
-*
-* @See MOF 2.5, Section 12.4 EMOF Constraints
-* [32] The values of MultiplicityElement::lowerValue and upperValue must be
-* of kind LiteralInteger and LiteralUnlimitedNatural respectively.
-*/
+ * The different categories of validation for the lower or upper value of a multiplicity element
+ * that is a kind of parameter or property.
+ *
+ * @see MOF 2.5, Section 12.4 EMOF Constraints
+ * [32] The values of MultiplicityElement::lowerValue and upperValue must be
+ * of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ *
+ * @see MOF 2.5, Section 14.4 CMOF Constraints
+ * [14] The values of MultiplicityElement::lowerValue and upperValue must
+ * be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ */
 object MultiplicityValueValidationStatus extends Enumeration {
   type MultiplicityValueValidationStatus = Value
 
+  /**
+   * Valid per EMOF [32] & CMOF [14]
+   */
   val ValidValueStatus = Value
+
+  /**
+   * Invalid redundant default value '1'
+   * (repair strategy: delete the value)
+   */
   val RedundantValueStatus = Value
+
+  /**
+   * Invalid MultiplicityElement::lowerValue is a LiteralUnlimitedNatural
+   * (repair strategy: convert the value to an equivalent LiteralInteger)
+   * 
+   * or
+   * 
+   * Invalid MultiplicityElement::upperValue is a LiteralUnlimitedNatural 
+   * whose integer value is not a valid UnlimitedNatural
+   * (no repair strategy)
+   */
   val InvalidValueAsUnlimitedNaturalStatus = Value
+
+  /**
+   * Invalid MultiplicityElement::lowerValue is a LiteralInteger whose integer value is non positive
+   * (no repair strategy)
+   * 
+   * or
+   * 
+   * Invalid MultiplicityElement::upperValue is a LiteralInteger
+   * (repair strategy: convert the value to an equivalent LiteralUnlimitedNatural)
+   */
   val InvalidValueAsIntegerStatus = Value
+
+  /**
+   * Invalid MultiplicityElement::lowerValue or MultiplicityElement::upperValue is a LiteralString
+   * (repair strategy: if and only if the value can be converted to an equivalent, suitable value 
+   *  for the role: a LiteralInteger for a lowerValue or a LiteralUnlimitedNatural for an upperValue)
+   */
   val InvalidValueAsStringStatus = Value
+  
+  /**
+   * Invalid MultiplicityElement::lowerValue or MultiplicityElement::upperValue 
+   * is not a recognized ValueSpecification
+   * (no repair strategy)
+   */
   val InvalidValueKindStatus = Value
 }
 
 import MultiplicityValueValidationStatus._
 
 /**
-* Multiplicity range validation result for a connectable element (parameter or property)
-*
-* @param parameter_or_property: A Parameter or Property
-* @param role: MultiplicityElement_lowerValue or MultiplicityElement_upperValue
-* @param status: valid, redundant or invalid
-* @param explanation: description of the validatio result
-* @valueRepair: if invalid, an integer value to repair the model
-*
-* @See MOF 2.5, Section 12.4 EMOF Constraints
-* [32] The values of MultiplicityElement::lowerValue and upperValue must be
-* of kind LiteralInteger and LiteralUnlimitedNatural respectively.
-*/
+ * Multiplicity range validation result for a connectable element (parameter or property)
+ *
+ * @param parameter_or_property: A Parameter or Property
+ * @param role: MultiplicityElement_lowerValue or MultiplicityElement_upperValue
+ * @param status: valid, redundant or invalid
+ * @param explanation: description of the validatio result
+ * @param valueRepair: if invalid, an integer value to repair the model
+ * @tparam Uml A tool-specific implementation of OMG UML
+ *
+ * @see MOF 2.5, Section 12.4 EMOF Constraints
+ * [32] The values of MultiplicityElement::lowerValue and upperValue must be
+ * of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ *
+ * @see MOF 2.5, Section 14.4 CMOF Constraints
+ * [14] The values of MultiplicityElement::lowerValue and upperValue must
+ * be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ */
 case class ConnectableMultiplicityValidationInfo[Uml <: UML]
 (val parameter_or_property: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml],
  val role: MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]],
@@ -106,12 +156,16 @@ case class ConnectableMultiplicityValidationInfo[Uml <: UML]
 }
 
 /**
-* Multiplicity range validation support for parameter or property connectable elements
-*
-* @See MOF 2.5, Section 12.4 EMOF Constraints
-* [32] The values of MultiplicityElement::lowerValue and upperValue must be
-* of kind LiteralInteger and LiteralUnlimitedNatural respectively.
-*/
+ * Multiplicity range validation support for parameter or property connectable elements
+ *
+ * @see MOF 2.5, Section 12.4 EMOF Constraints
+ * [32] The values of MultiplicityElement::lowerValue and upperValue must be
+ *      of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ *
+ * @see MOF 2.5, Section 14.4 CMOF Constraints
+ * [14] The values of MultiplicityElement::lowerValue and upperValue must
+ *      be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ */
 object ConnectableMultiplicityValidationHelper {
 
   val DELETE_REDUNDANT_DEFAULT_VALUE =
@@ -139,11 +193,12 @@ object ConnectableMultiplicityValidationHelper {
     Some("Invalid string value")
 
   /**
-    * Check the multiplicity range validity of all parameter or property connectable elements found in the packages.
-    *
-    * @param pkgs: the scope of the packages to analyze
-    * @return ConnectableMultiplicityValidationInfo for each connectable multiplicity element found in `pkgs`
-    */
+   * Check the multiplicity range validity of all parameter or property
+   * connectable elements found in the packages.
+   *
+   * @param pkgs: the scope of the packages to analyze
+   * @return ConnectableMultiplicityValidationInfo for each connectable multiplicity element found in `pkgs`
+   */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps): Iterable[ConnectableMultiplicityValidationInfo[Uml]] = {

@@ -548,6 +548,12 @@ package object uml {
       case _ => false
     }
 
+  def oclIsTypeOfClass[Uml <: UML](e: UMLElement[Uml]): Boolean =
+    e match {
+      case _: UMLClass[Uml] => true
+      case _ => false
+    }
+
   def booleanToIterable( value: Boolean, default: Boolean ): Iterable[Boolean] =
     if ( value != default ) Iterable( value )
     else Iterable()
