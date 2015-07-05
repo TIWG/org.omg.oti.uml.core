@@ -138,22 +138,22 @@ case class TypedElementValidationInfo[Uml <: UML]
 object TypedElementValidationHelper {
 
   val INVALID_OPERATION_RAISED_EXCEPTION_NON_CLASS_TYPE =
-    Some("Operation::raisedException must be a kind of Class.")
+    "Operation::raisedException must be a kind of Class."
 
   val INVALID_TYPED_ELEMENT_WITH_ASSOCIATION_TYPE =
-    Some("A TypedElement cannot be typed by an Association: ")
+    "A TypedElement cannot be typed by an Association"
 
   val INVALID_UNTYPED_TYPED_ELEMENT =
-    Some("A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type: ")
+    "A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type"
 
   val INVALID_DATATYPE_PROPERTY_AGGREGATION =
-    Some("A Property typed by a kind of DataType must have aggregation = none instead of: ")
+    "A Property typed by a kind of DataType must have aggregation = none instead of: "
 
   val INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE =
-    Some("A Property owned by a DataType can only be typed by a DataType instead of: ")
+    "A Property owned by a DataType can only be typed by a DataType instead of a "
 
-  val INVALID_ASSOCIATION_MEMBEREND_PROPERTY_NON_CLASS_TYPE =
-    Some("Each Association memberEnd Property must be typed by a Class instead of: ")
+  val INVALID_ASSOCIATION_MEMBER_END_PROPERTY_NON_CLASS_TYPE =
+    "Each Association memberEnd Property must be typed by a Class instead of a "
 
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
@@ -201,7 +201,7 @@ object TypedElementValidationHelper {
           case a: UMLAssociation[Uml] =>
             Some(TypedElementValidationInfo(
               te, InvalidTypedElementWithAssociationTypeStatus,
-              Some(INVALID_TYPED_ELEMENT_WITH_ASSOCIATION_TYPE + a.xmiOrderingKey)))
+              Some(INVALID_TYPED_ELEMENT_WITH_ASSOCIATION_TYPE)))
           case _ =>
             None
         }
@@ -226,7 +226,7 @@ object TypedElementValidationHelper {
               Some(
                 TypedElementValidationInfo(
                   te, InvalidUntypedTypedElementStatus,
-                  Some(INVALID_UNTYPED_TYPED_ELEMENT + te.xmiOrderingKey)))
+                  Some(INVALID_UNTYPED_TYPED_ELEMENT)))
           }
       }
 
@@ -275,7 +275,7 @@ object TypedElementValidationHelper {
               Some(
                 TypedElementValidationInfo(
                   te, InvalidDataTypePropertyWithNonDataTypeTypeStatus,
-                  Some(INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE + t.xmiOrderingKey)))
+                  Some(INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE + t.metaclass_name)))
             case None =>
               None
           }
@@ -298,7 +298,7 @@ object TypedElementValidationHelper {
               Some(
                 TypedElementValidationInfo(
                   te, InvalidAssociationMemberEndPropertyNonClassTypeStatus,
-                  Some(INVALID_ASSOCIATION_MEMBEREND_PROPERTY_NON_CLASS_TYPE + t.xmiOrderingKey)))
+                  Some(INVALID_ASSOCIATION_MEMBER_END_PROPERTY_NON_CLASS_TYPE + t.metaclass_name)))
             case _ =>
               None
           }
