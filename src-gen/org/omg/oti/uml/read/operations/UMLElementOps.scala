@@ -41,6 +41,7 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml._
+import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
@@ -281,7 +282,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   type MetaPropertyFunctions = Seq[MetaPropertyEvaluator]
 
-  
+  /**
+   * @todo TIWG-35
+   *
+   * @return
+   */
   def forwardRelationTriples: Try[Set[RelationTriple[Uml]]] = {
 
     def addEvaluatedTriples(
@@ -306,15 +311,17 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       }
     }
 
-    val triples: Set[RelationTriple[Uml]] = tagValues.flatMap { case ( p, vs ) =>
-      p.owningStereotype match {
-        case None =>
-          Set[RelationTriple[Uml]]()
-        case Some( s ) =>
-          val refs = vs flatMap (_.forwardReferencesFromStereotypeTagValue)
-          (refs map (StereotypePropertyTriple(sub=self, rels=s, relp=p, _))).toSet[RelationTriple[Uml]]
-      }
-    } toSet
+    // TIWG-35
+    val triples: Set[RelationTriple[Uml]] = ???
+//      tagValues.flatMap { case ( p, vs ) =>
+//      p.owningStereotype match {
+//        case None =>
+//          Set[RelationTriple[Uml]]()
+//        case Some( s ) =>
+//          val refs = vs flatMap (_.forwardReferencesFromStereotypeTagValue)
+//          (refs map (StereotypePropertyTriple(sub=self, rels=s, relp=p, _))).toSet[RelationTriple[Uml]]
+//      }
+//    } toSet
 
     val acc0: Try[Set[RelationTriple[Uml]]] = Success( triples )
     val accN = ( acc0 /: self.referenceMetaProperties )( addEvaluatedTriples )
@@ -332,37 +339,52 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case ( s :: sx )         => appendUnique( s, appendUnique( sx: _* ) )
     }
 
-  def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
-    tagValues.groupBy( _._1.owningStereotype.get )
+  // TIWG-35
+//  def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
+//    tagValues.groupBy( _._1.owningStereotype.get )
 
-  def getStereotypeTagPropertyStringValue(tagProperty: Option[UMLProperty[Uml]]): Option[String] =
-    (for {
-      tag <- tagProperty
-      value <- ( tagValues get tag )
-      result <- value.headOption match {
-        case Some(s: UMLLiteralString[Uml]) =>
-          Some(s.value)
-        case _ =>
-          None
-      }
-    } yield result).flatten
+  /**
+   * @todo TIWG-35
+   *
+   * @param tagProperty
+   * @return
+   */
+  def getStereotypeTagPropertyStringValue(tagProperty: Option[UMLProperty[Uml]])
+  : Option[String] = ???
+//    (for {
+//      tag <- tagProperty
+//      value <- ( tagValues get tag )
+//      result <- value.headOption match {
+//        case Some(s: UMLLiteralString[Uml]) =>
+//          Some(s.value)
+//        case _ =>
+//          None
+//      }
+//    } yield result).flatten
 
-  def getStereotypeTagPropertyEnumValue(tagProperty: Option[UMLProperty[Uml]]): Option[UMLEnumerationLiteral[Uml]] =
-    for {
-      tag <- tagProperty
-      value <- ( tagValues get tag )
-      result <- value.headOption match {
-        case Some(iv: UMLInstanceValue[Uml]) =>
-          iv.instance match {
-            case Some(e: UMLEnumerationLiteral[Uml]) =>
-              Some(e)
-            case _ =>
-              None
-          }
-        case _ =>
-          None
-      }
-    } yield result
+  /**
+   * @todo TIWG-35
+   *
+   * @param tagProperty
+   * @return
+   */
+  def getStereotypeTagPropertyEnumValue(tagProperty: Option[UMLProperty[Uml]])
+  : Option[UMLEnumerationLiteral[Uml]] = ???
+//    for {
+//      tag <- tagProperty
+//      value <- ( tagValues get tag )
+//      result <- value.headOption match {
+//        case Some(iv: UMLInstanceValue[Uml]) =>
+//          iv.instance match {
+//            case Some(e: UMLEnumerationLiteral[Uml]) =>
+//              Some(e)
+//            case _ =>
+//              None
+//          }
+//        case _ =>
+//          None
+//      }
+//    } yield result
 
   def oti_xmiID: Option[String] =
     getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiID)
@@ -423,22 +445,24 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   }
   
   /**
+   * @todo TIWG-35
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */
   def allForwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] = {
 
-    def forwardReferencesFromStereotypeTagProperties1( x: UMLElement[Uml] ): Set[UMLElement[Uml]] =
-      x.getAppliedStereotypes.keys.toSet[UMLElement[Uml]] ++
-        ( x.tagValues flatMap { case ( p, vs ) => vs flatMap ( _.forwardReferencesFromStereotypeTagValue ) } )
+    def forwardReferencesFromStereotypeTagProperties1( x: UMLElement[Uml] ): Set[UMLElement[Uml]] = ???
+//      x.getAppliedStereotypes.keys.toSet[UMLElement[Uml]] ++
+//        ( x.tagValues flatMap { case ( p, vs ) => vs flatMap ( _.forwardReferencesFromStereotypeTagValue ) } )
 
     closure( this, forwardReferencesFromStereotypeTagProperties1 )
   }
 
   /**
+   * @todo TIWG-35
    * Serializing an element E to a document includes serializing E's composite references from E's stereotype tag property values
    */
-  def compositeReferencesFromStereotypeTagPropertyValues: Set[UMLElement[Uml]] =
-    tagValues flatMap { case ( p, vs ) => vs flatMap ( _.compositeReferencesFromStereotypeTagValue ) } toSet
+  def compositeReferencesFromStereotypeTagPropertyValues: Set[UMLElement[Uml]] = ???
+//    tagValues flatMap { case ( p, vs ) => vs flatMap ( _.compositeReferencesFromStereotypeTagValue ) } toSet
 
   /**
    * Calculate the references from this element to other elements due to any of the following:
@@ -469,7 +493,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def mofMetaclassName: String
 
-  def tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]
+  def tagValues: Map[UMLProperty[Uml], UMLStereotypeTagValue[Uml]]
 
   /**
    * @See MOF2.5

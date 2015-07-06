@@ -192,6 +192,13 @@ case class ResolvedDocumentSet[Uml <: UML](
         }
     }
 
+  /**
+   * @todo TIWG-35
+   *
+   * @param d
+   * @param valueSpecificationTagConverter
+   * @return
+   */
   protected def serialize
   ( d: SerializableDocument[Uml] )
   ( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter )
@@ -291,16 +298,10 @@ case class ResolvedDocumentSet[Uml <: UML](
                   minimizeEmpty = true,
                   mofTagElement)
 
-
-                /**
-                 * @issue: Canonical XMI B2 (6) says xmi:type should not be present for a reference (xmi:idref)
-                 * However, this causes problems with Eclipse,
-                 * In general, including xmi:type provides useful information about what the referenced element is.
-                 * So, unlike B2 (6), xmi:type is added to xmi:idref
-                 */
                 val stereotypeTagValues: List[Node] = elementOrdering.toList flatMap { e =>
-                  val allTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
-                    e.stereotypeTagValues
+                  // TIWG-35
+                  val allTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] = ???
+                   // e.stereotypeTagValues
                   val allAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]] =
                     e.getAppliedStereotypes
                   val appliedStereotypes =
