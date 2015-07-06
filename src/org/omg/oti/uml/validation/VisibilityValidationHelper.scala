@@ -96,6 +96,7 @@ import org.omg.oti.uml.validation.VisibilityValidationStatus._
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 sealed abstract class AbstractVisibilityValidationInfo[Uml <: UML] {
+  val e: UMLElement[Uml]
   val status: VisibilityValidationStatus
   val explanation: Option[String] = None
 
@@ -112,22 +113,23 @@ sealed abstract class AbstractVisibilityValidationInfo[Uml <: UML] {
    * InvalidAliasedElementImportStatus is not repairable because deleting the alias could potentially
    * loose important information
    *
-   * @return true only for InvalidNonPublicVisibilityStatus
+   * @return true only for MissingPublicVisibilityStatus or InvalidNonPublicVisibilityStatus
    */
   def isRepairable: Boolean =
-    status == InvalidNonPublicVisibilityStatus
+    status == MissingPublicVisibilityStatus ||
+      status == InvalidNonPublicVisibilityStatus
 }
 
 /**
  * Visibility validation result for a kind of NamedElement
  *
- * @param ne NamedElement
+ * @param e NamedElement
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class NamedElementVisibilityValidationInfo[Uml <: UML]
-(val ne: UMLNamedElement[Uml],
+(override val e: UMLNamedElement[Uml],
  override val status: VisibilityValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractVisibilityValidationInfo[Uml]
@@ -135,13 +137,13 @@ case class NamedElementVisibilityValidationInfo[Uml <: UML]
 /**
  * Visibility validation result for an ElementImport
  *
- * @param ei ElementImport
+ * @param e ElementImport
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class ElementImportVisibilityValidationInfo[Uml <: UML]
-(val ei: UMLElementImport[Uml],
+(override val e: UMLElementImport[Uml],
  override val status: VisibilityValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractVisibilityValidationInfo[Uml]
@@ -149,13 +151,13 @@ case class ElementImportVisibilityValidationInfo[Uml <: UML]
 /**
  * Visibility validation result for a PackageImport
  *
- * @param pi PackageImport
+ * @param e PackageImport
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class PackageImportVisibilityValidationInfo[Uml <: UML]
-(val pi: UMLPackageImport[Uml],
+(override val e: UMLPackageImport[Uml],
  override val status: VisibilityValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractVisibilityValidationInfo[Uml]

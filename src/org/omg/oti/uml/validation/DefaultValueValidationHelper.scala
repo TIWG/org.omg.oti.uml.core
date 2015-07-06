@@ -105,6 +105,7 @@ import org.omg.oti.uml.validation.DefaultValueValidationStatus._
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
+  val e: UMLElement[Uml]
   val status: DefaultValueValidationStatus
   val explanation: Option[String] = None
 
@@ -129,13 +130,13 @@ sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
 /**
  * Validation result for the DefaultValue of a Parameter
  *
- * @param p a Parameter
+ * @param e a Parameter
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class ParameterDefaultValueValidationInfo[Uml <: UML]
-(val p: UMLParameter[Uml],
+(override val e: UMLParameter[Uml],
  override val status: DefaultValueValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractDefaultValueValidationInfo[Uml]
@@ -143,13 +144,13 @@ case class ParameterDefaultValueValidationInfo[Uml <: UML]
 /**
  * Validation result for the DefaultValue of a kind of Property
  *
- * @param p a kind of Property
+ * @param e a kind of Property
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class PropertyDefaultValueValidationInfo[Uml <: UML]
-(val p: UMLProperty[Uml],
+(override val e: UMLProperty[Uml],
  override val status: DefaultValueValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractDefaultValueValidationInfo[Uml]
@@ -157,13 +158,13 @@ case class PropertyDefaultValueValidationInfo[Uml <: UML]
 /**
  * Validation result for a ValueSpecification as a DefaultValue for a Parameter or a kind of Property
  *
- * @param v a kind of ValueSpecification
+ * @param e a kind of ValueSpecification
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 case class ValueSpecificationAsDefaultValueValidationInfo[Uml <: UML]
-(val v: UMLValueSpecification[Uml],
+(override val e: UMLValueSpecification[Uml],
  override val status: DefaultValueValidationStatus,
  override val explanation: Option[String] = None)
   extends AbstractDefaultValueValidationInfo[Uml]
@@ -247,7 +248,12 @@ object DefaultValueValidationHelper {
      defaultValue: Option[UMLValueSpecification[Uml]])
     : Option[AbstractDefaultValueValidationInfo[Uml]] =
       if (isMultiValued)
-        invalidDefaultValueForMultiValuedTypedElementFunction()
+        defaultValue match {
+          case Some(_) =>
+            invalidDefaultValueForMultiValuedTypedElementFunction()
+          case None =>
+            validParameterOrPropertyFunction()
+        }
       else t match {
         case None =>
           None
