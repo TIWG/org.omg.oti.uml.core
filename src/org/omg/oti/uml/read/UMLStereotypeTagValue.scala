@@ -228,9 +228,7 @@ trait UMLStereotypeTagValueForProfileDefinedStereotype[Uml <: UML]
 trait UMLStereotypeTagValueForProfileDefinedEnumerationType[Uml <: UML]
   extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
 
-  val value: Iterable[UMLEnumerationLiteral[Uml]]
-
-  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+  override val tagPropertyValueElementReferences: Iterable[UMLEnumerationLiteral[Uml]]
 
 }
 

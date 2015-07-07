@@ -367,7 +367,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case Some(v) =>
         v match {
           case vs: UMLStereotypeTagValueForProfileDefinedEnumerationType[Uml] =>
-            vs.value.headOption
+            vs.tagPropertyValueElementReferences.headOption
           case _ =>
             None
         }
