@@ -299,23 +299,5 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
 	}
 
 	// Start of user code for additional features
-  /**
-   * A ValueSpecification that is the value of a stereotype tag property may constitute
-   * a forward reference to another element.
-   */
-  def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
-  
-  /**
-   * A ValueSpecification VS that is the value of a stereotype tag property S::P for a
-   * stereotype S applied to an element E induces a set of elements, 
-   * VS.compositeReferencesFromStereotypeTagValue, each of which
-   * is considered to be exclusively and compositionally referenced from E.
-   * 
-   * @invariant For any VS, VS.compositeReferencesFromStereotypeTagValue includes VS. 
-   */
-  final def compositeReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] =
-    Set(self) ++ self.allOwnedElements.flatMap(_.compositeReferencesFromStereotypeTagPropertyValues)
-    
-  def serializeAsRef : Try[Option[String]] = Success( None )
 	// End of user code
 } //UMLValueSpecificationOps

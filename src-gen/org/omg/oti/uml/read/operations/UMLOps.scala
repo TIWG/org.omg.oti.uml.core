@@ -3865,7 +3865,17 @@ trait UMLOps[Uml <: UML] { self =>
 
 	// Start of user code for additional features
 
-  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
+	val UML_PRIMITIVE_TYPES_BOOLEAN: UMLPrimitiveType[Uml]
+
+	val UML_PRIMITIVE_TYPES_INTEGER: UMLPrimitiveType[Uml]
+
+	val UML_PRIMITIVE_TYPES_UNLIMITED_NATURAL: UMLPrimitiveType[Uml]
+
+	val UML_PRIMITIVE_TYPES_REAL: UMLPrimitiveType[Uml]
+
+	val UML_PRIMITIVE_TYPES_STRING: UMLPrimitiveType[Uml]
+
+	type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
 
   type Element2IDRule = PartialFunction[
     UMLElement[Uml],

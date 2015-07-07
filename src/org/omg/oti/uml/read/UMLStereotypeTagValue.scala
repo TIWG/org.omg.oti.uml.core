@@ -73,9 +73,25 @@ trait UMLStereotypeTagValue[Uml <: UML] {
   val extendedElement: UMLElement[Uml]
 
   /**
+   * The stereotype applied to the extendedElement.
+   */
+  val appliedStereotype: UMLStereotype[Uml]
+
+  /**
    * The stereotype property -- can be (1) or (2)
    */
   val stereotypeTagProperty: UMLProperty[Uml]
+
+  /**
+   * The type of the stereotype property
+   */
+  val stereotypeTagPropertyType: UMLType[Uml]
+
+  /**
+   * A stereotype tag property may be typed by a UML metaclass,
+   * in which case its value references UML elements.
+   */
+  val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]]
 
   /**
    * Does the OTI adapter for the tool-specific implementation of OMG UML
@@ -109,11 +125,12 @@ trait UMLStereotypeTagValue[Uml <: UML] {
    *
    * @return OMG UML 2.5 compliant serialization of stereotype tag property values
    */
-  def serialize: Try[Iterable[scala.xml.Node]]
+  def serialize( implicit xmiScopes: scala.xml.NamespaceBinding ): Try[Iterable[scala.xml.Elem]]
 }
 
 /**
  * The value of a stereotype property that has an opposite extension end property.
+ * Its value is ``extendedElement``
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
@@ -121,9 +138,11 @@ trait UMLStereotypeExtendedMetaclassTagValue[Uml <: UML]
   extends UMLStereotypeTagValue[Uml] {
 
   /**
-   * the element extended by the application of the stereotype owning the stereotypeTagProperty.
+   * By definition, a 'base_...' stereotype property references only the `extendedElement`
+   * There is no other referenced element.
    */
-  val stereotypeExtendedElement: UMLElement[Uml]
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
 }
 
 /**
@@ -137,20 +156,17 @@ trait UMLStereotypePropertyTagValue[Uml <: UML]
 
 /**
  * A UMLStereotypePropertyTagValue for a property typed by a UML metaclass
- * That is, the value is a collection of UML elements.
+ * Its value is ``tagPropertyValueElementReferences``
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 trait UMLStereotypeReferencedMetaclassTagValue[Uml <: UML]
-  extends UMLStereotypePropertyTagValue[Uml] {
-
-  val value: Iterable[UMLElement[Uml]]
-
-}
+  extends UMLStereotypePropertyTagValue[Uml]
 
 /**
  * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined type
  *
+ * -------------------------------
  * @see UML 2.5, section 12.3.3:
  *
  * A Profile can define or import Classes, Associations, DataTypes,
@@ -171,6 +187,19 @@ trait UMLStereotypeReferencedMetaclassTagValue[Uml <: UML]
  * the general or specific classifier in a Generalization relationship.
  * It is however possible to define these types in separate Packages and
  * import them as needed in both Profiles and model Packages in order to use them for both purposes.
+ * --------------------------------
+ *
+ * Ambiguity: The paragraph above allows two different uses for a type:
+ *
+ * 1) the type is in scope of the Profile-defined types (explicitly defined in or imported by a Profile);
+ *   therefore, a value of a stereotype tag property by such type is tied to the lifecycle of the profile application;
+ *   that is, the value is not accessible from model elements.
+ *
+ * 2) the type is defined in a UML Package of some kind (could be a Profile or a Model); therefore,
+ *   it could be the type of TypedElement in the model or the classifier of an InstanceSpecification in the model
+ *
+ * This dual-use is relevant for types that are Classes, DataTypes or Associations
+ * but not Stereotypes, Enumerations or PrimitiveTypes.
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
@@ -178,9 +207,21 @@ trait UMLStereotypeTagValueForProfileDefinedType[Uml <: UML]
   extends UMLStereotypePropertyTagValue[Uml]
 
 /**
- * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined Enumeration type
+ * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined Stereotype
+ *
+ * Such a property cannot have composite aggregation (see UML 2.5, Section 12.3.3)
+ * The serialization is a reference to an instance of a stereotype applied to an element (not the element itself).
+ *
+ * @tparam Uml A tool-specific implementation of OMG UML
+ */
+trait UMLStereotypeTagValueForProfileDefinedStereotype[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedType[Uml]
+
+/**
+ * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined Enumeration
  *
  * The value(s) of such a tag property must refer to the EnumerationLiterals of the Enumeration type.
+ * The serialization is the name of the EnumerationLiteral.
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
@@ -188,87 +229,103 @@ trait UMLStereotypeTagValueForProfileDefinedEnumerationType[Uml <: UML]
   extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
 
   val value: Iterable[UMLEnumerationLiteral[Uml]]
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
 }
 
 /**
- * A UMLStereotypePropertyTagValue for a property typed by UML's PrimitiveTypes Boolean
+ * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined PrimitiveType
+ *
+ * The serialization is the lexical representation of the value(boolean, string, etc...)
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
-trait UMLStereotypeTagValueForBooleanType[Uml <: UML]
-  extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
-
-  val value: Iterable[Boolean]
-}
-
-/**
- * A UMLStereotypePropertyTagValue for a property typed by UML's PrimitiveTypes Integer
- *
- * @tparam Uml A tool-specific implementation of OMG UML
- */
-trait UMLStereotypeTagValueForIntegerType[Uml <: UML]
-  extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
-
-  val value: Iterable[Integer]
-}
-
-/**
- * A UMLStereotypePropertyTagValue for a property typed by UML's PrimitiveTypes Real
- *
- * @tparam Uml A tool-specific implementation of OMG UML
- */
-trait UMLStereotypeTagValueForRealType[Uml <: UML]
-  extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
-
-  val value: Iterable[Double]
-}
-
-/**
- * A UMLStereotypePropertyTagValue for a property typed by UML's PrimitiveTypes String
- *
- * @tparam Uml A tool-specific implementation of OMG UML
- */
-trait UMLStereotypeTagValueForStringType[Uml <: UML]
+trait UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml <: UML]
   extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
 
   val value: Iterable[String]
-}
 
-/**
- * A UMLStereotypePropertyTagValue for a property typed by UML's PrimitiveTypes UnlimitedNatural
- *
- * @tparam Uml A tool-specific implementation of OMG UML
- */
-trait UMLStereotypeTagValueForUnlimitedNaturalType[Uml <: UML]
-  extends UMLStereotypeTagValueForProfileDefinedType[Uml] {
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
 
-  val value: Iterable[Integer]
 }
 
 /**
  * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined DataType
- * (not Enumeration, not a UML PrimitiveType)
+ * (not Enumeration, not PrimitiveType)
  *
- * Since instances of DataTypes have value semantics, the serialization can be either
- * non-sharing, sharing or a combination of both.
+ * Usage ambiguity: the value of a Stereotype property typed by a Profile-defined DataType could be either:
+ * 1) an instance whose lifecycle is tied to the application of the profile or of the stereotype,
+ * 2) an instance whose lifecycle is tied to the model and is unaffected by applying & unapplying profiles.
+ *
+ * Unfortunately, the UML 2.5 specification shows only an example of (2).
+ * The difference is important because it affects the serialization behavior.
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 trait UMLStereotypeTagValueForProfileDefinedDataType[Uml <: UML]
   extends UMLStereotypeTagValueForProfileDefinedType[Uml]
 
+trait UMLStereotypeTagValueWithModelLifecycleForProfileDefinedDataType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedDataType[Uml]
+
+trait UMLStereotypeTagValueWithProfileLifecycleForProfileDefinedDataType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedDataType[Uml] {
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
+}
+
+
 /**
  * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined Class
  * (not a Stereotype)
  *
- * Since instances of Class types have identity semantics (even if defined in UML profiles),
- * the serialization must preserve the distinction between composite and non-composite
- * references amongst instances of profile-defined class types.
+ * Usage ambiguity: the value of a Stereotype property typed by a Profile-defined DataType could be either:
+ * 1) an instance whose lifecycle is tied to the application of the profile or of the stereotype,
+ * 2) an instance whose lifecycle is tied to the model and is unaffected by applying & unapplying profiles.
  *
- * This is an advanced capability in UML 2.5 profiles (see section 12.3.3)
- * that some tools do not support.
+ * Unfortunately, the UML 2.5 specification shows only an example of (2).
+ * The difference is important because it affects the serialization behavior.
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
-trait UMLStereotypeTagValueForProfileClassType[Uml <: UML]
+trait UMLStereotypeTagValueForProfileDefinedClassType[Uml <: UML]
   extends UMLStereotypeTagValueForProfileDefinedType[Uml]
+
+trait UMLStereotypeTagValueWithModelLifecycleForProfileDefinedClassType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedClassType[Uml]
+
+trait UMLStereotypeTagValueWithProfileLifecycleForProfileDefinedClassType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedClassType[Uml] {
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
+}
+
+/**
+ * A UMLStereotypePropertyTagValue for a property typed by a Profile-defined Association
+ * (not Extension)
+ *
+ * Usage ambiguity: the value of a Stereotype property typed by a Profile-defined DataType could be either:
+ * 1) an instance whose lifecycle is tied to the application of the profile or of the stereotype,
+ * 2) an instance whose lifecycle is tied to the model and is unaffected by applying & unapplying profiles.
+ *
+ * Unfortunately, the UML 2.5 specification shows only an example of (2).
+ * The difference is important because it affects the serialization behavior.
+ *
+ * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml A tool-specific implementation of OMG UML
+ */
+trait UMLStereotypeTagValueForProfileDefinedAssociationType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedType[Uml]
+
+trait UMLStereotypeTagValueWithModelLifecycleForProfileDefinedAssociationType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedAssociationType[Uml]
+
+trait UMLStereotypeTagValueWithProfileLifecycleForProfileDefinedAssociationType[Uml <: UML]
+  extends UMLStereotypeTagValueForProfileDefinedAssociationType[Uml] {
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
+}

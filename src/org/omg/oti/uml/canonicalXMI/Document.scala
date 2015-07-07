@@ -53,28 +53,28 @@ sealed abstract trait Document[Uml <: UML] {
   val scope: UMLElement[Uml]
   
   lazy val extent: Set[UMLElement[Uml]] = 
-     (Stream(scope) ++ scope.allOwnedElements).flatMap { e =>
-       Set(e) ++ e.compositeReferencesFromStereotypeTagPropertyValues
-     } toSet
+     (Stream(scope) ++ scope.allOwnedElements) toSet
   
 }
 
-case class BuiltInDocument[Uml <: UML](
-    val uri: URI,
-    val nsPrefix: String,
-    val scope: UMLElement[Uml],
-    val documentURL: URI,
-    val builtInExtent: Set[UMLElement[Uml]])( implicit val ops: UMLOps[Uml] )
+case class BuiltInDocument[Uml <: UML]
+( val uri: URI,
+  val nsPrefix: String,
+  val scope: UMLElement[Uml],
+  val documentURL: URI,
+  val builtInExtent: Set[UMLElement[Uml]])
+( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   override lazy val extent = builtInExtent
   override def toString: String = s"BuiltInDocument(uri=${uri})"
 }
     
-case class SerializableDocument[Uml <: UML](
-    val uri: URI,
-    val nsPrefix: String,
-    val documentURL: URI,
-    val scope: UMLElement[Uml])( implicit val ops: UMLOps[Uml] ) 
+case class SerializableDocument[Uml <: UML]
+( val uri: URI,
+  val nsPrefix: String,
+  val documentURL: URI,
+  val scope: UMLElement[Uml])
+( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   override def toString: String = s"SerializableDocument(uri=${uri})"  
 }

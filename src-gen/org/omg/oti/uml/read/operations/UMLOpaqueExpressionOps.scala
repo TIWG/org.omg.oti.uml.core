@@ -196,15 +196,5 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
   def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     Set(this) ++ behavior.toSet
 
-  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    opaqueExpression_forwardReferencesFromStereotypeTagValue
-    
-  /**
-   * An opaque expression that is the value of a stereotype tag property is considered part of the forward references
-   * from the element on which the stereotype is applied; other parts include the behavior, if any.
-   */
-  def opaqueExpression_forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = 
-    Set(this) ++ behavior.toSet
-
 	// End of user code
 } //UMLOpaqueExpressionOps

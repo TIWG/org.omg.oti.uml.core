@@ -40,6 +40,7 @@
 package org.omg.oti.uml.canonicalXMI
 
 import org.omg.oti.uml._
+import org.omg.oti.uml.read.UMLStereotypeTagValue
 import org.omg.oti.uml.read.api._
 
 import scala.annotation.tailrec
@@ -62,8 +63,6 @@ case class ResolvedDocumentSet[Uml <: UML](
    g: DocumentSet[Uml]#MutableDocumentSetGraph,
    element2document: Map[UMLElement[Uml], Document[Uml]],
    unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] ) {
-
-  type ValueSpecificationTagConverter = Function1[UMLValueSpecification[Uml], Try[Option[String]]]
 
   def element2mappedDocument( e: UMLElement[Uml] ): Option[Document[Uml]] =
     element2document.get( e ) match {
@@ -98,10 +97,7 @@ case class ResolvedDocumentSet[Uml <: UML](
       case Some( d ) => if ( d.scope == e ) Some( d ) else None
     }
 
-  /**
-   * @param valueSpecificationTagConverter By default, use: DocumentSet.serializeValueSpecificationAsTagValue[Uml] _
-   */
-  def serialize( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter ): Try[Unit] = {
+  def serialize: Try[Unit] = {
 
     g.nodes foreach {
       _.value match {
@@ -119,7 +115,6 @@ case class ResolvedDocumentSet[Uml <: UML](
 
   def serializePkg
   ( pkg: UMLPackage[Uml] )
-  ( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter )
   : Try[Unit] = {
 
     val doc = ds.serializableDocuments find { _.scope == pkg }
@@ -133,75 +128,30 @@ case class ResolvedDocumentSet[Uml <: UML](
 
       case None =>
         Failure( new IllegalArgumentException(
-          s"/!\ Serialization failed: no document found for ${pkg.qualifiedName.get}" ) )
+          s"Serialization failed: no document found for ${pkg.qualifiedName.get}" ) )
     }
     Success( Unit )
   }
 
-  import scala.xml._
-
   protected def foldTagValues
-  ( tagValues: Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]],
-    xmiScopes: scala.xml.NamespaceBinding )(
-      tagValueAttribute: Try[List[scala.xml.Elem]],
-      property: UMLProperty[Uml] )
-  ( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter )
+  ( xmiScopes: scala.xml.NamespaceBinding )
+  ( tagValueNodes: Try[List[scala.xml.Elem]],
+    stereotypeTagValue: UMLStereotypeTagValue[Uml] )
   : Try[List[scala.xml.Elem]] =
-    tagValueAttribute match {
-      case Failure( t ) => Failure( t )
-      case Success( attributes ) =>
-        tagValues.get( property ) match {
-          case None =>
-            Success( attributes )
-          case Some( values ) =>
-            val valueTable: Seq[( Option[String], Boolean )] = for {
-              v <- values
-            } yield valueSpecificationTagConverter( v ) match {
-              case Failure( t ) => return Failure( t )
-              case Success( None ) => v.serializeAsRef match {
-                case Success( s ) => ( s, true )
-                case Failure( t ) => return Failure( t )
-              }
-              case Success( s ) => ( s, false )
-            }
-
-            Success( ( attributes /: valueTable ) {
-              case ( xs, ( Some( strValue ), false ) ) =>
-                scala.xml.Elem(
-                  prefix = null,
-                  label = property.name.get,
-                  attributes = scala.xml.Null,
-                  scope = xmiScopes,
-                  minimizeEmpty = true,
-                  scala.xml.Text( strValue ) ) ::
-                  xs
-
-              case ( xs, ( Some( idRef ), true ) ) =>
-                val idrefAttrib: MetaData = new PrefixedAttribute( pre = "xmi", key = "idref", value = idRef, Null )
-                scala.xml.Elem(
-                  prefix = null,
-                  label = property.name.get,
-                  attributes = idrefAttrib,
-                  scope = xmiScopes,
-                  minimizeEmpty = true ) ::
-                  xs
-
-              case ( xs, ( None, _ ) ) =>
-                xs
-            } )
+    stereotypeTagValue.serialize(xmiScopes) match {
+      case Failure(f) =>
+        Failure(f)
+      case Success(values) =>
+        ( tagValueNodes /: values ) {
+          case ( Failure(f), _ ) =>
+            Failure(f)
+          case ( Success(nodes), value ) =>
+            Success(nodes ++ values)
         }
     }
 
-  /**
-   * @todo TIWG-35
-   *
-   * @param d
-   * @param valueSpecificationTagConverter
-   * @return
-   */
   protected def serialize
   ( d: SerializableDocument[Uml] )
-  ( implicit valueSpecificationTagConverter: ValueSpecificationTagConverter )
   : Try[Unit] =
     ds.documentURIMapper.resolveURI( d.uri, ds.documentURIMapper.saveResolutionStrategy ) match {
       case Failure( t ) => Failure( t )
@@ -219,8 +169,8 @@ case class ResolvedDocumentSet[Uml <: UML](
 
             val referencedProfiles = for {
               e <- d.extent
-              ( s, p ) <- e.getAppliedStereotypes
-              pf <- s.profile
+              tagValue <- e.tagValues
+              pf <- tagValue.appliedStereotype.profile
               if element2document.contains( pf )
             } yield pf
 
@@ -299,26 +249,25 @@ case class ResolvedDocumentSet[Uml <: UML](
                   mofTagElement)
 
                 val stereotypeTagValues: List[Node] = elementOrdering.toList flatMap { e =>
-                  // TIWG-35
-                  val allTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] = ???
-                   // e.stereotypeTagValues
-                  val allAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]] =
-                    e.getAppliedStereotypes
-                  val appliedStereotypes =
-                    allAppliedStereotypes.keys filter element2document.contains
-                  val ordering =
+
+                  val allTagValuesByStereotype: Map[UMLStereotype[Uml], Seq[UMLStereotypeTagValue[Uml]]] =
+                    e.tagValues.groupBy(_.appliedStereotype)
+
+                  val appliedStereotypes: Set[UMLStereotype[Uml]] =
+                    e.tagValues.map(_.appliedStereotype).toSet filter element2document.contains
+
+                  val ordering: List[UMLStereotype[Uml]]  =
                     appliedStereotypes.toList.sortBy(getStereotype_ID_UUID(_)._1)
+
                   val orderedTagValueElements: List[Node] = ordering map {
                     case s =>
                       val (sID, _) = getStereotype_ID_UUID(s)
                       val tagValueAttributes: List[Elem] =
-                        allTagValues.get(s) match {
+                        allTagValuesByStereotype.get(s) match {
                           case None => Nil
-                          case Some(tagValues) =>
-                            val properties = tagValues.keys.toList.sortWith(_.xmiUUID.head > _.xmiUUID.head)
+                          case Some(vs) =>
                             val tagValueAttribute0: Try[List[Elem]] = Success(Nil)
-                            val tagValueAttributeN =
-                              (tagValueAttribute0 /: properties)(foldTagValues(tagValues, xmiScopes))
+                            val tagValueAttributeN = (tagValueAttribute0 /: vs)(foldTagValues(xmiScopes))
                             tagValueAttributeN match {
                               case Failure(t) =>
                                 return Failure(t)
@@ -337,21 +286,15 @@ case class ResolvedDocumentSet[Uml <: UML](
                               pre = "xmi", key = "type", value = s.profile.get.name.get + ":" + s.name.get,
                               Null)))
 
-                      val sTagRef: MetaData =
-                        new PrefixedAttribute( pre = "xmi", key = "idref", value = e.xmiID.head, Null )
-                      val sTagElement: Node =
-                        Elem(
-                          prefix = null, label = allAppliedStereotypes(s).name.get, attributes = sTagRef,
-                          scope = xmiScopes, minimizeEmpty = true )
-
                       Elem(
                         prefix = s.profile.get.name.get,
                         label = s.name.get,
                         attributes = xmiTagValueAttributes,
                         scope = xmiScopes,
                         minimizeEmpty = true,
-                        sTagElement :: tagValueAttributes: _*)
+                        tagValueAttributes: _*)
                   }
+
                   orderedTagValueElements
                 }
 

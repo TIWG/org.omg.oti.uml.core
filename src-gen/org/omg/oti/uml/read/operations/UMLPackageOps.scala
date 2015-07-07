@@ -41,6 +41,7 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml._
+import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
 import scala.collection.JavaConversions._
 import scala.language.postfixOps
@@ -264,21 +265,26 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * otherwise, none
    */
   def getDocumentURL: Option[String] = {
-    if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined )
-      self.tagValues.get( OTI_SPECIFICATION_ROOT_documentURL.get ) match {
-        case Some( Seq( url: UMLLiteralString[_] ) ) if ( url.value.isDefined ) =>
-          return url.value
+    if (OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined)
+      self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_documentURL) match {
+        case Some(v) =>
+          v match {
+            case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+              return vs.value.headOption
+            case _ =>
+              ()
+          }
         case _ =>
           ()
       }
     getEffectiveURI match {
-      case Some( uri ) =>
-        if (uri.endsWith(".xmi")) Some( uri )
-        else Some( uri+".xmi" )
+      case Some(uri) =>
+        if (uri.endsWith(".xmi")) Some(uri)
+        else Some(uri + ".xmi")
       case None =>
         None
     }
-    }
+  }
     
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
@@ -290,9 +296,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def getEffectiveURI: Option[String] =
     if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_packageURI.isDefined )
-      self.tagValues.get( OTI_SPECIFICATION_ROOT_packageURI.get ) match {
-        case Some( Seq( uri: UMLLiteralString[_] ) ) if ( uri.value.isDefined ) =>
-          uri.value
+      self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_packageURI) match {
+        case Some(v) =>
+          v match {
+            case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+              vs.value.headOption
+            case _ =>
+              URI
+          }
         case _ =>
           URI
       }
@@ -370,7 +381,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively: Set[UMLPackageableElement[Uml]] =
     ( Stream( this ) ++ allOwnedElements ) flatMap
-      ( ( e ) => Set( e ) ++ e.compositeReferencesFromStereotypeTagPropertyValues ) flatMap
+      ( ( e ) => Set( e ) ++ e.allForwardReferencesFromStereotypeTagProperties ) flatMap
       ( ( e ) => Set( e ) ++ e.allForwardReferencesToElements ) flatMap
       ( _.allForwardReferencesToImportablePackageableElements ) filter ( !this.isAncestorOf( _ ) ) toSet
 

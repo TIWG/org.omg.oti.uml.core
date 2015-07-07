@@ -60,11 +60,5 @@ trait UMLLiteralSpecificationOps[Uml <: UML] { self: UMLLiteralSpecification[Uml
 	import self.ops._
 
 	// Start of user code for additional features
-
-  /**
-   * A literal specification that is the value of a stereotype tag property is not considered a forward reference
-   * from the element on which the stereotype is applied. 
-   */
-  override def forwardReferencesFromStereotypeTagValue: Set[UMLElement[Uml]] = Set()
 	// End of user code
 } //UMLLiteralSpecificationOps

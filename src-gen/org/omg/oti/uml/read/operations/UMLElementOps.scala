@@ -283,7 +283,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   type MetaPropertyFunctions = Seq[MetaPropertyEvaluator]
 
   /**
-   * @todo TIWG-35
+   * Triples representing forward references from this UML element to other UML elements.
    *
    * @return
    */
@@ -311,19 +311,17 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       }
     }
 
-    // TIWG-35
-    val triples: Set[RelationTriple[Uml]] = ???
-//      tagValues.flatMap { case ( p, vs ) =>
-//      p.owningStereotype match {
-//        case None =>
-//          Set[RelationTriple[Uml]]()
-//        case Some( s ) =>
-//          val refs = vs flatMap (_.forwardReferencesFromStereotypeTagValue)
-//          (refs map (StereotypePropertyTriple(sub=self, rels=s, relp=p, _))).toSet[RelationTriple[Uml]]
-//      }
-//    } toSet
+    val triples: Iterable[RelationTriple[Uml]] =
+      for {
+        tagValue <- tagValues
+        tagPropertyValueElementReference <- tagValue.tagPropertyValueElementReferences
+      } yield StereotypePropertyTriple(
+        sub=self,
+        rels=tagValue.appliedStereotype,
+        relp=tagValue.stereotypeTagProperty,
+        obj=tagPropertyValueElementReference)
 
-    val acc0: Try[Set[RelationTriple[Uml]]] = Success( triples )
+    val acc0: Try[Set[RelationTriple[Uml]]] = Success( triples.toSet )
     val accN = ( acc0 /: self.referenceMetaProperties )( addEvaluatedTriples )
     accN
   }
@@ -339,52 +337,41 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case ( s :: sx )         => appendUnique( s, appendUnique( sx: _* ) )
     }
 
-  // TIWG-35
-//  def stereotypeTagValues: Map[UMLStereotype[Uml], Map[UMLProperty[Uml], Seq[UMLValueSpecification[Uml]]]] =
-//    tagValues.groupBy( _._1.owningStereotype.get )
-
   /**
-   * @todo TIWG-35
-   *
    * @param tagProperty
-   * @return
+   * @return The first String value, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyStringValue(tagProperty: Option[UMLProperty[Uml]])
-  : Option[String] = ???
-//    (for {
-//      tag <- tagProperty
-//      value <- ( tagValues get tag )
-//      result <- value.headOption match {
-//        case Some(s: UMLLiteralString[Uml]) =>
-//          Some(s.value)
-//        case _ =>
-//          None
-//      }
-//    } yield result).flatten
+  : Option[String] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+            vs.value.headOption
+          case _ =>
+            None
+        }
+    }
 
   /**
-   * @todo TIWG-35
-   *
    * @param tagProperty
-   * @return
+   * @return The first EnumerationLiteral value, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyEnumValue(tagProperty: Option[UMLProperty[Uml]])
-  : Option[UMLEnumerationLiteral[Uml]] = ???
-//    for {
-//      tag <- tagProperty
-//      value <- ( tagValues get tag )
-//      result <- value.headOption match {
-//        case Some(iv: UMLInstanceValue[Uml]) =>
-//          iv.instance match {
-//            case Some(e: UMLEnumerationLiteral[Uml]) =>
-//              Some(e)
-//            case _ =>
-//              None
-//          }
-//        case _ =>
-//          None
-//      }
-//    } yield result
+  : Option[UMLEnumerationLiteral[Uml]] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagValueForProfileDefinedEnumerationType[Uml] =>
+            vs.value.headOption
+          case _ =>
+            None
+        }
+    }
 
   def oti_xmiID: Option[String] =
     getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiID)
@@ -431,10 +418,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case x :: xs =>
         x match {
           case p: UMLPackage[Uml] =>
-            val pOwned = p.ownedElement.filter( directlyOwnedElementFilter( _ ) ).toList
+            val pOwned = p.ownedElement.filter( directlyOwnedElementFilter ).toList
             allOwnedElementsWithinPackageScopeAggregator( acc, pOwned ::: xs )
-          case e if ( directlyOwnedElementFilter( e ) ) =>
-            val eOwned = e.ownedElement.filter( directlyOwnedElementFilter( _ ) ).toList
+          case e if directlyOwnedElementFilter( e ) =>
+            val eOwned = e.ownedElement.filter( directlyOwnedElementFilter ).toList
             allOwnedElementsWithinPackageScopeAggregator( acc + e, eOwned ::: xs )
           case _ =>
             allOwnedElementsWithinPackageScopeAggregator( acc, xs )
@@ -445,24 +432,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   }
   
   /**
-   * @todo TIWG-35
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */
-  def allForwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] = {
-
-    def forwardReferencesFromStereotypeTagProperties1( x: UMLElement[Uml] ): Set[UMLElement[Uml]] = ???
-//      x.getAppliedStereotypes.keys.toSet[UMLElement[Uml]] ++
-//        ( x.tagValues flatMap { case ( p, vs ) => vs flatMap ( _.forwardReferencesFromStereotypeTagValue ) } )
-
-    closure( this, forwardReferencesFromStereotypeTagProperties1 )
-  }
-
-  /**
-   * @todo TIWG-35
-   * Serializing an element E to a document includes serializing E's composite references from E's stereotype tag property values
-   */
-  def compositeReferencesFromStereotypeTagPropertyValues: Set[UMLElement[Uml]] = ???
-//    tagValues flatMap { case ( p, vs ) => vs flatMap ( _.compositeReferencesFromStereotypeTagValue ) } toSet
+  def allForwardReferencesFromStereotypeTagProperties: Set[UMLElement[Uml]] =
+    tagValues.flatMap(_.tagPropertyValueElementReferences).toSet
 
   /**
    * Calculate the references from this element to other elements due to any of the following:
@@ -493,7 +466,29 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def mofMetaclassName: String
 
-  def tagValues: Map[UMLProperty[Uml], UMLStereotypeTagValue[Uml]]
+  /**
+   * The ordered set of stereotype tag property values.
+   *
+   * The ordering is the application of OMG Canonical XMI (ptc/13-08-28)
+   * applied to properties of the MOF-equivalent class of a stereotype
+   * with the stereotype-specific constraint that values of kind
+   * UMLStereotypeExtendedMetaclassTagValue (i.e., 'base_...' property values)
+   * precede values of kind UMLStereotypePropertyTagValue.
+   *
+   * The element is well-formed if there is at least one UMLStereotypeExtendedMetaclassTagValue
+   * (i.e., there must be at least one 'base_...' property with a value)
+   *
+   * @return
+   */
+  def tagValues: Seq[UMLStereotypeTagValue[Uml]]
+
+  def lookupTagValueByProperty(tagProperty: Option[UMLProperty[Uml]]): Option[UMLStereotypeTagValue[Uml]] =
+    tagProperty match {
+      case None =>
+        None
+      case Some(tag) =>
+        tagValues.find(p => p.stereotypeTagProperty == tag)
+    }
 
   /**
    * @See MOF2.5
@@ -585,7 +580,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   /**
    * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
    */
-  def getAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]]
+  final def getAppliedStereotypes: Map[UMLStereotype[Uml], UMLProperty[Uml]] =
+    (for {
+      tagValue <- tagValues
+    } yield tagValue.appliedStereotype -> tagValue.stereotypeTagProperty) toMap
       
   /**
    * Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.
