@@ -269,7 +269,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_documentURL) match {
         case Some(v) =>
           v match {
-            case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+            case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
               return vs.value.headOption
             case _ =>
               ()
@@ -299,7 +299,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_packageURI) match {
         case Some(v) =>
           v match {
-            case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+            case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
               vs.value.headOption
             case _ =>
               URI

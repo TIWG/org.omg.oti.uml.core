@@ -348,7 +348,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         None
       case Some(v) =>
         v match {
-          case vs: UMLStereotypeTagValueForProfileDefinedPrimitiveType[Uml] =>
+          case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
             vs.value.headOption
           case _ =>
             None
@@ -366,7 +366,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         None
       case Some(v) =>
         v match {
-          case vs: UMLStereotypeTagValueForProfileDefinedEnumerationType[Uml] =>
+          case vs: UMLStereotypeTagPropertyEnumerationLiteralReference[Uml] =>
             vs.tagPropertyValueElementReferences.headOption
           case _ =>
             None
@@ -470,15 +470,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The ordered set of stereotype tag property values.
    *
    * The ordering is the application of OMG Canonical XMI (ptc/13-08-28)
-   * applied to properties of the MOF-equivalent class of a stereotype
-   * with the stereotype-specific constraint that values of kind
-   * UMLStereotypeExtendedMetaclassTagValue (i.e., 'base_...' property values)
-   * precede values of kind UMLStereotypePropertyTagValue.
+   * applied to properties of the MOF-equivalent class of a stereotype.
    *
-   * The element is well-formed if there is at least one UMLStereotypeExtendedMetaclassTagValue
+   * tag values with hasProfileLifecycleSemantics=false are ordered before
+   * tag values with hasProfileLifecycleSemantics=true
+   *
+   * UMLStereotypeTagExtendedMetaclassPropertyElementReference are ordered before
+   * any other kind of UMLStereotypeTagValue
+   *
+   * The element is well-formed if there is at least one
+   * UMLStereotypeTagExtendedMetaclassPropertyElementReference
    * (i.e., there must be at least one 'base_...' property with a value)
    *
-   * @return
+   * @return A tuple of the tag property values according to their lifecycle semantics
    */
   def tagValues: Seq[UMLStereotypeTagValue[Uml]]
 
