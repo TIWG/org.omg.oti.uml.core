@@ -214,7 +214,11 @@ trait UMLStereotypeTagPropertyElementReference[Uml <: UML]
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 trait UMLStereotypeTagPropertyMetaclassElementReference[Uml <: UML]
-  extends UMLStereotypeTagPropertyElementReference[Uml]
+  extends UMLStereotypeTagPropertyElementReference[Uml] {
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]]
+
+}
 
 /**
  * A UMLStereotypeTagElementReference for a property typed by an Enumeration "in the model"
@@ -269,9 +273,20 @@ extends UMLStereotypeTagValue[Uml] {
 
   override val hasProfileLifecycleSemantics: Boolean = true
 
-  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
-
 }
+
+/**
+ * A UMLStereotypeTagProfileLifecycleValue for a property typed by a Profile-defined Stereotype
+ *
+ * The serialization is a reference to an instance of a stereotype
+ *
+ * The value refers to an applied stereotype instance extending an element;
+ * that element constitutes the tagPropertyValueElementReferences.
+ *
+ * @tparam Uml A tool-specific implementation of OMG UML
+ */
+trait UMLStereotypeTagProfileLifecycleStereotypeInstanceValue[Uml <: UML]
+  extends UMLStereotypeTagProfileLifecycleValue[Uml]
 
 /**
  * A UMLStereotypeTagProfileLifecycleValue for a property typed by a Profile-defined PrimitiveType
@@ -285,6 +300,8 @@ trait UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml <: UML]
 
   val value: Iterable[String]
 
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
+
 }
 
 /**
@@ -297,5 +314,7 @@ trait UMLStereotypeTagProfileLifecycleClassifierValue[Uml <: UML]
   extends UMLStereotypeTagProfileLifecycleValue[Uml] {
 
   val value: Iterable[String]
+
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] = Iterable()
 
 }
