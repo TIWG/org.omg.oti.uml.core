@@ -191,6 +191,12 @@ trait UMLStereotypeTagExtendedMetaclassPropertyElementReference[Uml <: UML]
   extends UMLStereotypeTagElementReference[Uml] {
 
   /**
+   * The stereotype tag property is typed by a UML Class in the UML metamodel.
+   * This stereotype property is the opposite of an extension end property.
+   */
+  override val stereotypeTagPropertyType: UMLClass[Uml]
+
+  /**
    * By definition, a 'base_...' stereotype property references only the `extendedElement`
    * There is no other referenced element.
    */
@@ -208,13 +214,20 @@ trait UMLStereotypeTagPropertyElementReference[Uml <: UML]
   extends UMLStereotypeTagElementReference[Uml]
 
 /**
- * A UMLStereotypeTagElementReference for a property typed by a UML metaclass
+ * A UMLStereotypeTagElementReference for a property typed by a UML metaclass.
+ * This stereotype property is not the opposite of an extension end property.
  * Its value is ``tagPropertyValueElementReferences``
  *
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 trait UMLStereotypeTagPropertyMetaclassElementReference[Uml <: UML]
   extends UMLStereotypeTagPropertyElementReference[Uml] {
+
+  /**
+   * The stereotype tag property is typed by a UML Class in the UML metamodel.
+   * This stereotype property is not the opposite of an extension end property.
+   */
+  override val stereotypeTagPropertyType: UMLClass[Uml]
 
   override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]]
 
@@ -237,6 +250,12 @@ trait UMLStereotypeTagPropertyMetaclassElementReference[Uml <: UML]
 trait UMLStereotypeTagPropertyEnumerationLiteralReference[Uml <: UML]
   extends UMLStereotypeTagPropertyElementReference[Uml] {
 
+  /**
+   * The stereotype tag property is typed by a UML Enumeration
+   * (not in the UML metamodel, not as a Profile-defined type).
+   */
+  override val stereotypeTagPropertyType: UMLEnumeration[Uml]
+
   override val tagPropertyValueElementReferences: Iterable[UMLEnumerationLiteral[Uml]]
 
 }
@@ -257,6 +276,13 @@ trait UMLStereotypeTagPropertyEnumerationLiteralReference[Uml <: UML]
  */
 trait UMLStereotypeTagPropertyClassifierInstanceReference[Uml <: UML]
   extends UMLStereotypeTagPropertyElementReference[Uml] {
+
+  /**
+   * The stereotype tag property is typed by a UML Classifier
+   * (not in the UML metamodel, not as a Profile-defined type).
+   * This classifier can be a Class (not a Stereotype), an Association or a Datatype (not an Enumeration)
+   */
+  override val stereotypeTagPropertyType: UMLClassifier[Uml]
 
   override val tagPropertyValueElementReferences: Iterable[UMLInstanceSpecification[Uml]]
 
@@ -286,7 +312,14 @@ extends UMLStereotypeTagValue[Uml] {
  * @tparam Uml A tool-specific implementation of OMG UML
  */
 trait UMLStereotypeTagProfileLifecycleStereotypeInstanceValue[Uml <: UML]
-  extends UMLStereotypeTagProfileLifecycleValue[Uml]
+  extends UMLStereotypeTagProfileLifecycleValue[Uml] {
+
+  /**
+   * The stereotype tag property is typed by a UML Stereotype
+   */
+  override val stereotypeTagPropertyType: UMLStereotype[Uml]
+
+}
 
 /**
  * A UMLStereotypeTagProfileLifecycleValue for a property typed by a Profile-defined PrimitiveType
@@ -297,6 +330,11 @@ trait UMLStereotypeTagProfileLifecycleStereotypeInstanceValue[Uml <: UML]
  */
 trait UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml <: UML]
   extends UMLStereotypeTagProfileLifecycleValue[Uml] {
+
+  /**
+   * The stereotype tag property is typed by a UML PrimitiveType as a Profile-defined type
+   */
+  override val stereotypeTagPropertyType: UMLPrimitiveType[Uml]
 
   val value: Iterable[String]
 
@@ -312,6 +350,12 @@ trait UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml <: UML]
  */
 trait UMLStereotypeTagProfileLifecycleClassifierValue[Uml <: UML]
   extends UMLStereotypeTagProfileLifecycleValue[Uml] {
+
+  /**
+   * The stereotype tag property is typed by a UML Classifier as a Profile-defined type
+   * This classifier can be a Class (not a Stereotype), an Association or a Datatype (not an Enumeration)
+   */
+  override val stereotypeTagPropertyType: UMLClassifier[Uml]
 
   val value: Iterable[String]
 
