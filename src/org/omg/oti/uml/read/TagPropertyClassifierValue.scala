@@ -69,7 +69,21 @@ import org.omg.oti.uml.read.api._
  *
  * @tparam Uml A tool-specific implementation of OMG UML.
  */
-trait TagPropertyClassifierValue[Uml <: UML]
+trait TagPropertyClassifierValue[Uml <: UML] {
+
+  /**
+   * The property that this is a value for.
+   */
+  val property: UMLProperty[Uml]
+
+  /**
+   * In case the value involves referencing elements
+   * whose lifecycle is independent of applying/unapplying a profile
+   * (i.e., these referenced elements are owned by UML elements,
+   *  not directly or indirectly by instances of stereotypes)
+   */
+  val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]]
+}
 
 /**
  * A Profile-defined Classifier where the value has a lifecycle that
@@ -92,6 +106,10 @@ trait TagPropertyEnumerationLiteralValue[Uml <: UML]
 
   val value: UMLEnumerationLiteral[Uml]
 
+  override val tagPropertyValueElementReferences
+  : Iterable[UMLElement[Uml]]
+  = Iterable(value)
+
 }
 
 /**
@@ -106,6 +124,10 @@ trait TagPropertyInstanceSpecificationValue[Uml <: UML]
 
   val value: UMLInstanceSpecification[Uml]
 
+  override val tagPropertyValueElementReferences
+  : Iterable[UMLElement[Uml]]
+  = Iterable(value)
+
 }
 
 /**
@@ -115,7 +137,16 @@ trait TagPropertyInstanceSpecificationValue[Uml <: UML]
  * @tparam Uml A tool-specific implementation of OMG UML.
  */
 trait TagPropertyPrimitiveValue[Uml <: UML]
-  extends TagPropertyClassifierValue[Uml]
+  extends TagPropertyClassifierValue[Uml] {
+
+  /**
+   * By definition, a primitive value makes no
+   * reference to any element whose lifecycle is
+   * independent of applying/unapplying a profile.
+   */
+  override val tagPropertyValueElementReferences
+  : Iterable[UMLElement[Uml]] = Iterable()
+}
 
 
 trait TagPropertyBooleanValue[Uml <: UML]

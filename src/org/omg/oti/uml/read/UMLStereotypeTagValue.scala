@@ -231,5 +231,11 @@ trait UMLStereotypeTagPropertyClassifierValue[Uml <: UML]
 
   val values: Iterable[TagPropertyClassifierValue[Uml]]
 
+  override val tagPropertyValueElementReferences: Iterable[UMLElement[Uml]] =
+    for {
+      value <- values
+      ref <- value.tagPropertyValueElementReferences
+    } yield ref
+
 }
 
