@@ -44,6 +44,7 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
 import scala.collection.JavaConversions._
+import scala.collection.immutable.StringOps
 import scala.language.postfixOps
 import scala.language.existentials
 import scala.reflect.runtime.universe._
@@ -339,17 +340,23 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   /**
    * @param tagProperty
-   * @return The first String value, if any, of the tagProperty.
+   * @return The String values, if any, of the tagProperty.
    */
-  def getStereotypeTagPropertyStringValue(tagProperty: Option[UMLProperty[Uml]])
-  : Option[String] =
+  def getStereotypeTagPropertyBooleanValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[Boolean] =
     lookupTagValueByProperty(tagProperty) match {
       case None =>
         None
       case Some(v) =>
         v match {
-          case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
-            vs.value.headOption
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyBooleanValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
           case _ =>
             None
         }
@@ -357,27 +364,153 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   /**
    * @param tagProperty
-   * @return The first EnumerationLiteral value, if any, of the tagProperty.
+   * @return The Integer values, if any, of the tagProperty.
    */
-  def getStereotypeTagPropertyEnumValue(tagProperty: Option[UMLProperty[Uml]])
-  : Option[UMLEnumerationLiteral[Uml]] =
+  def getStereotypeTagPropertyIntegerValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[Int] =
     lookupTagValueByProperty(tagProperty) match {
       case None =>
         None
       case Some(v) =>
         v match {
-          case vs: UMLStereotypeTagPropertyEnumerationLiteralReference[Uml] =>
-            vs.tagPropertyValueElementReferences.headOption
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyIntegerValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
+          case _ =>
+            None
+        }
+    }
+
+  /**
+   * @param tagProperty
+   * @return The Integer values, if any, of the tagProperty.
+   */
+  def getStereotypeTagPropertyUnlimitedNaturalValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[Int] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyUnlimitedNaturalValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
+          case _ =>
+            None
+        }
+    }
+
+  /**
+   * @param tagProperty
+   * @return The Integer values, if any, of the tagProperty.
+   */
+  def getStereotypeTagPropertyRealValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[Double] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyRealValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
+          case _ =>
+            None
+        }
+    }
+
+  /**
+   * @param tagProperty
+   * @return The String values, if any, of the tagProperty.
+   */
+  def getStereotypeTagPropertyStringValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[String] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyStringValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
+          case _ =>
+            None
+        }
+    }
+
+  /**
+   * @param tagProperty
+   * @return The EnumerationLiteral values, if any, of the tagProperty.
+   */
+  def getStereotypeTagPropertyEnumValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[UMLEnumerationLiteral[Uml]] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyEnumerationLiteralValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
+          case _ =>
+            None
+        }
+    }
+
+  /**
+   * @param tagProperty
+   * @return The InstanceSpecification values, if any, of the tagProperty.
+   */
+  def getStereotypeTagPropertyInstanceValues(tagProperty: Option[UMLProperty[Uml]])
+  : Iterable[UMLInstanceSpecification[Uml]] =
+    lookupTagValueByProperty(tagProperty) match {
+      case None =>
+        None
+      case Some(v) =>
+        v match {
+          case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
+            for {
+              tv <- vs.values
+              v <- tv match {
+                case s: TagPropertyInstanceSpecificationValue[Uml] => Some(s.value)
+                case _ => None
+              }
+            } yield v
           case _ =>
             None
         }
     }
 
   def oti_xmiID: Option[String] =
-    getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiID)
+    getStereotypeTagPropertyStringValues(OTI_IDENTITY_xmiID).headOption
 
   def oti_xmiUUID: Option[String] =
-    getStereotypeTagPropertyStringValue(OTI_IDENTITY_xmiUUID)
+    getStereotypeTagPropertyStringValues(OTI_IDENTITY_xmiUUID).headOption
 
   def xmiID: Iterable[String] = oti_xmiID match {
     case None => Iterable(id)

@@ -221,16 +221,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	// Start of user code for additional features
 
   def oti_packageURI: Option[String] =
-    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_packageURI)
+    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption
 
   def oti_documentURL: Option[String] =
-    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_documentURL)
+    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption
 
   def oti_uuidPrefix: Option[String] =
-    getStereotypeTagPropertyStringValue(OTI_SPECIFICATION_ROOT_uuidPrefix)
+    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption
 
   def oti_artifactKind: Option[UMLEnumerationLiteral[Uml]] =
-    getStereotypeTagPropertyEnumValue(OTI_SPECIFICATION_ROOT_artifactKind)
+    getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
 
@@ -264,27 +264,19 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * otherwise, ".xmi" appended to the effective URI, if any;
    * otherwise, none
    */
-  def getDocumentURL: Option[String] = {
-    if (OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_documentURL.isDefined)
-      self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_documentURL) match {
-        case Some(v) =>
-          v match {
-            case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
-              return vs.value.headOption
-            case _ =>
-              ()
-          }
-        case _ =>
-          ()
-      }
-    getEffectiveURI match {
-      case Some(uri) =>
-        if (uri.endsWith(".xmi")) Some(uri)
-        else Some(uri + ".xmi")
+  def getDocumentURL: Option[String] =
+    oti_documentURL match {
+      case Some(url) =>
+        Some(url)
       case None =>
-        None
+        getEffectiveURI match {
+          case Some(uri) =>
+            if (uri.endsWith(".xmi")) Some(uri)
+            else Some(uri + ".xmi")
+          case None =>
+            None
+        }
     }
-  }
     
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
@@ -295,19 +287,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * - none, otherwise
    */
   def getEffectiveURI: Option[String] =
-    if ( OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_packageURI.isDefined )
-      self.lookupTagValueByProperty(OTI_SPECIFICATION_ROOT_packageURI) match {
-        case Some(v) =>
-          v match {
-            case vs: UMLStereotypeTagProfileLifecyclePrimitiveTypeValue[Uml] =>
-              vs.value.headOption
-            case _ =>
-              URI
-          }
-        case _ =>
-          URI
-      }
-    else URI
+    if (! OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_packageURI.isDefined ) URI
+    else self.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption orElse URI
 
   /**
    * @issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete:
