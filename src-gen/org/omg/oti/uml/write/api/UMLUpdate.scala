@@ -40,10 +40,14 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+
+import org.omg.oti.uml.{MetaPropertyCollection, MetaPropertyReference}
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.util.Try
+import scala.language.implicitConversions
+import scala.reflect._
+import scala.util.{Failure, Try}
 // End of user code
 
 /**
@@ -103,7 +107,7 @@ import scala.util.Try
  */
 trait UMLUpdate[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
-
+  
   // Abstraction
 
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
@@ -2509,5 +2513,179 @@ trait UMLUpdate[Uml <: UML] {
    to: Option[UMLInputPin[Uml]]): Try[Unit]
 
   // Start of user code for additional features
+
+  type MetaPropertyCompositeReferenceQuery =
+  MetaPropertyReference[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
+
+  trait CompositeReferenceUpdater {
+    def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit]
+  }
+
+  case class CompositeReferenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Option[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V])
+    extends CompositeReferenceUpdater {
+
+    override def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit] =
+      (owner, owned) match {
+        case (u: U, None) =>
+          links_composes(u, None)
+        case (u: U, Some(v: V)) =>
+          links_composes(u, Some(v))
+        case _ =>
+          Failure(new IllegalArgumentException())
+      }
+
+  }
+
+  implicit def compositeReferenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Option[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeReferenceUpdate[U, V] =
+    CompositeReferenceUpdate[U, V](links_composes)
+
+  type MetaPropertyCompositeCollectionQuery =
+  MetaPropertyCollection[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
+
+  trait CompositeIterableUpdater {
+    def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
+  }
+
+  case class CompositeIterableUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Iterable[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V])
+    extends CompositeIterableUpdater {
+
+    override def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
+      (owner, owned) match {
+        case (u: U, v: Iterable[V]) =>
+          links_composes(u, v)
+        case _ =>
+          Failure(new IllegalArgumentException())
+      }
+
+  }
+
+  implicit def compositeIterableUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Iterable[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeIterableUpdate[U, V] =
+    CompositeIterableUpdate[U, V](links_composes)
+
+  trait CompositeSequenceUpdater {
+    def linksComposes(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit]
+  }
+
+  case class CompositeSequenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Seq[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V])
+    extends CompositeSequenceUpdater {
+
+    override def linksComposes(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit] =
+      (owner, owned) match {
+        case (u: U, v: Seq[V]) =>
+          links_composes(u, v)
+        case _ =>
+          Failure(new IllegalArgumentException())
+      }
+
+  }
+
+  implicit def compositeSequenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Seq[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeSequenceUpdate[U, V] =
+    CompositeSequenceUpdate[U, V](links_composes)
+
+  trait CompositeSetUpdater {
+    def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
+  }
+
+  case class CompositeSetUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Set[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V])
+    extends CompositeSetUpdater {
+
+    override def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
+      (owner, owned) match {
+        case (u: U, v: Set[V]) =>
+          links_composes(u, v)
+        case _ =>
+          Failure(new IllegalArgumentException())
+      }
+
+  }
+
+  implicit def compositeSetUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
+  ( links_composes: (U, Set[V]) => Try[Unit])
+  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeSetUpdate[U, V] =
+    CompositeSetUpdate[U, V](links_composes)
+
+  // @TODO generate...
+
+  val MetaPropertyReference2LinksUpdate
+  : Map[MetaPropertyCompositeReferenceQuery, CompositeReferenceUpdater]
+  = Map(
+    ops.Abstraction_mapping ->
+      links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
+    ops.AcceptCallAction_returnInformation ->
+      links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin _,
+    ops.ActionInputPin_fromAction ->
+      links_ActionInputPin_actionInputPin_compose_fromAction_Action _,
+    ops.ActivityEdge_guard ->
+      links_ActivityEdge_activityEdge_compose_guard_ValueSpecification _,
+    ops.ActivityEdge_weight ->
+      links_ActivityEdge_activityEdge_compose_weight_ValueSpecification _,
+    ops.AddStructuralFeatureValueAction_insertAt ->
+      links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin _,
+
+    ops.TemplateableElement_ownedTemplateSignature ->
+      links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _
+
+  )
+
+  val MetaPropertyIterable2LinksUpdate
+  : Map[MetaPropertyCompositeCollectionQuery, CompositeIterableUpdater]
+  = Map(
+    ops.Association_ownedEnd ->
+      links_Association_owningAssociation_compose_ownedEnd_Property _
+  )
+
+  val MetaPropertySequence2LinksUpdate
+  : Map[MetaPropertyCompositeCollectionQuery, CompositeSequenceUpdater]
+  = Map(
+    ops.AcceptEventAction_result ->
+      links_AcceptEventAction_acceptEventAction_compose_result_OutputPin _,
+    ops.Artifact_ownedAttribute ->
+      links_Artifact_artifact_compose_ownedAttribute_Property _,
+    ops.Artifact_ownedOperation ->
+      links_Artifact_artifact_compose_ownedOperation_Operation _
+
+  )
+
+  val MetaPropertySet2LinksUpdate
+  : Map[MetaPropertyCompositeCollectionQuery, CompositeSetUpdater]
+  = Map(
+    ops.AcceptEventAction_trigger ->
+      links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger _,
+    ops.Action_localPostcondition ->
+      links_Action_action_compose_localPostcondition_Constraint _,
+    ops.Action_localPrecondition ->
+      links_Action_action_compose_localPostcondition_Constraint _,
+    ops.Activity_edge ->
+      links_Activity_activity_compose_edge_ActivityEdge _,
+    ops.Activity_group ->
+      links_Activity_inActivity_compose_group_ActivityGroup _,
+    ops.Activity_node ->
+      links_Activity_activity_compose_node_ActivityNode _,
+    ops.Activity_structuredNode ->
+      links_Activity_activity_compose_structuredNode_StructuredActivityNode _,
+    ops.Activity_variable ->
+      links_Activity_activityScope_compose_variable_Variable _,
+    ops.ActivityPartition_subpartition ->
+      links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition _,
+    ops.Artifact_manifestation ->
+      links_Artifact_artifact_compose_manifestation_Manifestation _,
+    ops.Artifact_nestedArtifact ->
+      links_Artifact_artifact_compose_nestedArtifact_Artifact _
+  )
+
   // End of user code
 }

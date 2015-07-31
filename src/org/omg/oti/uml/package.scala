@@ -297,6 +297,8 @@ package object uml {
     def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
   }
 
+
+
   case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
   (propertyName: String,
    f: U => Option[V],

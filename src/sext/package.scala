@@ -40,6 +40,7 @@
 package sext
 
 import util.Try
+import scala.language.higherKinds
 import reflect.runtime.universe._
 import reflect.runtime.currentMirror
 import collection.GenTraversableOnce
@@ -237,7 +238,7 @@ object `package` {
           .map( currentMirror.reflect(a).reflectField )
           .map( f => f.symbol.name.toString.trim -> f.get )
           .reverse
-        collection.immutable.ListMap(b: _*).valueTreeString
+        a.productPrefix + "\n" + collection.immutable.ListMap(b: _*).valueTreeString
       case null =>
         "null"
       case _ =>
