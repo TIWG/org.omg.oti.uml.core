@@ -42,53 +42,61 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * InteractionFragment is an abstract notion of the most general interaction unit. An InteractionFragment is a piece of an Interaction. Each InteractionFragment is conceptually like an Interaction by itself.
+ * InteractionFragment is an abstract notion of the most general interaction unit.
+ * An InteractionFragment is a piece of an Interaction.
+ * Each InteractionFragment is conceptually like an Interaction by itself.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] =>	
+trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Interaction enclosing this InteractionFragment.
-	 *
-	 * <!-- Start of user code doc for enclosingInteraction -->
-	 * <!-- End of user code doc for enclosingInteraction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteraction.fragment
-	 */
-	def enclosingInteraction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
+  /**
+   * The Interaction enclosing this InteractionFragment.
+   *
+   * <!-- Start of user code doc for enclosingInteraction -->
+   * <!-- End of user code doc for enclosingInteraction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteraction.fragment
+   */
+  def enclosingInteraction: Option[UMLInteraction[Uml]] =
+    namespace
+    .selectByKindOf { case x: UMLInteraction[Uml] => x }
 
-	/**
-	 * The operand enclosing this InteractionFragment (they may nest recursively).
-	 *
-	 * <!-- Start of user code doc for enclosingOperand -->
-	 * <!-- End of user code doc for enclosingOperand -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionOperand.fragment
-	 */
-	def enclosingOperand: Option[UMLInteractionOperand[Uml]] = namespace.selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
+  /**
+   * The operand enclosing this InteractionFragment (they may nest recursively).
+   *
+   * <!-- Start of user code doc for enclosingOperand -->
+   * <!-- End of user code doc for enclosingOperand -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteractionOperand.fragment
+   */
+  def enclosingOperand: Option[UMLInteractionOperand[Uml]] =
+    namespace
+    .selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
 
-	/**
-	 * The general ordering relationships contained in this fragment.
-	 *
-	 * <!-- Start of user code doc for generalOrdering -->
-	 * <!-- End of user code doc for generalOrdering -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLGeneralOrdering.generalOrdering_interactionFragment
-	 */
-	def generalOrdering: Set[UMLGeneralOrdering[Uml]] = ownedElement.selectByKindOf { case x: UMLGeneralOrdering[Uml] => x }
+  /**
+   * The general ordering relationships contained in this fragment.
+   *
+   * <!-- Start of user code doc for generalOrdering -->
+   * <!-- End of user code doc for generalOrdering -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLGeneralOrdering.generalOrdering_interactionFragment
+   */
+  def generalOrdering: Set[UMLGeneralOrdering[Uml]] =
+    ownedElement
+    .selectByKindOf { case x: UMLGeneralOrdering[Uml] => x }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLInteractionFragmentOps

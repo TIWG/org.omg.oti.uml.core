@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLOperationTemplateParameter}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,26 +52,26 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateParameter[Uml] =>	
+trait UMLOperationTemplateParameterOps[Uml <: UML] { self: UMLOperationTemplateParameter[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for validate_match_default_signature -->
-	 * <!-- End of user code doc for validate_match_default_signature -->
-	 *
-	 * @body default->notEmpty() implies (default.oclIsKindOf(Operation) and (let defaultOp : Operation = default.oclAsType(Operation) in 
-	 *     defaultOp.ownedParameter->size() = parameteredElement.ownedParameter->size() and
-	 *     Sequence{1.. defaultOp.ownedParameter->size()}->forAll( ix | 
-	 *         let p1: Parameter = defaultOp.ownedParameter->at(ix), p2 : Parameter = parameteredElement.ownedParameter->at(ix) in
-	 *           p1.type = p2.type and p1.upper = p2.upper and p1.lower = p2.lower and p1.direction = p2.direction and p1.isOrdered = p2.isOrdered and p1.isUnique = p2.isUnique)))
-	 */
-	def validate_match_default_signature: Boolean = {
-		// Start of user code for "match_default_signature"
-    	???
-    	// End of user code
-	}
+  /**
+   * <!-- Start of user code doc for validate_match_default_signature -->
+   * <!-- End of user code doc for validate_match_default_signature -->
+   *
+   * @body default->notEmpty() implies (default.oclIsKindOf(Operation) and (let defaultOp : Operation = default.oclAsType(Operation) in
+   *     defaultOp.ownedParameter->size() = parameteredElement.ownedParameter->size() and
+   *     Sequence{1.. defaultOp.ownedParameter->size()}->forAll( ix |
+   *         let p1: Parameter = defaultOp.ownedParameter->at(ix), p2 : Parameter = parameteredElement.ownedParameter->at(ix) in
+   *           p1.type = p2.type and p1.upper = p2.upper and p1.lower = p2.lower and p1.direction = p2.direction and p1.isOrdered = p2.isOrdered and p1.isUnique = p2.isUnique)))
+   */
+  def validate_match_default_signature: Boolean = {
+    // Start of user code for "match_default_signature"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLOperationTemplateParameterOps

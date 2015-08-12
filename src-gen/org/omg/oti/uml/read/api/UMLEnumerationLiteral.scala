@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLEnumerationLiteralOps
  * <!-- End of user code documentation -->
 */
 trait UMLEnumerationLiteral[Uml <: UML]
-	extends UMLInstanceSpecification[Uml]
-	with UMLEnumerationLiteralOps[Uml] {
-	
-	import ops._
+  extends UMLInstanceSpecification[Uml]
+  with UMLEnumerationLiteralOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		enumerationLiteral_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLEnumerationLiteral
-	 *
-	 * <!-- Start of user code doc for enumerationLiteral_metaAttributes -->
-	 * <!-- End of user code doc for enumerationLiteral_metaAttributes -->
-	 */
-	def enumerationLiteral_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			instanceSpecification_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    enumerationLiteral_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		enumerationLiteral_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLEnumerationLiteral
+   *
+   * <!-- Start of user code doc for enumerationLiteral_metaAttributes -->
+   * <!-- End of user code doc for enumerationLiteral_metaAttributes -->
+   */
+  def enumerationLiteral_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      instanceSpecification_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLEnumerationLiteral
-	 *
-	 * <!-- Start of user code doc for enumerationLiteral_compositeMetaProperties -->
-	 * <!-- End of user code doc for enumerationLiteral_compositeMetaProperties -->
-	 */
-	def enumerationLiteral_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			instanceSpecification_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    enumerationLiteral_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		enumerationLiteral_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLEnumerationLiteral
+   *
+   * <!-- Start of user code doc for enumerationLiteral_compositeMetaProperties -->
+   * <!-- End of user code doc for enumerationLiteral_compositeMetaProperties -->
+   */
+  def enumerationLiteral_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      instanceSpecification_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLEnumerationLiteral
-	 *
-	 * <!-- Start of user code doc for enumerationLiteral_referenceMetaProperties -->
-	 * <!-- End of user code doc for enumerationLiteral_referenceMetaProperties -->
-	 */
-	def enumerationLiteral_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			instanceSpecification_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    enumerationLiteral_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		enumerationLiteral_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLEnumerationLiteral
+   *
+   * <!-- Start of user code doc for enumerationLiteral_referenceMetaProperties -->
+   * <!-- End of user code doc for enumerationLiteral_referenceMetaProperties -->
+   */
+  def enumerationLiteral_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      instanceSpecification_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLEnumerationLiteral
-	 *
-	 * <!-- Start of user code doc for enumerationLiteral_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for enumerationLiteral_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def enumerationLiteral_forwardReferencesFromMetamodelAssociations: Elements =
-		instanceSpecification_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    enumerationLiteral_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLEnumerationLiteral
+   *
+   * <!-- Start of user code doc for enumerationLiteral_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for enumerationLiteral_forwardReferencesFromMetamodelAssociations -->
+   */
+  def enumerationLiteral_forwardReferencesFromMetamodelAssociations: Elements =
+    instanceSpecification_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLEnumerationLiteral

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLOpaqueAction, UML, UMLOutputPin, UMLInputPin}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,46 +52,50 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>	
+trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The InputPins providing inputs to the OpaqueAction.
-	 *
-	 * <!-- Start of user code doc for inputValue -->
-	 * <!-- End of user code doc for inputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInputPin.inputValue_opaqueAction
-	 */
-	def inputValue: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
+  /**
+   * The InputPins providing inputs to the OpaqueAction.
+   *
+   * <!-- Start of user code doc for inputValue -->
+   * <!-- End of user code doc for inputValue -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInputPin.inputValue_opaqueAction
+   */
+  def inputValue: Set[UMLInputPin[Uml]] =
+    input
+    .toSet[UMLInputPin[Uml]]
 
-	/**
-	 * The OutputPins on which the OpaqueAction provides outputs.
-	 *
-	 * <!-- Start of user code doc for outputValue -->
-	 * <!-- End of user code doc for outputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOutputPin.outputValue_opaqueAction
-	 */
-	def outputValue: Set[UMLOutputPin[Uml]] = output.toSet[UMLOutputPin[Uml]]
+  /**
+   * The OutputPins on which the OpaqueAction provides outputs.
+   *
+   * <!-- Start of user code doc for outputValue -->
+   * <!-- End of user code doc for outputValue -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLOutputPin.outputValue_opaqueAction
+   */
+  def outputValue: Set[UMLOutputPin[Uml]] =
+    output
+    .toSet[UMLOutputPin[Uml]]
 
-	/**
-	 * If the language attribute is not empty, then the size of the body and language lists must be the same.
-	 *
-	 * <!-- Start of user code doc for validate_language_body_size -->
-	 * <!-- End of user code doc for validate_language_body_size -->
-	 *
-	 * @body language->notEmpty() implies (_'body'->size() = language->size())
-	 */
-	def validate_language_body_size: Boolean = {
-		// Start of user code for "language_body_size"
-    	???
-    	// End of user code
-	}
+  /**
+   * If the language attribute is not empty, then the size of the body and language lists must be the same.
+   *
+   * <!-- Start of user code doc for validate_language_body_size -->
+   * <!-- End of user code doc for validate_language_body_size -->
+   *
+   * @body language->notEmpty() implies (_'body'->size() = language->size())
+   */
+  def validate_language_body_size: Boolean = {
+    // Start of user code for "language_body_size"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLOpaqueActionOps

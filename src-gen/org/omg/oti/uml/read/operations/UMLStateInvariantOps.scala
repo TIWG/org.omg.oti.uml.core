@@ -42,31 +42,36 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLConstraint, UML, UMLStateInvariant}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
+ * A StateInvariant is a runtime constraint on the participants of the Interaction.
+ * It may be used to specify a variety of different kinds of Constraints,
+ * such as values of Attributes or Variables, internal or external States, and so on.
+ * A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLStateInvariantOps[Uml <: UML] { self: UMLStateInvariant[Uml] =>	
+trait UMLStateInvariantOps[Uml <: UML] { self: UMLStateInvariant[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * A Constraint that should hold at runtime for this StateInvariant.
-	 *
-	 * <!-- Start of user code doc for invariant -->
-	 * <!-- End of user code doc for invariant -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.invariant_stateInvariant
-	 */
-	def invariant: Option[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
+  /**
+   * A Constraint that should hold at runtime for this StateInvariant.
+   *
+   * <!-- Start of user code doc for invariant -->
+   * <!-- End of user code doc for invariant -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLConstraint.invariant_stateInvariant
+   */
+  def invariant: Option[UMLConstraint[Uml]] =
+    ownedElement
+    .selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLStateInvariantOps

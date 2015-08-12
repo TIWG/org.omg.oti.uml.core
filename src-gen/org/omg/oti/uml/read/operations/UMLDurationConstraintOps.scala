@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLDurationInterval, UMLDurationConstraint}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,51 +52,54 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>	
+trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The DurationInterval constraining the duration.
-	 *
-	 * <!-- Start of user code doc for specification -->
-	 * <!-- End of user code doc for specification -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLDurationInterval.specification_durationConstraint
-	 */
-	override def specification: Option[UMLDurationInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLDurationInterval[Uml] => x } headOption
+  /**
+   * The DurationInterval constraining the duration.
+   *
+   * <!-- Start of user code doc for specification -->
+   * <!-- End of user code doc for specification -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLDurationInterval.specification_durationConstraint
+   */
+  override def specification: Option[UMLDurationInterval[Uml]] =
+    ownedElement
+    .selectByKindOf { case x: UMLDurationInterval[Uml] => x } headOption
 
-	/**
-	 * The multiplicity of firstEvent must be 2 if the multiplicity of constrainedElement is 2. Otherwise the multiplicity of firstEvent is 0.
-	 *
-	 * <!-- Start of user code doc for validate_first_event_multiplicity -->
-	 * <!-- End of user code doc for validate_first_event_multiplicity -->
-	 *
-	 * @body if (constrainedElement->size() = 2)
-	 *   then (firstEvent->size() = 2) else (firstEvent->size() = 0) 
-	 * endif
-	 */
-	def validate_first_event_multiplicity: Boolean = {
-		// Start of user code for "first_event_multiplicity"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of firstEvent must be 2 if the multiplicity of constrainedElement is 2.
+   * Otherwise the multiplicity of firstEvent is 0.
+   *
+   * <!-- Start of user code doc for validate_first_event_multiplicity -->
+   * <!-- End of user code doc for validate_first_event_multiplicity -->
+   *
+   * @body if (constrainedElement->size() = 2)
+   *   then (firstEvent->size() = 2) else (firstEvent->size() = 0)
+   * endif
+   */
+  def validate_first_event_multiplicity: Boolean = {
+    // Start of user code for "first_event_multiplicity"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * A DurationConstraint has either one or two constrainedElements.
-	 *
-	 * <!-- Start of user code doc for validate_has_one_or_two_constrainedElements -->
-	 * <!-- End of user code doc for validate_has_one_or_two_constrainedElements -->
-	 *
-	 * @body constrainedElement->size() = 1 or constrainedElement->size()=2
-	 */
-	def validate_has_one_or_two_constrainedElements: Boolean = {
-		// Start of user code for "has_one_or_two_constrainedElements"
-    	???
-    	// End of user code
-	}
+  /**
+   * A DurationConstraint has either one or two constrainedElements.
+   *
+   * <!-- Start of user code doc for validate_has_one_or_two_constrainedElements -->
+   * <!-- End of user code doc for validate_has_one_or_two_constrainedElements -->
+   *
+   * @body constrainedElement->size() = 1 or constrainedElement->size()=2
+   */
+  def validate_has_one_or_two_constrainedElements: Boolean = {
+    // Start of user code for "has_one_or_two_constrainedElements"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLDurationConstraintOps

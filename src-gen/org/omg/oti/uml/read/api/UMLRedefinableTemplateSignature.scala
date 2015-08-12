@@ -52,95 +52,95 @@ import org.omg.oti.uml.read.operations.UMLRedefinableTemplateSignatureOps
  * <!-- End of user code documentation -->
 */
 trait UMLRedefinableTemplateSignature[Uml <: UML]
-	extends UMLRedefinableElement[Uml]
-	with UMLTemplateSignature[Uml]
-	with UMLRedefinableTemplateSignatureOps[Uml] {
-	
-	import ops._
+  extends UMLRedefinableElement[Uml]
+  with UMLTemplateSignature[Uml]
+  with UMLRedefinableTemplateSignatureOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		redefinableTemplateSignature_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLRedefinableTemplateSignature
-	 *
-	 * <!-- Start of user code doc for redefinableTemplateSignature_metaAttributes -->
-	 * <!-- End of user code doc for redefinableTemplateSignature_metaAttributes -->
-	 */
-	def redefinableTemplateSignature_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			redefinableElement_metaAttributes,
-			templateSignature_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    redefinableTemplateSignature_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		redefinableTemplateSignature_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLRedefinableTemplateSignature
+   *
+   * <!-- Start of user code doc for redefinableTemplateSignature_metaAttributes -->
+   * <!-- End of user code doc for redefinableTemplateSignature_metaAttributes -->
+   */
+  def redefinableTemplateSignature_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      redefinableElement_metaAttributes,
+      templateSignature_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLRedefinableTemplateSignature
-	 *
-	 * <!-- Start of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
-	 * <!-- End of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
-	 */
-	def redefinableTemplateSignature_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			redefinableElement_compositeMetaProperties,
-			templateSignature_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    redefinableTemplateSignature_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		redefinableTemplateSignature_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLRedefinableTemplateSignature
+   *
+   * <!-- Start of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
+   * <!-- End of user code doc for redefinableTemplateSignature_compositeMetaProperties -->
+   */
+  def redefinableTemplateSignature_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      redefinableElement_compositeMetaProperties,
+      templateSignature_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLRedefinableTemplateSignature
-	 *
-	 * <!-- Start of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
-	 * <!-- End of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
-	 */
-	def redefinableTemplateSignature_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			redefinableElement_referenceMetaProperties,
-			templateSignature_referenceMetaProperties,
-			Seq (RedefinableTemplateSignature_extendedSignature))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    redefinableTemplateSignature_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLRedefinableTemplateSignature
+   *
+   * <!-- Start of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
+   * <!-- End of user code doc for redefinableTemplateSignature_referenceMetaProperties -->
+   */
+  def redefinableTemplateSignature_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      redefinableElement_referenceMetaProperties,
+      templateSignature_referenceMetaProperties,
+      Seq (RedefinableTemplateSignature_extendedSignature))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLRedefinableTemplateSignature
-	 *
-	 * <!-- Start of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations: Elements =
-		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		templateSignature_forwardReferencesFromMetamodelAssociations ++
-		extendedSignature 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLRedefinableTemplateSignature
+   *
+   * <!-- Start of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations -->
+   */
+  def redefinableTemplateSignature_forwardReferencesFromMetamodelAssociations: Elements =
+    redefinableElement_forwardReferencesFromMetamodelAssociations ++
+    templateSignature_forwardReferencesFromMetamodelAssociations ++
+    extendedSignature
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLRedefinableTemplateSignature

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLChangeEvent, UML}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,10 +52,10 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLChangeEventOps[Uml <: UML] { self: UMLChangeEvent[Uml] =>	
+trait UMLChangeEventOps[Uml <: UML] { self: UMLChangeEvent[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLChangeEventOps

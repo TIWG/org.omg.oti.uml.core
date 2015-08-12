@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLInterval, UMLIntervalConstraint}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,21 +52,23 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>	
+trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Interval that specifies the condition of the IntervalConstraint.
-	 *
-	 * <!-- Start of user code doc for specification -->
-	 * <!-- End of user code doc for specification -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInterval.specification_intervalConstraint
-	 */
-	override def specification: Option[UMLInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLInterval[Uml] => x } headOption
+  /**
+   * The Interval that specifies the condition of the IntervalConstraint.
+   *
+   * <!-- Start of user code doc for specification -->
+   * <!-- End of user code doc for specification -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLInterval.specification_intervalConstraint
+   */
+  override def specification: Option[UMLInterval[Uml]] =
+    ownedElement
+    .selectByKindOf { case x: UMLInterval[Uml] => x } headOption
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLIntervalConstraintOps

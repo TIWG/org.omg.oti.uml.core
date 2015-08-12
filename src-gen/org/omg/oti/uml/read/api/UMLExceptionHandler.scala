@@ -52,127 +52,127 @@ import org.omg.oti.uml.read.operations.UMLExceptionHandlerOps
  * <!-- End of user code documentation -->
 */
 trait UMLExceptionHandler[Uml <: UML]
-	extends UMLElement[Uml]
-	with UMLExceptionHandlerOps[Uml] {
-	
-	import ops._
+  extends UMLElement[Uml]
+  with UMLExceptionHandlerOps[Uml] {
 
-	/**
-	 * An ObjectNode within the handlerBody. When the ExceptionHandler catches an exception, the exception token is placed on this ObjectNode, causing the handlerBody to execute.
-	 *
-	 * <!-- Start of user code doc for exceptionInput -->
-	 * <!-- End of user code doc for exceptionInput -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLObjectNode.exceptionInput_exceptionHandler
-	 */
-	def exceptionInput: Option[UMLObjectNode[Uml]]
+  import ops._
 
-	/**
-	 * The Classifiers whose instances the ExceptionHandler catches as exceptions. If an exception occurs whose type is any exceptionType, the ExceptionHandler catches the exception and executes the handlerBody.
-	 *
-	 * <!-- Start of user code doc for exceptionType -->
-	 * <!-- End of user code doc for exceptionType -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.exceptionType_exceptionHandler
-	 */
-	def exceptionType: Set[UMLClassifier[Uml]]
+  /**
+   * An ObjectNode within the handlerBody. When the ExceptionHandler catches an exception, the exception token is placed on this ObjectNode, causing the handlerBody to execute.
+   *
+   * <!-- Start of user code doc for exceptionInput -->
+   * <!-- End of user code doc for exceptionInput -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLObjectNode.exceptionInput_exceptionHandler
+   */
+  def exceptionInput: Option[UMLObjectNode[Uml]]
 
-	/**
-	 * An ExecutableNode that is executed if the ExceptionHandler catches an exception.
-	 *
-	 * <!-- Start of user code doc for handlerBody -->
-	 * <!-- End of user code doc for handlerBody -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLExecutableNode.handlerBody_exceptionHandler
-	 */
-	def handlerBody: Option[UMLExecutableNode[Uml]]
+  /**
+   * The Classifiers whose instances the ExceptionHandler catches as exceptions. If an exception occurs whose type is any exceptionType, the ExceptionHandler catches the exception and executes the handlerBody.
+   *
+   * <!-- Start of user code doc for exceptionType -->
+   * <!-- End of user code doc for exceptionType -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+   * @opposite org.omg.oti.api.UMLClassifier.exceptionType_exceptionHandler
+   */
+  def exceptionType: Set[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		exceptionHandler_metaAttributes
+  /**
+   * An ExecutableNode that is executed if the ExceptionHandler catches an exception.
+   *
+   * <!-- Start of user code doc for handlerBody -->
+   * <!-- End of user code doc for handlerBody -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLExecutableNode.handlerBody_exceptionHandler
+   */
+  def handlerBody: Option[UMLExecutableNode[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLExceptionHandler
-	 *
-	 * <!-- Start of user code doc for exceptionHandler_metaAttributes -->
-	 * <!-- End of user code doc for exceptionHandler_metaAttributes -->
-	 */
-	def exceptionHandler_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			element_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    exceptionHandler_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		exceptionHandler_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLExceptionHandler
+   *
+   * <!-- Start of user code doc for exceptionHandler_metaAttributes -->
+   * <!-- End of user code doc for exceptionHandler_metaAttributes -->
+   */
+  def exceptionHandler_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      element_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLExceptionHandler
-	 *
-	 * <!-- Start of user code doc for exceptionHandler_compositeMetaProperties -->
-	 * <!-- End of user code doc for exceptionHandler_compositeMetaProperties -->
-	 */
-	def exceptionHandler_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			element_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    exceptionHandler_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		exceptionHandler_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLExceptionHandler
+   *
+   * <!-- Start of user code doc for exceptionHandler_compositeMetaProperties -->
+   * <!-- End of user code doc for exceptionHandler_compositeMetaProperties -->
+   */
+  def exceptionHandler_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      element_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLExceptionHandler
-	 *
-	 * <!-- Start of user code doc for exceptionHandler_referenceMetaProperties -->
-	 * <!-- End of user code doc for exceptionHandler_referenceMetaProperties -->
-	 */
-	def exceptionHandler_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			element_referenceMetaProperties,
-			Seq (ExceptionHandler_exceptionInput,
-				ExceptionHandler_exceptionType,
-				ExceptionHandler_handlerBody))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    exceptionHandler_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		exceptionHandler_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLExceptionHandler
+   *
+   * <!-- Start of user code doc for exceptionHandler_referenceMetaProperties -->
+   * <!-- End of user code doc for exceptionHandler_referenceMetaProperties -->
+   */
+  def exceptionHandler_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      element_referenceMetaProperties,
+      Seq (ExceptionHandler_exceptionInput,
+        ExceptionHandler_exceptionType,
+        ExceptionHandler_handlerBody))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLExceptionHandler
-	 *
-	 * <!-- Start of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def exceptionHandler_forwardReferencesFromMetamodelAssociations: Elements =
-		element_forwardReferencesFromMetamodelAssociations ++
-		exceptionInput ++
-		exceptionType ++
-		handlerBody 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    exceptionHandler_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLExceptionHandler
+   *
+   * <!-- Start of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for exceptionHandler_forwardReferencesFromMetamodelAssociations -->
+   */
+  def exceptionHandler_forwardReferencesFromMetamodelAssociations: Elements =
+    element_forwardReferencesFromMetamodelAssociations ++
+    exceptionInput ++
+    exceptionType ++
+    handlerBody
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLExceptionHandler

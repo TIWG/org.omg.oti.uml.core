@@ -52,112 +52,112 @@ import org.omg.oti.uml.read.operations.UMLDirectedRelationshipOps
  * <!-- End of user code documentation -->
 */
 trait UMLDirectedRelationship[Uml <: UML]
-	extends UMLRelationship[Uml]
-	with UMLDirectedRelationshipOps[Uml] {
-	
-	import ops._
+  extends UMLRelationship[Uml]
+  with UMLDirectedRelationshipOps[Uml] {
 
-	/**
-	 * Specifies the source Element(s) of the DirectedRelationship.
-	 *
-	 * <!-- Start of user code doc for source -->
-	 * <!-- End of user code doc for source -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLElement.source_directedRelationship
-	 */
-	def source: Set[UMLElement[Uml]]
+  import ops._
 
-	/**
-	 * Specifies the target Element(s) of the DirectedRelationship.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLElement.target_directedRelationship
-	 */
-	def target: Set[UMLElement[Uml]]
+  /**
+   * Specifies the source Element(s) of the DirectedRelationship.
+   *
+   * <!-- Start of user code doc for source -->
+   * <!-- End of user code doc for source -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+   * @opposite org.omg.oti.api.UMLElement.source_directedRelationship
+   */
+  def source: Set[UMLElement[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		directedRelationship_metaAttributes
+  /**
+   * Specifies the target Element(s) of the DirectedRelationship.
+   *
+   * <!-- Start of user code doc for target -->
+   * <!-- End of user code doc for target -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+   * @opposite org.omg.oti.api.UMLElement.target_directedRelationship
+   */
+  def target: Set[UMLElement[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLDirectedRelationship
-	 *
-	 * <!-- Start of user code doc for directedRelationship_metaAttributes -->
-	 * <!-- End of user code doc for directedRelationship_metaAttributes -->
-	 */
-	def directedRelationship_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			relationship_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    directedRelationship_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		directedRelationship_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLDirectedRelationship
+   *
+   * <!-- Start of user code doc for directedRelationship_metaAttributes -->
+   * <!-- End of user code doc for directedRelationship_metaAttributes -->
+   */
+  def directedRelationship_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      relationship_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLDirectedRelationship
-	 *
-	 * <!-- Start of user code doc for directedRelationship_compositeMetaProperties -->
-	 * <!-- End of user code doc for directedRelationship_compositeMetaProperties -->
-	 */
-	def directedRelationship_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			relationship_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    directedRelationship_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		directedRelationship_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLDirectedRelationship
+   *
+   * <!-- Start of user code doc for directedRelationship_compositeMetaProperties -->
+   * <!-- End of user code doc for directedRelationship_compositeMetaProperties -->
+   */
+  def directedRelationship_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      relationship_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLDirectedRelationship
-	 *
-	 * <!-- Start of user code doc for directedRelationship_referenceMetaProperties -->
-	 * <!-- End of user code doc for directedRelationship_referenceMetaProperties -->
-	 */
-	def directedRelationship_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			relationship_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    directedRelationship_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		directedRelationship_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLDirectedRelationship
+   *
+   * <!-- Start of user code doc for directedRelationship_referenceMetaProperties -->
+   * <!-- End of user code doc for directedRelationship_referenceMetaProperties -->
+   */
+  def directedRelationship_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      relationship_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLDirectedRelationship
-	 *
-	 * <!-- Start of user code doc for directedRelationship_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for directedRelationship_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def directedRelationship_forwardReferencesFromMetamodelAssociations: Elements =
-		relationship_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    directedRelationship_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLDirectedRelationship
+   *
+   * <!-- Start of user code doc for directedRelationship_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for directedRelationship_forwardReferencesFromMetamodelAssociations -->
+   */
+  def directedRelationship_forwardReferencesFromMetamodelAssociations: Elements =
+    relationship_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLDirectedRelationship

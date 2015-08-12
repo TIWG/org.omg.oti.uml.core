@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLFlowFinalNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLFlowFinalNode[Uml <: UML]
-	extends UMLFinalNode[Uml]
-	with UMLFlowFinalNodeOps[Uml] {
-	
-	import ops._
+  extends UMLFinalNode[Uml]
+  with UMLFlowFinalNodeOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		flowFinalNode_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLFlowFinalNode
-	 *
-	 * <!-- Start of user code doc for flowFinalNode_metaAttributes -->
-	 * <!-- End of user code doc for flowFinalNode_metaAttributes -->
-	 */
-	def flowFinalNode_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			finalNode_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    flowFinalNode_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		flowFinalNode_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLFlowFinalNode
+   *
+   * <!-- Start of user code doc for flowFinalNode_metaAttributes -->
+   * <!-- End of user code doc for flowFinalNode_metaAttributes -->
+   */
+  def flowFinalNode_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      finalNode_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLFlowFinalNode
-	 *
-	 * <!-- Start of user code doc for flowFinalNode_compositeMetaProperties -->
-	 * <!-- End of user code doc for flowFinalNode_compositeMetaProperties -->
-	 */
-	def flowFinalNode_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			finalNode_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    flowFinalNode_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		flowFinalNode_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLFlowFinalNode
+   *
+   * <!-- Start of user code doc for flowFinalNode_compositeMetaProperties -->
+   * <!-- End of user code doc for flowFinalNode_compositeMetaProperties -->
+   */
+  def flowFinalNode_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      finalNode_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLFlowFinalNode
-	 *
-	 * <!-- Start of user code doc for flowFinalNode_referenceMetaProperties -->
-	 * <!-- End of user code doc for flowFinalNode_referenceMetaProperties -->
-	 */
-	def flowFinalNode_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			finalNode_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    flowFinalNode_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		flowFinalNode_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLFlowFinalNode
+   *
+   * <!-- Start of user code doc for flowFinalNode_referenceMetaProperties -->
+   * <!-- End of user code doc for flowFinalNode_referenceMetaProperties -->
+   */
+  def flowFinalNode_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      finalNode_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLFlowFinalNode
-	 *
-	 * <!-- Start of user code doc for flowFinalNode_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for flowFinalNode_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def flowFinalNode_forwardReferencesFromMetamodelAssociations: Elements =
-		finalNode_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    flowFinalNode_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLFlowFinalNode
+   *
+   * <!-- Start of user code doc for flowFinalNode_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for flowFinalNode_forwardReferencesFromMetamodelAssociations -->
+   */
+  def flowFinalNode_forwardReferencesFromMetamodelAssociations: Elements =
+    finalNode_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLFlowFinalNode

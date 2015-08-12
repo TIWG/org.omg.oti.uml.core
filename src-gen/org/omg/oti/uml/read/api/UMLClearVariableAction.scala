@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLClearVariableActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLClearVariableAction[Uml <: UML]
-	extends UMLVariableAction[Uml]
-	with UMLClearVariableActionOps[Uml] {
-	
-	import ops._
+  extends UMLVariableAction[Uml]
+  with UMLClearVariableActionOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		clearVariableAction_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLClearVariableAction
-	 *
-	 * <!-- Start of user code doc for clearVariableAction_metaAttributes -->
-	 * <!-- End of user code doc for clearVariableAction_metaAttributes -->
-	 */
-	def clearVariableAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			variableAction_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    clearVariableAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		clearVariableAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLClearVariableAction
+   *
+   * <!-- Start of user code doc for clearVariableAction_metaAttributes -->
+   * <!-- End of user code doc for clearVariableAction_metaAttributes -->
+   */
+  def clearVariableAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      variableAction_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLClearVariableAction
-	 *
-	 * <!-- Start of user code doc for clearVariableAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for clearVariableAction_compositeMetaProperties -->
-	 */
-	def clearVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			variableAction_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    clearVariableAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		clearVariableAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLClearVariableAction
+   *
+   * <!-- Start of user code doc for clearVariableAction_compositeMetaProperties -->
+   * <!-- End of user code doc for clearVariableAction_compositeMetaProperties -->
+   */
+  def clearVariableAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      variableAction_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLClearVariableAction
-	 *
-	 * <!-- Start of user code doc for clearVariableAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for clearVariableAction_referenceMetaProperties -->
-	 */
-	def clearVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			variableAction_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    clearVariableAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		clearVariableAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLClearVariableAction
+   *
+   * <!-- Start of user code doc for clearVariableAction_referenceMetaProperties -->
+   * <!-- End of user code doc for clearVariableAction_referenceMetaProperties -->
+   */
+  def clearVariableAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      variableAction_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLClearVariableAction
-	 *
-	 * <!-- Start of user code doc for clearVariableAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for clearVariableAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def clearVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
-		variableAction_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    clearVariableAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLClearVariableAction
+   *
+   * <!-- Start of user code doc for clearVariableAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for clearVariableAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def clearVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
+    variableAction_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLClearVariableAction

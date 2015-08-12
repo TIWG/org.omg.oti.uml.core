@@ -42,65 +42,76 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
+
 // End of user code
 
 /**
- * A PackageImport is a Relationship that imports all the non-private members of a Package into the Namespace owning the PackageImport, so that those Elements may be referred to by their unqualified names in the importingNamespace.
+ * A PackageImport is a Relationship that imports all the non-private members of a Package into
+ * the Namespace owning the PackageImport, so that those Elements may be referred to by their unqualified names in the importingNamespace.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>	
+trait UMLPackageImportOps[Uml <: UML] {
+  self: UMLPackageImport[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * Specifies the Package whose members are imported into a Namespace.
-	 *
-	 * <!-- Start of user code doc for importedPackage -->
-	 * <!-- End of user code doc for importedPackage -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLPackage.importedPackage_packageImport
-	 */
-	def importedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
+  /**
+   * Specifies the Package whose members are imported into a Namespace.
+   *
+   * <!-- Start of user code doc for importedPackage -->
+   * <!-- End of user code doc for importedPackage -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLPackage.importedPackage_packageImport
+   */
+  def importedPackage: Option[UMLPackage[Uml]] =
+    target
+    .selectByKindOf { case x: UMLPackage[Uml] => x }
+    .headOption
 
-	/**
-	 * Specifies the Namespace that imports the members from a Package.
-	 *
-	 * <!-- Start of user code doc for importingNamespace -->
-	 * <!-- End of user code doc for importingNamespace -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLNamespace.packageImport
-	 */
-	def importingNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
+  /**
+   * Specifies the Namespace that imports the members from a Package.
+   *
+   * <!-- Start of user code doc for importingNamespace -->
+   * <!-- End of user code doc for importingNamespace -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLNamespace.packageImport
+   */
+  def importingNamespace: Option[UMLNamespace[Uml]] =
+    owner
+    .selectByKindOf { case x: UMLNamespace[Uml] => x }
 
-	/**
-	 * The visibility of a PackageImport is either public or private.
-	 *
-	 * <!-- Start of user code doc for validate_public_or_private -->
-	 * <!-- End of user code doc for validate_public_or_private -->
-	 *
-	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
-	 */
-	def validate_public_or_private: Boolean = {
-		// Start of user code for "public_or_private"
-  	visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
-  	// End of user code
-	}
+  /**
+   * The visibility of a PackageImport is either public or private.
+   *
+   * <!-- Start of user code doc for validate_public_or_private -->
+   * <!-- End of user code doc for validate_public_or_private -->
+   *
+   * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
+   */
+  def validate_public_or_private: Boolean = {
+    // Start of user code for "public_or_private"
+    visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey: String = element_xmiOrderingKey + (importedPackage match {
-    case None => "_"
-    case Some( ip ) => "_" + ip.xmiOrderingKey
-  })
+  override def xmiOrderingKey: String =
+    element_xmiOrderingKey + (importedPackage match {
+      case None     => "_"
+      case Some(ip) => "_" + ip.xmiOrderingKey
+    })
 
-	// End of user code
-} //UMLPackageImportOps
+  // End of user code
+}
+
+//UMLPackageImportOps

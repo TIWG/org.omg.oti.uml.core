@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,58 +52,66 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLTimeExpressionOps[Uml <: UML] { self: UMLTimeExpression[Uml] =>	
+trait UMLTimeExpressionOps[Uml <: UML] { self: UMLTimeExpression[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for max_timeInterval -->
-	 * <!-- End of user code doc for max_timeInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTimeInterval.max
-	 */
-	def max_timeInterval: Set[UMLTimeInterval[Uml]] = max_interval.selectByKindOf { case x: UMLTimeInterval[Uml] => x }
+  /**
+   * <!-- Start of user code doc for max_timeInterval -->
+   * <!-- End of user code doc for max_timeInterval -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLTimeInterval.max
+   */
+  def max_timeInterval: Set[UMLTimeInterval[Uml]] =
+    max_interval
+    .selectByKindOf { case x: UMLTimeInterval[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for min_timeInterval -->
-	 * <!-- End of user code doc for min_timeInterval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTimeInterval.min
-	 */
-	def min_timeInterval: Set[UMLTimeInterval[Uml]] = min_interval.selectByKindOf { case x: UMLTimeInterval[Uml] => x }
+  /**
+   * <!-- Start of user code doc for min_timeInterval -->
+   * <!-- End of user code doc for min_timeInterval -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLTimeInterval.min
+   */
+  def min_timeInterval: Set[UMLTimeInterval[Uml]] =
+    min_interval
+    .selectByKindOf { case x: UMLTimeInterval[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for when_timeEvent -->
-	 * <!-- End of user code doc for when_timeEvent -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTimeEvent.when
-	 */
-	def when_timeEvent: Option[UMLTimeEvent[Uml]] = owner.selectByKindOf { case x: UMLTimeEvent[Uml] => x }
+  /**
+   * <!-- Start of user code doc for when_timeEvent -->
+   * <!-- End of user code doc for when_timeEvent -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLTimeEvent.when
+   */
+  def when_timeEvent: Option[UMLTimeEvent[Uml]] =
+    owner
+    .selectByKindOf { case x: UMLTimeEvent[Uml] => x }
 
-	/**
-	 * If a TimeExpression has no expr, then it must have a single observation that is a TimeObservation.
-	 *
-	 * <!-- Start of user code doc for validate_no_expr_requires_observation -->
-	 * <!-- End of user code doc for validate_no_expr_requires_observation -->
-	 *
-	 * @body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(TimeObservation)))
-	 */
-	def validate_no_expr_requires_observation: Boolean = {
-		// Start of user code for "no_expr_requires_observation"
-    	???
-    	// End of user code
-	}
+  /**
+   * If a TimeExpression has no expr, then it must have a single observation that is a TimeObservation.
+   *
+   * <!-- Start of user code doc for validate_no_expr_requires_observation -->
+   * <!-- End of user code doc for validate_no_expr_requires_observation -->
+   *
+   * @body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(TimeObservation)))
+   */
+  def validate_no_expr_requires_observation: Boolean = {
+    // Start of user code for "no_expr_requires_observation"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+  override def asForwardReferencesToImportableOuterPackageableElements
+  : Set[UMLPackageableElement[Uml]] =
     expression_asForwardReferencesToImportableOuterPackageableElements
 
-  def expression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+  def expression_asForwardReferencesToImportableOuterPackageableElements
+  : Set[UMLPackageableElement[Uml]] =
     Set(this) ++ expr.toSet
 
-	// End of user code
+  // End of user code
 } //UMLTimeExpressionOps

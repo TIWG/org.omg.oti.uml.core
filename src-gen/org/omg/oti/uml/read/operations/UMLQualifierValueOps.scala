@@ -42,71 +42,74 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLQualifierValue, UML, UMLLinkEndData}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A QualifierValue is an Element that is used as part of LinkEndData to provide the value for a single qualifier of the end given by the LinkEndData.
+ * A QualifierValue is an Element that is used as part of LinkEndData to provide the value for
+ * a single qualifier of the end given by the LinkEndData.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>	
+trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for qualifier_linkEndData -->
-	 * <!-- End of user code doc for qualifier_linkEndData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLLinkEndData.qualifier
-	 */
-	def qualifier_linkEndData: Option[UMLLinkEndData[Uml]] = owner.selectByKindOf { case x: UMLLinkEndData[Uml] => x }
+  /**
+   * <!-- Start of user code doc for qualifier_linkEndData -->
+   * <!-- End of user code doc for qualifier_linkEndData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLLinkEndData.qualifier
+   */
+  def qualifier_linkEndData: Option[UMLLinkEndData[Uml]] =
+    owner
+    .selectByKindOf { case x: UMLLinkEndData[Uml] => x }
 
-	/**
-	 * The multiplicity of the value InputPin is 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
-	 * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
-	 *
-	 * @body value.is(1,1)
-	 */
-	def validate_multiplicity_of_qualifier: Boolean = {
-		// Start of user code for "multiplicity_of_qualifier"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the value InputPin is 1..1.
+   *
+   * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
+   * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
+   *
+   * @body value.is(1,1)
+   */
+  def validate_multiplicity_of_qualifier: Boolean = {
+    // Start of user code for "multiplicity_of_qualifier"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The qualifier must be a qualifier of the Association end of the linkEndData that owns this QualifierValue.
-	 *
-	 * <!-- Start of user code doc for validate_qualifier_attribute -->
-	 * <!-- End of user code doc for validate_qualifier_attribute -->
-	 *
-	 * @body linkEndData.end.qualifier->includes(qualifier)
-	 */
-	def validate_qualifier_attribute: Boolean = {
-		// Start of user code for "qualifier_attribute"
-    	???
-    	// End of user code
-	}
+  /**
+   * The qualifier must be a qualifier of the Association end of the linkEndData that owns this QualifierValue.
+   *
+   * <!-- Start of user code doc for validate_qualifier_attribute -->
+   * <!-- End of user code doc for validate_qualifier_attribute -->
+   *
+   * @body linkEndData.end.qualifier->includes(qualifier)
+   */
+  def validate_qualifier_attribute: Boolean = {
+    // Start of user code for "qualifier_attribute"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type of the value InputPin conforms to the type of the qualifier Property.
-	 *
-	 * <!-- Start of user code doc for validate_type_of_qualifier -->
-	 * <!-- End of user code doc for validate_type_of_qualifier -->
-	 *
-	 * @body value.type.conformsTo(qualifier.type)
-	 */
-	def validate_type_of_qualifier: Boolean = {
-		// Start of user code for "type_of_qualifier"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type of the value InputPin conforms to the type of the qualifier Property.
+   *
+   * <!-- Start of user code doc for validate_type_of_qualifier -->
+   * <!-- End of user code doc for validate_type_of_qualifier -->
+   *
+   * @body value.type.conformsTo(qualifier.type)
+   */
+  def validate_type_of_qualifier: Boolean = {
+    // Start of user code for "type_of_qualifier"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLQualifierValueOps

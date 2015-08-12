@@ -42,139 +42,144 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A Vertex is an abstraction of a node in a StateMachine graph. It can be the source or destination of any number of Transitions.
+ * A Vertex is an abstraction of a node in a StateMachine graph.
+ * It can be the source or destination of any number of Transitions.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>	
+trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Region that contains this Vertex.
-	 *
-	 * <!-- Start of user code doc for container -->
-	 * <!-- End of user code doc for container -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLRegion.subvertex
-	 */
-	def container: Option[UMLRegion[Uml]] = namespace.selectByKindOf { case x: UMLRegion[Uml] => x }
+  /**
+   * The Region that contains this Vertex.
+   *
+   * <!-- Start of user code doc for container -->
+   * <!-- End of user code doc for container -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLRegion.subvertex
+   */
+  def container: Option[UMLRegion[Uml]] =
+    namespace
+    .selectByKindOf { case x: UMLRegion[Uml] => x }
 
-	/**
-	 * Specifies the Transitions entering this Vertex.
-	 *
-	 * <!-- Start of user code doc for incoming -->
-	 * <!-- End of user code doc for incoming -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTransition.target
-	 * @body result = (Transition.allInstances()->select(target=self))
-	 */
-	def incoming: Set[UMLTransition[Uml]] = {
-		// Start of user code for "incoming"
-	    ???
-	    // End of user code
-	}
+  /**
+   * Specifies the Transitions entering this Vertex.
+   *
+   * <!-- Start of user code doc for incoming -->
+   * <!-- End of user code doc for incoming -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLTransition.target
+   * @body result = (Transition.allInstances()->select(target=self))
+   */
+  def incoming: Set[UMLTransition[Uml]] = {
+    // Start of user code for "incoming"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * Specifies the Transitions departing from this Vertex.
-	 *
-	 * <!-- Start of user code doc for outgoing -->
-	 * <!-- End of user code doc for outgoing -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTransition.source
-	 * @body result = (Transition.allInstances()->select(source=self))
-	 */
-	def outgoing: Set[UMLTransition[Uml]] = {
-		// Start of user code for "outgoing"
-	    ???
-	    // End of user code
-	}
+  /**
+   * Specifies the Transitions departing from this Vertex.
+   *
+   * <!-- Start of user code doc for outgoing -->
+   * <!-- End of user code doc for outgoing -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLTransition.source
+   * @body result = (Transition.allInstances()->select(source=self))
+   */
+  def outgoing: Set[UMLTransition[Uml]] = {
+    // Start of user code for "outgoing"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The operation containingStateMachine() returns the StateMachine in which this Vertex is defined.
-	 *
-	 * <!-- Start of user code doc for containingStateMachine -->
-	 * <!-- End of user code doc for containingStateMachine -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if container <> null
-	 * then
-	 * -- the container is a region
-	 *    container.containingStateMachine()
-	 * else 
-	 *    if (self.oclIsKindOf(Pseudostate)) and ((self.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint) or (self.oclAsType(Pseudostate).kind = PseudostateKind::exitPoint)) then
-	 *       self.oclAsType(Pseudostate).stateMachine
-	 *    else 
-	 *       if (self.oclIsKindOf(ConnectionPointReference)) then
-	 *           self.oclAsType(ConnectionPointReference).state.containingStateMachine() -- no other valid cases possible
-	 *       else 
-	 *           null
-	 *       endif
-	 *    endif
-	 * endif
-	 * )
-	 */
-	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
-		// Start of user code for "containingStateMachine"
-    	???
-    	// End of user code
-	}
+  /**
+   * The operation containingStateMachine() returns the StateMachine in which this Vertex is defined.
+   *
+   * <!-- Start of user code doc for containingStateMachine -->
+   * <!-- End of user code doc for containingStateMachine -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (if container <> null
+   * then
+   * -- the container is a region
+   *    container.containingStateMachine()
+   * else
+   *    if (self.oclIsKindOf(Pseudostate)) and
+   *    ((self.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint) or
+   *    (self.oclAsType(Pseudostate).kind = PseudostateKind::exitPoint)) then
+   *       self.oclAsType(Pseudostate).stateMachine
+   *    else
+   *       if (self.oclIsKindOf(ConnectionPointReference)) then
+   *           self.oclAsType(ConnectionPointReference).state.containingStateMachine() -- no other valid cases possible
+   *       else
+   *           null
+   *       endif
+   *    endif
+   * endif
+   * )
+   */
+  def containingStateMachine: Option[UMLStateMachine[Uml]] = {
+    // Start of user code for "containingStateMachine"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * This utility query returns true if the Vertex is contained in the Region r (input argument).
-	 *
-	 * <!-- Start of user code doc for isContainedInRegion -->
-	 * <!-- End of user code doc for isContainedInRegion -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if (container = r) then
-	 * 	true
-	 * else
-	 * 	if (r.state->isEmpty()) then
-	 * 		false
-	 * 	else
-	 * 		container.state.isContainedInRegion(r)
-	 * 	endif
-	 * endif)
-	 */
-	def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean = {
-		// Start of user code for "isContainedInRegion"
-    	???
-    	// End of user code
-	}
+  /**
+   * This utility query returns true if the Vertex is contained in the Region r (input argument).
+   *
+   * <!-- Start of user code doc for isContainedInRegion -->
+   * <!-- End of user code doc for isContainedInRegion -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (if (container = r) then
+   *   true
+   * else
+   *   if (r.state->isEmpty()) then
+   *     false
+   *   else
+   *     container.state.isContainedInRegion(r)
+   *   endif
+   * endif)
+   */
+  def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean = {
+    // Start of user code for "isContainedInRegion"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * This utility operation returns true if the Vertex is contained in the State s (input argument).
-	 *
-	 * <!-- Start of user code doc for isContainedInState -->
-	 * <!-- End of user code doc for isContainedInState -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if not s.isComposite() or container->isEmpty() then
-	 * 	false
-	 * else
-	 * 	if container.state = s then 
-	 * 		true
-	 * 	else
-	 * 		container.state.isContainedInState(s)
-	 * 	endif
-	 * endif)
-	 */
-	def isContainedInState(s: Option[UMLState[Uml]]): Boolean = {
-		// Start of user code for "isContainedInState"
-    	???
-    	// End of user code
-	}
+  /**
+   * This utility operation returns true if the Vertex is contained in the State s (input argument).
+   *
+   * <!-- Start of user code doc for isContainedInState -->
+   * <!-- End of user code doc for isContainedInState -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (if not s.isComposite() or container->isEmpty() then
+   *   false
+   * else
+   *   if container.state = s then
+   *     true
+   *   else
+   *     container.state.isContainedInState(s)
+   *   endif
+   * endif)
+   */
+  def isContainedInState(s: Option[UMLState[Uml]]): Boolean = {
+    // Start of user code for "isContainedInState"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLVertexOps

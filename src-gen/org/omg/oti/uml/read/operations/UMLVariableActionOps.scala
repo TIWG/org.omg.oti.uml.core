@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLVariableAction}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,24 +52,24 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>	
+trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The VariableAction must be in the scope of the variable.
-	 *
-	 * <!-- Start of user code doc for validate_scope_of_variable -->
-	 * <!-- End of user code doc for validate_scope_of_variable -->
-	 *
-	 * @body variable.isAccessibleBy(self)
-	 */
-	def validate_scope_of_variable: Boolean = {
-		// Start of user code for "scope_of_variable"
-    	???
-    	// End of user code
-	}
+  /**
+   * The VariableAction must be in the scope of the variable.
+   *
+   * <!-- Start of user code doc for validate_scope_of_variable -->
+   * <!-- End of user code doc for validate_scope_of_variable -->
+   *
+   * @body variable.isAccessibleBy(self)
+   */
+  def validate_scope_of_variable: Boolean = {
+    // Start of user code for "scope_of_variable"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLVariableActionOps

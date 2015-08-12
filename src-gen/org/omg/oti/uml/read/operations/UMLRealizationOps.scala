@@ -42,20 +42,23 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLRealization, UML}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * Realization is a specialized Abstraction relationship between two sets of model Elements, one representing a specification (the supplier) and the other represents an implementation of the latter (the client). Realization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, etc.
+ * Realization is a specialized Abstraction relationship between two sets of model Elements,
+ * one representing a specification (the supplier) and the other represents
+ * an implementation of the latter (the client). Realization can be used to model stepwise refinement,
+ * optimizations, transformations, templates, model synthesis, framework composition, etc.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLRealizationOps[Uml <: UML] { self: UMLRealization[Uml] =>	
+trait UMLRealizationOps[Uml <: UML] { self: UMLRealization[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLRealizationOps

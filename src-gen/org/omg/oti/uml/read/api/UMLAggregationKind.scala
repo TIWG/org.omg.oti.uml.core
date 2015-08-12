@@ -46,36 +46,36 @@ package org.omg.oti.uml.read.api
  * <!-- End of user code documentation -->
  */
 object UMLAggregationKind extends Enumeration {
-	
-	/**
-	 * The enumeration type
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	type UMLAggregationKind = Value
 
-	/**
- 	 * Indicates that the Property is aggregated compositely, i.e., the composite object has responsibility for the existence and storage of the composed objects (parts).
-	 *
-	 * <!-- Start of user code doc for composite -->
-	 * <!-- End of user code doc for composite -->
- 	 */
-	val composite = Value
+  /**
+   * The enumeration type
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  type UMLAggregationKind = Value
 
-	/**
- 	 * Indicates that the Property has no aggregation.
-	 *
-	 * <!-- Start of user code doc for none -->
-	 * <!-- End of user code doc for none -->
- 	 */
-	val none = Value
+  /**
+    * Indicates that the Property is aggregated compositely, i.e., the composite object has responsibility for the existence and storage of the composed objects (parts).
+   *
+   * <!-- Start of user code doc for composite -->
+   * <!-- End of user code doc for composite -->
+    */
+  val composite = Value
 
-	/**
- 	 * Indicates that the Property has shared aggregation.
-	 *
-	 * <!-- Start of user code doc for shared -->
-	 * <!-- End of user code doc for shared -->
- 	 */
-	val shared = Value
+  /**
+    * Indicates that the Property has no aggregation.
+   *
+   * <!-- Start of user code doc for none -->
+   * <!-- End of user code doc for none -->
+    */
+  val none = Value
+
+  /**
+    * Indicates that the Property has shared aggregation.
+   *
+   * <!-- Start of user code doc for shared -->
+   * <!-- End of user code doc for shared -->
+    */
+  val shared = Value
 }

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLConsiderIgnoreFragment}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,38 +52,38 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment[Uml] =>	
+trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The interaction operator of a ConsiderIgnoreFragment must be either 'consider' or 'ignore'.
-	 *
-	 * <!-- Start of user code doc for validate_consider_or_ignore -->
-	 * <!-- End of user code doc for validate_consider_or_ignore -->
-	 *
-	 * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
-	 */
-	def validate_consider_or_ignore: Boolean = {
-		// Start of user code for "consider_or_ignore"
-    	???
-    	// End of user code
-	}
+  /**
+   * The interaction operator of a ConsiderIgnoreFragment must be either 'consider' or 'ignore'.
+   *
+   * <!-- Start of user code doc for validate_consider_or_ignore -->
+   * <!-- End of user code doc for validate_consider_or_ignore -->
+   *
+   * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
+   */
+  def validate_consider_or_ignore: Boolean = {
+    // Start of user code for "consider_or_ignore"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The NamedElements must be of a type of element that can be a signature for a message (i.e.., an Operation, or a Signal).
-	 *
-	 * <!-- Start of user code doc for validate__type -->
-	 * <!-- End of user code doc for validate__type -->
-	 *
-	 * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
-	 */
-	def validate__type: Boolean = {
-		// Start of user code for "_type"
-    	???
-    	// End of user code
-	}
+  /**
+   * The NamedElements must be of a type of element that can be a signature for a message (i.e.., an Operation, or a Signal).
+   *
+   * <!-- Start of user code doc for validate__type -->
+   * <!-- End of user code doc for validate__type -->
+   *
+   * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
+   */
+  def validate__type: Boolean = {
+    // Start of user code for "_type"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLConsiderIgnoreFragmentOps

@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLBehaviorExecutionSpecificationOps
  * <!-- End of user code documentation -->
 */
 trait UMLBehaviorExecutionSpecification[Uml <: UML]
-	extends UMLExecutionSpecification[Uml]
-	with UMLBehaviorExecutionSpecificationOps[Uml] {
-	
-	import ops._
+  extends UMLExecutionSpecification[Uml]
+  with UMLBehaviorExecutionSpecificationOps[Uml] {
 
-	/**
-	 * Behavior whose execution is occurring.
-	 *
-	 * <!-- Start of user code doc for behavior -->
-	 * <!-- End of user code doc for behavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLBehavior.behavior_behaviorExecutionSpecification
-	 */
-	def behavior: Option[UMLBehavior[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		behaviorExecutionSpecification_metaAttributes
+  /**
+   * Behavior whose execution is occurring.
+   *
+   * <!-- Start of user code doc for behavior -->
+   * <!-- End of user code doc for behavior -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLBehavior.behavior_behaviorExecutionSpecification
+   */
+  def behavior: Option[UMLBehavior[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLBehaviorExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for behaviorExecutionSpecification_metaAttributes -->
-	 * <!-- End of user code doc for behaviorExecutionSpecification_metaAttributes -->
-	 */
-	def behaviorExecutionSpecification_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			executionSpecification_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    behaviorExecutionSpecification_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		behaviorExecutionSpecification_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLBehaviorExecutionSpecification
+   *
+   * <!-- Start of user code doc for behaviorExecutionSpecification_metaAttributes -->
+   * <!-- End of user code doc for behaviorExecutionSpecification_metaAttributes -->
+   */
+  def behaviorExecutionSpecification_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      executionSpecification_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLBehaviorExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for behaviorExecutionSpecification_compositeMetaProperties -->
-	 * <!-- End of user code doc for behaviorExecutionSpecification_compositeMetaProperties -->
-	 */
-	def behaviorExecutionSpecification_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			executionSpecification_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    behaviorExecutionSpecification_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		behaviorExecutionSpecification_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLBehaviorExecutionSpecification
+   *
+   * <!-- Start of user code doc for behaviorExecutionSpecification_compositeMetaProperties -->
+   * <!-- End of user code doc for behaviorExecutionSpecification_compositeMetaProperties -->
+   */
+  def behaviorExecutionSpecification_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      executionSpecification_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLBehaviorExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for behaviorExecutionSpecification_referenceMetaProperties -->
-	 * <!-- End of user code doc for behaviorExecutionSpecification_referenceMetaProperties -->
-	 */
-	def behaviorExecutionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			executionSpecification_referenceMetaProperties,
-			Seq (BehaviorExecutionSpecification_behavior))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    behaviorExecutionSpecification_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLBehaviorExecutionSpecification
+   *
+   * <!-- Start of user code doc for behaviorExecutionSpecification_referenceMetaProperties -->
+   * <!-- End of user code doc for behaviorExecutionSpecification_referenceMetaProperties -->
+   */
+  def behaviorExecutionSpecification_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      executionSpecification_referenceMetaProperties,
+      Seq (BehaviorExecutionSpecification_behavior))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLBehaviorExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations: Elements =
-		executionSpecification_forwardReferencesFromMetamodelAssociations ++
-		behavior 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLBehaviorExecutionSpecification
+   *
+   * <!-- Start of user code doc for behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations -->
+   */
+  def behaviorExecutionSpecification_forwardReferencesFromMetamodelAssociations: Elements =
+    executionSpecification_forwardReferencesFromMetamodelAssociations ++
+    behavior
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLBehaviorExecutionSpecification

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLLiteralUnlimitedNatural, UML}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,40 +52,40 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatural[Uml] =>	
+trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatural[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-	 * <!-- End of user code doc for isComputable -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
-    	???
-    	// End of user code
-	}
+  /**
+   * The query isComputable() is redefined to be true.
+   *
+   * <!-- Start of user code doc for isComputable -->
+   * <!-- End of user code doc for isComputable -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The query unlimitedValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for unlimitedValue -->
-	 * <!-- End of user code doc for unlimitedValue -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (value)
-	 */
-	override def unlimitedValue: Option[Integer] = {
-		// Start of user code for "unlimitedValue"
-    	???
-    	// End of user code
-	}
+  /**
+   * The query unlimitedValue() gives the value.
+   *
+   * <!-- Start of user code doc for unlimitedValue -->
+   * <!-- End of user code doc for unlimitedValue -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (value)
+   */
+  override def unlimitedValue: Option[Integer] = {
+    // Start of user code for "unlimitedValue"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLLiteralUnlimitedNaturalOps

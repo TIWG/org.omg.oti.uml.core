@@ -42,20 +42,22 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLInterfaceRealization}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * An InterfaceRealization is a specialized realization relationship between a BehavioredClassifier and an Interface. This relationship signifies that the realizing BehavioredClassifier conforms to the contract specified by the Interface.
+ * An InterfaceRealization is a specialized realization relationship between a BehavioredClassifier and an Interface.
+ * This relationship signifies that the realizing BehavioredClassifier conforms
+ * to the contract specified by the Interface.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLInterfaceRealizationOps[Uml <: UML] { self: UMLInterfaceRealization[Uml] =>	
+trait UMLInterfaceRealizationOps[Uml <: UML] { self: UMLInterfaceRealization[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLInterfaceRealizationOps

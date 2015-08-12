@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLClearAssociationActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLClearAssociationAction[Uml <: UML]
-	extends UMLAction[Uml]
-	with UMLClearAssociationActionOps[Uml] {
-	
-	import ops._
+  extends UMLAction[Uml]
+  with UMLClearAssociationActionOps[Uml] {
 
-	/**
-	 * The Association to be cleared.
-	 *
-	 * <!-- Start of user code doc for association -->
-	 * <!-- End of user code doc for association -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLAssociation.association_clearAssociationAction
-	 */
-	def association: Option[UMLAssociation[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		clearAssociationAction_metaAttributes
+  /**
+   * The Association to be cleared.
+   *
+   * <!-- Start of user code doc for association -->
+   * <!-- End of user code doc for association -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLAssociation.association_clearAssociationAction
+   */
+  def association: Option[UMLAssociation[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLClearAssociationAction
-	 *
-	 * <!-- Start of user code doc for clearAssociationAction_metaAttributes -->
-	 * <!-- End of user code doc for clearAssociationAction_metaAttributes -->
-	 */
-	def clearAssociationAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			action_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    clearAssociationAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		clearAssociationAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLClearAssociationAction
+   *
+   * <!-- Start of user code doc for clearAssociationAction_metaAttributes -->
+   * <!-- End of user code doc for clearAssociationAction_metaAttributes -->
+   */
+  def clearAssociationAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      action_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLClearAssociationAction
-	 *
-	 * <!-- Start of user code doc for clearAssociationAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for clearAssociationAction_compositeMetaProperties -->
-	 */
-	def clearAssociationAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_compositeMetaProperties,
-			Seq (ClearAssociationAction_object))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    clearAssociationAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		clearAssociationAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLClearAssociationAction
+   *
+   * <!-- Start of user code doc for clearAssociationAction_compositeMetaProperties -->
+   * <!-- End of user code doc for clearAssociationAction_compositeMetaProperties -->
+   */
+  def clearAssociationAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_compositeMetaProperties,
+      Seq (ClearAssociationAction_object))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLClearAssociationAction
-	 *
-	 * <!-- Start of user code doc for clearAssociationAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for clearAssociationAction_referenceMetaProperties -->
-	 */
-	def clearAssociationAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_referenceMetaProperties,
-			Seq (ClearAssociationAction_association))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    clearAssociationAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		clearAssociationAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLClearAssociationAction
+   *
+   * <!-- Start of user code doc for clearAssociationAction_referenceMetaProperties -->
+   * <!-- End of user code doc for clearAssociationAction_referenceMetaProperties -->
+   */
+  def clearAssociationAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_referenceMetaProperties,
+      Seq (ClearAssociationAction_association))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLClearAssociationAction
-	 *
-	 * <!-- Start of user code doc for clearAssociationAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for clearAssociationAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def clearAssociationAction_forwardReferencesFromMetamodelAssociations: Elements =
-		action_forwardReferencesFromMetamodelAssociations ++
-		association 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    clearAssociationAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLClearAssociationAction
+   *
+   * <!-- Start of user code doc for clearAssociationAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for clearAssociationAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def clearAssociationAction_forwardReferencesFromMetamodelAssociations: Elements =
+    action_forwardReferencesFromMetamodelAssociations ++
+    association
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLClearAssociationAction

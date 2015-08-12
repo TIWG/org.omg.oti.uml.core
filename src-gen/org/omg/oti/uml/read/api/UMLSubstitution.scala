@@ -52,112 +52,112 @@ import org.omg.oti.uml.read.operations.UMLSubstitutionOps
  * <!-- End of user code documentation -->
 */
 trait UMLSubstitution[Uml <: UML]
-	extends UMLRealization[Uml]
-	with UMLSubstitutionOps[Uml] {
-	
-	import ops._
+  extends UMLRealization[Uml]
+  with UMLSubstitutionOps[Uml] {
 
-	/**
-	 * The contract with which the substituting classifier complies.
-	 *
-	 * <!-- Start of user code doc for contract -->
-	 * <!-- End of user code doc for contract -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.contract_substitution
-	 */
-	def contract: Option[UMLClassifier[Uml]]
+  import ops._
 
-	/**
-	 * Instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
-	 *
-	 * <!-- Start of user code doc for substitutingClassifier -->
-	 * <!-- End of user code doc for substitutingClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.substitution
-	 */
-	def substitutingClassifier: Option[UMLClassifier[Uml]]
+  /**
+   * The contract with which the substituting classifier complies.
+   *
+   * <!-- Start of user code doc for contract -->
+   * <!-- End of user code doc for contract -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.contract_substitution
+   */
+  def contract: Option[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		substitution_metaAttributes
+  /**
+   * Instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
+   *
+   * <!-- Start of user code doc for substitutingClassifier -->
+   * <!-- End of user code doc for substitutingClassifier -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.substitution
+   */
+  def substitutingClassifier: Option[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLSubstitution
-	 *
-	 * <!-- Start of user code doc for substitution_metaAttributes -->
-	 * <!-- End of user code doc for substitution_metaAttributes -->
-	 */
-	def substitution_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			realization_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    substitution_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		substitution_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLSubstitution
+   *
+   * <!-- Start of user code doc for substitution_metaAttributes -->
+   * <!-- End of user code doc for substitution_metaAttributes -->
+   */
+  def substitution_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      realization_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLSubstitution
-	 *
-	 * <!-- Start of user code doc for substitution_compositeMetaProperties -->
-	 * <!-- End of user code doc for substitution_compositeMetaProperties -->
-	 */
-	def substitution_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			realization_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    substitution_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		substitution_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLSubstitution
+   *
+   * <!-- Start of user code doc for substitution_compositeMetaProperties -->
+   * <!-- End of user code doc for substitution_compositeMetaProperties -->
+   */
+  def substitution_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      realization_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLSubstitution
-	 *
-	 * <!-- Start of user code doc for substitution_referenceMetaProperties -->
-	 * <!-- End of user code doc for substitution_referenceMetaProperties -->
-	 */
-	def substitution_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			realization_referenceMetaProperties,
-			Seq (Substitution_contract))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    substitution_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		substitution_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLSubstitution
+   *
+   * <!-- Start of user code doc for substitution_referenceMetaProperties -->
+   * <!-- End of user code doc for substitution_referenceMetaProperties -->
+   */
+  def substitution_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      realization_referenceMetaProperties,
+      Seq (Substitution_contract))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLSubstitution
-	 *
-	 * <!-- Start of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def substitution_forwardReferencesFromMetamodelAssociations: Elements =
-		realization_forwardReferencesFromMetamodelAssociations ++
-		contract 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    substitution_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLSubstitution
+   *
+   * <!-- Start of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for substitution_forwardReferencesFromMetamodelAssociations -->
+   */
+  def substitution_forwardReferencesFromMetamodelAssociations: Elements =
+    realization_forwardReferencesFromMetamodelAssociations ++
+    contract
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLSubstitution

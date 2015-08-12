@@ -42,20 +42,21 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLOccurrenceSpecification}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * An OccurrenceSpecification is the basic semantic unit of Interactions. The sequences of occurrences specified by them are the meanings of Interactions.
+ * An OccurrenceSpecification is the basic semantic unit of Interactions.
+ * The sequences of occurrences specified by them are the meanings of Interactions.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLOccurrenceSpecificationOps[Uml <: UML] { self: UMLOccurrenceSpecification[Uml] =>	
+trait UMLOccurrenceSpecificationOps[Uml <: UML] { self: UMLOccurrenceSpecification[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLOccurrenceSpecificationOps

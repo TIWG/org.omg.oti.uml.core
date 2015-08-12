@@ -42,8 +42,9 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
+
 // End of user code
 
 /**
@@ -52,95 +53,108 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>	
+trait UMLActivityEdgeOps[Uml <: UML] {
+  self: UMLActivityEdge[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Activity containing the ActivityEdge, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.edge
-	 */
-	def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
+  /**
+   * The Activity containing the ActivityEdge, if it is directly owned by an Activity.
+   *
+   * <!-- Start of user code doc for activity -->
+   * <!-- End of user code doc for activity -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLActivity.edge
+   */
+  def activity: Option[UMLActivity[Uml]] =
+    owner
+    .selectByKindOf { case x: UMLActivity[Uml] => x }
 
-	/**
-	 * ActivityPartitions containing the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for inPartition -->
-	 * <!-- End of user code doc for inPartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.edge
-	 */
-	def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
+  /**
+   * ActivityPartitions containing the ActivityEdge.
+   *
+   * <!-- Start of user code doc for inPartition -->
+   * <!-- End of user code doc for inPartition -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityPartition.edge
+   */
+  def inPartition: Set[UMLActivityPartition[Uml]] =
+    inGroup
+    .selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
-	/**
-	 * The StructuredActivityNode containing the ActivityEdge, if it is owned by a StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for inStructuredNode -->
-	 * <!-- End of user code doc for inStructuredNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.edge
-	 */
-	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
+  /**
+   * The StructuredActivityNode containing the ActivityEdge, if it is owned by a StructuredActivityNode.
+   *
+   * <!-- Start of user code doc for inStructuredNode -->
+   * <!-- End of user code doc for inStructuredNode -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLStructuredActivityNode.edge
+   */
+  def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] =
+    inGroup
+    .selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
 
-	/**
-	 * ActivityEdges from a generalization of the Activity containing this ActivityEdge that are redefined by this ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for redefinedEdge -->
-	 * <!-- End of user code doc for redefinedEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge_activityEdge
-	 */
-	def redefinedEdge: Set[UMLActivityEdge[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
+  /**
+   * ActivityEdges from a generalization of the Activity containing this ActivityEdge that are redefined by this ActivityEdge.
+   *
+   * <!-- Start of user code doc for redefinedEdge -->
+   * <!-- End of user code doc for redefinedEdge -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge_activityEdge
+   */
+  def redefinedEdge: Set[UMLActivityEdge[Uml]] =
+    redefinedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for redefinedEdge_activityEdge -->
-	 * <!-- End of user code doc for redefinedEdge_activityEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge
-	 */
-	def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
+  /**
+   * <!-- Start of user code doc for redefinedEdge_activityEdge -->
+   * <!-- End of user code doc for redefinedEdge_activityEdge -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityEdge.redefinedEdge
+   */
+  def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] =
+    redefinedElement_redefinableElement
+    .selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for isConsistentWith -->
-	 * <!-- End of user code doc for isConsistentWith -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(ActivityEdge))
-	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
-		// Start of user code for "isConsistentWith"
-    	redefiningElement.isInstanceOf[UMLActivityEdge[Uml]]
-    	// End of user code
-	}
+  /**
+   * <!-- Start of user code doc for isConsistentWith -->
+   * <!-- End of user code doc for isConsistentWith -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (redefiningElement.oclIsKindOf(ActivityEdge))
+   */
+  override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
+    // Start of user code for "isConsistentWith"
+    redefiningElement.isInstanceOf[UMLActivityEdge[Uml]]
+    // End of user code
+  }
 
-	/**
-	 * If an ActivityEdge is directly owned by an Activity, then its source and target must be directly or indirectly contained in the same Activity.
-	 *
-	 * <!-- Start of user code doc for validate_source_and_target -->
-	 * <!-- End of user code doc for validate_source_and_target -->
-	 *
-	 * @body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
-	 */
-	def validate_source_and_target: Boolean = {
-		// Start of user code for "source_and_target"
-  	if (activity.isDefined)
+  /**
+   * If an ActivityEdge is directly owned by an Activity, then its source and target must be directly or indirectly contained in the same Activity.
+   *
+   * <!-- Start of user code doc for validate_source_and_target -->
+   * <!-- End of user code doc for validate_source_and_target -->
+   *
+   * @body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
+   */
+  def validate_source_and_target: Boolean = {
+    // Start of user code for "source_and_target"
+    if (activity.isDefined)
       (source, target) match {
         case (Some(s), Some(t)) => s.containingActivity == activity && t.containingActivity == activity
-        case _ => false
-    }
-    else true
-  	// End of user code
-	}
+        case _                  => false
+      }
+    else
+      true
+    // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
-} //UMLActivityEdgeOps
+  // Start of user code for additional features
+  // End of user code
+}
+
+//UMLActivityEdgeOps

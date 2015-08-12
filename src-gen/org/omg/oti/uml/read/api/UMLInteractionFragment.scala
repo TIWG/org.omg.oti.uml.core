@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLInteractionFragmentOps
  * <!-- End of user code documentation -->
 */
 trait UMLInteractionFragment[Uml <: UML]
-	extends UMLNamedElement[Uml]
-	with UMLInteractionFragmentOps[Uml] {
-	
-	import ops._
+  extends UMLNamedElement[Uml]
+  with UMLInteractionFragmentOps[Uml] {
 
-	/**
-	 * References the Lifelines that the InteractionFragment involves.
-	 *
-	 * <!-- Start of user code doc for covered -->
-	 * <!-- End of user code doc for covered -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLLifeline.coveredBy
-	 */
-	def covered: Iterable[UMLLifeline[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		interactionFragment_metaAttributes
+  /**
+   * References the Lifelines that the InteractionFragment involves.
+   *
+   * <!-- Start of user code doc for covered -->
+   * <!-- End of user code doc for covered -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLLifeline.coveredBy
+   */
+  def covered: Iterable[UMLLifeline[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLInteractionFragment
-	 *
-	 * <!-- Start of user code doc for interactionFragment_metaAttributes -->
-	 * <!-- End of user code doc for interactionFragment_metaAttributes -->
-	 */
-	def interactionFragment_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			namedElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    interactionFragment_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		interactionFragment_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLInteractionFragment
+   *
+   * <!-- Start of user code doc for interactionFragment_metaAttributes -->
+   * <!-- End of user code doc for interactionFragment_metaAttributes -->
+   */
+  def interactionFragment_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      namedElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLInteractionFragment
-	 *
-	 * <!-- Start of user code doc for interactionFragment_compositeMetaProperties -->
-	 * <!-- End of user code doc for interactionFragment_compositeMetaProperties -->
-	 */
-	def interactionFragment_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_compositeMetaProperties,
-			Seq (InteractionFragment_generalOrdering))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    interactionFragment_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		interactionFragment_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLInteractionFragment
+   *
+   * <!-- Start of user code doc for interactionFragment_compositeMetaProperties -->
+   * <!-- End of user code doc for interactionFragment_compositeMetaProperties -->
+   */
+  def interactionFragment_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namedElement_compositeMetaProperties,
+      Seq (InteractionFragment_generalOrdering))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLInteractionFragment
-	 *
-	 * <!-- Start of user code doc for interactionFragment_referenceMetaProperties -->
-	 * <!-- End of user code doc for interactionFragment_referenceMetaProperties -->
-	 */
-	def interactionFragment_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_referenceMetaProperties,
-			Seq (InteractionFragment_covered))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    interactionFragment_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		interactionFragment_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLInteractionFragment
+   *
+   * <!-- Start of user code doc for interactionFragment_referenceMetaProperties -->
+   * <!-- End of user code doc for interactionFragment_referenceMetaProperties -->
+   */
+  def interactionFragment_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namedElement_referenceMetaProperties,
+      Seq (InteractionFragment_covered))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLInteractionFragment
-	 *
-	 * <!-- Start of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def interactionFragment_forwardReferencesFromMetamodelAssociations: Elements =
-		namedElement_forwardReferencesFromMetamodelAssociations ++
-		covered 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    interactionFragment_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLInteractionFragment
+   *
+   * <!-- Start of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
+   */
+  def interactionFragment_forwardReferencesFromMetamodelAssociations: Elements =
+    namedElement_forwardReferencesFromMetamodelAssociations ++
+    covered
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLInteractionFragment

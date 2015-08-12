@@ -52,174 +52,174 @@ import org.omg.oti.uml.read.operations.UMLActivityEdgeOps
  * <!-- End of user code documentation -->
 */
 trait UMLActivityEdge[Uml <: UML]
-	extends UMLRedefinableElement[Uml]
-	with UMLActivityEdgeOps[Uml] {
-	
-	import ops._
+  extends UMLRedefinableElement[Uml]
+  with UMLActivityEdgeOps[Uml] {
 
-	/**
-	 * A ValueSpecification that is evaluated to determine if a token can traverse the ActivityEdge. If an ActivityEdge has no guard, then there is no restriction on tokens traversing the edge.
-	 *
-	 * <!-- Start of user code doc for guard -->
-	 * <!-- End of user code doc for guard -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.guard_activityEdge
-	 */
-	def guard: Option[UMLValueSpecification[Uml]]
+  import ops._
 
-	/**
-	 * ActivityGroups containing the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for inGroup -->
-	 * <!-- End of user code doc for inGroup -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityGroup.containedEdge
-	 */
-	def inGroup: Set[UMLActivityGroup[Uml]]
+  /**
+   * A ValueSpecification that is evaluated to determine if a token can traverse the ActivityEdge. If an ActivityEdge has no guard, then there is no restriction on tokens traversing the edge.
+   *
+   * <!-- Start of user code doc for guard -->
+   * <!-- End of user code doc for guard -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLValueSpecification.guard_activityEdge
+   */
+  def guard: Option[UMLValueSpecification[Uml]]
 
-	/**
-	 * The InterruptibleActivityRegion for which this ActivityEdge is an interruptingEdge.
-	 *
-	 * <!-- Start of user code doc for interrupts -->
-	 * <!-- End of user code doc for interrupts -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.interruptingEdge
-	 */
-	def interrupts: Option[UMLInterruptibleActivityRegion[Uml]]
+  /**
+   * ActivityGroups containing the ActivityEdge.
+   *
+   * <!-- Start of user code doc for inGroup -->
+   * <!-- End of user code doc for inGroup -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityGroup.containedEdge
+   */
+  def inGroup: Set[UMLActivityGroup[Uml]]
 
-	/**
-	 * The ActivityNode from which tokens are taken when they traverse the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for source -->
-	 * <!-- End of user code doc for source -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLActivityNode.outgoing
-	 */
-	def source: Option[UMLActivityNode[Uml]]
+  /**
+   * The InterruptibleActivityRegion for which this ActivityEdge is an interruptingEdge.
+   *
+   * <!-- Start of user code doc for interrupts -->
+   * <!-- End of user code doc for interrupts -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.interruptingEdge
+   */
+  def interrupts: Option[UMLInterruptibleActivityRegion[Uml]]
 
-	/**
-	 * The ActivityNode to which tokens are put when they traverse the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLActivityNode.incoming
-	 */
-	def target: Option[UMLActivityNode[Uml]]
+  /**
+   * The ActivityNode from which tokens are taken when they traverse the ActivityEdge.
+   *
+   * <!-- Start of user code doc for source -->
+   * <!-- End of user code doc for source -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLActivityNode.outgoing
+   */
+  def source: Option[UMLActivityNode[Uml]]
 
-	/**
-	 * The minimum number of tokens that must traverse the ActivityEdge at the same time. If no weight is specified, this is equivalent to specifying a constant value of 1.
-	 *
-	 * <!-- Start of user code doc for weight -->
-	 * <!-- End of user code doc for weight -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.weight_activityEdge
-	 */
-	def weight: Option[UMLValueSpecification[Uml]]
+  /**
+   * The ActivityNode to which tokens are put when they traverse the ActivityEdge.
+   *
+   * <!-- Start of user code doc for target -->
+   * <!-- End of user code doc for target -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLActivityNode.incoming
+   */
+  def target: Option[UMLActivityNode[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for realizingActivityEdge_informationFlow -->
-	 * <!-- End of user code doc for realizingActivityEdge_informationFlow -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInformationFlow.realizingActivityEdge
-	 */
-	def realizingActivityEdge_informationFlow: Set[UMLInformationFlow[Uml]]
+  /**
+   * The minimum number of tokens that must traverse the ActivityEdge at the same time. If no weight is specified, this is equivalent to specifying a constant value of 1.
+   *
+   * <!-- Start of user code doc for weight -->
+   * <!-- End of user code doc for weight -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLValueSpecification.weight_activityEdge
+   */
+  def weight: Option[UMLValueSpecification[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		activityEdge_metaAttributes
+  /**
+   * <!-- Start of user code doc for realizingActivityEdge_informationFlow -->
+   * <!-- End of user code doc for realizingActivityEdge_informationFlow -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInformationFlow.realizingActivityEdge
+   */
+  def realizingActivityEdge_informationFlow: Set[UMLInformationFlow[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLActivityEdge
-	 *
-	 * <!-- Start of user code doc for activityEdge_metaAttributes -->
-	 * <!-- End of user code doc for activityEdge_metaAttributes -->
-	 */
-	def activityEdge_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			redefinableElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    activityEdge_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		activityEdge_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLActivityEdge
+   *
+   * <!-- Start of user code doc for activityEdge_metaAttributes -->
+   * <!-- End of user code doc for activityEdge_metaAttributes -->
+   */
+  def activityEdge_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      redefinableElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLActivityEdge
-	 *
-	 * <!-- Start of user code doc for activityEdge_compositeMetaProperties -->
-	 * <!-- End of user code doc for activityEdge_compositeMetaProperties -->
-	 */
-	def activityEdge_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			redefinableElement_compositeMetaProperties,
-			Seq (ActivityEdge_guard,
-				ActivityEdge_weight))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    activityEdge_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		activityEdge_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLActivityEdge
+   *
+   * <!-- Start of user code doc for activityEdge_compositeMetaProperties -->
+   * <!-- End of user code doc for activityEdge_compositeMetaProperties -->
+   */
+  def activityEdge_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      redefinableElement_compositeMetaProperties,
+      Seq (ActivityEdge_guard,
+        ActivityEdge_weight))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLActivityEdge
-	 *
-	 * <!-- Start of user code doc for activityEdge_referenceMetaProperties -->
-	 * <!-- End of user code doc for activityEdge_referenceMetaProperties -->
-	 */
-	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			redefinableElement_referenceMetaProperties,
-			Seq (ActivityEdge_inPartition,
-				ActivityEdge_interrupts,
-				ActivityEdge_redefinedEdge,
-				ActivityEdge_source,
-				ActivityEdge_target))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    activityEdge_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		activityEdge_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLActivityEdge
+   *
+   * <!-- Start of user code doc for activityEdge_referenceMetaProperties -->
+   * <!-- End of user code doc for activityEdge_referenceMetaProperties -->
+   */
+  def activityEdge_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      redefinableElement_referenceMetaProperties,
+      Seq (ActivityEdge_inPartition,
+        ActivityEdge_interrupts,
+        ActivityEdge_redefinedEdge,
+        ActivityEdge_source,
+        ActivityEdge_target))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLActivityEdge
-	 *
-	 * <!-- Start of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def activityEdge_forwardReferencesFromMetamodelAssociations: Elements =
-		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		inPartition ++
-		interrupts ++
-		redefinedEdge ++
-		source ++
-		target 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    activityEdge_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLActivityEdge
+   *
+   * <!-- Start of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
+   */
+  def activityEdge_forwardReferencesFromMetamodelAssociations: Elements =
+    redefinableElement_forwardReferencesFromMetamodelAssociations ++
+    inPartition ++
+    interrupts ++
+    redefinedEdge ++
+    source ++
+    target
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLActivityEdge

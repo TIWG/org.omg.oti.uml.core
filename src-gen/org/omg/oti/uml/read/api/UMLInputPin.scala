@@ -52,216 +52,216 @@ import org.omg.oti.uml.read.operations.UMLInputPinOps
  * <!-- End of user code documentation -->
 */
 trait UMLInputPin[Uml <: UML]
-	extends UMLPin[Uml]
-	with UMLInputPinOps[Uml] {
-	
-	import ops._
+  extends UMLPin[Uml]
+  with UMLInputPinOps[Uml] {
 
-	/**
-	 * <!-- Start of user code doc for argument_invocationAction -->
-	 * <!-- End of user code doc for argument_invocationAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInvocationAction.argument
-	 */
-	def argument_invocationAction: Option[UMLInvocationAction[Uml]]
+  import ops._
 
-	/**
-	 * <!-- Start of user code doc for destroyAt_linkEndDestructionData -->
-	 * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLinkEndDestructionData.destroyAt
-	 */
-	def destroyAt_linkEndDestructionData: Option[UMLLinkEndDestructionData[Uml]]
+  /**
+   * <!-- Start of user code doc for argument_invocationAction -->
+   * <!-- End of user code doc for argument_invocationAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInvocationAction.argument
+   */
+  def argument_invocationAction: Option[UMLInvocationAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for first_testIdentityAction -->
-	 * <!-- End of user code doc for first_testIdentityAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTestIdentityAction.first
-	 */
-	def first_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
+  /**
+   * <!-- Start of user code doc for destroyAt_linkEndDestructionData -->
+   * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLLinkEndDestructionData.destroyAt
+   */
+  def destroyAt_linkEndDestructionData: Option[UMLLinkEndDestructionData[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for input_action -->
-	 * <!-- End of user code doc for input_action -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAction.input
-	 */
-	def input_action: Option[UMLAction[Uml]]
+  /**
+   * <!-- Start of user code doc for first_testIdentityAction -->
+   * <!-- End of user code doc for first_testIdentityAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLTestIdentityAction.first
+   */
+  def first_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for insertAt_linkEndCreationData -->
-	 * <!-- End of user code doc for insertAt_linkEndCreationData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLinkEndCreationData.insertAt
-	 */
-	def insertAt_linkEndCreationData: Option[UMLLinkEndCreationData[Uml]]
+  /**
+   * <!-- Start of user code doc for input_action -->
+   * <!-- End of user code doc for input_action -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLAction.input
+   */
+  def input_action: Option[UMLAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for object_structuralFeatureAction -->
-	 * <!-- End of user code doc for object_structuralFeatureAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuralFeatureAction._object
-	 */
-	def object_structuralFeatureAction: Option[UMLStructuralFeatureAction[Uml]]
+  /**
+   * <!-- Start of user code doc for insertAt_linkEndCreationData -->
+   * <!-- End of user code doc for insertAt_linkEndCreationData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLLinkEndCreationData.insertAt
+   */
+  def insertAt_linkEndCreationData: Option[UMLLinkEndCreationData[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for replyValue_replyAction -->
-	 * <!-- End of user code doc for replyValue_replyAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReplyAction.replyValue
-	 */
-	def replyValue_replyAction: Option[UMLReplyAction[Uml]]
+  /**
+   * <!-- Start of user code doc for object_structuralFeatureAction -->
+   * <!-- End of user code doc for object_structuralFeatureAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLStructuralFeatureAction._object
+   */
+  def object_structuralFeatureAction: Option[UMLStructuralFeatureAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for returnInformation_replyAction -->
-	 * <!-- End of user code doc for returnInformation_replyAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLReplyAction.returnInformation
-	 */
-	def returnInformation_replyAction: Option[UMLReplyAction[Uml]]
+  /**
+   * <!-- Start of user code doc for replyValue_replyAction -->
+   * <!-- End of user code doc for replyValue_replyAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLReplyAction.replyValue
+   */
+  def replyValue_replyAction: Option[UMLReplyAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for second_testIdentityAction -->
-	 * <!-- End of user code doc for second_testIdentityAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTestIdentityAction.second
-	 */
-	def second_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
+  /**
+   * <!-- Start of user code doc for returnInformation_replyAction -->
+   * <!-- End of user code doc for returnInformation_replyAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLReplyAction.returnInformation
+   */
+  def returnInformation_replyAction: Option[UMLReplyAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for target_sendObjectAction -->
-	 * <!-- End of user code doc for target_sendObjectAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLSendObjectAction.target
-	 */
-	def target_sendObjectAction: Option[UMLSendObjectAction[Uml]]
+  /**
+   * <!-- Start of user code doc for second_testIdentityAction -->
+   * <!-- End of user code doc for second_testIdentityAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLTestIdentityAction.second
+   */
+  def second_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for value_linkEndData -->
-	 * <!-- End of user code doc for value_linkEndData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLLinkEndData.value
-	 */
-	def value_linkEndData: Option[UMLLinkEndData[Uml]]
+  /**
+   * <!-- Start of user code doc for target_sendObjectAction -->
+   * <!-- End of user code doc for target_sendObjectAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLSendObjectAction.target
+   */
+  def target_sendObjectAction: Option[UMLSendObjectAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for value_qualifierValue -->
-	 * <!-- End of user code doc for value_qualifierValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLQualifierValue.value
-	 */
-	def value_qualifierValue: Option[UMLQualifierValue[Uml]]
+  /**
+   * <!-- Start of user code doc for value_linkEndData -->
+   * <!-- End of user code doc for value_linkEndData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLLinkEndData.value
+   */
+  def value_linkEndData: Option[UMLLinkEndData[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for value_writeStructuralFeatureAction -->
-	 * <!-- End of user code doc for value_writeStructuralFeatureAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLWriteStructuralFeatureAction.value
-	 */
-	def value_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]]
+  /**
+   * <!-- Start of user code doc for value_qualifierValue -->
+   * <!-- End of user code doc for value_qualifierValue -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLQualifierValue.value
+   */
+  def value_qualifierValue: Option[UMLQualifierValue[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for value_writeVariableAction -->
-	 * <!-- End of user code doc for value_writeVariableAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLWriteVariableAction.value
-	 */
-	def value_writeVariableAction: Option[UMLWriteVariableAction[Uml]]
+  /**
+   * <!-- Start of user code doc for value_writeStructuralFeatureAction -->
+   * <!-- End of user code doc for value_writeStructuralFeatureAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLWriteStructuralFeatureAction.value
+   */
+  def value_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		inputPin_metaAttributes
+  /**
+   * <!-- Start of user code doc for value_writeVariableAction -->
+   * <!-- End of user code doc for value_writeVariableAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLWriteVariableAction.value
+   */
+  def value_writeVariableAction: Option[UMLWriteVariableAction[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLInputPin
-	 *
-	 * <!-- Start of user code doc for inputPin_metaAttributes -->
-	 * <!-- End of user code doc for inputPin_metaAttributes -->
-	 */
-	def inputPin_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			pin_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    inputPin_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		inputPin_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLInputPin
+   *
+   * <!-- Start of user code doc for inputPin_metaAttributes -->
+   * <!-- End of user code doc for inputPin_metaAttributes -->
+   */
+  def inputPin_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      pin_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLInputPin
-	 *
-	 * <!-- Start of user code doc for inputPin_compositeMetaProperties -->
-	 * <!-- End of user code doc for inputPin_compositeMetaProperties -->
-	 */
-	def inputPin_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			pin_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    inputPin_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		inputPin_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLInputPin
+   *
+   * <!-- Start of user code doc for inputPin_compositeMetaProperties -->
+   * <!-- End of user code doc for inputPin_compositeMetaProperties -->
+   */
+  def inputPin_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      pin_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLInputPin
-	 *
-	 * <!-- Start of user code doc for inputPin_referenceMetaProperties -->
-	 * <!-- End of user code doc for inputPin_referenceMetaProperties -->
-	 */
-	def inputPin_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			pin_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    inputPin_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		inputPin_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLInputPin
+   *
+   * <!-- Start of user code doc for inputPin_referenceMetaProperties -->
+   * <!-- End of user code doc for inputPin_referenceMetaProperties -->
+   */
+  def inputPin_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      pin_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLInputPin
-	 *
-	 * <!-- Start of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def inputPin_forwardReferencesFromMetamodelAssociations: Elements =
-		pin_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    inputPin_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLInputPin
+   *
+   * <!-- Start of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
+   */
+  def inputPin_forwardReferencesFromMetamodelAssociations: Elements =
+    pin_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLInputPin

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLReadVariableAction, UML, UMLOutputPin}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,50 +52,52 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>	
+trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The OutputPin on which the result values are placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_readVariableAction
-	 */
-	def result: Option[UMLOutputPin[Uml]] = output headOption
+  /**
+   * The OutputPin on which the result values are placed.
+   *
+   * <!-- Start of user code doc for result -->
+   * <!-- End of user code doc for result -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLOutputPin.result_readVariableAction
+   */
+  def result: Option[UMLOutputPin[Uml]] =
+    output
+    .headOption
 
-	/**
-	 * The multiplicity of the variable must be compatible with the multiplicity of the output pin.
-	 *
-	 * <!-- Start of user code doc for validate_compatible_multiplicity -->
-	 * <!-- End of user code doc for validate_compatible_multiplicity -->
-	 *
-	 * @body variable.compatibleWith(result)
-	 */
-	def validate_compatible_multiplicity: Boolean = {
-		// Start of user code for "compatible_multiplicity"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the variable must be compatible with the multiplicity of the output pin.
+   *
+   * <!-- Start of user code doc for validate_compatible_multiplicity -->
+   * <!-- End of user code doc for validate_compatible_multiplicity -->
+   *
+   * @body variable.compatibleWith(result)
+   */
+  def validate_compatible_multiplicity: Boolean = {
+    // Start of user code for "compatible_multiplicity"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type and ordering of the result OutputPin are the same as the type and ordering of the variable.
-	 *
-	 * <!-- Start of user code doc for validate_type_and_ordering -->
-	 * <!-- End of user code doc for validate_type_and_ordering -->
-	 *
-	 * @body result.type =variable.type and 
-	 * result.isOrdered = variable.isOrdered
-	 */
-	def validate_type_and_ordering: Boolean = {
-		// Start of user code for "type_and_ordering"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type and ordering of the result OutputPin are the same as the type and ordering of the variable.
+   *
+   * <!-- Start of user code doc for validate_type_and_ordering -->
+   * <!-- End of user code doc for validate_type_and_ordering -->
+   *
+   * @body result.type =variable.type and
+   * result.isOrdered = variable.isOrdered
+   */
+  def validate_type_and_ordering: Boolean = {
+    // Start of user code for "type_and_ordering"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLReadVariableActionOps

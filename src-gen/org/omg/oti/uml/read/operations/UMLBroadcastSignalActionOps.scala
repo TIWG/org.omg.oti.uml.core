@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLBroadcastSignalAction}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,56 +52,56 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[Uml] =>	
+trait UMLBroadcastSignalActionOps[Uml <: UML] { self: UMLBroadcastSignalAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * A BroadcaseSignalAction may not specify onPort.
-	 *
-	 * <!-- Start of user code doc for validate_no_onport -->
-	 * <!-- End of user code doc for validate_no_onport -->
-	 *
-	 * @body onPort=null
-	 */
-	def validate_no_onport: Boolean = {
-		// Start of user code for "no_onport"
-    	???
-    	// End of user code
-	}
+  /**
+   * A BroadcaseSignalAction may not specify onPort.
+   *
+   * <!-- Start of user code doc for validate_no_onport -->
+   * <!-- End of user code doc for validate_no_onport -->
+   *
+   * @body onPort=null
+   */
+  def validate_no_onport: Boolean = {
+    // Start of user code for "no_onport"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The number of argument InputPins must be the same as the number of attributes in the signal.
-	 *
-	 * <!-- Start of user code doc for validate_number_of_arguments -->
-	 * <!-- End of user code doc for validate_number_of_arguments -->
-	 *
-	 * @body argument->size() = signal.allAttributes()->size()
-	 */
-	def validate_number_of_arguments: Boolean = {
-		// Start of user code for "number_of_arguments"
-    	???
-    	// End of user code
-	}
+  /**
+   * The number of argument InputPins must be the same as the number of attributes in the signal.
+   *
+   * <!-- Start of user code doc for validate_number_of_arguments -->
+   * <!-- End of user code doc for validate_number_of_arguments -->
+   *
+   * @body argument->size() = signal.allAttributes()->size()
+   */
+  def validate_number_of_arguments: Boolean = {
+    // Start of user code for "number_of_arguments"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type, ordering, and multiplicity of an argument InputPin must be the same as the corresponding attribute of the signal.
-	 *
-	 * <!-- Start of user code doc for validate_type_ordering_multiplicity -->
-	 * <!-- End of user code doc for validate_type_ordering_multiplicity -->
-	 *
-	 * @body let attribute: OrderedSet(Property) = signal.allAttributes() in
-	 * Sequence{1..argument->size()}->forAll(i | 
-	 * 	argument->at(i).type.conformsTo(attribute->at(i).type) and 
-	 * 	argument->at(i).isOrdered = attribute->at(i).isOrdered and
-	 * 	argument->at(i).compatibleWith(attribute->at(i)))
-	 */
-	def validate_type_ordering_multiplicity: Boolean = {
-		// Start of user code for "type_ordering_multiplicity"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type, ordering, and multiplicity of an argument InputPin must be the same as the corresponding attribute of the signal.
+   *
+   * <!-- Start of user code doc for validate_type_ordering_multiplicity -->
+   * <!-- End of user code doc for validate_type_ordering_multiplicity -->
+   *
+   * @body let attribute: OrderedSet(Property) = signal.allAttributes() in
+   * Sequence{1..argument->size()}->forAll(i |
+   *   argument->at(i).type.conformsTo(attribute->at(i).type) and
+   *   argument->at(i).isOrdered = attribute->at(i).isOrdered and
+   *   argument->at(i).compatibleWith(attribute->at(i)))
+   */
+  def validate_type_ordering_multiplicity: Boolean = {
+    // Start of user code for "type_ordering_multiplicity"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLBroadcastSignalActionOps

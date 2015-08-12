@@ -52,112 +52,112 @@ import org.omg.oti.uml.read.operations.UMLSendSignalActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLSendSignalAction[Uml <: UML]
-	extends UMLInvocationAction[Uml]
-	with UMLSendSignalActionOps[Uml] {
-	
-	import ops._
+  extends UMLInvocationAction[Uml]
+  with UMLSendSignalActionOps[Uml] {
 
-	/**
-	 * The Signal whose instance is transmitted to the target.
-	 *
-	 * <!-- Start of user code doc for signal -->
-	 * <!-- End of user code doc for signal -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLSignal.signal_sendSignalAction
-	 */
-	def signal: Option[UMLSignal[Uml]]
+  import ops._
 
-	/**
-	 * The InputPin that provides the target object to which the Signal instance is sent.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.target_sendSignalAction
-	 */
-	def target: Option[UMLInputPin[Uml]]
+  /**
+   * The Signal whose instance is transmitted to the target.
+   *
+   * <!-- Start of user code doc for signal -->
+   * <!-- End of user code doc for signal -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLSignal.signal_sendSignalAction
+   */
+  def signal: Option[UMLSignal[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		sendSignalAction_metaAttributes
+  /**
+   * The InputPin that provides the target object to which the Signal instance is sent.
+   *
+   * <!-- Start of user code doc for target -->
+   * <!-- End of user code doc for target -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLInputPin.target_sendSignalAction
+   */
+  def target: Option[UMLInputPin[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLSendSignalAction
-	 *
-	 * <!-- Start of user code doc for sendSignalAction_metaAttributes -->
-	 * <!-- End of user code doc for sendSignalAction_metaAttributes -->
-	 */
-	def sendSignalAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			invocationAction_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    sendSignalAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		sendSignalAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLSendSignalAction
+   *
+   * <!-- Start of user code doc for sendSignalAction_metaAttributes -->
+   * <!-- End of user code doc for sendSignalAction_metaAttributes -->
+   */
+  def sendSignalAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      invocationAction_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLSendSignalAction
-	 *
-	 * <!-- Start of user code doc for sendSignalAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for sendSignalAction_compositeMetaProperties -->
-	 */
-	def sendSignalAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			invocationAction_compositeMetaProperties,
-			Seq (SendSignalAction_target))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    sendSignalAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		sendSignalAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLSendSignalAction
+   *
+   * <!-- Start of user code doc for sendSignalAction_compositeMetaProperties -->
+   * <!-- End of user code doc for sendSignalAction_compositeMetaProperties -->
+   */
+  def sendSignalAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      invocationAction_compositeMetaProperties,
+      Seq (SendSignalAction_target))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLSendSignalAction
-	 *
-	 * <!-- Start of user code doc for sendSignalAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for sendSignalAction_referenceMetaProperties -->
-	 */
-	def sendSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			invocationAction_referenceMetaProperties,
-			Seq (SendSignalAction_signal))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    sendSignalAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		sendSignalAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLSendSignalAction
+   *
+   * <!-- Start of user code doc for sendSignalAction_referenceMetaProperties -->
+   * <!-- End of user code doc for sendSignalAction_referenceMetaProperties -->
+   */
+  def sendSignalAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      invocationAction_referenceMetaProperties,
+      Seq (SendSignalAction_signal))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLSendSignalAction
-	 *
-	 * <!-- Start of user code doc for sendSignalAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for sendSignalAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def sendSignalAction_forwardReferencesFromMetamodelAssociations: Elements =
-		invocationAction_forwardReferencesFromMetamodelAssociations ++
-		signal 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    sendSignalAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLSendSignalAction
+   *
+   * <!-- Start of user code doc for sendSignalAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for sendSignalAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def sendSignalAction_forwardReferencesFromMetamodelAssociations: Elements =
+    invocationAction_forwardReferencesFromMetamodelAssociations ++
+    signal
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLSendSignalAction

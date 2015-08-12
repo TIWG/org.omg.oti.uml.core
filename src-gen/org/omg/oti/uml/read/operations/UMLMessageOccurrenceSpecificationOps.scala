@@ -42,20 +42,24 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLMessageOccurrenceSpecification}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A MessageOccurrenceSpecification specifies the occurrence of Message events, such as sending and receiving of Signals or invoking or receiving of Operation calls. A MessageOccurrenceSpecification is a kind of MessageEnd. Messages are generated either by synchronous Operation calls or asynchronous Signal sends. They are received by the execution of corresponding AcceptEventActions.
+ * A MessageOccurrenceSpecification specifies the occurrence of Message events,
+ * such as sending and receiving of Signals or invoking or receiving of Operation calls.
+ * A MessageOccurrenceSpecification is a kind of MessageEnd.
+ * Messages are generated either by synchronous Operation calls or asynchronous Signal sends.
+ * They are received by the execution of corresponding AcceptEventActions.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLMessageOccurrenceSpecificationOps[Uml <: UML] { self: UMLMessageOccurrenceSpecification[Uml] =>	
+trait UMLMessageOccurrenceSpecificationOps[Uml <: UML] { self: UMLMessageOccurrenceSpecification[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLMessageOccurrenceSpecificationOps

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,89 +52,90 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>	
+trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The LinkEndData identifying the values on the ends of the links acting on by this LinkAction.
-	 *
-	 * <!-- Start of user code doc for endData -->
-	 * <!-- End of user code doc for endData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.api.UMLLinkEndData.endData_linkAction
-	 */
-	def endData: Iterable[UMLLinkEndData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndData[Uml] => x }
+  /**
+   * The LinkEndData identifying the values on the ends of the links acting on by this LinkAction.
+   *
+   * <!-- Start of user code doc for endData -->
+   * <!-- End of user code doc for endData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+   * @opposite org.omg.oti.api.UMLLinkEndData.endData_linkAction
+   */
+  def endData: Iterable[UMLLinkEndData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndData[Uml] => x }
 
-	/**
-	 * InputPins used by the LinkEndData of the LinkAction.
-	 *
-	 * <!-- Start of user code doc for inputValue -->
-	 * <!-- End of user code doc for inputValue -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLInputPin.inputValue_linkAction
-	 */
-	def inputValue: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
+  /**
+   * InputPins used by the LinkEndData of the LinkAction.
+   *
+   * <!-- Start of user code doc for inputValue -->
+   * <!-- End of user code doc for inputValue -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
+   * @opposite org.omg.oti.api.UMLInputPin.inputValue_linkAction
+   */
+  def inputValue: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
 
-	/**
-	 * Returns the Association acted on by this LinkAction.
-	 *
-	 * <!-- Start of user code doc for association -->
-	 * <!-- End of user code doc for association -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (endData->asSequence()->first().end.association)
-	 */
-	def association: Option[UMLAssociation[Uml]] = {
-		// Start of user code for "association"
-    	???
-    	// End of user code
-	}
+  /**
+   * Returns the Association acted on by this LinkAction.
+   *
+   * <!-- Start of user code doc for association -->
+   * <!-- End of user code doc for association -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (endData->asSequence()->first().end.association)
+   */
+  def association: Option[UMLAssociation[Uml]] = {
+    // Start of user code for "association"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The ends of the endData must not be static.
-	 *
-	 * <!-- Start of user code doc for validate_not_static -->
-	 * <!-- End of user code doc for validate_not_static -->
-	 *
-	 * @body endData->forAll(not end.isStatic)
-	 */
-	def validate_not_static: Boolean = {
-		// Start of user code for "not_static"
-    	???
-    	// End of user code
-	}
+  /**
+   * The ends of the endData must not be static.
+   *
+   * <!-- Start of user code doc for validate_not_static -->
+   * <!-- End of user code doc for validate_not_static -->
+   *
+   * @body endData->forAll(not end.isStatic)
+   */
+  def validate_not_static: Boolean = {
+    // Start of user code for "not_static"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The ends of the endData must all be from the same Association and include all and only the memberEnds of that association.
-	 *
-	 * <!-- Start of user code doc for validate_same_association -->
-	 * <!-- End of user code doc for validate_same_association -->
-	 *
-	 * @body endData.end = self.association().memberEnd->asBag()
-	 */
-	def validate_same_association: Boolean = {
-		// Start of user code for "same_association"
-    	???
-    	// End of user code
-	}
+  /**
+   * The ends of the endData must all be from the same Association and
+   * include all and only the memberEnds of that association.
+   *
+   * <!-- Start of user code doc for validate_same_association -->
+   * <!-- End of user code doc for validate_same_association -->
+   *
+   * @body endData.end = self.association().memberEnd->asBag()
+   */
+  def validate_same_association: Boolean = {
+    // Start of user code for "same_association"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The inputValue InputPins is the same as the union of all the InputPins referenced by the endData.
-	 *
-	 * <!-- Start of user code doc for validate_same_pins -->
-	 * <!-- End of user code doc for validate_same_pins -->
-	 *
-	 * @body inputValue->asBag()=endData.allPins()
-	 */
-	def validate_same_pins: Boolean = {
-		// Start of user code for "same_pins"
-    	???
-    	// End of user code
-	}
+  /**
+   * The inputValue InputPins is the same as the union of all the InputPins referenced by the endData.
+   *
+   * <!-- Start of user code doc for validate_same_pins -->
+   * <!-- End of user code doc for validate_same_pins -->
+   *
+   * @body inputValue->asBag()=endData.allPins()
+   */
+  def validate_same_pins: Boolean = {
+    // Start of user code for "same_pins"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLLinkActionOps

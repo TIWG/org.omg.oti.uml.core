@@ -52,100 +52,100 @@ import org.omg.oti.uml.read.operations.UMLLiteralIntegerOps
  * <!-- End of user code documentation -->
 */
 trait UMLLiteralInteger[Uml <: UML]
-	extends UMLLiteralSpecification[Uml]
-	with UMLLiteralIntegerOps[Uml] {
-	
-	import ops._
+  extends UMLLiteralSpecification[Uml]
+  with UMLLiteralIntegerOps[Uml] {
 
-	/**
-	 * The specified Integer value.
-	 *
-	 * <!-- Start of user code doc for value -->
-	 * <!-- End of user code doc for value -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def value: Integer
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		literalInteger_metaAttributes
+  /**
+   * The specified Integer value.
+   *
+   * <!-- Start of user code doc for value -->
+   * <!-- End of user code doc for value -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def value: Integer
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLLiteralInteger
-	 *
-	 * <!-- Start of user code doc for literalInteger_metaAttributes -->
-	 * <!-- End of user code doc for literalInteger_metaAttributes -->
-	 */
-	def literalInteger_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			literalSpecification_metaAttributes,
-			Seq (LiteralInteger_value))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    literalInteger_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		literalInteger_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLLiteralInteger
+   *
+   * <!-- Start of user code doc for literalInteger_metaAttributes -->
+   * <!-- End of user code doc for literalInteger_metaAttributes -->
+   */
+  def literalInteger_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      literalSpecification_metaAttributes,
+      Seq (LiteralInteger_value))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLLiteralInteger
-	 *
-	 * <!-- Start of user code doc for literalInteger_compositeMetaProperties -->
-	 * <!-- End of user code doc for literalInteger_compositeMetaProperties -->
-	 */
-	def literalInteger_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			literalSpecification_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    literalInteger_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		literalInteger_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLLiteralInteger
+   *
+   * <!-- Start of user code doc for literalInteger_compositeMetaProperties -->
+   * <!-- End of user code doc for literalInteger_compositeMetaProperties -->
+   */
+  def literalInteger_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      literalSpecification_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLLiteralInteger
-	 *
-	 * <!-- Start of user code doc for literalInteger_referenceMetaProperties -->
-	 * <!-- End of user code doc for literalInteger_referenceMetaProperties -->
-	 */
-	def literalInteger_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			literalSpecification_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    literalInteger_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		literalInteger_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLLiteralInteger
+   *
+   * <!-- Start of user code doc for literalInteger_referenceMetaProperties -->
+   * <!-- End of user code doc for literalInteger_referenceMetaProperties -->
+   */
+  def literalInteger_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      literalSpecification_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLLiteralInteger
-	 *
-	 * <!-- Start of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def literalInteger_forwardReferencesFromMetamodelAssociations: Elements =
-		literalSpecification_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    literalInteger_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLLiteralInteger
+   *
+   * <!-- Start of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
+   */
+  def literalInteger_forwardReferencesFromMetamodelAssociations: Elements =
+    literalSpecification_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLLiteralInteger

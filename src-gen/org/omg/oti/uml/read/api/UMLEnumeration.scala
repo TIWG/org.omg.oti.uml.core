@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLEnumerationOps
  * <!-- End of user code documentation -->
 */
 trait UMLEnumeration[Uml <: UML]
-	extends UMLDataType[Uml]
-	with UMLEnumerationOps[Uml] {
-	
-	import ops._
+  extends UMLDataType[Uml]
+  with UMLEnumerationOps[Uml] {
 
-	/**
-	 * The ordered set of literals owned by this Enumeration.
-	 *
-	 * <!-- Start of user code doc for ownedLiteral -->
-	 * <!-- End of user code doc for ownedLiteral -->
-	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLEnumerationLiteral.enumeration
-	 */
-	def ownedLiteral: Seq[UMLEnumerationLiteral[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		enumeration_metaAttributes
+  /**
+   * The ordered set of literals owned by this Enumeration.
+   *
+   * <!-- Start of user code doc for ownedLiteral -->
+   * <!-- End of user code doc for ownedLiteral -->
+   *
+   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLEnumerationLiteral.enumeration
+   */
+  def ownedLiteral: Seq[UMLEnumerationLiteral[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLEnumeration
-	 *
-	 * <!-- Start of user code doc for enumeration_metaAttributes -->
-	 * <!-- End of user code doc for enumeration_metaAttributes -->
-	 */
-	def enumeration_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			dataType_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    enumeration_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		enumeration_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLEnumeration
+   *
+   * <!-- Start of user code doc for enumeration_metaAttributes -->
+   * <!-- End of user code doc for enumeration_metaAttributes -->
+   */
+  def enumeration_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      dataType_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLEnumeration
-	 *
-	 * <!-- Start of user code doc for enumeration_compositeMetaProperties -->
-	 * <!-- End of user code doc for enumeration_compositeMetaProperties -->
-	 */
-	def enumeration_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			dataType_compositeMetaProperties,
-			Seq (Enumeration_ownedLiteral))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    enumeration_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		enumeration_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLEnumeration
+   *
+   * <!-- Start of user code doc for enumeration_compositeMetaProperties -->
+   * <!-- End of user code doc for enumeration_compositeMetaProperties -->
+   */
+  def enumeration_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      dataType_compositeMetaProperties,
+      Seq (Enumeration_ownedLiteral))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLEnumeration
-	 *
-	 * <!-- Start of user code doc for enumeration_referenceMetaProperties -->
-	 * <!-- End of user code doc for enumeration_referenceMetaProperties -->
-	 */
-	def enumeration_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			dataType_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    enumeration_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		enumeration_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLEnumeration
+   *
+   * <!-- Start of user code doc for enumeration_referenceMetaProperties -->
+   * <!-- End of user code doc for enumeration_referenceMetaProperties -->
+   */
+  def enumeration_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      dataType_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLEnumeration
-	 *
-	 * <!-- Start of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def enumeration_forwardReferencesFromMetamodelAssociations: Elements =
-		dataType_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    enumeration_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLEnumeration
+   *
+   * <!-- Start of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for enumeration_forwardReferencesFromMetamodelAssociations -->
+   */
+  def enumeration_forwardReferencesFromMetamodelAssociations: Elements =
+    dataType_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLEnumeration

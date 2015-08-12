@@ -52,95 +52,95 @@ import org.omg.oti.uml.read.operations.UMLMessageOccurrenceSpecificationOps
  * <!-- End of user code documentation -->
 */
 trait UMLMessageOccurrenceSpecification[Uml <: UML]
-	extends UMLMessageEnd[Uml]
-	with UMLOccurrenceSpecification[Uml]
-	with UMLMessageOccurrenceSpecificationOps[Uml] {
-	
-	import ops._
+  extends UMLMessageEnd[Uml]
+  with UMLOccurrenceSpecification[Uml]
+  with UMLMessageOccurrenceSpecificationOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		messageOccurrenceSpecification_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLMessageOccurrenceSpecification
-	 *
-	 * <!-- Start of user code doc for messageOccurrenceSpecification_metaAttributes -->
-	 * <!-- End of user code doc for messageOccurrenceSpecification_metaAttributes -->
-	 */
-	def messageOccurrenceSpecification_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			messageEnd_metaAttributes,
-			occurrenceSpecification_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    messageOccurrenceSpecification_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		messageOccurrenceSpecification_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLMessageOccurrenceSpecification
+   *
+   * <!-- Start of user code doc for messageOccurrenceSpecification_metaAttributes -->
+   * <!-- End of user code doc for messageOccurrenceSpecification_metaAttributes -->
+   */
+  def messageOccurrenceSpecification_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      messageEnd_metaAttributes,
+      occurrenceSpecification_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLMessageOccurrenceSpecification
-	 *
-	 * <!-- Start of user code doc for messageOccurrenceSpecification_compositeMetaProperties -->
-	 * <!-- End of user code doc for messageOccurrenceSpecification_compositeMetaProperties -->
-	 */
-	def messageOccurrenceSpecification_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			messageEnd_compositeMetaProperties,
-			occurrenceSpecification_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    messageOccurrenceSpecification_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		messageOccurrenceSpecification_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLMessageOccurrenceSpecification
+   *
+   * <!-- Start of user code doc for messageOccurrenceSpecification_compositeMetaProperties -->
+   * <!-- End of user code doc for messageOccurrenceSpecification_compositeMetaProperties -->
+   */
+  def messageOccurrenceSpecification_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      messageEnd_compositeMetaProperties,
+      occurrenceSpecification_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLMessageOccurrenceSpecification
-	 *
-	 * <!-- Start of user code doc for messageOccurrenceSpecification_referenceMetaProperties -->
-	 * <!-- End of user code doc for messageOccurrenceSpecification_referenceMetaProperties -->
-	 */
-	def messageOccurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			messageEnd_referenceMetaProperties,
-			occurrenceSpecification_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    messageOccurrenceSpecification_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLMessageOccurrenceSpecification
+   *
+   * <!-- Start of user code doc for messageOccurrenceSpecification_referenceMetaProperties -->
+   * <!-- End of user code doc for messageOccurrenceSpecification_referenceMetaProperties -->
+   */
+  def messageOccurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      messageEnd_referenceMetaProperties,
+      occurrenceSpecification_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLMessageOccurrenceSpecification
-	 *
-	 * <!-- Start of user code doc for messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations: Elements =
-		messageEnd_forwardReferencesFromMetamodelAssociations ++
-		occurrenceSpecification_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLMessageOccurrenceSpecification
+   *
+   * <!-- Start of user code doc for messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations -->
+   */
+  def messageOccurrenceSpecification_forwardReferencesFromMetamodelAssociations: Elements =
+    messageEnd_forwardReferencesFromMetamodelAssociations ++
+    occurrenceSpecification_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLMessageOccurrenceSpecification

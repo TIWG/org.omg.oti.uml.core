@@ -52,151 +52,151 @@ import org.omg.oti.uml.read.operations.UMLBehavioralFeatureOps
  * <!-- End of user code documentation -->
 */
 trait UMLBehavioralFeature[Uml <: UML]
-	extends UMLFeature[Uml]
-	with UMLNamespace[Uml]
-	with UMLBehavioralFeatureOps[Uml] {
-	
-	import ops._
+  extends UMLFeature[Uml]
+  with UMLNamespace[Uml]
+  with UMLBehavioralFeatureOps[Uml] {
 
-	/**
-	 * Specifies the semantics of concurrent calls to the same passive instance (i.e., an instance originating from a Class with isActive being false). Active instances control access to their own BehavioralFeatures.
-	 *
-	 * <!-- Start of user code doc for concurrency -->
-	 * <!-- End of user code doc for concurrency -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def concurrency: UMLCallConcurrencyKind.Value
+  import ops._
 
-	/**
-	 * If true, then the BehavioralFeature does not have an implementation, and one must be supplied by a more specific Classifier. If false, the BehavioralFeature must have an implementation in the Classifier or one must be inherited.
-	 *
-	 * <!-- Start of user code doc for isAbstract -->
-	 * <!-- End of user code doc for isAbstract -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isAbstract: Boolean
+  /**
+   * Specifies the semantics of concurrent calls to the same passive instance (i.e., an instance originating from a Class with isActive being false). Active instances control access to their own BehavioralFeatures.
+   *
+   * <!-- Start of user code doc for concurrency -->
+   * <!-- End of user code doc for concurrency -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def concurrency: UMLCallConcurrencyKind.Value
 
-	/**
-	 * A Behavior that implements the BehavioralFeature. There may be at most one Behavior for a particular pairing of a Classifier (as owner of the Behavior) and a BehavioralFeature (as specification of the Behavior).
-	 *
-	 * <!-- Start of user code doc for method -->
-	 * <!-- End of user code doc for method -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.specification
-	 */
-	def method: Set[UMLBehavior[Uml]]
+  /**
+   * If true, then the BehavioralFeature does not have an implementation, and one must be supplied by a more specific Classifier. If false, the BehavioralFeature must have an implementation in the Classifier or one must be inherited.
+   *
+   * <!-- Start of user code doc for isAbstract -->
+   * <!-- End of user code doc for isAbstract -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isAbstract: Boolean
 
-	/**
-	 * The ordered set of formal Parameters of this BehavioralFeature.
-	 *
-	 * <!-- Start of user code doc for ownedParameter -->
-	 * <!-- End of user code doc for ownedParameter -->
-	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLParameter.ownedParameter_ownerFormalParam
-	 */
-	def ownedParameter: Seq[UMLParameter[Uml]]
+  /**
+   * A Behavior that implements the BehavioralFeature. There may be at most one Behavior for a particular pairing of a Classifier (as owner of the Behavior) and a BehavioralFeature (as specification of the Behavior).
+   *
+   * <!-- Start of user code doc for method -->
+   * <!-- End of user code doc for method -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLBehavior.specification
+   */
+  def method: Set[UMLBehavior[Uml]]
 
-	/**
-	 * The Types representing exceptions that may be raised during an invocation of this BehavioralFeature.
-	 *
-	 * <!-- Start of user code doc for raisedException -->
-	 * <!-- End of user code doc for raisedException -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLType.raisedException_behavioralFeature
-	 */
-	def raisedException: Set[UMLType[Uml]]
+  /**
+   * The ordered set of formal Parameters of this BehavioralFeature.
+   *
+   * <!-- Start of user code doc for ownedParameter -->
+   * <!-- End of user code doc for ownedParameter -->
+   *
+   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLParameter.ownedParameter_ownerFormalParam
+   */
+  def ownedParameter: Seq[UMLParameter[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		behavioralFeature_metaAttributes
+  /**
+   * The Types representing exceptions that may be raised during an invocation of this BehavioralFeature.
+   *
+   * <!-- Start of user code doc for raisedException -->
+   * <!-- End of user code doc for raisedException -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLType.raisedException_behavioralFeature
+   */
+  def raisedException: Set[UMLType[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLBehavioralFeature
-	 *
-	 * <!-- Start of user code doc for behavioralFeature_metaAttributes -->
-	 * <!-- End of user code doc for behavioralFeature_metaAttributes -->
-	 */
-	def behavioralFeature_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			feature_metaAttributes,
-			namespace_metaAttributes,
-			Seq (BehavioralFeature_isAbstract))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    behavioralFeature_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		behavioralFeature_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLBehavioralFeature
+   *
+   * <!-- Start of user code doc for behavioralFeature_metaAttributes -->
+   * <!-- End of user code doc for behavioralFeature_metaAttributes -->
+   */
+  def behavioralFeature_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      feature_metaAttributes,
+      namespace_metaAttributes,
+      Seq (BehavioralFeature_isAbstract))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLBehavioralFeature
-	 *
-	 * <!-- Start of user code doc for behavioralFeature_compositeMetaProperties -->
-	 * <!-- End of user code doc for behavioralFeature_compositeMetaProperties -->
-	 */
-	def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			feature_compositeMetaProperties,
-			namespace_compositeMetaProperties,
-			Seq (BehavioralFeature_ownedParameter,
-				BehavioralFeature_ownedParameterSet))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    behavioralFeature_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		behavioralFeature_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLBehavioralFeature
+   *
+   * <!-- Start of user code doc for behavioralFeature_compositeMetaProperties -->
+   * <!-- End of user code doc for behavioralFeature_compositeMetaProperties -->
+   */
+  def behavioralFeature_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      feature_compositeMetaProperties,
+      namespace_compositeMetaProperties,
+      Seq (BehavioralFeature_ownedParameter,
+        BehavioralFeature_ownedParameterSet))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLBehavioralFeature
-	 *
-	 * <!-- Start of user code doc for behavioralFeature_referenceMetaProperties -->
-	 * <!-- End of user code doc for behavioralFeature_referenceMetaProperties -->
-	 */
-	def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			feature_referenceMetaProperties,
-			namespace_referenceMetaProperties,
-			Seq (BehavioralFeature_method,
-				BehavioralFeature_raisedException))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    behavioralFeature_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		behavioralFeature_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLBehavioralFeature
+   *
+   * <!-- Start of user code doc for behavioralFeature_referenceMetaProperties -->
+   * <!-- End of user code doc for behavioralFeature_referenceMetaProperties -->
+   */
+  def behavioralFeature_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      feature_referenceMetaProperties,
+      namespace_referenceMetaProperties,
+      Seq (BehavioralFeature_method,
+        BehavioralFeature_raisedException))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLBehavioralFeature
-	 *
-	 * <!-- Start of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def behavioralFeature_forwardReferencesFromMetamodelAssociations: Elements =
-		feature_forwardReferencesFromMetamodelAssociations ++
-		namespace_forwardReferencesFromMetamodelAssociations ++
-		method ++
-		raisedException 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    behavioralFeature_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLBehavioralFeature
+   *
+   * <!-- Start of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for behavioralFeature_forwardReferencesFromMetamodelAssociations -->
+   */
+  def behavioralFeature_forwardReferencesFromMetamodelAssociations: Elements =
+    feature_forwardReferencesFromMetamodelAssociations ++
+    namespace_forwardReferencesFromMetamodelAssociations ++
+    method ++
+    raisedException
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLBehavioralFeature

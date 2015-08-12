@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLClassifier, UML, UMLAssociationClass}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,39 +52,39 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>	
+trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * An AssociationClass cannot be defined between itself and something else.
-	 *
-	 * <!-- Start of user code doc for validate_cannot_be_defined -->
-	 * <!-- End of user code doc for validate_cannot_be_defined -->
-	 *
-	 * @body self.endType()->excludes(self) and self.endType()->collect(et|et.oclAsType(Classifier).allParents())->flatten()->excludes(self)
-	 */
-	def validate_cannot_be_defined: Boolean = {
-		// Start of user code for "cannot_be_defined"
-    	!self.endType.contains(self) && 
+  /**
+   * An AssociationClass cannot be defined between itself and something else.
+   *
+   * <!-- Start of user code doc for validate_cannot_be_defined -->
+   * <!-- End of user code doc for validate_cannot_be_defined -->
+   *
+   * @body self.endType()->excludes(self) and self.endType()->collect(et|et.oclAsType(Classifier).allParents())->flatten()->excludes(self)
+   */
+  def validate_cannot_be_defined: Boolean = {
+    // Start of user code for "cannot_be_defined"
+      !self.endType.contains(self) &&
       !self.endType.collect{ case c: UMLClassifier[Uml] => c.allParents }.flatten.contains(self)
-    	// End of user code
-	}
+      // End of user code
+  }
 
-	/**
-	 * The owned attributes and owned ends of an AssociationClass are disjoint.
-	 *
-	 * <!-- Start of user code doc for validate_disjoint_attributes_ends -->
-	 * <!-- End of user code doc for validate_disjoint_attributes_ends -->
-	 *
-	 * @body ownedAttribute->intersection(ownedEnd)->isEmpty()
-	 */
-	def validate_disjoint_attributes_ends: Boolean = {
-		// Start of user code for "disjoint_attributes_ends"
-    	ownedAttribute.intersect(ownedEnd.toSeq).isEmpty
-    	// End of user code
-	}
+  /**
+   * The owned attributes and owned ends of an AssociationClass are disjoint.
+   *
+   * <!-- Start of user code doc for validate_disjoint_attributes_ends -->
+   * <!-- End of user code doc for validate_disjoint_attributes_ends -->
+   *
+   * @body ownedAttribute->intersection(ownedEnd)->isEmpty()
+   */
+  def validate_disjoint_attributes_ends: Boolean = {
+    // Start of user code for "disjoint_attributes_ends"
+      ownedAttribute.intersect(ownedEnd.toSeq).isEmpty
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLAssociationClassOps

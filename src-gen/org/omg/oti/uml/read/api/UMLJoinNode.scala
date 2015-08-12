@@ -52,111 +52,111 @@ import org.omg.oti.uml.read.operations.UMLJoinNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLJoinNode[Uml <: UML]
-	extends UMLControlNode[Uml]
-	with UMLJoinNodeOps[Uml] {
-	
-	import ops._
+  extends UMLControlNode[Uml]
+  with UMLJoinNodeOps[Uml] {
 
-	/**
-	 * Indicates whether incoming tokens having objects with the same identity are combined into one by the JoinNode.
-	 *
-	 * <!-- Start of user code doc for isCombineDuplicate -->
-	 * <!-- End of user code doc for isCombineDuplicate -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isCombineDuplicate: Boolean
+  import ops._
 
-	/**
-	 * A ValueSpecification giving the condition under which the JoinNode will offer a token on its outgoing ActivityEdge. If no joinSpec is specified, then the JoinNode will offer an outgoing token if tokens are offered on all of its incoming ActivityEdges (an "and" condition).
-	 *
-	 * <!-- Start of user code doc for joinSpec -->
-	 * <!-- End of user code doc for joinSpec -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.joinSpec_joinNode
-	 */
-	def joinSpec: Option[UMLValueSpecification[Uml]]
+  /**
+   * Indicates whether incoming tokens having objects with the same identity are combined into one by the JoinNode.
+   *
+   * <!-- Start of user code doc for isCombineDuplicate -->
+   * <!-- End of user code doc for isCombineDuplicate -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isCombineDuplicate: Boolean
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		joinNode_metaAttributes
+  /**
+   * A ValueSpecification giving the condition under which the JoinNode will offer a token on its outgoing ActivityEdge. If no joinSpec is specified, then the JoinNode will offer an outgoing token if tokens are offered on all of its incoming ActivityEdges (an "and" condition).
+   *
+   * <!-- Start of user code doc for joinSpec -->
+   * <!-- End of user code doc for joinSpec -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLValueSpecification.joinSpec_joinNode
+   */
+  def joinSpec: Option[UMLValueSpecification[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLJoinNode
-	 *
-	 * <!-- Start of user code doc for joinNode_metaAttributes -->
-	 * <!-- End of user code doc for joinNode_metaAttributes -->
-	 */
-	def joinNode_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			controlNode_metaAttributes,
-			Seq (JoinNode_isCombineDuplicate))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    joinNode_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		joinNode_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLJoinNode
+   *
+   * <!-- Start of user code doc for joinNode_metaAttributes -->
+   * <!-- End of user code doc for joinNode_metaAttributes -->
+   */
+  def joinNode_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      controlNode_metaAttributes,
+      Seq (JoinNode_isCombineDuplicate))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLJoinNode
-	 *
-	 * <!-- Start of user code doc for joinNode_compositeMetaProperties -->
-	 * <!-- End of user code doc for joinNode_compositeMetaProperties -->
-	 */
-	def joinNode_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			controlNode_compositeMetaProperties,
-			Seq (JoinNode_joinSpec))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    joinNode_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		joinNode_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLJoinNode
+   *
+   * <!-- Start of user code doc for joinNode_compositeMetaProperties -->
+   * <!-- End of user code doc for joinNode_compositeMetaProperties -->
+   */
+  def joinNode_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      controlNode_compositeMetaProperties,
+      Seq (JoinNode_joinSpec))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLJoinNode
-	 *
-	 * <!-- Start of user code doc for joinNode_referenceMetaProperties -->
-	 * <!-- End of user code doc for joinNode_referenceMetaProperties -->
-	 */
-	def joinNode_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			controlNode_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    joinNode_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		joinNode_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLJoinNode
+   *
+   * <!-- Start of user code doc for joinNode_referenceMetaProperties -->
+   * <!-- End of user code doc for joinNode_referenceMetaProperties -->
+   */
+  def joinNode_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      controlNode_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLJoinNode
-	 *
-	 * <!-- Start of user code doc for joinNode_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for joinNode_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def joinNode_forwardReferencesFromMetamodelAssociations: Elements =
-		controlNode_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    joinNode_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLJoinNode
+   *
+   * <!-- Start of user code doc for joinNode_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for joinNode_forwardReferencesFromMetamodelAssociations -->
+   */
+  def joinNode_forwardReferencesFromMetamodelAssociations: Elements =
+    controlNode_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLJoinNode

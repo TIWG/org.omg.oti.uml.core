@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLAddVariableValueAction}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,48 +52,48 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction[Uml] =>	
+trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * AddVariableValueActions for ordered Variables must have a single InputPin for the insertion point with type UnlimtedNatural and multiplicity of 1..1 if isReplaceAll=false, otherwise the Action has no InputPin for the insertion point.
-	 *
-	 * <!-- Start of user code doc for validate_insertAt_pin -->
-	 * <!-- End of user code doc for validate_insertAt_pin -->
-	 *
-	 * @body if not variable.isOrdered then insertAt = null
-	 * else 
-	 *   not isReplaceAll implies
-	 *   	insertAt<>null and 
-	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
-	 * endif
-	 */
-	def validate_insertAt_pin: Boolean = {
-		// Start of user code for "insertAt_pin"
-    	if (!variable.get.isOrdered) 
+  /**
+   * AddVariableValueActions for ordered Variables must have a single InputPin for the insertion point with type UnlimtedNatural and multiplicity of 1..1 if isReplaceAll=false, otherwise the Action has no InputPin for the insertion point.
+   *
+   * <!-- Start of user code doc for validate_insertAt_pin -->
+   * <!-- End of user code doc for validate_insertAt_pin -->
+   *
+   * @body if not variable.isOrdered then insertAt = null
+   * else
+   *   not isReplaceAll implies
+   *     insertAt<>null and
+   *     insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
+   * endif
+   */
+  def validate_insertAt_pin: Boolean = {
+    // Start of user code for "insertAt_pin"
+      if (!variable.get.isOrdered)
         insertAt == null
       else if (!isReplaceAll) 
         insertAt != null && insertAt.forall { pin => 
           pin._type.get.name == "UnlimitedNatural" && pin.is(1, 1) }
       else true
-    	// End of user code
-	}
+      // End of user code
+  }
 
-	/**
-	 * A value InputPin is required.
-	 *
-	 * <!-- Start of user code doc for validate_required_value -->
-	 * <!-- End of user code doc for validate_required_value -->
-	 *
-	 * @body value <> null
-	 */
-	def validate_required_value: Boolean = {
-		// Start of user code for "required_value"
-    	value != null
-    	// End of user code
-	}
+  /**
+   * A value InputPin is required.
+   *
+   * <!-- Start of user code doc for validate_required_value -->
+   * <!-- End of user code doc for validate_required_value -->
+   *
+   * @body value <> null
+   */
+  def validate_required_value: Boolean = {
+    // Start of user code for "required_value"
+      value != null
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLAddVariableValueActionOps

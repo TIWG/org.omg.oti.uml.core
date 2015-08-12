@@ -42,20 +42,21 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLExecutionEnvironment, UML}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * An execution environment is a node that offers an execution environment for specific types of components that are deployed on it in the form of executable artifacts.
+ * An execution environment is a node that offers an execution environment for specific types of components
+ * that are deployed on it in the form of executable artifacts.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLExecutionEnvironmentOps[Uml <: UML] { self: UMLExecutionEnvironment[Uml] =>	
+trait UMLExecutionEnvironmentOps[Uml <: UML] { self: UMLExecutionEnvironment[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLExecutionEnvironmentOps

@@ -52,124 +52,124 @@ import org.omg.oti.uml.read.operations.UMLReclassifyObjectActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReclassifyObjectAction[Uml <: UML]
-	extends UMLAction[Uml]
-	with UMLReclassifyObjectActionOps[Uml] {
-	
-	import ops._
+  extends UMLAction[Uml]
+  with UMLReclassifyObjectActionOps[Uml] {
 
-	/**
-	 * Specifies whether existing Classifiers should be removed before adding the new Classifiers.
-	 *
-	 * <!-- Start of user code doc for isReplaceAll -->
-	 * <!-- End of user code doc for isReplaceAll -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isReplaceAll: Boolean
+  import ops._
 
-	/**
-	 * A set of Classifiers to be added to the Classifiers of the given object.
-	 *
-	 * <!-- Start of user code doc for newClassifier -->
-	 * <!-- End of user code doc for newClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.newClassifier_reclassifyObjectAction
-	 */
-	def newClassifier: Set[UMLClassifier[Uml]]
+  /**
+   * Specifies whether existing Classifiers should be removed before adding the new Classifiers.
+   *
+   * <!-- Start of user code doc for isReplaceAll -->
+   * <!-- End of user code doc for isReplaceAll -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isReplaceAll: Boolean
 
-	/**
-	 * A set of Classifiers to be removed from the Classifiers of the given object.
-	 *
-	 * <!-- Start of user code doc for oldClassifier -->
-	 * <!-- End of user code doc for oldClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClassifier.oldClassifier_reclassifyObjectAction
-	 */
-	def oldClassifier: Set[UMLClassifier[Uml]]
+  /**
+   * A set of Classifiers to be added to the Classifiers of the given object.
+   *
+   * <!-- Start of user code doc for newClassifier -->
+   * <!-- End of user code doc for newClassifier -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLClassifier.newClassifier_reclassifyObjectAction
+   */
+  def newClassifier: Set[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		reclassifyObjectAction_metaAttributes
+  /**
+   * A set of Classifiers to be removed from the Classifiers of the given object.
+   *
+   * <!-- Start of user code doc for oldClassifier -->
+   * <!-- End of user code doc for oldClassifier -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLClassifier.oldClassifier_reclassifyObjectAction
+   */
+  def oldClassifier: Set[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLReclassifyObjectAction
-	 *
-	 * <!-- Start of user code doc for reclassifyObjectAction_metaAttributes -->
-	 * <!-- End of user code doc for reclassifyObjectAction_metaAttributes -->
-	 */
-	def reclassifyObjectAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			action_metaAttributes,
-			Seq (ReclassifyObjectAction_isReplaceAll))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    reclassifyObjectAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		reclassifyObjectAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLReclassifyObjectAction
+   *
+   * <!-- Start of user code doc for reclassifyObjectAction_metaAttributes -->
+   * <!-- End of user code doc for reclassifyObjectAction_metaAttributes -->
+   */
+  def reclassifyObjectAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      action_metaAttributes,
+      Seq (ReclassifyObjectAction_isReplaceAll))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLReclassifyObjectAction
-	 *
-	 * <!-- Start of user code doc for reclassifyObjectAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for reclassifyObjectAction_compositeMetaProperties -->
-	 */
-	def reclassifyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_compositeMetaProperties,
-			Seq (ReclassifyObjectAction_object))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    reclassifyObjectAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		reclassifyObjectAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLReclassifyObjectAction
+   *
+   * <!-- Start of user code doc for reclassifyObjectAction_compositeMetaProperties -->
+   * <!-- End of user code doc for reclassifyObjectAction_compositeMetaProperties -->
+   */
+  def reclassifyObjectAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_compositeMetaProperties,
+      Seq (ReclassifyObjectAction_object))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLReclassifyObjectAction
-	 *
-	 * <!-- Start of user code doc for reclassifyObjectAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for reclassifyObjectAction_referenceMetaProperties -->
-	 */
-	def reclassifyObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_referenceMetaProperties,
-			Seq (ReclassifyObjectAction_newClassifier,
-				ReclassifyObjectAction_oldClassifier))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    reclassifyObjectAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		reclassifyObjectAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLReclassifyObjectAction
+   *
+   * <!-- Start of user code doc for reclassifyObjectAction_referenceMetaProperties -->
+   * <!-- End of user code doc for reclassifyObjectAction_referenceMetaProperties -->
+   */
+  def reclassifyObjectAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_referenceMetaProperties,
+      Seq (ReclassifyObjectAction_newClassifier,
+        ReclassifyObjectAction_oldClassifier))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLReclassifyObjectAction
-	 *
-	 * <!-- Start of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def reclassifyObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
-		action_forwardReferencesFromMetamodelAssociations ++
-		newClassifier ++
-		oldClassifier 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    reclassifyObjectAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLReclassifyObjectAction
+   *
+   * <!-- Start of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def reclassifyObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
+    action_forwardReferencesFromMetamodelAssociations ++
+    newClassifier ++
+    oldClassifier
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLReclassifyObjectAction

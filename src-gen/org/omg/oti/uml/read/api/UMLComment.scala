@@ -40,6 +40,7 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
+import scala.reflect.runtime.universe._
 import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLCommentOps
 
@@ -52,111 +53,111 @@ import org.omg.oti.uml.read.operations.UMLCommentOps
  * <!-- End of user code documentation -->
 */
 trait UMLComment[Uml <: UML]
-	extends UMLElement[Uml]
-	with UMLCommentOps[Uml] {
-	
-	import ops._
+  extends UMLElement[Uml]
+  with UMLCommentOps[Uml] {
 
-	/**
-	 * References the Element(s) being commented.
-	 *
-	 * <!-- Start of user code doc for annotatedElement -->
-	 * <!-- End of user code doc for annotatedElement -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLElement.annotatedElement_comment
-	 */
-	def annotatedElement: Set[UMLElement[Uml]]
+  import ops._
 
-	/**
-	 * Specifies a string that is the comment.
-	 *
-	 * <!-- Start of user code doc for body -->
-	 * <!-- End of user code doc for body -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 */
-	def body: Option[String]
+  /**
+   * References the Element(s) being commented.
+   *
+   * <!-- Start of user code doc for annotatedElement -->
+   * <!-- End of user code doc for annotatedElement -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLElement.annotatedElement_comment
+   */
+  def annotatedElement: Set[UMLElement[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		comment_metaAttributes
+  /**
+   * Specifies a string that is the comment.
+   *
+   * <!-- Start of user code doc for body -->
+   * <!-- End of user code doc for body -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   */
+  def body: Option[String]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLComment
-	 *
-	 * <!-- Start of user code doc for comment_metaAttributes -->
-	 * <!-- End of user code doc for comment_metaAttributes -->
-	 */
-	def comment_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			element_metaAttributes,
-			Seq (Comment_body))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    comment_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		comment_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLComment
+   *
+   * <!-- Start of user code doc for comment_metaAttributes -->
+   * <!-- End of user code doc for comment_metaAttributes -->
+   */
+  def comment_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      element_metaAttributes,
+      Seq (Comment_body))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLComment
-	 *
-	 * <!-- Start of user code doc for comment_compositeMetaProperties -->
-	 * <!-- End of user code doc for comment_compositeMetaProperties -->
-	 */
-	def comment_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			element_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    comment_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		comment_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLComment
+   *
+   * <!-- Start of user code doc for comment_compositeMetaProperties -->
+   * <!-- End of user code doc for comment_compositeMetaProperties -->
+   */
+  def comment_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      element_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLComment
-	 *
-	 * <!-- Start of user code doc for comment_referenceMetaProperties -->
-	 * <!-- End of user code doc for comment_referenceMetaProperties -->
-	 */
-	def comment_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			element_referenceMetaProperties,
-			Seq (Comment_annotatedElement))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    comment_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		comment_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLComment
+   *
+   * <!-- Start of user code doc for comment_referenceMetaProperties -->
+   * <!-- End of user code doc for comment_referenceMetaProperties -->
+   */
+  def comment_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      element_referenceMetaProperties,
+      Seq (Comment_annotatedElement))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLComment
-	 *
-	 * <!-- Start of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def comment_forwardReferencesFromMetamodelAssociations: Elements =
-		element_forwardReferencesFromMetamodelAssociations ++
-		annotatedElement 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    comment_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLComment
+   *
+   * <!-- Start of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for comment_forwardReferencesFromMetamodelAssociations -->
+   */
+  def comment_forwardReferencesFromMetamodelAssociations: Elements =
+    element_forwardReferencesFromMetamodelAssociations ++
+    annotatedElement
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLComment

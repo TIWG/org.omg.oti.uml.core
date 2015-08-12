@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLGeneralization, UMLClassifier, UML}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,32 +52,32 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>	
+trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The general classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for general -->
-	 * <!-- End of user code doc for general -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.general_generalization
-	 */
-	def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
+  /**
+   * The general classifier in the Generalization relationship.
+   *
+   * <!-- Start of user code doc for general -->
+   * <!-- End of user code doc for general -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.general_generalization
+   */
+  def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
 
-	/**
-	 * The specializing Classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for specific -->
-	 * <!-- End of user code doc for specific -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.generalization
-	 */
-	def specific: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
+  /**
+   * The specializing Classifier in the Generalization relationship.
+   *
+   * <!-- Start of user code doc for specific -->
+   * <!-- End of user code doc for specific -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.generalization
+   */
+  def specific: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLGeneralizationOps

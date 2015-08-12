@@ -52,203 +52,203 @@ import org.omg.oti.uml.read.operations.UMLValueSpecificationOps
  * <!-- End of user code documentation -->
 */
 trait UMLValueSpecification[Uml <: UML]
-	extends UMLPackageableElement[Uml]
-	with UMLTypedElement[Uml]
-	with UMLValueSpecificationOps[Uml] {
-	
-	import ops._
+  extends UMLPackageableElement[Uml]
+  with UMLTypedElement[Uml]
+  with UMLValueSpecificationOps[Uml] {
 
-	/**
-	 * <!-- Start of user code doc for argument_interactionUse -->
-	 * <!-- End of user code doc for argument_interactionUse -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionUse.argument
-	 */
-	def argument_interactionUse: Option[UMLInteractionUse[Uml]]
+  import ops._
 
-	/**
-	 * <!-- Start of user code doc for guard_activityEdge -->
-	 * <!-- End of user code doc for guard_activityEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.guard
-	 */
-	def guard_activityEdge: Option[UMLActivityEdge[Uml]]
+  /**
+   * <!-- Start of user code doc for argument_interactionUse -->
+   * <!-- End of user code doc for argument_interactionUse -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteractionUse.argument
+   */
+  def argument_interactionUse: Option[UMLInteractionUse[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for lowerValue_owningLower -->
-	 * <!-- End of user code doc for lowerValue_owningLower -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLMultiplicityElement.lowerValue
-	 */
-	def lowerValue_owningLower: Option[UMLMultiplicityElement[Uml]]
+  /**
+   * <!-- Start of user code doc for guard_activityEdge -->
+   * <!-- End of user code doc for guard_activityEdge -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLActivityEdge.guard
+   */
+  def guard_activityEdge: Option[UMLActivityEdge[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for max_interval -->
-	 * <!-- End of user code doc for max_interval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterval.max
-	 */
-	def max_interval: Set[UMLInterval[Uml]]
+  /**
+   * <!-- Start of user code doc for lowerValue_owningLower -->
+   * <!-- End of user code doc for lowerValue_owningLower -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLMultiplicityElement.lowerValue
+   */
+  def lowerValue_owningLower: Option[UMLMultiplicityElement[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for maxint_interactionConstraint -->
-	 * <!-- End of user code doc for maxint_interactionConstraint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionConstraint.maxint
-	 */
-	def maxint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
+  /**
+   * <!-- Start of user code doc for max_interval -->
+   * <!-- End of user code doc for max_interval -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInterval.max
+   */
+  def max_interval: Set[UMLInterval[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for min_interval -->
-	 * <!-- End of user code doc for min_interval -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterval.min
-	 */
-	def min_interval: Set[UMLInterval[Uml]]
+  /**
+   * <!-- Start of user code doc for maxint_interactionConstraint -->
+   * <!-- End of user code doc for maxint_interactionConstraint -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteractionConstraint.maxint
+   */
+  def maxint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for minint_interactionConstraint -->
-	 * <!-- End of user code doc for minint_interactionConstraint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionConstraint.minint
-	 */
-	def minint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
+  /**
+   * <!-- Start of user code doc for min_interval -->
+   * <!-- End of user code doc for min_interval -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInterval.min
+   */
+  def min_interval: Set[UMLInterval[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for returnValue_interactionUse -->
-	 * <!-- End of user code doc for returnValue_interactionUse -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInteractionUse.returnValue
-	 */
-	def returnValue_interactionUse: Option[UMLInteractionUse[Uml]]
+  /**
+   * <!-- Start of user code doc for minint_interactionConstraint -->
+   * <!-- End of user code doc for minint_interactionConstraint -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteractionConstraint.minint
+   */
+  def minint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for specification_owningConstraint -->
-	 * <!-- End of user code doc for specification_owningConstraint -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.specification
-	 */
-	def specification_owningConstraint: Option[UMLConstraint[Uml]]
+  /**
+   * <!-- Start of user code doc for returnValue_interactionUse -->
+   * <!-- End of user code doc for returnValue_interactionUse -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInteractionUse.returnValue
+   */
+  def returnValue_interactionUse: Option[UMLInteractionUse[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for upperBound_objectNode -->
-	 * <!-- End of user code doc for upperBound_objectNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLObjectNode.upperBound
-	 */
-	def upperBound_objectNode: Option[UMLObjectNode[Uml]]
+  /**
+   * <!-- Start of user code doc for specification_owningConstraint -->
+   * <!-- End of user code doc for specification_owningConstraint -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLConstraint.specification
+   */
+  def specification_owningConstraint: Option[UMLConstraint[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for upperValue_owningUpper -->
-	 * <!-- End of user code doc for upperValue_owningUpper -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLMultiplicityElement.upperValue
-	 */
-	def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
+  /**
+   * <!-- Start of user code doc for upperBound_objectNode -->
+   * <!-- End of user code doc for upperBound_objectNode -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLObjectNode.upperBound
+   */
+  def upperBound_objectNode: Option[UMLObjectNode[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for weight_activityEdge -->
-	 * <!-- End of user code doc for weight_activityEdge -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivityEdge.weight
-	 */
-	def weight_activityEdge: Option[UMLActivityEdge[Uml]]
+  /**
+   * <!-- Start of user code doc for upperValue_owningUpper -->
+   * <!-- End of user code doc for upperValue_owningUpper -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLMultiplicityElement.upperValue
+   */
+  def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		valueSpecification_metaAttributes
+  /**
+   * <!-- Start of user code doc for weight_activityEdge -->
+   * <!-- End of user code doc for weight_activityEdge -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLActivityEdge.weight
+   */
+  def weight_activityEdge: Option[UMLActivityEdge[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLValueSpecification
-	 *
-	 * <!-- Start of user code doc for valueSpecification_metaAttributes -->
-	 * <!-- End of user code doc for valueSpecification_metaAttributes -->
-	 */
-	def valueSpecification_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			packageableElement_metaAttributes,
-			typedElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    valueSpecification_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		valueSpecification_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLValueSpecification
+   *
+   * <!-- Start of user code doc for valueSpecification_metaAttributes -->
+   * <!-- End of user code doc for valueSpecification_metaAttributes -->
+   */
+  def valueSpecification_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      packageableElement_metaAttributes,
+      typedElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLValueSpecification
-	 *
-	 * <!-- Start of user code doc for valueSpecification_compositeMetaProperties -->
-	 * <!-- End of user code doc for valueSpecification_compositeMetaProperties -->
-	 */
-	def valueSpecification_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			packageableElement_compositeMetaProperties,
-			typedElement_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    valueSpecification_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		valueSpecification_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLValueSpecification
+   *
+   * <!-- Start of user code doc for valueSpecification_compositeMetaProperties -->
+   * <!-- End of user code doc for valueSpecification_compositeMetaProperties -->
+   */
+  def valueSpecification_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      packageableElement_compositeMetaProperties,
+      typedElement_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLValueSpecification
-	 *
-	 * <!-- Start of user code doc for valueSpecification_referenceMetaProperties -->
-	 * <!-- End of user code doc for valueSpecification_referenceMetaProperties -->
-	 */
-	def valueSpecification_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			packageableElement_referenceMetaProperties,
-			typedElement_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    valueSpecification_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		valueSpecification_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLValueSpecification
+   *
+   * <!-- Start of user code doc for valueSpecification_referenceMetaProperties -->
+   * <!-- End of user code doc for valueSpecification_referenceMetaProperties -->
+   */
+  def valueSpecification_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      packageableElement_referenceMetaProperties,
+      typedElement_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLValueSpecification
-	 *
-	 * <!-- Start of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def valueSpecification_forwardReferencesFromMetamodelAssociations: Elements =
-		packageableElement_forwardReferencesFromMetamodelAssociations ++
-		typedElement_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    valueSpecification_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLValueSpecification
+   *
+   * <!-- Start of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for valueSpecification_forwardReferencesFromMetamodelAssociations -->
+   */
+  def valueSpecification_forwardReferencesFromMetamodelAssociations: Elements =
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    typedElement_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLValueSpecification

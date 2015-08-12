@@ -42,20 +42,23 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLModel}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A model captures a view of a physical system. It is an abstraction of the physical system, with a certain purpose. This purpose determines what is to be included in the model and what is irrelevant. Thus the model completely describes those aspects of the physical system that are relevant to the purpose of the model, at the appropriate level of detail.
+ * A model captures a view of a physical system. It is an abstraction of the physical system, with a certain purpose.
+ * This purpose determines what is to be included in the model and what is irrelevant.
+ * Thus the model completely describes those aspects of the physical system that are relevant to the purpose of
+ * the model, at the appropriate level of detail.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLModelOps[Uml <: UML] { self: UMLModel[Uml] =>	
+trait UMLModelOps[Uml <: UML] { self: UMLModel[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLModelOps

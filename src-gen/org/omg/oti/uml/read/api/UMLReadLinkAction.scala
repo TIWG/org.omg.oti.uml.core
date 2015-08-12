@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLReadLinkActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReadLinkAction[Uml <: UML]
-	extends UMLLinkAction[Uml]
-	with UMLReadLinkActionOps[Uml] {
-	
-	import ops._
+  extends UMLLinkAction[Uml]
+  with UMLReadLinkActionOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		readLinkAction_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLReadLinkAction
-	 *
-	 * <!-- Start of user code doc for readLinkAction_metaAttributes -->
-	 * <!-- End of user code doc for readLinkAction_metaAttributes -->
-	 */
-	def readLinkAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			linkAction_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    readLinkAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		readLinkAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLReadLinkAction
+   *
+   * <!-- Start of user code doc for readLinkAction_metaAttributes -->
+   * <!-- End of user code doc for readLinkAction_metaAttributes -->
+   */
+  def readLinkAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      linkAction_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLReadLinkAction
-	 *
-	 * <!-- Start of user code doc for readLinkAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for readLinkAction_compositeMetaProperties -->
-	 */
-	def readLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			linkAction_compositeMetaProperties,
-			Seq (ReadLinkAction_result))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    readLinkAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		readLinkAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLReadLinkAction
+   *
+   * <!-- Start of user code doc for readLinkAction_compositeMetaProperties -->
+   * <!-- End of user code doc for readLinkAction_compositeMetaProperties -->
+   */
+  def readLinkAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      linkAction_compositeMetaProperties,
+      Seq (ReadLinkAction_result))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLReadLinkAction
-	 *
-	 * <!-- Start of user code doc for readLinkAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for readLinkAction_referenceMetaProperties -->
-	 */
-	def readLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			linkAction_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    readLinkAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		readLinkAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLReadLinkAction
+   *
+   * <!-- Start of user code doc for readLinkAction_referenceMetaProperties -->
+   * <!-- End of user code doc for readLinkAction_referenceMetaProperties -->
+   */
+  def readLinkAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      linkAction_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLReadLinkAction
-	 *
-	 * <!-- Start of user code doc for readLinkAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for readLinkAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def readLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
-		linkAction_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    readLinkAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLReadLinkAction
+   *
+   * <!-- Start of user code doc for readLinkAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for readLinkAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def readLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
+    linkAction_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLReadLinkAction

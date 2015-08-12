@@ -52,95 +52,95 @@ import org.omg.oti.uml.read.operations.UMLAssociationClassOps
  * <!-- End of user code documentation -->
 */
 trait UMLAssociationClass[Uml <: UML]
-	extends UMLAssociation[Uml]
-	with UMLClass[Uml]
-	with UMLAssociationClassOps[Uml] {
-	
-	import ops._
+  extends UMLAssociation[Uml]
+  with UMLClass[Uml]
+  with UMLAssociationClassOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		associationClass_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLAssociationClass
-	 *
-	 * <!-- Start of user code doc for associationClass_metaAttributes -->
-	 * <!-- End of user code doc for associationClass_metaAttributes -->
-	 */
-	def associationClass_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			association_metaAttributes,
-			class_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    associationClass_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		associationClass_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLAssociationClass
+   *
+   * <!-- Start of user code doc for associationClass_metaAttributes -->
+   * <!-- End of user code doc for associationClass_metaAttributes -->
+   */
+  def associationClass_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      association_metaAttributes,
+      class_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLAssociationClass
-	 *
-	 * <!-- Start of user code doc for associationClass_compositeMetaProperties -->
-	 * <!-- End of user code doc for associationClass_compositeMetaProperties -->
-	 */
-	def associationClass_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			association_compositeMetaProperties,
-			class_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    associationClass_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		associationClass_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLAssociationClass
+   *
+   * <!-- Start of user code doc for associationClass_compositeMetaProperties -->
+   * <!-- End of user code doc for associationClass_compositeMetaProperties -->
+   */
+  def associationClass_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      association_compositeMetaProperties,
+      class_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLAssociationClass
-	 *
-	 * <!-- Start of user code doc for associationClass_referenceMetaProperties -->
-	 * <!-- End of user code doc for associationClass_referenceMetaProperties -->
-	 */
-	def associationClass_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			association_referenceMetaProperties,
-			class_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    associationClass_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		associationClass_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLAssociationClass
+   *
+   * <!-- Start of user code doc for associationClass_referenceMetaProperties -->
+   * <!-- End of user code doc for associationClass_referenceMetaProperties -->
+   */
+  def associationClass_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      association_referenceMetaProperties,
+      class_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLAssociationClass
-	 *
-	 * <!-- Start of user code doc for associationClass_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for associationClass_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def associationClass_forwardReferencesFromMetamodelAssociations: Elements =
-		association_forwardReferencesFromMetamodelAssociations ++
-		class_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    associationClass_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLAssociationClass
+   *
+   * <!-- Start of user code doc for associationClass_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for associationClass_forwardReferencesFromMetamodelAssociations -->
+   */
+  def associationClass_forwardReferencesFromMetamodelAssociations: Elements =
+    association_forwardReferencesFromMetamodelAssociations ++
+    class_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLAssociationClass

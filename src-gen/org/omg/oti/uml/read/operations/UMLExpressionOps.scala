@@ -42,21 +42,23 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLExpression, UMLPackageableElement, UMLElement}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
+ * An Expression represents a node in an expression tree, which may be non-terminal or terminal.
+ * It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications.
+ * It denotes a (possibly empty) set of values when evaluated in a context.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>	
+trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     expression_asForwardReferencesToImportableOuterPackageableElements
@@ -64,5 +66,5 @@ trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>
   def expression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     Set(this) ++ operand.toSet
 
-	// End of user code
+  // End of user code
 } //UMLExpressionOps

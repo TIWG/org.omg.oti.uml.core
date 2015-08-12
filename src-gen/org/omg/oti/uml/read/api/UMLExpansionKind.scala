@@ -46,36 +46,36 @@ package org.omg.oti.uml.read.api
  * <!-- End of user code documentation -->
  */
 object UMLExpansionKind extends Enumeration {
-	
-	/**
-	 * The enumeration type
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	type UMLExpansionKind = Value
 
-	/**
- 	 * The content of the ExpansionRegion is executed iteratively for the elements of the input collections, in the order of the input elements, if the collections are ordered.
-	 *
-	 * <!-- Start of user code doc for iterative -->
-	 * <!-- End of user code doc for iterative -->
- 	 */
-	val iterative = Value
+  /**
+   * The enumeration type
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  type UMLExpansionKind = Value
 
-	/**
- 	 * The content of the ExpansionRegion is executed concurrently for the elements of the input collections.
-	 *
-	 * <!-- Start of user code doc for parallel -->
-	 * <!-- End of user code doc for parallel -->
- 	 */
-	val parallel = Value
+  /**
+    * The content of the ExpansionRegion is executed iteratively for the elements of the input collections, in the order of the input elements, if the collections are ordered.
+   *
+   * <!-- Start of user code doc for iterative -->
+   * <!-- End of user code doc for iterative -->
+    */
+  val iterative = Value
 
-	/**
- 	 * A stream of input collection elements flows into a single execution of the content of the ExpansionRegion, in the order of the collection elements if the input collections are ordered.
-	 *
-	 * <!-- Start of user code doc for stream -->
-	 * <!-- End of user code doc for stream -->
- 	 */
-	val stream = Value
+  /**
+    * The content of the ExpansionRegion is executed concurrently for the elements of the input collections.
+   *
+   * <!-- Start of user code doc for parallel -->
+   * <!-- End of user code doc for parallel -->
+    */
+  val parallel = Value
+
+  /**
+    * A stream of input collection elements flows into a single execution of the content of the ExpansionRegion, in the order of the collection elements if the input collections are ordered.
+   *
+   * <!-- Start of user code doc for stream -->
+   * <!-- End of user code doc for stream -->
+    */
+  val stream = Value
 }

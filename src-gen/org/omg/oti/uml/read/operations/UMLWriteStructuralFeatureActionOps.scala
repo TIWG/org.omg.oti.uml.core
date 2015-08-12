@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLWriteStructuralFeatureAction, UMLOutputPin}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,77 +52,79 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralFeatureAction[Uml] =>	
+trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralFeatureAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The OutputPin on which is put the input object as modified by the WriteStructuralFeatureAction.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_writeStructuralFeatureAction
-	 */
-	def result: Option[UMLOutputPin[Uml]] = output headOption
+  /**
+   * The OutputPin on which is put the input object as modified by the WriteStructuralFeatureAction.
+   *
+   * <!-- Start of user code doc for result -->
+   * <!-- End of user code doc for result -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLOutputPin.result_writeStructuralFeatureAction
+   */
+  def result: Option[UMLOutputPin[Uml]] =
+    output
+    .headOption
 
-	/**
-	 * The multiplicity of the result OutputPin must be 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
-	 * <!-- End of user code doc for validate_multiplicity_of_result -->
-	 *
-	 * @body result <> null implies result.is(1,1)
-	 */
-	def validate_multiplicity_of_result: Boolean = {
-		// Start of user code for "multiplicity_of_result"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the result OutputPin must be 1..1.
+   *
+   * <!-- Start of user code doc for validate_multiplicity_of_result -->
+   * <!-- End of user code doc for validate_multiplicity_of_result -->
+   *
+   * @body result <> null implies result.is(1,1)
+   */
+  def validate_multiplicity_of_result: Boolean = {
+    // Start of user code for "multiplicity_of_result"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The multiplicity of the value InputPin is 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity_of_value -->
-	 * <!-- End of user code doc for validate_multiplicity_of_value -->
-	 *
-	 * @body value<>null implies value.is(1,1)
-	 */
-	def validate_multiplicity_of_value: Boolean = {
-		// Start of user code for "multiplicity_of_value"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the value InputPin is 1..1.
+   *
+   * <!-- Start of user code doc for validate_multiplicity_of_value -->
+   * <!-- End of user code doc for validate_multiplicity_of_value -->
+   *
+   * @body value<>null implies value.is(1,1)
+   */
+  def validate_multiplicity_of_value: Boolean = {
+    // Start of user code for "multiplicity_of_value"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type of the result OutputPin is the same as the type of the inherited object InputPin.
-	 *
-	 * <!-- Start of user code doc for validate_type_of_result -->
-	 * <!-- End of user code doc for validate_type_of_result -->
-	 *
-	 * @body result <> null implies result.type = object.type
-	 */
-	def validate_type_of_result: Boolean = {
-		// Start of user code for "type_of_result"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type of the result OutputPin is the same as the type of the inherited object InputPin.
+   *
+   * <!-- Start of user code doc for validate_type_of_result -->
+   * <!-- End of user code doc for validate_type_of_result -->
+   *
+   * @body result <> null implies result.type = object.type
+   */
+  def validate_type_of_result: Boolean = {
+    // Start of user code for "type_of_result"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type of the value InputPin must conform to the type of the structuralFeature.
-	 *
-	 * <!-- Start of user code doc for validate_type_of_value -->
-	 * <!-- End of user code doc for validate_type_of_value -->
-	 *
-	 * @body value <> null implies value.type.conformsTo(structuralFeature.type)
-	 */
-	def validate_type_of_value: Boolean = {
-		// Start of user code for "type_of_value"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type of the value InputPin must conform to the type of the structuralFeature.
+   *
+   * <!-- Start of user code doc for validate_type_of_value -->
+   * <!-- End of user code doc for validate_type_of_value -->
+   *
+   * @body value <> null implies value.type.conformsTo(structuralFeature.type)
+   */
+  def validate_type_of_value: Boolean = {
+    // Start of user code for "type_of_value"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLWriteStructuralFeatureActionOps

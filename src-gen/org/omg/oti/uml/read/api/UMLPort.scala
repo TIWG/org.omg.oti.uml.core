@@ -52,182 +52,182 @@ import org.omg.oti.uml.read.operations.UMLPortOps
  * <!-- End of user code documentation -->
 */
 trait UMLPort[Uml <: UML]
-	extends UMLProperty[Uml]
-	with UMLPortOps[Uml] {
-	
-	import ops._
+  extends UMLProperty[Uml]
+  with UMLPortOps[Uml] {
 
-	/**
-	 * Specifies whether requests arriving at this Port are sent to the classifier behavior of this EncapsulatedClassifier. Such a Port is referred to as a behavior Port. Any invocation of a BehavioralFeature targeted at a behavior Port will be handled by the instance of the owning EncapsulatedClassifier itself, rather than by any instances that it may contain.
-	 *
-	 * <!-- Start of user code doc for isBehavior -->
-	 * <!-- End of user code doc for isBehavior -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isBehavior: Boolean
+  import ops._
 
-	/**
-	 * Specifies the way that the provided and required Interfaces are derived from the Port?s Type.
-	 *
-	 * <!-- Start of user code doc for isConjugated -->
-	 * <!-- End of user code doc for isConjugated -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isConjugated: Boolean
+  /**
+   * Specifies whether requests arriving at this Port are sent to the classifier behavior of this EncapsulatedClassifier. Such a Port is referred to as a behavior Port. Any invocation of a BehavioralFeature targeted at a behavior Port will be handled by the instance of the owning EncapsulatedClassifier itself, rather than by any instances that it may contain.
+   *
+   * <!-- Start of user code doc for isBehavior -->
+   * <!-- End of user code doc for isBehavior -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isBehavior: Boolean
 
-	/**
-	 * If true, indicates that this Port is used to provide the published functionality of an EncapsulatedClassifier.  If false, this Port is used to implement the EncapsulatedClassifier but is not part of the essential externally-visible functionality of the EncapsulatedClassifier and can, therefore, be altered or deleted along with the internal implementation of the EncapsulatedClassifier and other properties that are considered part of its implementation.
-	 *
-	 * <!-- Start of user code doc for isService -->
-	 * <!-- End of user code doc for isService -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isService: Boolean
+  /**
+   * Specifies the way that the provided and required Interfaces are derived from the Port?s Type.
+   *
+   * <!-- Start of user code doc for isConjugated -->
+   * <!-- End of user code doc for isConjugated -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isConjugated: Boolean
 
-	/**
-	 * An optional ProtocolStateMachine which describes valid interactions at this interaction point.
-	 *
-	 * <!-- Start of user code doc for protocol -->
-	 * <!-- End of user code doc for protocol -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLProtocolStateMachine.protocol_port
-	 */
-	def protocol: Option[UMLProtocolStateMachine[Uml]]
+  /**
+   * If true, indicates that this Port is used to provide the published functionality of an EncapsulatedClassifier.  If false, this Port is used to implement the EncapsulatedClassifier but is not part of the essential externally-visible functionality of the EncapsulatedClassifier and can, therefore, be altered or deleted along with the internal implementation of the EncapsulatedClassifier and other properties that are considered part of its implementation.
+   *
+   * <!-- Start of user code doc for isService -->
+   * <!-- End of user code doc for isService -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isService: Boolean
 
-	/**
-	 * A Port may be redefined when its containing EncapsulatedClassifier is specialized. The redefining Port may have additional Interfaces to those that are associated with the redefined Port or it may replace an Interface by one of its subtypes.
-	 *
-	 * <!-- Start of user code doc for redefinedPort -->
-	 * <!-- End of user code doc for redefinedPort -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.redefinedPort_port
-	 */
-	def redefinedPort: Set[UMLPort[Uml]]
+  /**
+   * An optional ProtocolStateMachine which describes valid interactions at this interaction point.
+   *
+   * <!-- Start of user code doc for protocol -->
+   * <!-- End of user code doc for protocol -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLProtocolStateMachine.protocol_port
+   */
+  def protocol: Option[UMLProtocolStateMachine[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for onPort_invocationAction -->
-	 * <!-- End of user code doc for onPort_invocationAction -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInvocationAction.onPort
-	 */
-	def onPort_invocationAction: Set[UMLInvocationAction[Uml]]
+  /**
+   * A Port may be redefined when its containing EncapsulatedClassifier is specialized. The redefining Port may have additional Interfaces to those that are associated with the redefined Port or it may replace an Interface by one of its subtypes.
+   *
+   * <!-- Start of user code doc for redefinedPort -->
+   * <!-- End of user code doc for redefinedPort -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLPort.redefinedPort_port
+   */
+  def redefinedPort: Set[UMLPort[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for ownedPort_encapsulatedClassifier -->
-	 * <!-- End of user code doc for ownedPort_encapsulatedClassifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLEncapsulatedClassifier.ownedPort
-	 */
-	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]]
+  /**
+   * <!-- Start of user code doc for onPort_invocationAction -->
+   * <!-- End of user code doc for onPort_invocationAction -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInvocationAction.onPort
+   */
+  def onPort_invocationAction: Set[UMLInvocationAction[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for port_trigger -->
-	 * <!-- End of user code doc for port_trigger -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLTrigger.port
-	 */
-	def port_trigger: Set[UMLTrigger[Uml]]
+  /**
+   * <!-- Start of user code doc for ownedPort_encapsulatedClassifier -->
+   * <!-- End of user code doc for ownedPort_encapsulatedClassifier -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLEncapsulatedClassifier.ownedPort
+   */
+  def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for redefinedPort_port -->
-	 * <!-- End of user code doc for redefinedPort_port -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.redefinedPort
-	 */
-	def redefinedPort_port: Set[UMLPort[Uml]]
+  /**
+   * <!-- Start of user code doc for port_trigger -->
+   * <!-- End of user code doc for port_trigger -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLTrigger.port
+   */
+  def port_trigger: Set[UMLTrigger[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		port_metaAttributes
+  /**
+   * <!-- Start of user code doc for redefinedPort_port -->
+   * <!-- End of user code doc for redefinedPort_port -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLPort.redefinedPort
+   */
+  def redefinedPort_port: Set[UMLPort[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLPort
-	 *
-	 * <!-- Start of user code doc for port_metaAttributes -->
-	 * <!-- End of user code doc for port_metaAttributes -->
-	 */
-	def port_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			property_metaAttributes,
-			Seq (Port_isBehavior,
-				Port_isConjugated,
-				Port_isService))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    port_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		port_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLPort
+   *
+   * <!-- Start of user code doc for port_metaAttributes -->
+   * <!-- End of user code doc for port_metaAttributes -->
+   */
+  def port_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      property_metaAttributes,
+      Seq (Port_isBehavior,
+        Port_isConjugated,
+        Port_isService))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLPort
-	 *
-	 * <!-- Start of user code doc for port_compositeMetaProperties -->
-	 * <!-- End of user code doc for port_compositeMetaProperties -->
-	 */
-	def port_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			property_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    port_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		port_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLPort
+   *
+   * <!-- Start of user code doc for port_compositeMetaProperties -->
+   * <!-- End of user code doc for port_compositeMetaProperties -->
+   */
+  def port_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      property_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLPort
-	 *
-	 * <!-- Start of user code doc for port_referenceMetaProperties -->
-	 * <!-- End of user code doc for port_referenceMetaProperties -->
-	 */
-	def port_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			property_referenceMetaProperties,
-			Seq (Port_protocol,
-				Port_redefinedPort))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    port_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		port_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLPort
+   *
+   * <!-- Start of user code doc for port_referenceMetaProperties -->
+   * <!-- End of user code doc for port_referenceMetaProperties -->
+   */
+  def port_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      property_referenceMetaProperties,
+      Seq (Port_protocol,
+        Port_redefinedPort))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLPort
-	 *
-	 * <!-- Start of user code doc for port_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for port_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def port_forwardReferencesFromMetamodelAssociations: Elements =
-		property_forwardReferencesFromMetamodelAssociations ++
-		protocol ++
-		redefinedPort 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    port_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLPort
+   *
+   * <!-- Start of user code doc for port_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for port_forwardReferencesFromMetamodelAssociations -->
+   */
+  def port_forwardReferencesFromMetamodelAssociations: Elements =
+    property_forwardReferencesFromMetamodelAssociations ++
+    protocol ++
+    redefinedPort
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLPort

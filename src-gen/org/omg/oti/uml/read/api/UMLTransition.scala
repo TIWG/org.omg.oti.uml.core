@@ -52,144 +52,144 @@ import org.omg.oti.uml.read.operations.UMLTransitionOps
  * <!-- End of user code documentation -->
 */
 trait UMLTransition[Uml <: UML]
-	extends UMLNamespace[Uml]
-	with UMLRedefinableElement[Uml]
-	with UMLTransitionOps[Uml] {
-	
-	import ops._
+  extends UMLNamespace[Uml]
+  with UMLRedefinableElement[Uml]
+  with UMLTransitionOps[Uml] {
 
-	/**
-	 * A guard is a Constraint that provides a fine-grained control over the firing of the Transition. The guard is evaluated when an Event occurrence is dispatched by the StateMachine. If the guard is true at that time, the Transition may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
-	 *
-	 * <!-- Start of user code doc for guard -->
-	 * <!-- End of user code doc for guard -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConstraint.guard_transition
-	 */
-	def guard: Option[UMLConstraint[Uml]]
+  import ops._
 
-	/**
-	 * Indicates the precise type of the Transition.
-	 *
-	 * <!-- Start of user code doc for kind -->
-	 * <!-- End of user code doc for kind -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def kind: UMLTransitionKind.Value
+  /**
+   * A guard is a Constraint that provides a fine-grained control over the firing of the Transition. The guard is evaluated when an Event occurrence is dispatched by the StateMachine. If the guard is true at that time, the Transition may be enabled, otherwise, it is disabled. Guards should be pure expressions without side effects. Guard expressions with side effects are ill formed.
+   *
+   * <!-- Start of user code doc for guard -->
+   * <!-- End of user code doc for guard -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLConstraint.guard_transition
+   */
+  def guard: Option[UMLConstraint[Uml]]
 
-	/**
-	 * Designates the originating Vertex (State or Pseudostate) of the Transition.
-	 *
-	 * <!-- Start of user code doc for source -->
-	 * <!-- End of user code doc for source -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLVertex.outgoing
-	 */
-	def source: Option[UMLVertex[Uml]]
+  /**
+   * Indicates the precise type of the Transition.
+   *
+   * <!-- Start of user code doc for kind -->
+   * <!-- End of user code doc for kind -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def kind: UMLTransitionKind.Value
 
-	/**
-	 * Designates the target Vertex that is reached when the Transition is taken.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLVertex.incoming
-	 */
-	def target: Option[UMLVertex[Uml]]
+  /**
+   * Designates the originating Vertex (State or Pseudostate) of the Transition.
+   *
+   * <!-- Start of user code doc for source -->
+   * <!-- End of user code doc for source -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLVertex.outgoing
+   */
+  def source: Option[UMLVertex[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		transition_metaAttributes
+  /**
+   * Designates the target Vertex that is reached when the Transition is taken.
+   *
+   * <!-- Start of user code doc for target -->
+   * <!-- End of user code doc for target -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLVertex.incoming
+   */
+  def target: Option[UMLVertex[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLTransition
-	 *
-	 * <!-- Start of user code doc for transition_metaAttributes -->
-	 * <!-- End of user code doc for transition_metaAttributes -->
-	 */
-	def transition_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			namespace_metaAttributes,
-			redefinableElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    transition_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		transition_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLTransition
+   *
+   * <!-- Start of user code doc for transition_metaAttributes -->
+   * <!-- End of user code doc for transition_metaAttributes -->
+   */
+  def transition_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      namespace_metaAttributes,
+      redefinableElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLTransition
-	 *
-	 * <!-- Start of user code doc for transition_compositeMetaProperties -->
-	 * <!-- End of user code doc for transition_compositeMetaProperties -->
-	 */
-	def transition_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namespace_compositeMetaProperties,
-			redefinableElement_compositeMetaProperties,
-			Seq (Transition_effect,
-				Transition_guard,
-				Transition_trigger))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    transition_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		transition_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLTransition
+   *
+   * <!-- Start of user code doc for transition_compositeMetaProperties -->
+   * <!-- End of user code doc for transition_compositeMetaProperties -->
+   */
+  def transition_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namespace_compositeMetaProperties,
+      redefinableElement_compositeMetaProperties,
+      Seq (Transition_effect,
+        Transition_guard,
+        Transition_trigger))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLTransition
-	 *
-	 * <!-- Start of user code doc for transition_referenceMetaProperties -->
-	 * <!-- End of user code doc for transition_referenceMetaProperties -->
-	 */
-	def transition_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namespace_referenceMetaProperties,
-			redefinableElement_referenceMetaProperties,
-			Seq (Transition_redefinedTransition,
-				Transition_source,
-				Transition_target))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    transition_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		transition_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLTransition
+   *
+   * <!-- Start of user code doc for transition_referenceMetaProperties -->
+   * <!-- End of user code doc for transition_referenceMetaProperties -->
+   */
+  def transition_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namespace_referenceMetaProperties,
+      redefinableElement_referenceMetaProperties,
+      Seq (Transition_redefinedTransition,
+        Transition_source,
+        Transition_target))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLTransition
-	 *
-	 * <!-- Start of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def transition_forwardReferencesFromMetamodelAssociations: Elements =
-		namespace_forwardReferencesFromMetamodelAssociations ++
-		redefinableElement_forwardReferencesFromMetamodelAssociations ++
-		redefinedTransition ++
-		source ++
-		target 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    transition_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLTransition
+   *
+   * <!-- Start of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for transition_forwardReferencesFromMetamodelAssociations -->
+   */
+  def transition_forwardReferencesFromMetamodelAssociations: Elements =
+    namespace_forwardReferencesFromMetamodelAssociations ++
+    redefinableElement_forwardReferencesFromMetamodelAssociations ++
+    redefinedTransition ++
+    source ++
+    target
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLTransition

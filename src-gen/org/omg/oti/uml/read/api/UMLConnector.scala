@@ -52,145 +52,145 @@ import org.omg.oti.uml.read.operations.UMLConnectorOps
  * <!-- End of user code documentation -->
 */
 trait UMLConnector[Uml <: UML]
-	extends UMLFeature[Uml]
-	with UMLConnectorOps[Uml] {
-	
-	import ops._
+  extends UMLFeature[Uml]
+  with UMLConnectorOps[Uml] {
 
-	/**
-	 * An optional Association that classifies links corresponding to this Connector.
-	 *
-	 * <!-- Start of user code doc for _type -->
-	 * <!-- End of user code doc for _type -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLAssociation.type_connector
-	 */
-	def _type: Option[UMLAssociation[Uml]]
+  import ops._
 
-	/**
-	 * The set of Behaviors that specify the valid interaction patterns across the Connector.
-	 *
-	 * <!-- Start of user code doc for contract -->
-	 * <!-- End of user code doc for contract -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLBehavior.contract_connector
-	 */
-	def contract: Set[UMLBehavior[Uml]]
+  /**
+   * An optional Association that classifies links corresponding to this Connector.
+   *
+   * <!-- Start of user code doc for _type -->
+   * <!-- End of user code doc for _type -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLAssociation.type_connector
+   */
+  def _type: Option[UMLAssociation[Uml]]
 
-	/**
-	 * A Connector has at least two ConnectorEnds, each representing the participation of instances of the Classifiers typing the ConnectableElements attached to the end. The set of ConnectorEnds is ordered.
-	 *
-	 * <!-- Start of user code doc for end -->
-	 * <!-- End of user code doc for end -->
-	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.api.UMLConnectorEnd.end_connector
-	 */
-	def end: Seq[UMLConnectorEnd[Uml]]
+  /**
+   * The set of Behaviors that specify the valid interaction patterns across the Connector.
+   *
+   * <!-- Start of user code doc for contract -->
+   * <!-- End of user code doc for contract -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLBehavior.contract_connector
+   */
+  def contract: Set[UMLBehavior[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for connector_message -->
-	 * <!-- End of user code doc for connector_message -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLMessage.connector
-	 */
-	def connector_message: Set[UMLMessage[Uml]]
+  /**
+   * A Connector has at least two ConnectorEnds, each representing the participation of instances of the Classifiers typing the ConnectableElements attached to the end. The set of ConnectorEnds is ordered.
+   *
+   * <!-- Start of user code doc for end -->
+   * <!-- End of user code doc for end -->
+   *
+   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="2..*"
+   * @opposite org.omg.oti.api.UMLConnectorEnd.end_connector
+   */
+  def end: Seq[UMLConnectorEnd[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for realizingConnector_informationFlow -->
-	 * <!-- End of user code doc for realizingConnector_informationFlow -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInformationFlow.realizingConnector
-	 */
-	def realizingConnector_informationFlow: Set[UMLInformationFlow[Uml]]
+  /**
+   * <!-- Start of user code doc for connector_message -->
+   * <!-- End of user code doc for connector_message -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLMessage.connector
+   */
+  def connector_message: Set[UMLMessage[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		connector_metaAttributes
+  /**
+   * <!-- Start of user code doc for realizingConnector_informationFlow -->
+   * <!-- End of user code doc for realizingConnector_informationFlow -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInformationFlow.realizingConnector
+   */
+  def realizingConnector_informationFlow: Set[UMLInformationFlow[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLConnector
-	 *
-	 * <!-- Start of user code doc for connector_metaAttributes -->
-	 * <!-- End of user code doc for connector_metaAttributes -->
-	 */
-	def connector_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			feature_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    connector_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		connector_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLConnector
+   *
+   * <!-- Start of user code doc for connector_metaAttributes -->
+   * <!-- End of user code doc for connector_metaAttributes -->
+   */
+  def connector_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      feature_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLConnector
-	 *
-	 * <!-- Start of user code doc for connector_compositeMetaProperties -->
-	 * <!-- End of user code doc for connector_compositeMetaProperties -->
-	 */
-	def connector_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			feature_compositeMetaProperties,
-			Seq (Connector_end))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    connector_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		connector_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLConnector
+   *
+   * <!-- Start of user code doc for connector_compositeMetaProperties -->
+   * <!-- End of user code doc for connector_compositeMetaProperties -->
+   */
+  def connector_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      feature_compositeMetaProperties,
+      Seq (Connector_end))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLConnector
-	 *
-	 * <!-- Start of user code doc for connector_referenceMetaProperties -->
-	 * <!-- End of user code doc for connector_referenceMetaProperties -->
-	 */
-	def connector_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			feature_referenceMetaProperties,
-			Seq (Connector_contract,
-				Connector_redefinedConnector,
-				Connector_type))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    connector_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		connector_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLConnector
+   *
+   * <!-- Start of user code doc for connector_referenceMetaProperties -->
+   * <!-- End of user code doc for connector_referenceMetaProperties -->
+   */
+  def connector_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      feature_referenceMetaProperties,
+      Seq (Connector_contract,
+        Connector_redefinedConnector,
+        Connector_type))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLConnector
-	 *
-	 * <!-- Start of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def connector_forwardReferencesFromMetamodelAssociations: Elements =
-		feature_forwardReferencesFromMetamodelAssociations ++
-		contract ++
-		redefinedConnector ++
-		_type 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    connector_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLConnector
+   *
+   * <!-- Start of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
+   */
+  def connector_forwardReferencesFromMetamodelAssociations: Elements =
+    feature_forwardReferencesFromMetamodelAssociations ++
+    contract ++
+    redefinedConnector ++
+    _type
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLConnector

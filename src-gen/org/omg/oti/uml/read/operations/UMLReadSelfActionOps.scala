@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLReadSelfAction, UMLOutputPin}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,78 +52,78 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>	
+trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The OutputPin on which the context object is placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_readSelfAction
-	 */
-	def result: Option[UMLOutputPin[Uml]] = output headOption
+  /**
+   * The OutputPin on which the context object is placed.
+   *
+   * <!-- Start of user code doc for result -->
+   * <!-- End of user code doc for result -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLOutputPin.result_readSelfAction
+   */
+  def result: Option[UMLOutputPin[Uml]] = output headOption
 
-	/**
-	 * A ReadSelfAction must have a context Classifier.
-	 *
-	 * <!-- Start of user code doc for validate_contained -->
-	 * <!-- End of user code doc for validate_contained -->
-	 *
-	 * @body _'context' <> null
-	 */
-	def validate_contained: Boolean = {
-		// Start of user code for "contained"
-    	???
-    	// End of user code
-	}
+  /**
+   * A ReadSelfAction must have a context Classifier.
+   *
+   * <!-- Start of user code doc for validate_contained -->
+   * <!-- End of user code doc for validate_contained -->
+   *
+   * @body _'context' <> null
+   */
+  def validate_contained: Boolean = {
+    // Start of user code for "contained"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The multiplicity of the result OutputPin is 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity -->
-	 * <!-- End of user code doc for validate_multiplicity -->
-	 *
-	 * @body result.is(1,1)
-	 */
-	def validate_multiplicity: Boolean = {
-		// Start of user code for "multiplicity"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the result OutputPin is 1..1.
+   *
+   * <!-- Start of user code doc for validate_multiplicity -->
+   * <!-- End of user code doc for validate_multiplicity -->
+   *
+   * @body result.is(1,1)
+   */
+  def validate_multiplicity: Boolean = {
+    // Start of user code for "multiplicity"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * If the ReadSelfAction is contained in an Behavior that is acting as a method, then the Operation of the method must not be static.
-	 *
-	 * <!-- Start of user code doc for validate_not_static -->
-	 * <!-- End of user code doc for validate_not_static -->
-	 *
-	 * @body let behavior: Behavior = self.containingBehavior() in
-	 * behavior.specification<>null implies not behavior.specification.isStatic
-	 */
-	def validate_not_static: Boolean = {
-		// Start of user code for "not_static"
-    	???
-    	// End of user code
-	}
+  /**
+   * If the ReadSelfAction is contained in an Behavior that is acting as a method, then the Operation of the method must not be static.
+   *
+   * <!-- Start of user code doc for validate_not_static -->
+   * <!-- End of user code doc for validate_not_static -->
+   *
+   * @body let behavior: Behavior = self.containingBehavior() in
+   * behavior.specification<>null implies not behavior.specification.isStatic
+   */
+  def validate_not_static: Boolean = {
+    // Start of user code for "not_static"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The type of the result OutputPin is the context Classifier.
-	 *
-	 * <!-- Start of user code doc for validate__type -->
-	 * <!-- End of user code doc for validate__type -->
-	 *
-	 * @body result.type = _'context'
-	 */
-	def validate__type: Boolean = {
-		// Start of user code for "_type"
-    	???
-    	// End of user code
-	}
+  /**
+   * The type of the result OutputPin is the context Classifier.
+   *
+   * <!-- Start of user code doc for validate__type -->
+   * <!-- End of user code doc for validate__type -->
+   *
+   * @body result.type = _'context'
+   */
+  def validate__type: Boolean = {
+    // Start of user code for "_type"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLReadSelfActionOps

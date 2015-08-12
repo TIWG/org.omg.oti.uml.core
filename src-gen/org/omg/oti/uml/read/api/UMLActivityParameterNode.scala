@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLActivityParameterNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLActivityParameterNode[Uml <: UML]
-	extends UMLObjectNode[Uml]
-	with UMLActivityParameterNodeOps[Uml] {
-	
-	import ops._
+  extends UMLObjectNode[Uml]
+  with UMLActivityParameterNodeOps[Uml] {
 
-	/**
-	 * The Parameter for which the ActivityParameterNode will be accepting or providing values.
-	 *
-	 * <!-- Start of user code doc for parameter -->
-	 * <!-- End of user code doc for parameter -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLParameter.parameter_activityParameterNode
-	 */
-	def parameter: Option[UMLParameter[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		activityParameterNode_metaAttributes
+  /**
+   * The Parameter for which the ActivityParameterNode will be accepting or providing values.
+   *
+   * <!-- Start of user code doc for parameter -->
+   * <!-- End of user code doc for parameter -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLParameter.parameter_activityParameterNode
+   */
+  def parameter: Option[UMLParameter[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLActivityParameterNode
-	 *
-	 * <!-- Start of user code doc for activityParameterNode_metaAttributes -->
-	 * <!-- End of user code doc for activityParameterNode_metaAttributes -->
-	 */
-	def activityParameterNode_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			objectNode_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    activityParameterNode_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		activityParameterNode_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLActivityParameterNode
+   *
+   * <!-- Start of user code doc for activityParameterNode_metaAttributes -->
+   * <!-- End of user code doc for activityParameterNode_metaAttributes -->
+   */
+  def activityParameterNode_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      objectNode_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLActivityParameterNode
-	 *
-	 * <!-- Start of user code doc for activityParameterNode_compositeMetaProperties -->
-	 * <!-- End of user code doc for activityParameterNode_compositeMetaProperties -->
-	 */
-	def activityParameterNode_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			objectNode_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    activityParameterNode_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		activityParameterNode_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLActivityParameterNode
+   *
+   * <!-- Start of user code doc for activityParameterNode_compositeMetaProperties -->
+   * <!-- End of user code doc for activityParameterNode_compositeMetaProperties -->
+   */
+  def activityParameterNode_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      objectNode_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLActivityParameterNode
-	 *
-	 * <!-- Start of user code doc for activityParameterNode_referenceMetaProperties -->
-	 * <!-- End of user code doc for activityParameterNode_referenceMetaProperties -->
-	 */
-	def activityParameterNode_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			objectNode_referenceMetaProperties,
-			Seq (ActivityParameterNode_parameter))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    activityParameterNode_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		activityParameterNode_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLActivityParameterNode
+   *
+   * <!-- Start of user code doc for activityParameterNode_referenceMetaProperties -->
+   * <!-- End of user code doc for activityParameterNode_referenceMetaProperties -->
+   */
+  def activityParameterNode_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      objectNode_referenceMetaProperties,
+      Seq (ActivityParameterNode_parameter))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLActivityParameterNode
-	 *
-	 * <!-- Start of user code doc for activityParameterNode_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for activityParameterNode_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def activityParameterNode_forwardReferencesFromMetamodelAssociations: Elements =
-		objectNode_forwardReferencesFromMetamodelAssociations ++
-		parameter 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    activityParameterNode_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLActivityParameterNode
+   *
+   * <!-- Start of user code doc for activityParameterNode_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for activityParameterNode_forwardReferencesFromMetamodelAssociations -->
+   */
+  def activityParameterNode_forwardReferencesFromMetamodelAssociations: Elements =
+    objectNode_forwardReferencesFromMetamodelAssociations ++
+    parameter
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLActivityParameterNode

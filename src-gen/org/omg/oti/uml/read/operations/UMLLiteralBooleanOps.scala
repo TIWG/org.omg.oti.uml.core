@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLLiteralBoolean}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,41 +52,41 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>	
+trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The query booleanValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for booleanValue -->
-	 * <!-- End of user code doc for booleanValue -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (value)
-	 */
-	override def booleanValue: Option[Boolean] = {
-		// Start of user code for "booleanValue"
-    	Option.apply(self.value)
-    	// End of user code
-	}
+  /**
+   * The query booleanValue() gives the value.
+   *
+   * <!-- Start of user code doc for booleanValue -->
+   * <!-- End of user code doc for booleanValue -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (value)
+   */
+  override def booleanValue: Option[Boolean] = {
+    // Start of user code for "booleanValue"
+      Option.apply(self.value)
+      // End of user code
+  }
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-	 * <!-- End of user code doc for isComputable -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
-    	true
-    	// End of user code
-	}
+  /**
+   * The query isComputable() is redefined to be true.
+   *
+   * <!-- Start of user code doc for isComputable -->
+   * <!-- End of user code doc for isComputable -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
+      true
+      // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
-	// End of user code
+  // End of user code
 } //UMLLiteralBooleanOps

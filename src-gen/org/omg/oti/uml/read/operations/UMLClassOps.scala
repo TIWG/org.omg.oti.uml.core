@@ -42,84 +42,94 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLExtension, UMLReception, UMLClass}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A Class classifies a set of objects and specifies the features that characterize the structure and behavior of those objects.  A Class may have an internal structure and Ports.
+ * A Class classifies a set of objects and specifies the features that
+ * characterize the structure and behavior of those objects.
+ * A Class may have an internal structure and Ports.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>	
+trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * This property is used when the Class is acting as a metaclass. It references the Extensions that specify additional properties of the metaclass. The property is derived from the Extensions whose memberEnds are typed by the Class.
-	 *
-	 * <!-- Start of user code doc for extension -->
-	 * <!-- End of user code doc for extension -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLExtension.metaclass
-	 * @body result = (Extension.allInstances()->select(ext | 
-	 *   let endTypes : Sequence(Classifier) = ext.memberEnd->collect(type.oclAsType(Classifier)) in
-	 *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
-	 */
-	def extension: Set[UMLExtension[Uml]] = {
-		// Start of user code for "extension"
-	    ???
-	    // End of user code
-	}
+  /**
+   * This property is used when the Class is acting as a metaclass.
+   * It references the Extensions that specify additional properties of the metaclass.
+   * The property is derived from the Extensions whose memberEnds are typed by the Class.
+   *
+   * <!-- Start of user code doc for extension -->
+   * <!-- End of user code doc for extension -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLExtension.metaclass
+   * @body result = (Extension.allInstances()->select(ext |
+   *   let endTypes : Sequence(Classifier) = ext.memberEnd->collect(type.oclAsType(Classifier)) in
+   *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
+   */
+  def extension: Set[UMLExtension[Uml]] = {
+    // Start of user code for "extension"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The Receptions owned by the Class.
-	 *
-	 * <!-- Start of user code doc for ownedReception -->
-	 * <!-- End of user code doc for ownedReception -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLReception.ownedReception_class
-	 */
-	def ownedReception: Set[UMLReception[Uml]] = feature.selectByKindOf { case x: UMLReception[Uml] => x }
+  /**
+   * The Receptions owned by the Class.
+   *
+   * <!-- Start of user code doc for ownedReception -->
+   * <!-- End of user code doc for ownedReception -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLReception.ownedReception_class
+   */
+  def ownedReception: Set[UMLReception[Uml]] =
+    feature
+    .selectByKindOf { case x: UMLReception[Uml] => x }
 
-	/**
-	 * The superclasses of a Class, derived from its Generalizations.
-	 *
-	 * <!-- Start of user code doc for superClass -->
-	 * <!-- End of user code doc for superClass -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClass.superClass_class
-	 * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
-	 */
-	def superClass: Set[UMLClass[Uml]] = general.selectByKindOf { case x: UMLClass[Uml] => x }
+  /**
+   * The superclasses of a Class, derived from its Generalizations.
+   *
+   * <!-- Start of user code doc for superClass -->
+   * <!-- End of user code doc for superClass -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLClass.superClass_class
+   * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
+   */
+  def superClass: Set[UMLClass[Uml]] =
+    general
+    .selectByKindOf { case x: UMLClass[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for superClass_class -->
-	 * <!-- End of user code doc for superClass_class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLClass.superClass
-	 */
-	def superClass_class: Set[UMLClass[Uml]] = general_classifier.selectByKindOf { case x: UMLClass[Uml] => x }
+  /**
+   * <!-- Start of user code doc for superClass_class -->
+   * <!-- End of user code doc for superClass_class -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLClass.superClass
+   */
+  def superClass_class: Set[UMLClass[Uml]] =
+    general_classifier
+    .selectByKindOf { case x: UMLClass[Uml] => x }
 
-	/**
-	 * Only an active Class may own Receptions and have a classifierBehavior.
-	 *
-	 * <!-- Start of user code doc for validate_passive_class -->
-	 * <!-- End of user code doc for validate_passive_class -->
-	 *
-	 * @body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
-	 */
-	def validate_passive_class: Boolean = {
-		// Start of user code for "passive_class"
-    	???
-    	// End of user code
-	}
+  /**
+   * Only an active Class may own Receptions and have a classifierBehavior.
+   *
+   * <!-- Start of user code doc for validate_passive_class -->
+   * <!-- End of user code doc for validate_passive_class -->
+   *
+   * @body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
+   */
+  def validate_passive_class: Boolean = {
+    // Start of user code for "passive_class"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLClassOps

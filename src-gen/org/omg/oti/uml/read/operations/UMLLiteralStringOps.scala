@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLLiteralString}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,40 +52,40 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>	
+trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-	 * <!-- End of user code doc for isComputable -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
-    	???
-    	// End of user code
-	}
+  /**
+   * The query isComputable() is redefined to be true.
+   *
+   * <!-- Start of user code doc for isComputable -->
+   * <!-- End of user code doc for isComputable -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The query stringValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for stringValue -->
-	 * <!-- End of user code doc for stringValue -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (value)
-	 */
-	override def stringValue: Option[String] = {
-		// Start of user code for "stringValue"
-    	self.value
-    	// End of user code
-	}
+  /**
+   * The query stringValue() gives the value.
+   *
+   * <!-- Start of user code doc for stringValue -->
+   * <!-- End of user code doc for stringValue -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (value)
+   */
+  override def stringValue: Option[String] = {
+    // Start of user code for "stringValue"
+      self.value
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLLiteralStringOps

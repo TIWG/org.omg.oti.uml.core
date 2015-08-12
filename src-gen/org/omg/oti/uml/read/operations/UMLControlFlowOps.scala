@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLControlFlow}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,25 +52,25 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>	
+trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * ControlFlows may not have ObjectNodes at either end, except for ObjectNodes with control type.
-	 *
-	 * <!-- Start of user code doc for validate_object_nodes -->
-	 * <!-- End of user code doc for validate_object_nodes -->
-	 *
-	 * @body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
-	 * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
-	 */
-	def validate_object_nodes: Boolean = {
-		// Start of user code for "object_nodes"
-    	???
-    	// End of user code
-	}
+  /**
+   * ControlFlows may not have ObjectNodes at either end, except for ObjectNodes with control type.
+   *
+   * <!-- Start of user code doc for validate_object_nodes -->
+   * <!-- End of user code doc for validate_object_nodes -->
+   *
+   * @body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and
+   * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
+   */
+  def validate_object_nodes: Boolean = {
+    // Start of user code for "object_nodes"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLControlFlowOps

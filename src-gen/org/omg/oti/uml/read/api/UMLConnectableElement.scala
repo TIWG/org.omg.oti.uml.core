@@ -52,115 +52,115 @@ import org.omg.oti.uml.read.operations.UMLConnectableElementOps
  * <!-- End of user code documentation -->
 */
 trait UMLConnectableElement[Uml <: UML]
-	extends UMLParameterableElement[Uml]
-	with UMLTypedElement[Uml]
-	with UMLConnectableElementOps[Uml] {
-	
-	import ops._
+  extends UMLParameterableElement[Uml]
+  with UMLTypedElement[Uml]
+  with UMLConnectableElementOps[Uml] {
 
-	/**
-	 * The ConnectableElementTemplateParameter for this ConnectableElement parameter.
-	 *
-	 * <!-- Start of user code doc for templateParameter -->
-	 * <!-- End of user code doc for templateParameter -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConnectableElementTemplateParameter.parameteredElement
-	 */
-	override def templateParameter: Option[UMLConnectableElementTemplateParameter[Uml]]
+  import ops._
 
-	/**
-	 * <!-- Start of user code doc for represents_lifeline -->
-	 * <!-- End of user code doc for represents_lifeline -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLLifeline.represents
-	 */
-	def represents_lifeline: Set[UMLLifeline[Uml]]
+  /**
+   * The ConnectableElementTemplateParameter for this ConnectableElement parameter.
+   *
+   * <!-- Start of user code doc for templateParameter -->
+   * <!-- End of user code doc for templateParameter -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLConnectableElementTemplateParameter.parameteredElement
+   */
+  override def templateParameter: Option[UMLConnectableElementTemplateParameter[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		connectableElement_metaAttributes
+  /**
+   * <!-- Start of user code doc for represents_lifeline -->
+   * <!-- End of user code doc for represents_lifeline -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLLifeline.represents
+   */
+  def represents_lifeline: Set[UMLLifeline[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLConnectableElement
-	 *
-	 * <!-- Start of user code doc for connectableElement_metaAttributes -->
-	 * <!-- End of user code doc for connectableElement_metaAttributes -->
-	 */
-	def connectableElement_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			parameterableElement_metaAttributes,
-			typedElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    connectableElement_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		connectableElement_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLConnectableElement
+   *
+   * <!-- Start of user code doc for connectableElement_metaAttributes -->
+   * <!-- End of user code doc for connectableElement_metaAttributes -->
+   */
+  def connectableElement_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      parameterableElement_metaAttributes,
+      typedElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLConnectableElement
-	 *
-	 * <!-- Start of user code doc for connectableElement_compositeMetaProperties -->
-	 * <!-- End of user code doc for connectableElement_compositeMetaProperties -->
-	 */
-	def connectableElement_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			parameterableElement_compositeMetaProperties,
-			typedElement_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    connectableElement_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		connectableElement_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLConnectableElement
+   *
+   * <!-- Start of user code doc for connectableElement_compositeMetaProperties -->
+   * <!-- End of user code doc for connectableElement_compositeMetaProperties -->
+   */
+  def connectableElement_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      parameterableElement_compositeMetaProperties,
+      typedElement_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLConnectableElement
-	 *
-	 * <!-- Start of user code doc for connectableElement_referenceMetaProperties -->
-	 * <!-- End of user code doc for connectableElement_referenceMetaProperties -->
-	 */
-	def connectableElement_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			parameterableElement_referenceMetaProperties,
-			typedElement_referenceMetaProperties,
-			Seq (ConnectableElement_templateParameter))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    connectableElement_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		connectableElement_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLConnectableElement
+   *
+   * <!-- Start of user code doc for connectableElement_referenceMetaProperties -->
+   * <!-- End of user code doc for connectableElement_referenceMetaProperties -->
+   */
+  def connectableElement_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      parameterableElement_referenceMetaProperties,
+      typedElement_referenceMetaProperties,
+      Seq (ConnectableElement_templateParameter))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLConnectableElement
-	 *
-	 * <!-- Start of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def connectableElement_forwardReferencesFromMetamodelAssociations: Elements =
-		parameterableElement_forwardReferencesFromMetamodelAssociations ++
-		typedElement_forwardReferencesFromMetamodelAssociations ++
-		templateParameter 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    connectableElement_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLConnectableElement
+   *
+   * <!-- Start of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
+   */
+  def connectableElement_forwardReferencesFromMetamodelAssociations: Elements =
+    parameterableElement_forwardReferencesFromMetamodelAssociations ++
+    typedElement_forwardReferencesFromMetamodelAssociations ++
+    templateParameter
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLConnectableElement

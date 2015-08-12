@@ -52,147 +52,147 @@ import org.omg.oti.uml.read.operations.UMLLifelineOps
  * <!-- End of user code documentation -->
 */
 trait UMLLifeline[Uml <: UML]
-	extends UMLNamedElement[Uml]
-	with UMLLifelineOps[Uml] {
-	
-	import ops._
+  extends UMLNamedElement[Uml]
+  with UMLLifelineOps[Uml] {
 
-	/**
-	 * References the InteractionFragments in which this Lifeline takes part.
-	 *
-	 * <!-- Start of user code doc for coveredBy -->
-	 * <!-- End of user code doc for coveredBy -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInteractionFragment.covered
-	 */
-	def coveredBy: Set[UMLInteractionFragment[Uml]]
+  import ops._
 
-	/**
-	 * References the Interaction that represents the decomposition.
-	 *
-	 * <!-- Start of user code doc for decomposedAs -->
-	 * <!-- End of user code doc for decomposedAs -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLPartDecomposition.decomposedAs_lifeline
-	 */
-	def decomposedAs: Option[UMLPartDecomposition[Uml]]
+  /**
+   * References the InteractionFragments in which this Lifeline takes part.
+   *
+   * <!-- Start of user code doc for coveredBy -->
+   * <!-- End of user code doc for coveredBy -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInteractionFragment.covered
+   */
+  def coveredBy: Set[UMLInteractionFragment[Uml]]
 
-	/**
-	 * References the ConnectableElement within the classifier that contains the enclosing interaction.
-	 *
-	 * <!-- Start of user code doc for represents -->
-	 * <!-- End of user code doc for represents -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLConnectableElement.represents_lifeline
-	 */
-	def represents: Option[UMLConnectableElement[Uml]]
+  /**
+   * References the Interaction that represents the decomposition.
+   *
+   * <!-- Start of user code doc for decomposedAs -->
+   * <!-- End of user code doc for decomposedAs -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLPartDecomposition.decomposedAs_lifeline
+   */
+  def decomposedAs: Option[UMLPartDecomposition[Uml]]
 
-	/**
-	 * If the referenced ConnectableElement is multivalued, then this specifies the specific individual part within that set.
-	 *
-	 * <!-- Start of user code doc for selector -->
-	 * <!-- End of user code doc for selector -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLValueSpecification.selector_lifeline
-	 */
-	def selector: Option[UMLValueSpecification[Uml]]
+  /**
+   * References the ConnectableElement within the classifier that contains the enclosing interaction.
+   *
+   * <!-- Start of user code doc for represents -->
+   * <!-- End of user code doc for represents -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLConnectableElement.represents_lifeline
+   */
+  def represents: Option[UMLConnectableElement[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for covered_events -->
-	 * <!-- End of user code doc for covered_events -->
-	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLOccurrenceSpecification.covered
-	 */
-	def covered_events: Seq[UMLOccurrenceSpecification[Uml]]
+  /**
+   * If the referenced ConnectableElement is multivalued, then this specifies the specific individual part within that set.
+   *
+   * <!-- Start of user code doc for selector -->
+   * <!-- End of user code doc for selector -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLValueSpecification.selector_lifeline
+   */
+  def selector: Option[UMLValueSpecification[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		lifeline_metaAttributes
+  /**
+   * <!-- Start of user code doc for covered_events -->
+   * <!-- End of user code doc for covered_events -->
+   *
+   * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLOccurrenceSpecification.covered
+   */
+  def covered_events: Seq[UMLOccurrenceSpecification[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLLifeline
-	 *
-	 * <!-- Start of user code doc for lifeline_metaAttributes -->
-	 * <!-- End of user code doc for lifeline_metaAttributes -->
-	 */
-	def lifeline_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			namedElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    lifeline_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		lifeline_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLLifeline
+   *
+   * <!-- Start of user code doc for lifeline_metaAttributes -->
+   * <!-- End of user code doc for lifeline_metaAttributes -->
+   */
+  def lifeline_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      namedElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLLifeline
-	 *
-	 * <!-- Start of user code doc for lifeline_compositeMetaProperties -->
-	 * <!-- End of user code doc for lifeline_compositeMetaProperties -->
-	 */
-	def lifeline_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_compositeMetaProperties,
-			Seq (Lifeline_selector))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    lifeline_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		lifeline_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLLifeline
+   *
+   * <!-- Start of user code doc for lifeline_compositeMetaProperties -->
+   * <!-- End of user code doc for lifeline_compositeMetaProperties -->
+   */
+  def lifeline_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namedElement_compositeMetaProperties,
+      Seq (Lifeline_selector))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLLifeline
-	 *
-	 * <!-- Start of user code doc for lifeline_referenceMetaProperties -->
-	 * <!-- End of user code doc for lifeline_referenceMetaProperties -->
-	 */
-	def lifeline_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_referenceMetaProperties,
-			Seq (Lifeline_coveredBy,
-				Lifeline_decomposedAs,
-				Lifeline_represents))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    lifeline_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		lifeline_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLLifeline
+   *
+   * <!-- Start of user code doc for lifeline_referenceMetaProperties -->
+   * <!-- End of user code doc for lifeline_referenceMetaProperties -->
+   */
+  def lifeline_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      namedElement_referenceMetaProperties,
+      Seq (Lifeline_coveredBy,
+        Lifeline_decomposedAs,
+        Lifeline_represents))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLLifeline
-	 *
-	 * <!-- Start of user code doc for lifeline_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for lifeline_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def lifeline_forwardReferencesFromMetamodelAssociations: Elements =
-		namedElement_forwardReferencesFromMetamodelAssociations ++
-		coveredBy ++
-		decomposedAs ++
-		represents 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    lifeline_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLLifeline
+   *
+   * <!-- Start of user code doc for lifeline_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for lifeline_forwardReferencesFromMetamodelAssociations -->
+   */
+  def lifeline_forwardReferencesFromMetamodelAssociations: Elements =
+    namedElement_forwardReferencesFromMetamodelAssociations ++
+    coveredBy ++
+    decomposedAs ++
+    represents
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLLifeline

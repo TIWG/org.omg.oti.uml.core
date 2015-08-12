@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLParameterDirectionKind, UMLActivityParameterNode}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,76 +52,76 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[Uml] =>	
+trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The parameter of an ActivityParameterNode must be from the containing Activity.
-	 *
-	 * <!-- Start of user code doc for validate_has_parameters -->
-	 * <!-- End of user code doc for validate_has_parameters -->
-	 *
-	 * @body activity.ownedParameter->includes(parameter)
-	 */
-	def validate_has_parameters: Boolean = {
-		// Start of user code for "has_parameters"
-  	activity match {
+  /**
+   * The parameter of an ActivityParameterNode must be from the containing Activity.
+   *
+   * <!-- Start of user code doc for validate_has_parameters -->
+   * <!-- End of user code doc for validate_has_parameters -->
+   *
+   * @body activity.ownedParameter->includes(parameter)
+   */
+  def validate_has_parameters: Boolean = {
+    // Start of user code for "has_parameters"
+    activity match {
       case Some(a) => a.ownedParameter.contains(parameter)
       case None => false
     }
-  	// End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * An ActivityParameterNode may have all incoming ActivityEdges or all outgoing ActivityEdges, but it must not have both incoming and outgoing ActivityEdges.
-	 *
-	 * <!-- Start of user code doc for validate_no_edges -->
-	 * <!-- End of user code doc for validate_no_edges -->
-	 *
-	 * @body incoming->isEmpty() or outgoing->isEmpty()
-	 */
-	def validate_no_edges: Boolean = {
-		// Start of user code for "no_edges"
-  	incoming.isEmpty || outgoing.isEmpty
-  	// End of user code
-	}
+  /**
+   * An ActivityParameterNode may have all incoming ActivityEdges or all outgoing ActivityEdges, but it must not have both incoming and outgoing ActivityEdges.
+   *
+   * <!-- Start of user code doc for validate_no_edges -->
+   * <!-- End of user code doc for validate_no_edges -->
+   *
+   * @body incoming->isEmpty() or outgoing->isEmpty()
+   */
+  def validate_no_edges: Boolean = {
+    // Start of user code for "no_edges"
+    incoming.isEmpty || outgoing.isEmpty
+    // End of user code
+  }
 
-	/**
-	 * An ActivityParameterNode with no incoming ActivityEdges and one or more outgoing ActivityEdges must have a parameter with direction in or inout.
-	 *
-	 * <!-- Start of user code doc for validate_no_incoming_edges -->
-	 * <!-- End of user code doc for validate_no_incoming_edges -->
-	 *
-	 * @body (outgoing->notEmpty() and incoming->isEmpty()) implies 
-	 * 	(parameter.direction = ParameterDirectionKind::_'in' or 
-	 * 	 parameter.direction = ParameterDirectionKind::inout)
-	 */
-	def validate_no_incoming_edges: Boolean = {
-		// Start of user code for "no_incoming_edges"
+  /**
+   * An ActivityParameterNode with no incoming ActivityEdges and one or more outgoing ActivityEdges must have a parameter with direction in or inout.
+   *
+   * <!-- Start of user code doc for validate_no_incoming_edges -->
+   * <!-- End of user code doc for validate_no_incoming_edges -->
+   *
+   * @body (outgoing->notEmpty() and incoming->isEmpty()) implies
+   *   (parameter.direction = ParameterDirectionKind::_'in' or
+   *    parameter.direction = ParameterDirectionKind::inout)
+   */
+  def validate_no_incoming_edges: Boolean = {
+    // Start of user code for "no_incoming_edges"
     if (!outgoing.isEmpty && incoming.isEmpty)
-    	parameter match { 
+      parameter match {
         case Some(p) => p.direction == UMLParameterDirectionKind.in || p.direction == UMLParameterDirectionKind.inout
         case None => false
       }
     else true
-  	// End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * An ActivityParameterNode with no outgoing ActivityEdges and one or more incoming ActivityEdges must have a parameter with direction out, inout, or return.
-	 *
-	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
-	 * <!-- End of user code doc for validate_no_outgoing_edges -->
-	 *
-	 * @body (incoming->notEmpty() and outgoing->isEmpty()) implies 
-	 * 	(parameter.direction = ParameterDirectionKind::out or 
-	 * 	 parameter.direction = ParameterDirectionKind::inout or 
-	 * 	 parameter.direction = ParameterDirectionKind::return)
-	 */
-	def validate_no_outgoing_edges: Boolean = {
-		// Start of user code for "no_outgoing_edges"
-    	if (!incoming.isEmpty && outgoing.isEmpty) {
+  /**
+   * An ActivityParameterNode with no outgoing ActivityEdges and one or more incoming ActivityEdges must have a parameter with direction out, inout, or return.
+   *
+   * <!-- Start of user code doc for validate_no_outgoing_edges -->
+   * <!-- End of user code doc for validate_no_outgoing_edges -->
+   *
+   * @body (incoming->notEmpty() and outgoing->isEmpty()) implies
+   *   (parameter.direction = ParameterDirectionKind::out or
+   *    parameter.direction = ParameterDirectionKind::inout or
+   *    parameter.direction = ParameterDirectionKind::return)
+   */
+  def validate_no_outgoing_edges: Boolean = {
+    // Start of user code for "no_outgoing_edges"
+      if (!incoming.isEmpty && outgoing.isEmpty) {
         parameter match {
           case Some(p) => 
             p.direction == UMLParameterDirectionKind.out ||
@@ -130,26 +130,26 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
           case None => false
         }
       } else true
-    	// End of user code
-	}
+      // End of user code
+  }
 
-	/**
-	 * The type of an ActivityParameterNode is the same as the type of its parameter.
-	 *
-	 * <!-- Start of user code doc for validate_same_type -->
-	 * <!-- End of user code doc for validate_same_type -->
-	 *
-	 * @body type = parameter.type
-	 */
-	def validate_same_type: Boolean = {
-		// Start of user code for "same_type"
+  /**
+   * The type of an ActivityParameterNode is the same as the type of its parameter.
+   *
+   * <!-- Start of user code doc for validate_same_type -->
+   * <!-- End of user code doc for validate_same_type -->
+   *
+   * @body type = parameter.type
+   */
+  def validate_same_type: Boolean = {
+    // Start of user code for "same_type"
     parameter match {
       case Some(p) => self._type == p._type
       case None => false
     }
-  	// End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLActivityParameterNodeOps

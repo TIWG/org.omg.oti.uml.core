@@ -42,20 +42,21 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLSignal}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
 /**
- * A Signal is a specification of a kind of communication between objects in which a reaction is asynchronously triggered in the receiver without a reply.
+ * A Signal is a specification of a kind of communication between objects in
+ * which a reaction is asynchronously triggered in the receiver without a reply.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLSignalOps[Uml <: UML] { self: UMLSignal[Uml] =>	
+trait UMLSignalOps[Uml <: UML] { self: UMLSignal[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLSignalOps

@@ -42,8 +42,9 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
+
 // End of user code
 
 /**
@@ -52,109 +53,126 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>	
+trait UMLActivityNodeOps[Uml <: UML] {
+  self: UMLActivityNode[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Activity containing the ActivityNode, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for activity -->
-	 * <!-- End of user code doc for activity -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLActivity.node
-	 */
-	def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
+  /**
+   * The Activity containing the ActivityNode, if it is directly owned by an Activity.
+   *
+   * <!-- Start of user code doc for activity -->
+   * <!-- End of user code doc for activity -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLActivity.node
+   */
+  def activity: Option[UMLActivity[Uml]] =
+    owner
+    .selectByKindOf { case x: UMLActivity[Uml] => x }
 
-	/**
-	 * InterruptibleActivityRegions containing the ActivityNode.
-	 *
-	 * <!-- Start of user code doc for inInterruptibleRegion -->
-	 * <!-- End of user code doc for inInterruptibleRegion -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.node
-	 */
-	def inInterruptibleRegion: Set[UMLInterruptibleActivityRegion[Uml]] = inGroup.selectByKindOf { case x: UMLInterruptibleActivityRegion[Uml] => x }
+  /**
+   * InterruptibleActivityRegions containing the ActivityNode.
+   *
+   * <!-- Start of user code doc for inInterruptibleRegion -->
+   * <!-- End of user code doc for inInterruptibleRegion -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLInterruptibleActivityRegion.node
+   */
+  def inInterruptibleRegion: Set[UMLInterruptibleActivityRegion[Uml]] =
+    inGroup
+    .selectByKindOf { case x: UMLInterruptibleActivityRegion[Uml] => x }
 
-	/**
-	 * ActivityPartitions containing the ActivityNode.
-	 *
-	 * <!-- Start of user code doc for inPartition -->
-	 * <!-- End of user code doc for inPartition -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityPartition.node
-	 */
-	def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
+  /**
+   * ActivityPartitions containing the ActivityNode.
+   *
+   * <!-- Start of user code doc for inPartition -->
+   * <!-- End of user code doc for inPartition -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityPartition.node
+   */
+  def inPartition: Set[UMLActivityPartition[Uml]] =
+    inGroup
+    .selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
-	/**
-	 * The StructuredActivityNode containing the ActvityNode, if it is directly owned by a StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for inStructuredNode -->
-	 * <!-- End of user code doc for inStructuredNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLStructuredActivityNode.node
-	 */
-	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
+  /**
+   * The StructuredActivityNode containing the ActvityNode, if it is directly owned by a StructuredActivityNode.
+   *
+   * <!-- Start of user code doc for inStructuredNode -->
+   * <!-- End of user code doc for inStructuredNode -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLStructuredActivityNode.node
+   */
+  def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] =
+    inGroup
+    .selectByKindOf({ case x: UMLStructuredActivityNode[Uml] => x })
+    .headOption
 
-	/**
-	 * ActivityNodes from a generalization of the Activity containining this ActivityNode that are redefined by this ActivityNode.
-	 *
-	 * <!-- Start of user code doc for redefinedNode -->
-	 * <!-- End of user code doc for redefinedNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode_activityNode
-	 */
-	def redefinedNode: Set[UMLActivityNode[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
+  /**
+   * ActivityNodes from a generalization of the Activity containining this ActivityNode that are redefined by this ActivityNode.
+   *
+   * <!-- Start of user code doc for redefinedNode -->
+   * <!-- End of user code doc for redefinedNode -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode_activityNode
+   */
+  def redefinedNode: Set[UMLActivityNode[Uml]] =
+    redefinedElement
+    .selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for redefinedNode_activityNode -->
-	 * <!-- End of user code doc for redefinedNode_activityNode -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode
-	 */
-	def redefinedNode_activityNode: Set[UMLActivityNode[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
+  /**
+   * <!-- Start of user code doc for redefinedNode_activityNode -->
+   * <!-- End of user code doc for redefinedNode_activityNode -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLActivityNode.redefinedNode
+   */
+  def redefinedNode_activityNode: Set[UMLActivityNode[Uml]] =
+    redefinedElement_redefinableElement
+    .selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
-	/**
-	 * The Activity that directly or indirectly contains this ActivityNode.
-	 *
-	 * <!-- Start of user code doc for containingActivity -->
-	 * <!-- End of user code doc for containingActivity -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if inStructuredNode<>null then inStructuredNode.containingActivity()
-	 * else activity
-	 * endif)
-	 */
-	def containingActivity: Option[UMLActivity[Uml]] = {
-		// Start of user code for "containingActivity"
-    	if (inStructuredNode.isDefined) 
-        inStructuredNode.get.containingActivity
-      else activity
-    	// End of user code
-	}
+  /**
+   * The Activity that directly or indirectly contains this ActivityNode.
+   *
+   * <!-- Start of user code doc for containingActivity -->
+   * <!-- End of user code doc for containingActivity -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="0..1"
+   * @body result = (if inStructuredNode<>null then inStructuredNode.containingActivity()
+   *       else activity
+   *       endif)
+   */
+  def containingActivity: Option[UMLActivity[Uml]] = {
+    // Start of user code for "containingActivity"
+    if (inStructuredNode.isDefined)
+      inStructuredNode.get.containingActivity
+    else
+      activity
+    // End of user code
+  }
 
-	/**
-	 * <!-- Start of user code doc for isConsistentWith -->
-	 * <!-- End of user code doc for isConsistentWith -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(ActivityNode))
-	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
-		// Start of user code for "isConsistentWith"
-  	redefiningElement match {
+  /**
+   * <!-- Start of user code doc for isConsistentWith -->
+   * <!-- End of user code doc for isConsistentWith -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (redefiningElement.oclIsKindOf(ActivityNode))
+   */
+  override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
+    // Start of user code for "isConsistentWith"
+    redefiningElement match {
       case Some(_: UMLActivityNode[Uml]) => true
-      case _ => false
+      case _                             => false
     }
-  	// End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
-} //UMLActivityNodeOps
+  // Start of user code for additional features
+  // End of user code
+}
+
+//UMLActivityNodeOps

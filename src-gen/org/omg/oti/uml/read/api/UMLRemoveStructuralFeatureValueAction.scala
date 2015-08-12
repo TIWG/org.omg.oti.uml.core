@@ -52,111 +52,111 @@ import org.omg.oti.uml.read.operations.UMLRemoveStructuralFeatureValueActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
-	extends UMLWriteStructuralFeatureAction[Uml]
-	with UMLRemoveStructuralFeatureValueActionOps[Uml] {
-	
-	import ops._
+  extends UMLWriteStructuralFeatureAction[Uml]
+  with UMLRemoveStructuralFeatureValueActionOps[Uml] {
 
-	/**
-	 * Specifies whether to remove duplicates of the value in nonunique StructuralFeatures.
-	 *
-	 * <!-- Start of user code doc for isRemoveDuplicates -->
-	 * <!-- End of user code doc for isRemoveDuplicates -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def isRemoveDuplicates: Boolean
+  import ops._
 
-	/**
-	 * An InputPin that provides the position of an existing value to remove in ordered, nonunique structural features. The type of the removeAt InputPin is UnlimitedNatural, but the value cannot be zero or unlimited.
-	 *
-	 * <!-- Start of user code doc for removeAt -->
-	 * <!-- End of user code doc for removeAt -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.removeAt_removeStructuralFeatureValueAction
-	 */
-	def removeAt: Option[UMLInputPin[Uml]]
+  /**
+   * Specifies whether to remove duplicates of the value in nonunique StructuralFeatures.
+   *
+   * <!-- Start of user code doc for isRemoveDuplicates -->
+   * <!-- End of user code doc for isRemoveDuplicates -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   */
+  def isRemoveDuplicates: Boolean
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		removeStructuralFeatureValueAction_metaAttributes
+  /**
+   * An InputPin that provides the position of an existing value to remove in ordered, nonunique structural features. The type of the removeAt InputPin is UnlimitedNatural, but the value cannot be zero or unlimited.
+   *
+   * <!-- Start of user code doc for removeAt -->
+   * <!-- End of user code doc for removeAt -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInputPin.removeAt_removeStructuralFeatureValueAction
+   */
+  def removeAt: Option[UMLInputPin[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLRemoveStructuralFeatureValueAction
-	 *
-	 * <!-- Start of user code doc for removeStructuralFeatureValueAction_metaAttributes -->
-	 * <!-- End of user code doc for removeStructuralFeatureValueAction_metaAttributes -->
-	 */
-	def removeStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			writeStructuralFeatureAction_metaAttributes,
-			Seq (RemoveStructuralFeatureValueAction_isRemoveDuplicates))
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    removeStructuralFeatureValueAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		removeStructuralFeatureValueAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLRemoveStructuralFeatureValueAction
+   *
+   * <!-- Start of user code doc for removeStructuralFeatureValueAction_metaAttributes -->
+   * <!-- End of user code doc for removeStructuralFeatureValueAction_metaAttributes -->
+   */
+  def removeStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      writeStructuralFeatureAction_metaAttributes,
+      Seq (RemoveStructuralFeatureValueAction_isRemoveDuplicates))
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLRemoveStructuralFeatureValueAction
-	 *
-	 * <!-- Start of user code doc for removeStructuralFeatureValueAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for removeStructuralFeatureValueAction_compositeMetaProperties -->
-	 */
-	def removeStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			writeStructuralFeatureAction_compositeMetaProperties,
-			Seq (RemoveStructuralFeatureValueAction_removeAt))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    removeStructuralFeatureValueAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		removeStructuralFeatureValueAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLRemoveStructuralFeatureValueAction
+   *
+   * <!-- Start of user code doc for removeStructuralFeatureValueAction_compositeMetaProperties -->
+   * <!-- End of user code doc for removeStructuralFeatureValueAction_compositeMetaProperties -->
+   */
+  def removeStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      writeStructuralFeatureAction_compositeMetaProperties,
+      Seq (RemoveStructuralFeatureValueAction_removeAt))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLRemoveStructuralFeatureValueAction
-	 *
-	 * <!-- Start of user code doc for removeStructuralFeatureValueAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for removeStructuralFeatureValueAction_referenceMetaProperties -->
-	 */
-	def removeStructuralFeatureValueAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			writeStructuralFeatureAction_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    removeStructuralFeatureValueAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLRemoveStructuralFeatureValueAction
+   *
+   * <!-- Start of user code doc for removeStructuralFeatureValueAction_referenceMetaProperties -->
+   * <!-- End of user code doc for removeStructuralFeatureValueAction_referenceMetaProperties -->
+   */
+  def removeStructuralFeatureValueAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      writeStructuralFeatureAction_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLRemoveStructuralFeatureValueAction
-	 *
-	 * <!-- Start of user code doc for removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations: Elements =
-		writeStructuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLRemoveStructuralFeatureValueAction
+   *
+   * <!-- Start of user code doc for removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def removeStructuralFeatureValueAction_forwardReferencesFromMetamodelAssociations: Elements =
+    writeStructuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLRemoveStructuralFeatureValueAction

@@ -52,113 +52,113 @@ import org.omg.oti.uml.read.operations.UMLUnmarshallActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLUnmarshallAction[Uml <: UML]
-	extends UMLAction[Uml]
-	with UMLUnmarshallActionOps[Uml] {
-	
-	import ops._
+  extends UMLAction[Uml]
+  with UMLUnmarshallActionOps[Uml] {
 
-	/**
-	 * The OutputPins on which are placed the values of the StructuralFeatures of the input object.
-	 *
-	 * <!-- Start of user code doc for result -->
-	 * <!-- End of user code doc for result -->
-	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.api.UMLOutputPin.result_unmarshallAction
-	 */
-	def result: Seq[UMLOutputPin[Uml]]
+  import ops._
 
-	/**
-	 * The type of the object to be unmarshalled.
-	 *
-	 * <!-- Start of user code doc for unmarshallType -->
-	 * <!-- End of user code doc for unmarshallType -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.unmarshallType_unmarshallAction
-	 */
-	def unmarshallType: Option[UMLClassifier[Uml]]
+  /**
+   * The OutputPins on which are placed the values of the StructuralFeatures of the input object.
+   *
+   * <!-- Start of user code doc for result -->
+   * <!-- End of user code doc for result -->
+   *
+   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
+   * @opposite org.omg.oti.api.UMLOutputPin.result_unmarshallAction
+   */
+  def result: Seq[UMLOutputPin[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		unmarshallAction_metaAttributes
+  /**
+   * The type of the object to be unmarshalled.
+   *
+   * <!-- Start of user code doc for unmarshallType -->
+   * <!-- End of user code doc for unmarshallType -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.unmarshallType_unmarshallAction
+   */
+  def unmarshallType: Option[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLUnmarshallAction
-	 *
-	 * <!-- Start of user code doc for unmarshallAction_metaAttributes -->
-	 * <!-- End of user code doc for unmarshallAction_metaAttributes -->
-	 */
-	def unmarshallAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			action_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    unmarshallAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		unmarshallAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLUnmarshallAction
+   *
+   * <!-- Start of user code doc for unmarshallAction_metaAttributes -->
+   * <!-- End of user code doc for unmarshallAction_metaAttributes -->
+   */
+  def unmarshallAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      action_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLUnmarshallAction
-	 *
-	 * <!-- Start of user code doc for unmarshallAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for unmarshallAction_compositeMetaProperties -->
-	 */
-	def unmarshallAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_compositeMetaProperties,
-			Seq (UnmarshallAction_object,
-				UnmarshallAction_result))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    unmarshallAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		unmarshallAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLUnmarshallAction
+   *
+   * <!-- Start of user code doc for unmarshallAction_compositeMetaProperties -->
+   * <!-- End of user code doc for unmarshallAction_compositeMetaProperties -->
+   */
+  def unmarshallAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_compositeMetaProperties,
+      Seq (UnmarshallAction_object,
+        UnmarshallAction_result))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLUnmarshallAction
-	 *
-	 * <!-- Start of user code doc for unmarshallAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for unmarshallAction_referenceMetaProperties -->
-	 */
-	def unmarshallAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_referenceMetaProperties,
-			Seq (UnmarshallAction_unmarshallType))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    unmarshallAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		unmarshallAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLUnmarshallAction
+   *
+   * <!-- Start of user code doc for unmarshallAction_referenceMetaProperties -->
+   * <!-- End of user code doc for unmarshallAction_referenceMetaProperties -->
+   */
+  def unmarshallAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_referenceMetaProperties,
+      Seq (UnmarshallAction_unmarshallType))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLUnmarshallAction
-	 *
-	 * <!-- Start of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def unmarshallAction_forwardReferencesFromMetamodelAssociations: Elements =
-		action_forwardReferencesFromMetamodelAssociations ++
-		unmarshallType 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    unmarshallAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLUnmarshallAction
+   *
+   * <!-- Start of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for unmarshallAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def unmarshallAction_forwardReferencesFromMetamodelAssociations: Elements =
+    action_forwardReferencesFromMetamodelAssociations ++
+    unmarshallType
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLUnmarshallAction

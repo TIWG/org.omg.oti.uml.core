@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLReadExtentActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReadExtentAction[Uml <: UML]
-	extends UMLAction[Uml]
-	with UMLReadExtentActionOps[Uml] {
-	
-	import ops._
+  extends UMLAction[Uml]
+  with UMLReadExtentActionOps[Uml] {
 
-	/**
-	 * The Classifier whose instances are to be retrieved.
-	 *
-	 * <!-- Start of user code doc for classifier -->
-	 * <!-- End of user code doc for classifier -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLClassifier.classifier_readExtentAction
-	 */
-	def classifier: Option[UMLClassifier[Uml]]
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		readExtentAction_metaAttributes
+  /**
+   * The Classifier whose instances are to be retrieved.
+   *
+   * <!-- Start of user code doc for classifier -->
+   * <!-- End of user code doc for classifier -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLClassifier.classifier_readExtentAction
+   */
+  def classifier: Option[UMLClassifier[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLReadExtentAction
-	 *
-	 * <!-- Start of user code doc for readExtentAction_metaAttributes -->
-	 * <!-- End of user code doc for readExtentAction_metaAttributes -->
-	 */
-	def readExtentAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			action_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    readExtentAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		readExtentAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLReadExtentAction
+   *
+   * <!-- Start of user code doc for readExtentAction_metaAttributes -->
+   * <!-- End of user code doc for readExtentAction_metaAttributes -->
+   */
+  def readExtentAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      action_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLReadExtentAction
-	 *
-	 * <!-- Start of user code doc for readExtentAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for readExtentAction_compositeMetaProperties -->
-	 */
-	def readExtentAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_compositeMetaProperties,
-			Seq (ReadExtentAction_result))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    readExtentAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		readExtentAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLReadExtentAction
+   *
+   * <!-- Start of user code doc for readExtentAction_compositeMetaProperties -->
+   * <!-- End of user code doc for readExtentAction_compositeMetaProperties -->
+   */
+  def readExtentAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_compositeMetaProperties,
+      Seq (ReadExtentAction_result))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLReadExtentAction
-	 *
-	 * <!-- Start of user code doc for readExtentAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for readExtentAction_referenceMetaProperties -->
-	 */
-	def readExtentAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			action_referenceMetaProperties,
-			Seq (ReadExtentAction_classifier))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    readExtentAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		readExtentAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLReadExtentAction
+   *
+   * <!-- Start of user code doc for readExtentAction_referenceMetaProperties -->
+   * <!-- End of user code doc for readExtentAction_referenceMetaProperties -->
+   */
+  def readExtentAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      action_referenceMetaProperties,
+      Seq (ReadExtentAction_classifier))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLReadExtentAction
-	 *
-	 * <!-- Start of user code doc for readExtentAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for readExtentAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def readExtentAction_forwardReferencesFromMetamodelAssociations: Elements =
-		action_forwardReferencesFromMetamodelAssociations ++
-		classifier 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    readExtentAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLReadExtentAction
+   *
+   * <!-- Start of user code doc for readExtentAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for readExtentAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def readExtentAction_forwardReferencesFromMetamodelAssociations: Elements =
+    action_forwardReferencesFromMetamodelAssociations ++
+    classifier
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLReadExtentAction

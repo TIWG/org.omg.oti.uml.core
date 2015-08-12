@@ -52,108 +52,108 @@ import org.omg.oti.uml.read.operations.UMLObservationOps
  * <!-- End of user code documentation -->
 */
 trait UMLObservation[Uml <: UML]
-	extends UMLPackageableElement[Uml]
-	with UMLObservationOps[Uml] {
-	
-	import ops._
+  extends UMLPackageableElement[Uml]
+  with UMLObservationOps[Uml] {
 
-	/**
-	 * <!-- Start of user code doc for observation_duration -->
-	 * <!-- End of user code doc for observation_duration -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLDuration.observation
-	 */
-	def observation_duration: Option[UMLDuration[Uml]]
+  import ops._
 
-	/**
-	 * <!-- Start of user code doc for observation_timeExpression -->
-	 * <!-- End of user code doc for observation_timeExpression -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLTimeExpression.observation
-	 */
-	def observation_timeExpression: Option[UMLTimeExpression[Uml]]
+  /**
+   * <!-- Start of user code doc for observation_duration -->
+   * <!-- End of user code doc for observation_duration -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLDuration.observation
+   */
+  def observation_duration: Option[UMLDuration[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		observation_metaAttributes
+  /**
+   * <!-- Start of user code doc for observation_timeExpression -->
+   * <!-- End of user code doc for observation_timeExpression -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLTimeExpression.observation
+   */
+  def observation_timeExpression: Option[UMLTimeExpression[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLObservation
-	 *
-	 * <!-- Start of user code doc for observation_metaAttributes -->
-	 * <!-- End of user code doc for observation_metaAttributes -->
-	 */
-	def observation_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			packageableElement_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    observation_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		observation_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLObservation
+   *
+   * <!-- Start of user code doc for observation_metaAttributes -->
+   * <!-- End of user code doc for observation_metaAttributes -->
+   */
+  def observation_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      packageableElement_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLObservation
-	 *
-	 * <!-- Start of user code doc for observation_compositeMetaProperties -->
-	 * <!-- End of user code doc for observation_compositeMetaProperties -->
-	 */
-	def observation_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			packageableElement_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    observation_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		observation_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLObservation
+   *
+   * <!-- Start of user code doc for observation_compositeMetaProperties -->
+   * <!-- End of user code doc for observation_compositeMetaProperties -->
+   */
+  def observation_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      packageableElement_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLObservation
-	 *
-	 * <!-- Start of user code doc for observation_referenceMetaProperties -->
-	 * <!-- End of user code doc for observation_referenceMetaProperties -->
-	 */
-	def observation_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			packageableElement_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    observation_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		observation_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLObservation
+   *
+   * <!-- Start of user code doc for observation_referenceMetaProperties -->
+   * <!-- End of user code doc for observation_referenceMetaProperties -->
+   */
+  def observation_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      packageableElement_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLObservation
-	 *
-	 * <!-- Start of user code doc for observation_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for observation_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def observation_forwardReferencesFromMetamodelAssociations: Elements =
-		packageableElement_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    observation_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLObservation
+   *
+   * <!-- Start of user code doc for observation_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for observation_forwardReferencesFromMetamodelAssociations -->
+   */
+  def observation_forwardReferencesFromMetamodelAssociations: Elements =
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLObservation

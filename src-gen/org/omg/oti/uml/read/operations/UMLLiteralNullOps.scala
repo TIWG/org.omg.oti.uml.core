@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLLiteralNull}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 import scala.util.Try
 import scala.util.Failure
@@ -55,41 +55,41 @@ import scala.util.Success
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>	
+trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-	 * <!-- End of user code doc for isComputable -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
-    	true
-    	// End of user code
-	}
+  /**
+   * The query isComputable() is redefined to be true.
+   *
+   * <!-- Start of user code doc for isComputable -->
+   * <!-- End of user code doc for isComputable -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
+      true
+      // End of user code
+  }
 
-	/**
-	 * The query isNull() returns true.
-	 *
-	 * <!-- Start of user code doc for isNull -->
-	 * <!-- End of user code doc for isNull -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	override def isNull: Boolean = {
-		// Start of user code for "isNull"
-    	true
-    	// End of user code
-	}
+  /**
+   * The query isNull() returns true.
+   *
+   * <!-- Start of user code doc for isNull -->
+   * <!-- End of user code doc for isNull -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  override def isNull: Boolean = {
+    // Start of user code for "isNull"
+      true
+      // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Some("***NULL***")  
-	// End of user code
+  // End of user code
 } //UMLLiteralNullOps

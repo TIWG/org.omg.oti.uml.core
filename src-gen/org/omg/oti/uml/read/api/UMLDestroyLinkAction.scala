@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLDestroyLinkActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLDestroyLinkAction[Uml <: UML]
-	extends UMLWriteLinkAction[Uml]
-	with UMLDestroyLinkActionOps[Uml] {
-	
-	import ops._
+  extends UMLWriteLinkAction[Uml]
+  with UMLDestroyLinkActionOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		destroyLinkAction_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLDestroyLinkAction
-	 *
-	 * <!-- Start of user code doc for destroyLinkAction_metaAttributes -->
-	 * <!-- End of user code doc for destroyLinkAction_metaAttributes -->
-	 */
-	def destroyLinkAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			writeLinkAction_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    destroyLinkAction_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		destroyLinkAction_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLDestroyLinkAction
+   *
+   * <!-- Start of user code doc for destroyLinkAction_metaAttributes -->
+   * <!-- End of user code doc for destroyLinkAction_metaAttributes -->
+   */
+  def destroyLinkAction_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      writeLinkAction_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLDestroyLinkAction
-	 *
-	 * <!-- Start of user code doc for destroyLinkAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for destroyLinkAction_compositeMetaProperties -->
-	 */
-	def destroyLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			writeLinkAction_compositeMetaProperties,
-			Seq (DestroyLinkAction_endData))
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    destroyLinkAction_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		destroyLinkAction_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLDestroyLinkAction
+   *
+   * <!-- Start of user code doc for destroyLinkAction_compositeMetaProperties -->
+   * <!-- End of user code doc for destroyLinkAction_compositeMetaProperties -->
+   */
+  def destroyLinkAction_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      writeLinkAction_compositeMetaProperties,
+      Seq (DestroyLinkAction_endData))
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLDestroyLinkAction
-	 *
-	 * <!-- Start of user code doc for destroyLinkAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for destroyLinkAction_referenceMetaProperties -->
-	 */
-	def destroyLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			writeLinkAction_referenceMetaProperties,
-			Seq ())
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    destroyLinkAction_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		destroyLinkAction_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLDestroyLinkAction
+   *
+   * <!-- Start of user code doc for destroyLinkAction_referenceMetaProperties -->
+   * <!-- End of user code doc for destroyLinkAction_referenceMetaProperties -->
+   */
+  def destroyLinkAction_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      writeLinkAction_referenceMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLDestroyLinkAction
-	 *
-	 * <!-- Start of user code doc for destroyLinkAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for destroyLinkAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def destroyLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
-		writeLinkAction_forwardReferencesFromMetamodelAssociations ++
-		Set () 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    destroyLinkAction_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLDestroyLinkAction
+   *
+   * <!-- Start of user code doc for destroyLinkAction_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for destroyLinkAction_forwardReferencesFromMetamodelAssociations -->
+   */
+  def destroyLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
+    writeLinkAction_forwardReferencesFromMetamodelAssociations ++
+    Set ()
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLDestroyLinkAction

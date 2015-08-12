@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLPackageableElement, UMLElement, UMLInstanceValue}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,11 +52,11 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>	
+trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
     instanceValue_asForwardReferencesToImportableOuterPackageableElements
@@ -64,5 +64,5 @@ trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
   def instanceValue_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     Set(this) ++ instance.toSet
 
-	// End of user code
+  // End of user code
 } //UMLInstanceValueOps

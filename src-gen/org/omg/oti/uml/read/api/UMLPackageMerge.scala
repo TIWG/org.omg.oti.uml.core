@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLPackageMergeOps
  * <!-- End of user code documentation -->
 */
 trait UMLPackageMerge[Uml <: UML]
-	extends UMLDirectedRelationship[Uml]
-	with UMLPackageMergeOps[Uml] {
-	
-	import ops._
+  extends UMLDirectedRelationship[Uml]
+  with UMLPackageMergeOps[Uml] {
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		packageMerge_metaAttributes
+  import ops._
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLPackageMerge
-	 *
-	 * <!-- Start of user code doc for packageMerge_metaAttributes -->
-	 * <!-- End of user code doc for packageMerge_metaAttributes -->
-	 */
-	def packageMerge_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			directedRelationship_metaAttributes,
-			Seq ())
+  /**
+   * The XMI meta-attributes relevant to this object
+   *
+   * <!-- Start of user code doc for metaAttributes -->
+   * <!-- End of user code doc for metaAttributes -->
+   */
+  override def metaAttributes: MetaAttributeFunctions =
+    packageMerge_metaAttributes
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		packageMerge_compositeMetaProperties
+  /**
+   * The XMI meta-attributes relevant to class UMLPackageMerge
+   *
+   * <!-- Start of user code doc for packageMerge_metaAttributes -->
+   * <!-- End of user code doc for packageMerge_metaAttributes -->
+   */
+  def packageMerge_metaAttributes: MetaAttributeFunctions =
+    appendUnique(
+      directedRelationship_metaAttributes,
+      Seq ())
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLPackageMerge
-	 *
-	 * <!-- Start of user code doc for packageMerge_compositeMetaProperties -->
-	 * <!-- End of user code doc for packageMerge_compositeMetaProperties -->
-	 */
-	def packageMerge_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_compositeMetaProperties,
-			Seq ())
+  /**
+   * The XMI composite meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for compositeMetaProperties -->
+   * <!-- End of user code doc for compositeMetaProperties -->
+   */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    packageMerge_compositeMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		packageMerge_referenceMetaProperties
+  /**
+   * The XMI composite meta-properties relevant to class UMLPackageMerge
+   *
+   * <!-- Start of user code doc for packageMerge_compositeMetaProperties -->
+   * <!-- End of user code doc for packageMerge_compositeMetaProperties -->
+   */
+  def packageMerge_compositeMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      directedRelationship_compositeMetaProperties,
+      Seq ())
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLPackageMerge
-	 *
-	 * <!-- Start of user code doc for packageMerge_referenceMetaProperties -->
-	 * <!-- End of user code doc for packageMerge_referenceMetaProperties -->
-	 */
-	def packageMerge_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_referenceMetaProperties,
-			Seq (PackageMerge_mergedPackage))
+  /**
+   * The XMI reference meta-properties relevant to this object
+   *
+   * <!-- Start of user code doc for referenceMetaProperties -->
+   * <!-- End of user code doc for referenceMetaProperties -->
+   */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    packageMerge_referenceMetaProperties
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		packageMerge_forwardReferencesFromMetamodelAssociations
+  /**
+   * The XMI reference meta-properties relevant to class UMLPackageMerge
+   *
+   * <!-- Start of user code doc for packageMerge_referenceMetaProperties -->
+   * <!-- End of user code doc for packageMerge_referenceMetaProperties -->
+   */
+  def packageMerge_referenceMetaProperties: MetaPropertyFunctions =
+    appendUnique(
+      directedRelationship_referenceMetaProperties,
+      Seq (PackageMerge_mergedPackage))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLPackageMerge
-	 *
-	 * <!-- Start of user code doc for packageMerge_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for packageMerge_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def packageMerge_forwardReferencesFromMetamodelAssociations: Elements =
-		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		mergedPackage 
+  /**
+   * The XMI forward references from metamodel associations relevant to this object
+   *
+   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+   */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    packageMerge_forwardReferencesFromMetamodelAssociations
 
-	// Start of user code for additional features
-	// End of user code
+  /**
+   * The XMI forward references from metamodel associations relevant to class UMLPackageMerge
+   *
+   * <!-- Start of user code doc for packageMerge_forwardReferencesFromMetamodelAssociations -->
+   * <!-- End of user code doc for packageMerge_forwardReferencesFromMetamodelAssociations -->
+   */
+  def packageMerge_forwardReferencesFromMetamodelAssociations: Elements =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    mergedPackage
+
+  // Start of user code for additional features
+  // End of user code
 } //UMLPackageMerge

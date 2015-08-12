@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLReception, UMLInterface, UMLClass}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,63 +52,67 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>	
+trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for ownedReception_class -->
-	 * <!-- End of user code doc for ownedReception_class -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLClass.ownedReception
-	 */
-	def ownedReception_class: Option[UMLClass[Uml]] = featuringClassifier.selectByKindOf { case x: UMLClass[Uml] => x }
+  /**
+   * <!-- Start of user code doc for ownedReception_class -->
+   * <!-- End of user code doc for ownedReception_class -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLClass.ownedReception
+   */
+  def ownedReception_class: Option[UMLClass[Uml]] =
+    featuringClassifier
+    .selectByKindOf { case x: UMLClass[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for ownedReception_interface -->
-	 * <!-- End of user code doc for ownedReception_interface -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLInterface.ownedReception
-	 */
-	def ownedReception_interface: Option[UMLInterface[Uml]] = featuringClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
+  /**
+   * <!-- Start of user code doc for ownedReception_interface -->
+   * <!-- End of user code doc for ownedReception_interface -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLInterface.ownedReception
+   */
+  def ownedReception_interface: Option[UMLInterface[Uml]] =
+    featuringClassifier
+    .selectByKindOf { case x: UMLInterface[Uml] => x }
 
-	/**
-	 * A Reception has the same name as its signal
-	 *
-	 * <!-- Start of user code doc for validate_same_name_as_signal -->
-	 * <!-- End of user code doc for validate_same_name_as_signal -->
-	 *
-	 * @body name = signal.name
-	 */
-	def validate_same_name_as_signal: Boolean = {
-		// Start of user code for "same_name_as_signal"
-    	???
-    	// End of user code
-	}
+  /**
+   * A Reception has the same name as its signal
+   *
+   * <!-- Start of user code doc for validate_same_name_as_signal -->
+   * <!-- End of user code doc for validate_same_name_as_signal -->
+   *
+   * @body name = signal.name
+   */
+  def validate_same_name_as_signal: Boolean = {
+    // Start of user code for "same_name_as_signal"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * A Reception's parameters match the ownedAttributes of its signal by name, type, and multiplicity
-	 *
-	 * <!-- Start of user code doc for validate_same_structure_as_signal -->
-	 * <!-- End of user code doc for validate_same_structure_as_signal -->
-	 *
-	 * @body signal.ownedAttribute->size() = ownedParameter->size() and
-	 * Sequence{1..signal.ownedAttribute->size()}->forAll( i | 
-	 *     ownedParameter->at(i).direction = ParameterDirectionKind::_'in' and 
-	 *     ownedParameter->at(i).name = signal.ownedAttribute->at(i).name and
-	 *     ownedParameter->at(i).type = signal.ownedAttribute->at(i).type and
-	 *     ownedParameter->at(i).lower() = signal.ownedAttribute->at(i).lower() and
-	 *     ownedParameter->at(i).upper() = signal.ownedAttribute->at(i).upper()
-	 * )
-	 */
-	def validate_same_structure_as_signal: Boolean = {
-		// Start of user code for "same_structure_as_signal"
-    	???
-    	// End of user code
-	}
+  /**
+   * A Reception's parameters match the ownedAttributes of its signal by name, type, and multiplicity
+   *
+   * <!-- Start of user code doc for validate_same_structure_as_signal -->
+   * <!-- End of user code doc for validate_same_structure_as_signal -->
+   *
+   * @body signal.ownedAttribute->size() = ownedParameter->size() and
+   * Sequence{1..signal.ownedAttribute->size()}->forAll( i |
+   *     ownedParameter->at(i).direction = ParameterDirectionKind::_'in' and
+   *     ownedParameter->at(i).name = signal.ownedAttribute->at(i).name and
+   *     ownedParameter->at(i).type = signal.ownedAttribute->at(i).type and
+   *     ownedParameter->at(i).lower() = signal.ownedAttribute->at(i).lower() and
+   *     ownedParameter->at(i).upper() = signal.ownedAttribute->at(i).upper()
+   * )
+   */
+  def validate_same_structure_as_signal: Boolean = {
+    // Start of user code for "same_structure_as_signal"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLReceptionOps

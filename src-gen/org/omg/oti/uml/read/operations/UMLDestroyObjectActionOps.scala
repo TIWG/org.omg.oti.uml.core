@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLDestroyObjectAction, UMLInputPin}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,49 +52,49 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] =>	
+trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The InputPin providing the object to be destroyed.
-	 *
-	 * <!-- Start of user code doc for target -->
-	 * <!-- End of user code doc for target -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.api.UMLInputPin.target_destroyObjectAction
-	 */
-	def target: Option[UMLInputPin[Uml]] = input headOption
+  /**
+   * The InputPin providing the object to be destroyed.
+   *
+   * <!-- Start of user code doc for target -->
+   * <!-- End of user code doc for target -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+   * @opposite org.omg.oti.api.UMLInputPin.target_destroyObjectAction
+   */
+  def target: Option[UMLInputPin[Uml]] = input headOption
 
-	/**
-	 * The multiplicity of the targe IinputPin is 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity -->
-	 * <!-- End of user code doc for validate_multiplicity -->
-	 *
-	 * @body target.is(1,1)
-	 */
-	def validate_multiplicity: Boolean = {
-		// Start of user code for "multiplicity"
-    	???
-    	// End of user code
-	}
+  /**
+   * The multiplicity of the targe IinputPin is 1..1.
+   *
+   * <!-- Start of user code doc for validate_multiplicity -->
+   * <!-- End of user code doc for validate_multiplicity -->
+   *
+   * @body target.is(1,1)
+   */
+  def validate_multiplicity: Boolean = {
+    // Start of user code for "multiplicity"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The target InputPin has no type.
-	 *
-	 * <!-- Start of user code doc for validate_no_type -->
-	 * <!-- End of user code doc for validate_no_type -->
-	 *
-	 * @body target.type= null
-	 */
-	def validate_no_type: Boolean = {
-		// Start of user code for "no_type"
-    	???
-    	// End of user code
-	}
+  /**
+   * The target InputPin has no type.
+   *
+   * <!-- Start of user code doc for validate_no_type -->
+   * <!-- End of user code doc for validate_no_type -->
+   *
+   * @body target.type= null
+   */
+  def validate_no_type: Boolean = {
+    // Start of user code for "no_type"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLDestroyObjectActionOps

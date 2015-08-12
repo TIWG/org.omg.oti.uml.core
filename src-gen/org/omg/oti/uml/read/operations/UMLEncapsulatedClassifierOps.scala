@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLPort, UMLEncapsulatedClassifier}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,26 +52,27 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier[Uml] =>	
+trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The Ports owned by the EncapsulatedClassifier.
-	 *
-	 * <!-- Start of user code doc for ownedPort -->
-	 * <!-- End of user code doc for ownedPort -->
-	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLPort.ownedPort_encapsulatedClassifier
-	 * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
-	 */
-	def ownedPort: Set[UMLPort[Uml]] = {
-		// Start of user code for "ownedPort"
-		ownedAttribute.selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
-		// End of user code
-	}
+  /**
+   * The Ports owned by the EncapsulatedClassifier.
+   *
+   * <!-- Start of user code doc for ownedPort -->
+   * <!-- End of user code doc for ownedPort -->
+   *
+   * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLPort.ownedPort_encapsulatedClassifier
+   * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
+   */
+  def ownedPort: Set[UMLPort[Uml]] = {
+    // Start of user code for "ownedPort"
+    ownedAttribute
+    .selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
+    // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLEncapsulatedClassifierOps

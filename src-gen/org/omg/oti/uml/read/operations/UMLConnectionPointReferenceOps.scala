@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLConnectionPointReference, UML, UMLState}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,49 +52,49 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointReference[Uml] =>	
+trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointReference[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The State in which the ConnectionPointReference is defined.
-	 *
-	 * <!-- Start of user code doc for state -->
-	 * <!-- End of user code doc for state -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLState.connection
-	 */
-	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
+  /**
+   * The State in which the ConnectionPointReference is defined.
+   *
+   * <!-- Start of user code doc for state -->
+   * <!-- End of user code doc for state -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLState.connection
+   */
+  def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
-	/**
-	 * The entry Pseudostates must be Pseudostates with kind entryPoint.
-	 *
-	 * <!-- Start of user code doc for validate_entry_pseudostates -->
-	 * <!-- End of user code doc for validate_entry_pseudostates -->
-	 *
-	 * @body entry->forAll(kind = PseudostateKind::entryPoint)
-	 */
-	def validate_entry_pseudostates: Boolean = {
-		// Start of user code for "entry_pseudostates"
-    	???
-    	// End of user code
-	}
+  /**
+   * The entry Pseudostates must be Pseudostates with kind entryPoint.
+   *
+   * <!-- Start of user code doc for validate_entry_pseudostates -->
+   * <!-- End of user code doc for validate_entry_pseudostates -->
+   *
+   * @body entry->forAll(kind = PseudostateKind::entryPoint)
+   */
+  def validate_entry_pseudostates: Boolean = {
+    // Start of user code for "entry_pseudostates"
+      ???
+      // End of user code
+  }
 
-	/**
-	 * The exit Pseudostates must be Pseudostates with kind exitPoint.
-	 *
-	 * <!-- Start of user code doc for validate_exit_pseudostates -->
-	 * <!-- End of user code doc for validate_exit_pseudostates -->
-	 *
-	 * @body exit->forAll(kind = PseudostateKind::exitPoint)
-	 */
-	def validate_exit_pseudostates: Boolean = {
-		// Start of user code for "exit_pseudostates"
-    	???
-    	// End of user code
-	}
+  /**
+   * The exit Pseudostates must be Pseudostates with kind exitPoint.
+   *
+   * <!-- Start of user code doc for validate_exit_pseudostates -->
+   * <!-- End of user code doc for validate_exit_pseudostates -->
+   *
+   * @body exit->forAll(kind = PseudostateKind::exitPoint)
+   */
+  def validate_exit_pseudostates: Boolean = {
+    // Start of user code for "exit_pseudostates"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLConnectionPointReferenceOps

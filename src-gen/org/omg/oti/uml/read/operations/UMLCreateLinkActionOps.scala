@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLLinkEndCreationData, UMLCreateLinkAction}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,35 +52,35 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLCreateLinkActionOps[Uml <: UML] { self: UMLCreateLinkAction[Uml] =>	
+trait UMLCreateLinkActionOps[Uml <: UML] { self: UMLCreateLinkAction[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * The LinkEndData that specifies the values to be placed on the Association ends for the new link.
-	 *
-	 * <!-- Start of user code doc for endData -->
-	 * <!-- End of user code doc for endData -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.api.UMLLinkEndCreationData.endData_createLinkAction
-	 */
-	override def endData: Iterable[UMLLinkEndCreationData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndCreationData[Uml] => x }
+  /**
+   * The LinkEndData that specifies the values to be placed on the Association ends for the new link.
+   *
+   * <!-- Start of user code doc for endData -->
+   * <!-- End of user code doc for endData -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+   * @opposite org.omg.oti.api.UMLLinkEndCreationData.endData_createLinkAction
+   */
+  override def endData: Iterable[UMLLinkEndCreationData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndCreationData[Uml] => x }
 
-	/**
-	 * The Association cannot be an abstract Classifier.
-	 *
-	 * <!-- Start of user code doc for validate_association_not_abstract -->
-	 * <!-- End of user code doc for validate_association_not_abstract -->
-	 *
-	 * @body not self.association().isAbstract
-	 */
-	def validate_association_not_abstract: Boolean = {
-		// Start of user code for "association_not_abstract"
-    	???
-    	// End of user code
-	}
+  /**
+   * The Association cannot be an abstract Classifier.
+   *
+   * <!-- Start of user code doc for validate_association_not_abstract -->
+   * <!-- End of user code doc for validate_association_not_abstract -->
+   *
+   * @body not self.association().isAbstract
+   */
+  def validate_association_not_abstract: Boolean = {
+    // Start of user code for "association_not_abstract"
+      ???
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLCreateLinkActionOps

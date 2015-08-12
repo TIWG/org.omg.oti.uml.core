@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLElement, UMLComment}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,22 +52,22 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>	
+trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for ownedComment_owningElement -->
-	 * <!-- End of user code doc for ownedComment_owningElement -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.api.UMLElement.ownedComment
-	 */
-	def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
+  /**
+   * <!-- Start of user code doc for ownedComment_owningElement -->
+   * <!-- End of user code doc for ownedComment_owningElement -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+   * @opposite org.omg.oti.api.UMLElement.ownedComment
+   */
+  def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   def getCommentOwnerIndex: Int
-	
+
   // End of user code
 } //UMLCommentOps
