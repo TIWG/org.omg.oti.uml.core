@@ -160,17 +160,6 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
 object CatalogURIMapper {
 
   /**
-   *
-   * @deprecated Use instead createMapperFromCatalogFiles
-   * @param catalogFiles
-   * @param verbosity
-   * @return
-   */
-  @deprecated
-  def createCatalogURIMapper( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] =
-    createMapperFromCatalogFiles( catalogFiles, verbosity )
-
-    /**
    * Creates a CatalogURIMapper from Catalog files.
    *
    * @param catalogFiles
