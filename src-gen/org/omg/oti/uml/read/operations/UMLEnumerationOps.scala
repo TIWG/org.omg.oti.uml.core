@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLEnumerationLiteral, UMLEnumeration}
-import scala.collection.JavaConversions._
+
 import scala.language.postfixOps
 // End of user code
 
@@ -52,31 +52,33 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>	
+trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 
-	import self.ops._
+  import self.ops._
 
-	/**
-	 * <!-- Start of user code doc for classifier_enumerationLiteral -->
-	 * <!-- End of user code doc for classifier_enumerationLiteral -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLEnumerationLiteral.classifier
-	 */
-	def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]] = classifier_instanceSpecification.selectByKindOf { case x: UMLEnumerationLiteral[Uml] => x }
+  /**
+   * <!-- Start of user code doc for classifier_enumerationLiteral -->
+   * <!-- End of user code doc for classifier_enumerationLiteral -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLEnumerationLiteral.classifier
+   */
+  def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]] =
+    classifier_instanceSpecification
+    .selectByKindOf { case x: UMLEnumerationLiteral[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for validate_immutable -->
-	 * <!-- End of user code doc for validate_immutable -->
-	 *
-	 * @body ownedAttribute->forAll(isReadOnly)
-	 */
-	def validate_immutable: Boolean = {
-		// Start of user code for "immutable"
-    	???
-    	// End of user code
-	}
+  /**
+   * <!-- Start of user code doc for validate_immutable -->
+   * <!-- End of user code doc for validate_immutable -->
+   *
+   * @body ownedAttribute->forAll(isReadOnly)
+   */
+  def validate_immutable: Boolean = {
+    // Start of user code for "immutable"
+      ownedAttribute.forall(_.isReadOnly)
+      // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLEnumerationOps

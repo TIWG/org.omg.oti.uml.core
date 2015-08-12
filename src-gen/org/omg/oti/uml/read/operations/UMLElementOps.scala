@@ -43,7 +43,7 @@ package org.omg.oti.uml.read.operations
 import org.omg.oti.uml._
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
-import scala.collection.JavaConversions._
+
 import scala.collection.immutable.StringOps
 import scala.language.postfixOps
 import scala.language.existentials
@@ -60,83 +60,83 @@ import scala.util.Failure
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>	
+trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
-	implicit val ops: UMLOps[Uml]
-	import self.ops._
+  implicit val ops: UMLOps[Uml]
+  import self.ops._
 
-	/**
-	 * The Comments owned by this Element.
-	 *
-	 * <!-- Start of user code doc for ownedComment -->
-	 * <!-- End of user code doc for ownedComment -->
-	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.api.UMLComment.ownedComment_owningElement
-	 */
-	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
+  /**
+   * The Comments owned by this Element.
+   *
+   * <!-- Start of user code doc for ownedComment -->
+   * <!-- End of user code doc for ownedComment -->
+   *
+   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * @opposite org.omg.oti.api.UMLComment.ownedComment_owningElement
+   */
+  def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
-	/**
-	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
-	 *
-	 * <!-- Start of user code doc for allOwnedElements -->
-	 * <!-- End of user code doc for allOwnedElements -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
-	 */
-	def allOwnedElements: Set[UMLElement[Uml]] = {
-		// Start of user code for "allOwnedElements"
-  	closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
-  	// End of user code
-	}
+  /**
+   * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
+   *
+   * <!-- Start of user code doc for allOwnedElements -->
+   * <!-- End of user code doc for allOwnedElements -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="0..*"
+   * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+   */
+  def allOwnedElements: Set[UMLElement[Uml]] = {
+    // Start of user code for "allOwnedElements"
+    closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
+    // End of user code
+  }
 
-	/**
-	 * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
-	 *
-	 * <!-- Start of user code doc for mustBeOwned -->
-	 * <!-- End of user code doc for mustBeOwned -->
-	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
-	 */
-	def mustBeOwned: Boolean = {
-		// Start of user code for "mustBeOwned"
-  	true
-  	// End of user code
-	}
+  /**
+   * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
+   *
+   * <!-- Start of user code doc for mustBeOwned -->
+   * <!-- End of user code doc for mustBeOwned -->
+   *
+   * @operation ordered="false" unique="true" multiplicity="1..1"
+   * @body result = (true)
+   */
+  def mustBeOwned: Boolean = {
+    // Start of user code for "mustBeOwned"
+    true
+    // End of user code
+  }
 
-	/**
-	 * Elements that must be owned must have an owner.
-	 *
-	 * <!-- Start of user code doc for validate_has_owner -->
-	 * <!-- End of user code doc for validate_has_owner -->
-	 *
-	 * @body mustBeOwned() implies owner->notEmpty()
-	 */
-	def validate_has_owner: Boolean = {
-		// Start of user code for "has_owner"
-  	if (mustBeOwned) {
+  /**
+   * Elements that must be owned must have an owner.
+   *
+   * <!-- Start of user code doc for validate_has_owner -->
+   * <!-- End of user code doc for validate_has_owner -->
+   *
+   * @body mustBeOwned() implies owner->notEmpty()
+   */
+  def validate_has_owner: Boolean = {
+    // Start of user code for "has_owner"
+    if (mustBeOwned) {
       owner.isDefined 
     } else true
-  	// End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * An element may not directly or indirectly own itself.
-	 *
-	 * <!-- Start of user code doc for validate_not_own_self -->
-	 * <!-- End of user code doc for validate_not_own_self -->
-	 *
-	 * @body not allOwnedElements()->includes(self)
-	 */
-	def validate_not_own_self: Boolean = {
-		// Start of user code for "not_own_self"
-  	!allOwnedElements.contains(self)
-  	// End of user code
-	}
+  /**
+   * An element may not directly or indirectly own itself.
+   *
+   * <!-- Start of user code doc for validate_not_own_self -->
+   * <!-- End of user code doc for validate_not_own_self -->
+   *
+   * @body not allOwnedElements()->includes(self)
+   */
+  def validate_not_own_self: Boolean = {
+    // Start of user code for "not_own_self"
+    !allOwnedElements.contains(self)
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   /**
    * The element or the first owner of the element that is a package with an effective URI; none if no such owner package exists.
@@ -327,10 +327,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     accN
   }
   
-  def appendUnique[F]( s1: Seq[F], s2: Seq[F] )( implicit f: ClassTag[F] ): Seq[F] =
+  def appendUnique[F]( s1: Seq[F], s2: Seq[F] ): Seq[F] =
     s1 ++ ( s2 filter ( !s1.contains( _ ) ) )
 
-  def appendUnique[F]( ss: Seq[F]* )( implicit f: ClassTag[F] ): Seq[F] =
+  def appendUnique[F]( ss: Seq[F]* ): Seq[F] =
     ss.toList match {
       case Nil                 => Seq()
       case ( s :: Nil )        => s
@@ -636,7 +636,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *     may be null for top level objects.
    *
    *  (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
-   *  result = self.classifier.allSlottableProperties()->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *  result = self.classifier.allSlottableProperties()
+   *  ->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
    *
    * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
    */
@@ -666,7 +667,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * get(property: Property) : Object
    * Gets the value of the given property.
    * If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
-   * If Property has multiplicity upper bound >1, get() returns a ReflectiveCollection containing the values of the Property.
+   * If Property has multiplicity upper bound >1, get() returns a ReflectiveCollection containing
+   * the values of the Property.
    * If there are no values, the ReflectiveCollection returned is empty.
    * Exception: throws IllegalArgumentException if Property is not a member of the Class from class().
    *
@@ -682,7 +684,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @param f (M2)Property
    * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
-   * @throws IllegalArgumentException if `f` is not an (M2)Property of the (M2)Class that is the metaclass of the element.
+   * @throws IllegalArgumentException if `f` is not an (M2)Property of the (M2)Class that
+   *                                  is the metaclass of the element.
    */
   def getElementMetamodelPropertyValue( f: MetaPropertyEvaluator ): Try[Iterable[UMLElement[Uml]]] =
     f match {
