@@ -27,8 +27,9 @@ object OTICore extends Build {
     organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
     EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE18),
-    retrieveManaged := true,
     EclipseKeys.classpathTransformerFactories ++= Seq(transformNode("classpath", exportClasspathLibraries)),
+    // do not relativize the managed classpath!
+    retrieveManaged := false,
     EclipseKeys.relativizeLibs := false,
 
     // include repositories used in module configurations into the POM repositories section
