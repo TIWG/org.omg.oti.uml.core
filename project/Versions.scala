@@ -4,7 +4,7 @@ import sbt.Process
 // see JPLMBEECOmmonScalaLibraries.Version
 object Versions {
 
-  val version_prefix = "0.15.0"
+  val version_prefix = "0.16.0"
   val version_suffix = {
     val svnProc = Process(command = "svn", arguments = Seq("info"))
     val sedCommand = "s/^.*Last Changed Rev: \\([[:digit:]]\\{1,\\}\\).*$/\\1/p"
@@ -19,11 +19,12 @@ object Versions {
 
   // scalaLibs
 
-  val scala = "2.11.6"
+  val scala = "2.11.7"
   val scala_suffix = "2.11"
 
   // otherLibs
 
+  val scala_java8_compat = "0.5.0"
   val config = "1.2.1"
   val scalaCheck = "1.12.2"
   val scalaTest = "2.2.4"

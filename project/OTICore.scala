@@ -73,6 +73,7 @@ object OTICore extends Build {
       version := Versions.version,
       removeExistingHeaderBlock := true,
       libraryDependencies ++= Seq(
+        "org.scala-lang.modules" %% "scala-java8-compat" % Versions.scala_java8_compat withSources() withJavadoc(),
         "org.scala-lang" % "scala-reflect" % Versions.scala % "provided" withSources() withJavadoc(),
         "org.scala-lang" % "scala-library" % Versions.scala % "provided" withSources() withJavadoc(),
         "org.scala-lang" % "scala-compiler" % Versions.scala % "provided" withSources() withJavadoc(),
@@ -83,6 +84,10 @@ object OTICore extends Build {
         "com.assembla.scala-incubator" %% "graph-json" % Versions.graph_json % "compile" withSources() withJavadoc(),
         "com.assembla.scala-incubator" %% "graph-dot" % Versions.graph_dot % "compile" withSources() withJavadoc()
       ),
+      
+      // https://github.com/lrytz/experimental-backend-2.11/blob/master/build.sbt
+      scalacOptions ++= List("-Ybackend:GenBCode", "-Ydelambdafy:method", "-target:jvm-1.8", "-Yopt:l:classpath"),
+      
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
       classDirectory in Compile := baseDirectory.value / "bin",

@@ -52,9 +52,14 @@ import org.apache.xml.resolver.CatalogManager
 import org.apache.xml.resolver.tools.CatalogResolver
 import java.io.FileNotFoundException
 
-case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: CatalogResolver, catalog: Catalog ) {
+case class CatalogURIMapper( 
+    catalogManager: CatalogManager, 
+    catalogResolver: CatalogResolver, 
+    catalog: Catalog ) {
 
-  def this( catalogManager: CatalogManager, catalogResolver: CatalogResolver ) =
+  def this( 
+      catalogManager: CatalogManager, 
+      catalogResolver: CatalogResolver ) =
     this( catalogManager, catalogResolver, catalogResolver.getCatalog )
 
   def this( catalogManager: CatalogManager ) =
@@ -69,15 +74,29 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
       case e: IOException => Failure( e )
     }
 
-  def loadResolutionStrategy( resolved: String ): Option[URI] = {
+  def loadResolutionStrategy( 
+      resolved: String, 
+      appendDocumentExtensionUnlessPresent: Option[String] ): 
+      Option[URI] = {
 
+    require(
+        appendDocumentExtensionUnlessPresent.getOrElse(".").startsWith("."),
+        "The document extension, when specified, must start with '.'"+
+        s"currently, it is '$appendDocumentExtensionUnlessPresent'")
+        
     def ignore( e: Exception ) = {}
 
     val normalized = new URI( resolved )
     val normalizedPath = normalized.toString
 
     val f1 = new URL( normalizedPath )
-    val f2 = if ( normalizedPath.endsWith( ".owl" ) ) f1 else new URL( normalizedPath + ".owl" )
+    val f2 = appendDocumentExtensionUnlessPresent match {
+      case None => f1
+      case Some(ext) =>
+        if ( normalizedPath.endsWith( ext ) ) f1 
+        else new URL( normalizedPath + ext )
+    }
+    
     try {
       for {
         is <- Option.apply( f2.openStream )
@@ -133,12 +152,17 @@ case class CatalogURIMapper( catalogManager: CatalogManager, catalogResolver: Ca
     case resolved => Some( resolved )
   }
   
-  def resolveURI( uri: URI, resolutionStrategy: ( String ) => Option[URI] ): Try[Option[URI]] = {
+  def resolveURI( 
+      uri: URI, 
+      resolutionStrategy: ( String ) => Option[URI] ): 
+      Try[Option[URI]] = {
 
     def ignore( e: Exception ) = {}
 
     val rawPath = uri.toString
-    val iriPath = if ( rawPath.endsWith( "#" ) ) rawPath.substring( 0, rawPath.length() - 1 ) else rawPath
+    val iriPath = 
+      if ( rawPath.endsWith( "#" ) ) rawPath.substring( 0, rawPath.length() - 1 ) 
+      else rawPath
     try {
       resolve( iriPath ) match {
         case None =>
@@ -166,15 +190,20 @@ object CatalogURIMapper {
    * @param verbosity
    * @return
    */
-  def createMapperFromCatalogFiles( catalogFiles: Seq[File], verbosity: Int = 0 ): Try[CatalogURIMapper] = {
+  def createMapperFromCatalogFiles( 
+      catalogFiles: Seq[File], 
+      verbosity: Int = 0 ): 
+      Try[CatalogURIMapper] = {
     val catalog = new CatalogManager() 
     catalog.setUseStaticCatalog(false)
     catalog.setRelativeCatalogs(true)
     catalog.setVerbosity(verbosity)
     val mapper = new CatalogURIMapper( catalog )
     catalogFiles.foreach { catalogFile => 
-      if ( ! catalogFile.exists ) return Failure( new FileNotFoundException( catalogFile.getAbsolutePath ))
-      else mapper.parseCatalog(catalogFile.toURI) match {
+      if ( ! catalogFile.exists ) 
+        return Failure( new FileNotFoundException( catalogFile.getAbsolutePath ))
+      else 
+        mapper.parseCatalog(catalogFile.toURI) match {
         case Failure( t ) => return Failure( t )
         case Success( _ ) => ()
       }
@@ -190,7 +219,10 @@ object CatalogURIMapper {
    * @param verbosity
    * @return
    */
-  def createMapperFromCatalogURIs( catalogURIs: Seq[URI], verbosity: Int = 0 ): Try[CatalogURIMapper] = {
+  def createMapperFromCatalogURIs( 
+      catalogURIs: Seq[URI], 
+      verbosity: Int = 0 ): 
+      Try[CatalogURIMapper] = {
     val catalog = new CatalogManager()
     catalog.setUseStaticCatalog(false)
     catalog.setRelativeCatalogs(true)

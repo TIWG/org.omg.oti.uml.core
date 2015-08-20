@@ -16,7 +16,12 @@ This functional API is parameterized by the implementation of OMG UML 2.5, inclu
 
 - Tool-neutral serialization of an OTI model representation to OMG Cannonical XMI
 
-## Assumptions & Dependencies
+## Dependencies
+
+### [Java8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html)
+
+Although the OTI is written in Scala, the [Java8 compatibility kit](https://github.com/scala/scala-java8-compat) 
+for Scala 2.11 facilitates using the OTI from Java8.
 
 ### [Scala](http://www.scala-lang.org)
 
@@ -26,36 +31,24 @@ In contrast to a conventional polymorphic object-oriented API, a parameterized f
 
 ### [Scala Graph](http://www.scala-graph.org)
 
-This functional graph library for Scala simplifies specifying parameterized functional algorithms that operate on the parameterized functional representation of an OMG UML model in such a way that the tool-specific parameter binding is done automatically by the Scala compiler, again, with strong separation guarantees across tool-specific parameter bindings.
+This functional graph library for Scala simplifies specifying parameterized functional algorithms 
+that operate on the parameterized functional representation of an OMG UML model in such a way 
+that the tool-specific parameter binding is done automatically by the Scala compiler, again, 
+with strong separation guarantees across tool-specific parameter bindings.
 
 ### [Simple Build Tool, SBT](http://www.scala-sbt.org/documentation.html)
 
-This project is built with SBT 0.13.7
+This project is built with SBT 0.13.8
 
 To install SBT, use a package manager for your system (Linux, MacOSX, Windows,...), see: [http://en.wikipedia.org/wiki/List_of_software_package_management_systems](http://en.wikipedia.org/wiki/List_of_software_package_management_systems)
 
-### [Scala IDE](http://scala-ide.org), Version 4.0 on Eclipse Luna
+### [Scala IDE](http://scala-ide.org), Version 4.1 on Eclipse Mars
 
-See the building instructions below to use the Scala Lithium IDE to work on this project.
+See the building instructions below to use the Scala IDE to work on this project.
 
-### EMF
+### Eclipse Modeling Framework (EMF)
 
-Currently, OTI assumes that a tool-specific binding uses an EMF-based representation of OMG UML 2.5
-
-This assumption could be eventually lifted; for now, it simplifies the generic API.
-See in particular UMLElement:
-
-```
-  def getContainedElement_eContainingFeature: EStructuralFeature
-  def getElementContainer_eFeatureValue( f: EStructuralFeature ): Iterator[UMLElement[Uml]]
-```
-
-and UMLOps:
-
-
-```
-  type ContainedElement2IDRule = PartialFunction[( UMLElement[Uml], String, EStructuralFeature, UMLElement[Uml] ), Try[String]]
-```
+OTI makes no assumptions about the use of Eclipse EMF for implementing OMG UML 2.5.
  
 ## Building 
 
@@ -69,7 +62,7 @@ where `<dir>` is a directory in the file system that will be used for publishing
 
 This will:
 
-- fetch library dependencies (emfLibs, graphLibs, resolverLibs, scalazLibs), 
+- fetch library dependencies (emfLibs, graphLibs, resolverLibs, scalazLibs, scala-java8-compat), 
 
 - update the license header in the sources
 
@@ -102,7 +95,7 @@ See https://github.com/typesafehub/sbteclipse
 
     `// https://github.com/typesafehub/sbteclipse`
     
-    `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0-RC2")`
+    `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")`
 
 2. Use SBT to create the Eclipse metadata files (.project, .classpath)
 
