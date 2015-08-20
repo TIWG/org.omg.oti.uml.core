@@ -47,31 +47,29 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * An ExecutionSpecification is a specification of the execution of a unit of Behavior or Action within the Lifeline.
- * The duration of an ExecutionSpecification is represented by two OccurrenceSpecifications,
- * the start OccurrenceSpecification and the finish OccurrenceSpecification.
+ * An ExecutionSpecification is a specification of the execution of a unit of Behavior or Action within the Lifeline. The duration of an ExecutionSpecification is represented by two OccurrenceSpecifications, the start OccurrenceSpecification and the finish OccurrenceSpecification.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLExecutionSpecificationOps[Uml <: UML] { self: UMLExecutionSpecification[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The startEvent and the finishEvent must be on the same Lifeline.
-   *
-   * <!-- Start of user code doc for validate_same_lifeline -->
+	/**
+	 * The startEvent and the finishEvent must be on the same Lifeline.
+	 *
+	 * <!-- Start of user code doc for validate_same_lifeline -->
    * <!-- End of user code doc for validate_same_lifeline -->
-   *
-   * @body start.covered = finish.covered
-   */
-  def validate_same_lifeline: Boolean = {
-    // Start of user code for "same_lifeline"
+	 *
+	 * @body start.covered = finish.covered
+	 */
+	def validate_same_lifeline: Boolean = {
+		// Start of user code for "same_lifeline"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExecutionSpecificationOps

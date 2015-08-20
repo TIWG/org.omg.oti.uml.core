@@ -52,176 +52,176 @@ import org.omg.oti.uml.read.operations.UMLParameterOps
  * <!-- End of user code documentation -->
 */
 trait UMLParameter[Uml <: UML]
-  extends UMLConnectableElement[Uml]
-  with UMLMultiplicityElement[Uml]
-  with UMLParameterOps[Uml] {
+	extends UMLConnectableElement[Uml]
+	with UMLMultiplicityElement[Uml]
+	with UMLParameterOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies a ValueSpecification that represents a value to be used when no argument is supplied for the Parameter.
-   *
-   * <!-- Start of user code doc for defaultValue -->
+	/**
+	 * Specifies a ValueSpecification that represents a value to be used when no argument is supplied for the Parameter.
+	 *
+	 * <!-- Start of user code doc for defaultValue -->
    * <!-- End of user code doc for defaultValue -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.defaultValue_owningParameter
-   */
-  def defaultValue: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningParameter
+	 */
+	def defaultValue: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * Indicates whether a parameter is being sent into or out of a behavioral element.
-   *
-   * <!-- Start of user code doc for direction -->
+	/**
+	 * Indicates whether a parameter is being sent into or out of a behavioral element.
+	 *
+	 * <!-- Start of user code doc for direction -->
    * <!-- End of user code doc for direction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def direction: UMLParameterDirectionKind.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def direction: UMLParameterDirectionKind.Value
 
-  /**
-   * Specifies the effect that executions of the owner of the Parameter have on objects passed in or out of the parameter.
-   *
-   * <!-- Start of user code doc for effect -->
+	/**
+	 * Specifies the effect that executions of the owner of the Parameter have on objects passed in or out of the parameter.
+	 *
+	 * <!-- Start of user code doc for effect -->
    * <!-- End of user code doc for effect -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   */
-  def effect: Option[UMLParameterEffectKind.Value]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 */
+	def effect: Option[UMLParameterEffectKind.Value]
 
-  /**
-   * Tells whether an output parameter may emit a value to the exclusion of the other outputs.
-   *
-   * <!-- Start of user code doc for isException -->
+	/**
+	 * Tells whether an output parameter may emit a value to the exclusion of the other outputs.
+	 *
+	 * <!-- Start of user code doc for isException -->
    * <!-- End of user code doc for isException -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isException: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isException: Boolean
 
-  /**
-   * Tells whether an input parameter may accept values while its behavior is executing, or whether an output parameter may post values while the behavior is executing.
-   *
-   * <!-- Start of user code doc for isStream -->
+	/**
+	 * Tells whether an input parameter may accept values while its behavior is executing, or whether an output parameter may post values while the behavior is executing.
+	 *
+	 * <!-- Start of user code doc for isStream -->
    * <!-- End of user code doc for isStream -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isStream: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isStream: Boolean
 
-  /**
-   * The ParameterSets containing the parameter. See ParameterSet.
-   *
-   * <!-- Start of user code doc for parameterSet -->
+	/**
+	 * The ParameterSets containing the parameter. See ParameterSet.
+	 *
+	 * <!-- Start of user code doc for parameterSet -->
    * <!-- End of user code doc for parameterSet -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLParameterSet.parameter
-   */
-  def parameterSet: Set[UMLParameterSet[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLParameterSet.parameter
+	 */
+	def parameterSet: Set[UMLParameterSet[Uml]]
 
-  /**
-   * <!-- Start of user code doc for parameter_activityParameterNode -->
+	/**
+	 * <!-- Start of user code doc for parameter_activityParameterNode -->
    * <!-- End of user code doc for parameter_activityParameterNode -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLActivityParameterNode.parameter
-   */
-  def parameter_activityParameterNode: Set[UMLActivityParameterNode[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLActivityParameterNode.parameter
+	 */
+	def parameter_activityParameterNode: Set[UMLActivityParameterNode[Uml]]
 
-  /**
-   * <!-- Start of user code doc for result_opaqueExpression -->
+	/**
+	 * <!-- Start of user code doc for result_opaqueExpression -->
    * <!-- End of user code doc for result_opaqueExpression -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLOpaqueExpression.result
-   */
-  def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLOpaqueExpression.result
+	 */
+	def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    parameter_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		parameter_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLParameter
-   *
-   * <!-- Start of user code doc for parameter_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLParameter
+	 *
+	 * <!-- Start of user code doc for parameter_metaAttributes -->
    * <!-- End of user code doc for parameter_metaAttributes -->
-   */
-  def parameter_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      connectableElement_metaAttributes,
-      multiplicityElement_metaAttributes,
-      Seq (Parameter_isException,
-        Parameter_isStream))
+	 */
+	def parameter_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			connectableElement_metaAttributes,
+			multiplicityElement_metaAttributes,
+			Seq (Parameter_isException,
+				Parameter_isStream))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    parameter_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		parameter_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLParameter
-   *
-   * <!-- Start of user code doc for parameter_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLParameter
+	 *
+	 * <!-- Start of user code doc for parameter_compositeMetaProperties -->
    * <!-- End of user code doc for parameter_compositeMetaProperties -->
-   */
-  def parameter_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      connectableElement_compositeMetaProperties,
-      multiplicityElement_compositeMetaProperties,
-      Seq (Parameter_defaultValue))
+	 */
+	def parameter_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			connectableElement_compositeMetaProperties,
+			multiplicityElement_compositeMetaProperties,
+			Seq (Parameter_defaultValue))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    parameter_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		parameter_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLParameter
-   *
-   * <!-- Start of user code doc for parameter_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLParameter
+	 *
+	 * <!-- Start of user code doc for parameter_referenceMetaProperties -->
    * <!-- End of user code doc for parameter_referenceMetaProperties -->
-   */
-  def parameter_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      connectableElement_referenceMetaProperties,
-      multiplicityElement_referenceMetaProperties,
-      Seq (Parameter_parameterSet))
+	 */
+	def parameter_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			connectableElement_referenceMetaProperties,
+			multiplicityElement_referenceMetaProperties,
+			Seq (Parameter_parameterSet))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    parameter_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		parameter_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLParameter
-   *
-   * <!-- Start of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLParameter
+	 *
+	 * <!-- Start of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
-   */
-  def parameter_forwardReferencesFromMetamodelAssociations: Elements =
-    connectableElement_forwardReferencesFromMetamodelAssociations ++
-    multiplicityElement_forwardReferencesFromMetamodelAssociations ++
-    parameterSet
+	 */
+	def parameter_forwardReferencesFromMetamodelAssociations: Elements =
+		connectableElement_forwardReferencesFromMetamodelAssociations ++
+		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
+		parameterSet
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLParameter

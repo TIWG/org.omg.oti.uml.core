@@ -54,69 +54,60 @@ import scala.language.postfixOps
  */
 trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The optional TemplateSignature specifying the formal TemplateParameters for this TemplateableElement.
-   * If a TemplateableElement has a TemplateSignature, then it is a template.
-   *
-   * <!-- Start of user code doc for ownedTemplateSignature -->
+	/**
+	 * The optional TemplateSignature specifying the formal TemplateParameters for this TemplateableElement. If a TemplateableElement has a TemplateSignature, then it is a template.
+	 *
+	 * <!-- Start of user code doc for ownedTemplateSignature -->
    * <!-- End of user code doc for ownedTemplateSignature -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLTemplateSignature.template
-   */
-  def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.template
+	 */
+	def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
 
-  /**
-   * The optional TemplateBindings from this TemplateableElement to one or more templates.
-   *
-   * <!-- Start of user code doc for templateBinding -->
+	/**
+	 * The optional TemplateBindings from this TemplateableElement to one or more templates.
+	 *
+	 * <!-- Start of user code doc for templateBinding -->
    * <!-- End of user code doc for templateBinding -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLTemplateBinding.boundElement
-   */
-  def templateBinding: Set[UMLTemplateBinding[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLTemplateBinding[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLTemplateBinding.boundElement
+	 */
+	def templateBinding: Set[UMLTemplateBinding[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateBinding[Uml] => x }
 
-  /**
-   * The query isTemplate() returns whether this TemplateableElement is actually a template.
-   *
-   * <!-- Start of user code doc for isTemplate -->
+	/**
+	 * The query isTemplate() returns whether this TemplateableElement is actually a template.
+	 *
+	 * <!-- Start of user code doc for isTemplate -->
    * <!-- End of user code doc for isTemplate -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (ownedTemplateSignature <> null)
-   */
-  def isTemplate: Boolean = {
-    // Start of user code for "isTemplate"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (ownedTemplateSignature <> null)
+	 */
+	def isTemplate: Boolean = {
+		// Start of user code for "isTemplate"
     ownedTemplateSignature.isDefined
     // End of user code
-  }
+	}
 
-  /**
-   * The query parameterableElements() returns the set of ParameterableElements that
-   * may be used as the parameteredElements for a TemplateParameter of this TemplateableElement.
-   * By default, this set includes all the ownedElements. Subclasses may override this operation
-   * if they choose to restrict the set of ParameterableElements.
-   *
-   * <!-- Start of user code doc for parameterableElements -->
+	/**
+	 * The query parameterableElements() returns the set of ParameterableElements that may be used as the parameteredElements for a TemplateParameter of this TemplateableElement. By default, this set includes all the ownedElements. Subclasses may override this operation if they choose to restrict the set of ParameterableElements.
+	 *
+	 * <!-- Start of user code doc for parameterableElements -->
    * <!-- End of user code doc for parameterableElements -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="0..*"
-   * @body result = (self.allOwnedElements()
-   *      ->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
-   */
-  def parameterableElements: Set[UMLParameterableElement[Uml]] = {
-    // Start of user code for "parameterableElements"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="0..*"
+	 * @body result = (self.allOwnedElements()->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
+	 */
+	def parameterableElements: Set[UMLParameterableElement[Uml]] = {
+		// Start of user code for "parameterableElements"
     allOwnedElements.selectByKindOf { case pe: UMLParameterableElement[Uml] => pe }
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTemplateableElementOps

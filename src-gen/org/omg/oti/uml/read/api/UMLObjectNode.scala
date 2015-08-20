@@ -52,159 +52,159 @@ import org.omg.oti.uml.read.operations.UMLObjectNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLObjectNode[Uml <: UML]
-  extends UMLActivityNode[Uml]
-  with UMLTypedElement[Uml]
-  with UMLObjectNodeOps[Uml] {
+	extends UMLActivityNode[Uml]
+	with UMLTypedElement[Uml]
+	with UMLObjectNodeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The States required to be associated with the values held by tokens on this ObjectNode.
-   *
-   * <!-- Start of user code doc for inState -->
+	/**
+	 * The States required to be associated with the values held by tokens on this ObjectNode.
+	 *
+	 * <!-- Start of user code doc for inState -->
    * <!-- End of user code doc for inState -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLState.inState_objectNode
-   */
-  def inState: Set[UMLState[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLState.inState_objectNode
+	 */
+	def inState: Set[UMLState[Uml]]
 
-  /**
-   * Indicates whether the type of the ObjectNode is to be treated as representing control values that may traverse ControlFlows.
-   *
-   * <!-- Start of user code doc for isControlType -->
+	/**
+	 * Indicates whether the type of the ObjectNode is to be treated as representing control values that may traverse ControlFlows.
+	 *
+	 * <!-- Start of user code doc for isControlType -->
    * <!-- End of user code doc for isControlType -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isControlType: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isControlType: Boolean
 
-  /**
-   * Indicates how the tokens held by the ObjectNode are ordered for selection to traverse ActivityEdges outgoing from the ObjectNode.
-   *
-   * <!-- Start of user code doc for ordering -->
+	/**
+	 * Indicates how the tokens held by the ObjectNode are ordered for selection to traverse ActivityEdges outgoing from the ObjectNode.
+	 *
+	 * <!-- Start of user code doc for ordering -->
    * <!-- End of user code doc for ordering -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def ordering: UMLObjectNodeOrderingKind.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def ordering: UMLObjectNodeOrderingKind.Value
 
-  /**
-   * A Behavior used to select tokens to be offered on outgoing ActivityEdges.
-   *
-   * <!-- Start of user code doc for selection -->
+	/**
+	 * A Behavior used to select tokens to be offered on outgoing ActivityEdges.
+	 *
+	 * <!-- Start of user code doc for selection -->
    * <!-- End of user code doc for selection -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLBehavior.selection_objectNode
-   */
-  def selection: Option[UMLBehavior[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.selection_objectNode
+	 */
+	def selection: Option[UMLBehavior[Uml]]
 
-  /**
-   * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperBound is reached. If no upperBound is specified, then there is no limit on how many tokens the ObjectNode can hold.
-   *
-   * <!-- Start of user code doc for upperBound -->
+	/**
+	 * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperBound is reached. If no upperBound is specified, then there is no limit on how many tokens the ObjectNode can hold.
+	 *
+	 * <!-- Start of user code doc for upperBound -->
    * <!-- End of user code doc for upperBound -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.upperBound_objectNode
-   */
-  def upperBound: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.upperBound_objectNode
+	 */
+	def upperBound: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * <!-- Start of user code doc for exceptionInput_exceptionHandler -->
+	/**
+	 * <!-- Start of user code doc for exceptionInput_exceptionHandler -->
    * <!-- End of user code doc for exceptionInput_exceptionHandler -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLExceptionHandler.exceptionInput
-   */
-  def exceptionInput_exceptionHandler: Set[UMLExceptionHandler[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionInput
+	 */
+	def exceptionInput_exceptionHandler: Set[UMLExceptionHandler[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    objectNode_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		objectNode_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLObjectNode
-   *
-   * <!-- Start of user code doc for objectNode_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLObjectNode
+	 *
+	 * <!-- Start of user code doc for objectNode_metaAttributes -->
    * <!-- End of user code doc for objectNode_metaAttributes -->
-   */
-  def objectNode_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      activityNode_metaAttributes,
-      typedElement_metaAttributes,
-      Seq (ObjectNode_isControlType))
+	 */
+	def objectNode_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			activityNode_metaAttributes,
+			typedElement_metaAttributes,
+			Seq (ObjectNode_isControlType))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    objectNode_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		objectNode_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLObjectNode
-   *
-   * <!-- Start of user code doc for objectNode_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLObjectNode
+	 *
+	 * <!-- Start of user code doc for objectNode_compositeMetaProperties -->
    * <!-- End of user code doc for objectNode_compositeMetaProperties -->
-   */
-  def objectNode_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      activityNode_compositeMetaProperties,
-      typedElement_compositeMetaProperties,
-      Seq (ObjectNode_upperBound))
+	 */
+	def objectNode_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			activityNode_compositeMetaProperties,
+			typedElement_compositeMetaProperties,
+			Seq (ObjectNode_upperBound))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    objectNode_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		objectNode_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLObjectNode
-   *
-   * <!-- Start of user code doc for objectNode_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLObjectNode
+	 *
+	 * <!-- Start of user code doc for objectNode_referenceMetaProperties -->
    * <!-- End of user code doc for objectNode_referenceMetaProperties -->
-   */
-  def objectNode_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      activityNode_referenceMetaProperties,
-      typedElement_referenceMetaProperties,
-      Seq (ObjectNode_inState,
-        ObjectNode_selection))
+	 */
+	def objectNode_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			activityNode_referenceMetaProperties,
+			typedElement_referenceMetaProperties,
+			Seq (ObjectNode_inState,
+				ObjectNode_selection))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    objectNode_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		objectNode_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLObjectNode
-   *
-   * <!-- Start of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLObjectNode
+	 *
+	 * <!-- Start of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
-   */
-  def objectNode_forwardReferencesFromMetamodelAssociations: Elements =
-    activityNode_forwardReferencesFromMetamodelAssociations ++
-    typedElement_forwardReferencesFromMetamodelAssociations ++
-    inState ++
-    selection
+	 */
+	def objectNode_forwardReferencesFromMetamodelAssociations: Elements =
+		activityNode_forwardReferencesFromMetamodelAssociations ++
+		typedElement_forwardReferencesFromMetamodelAssociations ++
+		inState ++
+		selection
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLObjectNode

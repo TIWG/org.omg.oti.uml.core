@@ -47,63 +47,56 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A Trigger specifies a specific point  at which an Event occurrence may trigger an effect in a Behavior.
- * A Trigger may be qualified by the Port on which the Event occurred.
+ * A Trigger specifies a specific point  at which an Event occurrence may trigger an effect in a Behavior. A Trigger may be qualified by the Port on which the Event occurred.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for deferrableTrigger_state -->
+	/**
+	 * <!-- Start of user code doc for deferrableTrigger_state -->
    * <!-- End of user code doc for deferrableTrigger_state -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLState.deferrableTrigger
-   */
-  def deferrableTrigger_state: Option[UMLState[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLState[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLState.deferrableTrigger
+	 */
+	def deferrableTrigger_state: Option[UMLState[Uml]] = owner.selectByKindOf { case x: UMLState[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for trigger_acceptEventAction -->
+	/**
+	 * <!-- Start of user code doc for trigger_acceptEventAction -->
    * <!-- End of user code doc for trigger_acceptEventAction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLAcceptEventAction.trigger
-   */
-  def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLAcceptEventAction[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLAcceptEventAction.trigger
+	 */
+	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] = owner.selectByKindOf { case x: UMLAcceptEventAction[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for trigger_transition -->
+	/**
+	 * <!-- Start of user code doc for trigger_transition -->
    * <!-- End of user code doc for trigger_transition -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLTransition.trigger
-   */
-  def trigger_transition: Option[UMLTransition[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLTransition[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTransition.trigger
+	 */
+	def trigger_transition: Option[UMLTransition[Uml]] = owner.selectByKindOf { case x: UMLTransition[Uml] => x }
 
-  /**
-   * If a Trigger specifies one or more ports, the event of the Trigger must be a MessageEvent.
-   *
-   * <!-- Start of user code doc for validate_trigger_with_ports -->
+	/**
+	 * If a Trigger specifies one or more ports, the event of the Trigger must be a MessageEvent.
+	 *
+	 * <!-- Start of user code doc for validate_trigger_with_ports -->
    * <!-- End of user code doc for validate_trigger_with_ports -->
-   *
-   * @body port->notEmpty() implies event.oclIsKindOf(MessageEvent)
-   */
-  def validate_trigger_with_ports: Boolean = {
-    // Start of user code for "trigger_with_ports"
+	 *
+	 * @body port->notEmpty() implies event.oclIsKindOf(MessageEvent)
+	 */
+	def validate_trigger_with_ports: Boolean = {
+		// Start of user code for "trigger_with_ports"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTriggerOps

@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLControlNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLControlNode[Uml <: UML]
-  extends UMLActivityNode[Uml]
-  with UMLControlNodeOps[Uml] {
+	extends UMLActivityNode[Uml]
+	with UMLControlNodeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    controlNode_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		controlNode_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLControlNode
-   *
-   * <!-- Start of user code doc for controlNode_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLControlNode
+	 *
+	 * <!-- Start of user code doc for controlNode_metaAttributes -->
    * <!-- End of user code doc for controlNode_metaAttributes -->
-   */
-  def controlNode_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      activityNode_metaAttributes,
-      Seq ())
+	 */
+	def controlNode_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			activityNode_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    controlNode_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		controlNode_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLControlNode
-   *
-   * <!-- Start of user code doc for controlNode_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLControlNode
+	 *
+	 * <!-- Start of user code doc for controlNode_compositeMetaProperties -->
    * <!-- End of user code doc for controlNode_compositeMetaProperties -->
-   */
-  def controlNode_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      activityNode_compositeMetaProperties,
-      Seq ())
+	 */
+	def controlNode_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			activityNode_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    controlNode_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		controlNode_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLControlNode
-   *
-   * <!-- Start of user code doc for controlNode_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLControlNode
+	 *
+	 * <!-- Start of user code doc for controlNode_referenceMetaProperties -->
    * <!-- End of user code doc for controlNode_referenceMetaProperties -->
-   */
-  def controlNode_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      activityNode_referenceMetaProperties,
-      Seq ())
+	 */
+	def controlNode_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			activityNode_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    controlNode_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		controlNode_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLControlNode
-   *
-   * <!-- Start of user code doc for controlNode_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLControlNode
+	 *
+	 * <!-- Start of user code doc for controlNode_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for controlNode_forwardReferencesFromMetamodelAssociations -->
-   */
-  def controlNode_forwardReferencesFromMetamodelAssociations: Elements =
-    activityNode_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def controlNode_forwardReferencesFromMetamodelAssociations: Elements =
+		activityNode_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLControlNode

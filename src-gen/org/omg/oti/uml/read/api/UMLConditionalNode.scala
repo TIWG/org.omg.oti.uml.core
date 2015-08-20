@@ -52,123 +52,123 @@ import org.omg.oti.uml.read.operations.UMLConditionalNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLConditionalNode[Uml <: UML]
-  extends UMLStructuredActivityNode[Uml]
-  with UMLConditionalNodeOps[Uml] {
+	extends UMLStructuredActivityNode[Uml]
+	with UMLConditionalNodeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.
-   *
-   * <!-- Start of user code doc for isAssured -->
+	/**
+	 * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.
+	 *
+	 * <!-- Start of user code doc for isAssured -->
    * <!-- End of user code doc for isAssured -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isAssured: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isAssured: Boolean
 
-  /**
-   * If true, the modeler asserts that the test for at most one Clause of the ConditionalNode will succeed.
-   *
-   * <!-- Start of user code doc for isDeterminate -->
+	/**
+	 * If true, the modeler asserts that the test for at most one Clause of the ConditionalNode will succeed.
+	 *
+	 * <!-- Start of user code doc for isDeterminate -->
    * <!-- End of user code doc for isDeterminate -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isDeterminate: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isDeterminate: Boolean
 
-  /**
-   * The OutputPins that onto which are moved values from the bodyOutputs of the Clause selected for execution.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPins that onto which are moved values from the bodyOutputs of the Clause selected for execution.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_conditionalNode
-   */
-  def result: Seq[UMLOutputPin[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_conditionalNode
+	 */
+	def result: Seq[UMLOutputPin[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    conditionalNode_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		conditionalNode_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLConditionalNode
-   *
-   * <!-- Start of user code doc for conditionalNode_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_metaAttributes -->
    * <!-- End of user code doc for conditionalNode_metaAttributes -->
-   */
-  def conditionalNode_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      structuredActivityNode_metaAttributes,
-      Seq (ConditionalNode_isAssured,
-        ConditionalNode_isDeterminate))
+	 */
+	def conditionalNode_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			structuredActivityNode_metaAttributes,
+			Seq (ConditionalNode_isAssured,
+				ConditionalNode_isDeterminate))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    conditionalNode_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		conditionalNode_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLConditionalNode
-   *
-   * <!-- Start of user code doc for conditionalNode_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_compositeMetaProperties -->
    * <!-- End of user code doc for conditionalNode_compositeMetaProperties -->
-   */
-  def conditionalNode_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_compositeMetaProperties,
-      Seq (ConditionalNode_clause,
-        ConditionalNode_result))
+	 */
+	def conditionalNode_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_compositeMetaProperties,
+			Seq (ConditionalNode_clause,
+				ConditionalNode_result))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    conditionalNode_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		conditionalNode_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLConditionalNode
-   *
-   * <!-- Start of user code doc for conditionalNode_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_referenceMetaProperties -->
    * <!-- End of user code doc for conditionalNode_referenceMetaProperties -->
-   */
-  def conditionalNode_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_referenceMetaProperties,
-      Seq ())
+	 */
+	def conditionalNode_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    conditionalNode_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		conditionalNode_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLConditionalNode
-   *
-   * <!-- Start of user code doc for conditionalNode_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLConditionalNode
+	 *
+	 * <!-- Start of user code doc for conditionalNode_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for conditionalNode_forwardReferencesFromMetamodelAssociations -->
-   */
-  def conditionalNode_forwardReferencesFromMetamodelAssociations: Elements =
-    structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def conditionalNode_forwardReferencesFromMetamodelAssociations: Elements =
+		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLConditionalNode

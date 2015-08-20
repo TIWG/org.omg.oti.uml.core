@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLAbstractionOps
  * <!-- End of user code documentation -->
 */
 trait UMLAbstraction[Uml <: UML]
-  extends UMLDependency[Uml]
-  with UMLAbstractionOps[Uml] {
+	extends UMLDependency[Uml]
+	with UMLAbstractionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    abstraction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		abstraction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLAbstraction
-   *
-   * <!-- Start of user code doc for abstraction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLAbstraction
+	 *
+	 * <!-- Start of user code doc for abstraction_metaAttributes -->
    * <!-- End of user code doc for abstraction_metaAttributes -->
-   */
-  def abstraction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      dependency_metaAttributes,
-      Seq ())
+	 */
+	def abstraction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			dependency_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    abstraction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		abstraction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLAbstraction
-   *
-   * <!-- Start of user code doc for abstraction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLAbstraction
+	 *
+	 * <!-- Start of user code doc for abstraction_compositeMetaProperties -->
    * <!-- End of user code doc for abstraction_compositeMetaProperties -->
-   */
-  def abstraction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      dependency_compositeMetaProperties,
-      Seq (Abstraction_mapping))
+	 */
+	def abstraction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			dependency_compositeMetaProperties,
+			Seq (Abstraction_mapping))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    abstraction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		abstraction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLAbstraction
-   *
-   * <!-- Start of user code doc for abstraction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLAbstraction
+	 *
+	 * <!-- Start of user code doc for abstraction_referenceMetaProperties -->
    * <!-- End of user code doc for abstraction_referenceMetaProperties -->
-   */
-  def abstraction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      dependency_referenceMetaProperties,
-      Seq ())
+	 */
+	def abstraction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			dependency_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    abstraction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		abstraction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLAbstraction
-   *
-   * <!-- Start of user code doc for abstraction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLAbstraction
+	 *
+	 * <!-- Start of user code doc for abstraction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for abstraction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def abstraction_forwardReferencesFromMetamodelAssociations: Elements =
-    dependency_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def abstraction_forwardReferencesFromMetamodelAssociations: Elements =
+		dependency_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLAbstraction

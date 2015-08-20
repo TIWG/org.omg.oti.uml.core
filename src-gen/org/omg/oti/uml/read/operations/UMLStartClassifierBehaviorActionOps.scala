@@ -54,49 +54,48 @@ import scala.language.postfixOps
  */
 trait UMLStartClassifierBehaviorActionOps[Uml <: UML] { self: UMLStartClassifierBehaviorAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The InputPin that holds the object whose classifierBehavior is to be started.
-   *
-   * <!-- Start of user code doc for _object -->
+	/**
+	 * The InputPin that holds the object whose classifierBehavior is to be started.
+	 *
+	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.object_startClassifierBehaviorAction
-   */
-  def _object: Option[UMLInputPin[Uml]] = input headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_startClassifierBehaviorAction
+	 */
+	def _object: Option[UMLInputPin[Uml]] = input headOption
 
-  /**
-   * The multiplicity of the object InputPin is 1..1
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of the object InputPin is 1..1
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body object.is(1,1)
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body object.is(1,1)
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * If the InputPin has a type, then the type or one of its ancestors must have a classifierBehavior.
-   *
-   * <!-- Start of user code doc for validate_type_has_classifier -->
+	/**
+	 * If the InputPin has a type, then the type or one of its ancestors must have a classifierBehavior.
+	 *
+	 * <!-- Start of user code doc for validate_type_has_classifier -->
    * <!-- End of user code doc for validate_type_has_classifier -->
-   *
-   * @body object.type->notEmpty() implies
-   *    (object.type.oclIsKindOf(BehavioredClassifier) and
-   *    object.type.oclAsType(BehavioredClassifier).classifierBehavior<>null)
-   */
-  def validate_type_has_classifier: Boolean = {
-    // Start of user code for "type_has_classifier"
+	 *
+	 * @body object.type->notEmpty() implies 
+	 *    (object.type.oclIsKindOf(BehavioredClassifier) and object.type.oclAsType(BehavioredClassifier).classifierBehavior<>null)
+	 */
+	def validate_type_has_classifier: Boolean = {
+		// Start of user code for "type_has_classifier"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLStartClassifierBehaviorActionOps

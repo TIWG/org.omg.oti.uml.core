@@ -52,118 +52,118 @@ import org.omg.oti.uml.read.operations.UMLPseudostateOps
  * <!-- End of user code documentation -->
 */
 trait UMLPseudostate[Uml <: UML]
-  extends UMLVertex[Uml]
-  with UMLPseudostateOps[Uml] {
+	extends UMLVertex[Uml]
+	with UMLPseudostateOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Determines the precise type of the Pseudostate and can be one of: entryPoint, exitPoint, initial, deepHistory, shallowHistory, join, fork, junction, terminate or choice.
-   *
-   * <!-- Start of user code doc for kind -->
+	/**
+	 * Determines the precise type of the Pseudostate and can be one of: entryPoint, exitPoint, initial, deepHistory, shallowHistory, join, fork, junction, terminate or choice.
+	 *
+	 * <!-- Start of user code doc for kind -->
    * <!-- End of user code doc for kind -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def kind: UMLPseudostateKind.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def kind: UMLPseudostateKind.Value
 
-  /**
-   * <!-- Start of user code doc for entry_connectionPointReference -->
+	/**
+	 * <!-- Start of user code doc for entry_connectionPointReference -->
    * <!-- End of user code doc for entry_connectionPointReference -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLConnectionPointReference.entry
-   */
-  def entry_connectionPointReference: Option[UMLConnectionPointReference[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnectionPointReference.entry
+	 */
+	def entry_connectionPointReference: Option[UMLConnectionPointReference[Uml]]
 
-  /**
-   * <!-- Start of user code doc for exit_connectionPointReference -->
+	/**
+	 * <!-- Start of user code doc for exit_connectionPointReference -->
    * <!-- End of user code doc for exit_connectionPointReference -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLConnectionPointReference.exit
-   */
-  def exit_connectionPointReference: Option[UMLConnectionPointReference[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnectionPointReference.exit
+	 */
+	def exit_connectionPointReference: Option[UMLConnectionPointReference[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    pseudostate_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		pseudostate_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLPseudostate
-   *
-   * <!-- Start of user code doc for pseudostate_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_metaAttributes -->
    * <!-- End of user code doc for pseudostate_metaAttributes -->
-   */
-  def pseudostate_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      vertex_metaAttributes,
-      Seq ())
+	 */
+	def pseudostate_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			vertex_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    pseudostate_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		pseudostate_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLPseudostate
-   *
-   * <!-- Start of user code doc for pseudostate_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_compositeMetaProperties -->
    * <!-- End of user code doc for pseudostate_compositeMetaProperties -->
-   */
-  def pseudostate_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      vertex_compositeMetaProperties,
-      Seq ())
+	 */
+	def pseudostate_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			vertex_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    pseudostate_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		pseudostate_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLPseudostate
-   *
-   * <!-- Start of user code doc for pseudostate_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_referenceMetaProperties -->
    * <!-- End of user code doc for pseudostate_referenceMetaProperties -->
-   */
-  def pseudostate_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      vertex_referenceMetaProperties,
-      Seq ())
+	 */
+	def pseudostate_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			vertex_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    pseudostate_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		pseudostate_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLPseudostate
-   *
-   * <!-- Start of user code doc for pseudostate_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLPseudostate
+	 *
+	 * <!-- Start of user code doc for pseudostate_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for pseudostate_forwardReferencesFromMetamodelAssociations -->
-   */
-  def pseudostate_forwardReferencesFromMetamodelAssociations: Elements =
-    vertex_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def pseudostate_forwardReferencesFromMetamodelAssociations: Elements =
+		vertex_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLPseudostate

@@ -46,44 +46,44 @@ package org.omg.oti.uml.read.api
  * <!-- End of user code documentation -->
  */
 object UMLMessageKind extends Enumeration {
-
-  /**
-   * The enumeration type
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	
+	/**
+	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  type UMLMessageKind = Value
+	 */
+	type UMLMessageKind = Value
 
-  /**
-    * sendEvent and receiveEvent are present
-   *
-   * <!-- Start of user code doc for complete -->
+	/**
+ 	 * sendEvent and receiveEvent are present
+	 *
+	 * <!-- Start of user code doc for complete -->
    * <!-- End of user code doc for complete -->
-    */
-  val complete = Value
+ 	 */
+	val complete = Value
 
-  /**
-    * sendEvent absent and receiveEvent present
-   *
-   * <!-- Start of user code doc for found -->
+	/**
+ 	 * sendEvent absent and receiveEvent present
+	 *
+	 * <!-- Start of user code doc for found -->
    * <!-- End of user code doc for found -->
-    */
-  val found = Value
+ 	 */
+	val found = Value
 
-  /**
-    * sendEvent present and receiveEvent absent
-   *
-   * <!-- Start of user code doc for lost -->
+	/**
+ 	 * sendEvent present and receiveEvent absent
+	 *
+	 * <!-- Start of user code doc for lost -->
    * <!-- End of user code doc for lost -->
-    */
-  val lost = Value
+ 	 */
+	val lost = Value
 
-  /**
-    * sendEvent and receiveEvent absent (should not appear)
-   *
-   * <!-- Start of user code doc for unknown -->
+	/**
+ 	 * sendEvent and receiveEvent absent (should not appear)
+	 *
+	 * <!-- Start of user code doc for unknown -->
    * <!-- End of user code doc for unknown -->
-    */
-  val unknown = Value
+ 	 */
+	val unknown = Value
 }

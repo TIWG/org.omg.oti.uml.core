@@ -54,33 +54,33 @@ import scala.language.postfixOps
  */
 trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The UseCase that owns this ExtensionPoint.
-   *
-   * <!-- Start of user code doc for useCase -->
+	/**
+	 * The UseCase that owns this ExtensionPoint.
+	 *
+	 * <!-- Start of user code doc for useCase -->
    * <!-- End of user code doc for useCase -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLUseCase.extensionPoint
-   */
-  def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extensionPoint
+	 */
+	def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
-  /**
-   * An ExtensionPoint must have a name.
-   *
-   * <!-- Start of user code doc for validate_must_have_name -->
+	/**
+	 * An ExtensionPoint must have a name.
+	 *
+	 * <!-- Start of user code doc for validate_must_have_name -->
    * <!-- End of user code doc for validate_must_have_name -->
-   *
-   * @body name->notEmpty ()
-   */
-  def validate_must_have_name: Boolean = {
-    // Start of user code for "must_have_name"
+	 *
+	 * @body name->notEmpty ()
+	 */
+	def validate_must_have_name: Boolean = {
+		// Start of user code for "must_have_name"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExtensionPointOps

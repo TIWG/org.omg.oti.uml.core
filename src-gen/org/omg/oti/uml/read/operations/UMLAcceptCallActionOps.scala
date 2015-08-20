@@ -54,26 +54,25 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAcceptCallActionOps[Uml <: UML] {
-  self: UMLAcceptCallAction[Uml] =>
+trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
-   *
-   * <!-- Start of user code doc for validate_result_pins -->
+	/**
+	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
+	 *
+	 * <!-- Start of user code doc for validate_result_pins -->
    * <!-- End of user code doc for validate_result_pins -->
-   *
-   * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
-   *       result->size() = parameter->size() and
-   *       Sequence{1..result->size()}->forAll(i |
-   *       parameter->at(i).type.conformsTo(result->at(i).type) and
-   *       parameter->at(i).isOrdered = result->at(i).isOrdered and
-   *       parameter->at(i).compatibleWith(result->at(i)))
-   */
-  def validate_result_pins: Boolean = {
-    // Start of user code for "result_pins"
+	 *
+	 * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
+	 * result->size() = parameter->size() and
+	 * Sequence{1..result->size()}->forAll(i | 
+	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
+	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
+	 * 	parameter->at(i).compatibleWith(result->at(i)))
+	 */
+	def validate_result_pins: Boolean = {
+		// Start of user code for "result_pins"
     1 != trigger.size ||
       (trigger.head.event match {
         case Some(ce: UMLCallEvent[Uml]) =>
@@ -96,19 +95,19 @@ trait UMLAcceptCallActionOps[Uml <: UML] {
         case _                           => true
       })
     // End of user code
-  }
+	}
 
-  /**
-   * The action must have exactly one trigger, which must be for a CallEvent.
-   *
-   * <!-- Start of user code doc for validate_trigger_call_event -->
+	/**
+	 * The action must have exactly one trigger, which must be for a CallEvent.
+	 *
+	 * <!-- Start of user code doc for validate_trigger_call_event -->
    * <!-- End of user code doc for validate_trigger_call_event -->
-   *
-   * @body trigger->size()=1 and
-   *       trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
-   */
-  def validate_trigger_call_event: Boolean = {
-    // Start of user code for "trigger_call_event"
+	 *
+	 * @body trigger->size()=1 and
+	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
+	 */
+	def validate_trigger_call_event: Boolean = {
+		// Start of user code for "trigger_call_event"
     trigger.toList match {
       case (t: UMLTrigger[Uml]) :: Nil =>
         t.event match {
@@ -118,24 +117,22 @@ trait UMLAcceptCallActionOps[Uml <: UML] {
       case _                           => false
     }
     // End of user code
-  }
+	}
 
-  /**
-   * isUnmrashall must be true for an AcceptCallAction.
-   *
-   * <!-- Start of user code doc for validate_unmarshall -->
+	/**
+	 * isUnmrashall must be true for an AcceptCallAction.
+	 *
+	 * <!-- Start of user code doc for validate_unmarshall -->
    * <!-- End of user code doc for validate_unmarshall -->
-   *
-   * @body isUnmarshall = true
-   */
-  def validate_unmarshall: Boolean = {
-    // Start of user code for "unmarshall"
+	 *
+	 * @body isUnmarshall = true
+	 */
+	def validate_unmarshall: Boolean = {
+		// Start of user code for "unmarshall"
     isUnmarshall
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
-}
-
-//UMLAcceptCallActionOps
+} //UMLAcceptCallActionOps

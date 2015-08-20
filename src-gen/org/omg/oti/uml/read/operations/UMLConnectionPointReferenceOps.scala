@@ -54,47 +54,47 @@ import scala.language.postfixOps
  */
 trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointReference[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The State in which the ConnectionPointReference is defined.
-   *
-   * <!-- Start of user code doc for state -->
+	/**
+	 * The State in which the ConnectionPointReference is defined.
+	 *
+	 * <!-- Start of user code doc for state -->
    * <!-- End of user code doc for state -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLState.connection
-   */
-  def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLState.connection
+	 */
+	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
-  /**
-   * The entry Pseudostates must be Pseudostates with kind entryPoint.
-   *
-   * <!-- Start of user code doc for validate_entry_pseudostates -->
+	/**
+	 * The entry Pseudostates must be Pseudostates with kind entryPoint.
+	 *
+	 * <!-- Start of user code doc for validate_entry_pseudostates -->
    * <!-- End of user code doc for validate_entry_pseudostates -->
-   *
-   * @body entry->forAll(kind = PseudostateKind::entryPoint)
-   */
-  def validate_entry_pseudostates: Boolean = {
-    // Start of user code for "entry_pseudostates"
+	 *
+	 * @body entry->forAll(kind = PseudostateKind::entryPoint)
+	 */
+	def validate_entry_pseudostates: Boolean = {
+		// Start of user code for "entry_pseudostates"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The exit Pseudostates must be Pseudostates with kind exitPoint.
-   *
-   * <!-- Start of user code doc for validate_exit_pseudostates -->
+	/**
+	 * The exit Pseudostates must be Pseudostates with kind exitPoint.
+	 *
+	 * <!-- Start of user code doc for validate_exit_pseudostates -->
    * <!-- End of user code doc for validate_exit_pseudostates -->
-   *
-   * @body exit->forAll(kind = PseudostateKind::exitPoint)
-   */
-  def validate_exit_pseudostates: Boolean = {
-    // Start of user code for "exit_pseudostates"
+	 *
+	 * @body exit->forAll(kind = PseudostateKind::exitPoint)
+	 */
+	def validate_exit_pseudostates: Boolean = {
+		// Start of user code for "exit_pseudostates"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLConnectionPointReferenceOps

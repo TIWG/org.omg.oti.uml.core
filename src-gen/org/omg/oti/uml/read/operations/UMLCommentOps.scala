@@ -54,18 +54,18 @@ import scala.language.postfixOps
  */
 trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for ownedComment_owningElement -->
+	/**
+	 * <!-- Start of user code doc for ownedComment_owningElement -->
    * <!-- End of user code doc for ownedComment_owningElement -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLElement.ownedComment
-   */
-  def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLElement.ownedComment
+	 */
+	def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   def getCommentOwnerIndex: Int
 

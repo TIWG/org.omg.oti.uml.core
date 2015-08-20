@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLProtocolConformanceOps
  * <!-- End of user code documentation -->
 */
 trait UMLProtocolConformance[Uml <: UML]
-  extends UMLDirectedRelationship[Uml]
-  with UMLProtocolConformanceOps[Uml] {
+	extends UMLDirectedRelationship[Uml]
+	with UMLProtocolConformanceOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    protocolConformance_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		protocolConformance_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLProtocolConformance
-   *
-   * <!-- Start of user code doc for protocolConformance_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_metaAttributes -->
    * <!-- End of user code doc for protocolConformance_metaAttributes -->
-   */
-  def protocolConformance_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      directedRelationship_metaAttributes,
-      Seq ())
+	 */
+	def protocolConformance_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			directedRelationship_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    protocolConformance_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		protocolConformance_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLProtocolConformance
-   *
-   * <!-- Start of user code doc for protocolConformance_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_compositeMetaProperties -->
    * <!-- End of user code doc for protocolConformance_compositeMetaProperties -->
-   */
-  def protocolConformance_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      directedRelationship_compositeMetaProperties,
-      Seq ())
+	 */
+	def protocolConformance_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			directedRelationship_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    protocolConformance_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		protocolConformance_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLProtocolConformance
-   *
-   * <!-- Start of user code doc for protocolConformance_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_referenceMetaProperties -->
    * <!-- End of user code doc for protocolConformance_referenceMetaProperties -->
-   */
-  def protocolConformance_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      directedRelationship_referenceMetaProperties,
-      Seq (ProtocolConformance_generalMachine))
+	 */
+	def protocolConformance_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			directedRelationship_referenceMetaProperties,
+			Seq (ProtocolConformance_generalMachine))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    protocolConformance_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		protocolConformance_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLProtocolConformance
-   *
-   * <!-- Start of user code doc for protocolConformance_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLProtocolConformance
+	 *
+	 * <!-- Start of user code doc for protocolConformance_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for protocolConformance_forwardReferencesFromMetamodelAssociations -->
-   */
-  def protocolConformance_forwardReferencesFromMetamodelAssociations: Elements =
-    directedRelationship_forwardReferencesFromMetamodelAssociations ++
-    generalMachine
+	 */
+	def protocolConformance_forwardReferencesFromMetamodelAssociations: Elements =
+		directedRelationship_forwardReferencesFromMetamodelAssociations ++
+		generalMachine
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLProtocolConformance

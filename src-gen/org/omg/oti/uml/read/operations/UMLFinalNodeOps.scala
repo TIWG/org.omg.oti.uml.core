@@ -54,22 +54,22 @@ import scala.language.postfixOps
  */
 trait UMLFinalNodeOps[Uml <: UML] { self: UMLFinalNode[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * A FinalNode has no outgoing ActivityEdges.
-   *
-   * <!-- Start of user code doc for validate_no_outgoing_edges -->
+	/**
+	 * A FinalNode has no outgoing ActivityEdges.
+	 *
+	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
    * <!-- End of user code doc for validate_no_outgoing_edges -->
-   *
-   * @body outgoing->isEmpty()
-   */
-  def validate_no_outgoing_edges: Boolean = {
-    // Start of user code for "no_outgoing_edges"
+	 *
+	 * @body outgoing->isEmpty()
+	 */
+	def validate_no_outgoing_edges: Boolean = {
+		// Start of user code for "no_outgoing_edges"
       outgoing.isEmpty
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLFinalNodeOps

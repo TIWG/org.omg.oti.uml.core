@@ -53,38 +53,33 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLProfileApplicationOps[Uml <: UML] {
-  self: UMLProfileApplication[Uml] =>
+trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * References the Profiles that are applied to a Package through this ProfileApplication.
-   *
-   * <!-- Start of user code doc for appliedProfile -->
+	/**
+	 * References the Profiles that are applied to a Package through this ProfileApplication.
+	 *
+	 * <!-- Start of user code doc for appliedProfile -->
    * <!-- End of user code doc for appliedProfile -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLProfile.appliedProfile_profileApplication
-   */
-  def appliedProfile: Option[UMLProfile[Uml]] =
-    target
-    .selectByKindOf { case x: UMLProfile[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLProfile.appliedProfile_profileApplication
+	 */
+	def appliedProfile: Option[UMLProfile[Uml]] = target.selectByKindOf { case x: UMLProfile[Uml] => x } headOption
 
-  /**
-   * The package that owns the profile application.
-   *
-   * <!-- Start of user code doc for applyingPackage -->
+	/**
+	 * The package that owns the profile application.
+	 *
+	 * <!-- Start of user code doc for applyingPackage -->
    * <!-- End of user code doc for applyingPackage -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLPackage.profileApplication
-   */
-  def applyingPackage: Option[UMLPackage[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLPackage[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLPackage.profileApplication
+	 */
+	def applyingPackage: Option[UMLPackage[Uml]] = owner.selectByKindOf { case x: UMLPackage[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   /**
    * TIWG: see UMLUtil, Rule #3
@@ -96,6 +91,4 @@ trait UMLProfileApplicationOps[Uml <: UML] {
     })
 
   // End of user code
-}
-
-//UMLProfileApplicationOps
+} //UMLProfileApplicationOps

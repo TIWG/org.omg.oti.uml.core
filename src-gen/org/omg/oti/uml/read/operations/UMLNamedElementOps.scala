@@ -47,76 +47,65 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A NamedElement is an Element in a model that may have a name.
- * The name may be given directly and/or via the use of a StringExpression.
+ * A NamedElement is an Element in a model that may have a name. The name may be given directly and/or via the use of a StringExpression.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * Indicates the Dependencies that reference this NamedElement as a client.
-   *
-   * <!-- Start of user code doc for clientDependency -->
+	/**
+	 * Indicates the Dependencies that reference this NamedElement as a client.
+	 *
+	 * <!-- Start of user code doc for clientDependency -->
    * <!-- End of user code doc for clientDependency -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLDependency.client
-   * @body result = (Dependency.allInstances()->select(d | d.client->includes(self)))
-   */
-  def clientDependency: Set[UMLDependency[Uml]] =
-    source_directedRelationship
-    .selectByKindOf { case x: UMLDependency[Uml] => x }
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLDependency.client
+	 * @body result = (Dependency.allInstances()->select(d | d.client->includes(self)))
+	 */
+	def clientDependency: Set[UMLDependency[Uml]] = source_directedRelationship.selectByKindOf { case x: UMLDependency[Uml] => x }
 
-  /**
-   * The StringExpression used to define the name of this NamedElement.
-   *
-   * <!-- Start of user code doc for nameExpression -->
+	/**
+	 * The StringExpression used to define the name of this NamedElement.
+	 *
+	 * <!-- Start of user code doc for nameExpression -->
    * <!-- End of user code doc for nameExpression -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLStringExpression.nameExpression_namedElement
-   */
-  def nameExpression: Option[UMLStringExpression[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLStringExpression[Uml] => x }
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLStringExpression.nameExpression_namedElement
+	 */
+	def nameExpression: Option[UMLStringExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLStringExpression[Uml] => x } headOption
 
-  /**
-   * Specifies the Namespace that owns the NamedElement.
-   *
-   * <!-- Start of user code doc for namespace -->
+	/**
+	 * Specifies the Namespace that owns the NamedElement.
+	 *
+	 * <!-- Start of user code doc for namespace -->
    * <!-- End of user code doc for namespace -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLNamespace.ownedMember
-   */
-  def namespace: Option[UMLNamespace[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLNamespace[Uml] => x }
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.ownedMember
+	 */
+	def namespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
-  /**
-   * A name that allows the NamedElement to be identified within a hierarchy of nested Namespaces.
-   * It is constructed from the names of the containing Namespaces starting at the root of
-   * the hierarchy and ending with the name of the NamedElement itself.
-   *
-   * <!-- Start of user code doc for qualifiedName -->
+	/**
+	 * A name that allows the NamedElement to be identified within a hierarchy of nested Namespaces. It is constructed from the names of the containing Namespaces starting at the root of the hierarchy and ending with the name of the NamedElement itself.
+	 *
+	 * <!-- Start of user code doc for qualifiedName -->
    * <!-- End of user code doc for qualifiedName -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @body result = (if self.name <> null and self.allNamespaces()->select( ns | ns.name=null )->isEmpty()
-   * then
-   *     self.allNamespaces()->iterate( ns : Namespace; agg: String = self.name |
-   *     ns.name.concat(self.separator()).concat(agg))
-   * else
-   *    null
-   * endif)
-   */
-  def qualifiedName: Option[String] = {
-    // Start of user code for "qualifiedName"
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @body result = (if self.name <> null and self.allNamespaces()->select( ns | ns.name=null )->isEmpty()
+	 * then 
+	 *     self.allNamespaces()->iterate( ns : Namespace; agg: String = self.name | ns.name.concat(self.separator()).concat(agg))
+	 * else
+	 *    null
+	 * endif)
+	 */
+	def qualifiedName: Option[String] = {
+		// Start of user code for "qualifiedName"
     ( name /: allNamespaces ){
       case (None, _) => None
       case (Some(n1), ns) =>
@@ -126,76 +115,68 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
         }
     }
     // End of user code
-  }
+	}
 
-  /**
-   * <!-- Start of user code doc for informationSource_informationFlow -->
+	/**
+	 * <!-- Start of user code doc for informationSource_informationFlow -->
    * <!-- End of user code doc for informationSource_informationFlow -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInformationFlow.informationSource
-   */
-  def informationSource_informationFlow: Set[UMLInformationFlow[Uml]] =
-    source_directedRelationship
-    .selectByKindOf { case x: UMLInformationFlow[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.informationSource
+	 */
+	def informationSource_informationFlow: Set[UMLInformationFlow[Uml]] = source_directedRelationship.selectByKindOf { case x: UMLInformationFlow[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for informationTarget_informationFlow -->
+	/**
+	 * <!-- Start of user code doc for informationTarget_informationFlow -->
    * <!-- End of user code doc for informationTarget_informationFlow -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInformationFlow.informationTarget
-   */
-  def informationTarget_informationFlow: Set[UMLInformationFlow[Uml]] =
-    target_directedRelationship
-    .selectByKindOf { case x: UMLInformationFlow[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.informationTarget
+	 */
+	def informationTarget_informationFlow: Set[UMLInformationFlow[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLInformationFlow[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for inheritedMember_inheritingClassifier -->
+	/**
+	 * <!-- Start of user code doc for inheritedMember_inheritingClassifier -->
    * <!-- End of user code doc for inheritedMember_inheritingClassifier -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLClassifier.inheritedMember
-   */
-  def inheritedMember_inheritingClassifier: Set[UMLClassifier[Uml]] =
-    member_memberNamespace
-    .selectByKindOf { case x: UMLClassifier[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.inheritedMember
+	 */
+	def inheritedMember_inheritingClassifier: Set[UMLClassifier[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
-  /**
-   * Indicates the dependencies that reference the supplier.
-   *
-   * <!-- Start of user code doc for supplier_supplierDependency -->
+	/**
+	 * Indicates the dependencies that reference the supplier.
+	 *
+	 * <!-- Start of user code doc for supplier_supplierDependency -->
    * <!-- End of user code doc for supplier_supplierDependency -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLDependency.supplier
-   */
-  def supplier_supplierDependency: Set[UMLDependency[Uml]] =
-    target_directedRelationship
-    .selectByKindOf { case x: UMLDependency[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLDependency.supplier
+	 */
+	def supplier_supplierDependency: Set[UMLDependency[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLDependency[Uml] => x }
 
-  /**
-   * The query allNamespaces() gives the sequence of Namespaces in which the NamedElement is nested, working outwards.
-   *
-   * <!-- Start of user code doc for allNamespaces -->
+	/**
+	 * The query allNamespaces() gives the sequence of Namespaces in which the NamedElement is nested, working outwards.
+	 *
+	 * <!-- Start of user code doc for allNamespaces -->
    * <!-- End of user code doc for allNamespaces -->
-   *
-   * @operation ordered="true" unique="true" multiplicity="0..*"
-   * @body result = (if owner.oclIsKindOf(TemplateParameter) and
-   *   owner.oclAsType(TemplateParameter).signature.template.oclIsKindOf(Namespace) then
-   *     let enclosingNamespace : Namespace =
-   *       owner.oclAsType(TemplateParameter).signature.template.oclAsType(Namespace) in
-   *         enclosingNamespace.allNamespaces()->prepend(enclosingNamespace)
-   * else
-   *   if namespace->isEmpty()
-   *     then OrderedSet{}
-   *   else
-   *     namespace.allNamespaces()->prepend(namespace)
-   *   endif
-   * endif)
-   */
-  def allNamespaces: Seq[UMLNamespace[Uml]] = {
-    // Start of user code for "allNamespaces"
+	 *
+	 * @operation ordered="true" unique="true" multiplicity="0..*"
+	 * @body result = (if owner.oclIsKindOf(TemplateParameter) and
+	 *   owner.oclAsType(TemplateParameter).signature.template.oclIsKindOf(Namespace) then
+	 *     let enclosingNamespace : Namespace =
+	 *       owner.oclAsType(TemplateParameter).signature.template.oclAsType(Namespace) in
+	 *         enclosingNamespace.allNamespaces()->prepend(enclosingNamespace)
+	 * else
+	 *   if namespace->isEmpty()
+	 *     then OrderedSet{}
+	 *   else
+	 *     namespace.allNamespaces()->prepend(namespace)
+	 *   endif
+	 * endif)
+	 */
+	def allNamespaces: Seq[UMLNamespace[Uml]] = {
+		// Start of user code for "allNamespaces"
       @annotation.tailrec def allNamespacesAggregator( //TBD
       acc: Seq[UMLNamespace[Uml]],
       ne: UMLNamedElement[Uml] ): Seq[UMLNamespace[Uml]] =
@@ -218,26 +199,25 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 
     allNamespacesAggregator( Seq(), self )
       // End of user code
-  }
+	}
 
-  /**
-   * The query allOwningPackages() returns the set of all the enclosing Namespaces of this NamedElement,
-   * working outwards, that are Packages, up to but not including the first such Namespace that is not a Package.
-   *
-   * <!-- Start of user code doc for allOwningPackages -->
+	/**
+	 * The query allOwningPackages() returns the set of all the enclosing Namespaces of this NamedElement, working outwards, that are Packages, up to but not including the first such Namespace that is not a Package.
+	 *
+	 * <!-- Start of user code doc for allOwningPackages -->
    * <!-- End of user code doc for allOwningPackages -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="0..*"
-   * @body result = (if namespace.oclIsKindOf(Package)
-   * then
-   *   let owningPackage : Package = namespace.oclAsType(Package) in
-   *     owningPackage->union(owningPackage.allOwningPackages())
-   * else
-   *   null
-   * endif)
-   */
-  def allOwningPackages: Set[UMLPackage[Uml]] = {
-    // Start of user code for "allOwningPackages"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="0..*"
+	 * @body result = (if namespace.oclIsKindOf(Package)
+	 * then
+	 *   let owningPackage : Package = namespace.oclAsType(Package) in
+	 *     owningPackage->union(owningPackage.allOwningPackages())
+	 * else
+	 *   null
+	 * endif)
+	 */
+	def allOwningPackages: Set[UMLPackage[Uml]] = {
+		// Start of user code for "allOwningPackages"
     @annotation.tailrec def allOwningPackagesAggregator(
       acc: Set[UMLPackage[Uml]],
       ne: UMLNamedElement[Uml] ): Set[UMLPackage[Uml]] =
@@ -248,97 +228,90 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 
     allOwningPackagesAggregator( Set(), self )
       // End of user code
-  }
+	}
 
-  /**
-   * The query isDistinguishableFrom() determines whether two NamedElements may logically co-exist within a Namespace.
-   * By default, two named elements are distinguishable if
-   * (a) they have types neither of which is a kind of the other or
-   * (b) they have different names.
-   *
-   * <!-- Start of user code doc for isDistinguishableFrom -->
+	/**
+	 * The query isDistinguishableFrom() determines whether two NamedElements may logically co-exist within a Namespace. By default, two named elements are distinguishable if (a) they have types neither of which is a kind of the other or (b) they have different names.
+	 *
+	 * <!-- Start of user code doc for isDistinguishableFrom -->
    * <!-- End of user code doc for isDistinguishableFrom -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = ((self.oclIsKindOf(n.oclType()) or n.oclIsKindOf(self.oclType())) implies
-   *     ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->isEmpty()
-   * )
-   */
-  def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
-    // Start of user code for "isDistinguishableFrom"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = ((self.oclIsKindOf(n.oclType()) or n.oclIsKindOf(self.oclType())) implies
+	 *     ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->isEmpty()
+	 * )
+	 */
+	def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
+		// Start of user code for "isDistinguishableFrom"
     ???
     // End of user code
-  }
+	}
 
-  /**
-   * The query separator() gives the string that is used to separate names when constructing a qualifiedName.
-   *
-   * <!-- Start of user code doc for separator -->
+	/**
+	 * The query separator() gives the string that is used to separate names when constructing a qualifiedName.
+	 *
+	 * <!-- Start of user code doc for separator -->
    * <!-- End of user code doc for separator -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = ('::')
-   */
-  def separator: Option[String] = {
-    // Start of user code for "separator"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = ('::')
+	 */
+	def separator: Option[String] = {
+		// Start of user code for "separator"
     Some("::")
     // End of user code
-  }
+	}
 
-  /**
-   * If there is no name, or one of the containing Namespaces has no name, there is no qualifiedName.
-   *
-   * <!-- Start of user code doc for validate_has_no_qualified_name -->
+	/**
+	 * If there is no name, or one of the containing Namespaces has no name, there is no qualifiedName.
+	 *
+	 * <!-- Start of user code doc for validate_has_no_qualified_name -->
    * <!-- End of user code doc for validate_has_no_qualified_name -->
-   *
-   * @body name=null or allNamespaces()->select( ns | ns.name=null )->notEmpty() implies qualifiedName = null
-   */
-  def validate_has_no_qualified_name: Boolean = {
-    // Start of user code for "has_no_qualified_name"
+	 *
+	 * @body name=null or allNamespaces()->select( ns | ns.name=null )->notEmpty() implies qualifiedName = null
+	 */
+	def validate_has_no_qualified_name: Boolean = {
+		// Start of user code for "has_no_qualified_name"
     if ( name.isEmpty || allNamespaces.exists { _.name.isEmpty } ) {
       qualifiedName.isEmpty
     } else true
     // End of user code
-  }
+	}
 
-  /**
-   * When there is a name, and all of the containing Namespaces have a name,
-   * the qualifiedName is constructed from the name of the NamedElement and the names of the containing Namespaces.
-   *
-   * <!-- Start of user code doc for validate_has_qualified_name -->
+	/**
+	 * When there is a name, and all of the containing Namespaces have a name, the qualifiedName is constructed from the name of the NamedElement and the names of the containing Namespaces.
+	 *
+	 * <!-- Start of user code doc for validate_has_qualified_name -->
    * <!-- End of user code doc for validate_has_qualified_name -->
-   *
-   * @body (name <> null and allNamespaces()->select(ns | ns.name = null)->isEmpty()) implies
-   *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name |
-   *   ns.name.concat(self.separator()).concat(agg))
-   */
-  def validate_has_qualified_name: Boolean = {
-    // Start of user code for "has_qualified_name"
+	 *
+	 * @body (name <> null and allNamespaces()->select(ns | ns.name = null)->isEmpty()) implies
+	 *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name | ns.name.concat(self.separator()).concat(agg))
+	 */
+	def validate_has_qualified_name: Boolean = {
+		// Start of user code for "has_qualified_name"
     if ( name.isDefined && allNamespaces.forall { _.name.isDefined } ) {
       qualifiedName.isDefined
     } else true
     // End of user code
-  }
+	}
 
-  /**
-   * If a NamedElement is owned by something other than a Namespace, it does not have a visibility.
-   * One that is not owned by anything (and hence must be a Package, as this is the only kind of
-   * NamedElement that overrides mustBeOwned()) may have a visibility.
-   *
-   * <!-- Start of user code doc for validate_visibility_needs_ownership -->
+	/**
+	 * If a NamedElement is owned by something other than a Namespace, it does not have a visibility. One that is not owned by anything (and hence must be a Package, as this is the only kind of NamedElement that overrides mustBeOwned()) may have a visibility.
+	 *
+	 * <!-- Start of user code doc for validate_visibility_needs_ownership -->
    * <!-- End of user code doc for validate_visibility_needs_ownership -->
-   *
-   * @body (namespace = null and owner <> null) implies visibility = null
-   */
-  def validate_visibility_needs_ownership: Boolean = {
-    // Start of user code for "visibility_needs_ownership"
+	 *
+	 * @body (namespace = null and owner <> null) implies visibility = null
+	 */
+	def validate_visibility_needs_ownership: Boolean = {
+		// Start of user code for "visibility_needs_ownership"
     if (namespace.isEmpty && owner.isDefined) {
       visibility.isEmpty 
     } else true
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   /**
    * JPL:

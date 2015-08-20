@@ -47,18 +47,16 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * An Expression represents a node in an expression tree, which may be non-terminal or terminal.
- * It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications.
- * It denotes a (possibly empty) set of values when evaluated in a context.
+ * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     expression_asForwardReferencesToImportableOuterPackageableElements

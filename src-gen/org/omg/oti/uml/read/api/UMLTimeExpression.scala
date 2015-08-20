@@ -52,112 +52,112 @@ import org.omg.oti.uml.read.operations.UMLTimeExpressionOps
  * <!-- End of user code documentation -->
 */
 trait UMLTimeExpression[Uml <: UML]
-  extends UMLValueSpecification[Uml]
-  with UMLTimeExpressionOps[Uml] {
+	extends UMLValueSpecification[Uml]
+	with UMLTimeExpressionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * A ValueSpecification that evaluates to the value of the TimeExpression.
-   *
-   * <!-- Start of user code doc for expr -->
+	/**
+	 * A ValueSpecification that evaluates to the value of the TimeExpression.
+	 *
+	 * <!-- Start of user code doc for expr -->
    * <!-- End of user code doc for expr -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.expr_timeExpression
-   */
-  def expr: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.expr_timeExpression
+	 */
+	def expr: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * Refers to the Observations that are involved in the computation of the TimeExpression value.
-   *
-   * <!-- Start of user code doc for observation -->
+	/**
+	 * Refers to the Observations that are involved in the computation of the TimeExpression value.
+	 *
+	 * <!-- Start of user code doc for observation -->
    * <!-- End of user code doc for observation -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLObservation.observation_timeExpression
-   */
-  def observation: Set[UMLObservation[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLObservation.observation_timeExpression
+	 */
+	def observation: Set[UMLObservation[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    timeExpression_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		timeExpression_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLTimeExpression
-   *
-   * <!-- Start of user code doc for timeExpression_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLTimeExpression
+	 *
+	 * <!-- Start of user code doc for timeExpression_metaAttributes -->
    * <!-- End of user code doc for timeExpression_metaAttributes -->
-   */
-  def timeExpression_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      valueSpecification_metaAttributes,
-      Seq ())
+	 */
+	def timeExpression_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			valueSpecification_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    timeExpression_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		timeExpression_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLTimeExpression
-   *
-   * <!-- Start of user code doc for timeExpression_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLTimeExpression
+	 *
+	 * <!-- Start of user code doc for timeExpression_compositeMetaProperties -->
    * <!-- End of user code doc for timeExpression_compositeMetaProperties -->
-   */
-  def timeExpression_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_compositeMetaProperties,
-      Seq (TimeExpression_expr))
+	 */
+	def timeExpression_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_compositeMetaProperties,
+			Seq (TimeExpression_expr))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    timeExpression_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		timeExpression_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLTimeExpression
-   *
-   * <!-- Start of user code doc for timeExpression_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLTimeExpression
+	 *
+	 * <!-- Start of user code doc for timeExpression_referenceMetaProperties -->
    * <!-- End of user code doc for timeExpression_referenceMetaProperties -->
-   */
-  def timeExpression_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_referenceMetaProperties,
-      Seq (TimeExpression_observation))
+	 */
+	def timeExpression_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_referenceMetaProperties,
+			Seq (TimeExpression_observation))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    timeExpression_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		timeExpression_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLTimeExpression
-   *
-   * <!-- Start of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLTimeExpression
+	 *
+	 * <!-- Start of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
-   */
-  def timeExpression_forwardReferencesFromMetamodelAssociations: Elements =
-    valueSpecification_forwardReferencesFromMetamodelAssociations ++
-    observation
+	 */
+	def timeExpression_forwardReferencesFromMetamodelAssociations: Elements =
+		valueSpecification_forwardReferencesFromMetamodelAssociations ++
+		observation
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTimeExpression

@@ -52,119 +52,119 @@ import org.omg.oti.uml.read.operations.UMLInteractionOps
  * <!-- End of user code documentation -->
 */
 trait UMLInteraction[Uml <: UML]
-  extends UMLBehavior[Uml]
-  with UMLInteractionFragment[Uml]
-  with UMLInteractionOps[Uml] {
+	extends UMLBehavior[Uml]
+	with UMLInteractionFragment[Uml]
+	with UMLInteractionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The ordered set of fragments in the Interaction.
-   *
-   * <!-- Start of user code doc for fragment -->
+	/**
+	 * The ordered set of fragments in the Interaction.
+	 *
+	 * <!-- Start of user code doc for fragment -->
    * <!-- End of user code doc for fragment -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInteractionFragment.enclosingInteraction
-   */
-  def fragment: Seq[UMLInteractionFragment[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInteractionFragment.enclosingInteraction
+	 */
+	def fragment: Seq[UMLInteractionFragment[Uml]]
 
-  /**
-   * <!-- Start of user code doc for refersTo_interactionUse -->
+	/**
+	 * <!-- Start of user code doc for refersTo_interactionUse -->
    * <!-- End of user code doc for refersTo_interactionUse -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInteractionUse.refersTo
-   */
-  def refersTo_interactionUse: Set[UMLInteractionUse[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.refersTo
+	 */
+	def refersTo_interactionUse: Set[UMLInteractionUse[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    interaction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		interaction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLInteraction
-   *
-   * <!-- Start of user code doc for interaction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLInteraction
+	 *
+	 * <!-- Start of user code doc for interaction_metaAttributes -->
    * <!-- End of user code doc for interaction_metaAttributes -->
-   */
-  def interaction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      behavior_metaAttributes,
-      interactionFragment_metaAttributes,
-      Seq ())
+	 */
+	def interaction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			behavior_metaAttributes,
+			interactionFragment_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    interaction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		interaction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLInteraction
-   *
-   * <!-- Start of user code doc for interaction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLInteraction
+	 *
+	 * <!-- Start of user code doc for interaction_compositeMetaProperties -->
    * <!-- End of user code doc for interaction_compositeMetaProperties -->
-   */
-  def interaction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      behavior_compositeMetaProperties,
-      interactionFragment_compositeMetaProperties,
-      Seq (Interaction_action,
-        Interaction_formalGate,
-        Interaction_fragment,
-        Interaction_lifeline,
-        Interaction_message))
+	 */
+	def interaction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			behavior_compositeMetaProperties,
+			interactionFragment_compositeMetaProperties,
+			Seq (Interaction_action,
+				Interaction_formalGate,
+				Interaction_fragment,
+				Interaction_lifeline,
+				Interaction_message))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    interaction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		interaction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLInteraction
-   *
-   * <!-- Start of user code doc for interaction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLInteraction
+	 *
+	 * <!-- Start of user code doc for interaction_referenceMetaProperties -->
    * <!-- End of user code doc for interaction_referenceMetaProperties -->
-   */
-  def interaction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      behavior_referenceMetaProperties,
-      interactionFragment_referenceMetaProperties,
-      Seq ())
+	 */
+	def interaction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			behavior_referenceMetaProperties,
+			interactionFragment_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    interaction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		interaction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLInteraction
-   *
-   * <!-- Start of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLInteraction
+	 *
+	 * <!-- Start of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def interaction_forwardReferencesFromMetamodelAssociations: Elements =
-    behavior_forwardReferencesFromMetamodelAssociations ++
-    interactionFragment_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def interaction_forwardReferencesFromMetamodelAssociations: Elements =
+		behavior_forwardReferencesFromMetamodelAssociations ++
+		interactionFragment_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLInteraction

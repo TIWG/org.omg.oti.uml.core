@@ -52,162 +52,162 @@ import org.omg.oti.uml.read.operations.UMLInformationFlowOps
  * <!-- End of user code documentation -->
 */
 trait UMLInformationFlow[Uml <: UML]
-  extends UMLDirectedRelationship[Uml]
-  with UMLPackageableElement[Uml]
-  with UMLInformationFlowOps[Uml] {
+	extends UMLDirectedRelationship[Uml]
+	with UMLPackageableElement[Uml]
+	with UMLInformationFlowOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies the information items that may circulate on this information flow.
-   *
-   * <!-- Start of user code doc for conveyed -->
+	/**
+	 * Specifies the information items that may circulate on this information flow.
+	 *
+	 * <!-- Start of user code doc for conveyed -->
    * <!-- End of user code doc for conveyed -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-   * @opposite org.omg.oti.api.UMLClassifier.conveyed_conveyingFlow
-   */
-  def conveyed: Set[UMLClassifier[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.conveyed_conveyingFlow
+	 */
+	def conveyed: Set[UMLClassifier[Uml]]
 
-  /**
-   * Determines which Relationship will realize the specified flow.
-   *
-   * <!-- Start of user code doc for realization -->
+	/**
+	 * Determines which Relationship will realize the specified flow.
+	 *
+	 * <!-- Start of user code doc for realization -->
    * <!-- End of user code doc for realization -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLRelationship.realization_abstraction
-   */
-  def realization: Set[UMLRelationship[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLRelationship.realization_abstraction
+	 */
+	def realization: Set[UMLRelationship[Uml]]
 
-  /**
-   * Determines which ActivityEdges will realize the specified flow.
-   *
-   * <!-- Start of user code doc for realizingActivityEdge -->
+	/**
+	 * Determines which ActivityEdges will realize the specified flow.
+	 *
+	 * <!-- Start of user code doc for realizingActivityEdge -->
    * <!-- End of user code doc for realizingActivityEdge -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLActivityEdge.realizingActivityEdge_informationFlow
-   */
-  def realizingActivityEdge: Set[UMLActivityEdge[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.realizingActivityEdge_informationFlow
+	 */
+	def realizingActivityEdge: Set[UMLActivityEdge[Uml]]
 
-  /**
-   * Determines which Connectors will realize the specified flow.
-   *
-   * <!-- Start of user code doc for realizingConnector -->
+	/**
+	 * Determines which Connectors will realize the specified flow.
+	 *
+	 * <!-- Start of user code doc for realizingConnector -->
    * <!-- End of user code doc for realizingConnector -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLConnector.realizingConnector_informationFlow
-   */
-  def realizingConnector: Set[UMLConnector[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnector.realizingConnector_informationFlow
+	 */
+	def realizingConnector: Set[UMLConnector[Uml]]
 
-  /**
-   * Determines which Messages will realize the specified flow.
-   *
-   * <!-- Start of user code doc for realizingMessage -->
+	/**
+	 * Determines which Messages will realize the specified flow.
+	 *
+	 * <!-- Start of user code doc for realizingMessage -->
    * <!-- End of user code doc for realizingMessage -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLMessage.realizingMessage_informationFlow
-   */
-  def realizingMessage: Set[UMLMessage[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLMessage.realizingMessage_informationFlow
+	 */
+	def realizingMessage: Set[UMLMessage[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    informationFlow_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		informationFlow_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLInformationFlow
-   *
-   * <!-- Start of user code doc for informationFlow_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLInformationFlow
+	 *
+	 * <!-- Start of user code doc for informationFlow_metaAttributes -->
    * <!-- End of user code doc for informationFlow_metaAttributes -->
-   */
-  def informationFlow_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      directedRelationship_metaAttributes,
-      packageableElement_metaAttributes,
-      Seq ())
+	 */
+	def informationFlow_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			directedRelationship_metaAttributes,
+			packageableElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    informationFlow_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		informationFlow_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLInformationFlow
-   *
-   * <!-- Start of user code doc for informationFlow_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLInformationFlow
+	 *
+	 * <!-- Start of user code doc for informationFlow_compositeMetaProperties -->
    * <!-- End of user code doc for informationFlow_compositeMetaProperties -->
-   */
-  def informationFlow_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      directedRelationship_compositeMetaProperties,
-      packageableElement_compositeMetaProperties,
-      Seq ())
+	 */
+	def informationFlow_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			directedRelationship_compositeMetaProperties,
+			packageableElement_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    informationFlow_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		informationFlow_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLInformationFlow
-   *
-   * <!-- Start of user code doc for informationFlow_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLInformationFlow
+	 *
+	 * <!-- Start of user code doc for informationFlow_referenceMetaProperties -->
    * <!-- End of user code doc for informationFlow_referenceMetaProperties -->
-   */
-  def informationFlow_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      directedRelationship_referenceMetaProperties,
-      packageableElement_referenceMetaProperties,
-      Seq (InformationFlow_conveyed,
-        InformationFlow_informationSource,
-        InformationFlow_informationTarget,
-        InformationFlow_realization,
-        InformationFlow_realizingActivityEdge,
-        InformationFlow_realizingConnector,
-        InformationFlow_realizingMessage))
+	 */
+	def informationFlow_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			directedRelationship_referenceMetaProperties,
+			packageableElement_referenceMetaProperties,
+			Seq (InformationFlow_conveyed,
+				InformationFlow_informationSource,
+				InformationFlow_informationTarget,
+				InformationFlow_realization,
+				InformationFlow_realizingActivityEdge,
+				InformationFlow_realizingConnector,
+				InformationFlow_realizingMessage))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    informationFlow_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		informationFlow_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLInformationFlow
-   *
-   * <!-- Start of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLInformationFlow
+	 *
+	 * <!-- Start of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
-   */
-  def informationFlow_forwardReferencesFromMetamodelAssociations: Elements =
-    directedRelationship_forwardReferencesFromMetamodelAssociations ++
-    packageableElement_forwardReferencesFromMetamodelAssociations ++
-    conveyed ++
-    informationSource ++
-    informationTarget ++
-    realization ++
-    realizingActivityEdge ++
-    realizingConnector ++
-    realizingMessage
+	 */
+	def informationFlow_forwardReferencesFromMetamodelAssociations: Elements =
+		directedRelationship_forwardReferencesFromMetamodelAssociations ++
+		packageableElement_forwardReferencesFromMetamodelAssociations ++
+		conveyed ++
+		informationSource ++
+		informationTarget ++
+		realization ++
+		realizingActivityEdge ++
+		realizingConnector ++
+		realizingMessage
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLInformationFlow

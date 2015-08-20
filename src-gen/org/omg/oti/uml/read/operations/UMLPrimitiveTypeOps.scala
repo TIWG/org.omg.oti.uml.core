@@ -47,16 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A PrimitiveType defines a predefined DataType, without any substructure.
- * A PrimitiveType may have an algebra and operations defined outside of UML, for example, mathematically.
+ * A PrimitiveType defines a predefined DataType, without any substructure. A PrimitiveType may have an algebra and operations defined outside of UML, for example, mathematically.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLPrimitiveTypeOps[Uml <: UML] { self: UMLPrimitiveType[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLPrimitiveTypeOps

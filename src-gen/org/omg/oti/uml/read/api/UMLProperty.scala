@@ -52,288 +52,288 @@ import org.omg.oti.uml.read.operations.UMLPropertyOps
  * <!-- End of user code documentation -->
 */
 trait UMLProperty[Uml <: UML]
-  extends UMLConnectableElement[Uml]
-  with UMLDeploymentTarget[Uml]
-  with UMLStructuralFeature[Uml]
-  with UMLPropertyOps[Uml] {
+	extends UMLConnectableElement[Uml]
+	with UMLDeploymentTarget[Uml]
+	with UMLStructuralFeature[Uml]
+	with UMLPropertyOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies the kind of aggregation that applies to the Property.
-   *
-   * <!-- Start of user code doc for aggregation -->
+	/**
+	 * Specifies the kind of aggregation that applies to the Property.
+	 *
+	 * <!-- Start of user code doc for aggregation -->
    * <!-- End of user code doc for aggregation -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def aggregation: UMLAggregationKind.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def aggregation: UMLAggregationKind.Value
 
-  /**
-   * A ValueSpecification that is evaluated to give a default value for the Property when an instance of the owning Classifier is instantiated.
-   *
-   * <!-- Start of user code doc for defaultValue -->
+	/**
+	 * A ValueSpecification that is evaluated to give a default value for the Property when an instance of the owning Classifier is instantiated.
+	 *
+	 * <!-- Start of user code doc for defaultValue -->
    * <!-- End of user code doc for defaultValue -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.defaultValue_owningProperty
-   */
-  def defaultValue: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningProperty
+	 */
+	def defaultValue: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * Specifies whether the Property is derived, i.e., whether its value or values can be computed from other information.
-   *
-   * <!-- Start of user code doc for isDerived -->
+	/**
+	 * Specifies whether the Property is derived, i.e., whether its value or values can be computed from other information.
+	 *
+	 * <!-- Start of user code doc for isDerived -->
    * <!-- End of user code doc for isDerived -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isDerived: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isDerived: Boolean
 
-  /**
-   * Specifies whether the property is derived as the union of all of the Properties that are constrained to subset it.
-   *
-   * <!-- Start of user code doc for isDerivedUnion -->
+	/**
+	 * Specifies whether the property is derived as the union of all of the Properties that are constrained to subset it.
+	 *
+	 * <!-- Start of user code doc for isDerivedUnion -->
    * <!-- End of user code doc for isDerivedUnion -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isDerivedUnion: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isDerivedUnion: Boolean
 
-  /**
-   * True indicates this property can be used to uniquely identify an instance of the containing Class.
-   *
-   * <!-- Start of user code doc for isID -->
+	/**
+	 * True indicates this property can be used to uniquely identify an instance of the containing Class.
+	 *
+	 * <!-- Start of user code doc for isID -->
    * <!-- End of user code doc for isID -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isID: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isID: Boolean
 
-  /**
-   * An optional list of ordered qualifier attributes for the end.
-   *
-   * <!-- Start of user code doc for qualifier -->
+	/**
+	 * An optional list of ordered qualifier attributes for the end.
+	 *
+	 * <!-- Start of user code doc for qualifier -->
    * <!-- End of user code doc for qualifier -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLProperty.associationEnd
-   */
-  def qualifier: Seq[UMLProperty[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLProperty.associationEnd
+	 */
+	def qualifier: Seq[UMLProperty[Uml]]
 
-  /**
-   * The properties of which this Property is constrained to be a subset, if any.
-   *
-   * <!-- Start of user code doc for subsettedProperty -->
+	/**
+	 * The properties of which this Property is constrained to be a subset, if any.
+	 *
+	 * <!-- Start of user code doc for subsettedProperty -->
    * <!-- End of user code doc for subsettedProperty -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLProperty.subsettedProperty_property
-   */
-  def subsettedProperty: Set[UMLProperty[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLProperty.subsettedProperty_property
+	 */
+	def subsettedProperty: Set[UMLProperty[Uml]]
 
-  /**
-   * <!-- Start of user code doc for attribute_classifier -->
+	/**
+	 * <!-- Start of user code doc for attribute_classifier -->
    * <!-- End of user code doc for attribute_classifier -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLClassifier.attribute
-   */
-  def attribute_classifier: Option[UMLClassifier[Uml]]
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.attribute
+	 */
+	def attribute_classifier: Option[UMLClassifier[Uml]]
 
-  /**
-   * <!-- Start of user code doc for definingEnd_connectorEnd -->
+	/**
+	 * <!-- Start of user code doc for definingEnd_connectorEnd -->
    * <!-- End of user code doc for definingEnd_connectorEnd -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLConnectorEnd.definingEnd
-   */
-  def definingEnd_connectorEnd: Set[UMLConnectorEnd[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.definingEnd
+	 */
+	def definingEnd_connectorEnd: Set[UMLConnectorEnd[Uml]]
 
-  /**
-   * <!-- Start of user code doc for end_linkEndData -->
+	/**
+	 * <!-- Start of user code doc for end_linkEndData -->
    * <!-- End of user code doc for end_linkEndData -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLLinkEndData.end
-   */
-  def end_linkEndData: Set[UMLLinkEndData[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndData.end
+	 */
+	def end_linkEndData: Set[UMLLinkEndData[Uml]]
 
-  /**
-   * <!-- Start of user code doc for end_readLinkObjectEndAction -->
+	/**
+	 * <!-- Start of user code doc for end_readLinkObjectEndAction -->
    * <!-- End of user code doc for end_readLinkObjectEndAction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLReadLinkObjectEndAction.end
-   */
-  def end_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLReadLinkObjectEndAction.end
+	 */
+	def end_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]]
 
-  /**
-   * <!-- Start of user code doc for navigableOwnedEnd_association -->
+	/**
+	 * <!-- Start of user code doc for navigableOwnedEnd_association -->
    * <!-- End of user code doc for navigableOwnedEnd_association -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLAssociation.navigableOwnedEnd
-   */
-  def navigableOwnedEnd_association: Option[UMLAssociation[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.navigableOwnedEnd
+	 */
+	def navigableOwnedEnd_association: Option[UMLAssociation[Uml]]
 
-  /**
-   * <!-- Start of user code doc for opposite_property -->
+	/**
+	 * <!-- Start of user code doc for opposite_property -->
    * <!-- End of user code doc for opposite_property -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLProperty.opposite
-   */
-  def opposite_property: Option[UMLProperty[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLProperty.opposite
+	 */
+	def opposite_property: Option[UMLProperty[Uml]]
 
-  /**
-   * <!-- Start of user code doc for partWithPort_connectorEnd -->
+	/**
+	 * <!-- Start of user code doc for partWithPort_connectorEnd -->
    * <!-- End of user code doc for partWithPort_connectorEnd -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLConnectorEnd.partWithPort
-   */
-  def partWithPort_connectorEnd: Set[UMLConnectorEnd[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.partWithPort
+	 */
+	def partWithPort_connectorEnd: Set[UMLConnectorEnd[Uml]]
 
-  /**
-   * <!-- Start of user code doc for part_structuredClassifier -->
+	/**
+	 * <!-- Start of user code doc for part_structuredClassifier -->
    * <!-- End of user code doc for part_structuredClassifier -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLStructuredClassifier.part
-   */
-  def part_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.part
+	 */
+	def part_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
 
-  /**
-   * <!-- Start of user code doc for qualifier_qualifierValue -->
+	/**
+	 * <!-- Start of user code doc for qualifier_qualifierValue -->
    * <!-- End of user code doc for qualifier_qualifierValue -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLQualifierValue.qualifier
-   */
-  def qualifier_qualifierValue: Set[UMLQualifierValue[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLQualifierValue.qualifier
+	 */
+	def qualifier_qualifierValue: Set[UMLQualifierValue[Uml]]
 
-  /**
-   * <!-- Start of user code doc for qualifier_readLinkObjectEndQualifierAction -->
+	/**
+	 * <!-- Start of user code doc for qualifier_readLinkObjectEndQualifierAction -->
    * <!-- End of user code doc for qualifier_readLinkObjectEndQualifierAction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLReadLinkObjectEndQualifierAction.qualifier
-   */
-  def qualifier_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLReadLinkObjectEndQualifierAction.qualifier
+	 */
+	def qualifier_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
 
-  /**
-   * <!-- Start of user code doc for returnValueRecipient_interactionUse -->
+	/**
+	 * <!-- Start of user code doc for returnValueRecipient_interactionUse -->
    * <!-- End of user code doc for returnValueRecipient_interactionUse -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInteractionUse.returnValueRecipient
-   */
-  def returnValueRecipient_interactionUse: Set[UMLInteractionUse[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.returnValueRecipient
+	 */
+	def returnValueRecipient_interactionUse: Set[UMLInteractionUse[Uml]]
 
-  /**
-   * <!-- Start of user code doc for subsettedProperty_property -->
+	/**
+	 * <!-- Start of user code doc for subsettedProperty_property -->
    * <!-- End of user code doc for subsettedProperty_property -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLProperty.subsettedProperty
-   */
-  def subsettedProperty_property: Set[UMLProperty[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLProperty.subsettedProperty
+	 */
+	def subsettedProperty_property: Set[UMLProperty[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    property_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		property_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLProperty
-   *
-   * <!-- Start of user code doc for property_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLProperty
+	 *
+	 * <!-- Start of user code doc for property_metaAttributes -->
    * <!-- End of user code doc for property_metaAttributes -->
-   */
-  def property_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      connectableElement_metaAttributes,
-      deploymentTarget_metaAttributes,
-      structuralFeature_metaAttributes,
-      Seq (Property_isDerived,
-        Property_isDerivedUnion,
-        Property_isID))
+	 */
+	def property_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			connectableElement_metaAttributes,
+			deploymentTarget_metaAttributes,
+			structuralFeature_metaAttributes,
+			Seq (Property_isDerived,
+				Property_isDerivedUnion,
+				Property_isID))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    property_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		property_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLProperty
-   *
-   * <!-- Start of user code doc for property_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLProperty
+	 *
+	 * <!-- Start of user code doc for property_compositeMetaProperties -->
    * <!-- End of user code doc for property_compositeMetaProperties -->
-   */
-  def property_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      connectableElement_compositeMetaProperties,
-      deploymentTarget_compositeMetaProperties,
-      structuralFeature_compositeMetaProperties,
-      Seq (Property_defaultValue,
-        Property_qualifier))
+	 */
+	def property_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			connectableElement_compositeMetaProperties,
+			deploymentTarget_compositeMetaProperties,
+			structuralFeature_compositeMetaProperties,
+			Seq (Property_defaultValue,
+				Property_qualifier))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    property_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		property_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLProperty
-   *
-   * <!-- Start of user code doc for property_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLProperty
+	 *
+	 * <!-- Start of user code doc for property_referenceMetaProperties -->
    * <!-- End of user code doc for property_referenceMetaProperties -->
-   */
-  def property_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      connectableElement_referenceMetaProperties,
-      deploymentTarget_referenceMetaProperties,
-      structuralFeature_referenceMetaProperties,
-      Seq (Property_association,
-        Property_redefinedProperty,
-        Property_subsettedProperty))
+	 */
+	def property_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			connectableElement_referenceMetaProperties,
+			deploymentTarget_referenceMetaProperties,
+			structuralFeature_referenceMetaProperties,
+			Seq (Property_association,
+				Property_redefinedProperty,
+				Property_subsettedProperty))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    property_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		property_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLProperty
-   *
-   * <!-- Start of user code doc for property_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLProperty
+	 *
+	 * <!-- Start of user code doc for property_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for property_forwardReferencesFromMetamodelAssociations -->
-   */
-  def property_forwardReferencesFromMetamodelAssociations: Elements =
-    connectableElement_forwardReferencesFromMetamodelAssociations ++
-    deploymentTarget_forwardReferencesFromMetamodelAssociations ++
-    structuralFeature_forwardReferencesFromMetamodelAssociations ++
-    association ++
-    redefinedProperty ++
-    subsettedProperty
+	 */
+	def property_forwardReferencesFromMetamodelAssociations: Elements =
+		connectableElement_forwardReferencesFromMetamodelAssociations ++
+		deploymentTarget_forwardReferencesFromMetamodelAssociations ++
+		structuralFeature_forwardReferencesFromMetamodelAssociations ++
+		association ++
+		redefinedProperty ++
+		subsettedProperty
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLProperty

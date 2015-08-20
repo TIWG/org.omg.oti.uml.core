@@ -54,41 +54,38 @@ import scala.language.postfixOps
  */
 trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * Every Generalization associated with a particular GeneralizationSet must have the same general Classifier.
-   *
-   * <!-- Start of user code doc for validate_generalization_same_classifier -->
+	/**
+	 * Every Generalization associated with a particular GeneralizationSet must have the same general Classifier.
+	 *
+	 * <!-- Start of user code doc for validate_generalization_same_classifier -->
    * <!-- End of user code doc for validate_generalization_same_classifier -->
-   *
-   * @body generalization->collect(general)->asSet()->size() <= 1
-   */
-  def validate_generalization_same_classifier: Boolean = {
-    // Start of user code for "generalization_same_classifier"
+	 *
+	 * @body generalization->collect(general)->asSet()->size() <= 1
+	 */
+	def validate_generalization_same_classifier: Boolean = {
+		// Start of user code for "generalization_same_classifier"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The Classifier that maps to a GeneralizationSet may neither be a specific nor a general Classifier in
-   * any of the Generalization relationships defined for that GeneralizationSet. In other words,
-   * a power type may not be an instance of itself nor may its instances be its subclasses.
-   *
-   * <!-- Start of user code doc for validate_maps_to_generalization_set -->
+	/**
+	 * The Classifier that maps to a GeneralizationSet may neither be a specific nor a general Classifier in any of the Generalization relationships defined for that GeneralizationSet. In other words, a power type may not be an instance of itself nor may its instances be its subclasses.
+	 *
+	 * <!-- Start of user code doc for validate_maps_to_generalization_set -->
    * <!-- End of user code doc for validate_maps_to_generalization_set -->
-   *
-   * @body powertype <> null implies generalization->forAll( gen |
-   *     not (gen.general = powertype) and not gen.general.allParents()->includes(powertype) and
-   *     not (gen.specific = powertype) and not powertype.allParents()->includes(gen.specific)
-   *   )
-   */
-  def validate_maps_to_generalization_set: Boolean = {
-    // Start of user code for "maps_to_generalization_set"
+	 *
+	 * @body powertype <> null implies generalization->forAll( gen | 
+	 *     not (gen.general = powertype) and not gen.general.allParents()->includes(powertype) and not (gen.specific = powertype) and not powertype.allParents()->includes(gen.specific)
+	 *   )
+	 */
+	def validate_maps_to_generalization_set: Boolean = {
+		// Start of user code for "maps_to_generalization_set"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLGeneralizationSetOps

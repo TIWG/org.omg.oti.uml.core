@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLReceptionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReception[Uml <: UML]
-  extends UMLBehavioralFeature[Uml]
-  with UMLReceptionOps[Uml] {
+	extends UMLBehavioralFeature[Uml]
+	with UMLReceptionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The Signal that this Reception handles.
-   *
-   * <!-- Start of user code doc for signal -->
+	/**
+	 * The Signal that this Reception handles.
+	 *
+	 * <!-- Start of user code doc for signal -->
    * <!-- End of user code doc for signal -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLSignal.signal_reception
-   */
-  def signal: Option[UMLSignal[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLSignal.signal_reception
+	 */
+	def signal: Option[UMLSignal[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    reception_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		reception_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLReception
-   *
-   * <!-- Start of user code doc for reception_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLReception
+	 *
+	 * <!-- Start of user code doc for reception_metaAttributes -->
    * <!-- End of user code doc for reception_metaAttributes -->
-   */
-  def reception_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      behavioralFeature_metaAttributes,
-      Seq ())
+	 */
+	def reception_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			behavioralFeature_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    reception_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		reception_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLReception
-   *
-   * <!-- Start of user code doc for reception_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLReception
+	 *
+	 * <!-- Start of user code doc for reception_compositeMetaProperties -->
    * <!-- End of user code doc for reception_compositeMetaProperties -->
-   */
-  def reception_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      behavioralFeature_compositeMetaProperties,
-      Seq ())
+	 */
+	def reception_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			behavioralFeature_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    reception_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		reception_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLReception
-   *
-   * <!-- Start of user code doc for reception_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLReception
+	 *
+	 * <!-- Start of user code doc for reception_referenceMetaProperties -->
    * <!-- End of user code doc for reception_referenceMetaProperties -->
-   */
-  def reception_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      behavioralFeature_referenceMetaProperties,
-      Seq (Reception_signal))
+	 */
+	def reception_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			behavioralFeature_referenceMetaProperties,
+			Seq (Reception_signal))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    reception_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		reception_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLReception
-   *
-   * <!-- Start of user code doc for reception_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLReception
+	 *
+	 * <!-- Start of user code doc for reception_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for reception_forwardReferencesFromMetamodelAssociations -->
-   */
-  def reception_forwardReferencesFromMetamodelAssociations: Elements =
-    behavioralFeature_forwardReferencesFromMetamodelAssociations ++
-    signal
+	 */
+	def reception_forwardReferencesFromMetamodelAssociations: Elements =
+		behavioralFeature_forwardReferencesFromMetamodelAssociations ++
+		signal
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReception

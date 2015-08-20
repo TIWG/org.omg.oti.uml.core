@@ -54,47 +54,47 @@ import scala.language.postfixOps
  */
 trait UMLClearStructuralFeatureActionOps[Uml <: UML] { self: UMLClearStructuralFeatureAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The OutputPin on which is put the input object as modified by the ClearStructuralFeatureAction.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPin on which is put the input object as modified by the ClearStructuralFeatureAction.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_clearStructuralFeatureAction
-   */
-  def result: Option[UMLOutputPin[Uml]] = output headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_clearStructuralFeatureAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * The multiplicity of the result OutputPin must be 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_result -->
+	/**
+	 * The multiplicity of the result OutputPin must be 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
-   *
-   * @body result<>null implies result.is(1,1)
-   */
-  def validate_multiplicity_of_result: Boolean = {
-    // Start of user code for "multiplicity_of_result"
+	 *
+	 * @body result<>null implies result.is(1,1)
+	 */
+	def validate_multiplicity_of_result: Boolean = {
+		// Start of user code for "multiplicity_of_result"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the result OutputPin is the same as the type of the inherited object InputPin.
-   *
-   * <!-- Start of user code doc for validate_type_of_result -->
+	/**
+	 * The type of the result OutputPin is the same as the type of the inherited object InputPin.
+	 *
+	 * <!-- Start of user code doc for validate_type_of_result -->
    * <!-- End of user code doc for validate_type_of_result -->
-   *
-   * @body result<>null implies result.type = object.type
-   */
-  def validate_type_of_result: Boolean = {
-    // Start of user code for "type_of_result"
+	 *
+	 * @body result<>null implies result.type = object.type
+	 */
+	def validate_type_of_result: Boolean = {
+		// Start of user code for "type_of_result"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLClearStructuralFeatureActionOps

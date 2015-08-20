@@ -47,73 +47,62 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A relationship from an extending UseCase to an extended UseCase that specifies how and when
- * the behavior defined in the extending UseCase can be inserted into the behavior defined in the extended UseCase.
+ * A relationship from an extending UseCase to an extended UseCase that specifies how and when the behavior defined in the extending UseCase can be inserted into the behavior defined in the extended UseCase.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * References the condition that must hold when the first ExtensionPoint is reached for
-   * the extension to take place.
-   * If no constraint is associated with the Extend relationship, the extension is unconditional.
-   *
-   * <!-- Start of user code doc for condition -->
+	/**
+	 * References the condition that must hold when the first ExtensionPoint is reached for the extension to take place. If no constraint is associated with the Extend relationship, the extension is unconditional.
+	 *
+	 * <!-- Start of user code doc for condition -->
    * <!-- End of user code doc for condition -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLConstraint.condition_extend
-   */
-  def condition: Option[UMLConstraint[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLConstraint[Uml] => x }
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.condition_extend
+	 */
+	def condition: Option[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
 
-  /**
-   * The UseCase that is being extended.
-   *
-   * <!-- Start of user code doc for extendedCase -->
+	/**
+	 * The UseCase that is being extended.
+	 *
+	 * <!-- Start of user code doc for extendedCase -->
    * <!-- End of user code doc for extendedCase -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLUseCase.extendedCase_extend
-   */
-  def extendedCase: Option[UMLUseCase[Uml]] =
-    target
-    .selectByKindOf { case x: UMLUseCase[Uml] => x }
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extendedCase_extend
+	 */
+	def extendedCase: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
-  /**
-   * The UseCase that represents the extension and owns the Extend relationship.
-   *
-   * <!-- Start of user code doc for extension -->
+	/**
+	 * The UseCase that represents the extension and owns the Extend relationship.
+	 *
+	 * <!-- Start of user code doc for extension -->
    * <!-- End of user code doc for extension -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLUseCase.extend
-   */
-  def extension: Option[UMLUseCase[Uml]] =
-    namespace
-    .selectByKindOf { case x: UMLUseCase[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extend
+	 */
+	def extension: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
-  /**
-   * The ExtensionPoints referenced by the Extend relationship must belong to the UseCase that is being extended.
-   *
-   * <!-- Start of user code doc for validate_extension_points -->
+	/**
+	 * The ExtensionPoints referenced by the Extend relationship must belong to the UseCase that is being extended.
+	 *
+	 * <!-- Start of user code doc for validate_extension_points -->
    * <!-- End of user code doc for validate_extension_points -->
-   *
-   * @body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
-   */
-  def validate_extension_points: Boolean = {
-    // Start of user code for "extension_points"
+	 *
+	 * @body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
+	 */
+	def validate_extension_points: Boolean = {
+		// Start of user code for "extension_points"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExtendOps

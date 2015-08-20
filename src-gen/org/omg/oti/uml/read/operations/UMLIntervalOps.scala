@@ -54,20 +54,18 @@ import scala.language.postfixOps
  */
 trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for specification_intervalConstraint -->
+	/**
+	 * <!-- Start of user code doc for specification_intervalConstraint -->
    * <!-- End of user code doc for specification_intervalConstraint -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLIntervalConstraint.specification
-   */
-  def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] =
-    specification_owningConstraint
-    .selectByKindOf { case x: UMLIntervalConstraint[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLIntervalConstraint.specification
+	 */
+	def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] = specification_owningConstraint.selectByKindOf { case x: UMLIntervalConstraint[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     interval_asForwardReferencesToImportableOuterPackageableElements

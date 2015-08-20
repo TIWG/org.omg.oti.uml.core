@@ -54,22 +54,22 @@ import scala.language.postfixOps
  */
 trait UMLCommunicationPathOps[Uml <: UML] { self: UMLCommunicationPath[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The association ends of a CommunicationPath are typed by DeploymentTargets.
-   *
-   * <!-- Start of user code doc for validate_communication_path_ends -->
+	/**
+	 * The association ends of a CommunicationPath are typed by DeploymentTargets.
+	 *
+	 * <!-- Start of user code doc for validate_communication_path_ends -->
    * <!-- End of user code doc for validate_communication_path_ends -->
-   *
-   * @body endType->forAll (oclIsKindOf(DeploymentTarget))
-   */
-  def validate_communication_path_ends: Boolean = {
-    // Start of user code for "communication_path_ends"
+	 *
+	 * @body endType->forAll (oclIsKindOf(DeploymentTarget))
+	 */
+	def validate_communication_path_ends: Boolean = {
+		// Start of user code for "communication_path_ends"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLCommunicationPathOps

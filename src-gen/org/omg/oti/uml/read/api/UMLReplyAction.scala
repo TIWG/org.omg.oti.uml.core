@@ -52,124 +52,124 @@ import org.omg.oti.uml.read.operations.UMLReplyActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReplyAction[Uml <: UML]
-  extends UMLAction[Uml]
-  with UMLReplyActionOps[Uml] {
+	extends UMLAction[Uml]
+	with UMLReplyActionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The Trigger specifying the Operation whose call is being replied to.
-   *
-   * <!-- Start of user code doc for replyToCall -->
+	/**
+	 * The Trigger specifying the Operation whose call is being replied to.
+	 *
+	 * <!-- Start of user code doc for replyToCall -->
    * <!-- End of user code doc for replyToCall -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLTrigger.replyToCall_replyAction
-   */
-  def replyToCall: Option[UMLTrigger[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.replyToCall_replyAction
+	 */
+	def replyToCall: Option[UMLTrigger[Uml]]
 
-  /**
-   * A list of InputPins providing the values for the output (inout, out, and return) Parameters of the Operation. These values are returned to the caller.
-   *
-   * <!-- Start of user code doc for replyValue -->
+	/**
+	 * A list of InputPins providing the values for the output (inout, out, and return) Parameters of the Operation. These values are returned to the caller.
+	 *
+	 * <!-- Start of user code doc for replyValue -->
    * <!-- End of user code doc for replyValue -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInputPin.replyValue_replyAction
-   */
-  def replyValue: Seq[UMLInputPin[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.replyValue_replyAction
+	 */
+	def replyValue: Seq[UMLInputPin[Uml]]
 
-  /**
-   * An InputPin that holds the return information value produced by an earlier AcceptCallAction.
-   *
-   * <!-- Start of user code doc for returnInformation -->
+	/**
+	 * An InputPin that holds the return information value produced by an earlier AcceptCallAction.
+	 *
+	 * <!-- Start of user code doc for returnInformation -->
    * <!-- End of user code doc for returnInformation -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.returnInformation_replyAction
-   */
-  def returnInformation: Option[UMLInputPin[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.returnInformation_replyAction
+	 */
+	def returnInformation: Option[UMLInputPin[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    replyAction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		replyAction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLReplyAction
-   *
-   * <!-- Start of user code doc for replyAction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLReplyAction
+	 *
+	 * <!-- Start of user code doc for replyAction_metaAttributes -->
    * <!-- End of user code doc for replyAction_metaAttributes -->
-   */
-  def replyAction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      action_metaAttributes,
-      Seq ())
+	 */
+	def replyAction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			action_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    replyAction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		replyAction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLReplyAction
-   *
-   * <!-- Start of user code doc for replyAction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLReplyAction
+	 *
+	 * <!-- Start of user code doc for replyAction_compositeMetaProperties -->
    * <!-- End of user code doc for replyAction_compositeMetaProperties -->
-   */
-  def replyAction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      action_compositeMetaProperties,
-      Seq (ReplyAction_replyValue,
-        ReplyAction_returnInformation))
+	 */
+	def replyAction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			action_compositeMetaProperties,
+			Seq (ReplyAction_replyValue,
+				ReplyAction_returnInformation))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    replyAction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		replyAction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLReplyAction
-   *
-   * <!-- Start of user code doc for replyAction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLReplyAction
+	 *
+	 * <!-- Start of user code doc for replyAction_referenceMetaProperties -->
    * <!-- End of user code doc for replyAction_referenceMetaProperties -->
-   */
-  def replyAction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      action_referenceMetaProperties,
-      Seq (ReplyAction_replyToCall))
+	 */
+	def replyAction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			action_referenceMetaProperties,
+			Seq (ReplyAction_replyToCall))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    replyAction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		replyAction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLReplyAction
-   *
-   * <!-- Start of user code doc for replyAction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLReplyAction
+	 *
+	 * <!-- Start of user code doc for replyAction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for replyAction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def replyAction_forwardReferencesFromMetamodelAssociations: Elements =
-    action_forwardReferencesFromMetamodelAssociations ++
-    replyToCall
+	 */
+	def replyAction_forwardReferencesFromMetamodelAssociations: Elements =
+		action_forwardReferencesFromMetamodelAssociations ++
+		replyToCall
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReplyAction

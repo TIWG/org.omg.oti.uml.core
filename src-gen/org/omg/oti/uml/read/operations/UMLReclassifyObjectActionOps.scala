@@ -54,63 +54,61 @@ import scala.language.postfixOps
  */
 trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The InputPin that holds the object to be reclassified.
-   *
-   * <!-- Start of user code doc for _object -->
+	/**
+	 * The InputPin that holds the object to be reclassified.
+	 *
+	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.object_reclassifyObjectAction
-   */
-  def _object: Option[UMLInputPin[Uml]] =
-    input
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_reclassifyObjectAction
+	 */
+	def _object: Option[UMLInputPin[Uml]] = input headOption
 
-  /**
-   * None of the newClassifiers may be abstract.
-   *
-   * <!-- Start of user code doc for validate_classifier_not_abstract -->
+	/**
+	 * None of the newClassifiers may be abstract.
+	 *
+	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
    * <!-- End of user code doc for validate_classifier_not_abstract -->
-   *
-   * @body not newClassifier->exists(isAbstract)
-   */
-  def validate_classifier_not_abstract: Boolean = {
-    // Start of user code for "classifier_not_abstract"
+	 *
+	 * @body not newClassifier->exists(isAbstract)
+	 */
+	def validate_classifier_not_abstract: Boolean = {
+		// Start of user code for "classifier_not_abstract"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The object InputPin has no type.
-   *
-   * <!-- Start of user code doc for validate_input_pin -->
+	/**
+	 * The object InputPin has no type.
+	 *
+	 * <!-- Start of user code doc for validate_input_pin -->
    * <!-- End of user code doc for validate_input_pin -->
-   *
-   * @body object.type = null
-   */
-  def validate_input_pin: Boolean = {
-    // Start of user code for "input_pin"
+	 *
+	 * @body object.type = null
+	 */
+	def validate_input_pin: Boolean = {
+		// Start of user code for "input_pin"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the object InputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of the object InputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body object.is(1,1)
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body object.is(1,1)
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReclassifyObjectActionOps

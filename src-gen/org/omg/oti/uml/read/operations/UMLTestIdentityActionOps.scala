@@ -54,63 +54,61 @@ import scala.language.postfixOps
  */
 trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The OutputPin whose Boolean value indicates whether the two input objects are identical.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPin whose Boolean value indicates whether the two input objects are identical.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_testIdentityAction
-   */
-  def result: Option[UMLOutputPin[Uml]] =
-    output
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_testIdentityAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * The multiplicity of the InputPins is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of the InputPins is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body first.is(1,1) and second.is(1,1)
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body first.is(1,1) and second.is(1,1)
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The InputPins have no type.
-   *
-   * <!-- Start of user code doc for validate_no_type -->
+	/**
+	 * The InputPins have no type.
+	 *
+	 * <!-- Start of user code doc for validate_no_type -->
    * <!-- End of user code doc for validate_no_type -->
-   *
-   * @body first.type= null and second.type = null
-   */
-  def validate_no_type: Boolean = {
-    // Start of user code for "no_type"
+	 *
+	 * @body first.type= null and second.type = null
+	 */
+	def validate_no_type: Boolean = {
+		// Start of user code for "no_type"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the result OutputPin is Boolean.
-   *
-   * <!-- Start of user code doc for validate_result_is_boolean -->
+	/**
+	 * The type of the result OutputPin is Boolean. 
+	 *
+	 * <!-- Start of user code doc for validate_result_is_boolean -->
    * <!-- End of user code doc for validate_result_is_boolean -->
-   *
-   * @body result.type=Boolean
-   */
-  def validate_result_is_boolean: Boolean = {
-    // Start of user code for "result_is_boolean"
+	 *
+	 * @body result.type=Boolean
+	 */
+	def validate_result_is_boolean: Boolean = {
+		// Start of user code for "result_is_boolean"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTestIdentityActionOps

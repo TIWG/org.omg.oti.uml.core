@@ -54,146 +54,142 @@ import scala.language.postfixOps
  */
 trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObjectEndQualifierAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The InputPin from which the link object is obtained.
-   *
-   * <!-- Start of user code doc for _object -->
+	/**
+	 * The InputPin from which the link object is obtained.
+	 *
+	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.object_readLinkObjectEndQualifierAction
-   */
-  def _object: Option[UMLInputPin[Uml]] =
-    input
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_readLinkObjectEndQualifierAction
+	 */
+	def _object: Option[UMLInputPin[Uml]] = input headOption
 
-  /**
-   * The OutputPin where the result value is placed.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPin where the result value is placed.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
-   */
-  def result: Option[UMLOutputPin[Uml]] =
-    output
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * The association of the Association end of the qualifier Property must be an AssociationClass.
-   *
-   * <!-- Start of user code doc for validate_association_of_association -->
+	/**
+	 * The association of the Association end of the qualifier Property must be an AssociationClass.
+	 *
+	 * <!-- Start of user code doc for validate_association_of_association -->
    * <!-- End of user code doc for validate_association_of_association -->
-   *
-   * @body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
-   */
-  def validate_association_of_association: Boolean = {
-    // Start of user code for "association_of_association"
+	 *
+	 * @body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
+	 */
+	def validate_association_of_association: Boolean = {
+		// Start of user code for "association_of_association"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The ends of the Association must not be static.
-   *
-   * <!-- Start of user code doc for validate_ends_of_association -->
+	/**
+	 * The ends of the Association must not be static.
+	 *
+	 * <!-- Start of user code doc for validate_ends_of_association -->
    * <!-- End of user code doc for validate_ends_of_association -->
-   *
-   * @body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
-   */
-  def validate_ends_of_association: Boolean = {
-    // Start of user code for "ends_of_association"
+	 *
+	 * @body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
+	 */
+	def validate_ends_of_association: Boolean = {
+		// Start of user code for "ends_of_association"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the object InputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_object -->
+	/**
+	 * The multiplicity of the object InputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
    * <!-- End of user code doc for validate_multiplicity_of_object -->
-   *
-   * @body object.is(1,1)
-   */
-  def validate_multiplicity_of_object: Boolean = {
-    // Start of user code for "multiplicity_of_object"
+	 *
+	 * @body object.is(1,1)
+	 */
+	def validate_multiplicity_of_object: Boolean = {
+		// Start of user code for "multiplicity_of_object"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the qualifier Property is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
+	/**
+	 * The multiplicity of the qualifier Property is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
    * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
-   *
-   * @body qualifier.is(1,1)
-   */
-  def validate_multiplicity_of_qualifier: Boolean = {
-    // Start of user code for "multiplicity_of_qualifier"
+	 *
+	 * @body qualifier.is(1,1)
+	 */
+	def validate_multiplicity_of_qualifier: Boolean = {
+		// Start of user code for "multiplicity_of_qualifier"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the result OutputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_result -->
+	/**
+	 * The multiplicity of the result OutputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
-   *
-   * @body result.is(1,1)
-   */
-  def validate_multiplicity_of_result: Boolean = {
-    // Start of user code for "multiplicity_of_result"
+	 *
+	 * @body result.is(1,1)
+	 */
+	def validate_multiplicity_of_result: Boolean = {
+		// Start of user code for "multiplicity_of_result"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The qualifier Property must be a qualifier of an Association end.
-   *
-   * <!-- Start of user code doc for validate_qualifier_attribute -->
+	/**
+	 * The qualifier Property must be a qualifier of an Association end.
+	 *
+	 * <!-- Start of user code doc for validate_qualifier_attribute -->
    * <!-- End of user code doc for validate_qualifier_attribute -->
-   *
-   * @body qualifier.associationEnd <> null
-   */
-  def validate_qualifier_attribute: Boolean = {
-    // Start of user code for "qualifier_attribute"
+	 *
+	 * @body qualifier.associationEnd <> null
+	 */
+	def validate_qualifier_attribute: Boolean = {
+		// Start of user code for "qualifier_attribute"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the result OutputPin is the same as the type of the qualifier Property.
-   *
-   * <!-- Start of user code doc for validate_same_type -->
+	/**
+	 * The type of the result OutputPin is the same as the type of the qualifier Property.
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
-   *
-   * @body result.type = qualifier.type
-   */
-  def validate_same_type: Boolean = {
-    // Start of user code for "same_type"
+	 *
+	 * @body result.type = qualifier.type
+	 */
+	def validate_same_type: Boolean = {
+		// Start of user code for "same_type"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the object InputPin is the AssociationClass that owns the Association end that has the given qualifier Property.
-   *
-   * <!-- Start of user code doc for validate_type_of_object -->
+	/**
+	 * The type of the object InputPin is the AssociationClass that owns the Association end that has the given qualifier Property.
+	 *
+	 * <!-- Start of user code doc for validate_type_of_object -->
    * <!-- End of user code doc for validate_type_of_object -->
-   *
-   * @body object.type = qualifier.associationEnd.association
-   */
-  def validate_type_of_object: Boolean = {
-    // Start of user code for "type_of_object"
+	 *
+	 * @body object.type = qualifier.associationEnd.association
+	 */
+	def validate_type_of_object: Boolean = {
+		// Start of user code for "type_of_object"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReadLinkObjectEndQualifierActionOps

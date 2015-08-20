@@ -54,21 +54,19 @@ import scala.language.postfixOps
  */
 trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The Interval that specifies the condition of the IntervalConstraint.
-   *
-   * <!-- Start of user code doc for specification -->
+	/**
+	 * The Interval that specifies the condition of the IntervalConstraint.
+	 *
+	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInterval.specification_intervalConstraint
-   */
-  override def specification: Option[UMLInterval[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLInterval[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInterval.specification_intervalConstraint
+	 */
+	override def specification: Option[UMLInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLInterval[Uml] => x } headOption
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLIntervalConstraintOps

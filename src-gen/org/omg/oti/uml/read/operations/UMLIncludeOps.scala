@@ -54,35 +54,30 @@ import scala.language.postfixOps
  */
 trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The UseCase that is to be included.
-   *
-   * <!-- Start of user code doc for addition -->
+	/**
+	 * The UseCase that is to be included.
+	 *
+	 * <!-- Start of user code doc for addition -->
    * <!-- End of user code doc for addition -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLUseCase.addition_include
-   */
-  def addition: Option[UMLUseCase[Uml]] =
-    target
-    .selectByKindOf { case x: UMLUseCase[Uml] => x }
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.addition_include
+	 */
+	def addition: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
-  /**
-   * The UseCase which includes the addition and owns the Include relationship.
-   *
-   * <!-- Start of user code doc for includingCase -->
+	/**
+	 * The UseCase which includes the addition and owns the Include relationship.
+	 *
+	 * <!-- Start of user code doc for includingCase -->
    * <!-- End of user code doc for includingCase -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLUseCase.include
-   */
-  def includingCase: Option[UMLUseCase[Uml]] =
-    namespace
-    .selectByKindOf { case x: UMLUseCase[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.include
+	 */
+	def includingCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLIncludeOps

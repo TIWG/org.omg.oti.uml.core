@@ -54,98 +54,96 @@ import scala.language.postfixOps
  */
 trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * This query returns a set including the enclosing InteractionFragment this MessageEnd is enclosed within.
-   *
-   * <!-- Start of user code doc for enclosingFragment -->
+	/**
+	 * This query returns a set including the enclosing InteractionFragment this MessageEnd is enclosed within.
+	 *
+	 * <!-- Start of user code doc for enclosingFragment -->
    * <!-- End of user code doc for enclosingFragment -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="0..*"
-   * @body result = (if self->select(oclIsKindOf(Gate))->notEmpty()
-   * then -- it is a Gate
-   * let endGate : Gate =
-   *   self->select(oclIsKindOf(Gate)).oclAsType(Gate)->asOrderedSet()->first()
-   *   in
-   *   if endGate.isOutsideCF()
-   *   then endGate.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)->asSet()->
-   *      union(endGate.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)->asSet())
-   *   else if endGate.isInsideCF()
-   *     then endGate.combinedFragment.oclAsType(InteractionFragment)->asSet()
-   *     else if endGate.isFormal()
-   *       then endGate.interaction.oclAsType(InteractionFragment)->asSet()
-   *       else if endGate.isActual()
-   *         then endGate.interactionUse.enclosingInteraction.oclAsType(InteractionFragment)->asSet()->
-   *      union(endGate.interactionUse.enclosingOperand.oclAsType(InteractionFragment)->asSet())
-   *         else null
-   *         endif
-   *       endif
-   *     endif
-   *   endif
-   * else -- it is a MessageOccurrenceSpecification
-   * let endMOS : MessageOccurrenceSpecification  =
-   *   self->select(oclIsKindOf(MessageOccurrenceSpecification))
-   *   .oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first()
-   *   in
-   *   if endMOS.enclosingInteraction->notEmpty()
-   *   then endMOS.enclosingInteraction.oclAsType(InteractionFragment)->asSet()
-   *   else endMOS.enclosingOperand.oclAsType(InteractionFragment)->asSet()
-   *   endif
-   * endif)
-   */
-  def enclosingFragment: Set[UMLInteractionFragment[Uml]] = {
-    // Start of user code for "enclosingFragment"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="0..*"
+	 * @body result = (if self->select(oclIsKindOf(Gate))->notEmpty() 
+	 * then -- it is a Gate
+	 * let endGate : Gate = 
+	 *   self->select(oclIsKindOf(Gate)).oclAsType(Gate)->asOrderedSet()->first()
+	 *   in
+	 *   if endGate.isOutsideCF() 
+	 *   then endGate.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)->asSet()->
+	 *      union(endGate.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)->asSet())
+	 *   else if endGate.isInsideCF() 
+	 *     then endGate.combinedFragment.oclAsType(InteractionFragment)->asSet()
+	 *     else if endGate.isFormal() 
+	 *       then endGate.interaction.oclAsType(InteractionFragment)->asSet()
+	 *       else if endGate.isActual() 
+	 *         then endGate.interactionUse.enclosingInteraction.oclAsType(InteractionFragment)->asSet()->
+	 *      union(endGate.interactionUse.enclosingOperand.oclAsType(InteractionFragment)->asSet())
+	 *         else null
+	 *         endif
+	 *       endif
+	 *     endif
+	 *   endif
+	 * else -- it is a MessageOccurrenceSpecification
+	 * let endMOS : MessageOccurrenceSpecification  = 
+	 *   self->select(oclIsKindOf(MessageOccurrenceSpecification)).oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() 
+	 *   in
+	 *   if endMOS.enclosingInteraction->notEmpty() 
+	 *   then endMOS.enclosingInteraction.oclAsType(InteractionFragment)->asSet()
+	 *   else endMOS.enclosingOperand.oclAsType(InteractionFragment)->asSet()
+	 *   endif
+	 * endif)
+	 */
+	def enclosingFragment: Set[UMLInteractionFragment[Uml]] = {
+		// Start of user code for "enclosingFragment"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * This query returns value true if this MessageEnd is a receiveEvent.
-   *
-   * <!-- Start of user code doc for isReceive -->
+	/**
+	 * This query returns value true if this MessageEnd is a receiveEvent.
+	 *
+	 * <!-- Start of user code doc for isReceive -->
    * <!-- End of user code doc for isReceive -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (message.receiveEvent->asSet()->includes(self))
-   */
-  def isReceive: Boolean = {
-    // Start of user code for "isReceive"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (message.receiveEvent->asSet()->includes(self))
+	 */
+	def isReceive: Boolean = {
+		// Start of user code for "isReceive"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * This query returns value true if this MessageEnd is a sendEvent.
-   *
-   * <!-- Start of user code doc for isSend -->
+	/**
+	 * This query returns value true if this MessageEnd is a sendEvent.
+	 *
+	 * <!-- Start of user code doc for isSend -->
    * <!-- End of user code doc for isSend -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (message.sendEvent->asSet()->includes(self))
-   */
-  def isSend: Boolean = {
-    // Start of user code for "isSend"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (message.sendEvent->asSet()->includes(self))
+	 */
+	def isSend: Boolean = {
+		// Start of user code for "isSend"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * This query returns a set including the MessageEnd (if exists)
-   * at the opposite end of the Message for this MessageEnd.
-   *
-   * <!-- Start of user code doc for oppositeEnd -->
+	/**
+	 * This query returns a set including the MessageEnd (if exists) at the opposite end of the Message for this MessageEnd.
+	 *
+	 * <!-- Start of user code doc for oppositeEnd -->
    * <!-- End of user code doc for oppositeEnd -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="0..*"
-   * @body result = (message->asSet().messageEnd->asSet()->excluding(self))
-   */
-  def oppositeEnd: Set[UMLMessageEnd[Uml]] = {
-    // Start of user code for "oppositeEnd"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="0..*"
+	 * @body result = (message->asSet().messageEnd->asSet()->excluding(self))
+	 */
+	def oppositeEnd: Set[UMLMessageEnd[Uml]] = {
+		// Start of user code for "oppositeEnd"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLMessageEndOps

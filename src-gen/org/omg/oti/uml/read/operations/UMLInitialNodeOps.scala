@@ -54,36 +54,36 @@ import scala.language.postfixOps
  */
 trait UMLInitialNodeOps[Uml <: UML] { self: UMLInitialNode[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * All the outgoing ActivityEdges from an InitialNode must be ControlFlows.
-   *
-   * <!-- Start of user code doc for validate_control_edges -->
+	/**
+	 * All the outgoing ActivityEdges from an InitialNode must be ControlFlows.
+	 *
+	 * <!-- Start of user code doc for validate_control_edges -->
    * <!-- End of user code doc for validate_control_edges -->
-   *
-   * @body outgoing->forAll(oclIsKindOf(ControlFlow))
-   */
-  def validate_control_edges: Boolean = {
-    // Start of user code for "control_edges"
+	 *
+	 * @body outgoing->forAll(oclIsKindOf(ControlFlow))
+	 */
+	def validate_control_edges: Boolean = {
+		// Start of user code for "control_edges"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * An InitialNode has no incoming ActivityEdges.
-   *
-   * <!-- Start of user code doc for validate_no_incoming_edges -->
+	/**
+	 * An InitialNode has no incoming ActivityEdges.
+	 *
+	 * <!-- Start of user code doc for validate_no_incoming_edges -->
    * <!-- End of user code doc for validate_no_incoming_edges -->
-   *
-   * @body incoming->isEmpty()
-   */
-  def validate_no_incoming_edges: Boolean = {
-    // Start of user code for "no_incoming_edges"
+	 *
+	 * @body incoming->isEmpty()
+	 */
+	def validate_no_incoming_edges: Boolean = {
+		// Start of user code for "no_incoming_edges"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLInitialNodeOps

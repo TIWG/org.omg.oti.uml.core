@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLInstanceValueOps
  * <!-- End of user code documentation -->
 */
 trait UMLInstanceValue[Uml <: UML]
-  extends UMLValueSpecification[Uml]
-  with UMLInstanceValueOps[Uml] {
+	extends UMLValueSpecification[Uml]
+	with UMLInstanceValueOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The InstanceSpecification that represents the specified value.
-   *
-   * <!-- Start of user code doc for instance -->
+	/**
+	 * The InstanceSpecification that represents the specified value.
+	 *
+	 * <!-- Start of user code doc for instance -->
    * <!-- End of user code doc for instance -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInstanceSpecification.instance_instanceValue
-   */
-  def instance: Option[UMLInstanceSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInstanceSpecification.instance_instanceValue
+	 */
+	def instance: Option[UMLInstanceSpecification[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    instanceValue_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		instanceValue_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLInstanceValue
-   *
-   * <!-- Start of user code doc for instanceValue_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLInstanceValue
+	 *
+	 * <!-- Start of user code doc for instanceValue_metaAttributes -->
    * <!-- End of user code doc for instanceValue_metaAttributes -->
-   */
-  def instanceValue_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      valueSpecification_metaAttributes,
-      Seq ())
+	 */
+	def instanceValue_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			valueSpecification_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    instanceValue_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		instanceValue_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLInstanceValue
-   *
-   * <!-- Start of user code doc for instanceValue_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLInstanceValue
+	 *
+	 * <!-- Start of user code doc for instanceValue_compositeMetaProperties -->
    * <!-- End of user code doc for instanceValue_compositeMetaProperties -->
-   */
-  def instanceValue_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_compositeMetaProperties,
-      Seq ())
+	 */
+	def instanceValue_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    instanceValue_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		instanceValue_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLInstanceValue
-   *
-   * <!-- Start of user code doc for instanceValue_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLInstanceValue
+	 *
+	 * <!-- Start of user code doc for instanceValue_referenceMetaProperties -->
    * <!-- End of user code doc for instanceValue_referenceMetaProperties -->
-   */
-  def instanceValue_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_referenceMetaProperties,
-      Seq (InstanceValue_instance))
+	 */
+	def instanceValue_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_referenceMetaProperties,
+			Seq (InstanceValue_instance))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    instanceValue_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		instanceValue_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLInstanceValue
-   *
-   * <!-- Start of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLInstanceValue
+	 *
+	 * <!-- Start of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
-   */
-  def instanceValue_forwardReferencesFromMetamodelAssociations: Elements =
-    valueSpecification_forwardReferencesFromMetamodelAssociations ++
-    instance
+	 */
+	def instanceValue_forwardReferencesFromMetamodelAssociations: Elements =
+		valueSpecification_forwardReferencesFromMetamodelAssociations ++
+		instance
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLInstanceValue

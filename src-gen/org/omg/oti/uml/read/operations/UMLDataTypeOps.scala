@@ -54,8 +54,8 @@ import scala.language.postfixOps
  */
 trait UMLDataTypeOps[Uml <: UML] { self: UMLDataType[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDataTypeOps

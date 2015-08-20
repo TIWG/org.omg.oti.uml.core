@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLBroadcastSignalActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLBroadcastSignalAction[Uml <: UML]
-  extends UMLInvocationAction[Uml]
-  with UMLBroadcastSignalActionOps[Uml] {
+	extends UMLInvocationAction[Uml]
+	with UMLBroadcastSignalActionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The Signal whose instances are to be sent.
-   *
-   * <!-- Start of user code doc for signal -->
+	/**
+	 * The Signal whose instances are to be sent.
+	 *
+	 * <!-- Start of user code doc for signal -->
    * <!-- End of user code doc for signal -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLSignal.signal_broadcastSignalAction
-   */
-  def signal: Option[UMLSignal[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLSignal.signal_broadcastSignalAction
+	 */
+	def signal: Option[UMLSignal[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    broadcastSignalAction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		broadcastSignalAction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLBroadcastSignalAction
-   *
-   * <!-- Start of user code doc for broadcastSignalAction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLBroadcastSignalAction
+	 *
+	 * <!-- Start of user code doc for broadcastSignalAction_metaAttributes -->
    * <!-- End of user code doc for broadcastSignalAction_metaAttributes -->
-   */
-  def broadcastSignalAction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      invocationAction_metaAttributes,
-      Seq ())
+	 */
+	def broadcastSignalAction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			invocationAction_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    broadcastSignalAction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		broadcastSignalAction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLBroadcastSignalAction
-   *
-   * <!-- Start of user code doc for broadcastSignalAction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLBroadcastSignalAction
+	 *
+	 * <!-- Start of user code doc for broadcastSignalAction_compositeMetaProperties -->
    * <!-- End of user code doc for broadcastSignalAction_compositeMetaProperties -->
-   */
-  def broadcastSignalAction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      invocationAction_compositeMetaProperties,
-      Seq ())
+	 */
+	def broadcastSignalAction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			invocationAction_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    broadcastSignalAction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		broadcastSignalAction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLBroadcastSignalAction
-   *
-   * <!-- Start of user code doc for broadcastSignalAction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLBroadcastSignalAction
+	 *
+	 * <!-- Start of user code doc for broadcastSignalAction_referenceMetaProperties -->
    * <!-- End of user code doc for broadcastSignalAction_referenceMetaProperties -->
-   */
-  def broadcastSignalAction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      invocationAction_referenceMetaProperties,
-      Seq (BroadcastSignalAction_signal))
+	 */
+	def broadcastSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			invocationAction_referenceMetaProperties,
+			Seq (BroadcastSignalAction_signal))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    broadcastSignalAction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		broadcastSignalAction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLBroadcastSignalAction
-   *
-   * <!-- Start of user code doc for broadcastSignalAction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLBroadcastSignalAction
+	 *
+	 * <!-- Start of user code doc for broadcastSignalAction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for broadcastSignalAction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def broadcastSignalAction_forwardReferencesFromMetamodelAssociations: Elements =
-    invocationAction_forwardReferencesFromMetamodelAssociations ++
-    signal
+	 */
+	def broadcastSignalAction_forwardReferencesFromMetamodelAssociations: Elements =
+		invocationAction_forwardReferencesFromMetamodelAssociations ++
+		signal
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLBroadcastSignalAction

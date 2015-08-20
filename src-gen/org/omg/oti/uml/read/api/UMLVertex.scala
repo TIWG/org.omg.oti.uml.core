@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLVertexOps
  * <!-- End of user code documentation -->
 */
 trait UMLVertex[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLVertexOps[Uml] {
+	extends UMLNamedElement[Uml]
+	with UMLVertexOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    vertex_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		vertex_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLVertex
-   *
-   * <!-- Start of user code doc for vertex_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLVertex
+	 *
+	 * <!-- Start of user code doc for vertex_metaAttributes -->
    * <!-- End of user code doc for vertex_metaAttributes -->
-   */
-  def vertex_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      namedElement_metaAttributes,
-      Seq ())
+	 */
+	def vertex_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namedElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    vertex_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		vertex_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLVertex
-   *
-   * <!-- Start of user code doc for vertex_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLVertex
+	 *
+	 * <!-- Start of user code doc for vertex_compositeMetaProperties -->
    * <!-- End of user code doc for vertex_compositeMetaProperties -->
-   */
-  def vertex_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq ())
+	 */
+	def vertex_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    vertex_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		vertex_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLVertex
-   *
-   * <!-- Start of user code doc for vertex_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLVertex
+	 *
+	 * <!-- Start of user code doc for vertex_referenceMetaProperties -->
    * <!-- End of user code doc for vertex_referenceMetaProperties -->
-   */
-  def vertex_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq ())
+	 */
+	def vertex_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    vertex_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		vertex_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLVertex
-   *
-   * <!-- Start of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLVertex
+	 *
+	 * <!-- Start of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
-   */
-  def vertex_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def vertex_forwardReferencesFromMetamodelAssociations: Elements =
+		namedElement_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLVertex

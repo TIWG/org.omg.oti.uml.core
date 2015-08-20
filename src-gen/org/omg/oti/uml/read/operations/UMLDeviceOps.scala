@@ -47,16 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A device is a physical computational resource with processing capability upon which
- * artifacts may be deployed for execution. Devices may be complex (i.e., they may consist of other devices).
+ * A device is a physical computational resource with processing capability upon which artifacts may be deployed for execution. Devices may be complex (i.e., they may consist of other devices).
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLDeviceOps[Uml <: UML] { self: UMLDevice[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDeviceOps

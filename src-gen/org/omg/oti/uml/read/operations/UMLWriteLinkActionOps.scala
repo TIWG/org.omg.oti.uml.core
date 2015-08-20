@@ -54,27 +54,27 @@ import scala.language.postfixOps
  */
 trait UMLWriteLinkActionOps[Uml <: UML] { self: UMLWriteLinkAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The visibility of at least one end must allow access from the context Classifier of the WriteLinkAction.
-   *
-   * <!-- Start of user code doc for validate_allow_access -->
+	/**
+	 * The visibility of at least one end must allow access from the context Classifier of the WriteLinkAction.
+	 *
+	 * <!-- Start of user code doc for validate_allow_access -->
    * <!-- End of user code doc for validate_allow_access -->
-   *
-   * @body endData.end->exists(end |
-   *   end.type=_'context' or
-   *   end.visibility=VisibilityKind::public or
-   *   end.visibility=VisibilityKind::protected and
-   *   endData.end->exists(other |
-   *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
-   */
-  def validate_allow_access: Boolean = {
-    // Start of user code for "allow_access"
+	 *
+	 * @body endData.end->exists(end |
+	 *   end.type=_'context' or
+	 *   end.visibility=VisibilityKind::public or 
+	 *   end.visibility=VisibilityKind::protected and
+	 *   endData.end->exists(other | 
+	 *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
+	 */
+	def validate_allow_access: Boolean = {
+		// Start of user code for "allow_access"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLWriteLinkActionOps

@@ -54,33 +54,33 @@ import scala.language.postfixOps
  */
 trait UMLSendObjectActionOps[Uml <: UML] { self: UMLSendObjectAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The request object, which is transmitted to the target object. The object may be copied in transmission, so identity might not be preserved.
-   *
-   * <!-- Start of user code doc for request -->
+	/**
+	 * The request object, which is transmitted to the target object. The object may be copied in transmission, so identity might not be preserved.
+	 *
+	 * <!-- Start of user code doc for request -->
    * <!-- End of user code doc for request -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.request_sendObjectAction
-   */
-  def request: Option[UMLInputPin[Uml]] = argument headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.request_sendObjectAction
+	 */
+	def request: Option[UMLInputPin[Uml]] = argument headOption
 
-  /**
-   * If onPort is not empty, the Port given by onPort must be an owned or inherited feature of the type of the target InputPin.
-   *
-   * <!-- Start of user code doc for validate_type_target_pin -->
+	/**
+	 * If onPort is not empty, the Port given by onPort must be an owned or inherited feature of the type of the target InputPin.
+	 *
+	 * <!-- Start of user code doc for validate_type_target_pin -->
    * <!-- End of user code doc for validate_type_target_pin -->
-   *
-   * @body onPort<>null implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
-   */
-  def validate_type_target_pin: Boolean = {
-    // Start of user code for "type_target_pin"
+	 *
+	 * @body onPort<>null implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
+	 */
+	def validate_type_target_pin: Boolean = {
+		// Start of user code for "type_target_pin"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLSendObjectActionOps

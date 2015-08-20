@@ -52,115 +52,115 @@ import org.omg.oti.uml.read.operations.UMLStringExpressionOps
  * <!-- End of user code documentation -->
 */
 trait UMLStringExpression[Uml <: UML]
-  extends UMLExpression[Uml]
-  with UMLTemplateableElement[Uml]
-  with UMLStringExpressionOps[Uml] {
+	extends UMLExpression[Uml]
+	with UMLTemplateableElement[Uml]
+	with UMLStringExpressionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The StringExpressions that constitute this StringExpression.
-   *
-   * <!-- Start of user code doc for subExpression -->
+	/**
+	 * The StringExpressions that constitute this StringExpression.
+	 *
+	 * <!-- Start of user code doc for subExpression -->
    * <!-- End of user code doc for subExpression -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLStringExpression.owningExpression
-   */
-  def subExpression: Seq[UMLStringExpression[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLStringExpression.owningExpression
+	 */
+	def subExpression: Seq[UMLStringExpression[Uml]]
 
-  /**
-   * <!-- Start of user code doc for nameExpression_namedElement -->
+	/**
+	 * <!-- Start of user code doc for nameExpression_namedElement -->
    * <!-- End of user code doc for nameExpression_namedElement -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLNamedElement.nameExpression
-   */
-  def nameExpression_namedElement: Option[UMLNamedElement[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.nameExpression
+	 */
+	def nameExpression_namedElement: Option[UMLNamedElement[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    stringExpression_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		stringExpression_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLStringExpression
-   *
-   * <!-- Start of user code doc for stringExpression_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLStringExpression
+	 *
+	 * <!-- Start of user code doc for stringExpression_metaAttributes -->
    * <!-- End of user code doc for stringExpression_metaAttributes -->
-   */
-  def stringExpression_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      expression_metaAttributes,
-      templateableElement_metaAttributes,
-      Seq ())
+	 */
+	def stringExpression_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			expression_metaAttributes,
+			templateableElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    stringExpression_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		stringExpression_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLStringExpression
-   *
-   * <!-- Start of user code doc for stringExpression_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLStringExpression
+	 *
+	 * <!-- Start of user code doc for stringExpression_compositeMetaProperties -->
    * <!-- End of user code doc for stringExpression_compositeMetaProperties -->
-   */
-  def stringExpression_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      expression_compositeMetaProperties,
-      templateableElement_compositeMetaProperties,
-      Seq (StringExpression_subExpression))
+	 */
+	def stringExpression_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			expression_compositeMetaProperties,
+			templateableElement_compositeMetaProperties,
+			Seq (StringExpression_subExpression))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    stringExpression_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		stringExpression_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLStringExpression
-   *
-   * <!-- Start of user code doc for stringExpression_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLStringExpression
+	 *
+	 * <!-- Start of user code doc for stringExpression_referenceMetaProperties -->
    * <!-- End of user code doc for stringExpression_referenceMetaProperties -->
-   */
-  def stringExpression_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      expression_referenceMetaProperties,
-      templateableElement_referenceMetaProperties,
-      Seq ())
+	 */
+	def stringExpression_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			expression_referenceMetaProperties,
+			templateableElement_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    stringExpression_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		stringExpression_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLStringExpression
-   *
-   * <!-- Start of user code doc for stringExpression_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLStringExpression
+	 *
+	 * <!-- Start of user code doc for stringExpression_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for stringExpression_forwardReferencesFromMetamodelAssociations -->
-   */
-  def stringExpression_forwardReferencesFromMetamodelAssociations: Elements =
-    expression_forwardReferencesFromMetamodelAssociations ++
-    templateableElement_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def stringExpression_forwardReferencesFromMetamodelAssociations: Elements =
+		expression_forwardReferencesFromMetamodelAssociations ++
+		templateableElement_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLStringExpression

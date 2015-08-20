@@ -54,39 +54,39 @@ import scala.language.postfixOps
  */
 trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The query integerValue() gives the value.
-   *
-   * <!-- Start of user code doc for integerValue -->
+	/**
+	 * The query integerValue() gives the value.
+	 *
+	 * <!-- Start of user code doc for integerValue -->
    * <!-- End of user code doc for integerValue -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (value)
-   */
-  override def integerValue: Option[Integer] = {
-    // Start of user code for "integerValue"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (value)
+	 */
+	override def integerValue: Option[Integer] = {
+		// Start of user code for "integerValue"
       Option.apply(value)
       // End of user code
-  }
+	}
 
-  /**
-   * The query isComputable() is redefined to be true.
-   *
-   * <!-- Start of user code doc for isComputable -->
+	/**
+	 * The query isComputable() is redefined to be true.
+	 *
+	 * <!-- Start of user code doc for isComputable -->
    * <!-- End of user code doc for isComputable -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (true)
-   */
-  override def isComputable: Boolean = {
-    // Start of user code for "isComputable"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (true)
+	 */
+	override def isComputable: Boolean = {
+		// Start of user code for "isComputable"
       true
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
   // End of user code
 } //UMLLiteralIntegerOps

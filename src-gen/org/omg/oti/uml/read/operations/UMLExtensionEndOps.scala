@@ -47,71 +47,67 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * An extension end is used to tie an extension to a stereotype when extending a metaclass.
- * The default multiplicity of an extension end is 0..1.
+ * An extension end is used to tie an extension to a stereotype when extending a metaclass.The default multiplicity of an extension end is 0..1.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * This redefinition changes the default multiplicity of association ends,
-   * since model elements are usually extended by 0 or 1 instance of the extension stereotype.
-   *
-   * <!-- Start of user code doc for lower -->
+	/**
+	 * This redefinition changes the default multiplicity of association ends, since model elements are usually extended by 0 or 1 instance of the extension stereotype.
+	 *
+	 * <!-- Start of user code doc for lower -->
    * <!-- End of user code doc for lower -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
-   */
-  override def lower: Integer = {
-    // Start of user code for "lower"
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
+	 */
+	override def lower: Integer = {
+		// Start of user code for "lower"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * <!-- Start of user code doc for ownedEnd_extension -->
+	/**
+	 * <!-- Start of user code doc for ownedEnd_extension -->
    * <!-- End of user code doc for ownedEnd_extension -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLExtension.ownedEnd
-   */
-  def ownedEnd_extension: Option[UMLExtension[Uml]] =
-    owningAssociation
-    .selectByKindOf { case x: UMLExtension[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLExtension.ownedEnd
+	 */
+	def ownedEnd_extension: Option[UMLExtension[Uml]] = owningAssociation.selectByKindOf { case x: UMLExtension[Uml] => x }
 
-  /**
-   * The aggregation of an ExtensionEnd is composite.
-   *
-   * <!-- Start of user code doc for validate_aggregation -->
+	/**
+	 * The aggregation of an ExtensionEnd is composite.
+	 *
+	 * <!-- Start of user code doc for validate_aggregation -->
    * <!-- End of user code doc for validate_aggregation -->
-   *
-   * @body self.aggregation = AggregationKind::composite
-   */
-  def validate_aggregation: Boolean = {
-    // Start of user code for "aggregation"
+	 *
+	 * @body self.aggregation = AggregationKind::composite
+	 */
+	def validate_aggregation: Boolean = {
+		// Start of user code for "aggregation"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of ExtensionEnd is 0..1 or 1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of ExtensionEnd is 0..1 or 1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body (lower() = 0 or lower() = 1) and upper() = 1
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body (lower() = 0 or lower() = 1) and upper() = 1
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExtensionEndOps

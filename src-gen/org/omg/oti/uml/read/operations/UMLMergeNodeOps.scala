@@ -47,45 +47,44 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A merge node is a control node that brings together multiple alternate flows.
- * It is not used to synchronize concurrent flows but to accept one among several alternate flows.
+ * A merge node is a control node that brings together multiple alternate flows. It is not used to synchronize concurrent flows but to accept one among several alternate flows.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The ActivityEdges incoming to and outgoing from a MergeNode must be either all ObjectFlows or all ControlFlows.
-   *
-   * <!-- Start of user code doc for validate_edges -->
+	/**
+	 * The ActivityEdges incoming to and outgoing from a MergeNode must be either all ObjectFlows or all ControlFlows.
+	 *
+	 * <!-- Start of user code doc for validate_edges -->
    * <!-- End of user code doc for validate_edges -->
-   *
-   * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
-   * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
-   */
-  def validate_edges: Boolean = {
-    // Start of user code for "edges"
+	 *
+	 * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
+	 */
+	def validate_edges: Boolean = {
+		// Start of user code for "edges"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A MergeNode has one outgoing ActivityEdge.
-   *
-   * <!-- Start of user code doc for validate_one_outgoing_edge -->
+	/**
+	 * A MergeNode has one outgoing ActivityEdge.
+	 *
+	 * <!-- Start of user code doc for validate_one_outgoing_edge -->
    * <!-- End of user code doc for validate_one_outgoing_edge -->
-   *
-   * @body outgoing->size()=1
-   */
-  def validate_one_outgoing_edge: Boolean = {
-    // Start of user code for "one_outgoing_edge"
+	 *
+	 * @body outgoing->size()=1
+	 */
+	def validate_one_outgoing_edge: Boolean = {
+		// Start of user code for "one_outgoing_edge"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLMergeNodeOps

@@ -52,112 +52,112 @@ import org.omg.oti.uml.read.operations.UMLComponentRealizationOps
  * <!-- End of user code documentation -->
 */
 trait UMLComponentRealization[Uml <: UML]
-  extends UMLRealization[Uml]
-  with UMLComponentRealizationOps[Uml] {
+	extends UMLRealization[Uml]
+	with UMLComponentRealizationOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.
-   *
-   * <!-- Start of user code doc for abstraction -->
+	/**
+	 * The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.
+	 *
+	 * <!-- Start of user code doc for abstraction -->
    * <!-- End of user code doc for abstraction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLComponent.realization
-   */
-  def abstraction: Option[UMLComponent[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLComponent.realization
+	 */
+	def abstraction: Option[UMLComponent[Uml]]
 
-  /**
-   * The Classifiers that are involved in the implementation of the Component that owns this Realization.
-   *
-   * <!-- Start of user code doc for realizingClassifier -->
+	/**
+	 * The Classifiers that are involved in the implementation of the Component that owns this Realization.
+	 *
+	 * <!-- Start of user code doc for realizingClassifier -->
    * <!-- End of user code doc for realizingClassifier -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-   * @opposite org.omg.oti.api.UMLClassifier.realizingClassifier_componentRealization
-   */
-  def realizingClassifier: Set[UMLClassifier[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.realizingClassifier_componentRealization
+	 */
+	def realizingClassifier: Set[UMLClassifier[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    componentRealization_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		componentRealization_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLComponentRealization
-   *
-   * <!-- Start of user code doc for componentRealization_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLComponentRealization
+	 *
+	 * <!-- Start of user code doc for componentRealization_metaAttributes -->
    * <!-- End of user code doc for componentRealization_metaAttributes -->
-   */
-  def componentRealization_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      realization_metaAttributes,
-      Seq ())
+	 */
+	def componentRealization_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			realization_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    componentRealization_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		componentRealization_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLComponentRealization
-   *
-   * <!-- Start of user code doc for componentRealization_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLComponentRealization
+	 *
+	 * <!-- Start of user code doc for componentRealization_compositeMetaProperties -->
    * <!-- End of user code doc for componentRealization_compositeMetaProperties -->
-   */
-  def componentRealization_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      realization_compositeMetaProperties,
-      Seq ())
+	 */
+	def componentRealization_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			realization_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    componentRealization_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		componentRealization_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLComponentRealization
-   *
-   * <!-- Start of user code doc for componentRealization_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLComponentRealization
+	 *
+	 * <!-- Start of user code doc for componentRealization_referenceMetaProperties -->
    * <!-- End of user code doc for componentRealization_referenceMetaProperties -->
-   */
-  def componentRealization_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      realization_referenceMetaProperties,
-      Seq (ComponentRealization_realizingClassifier))
+	 */
+	def componentRealization_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			realization_referenceMetaProperties,
+			Seq (ComponentRealization_realizingClassifier))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    componentRealization_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		componentRealization_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLComponentRealization
-   *
-   * <!-- Start of user code doc for componentRealization_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLComponentRealization
+	 *
+	 * <!-- Start of user code doc for componentRealization_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for componentRealization_forwardReferencesFromMetamodelAssociations -->
-   */
-  def componentRealization_forwardReferencesFromMetamodelAssociations: Elements =
-    realization_forwardReferencesFromMetamodelAssociations ++
-    realizingClassifier
+	 */
+	def componentRealization_forwardReferencesFromMetamodelAssociations: Elements =
+		realization_forwardReferencesFromMetamodelAssociations ++
+		realizingClassifier
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLComponentRealization

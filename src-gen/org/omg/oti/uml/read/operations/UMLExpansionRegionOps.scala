@@ -47,16 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * An ExpansionRegion is a StructuredActivityNode that executes its content multiple times corresponding
- * to elements of input collection(s).
+ * An ExpansionRegion is a StructuredActivityNode that executes its content multiple times corresponding to elements of input collection(s).
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLExpansionRegionOps[Uml <: UML] { self: UMLExpansionRegion[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExpansionRegionOps

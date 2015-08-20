@@ -47,16 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A DirectedRelationship represents a relationship between a collection of
- * source model Elements and a collection of target model Elements.
+ * A DirectedRelationship represents a relationship between a collection of source model Elements and a collection of target model Elements.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLDirectedRelationshipOps[Uml <: UML] { self: UMLDirectedRelationship[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDirectedRelationshipOps

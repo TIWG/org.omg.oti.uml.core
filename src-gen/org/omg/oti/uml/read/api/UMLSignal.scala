@@ -52,137 +52,137 @@ import org.omg.oti.uml.read.operations.UMLSignalOps
  * <!-- End of user code documentation -->
 */
 trait UMLSignal[Uml <: UML]
-  extends UMLClassifier[Uml]
-  with UMLSignalOps[Uml] {
+	extends UMLClassifier[Uml]
+	with UMLSignalOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The attributes owned by the Signal.
-   *
-   * <!-- Start of user code doc for ownedAttribute -->
+	/**
+	 * The attributes owned by the Signal.
+	 *
+	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLProperty.ownedAttribute_owningSignal
-   */
-  def ownedAttribute: Seq[UMLProperty[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_owningSignal
+	 */
+	def ownedAttribute: Seq[UMLProperty[Uml]]
 
-  /**
-   * <!-- Start of user code doc for signal_broadcastSignalAction -->
+	/**
+	 * <!-- Start of user code doc for signal_broadcastSignalAction -->
    * <!-- End of user code doc for signal_broadcastSignalAction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLBroadcastSignalAction.signal
-   */
-  def signal_broadcastSignalAction: Set[UMLBroadcastSignalAction[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLBroadcastSignalAction.signal
+	 */
+	def signal_broadcastSignalAction: Set[UMLBroadcastSignalAction[Uml]]
 
-  /**
-   * <!-- Start of user code doc for signal_reception -->
+	/**
+	 * <!-- Start of user code doc for signal_reception -->
    * <!-- End of user code doc for signal_reception -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLReception.signal
-   */
-  def signal_reception: Set[UMLReception[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLReception.signal
+	 */
+	def signal_reception: Set[UMLReception[Uml]]
 
-  /**
-   * <!-- Start of user code doc for signal_sendSignalAction -->
+	/**
+	 * <!-- Start of user code doc for signal_sendSignalAction -->
    * <!-- End of user code doc for signal_sendSignalAction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLSendSignalAction.signal
-   */
-  def signal_sendSignalAction: Set[UMLSendSignalAction[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLSendSignalAction.signal
+	 */
+	def signal_sendSignalAction: Set[UMLSendSignalAction[Uml]]
 
-  /**
-   * <!-- Start of user code doc for signal_signalEvent -->
+	/**
+	 * <!-- Start of user code doc for signal_signalEvent -->
    * <!-- End of user code doc for signal_signalEvent -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLSignalEvent.signal
-   */
-  def signal_signalEvent: Set[UMLSignalEvent[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLSignalEvent.signal
+	 */
+	def signal_signalEvent: Set[UMLSignalEvent[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    signal_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		signal_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLSignal
-   *
-   * <!-- Start of user code doc for signal_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLSignal
+	 *
+	 * <!-- Start of user code doc for signal_metaAttributes -->
    * <!-- End of user code doc for signal_metaAttributes -->
-   */
-  def signal_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      classifier_metaAttributes,
-      Seq ())
+	 */
+	def signal_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			classifier_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    signal_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		signal_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLSignal
-   *
-   * <!-- Start of user code doc for signal_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLSignal
+	 *
+	 * <!-- Start of user code doc for signal_compositeMetaProperties -->
    * <!-- End of user code doc for signal_compositeMetaProperties -->
-   */
-  def signal_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      classifier_compositeMetaProperties,
-      Seq (Signal_ownedAttribute))
+	 */
+	def signal_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			classifier_compositeMetaProperties,
+			Seq (Signal_ownedAttribute))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    signal_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		signal_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLSignal
-   *
-   * <!-- Start of user code doc for signal_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLSignal
+	 *
+	 * <!-- Start of user code doc for signal_referenceMetaProperties -->
    * <!-- End of user code doc for signal_referenceMetaProperties -->
-   */
-  def signal_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      classifier_referenceMetaProperties,
-      Seq ())
+	 */
+	def signal_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			classifier_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    signal_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		signal_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLSignal
-   *
-   * <!-- Start of user code doc for signal_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLSignal
+	 *
+	 * <!-- Start of user code doc for signal_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for signal_forwardReferencesFromMetamodelAssociations -->
-   */
-  def signal_forwardReferencesFromMetamodelAssociations: Elements =
-    classifier_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def signal_forwardReferencesFromMetamodelAssociations: Elements =
+		classifier_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLSignal

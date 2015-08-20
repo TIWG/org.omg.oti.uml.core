@@ -54,36 +54,36 @@ import scala.language.postfixOps
  */
 trait UMLValuePinOps[Uml <: UML] { self: UMLValuePin[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The type of the value ValueSpecification must conform to the type of the ValuePin.
-   *
-   * <!-- Start of user code doc for validate_compatible_type -->
+	/**
+	 * The type of the value ValueSpecification must conform to the type of the ValuePin.
+	 *
+	 * <!-- Start of user code doc for validate_compatible_type -->
    * <!-- End of user code doc for validate_compatible_type -->
-   *
-   * @body value.type.conformsTo(type)
-   */
-  def validate_compatible_type: Boolean = {
-    // Start of user code for "compatible_type"
+	 *
+	 * @body value.type.conformsTo(type)
+	 */
+	def validate_compatible_type: Boolean = {
+		// Start of user code for "compatible_type"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A ValuePin may have no incoming ActivityEdges.
-   *
-   * <!-- Start of user code doc for validate_no_incoming_edges -->
+	/**
+	 * A ValuePin may have no incoming ActivityEdges.
+	 *
+	 * <!-- Start of user code doc for validate_no_incoming_edges -->
    * <!-- End of user code doc for validate_no_incoming_edges -->
-   *
-   * @body incoming->isEmpty()
-   */
-  def validate_no_incoming_edges: Boolean = {
-    // Start of user code for "no_incoming_edges"
+	 *
+	 * @body incoming->isEmpty()
+	 */
+	def validate_no_incoming_edges: Boolean = {
+		// Start of user code for "no_incoming_edges"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLValuePinOps

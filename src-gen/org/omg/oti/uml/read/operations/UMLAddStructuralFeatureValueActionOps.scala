@@ -53,26 +53,25 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] {
-  self: UMLAddStructuralFeatureValueAction[Uml] =>
+trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructuralFeatureValueAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * AddStructuralFeatureActions adding a value to ordered StructuralFeatures must have a single InputPin for the insertion point with type UnlimitedNatural and multiplicity of 1..1 if isReplaceAll=false, and must have no Input Pin for the insertion point when the StructuralFeature is unordered.
-   *
-   * <!-- Start of user code doc for validate_insertAt_pin -->
+	/**
+	 * AddStructuralFeatureActions adding a value to ordered StructuralFeatures must have a single InputPin for the insertion point with type UnlimitedNatural and multiplicity of 1..1 if isReplaceAll=false, and must have no Input Pin for the insertion point when the StructuralFeature is unordered.
+	 *
+	 * <!-- Start of user code doc for validate_insertAt_pin -->
    * <!-- End of user code doc for validate_insertAt_pin -->
-   *
-   * @body if not structuralFeature.isOrdered then insertAt = null
-   *       else
-   *       not isReplaceAll implies
-   *       insertAt<>null and
-   *       insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
-   *       endif
-   */
-  def validate_insertAt_pin: Boolean = {
-    // Start of user code for "insertAt_pin"
+	 *
+	 * @body if not structuralFeature.isOrdered then insertAt = null
+	 * else 
+	 *   not isReplaceAll implies
+	 *   	insertAt<>null and 
+	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
+	 * endif
+	 */
+	def validate_insertAt_pin: Boolean = {
+		// Start of user code for "insertAt_pin"
     if (!structuralFeature.get.isOrdered)
       insertAt == null
     else if (!isReplaceAll)
@@ -87,24 +86,22 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] {
                                           }
     else true
     // End of user code
-  }
+	}
 
-  /**
-   * A value InputPin is required.
-   *
-   * <!-- Start of user code doc for validate_required_value -->
+	/**
+	 * A value InputPin is required.
+	 *
+	 * <!-- Start of user code doc for validate_required_value -->
    * <!-- End of user code doc for validate_required_value -->
-   *
-   * @body value<>null
-   */
-  def validate_required_value: Boolean = {
-    // Start of user code for "required_value"
+	 *
+	 * @body value<>null
+	 */
+	def validate_required_value: Boolean = {
+		// Start of user code for "required_value"
     value.isDefined
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
-}
-
-//UMLAddStructuralFeatureValueActionOps
+} //UMLAddStructuralFeatureValueActionOps

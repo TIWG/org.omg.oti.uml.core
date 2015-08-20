@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLAnyReceiveEventOps
  * <!-- End of user code documentation -->
 */
 trait UMLAnyReceiveEvent[Uml <: UML]
-  extends UMLMessageEvent[Uml]
-  with UMLAnyReceiveEventOps[Uml] {
+	extends UMLMessageEvent[Uml]
+	with UMLAnyReceiveEventOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    anyReceiveEvent_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		anyReceiveEvent_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLAnyReceiveEvent
-   *
-   * <!-- Start of user code doc for anyReceiveEvent_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_metaAttributes -->
    * <!-- End of user code doc for anyReceiveEvent_metaAttributes -->
-   */
-  def anyReceiveEvent_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      messageEvent_metaAttributes,
-      Seq ())
+	 */
+	def anyReceiveEvent_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			messageEvent_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    anyReceiveEvent_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		anyReceiveEvent_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLAnyReceiveEvent
-   *
-   * <!-- Start of user code doc for anyReceiveEvent_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_compositeMetaProperties -->
    * <!-- End of user code doc for anyReceiveEvent_compositeMetaProperties -->
-   */
-  def anyReceiveEvent_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      messageEvent_compositeMetaProperties,
-      Seq ())
+	 */
+	def anyReceiveEvent_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			messageEvent_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    anyReceiveEvent_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		anyReceiveEvent_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLAnyReceiveEvent
-   *
-   * <!-- Start of user code doc for anyReceiveEvent_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_referenceMetaProperties -->
    * <!-- End of user code doc for anyReceiveEvent_referenceMetaProperties -->
-   */
-  def anyReceiveEvent_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      messageEvent_referenceMetaProperties,
-      Seq ())
+	 */
+	def anyReceiveEvent_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			messageEvent_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    anyReceiveEvent_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		anyReceiveEvent_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLAnyReceiveEvent
-   *
-   * <!-- Start of user code doc for anyReceiveEvent_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLAnyReceiveEvent
+	 *
+	 * <!-- Start of user code doc for anyReceiveEvent_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for anyReceiveEvent_forwardReferencesFromMetamodelAssociations -->
-   */
-  def anyReceiveEvent_forwardReferencesFromMetamodelAssociations: Elements =
-    messageEvent_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def anyReceiveEvent_forwardReferencesFromMetamodelAssociations: Elements =
+		messageEvent_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLAnyReceiveEvent

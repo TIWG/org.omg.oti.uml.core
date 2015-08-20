@@ -52,105 +52,105 @@ import org.omg.oti.uml.read.operations.UMLPinOps
  * <!-- End of user code documentation -->
 */
 trait UMLPin[Uml <: UML]
-  extends UMLMultiplicityElement[Uml]
-  with UMLObjectNode[Uml]
-  with UMLPinOps[Uml] {
+	extends UMLMultiplicityElement[Uml]
+	with UMLObjectNode[Uml]
+	with UMLPinOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Indicates whether the Pin provides data to the Action or just controls how the Action executes.
-   *
-   * <!-- Start of user code doc for isControl -->
+	/**
+	 * Indicates whether the Pin provides data to the Action or just controls how the Action executes.
+	 *
+	 * <!-- Start of user code doc for isControl -->
    * <!-- End of user code doc for isControl -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isControl: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isControl: Boolean
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    pin_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		pin_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLPin
-   *
-   * <!-- Start of user code doc for pin_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLPin
+	 *
+	 * <!-- Start of user code doc for pin_metaAttributes -->
    * <!-- End of user code doc for pin_metaAttributes -->
-   */
-  def pin_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      multiplicityElement_metaAttributes,
-      objectNode_metaAttributes,
-      Seq (Pin_isControl))
+	 */
+	def pin_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			multiplicityElement_metaAttributes,
+			objectNode_metaAttributes,
+			Seq (Pin_isControl))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    pin_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		pin_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLPin
-   *
-   * <!-- Start of user code doc for pin_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLPin
+	 *
+	 * <!-- Start of user code doc for pin_compositeMetaProperties -->
    * <!-- End of user code doc for pin_compositeMetaProperties -->
-   */
-  def pin_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      multiplicityElement_compositeMetaProperties,
-      objectNode_compositeMetaProperties,
-      Seq ())
+	 */
+	def pin_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			multiplicityElement_compositeMetaProperties,
+			objectNode_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    pin_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		pin_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLPin
-   *
-   * <!-- Start of user code doc for pin_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLPin
+	 *
+	 * <!-- Start of user code doc for pin_referenceMetaProperties -->
    * <!-- End of user code doc for pin_referenceMetaProperties -->
-   */
-  def pin_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      multiplicityElement_referenceMetaProperties,
-      objectNode_referenceMetaProperties,
-      Seq ())
+	 */
+	def pin_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			multiplicityElement_referenceMetaProperties,
+			objectNode_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    pin_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		pin_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLPin
-   *
-   * <!-- Start of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLPin
+	 *
+	 * <!-- Start of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
-   */
-  def pin_forwardReferencesFromMetamodelAssociations: Elements =
-    multiplicityElement_forwardReferencesFromMetamodelAssociations ++
-    objectNode_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def pin_forwardReferencesFromMetamodelAssociations: Elements =
+		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
+		objectNode_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLPin

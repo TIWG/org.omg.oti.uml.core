@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLReadStructuralFeatureActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLReadStructuralFeatureAction[Uml <: UML]
-  extends UMLStructuralFeatureAction[Uml]
-  with UMLReadStructuralFeatureActionOps[Uml] {
+	extends UMLStructuralFeatureAction[Uml]
+	with UMLReadStructuralFeatureActionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    readStructuralFeatureAction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		readStructuralFeatureAction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLReadStructuralFeatureAction
-   *
-   * <!-- Start of user code doc for readStructuralFeatureAction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLReadStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for readStructuralFeatureAction_metaAttributes -->
    * <!-- End of user code doc for readStructuralFeatureAction_metaAttributes -->
-   */
-  def readStructuralFeatureAction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      structuralFeatureAction_metaAttributes,
-      Seq ())
+	 */
+	def readStructuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			structuralFeatureAction_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    readStructuralFeatureAction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		readStructuralFeatureAction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLReadStructuralFeatureAction
-   *
-   * <!-- Start of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLReadStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
    * <!-- End of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
-   */
-  def readStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuralFeatureAction_compositeMetaProperties,
-      Seq (ReadStructuralFeatureAction_result))
+	 */
+	def readStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuralFeatureAction_compositeMetaProperties,
+			Seq (ReadStructuralFeatureAction_result))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    readStructuralFeatureAction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		readStructuralFeatureAction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLReadStructuralFeatureAction
-   *
-   * <!-- Start of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLReadStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
    * <!-- End of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
-   */
-  def readStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuralFeatureAction_referenceMetaProperties,
-      Seq ())
+	 */
+	def readStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuralFeatureAction_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLReadStructuralFeatureAction
-   *
-   * <!-- Start of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLReadStructuralFeatureAction
+	 *
+	 * <!-- Start of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations: Elements =
-    structuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations: Elements =
+		structuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReadStructuralFeatureAction

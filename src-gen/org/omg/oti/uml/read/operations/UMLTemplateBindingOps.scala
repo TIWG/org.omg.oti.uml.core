@@ -47,67 +47,58 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template.
- * A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for
- * the formal parameters of the template.
+ * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The TemplateableElement that is bound by this TemplateBinding.
-   *
-   * <!-- Start of user code doc for boundElement -->
+	/**
+	 * The TemplateableElement that is bound by this TemplateBinding.
+	 *
+	 * <!-- Start of user code doc for boundElement -->
    * <!-- End of user code doc for boundElement -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLTemplateableElement.templateBinding
-   */
-  def boundElement: Option[UMLTemplateableElement[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLTemplateableElement[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTemplateableElement.templateBinding
+	 */
+	def boundElement: Option[UMLTemplateableElement[Uml]] = owner.selectByKindOf { case x: UMLTemplateableElement[Uml] => x }
 
-  /**
-   * The TemplateParameterSubstitutions owned by this TemplateBinding.
-   *
-   * <!-- Start of user code doc for parameterSubstitution -->
+	/**
+	 * The TemplateParameterSubstitutions owned by this TemplateBinding.
+	 *
+	 * <!-- Start of user code doc for parameterSubstitution -->
    * <!-- End of user code doc for parameterSubstitution -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLTemplateParameterSubstitution.templateBinding
-   */
-  def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLTemplateParameterSubstitution[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.templateBinding
+	 */
+	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateParameterSubstitution[Uml] => x }
 
-  /**
-   * The TemplateSignature for the template that is the target of this TemplateBinding.
-   *
-   * <!-- Start of user code doc for signature -->
+	/**
+	 * The TemplateSignature for the template that is the target of this TemplateBinding.
+	 *
+	 * <!-- Start of user code doc for signature -->
    * <!-- End of user code doc for signature -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLTemplateSignature.signature_templateBinding
-   */
-  def signature: Option[UMLTemplateSignature[Uml]] =
-    target
-    .selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.signature_templateBinding
+	 */
+	def signature: Option[UMLTemplateSignature[Uml]] = target.selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
 
-  /**
-   * A TemplateBiinding contains at most one TemplateParameterSubstitution
-   * for each formal TemplateParameter of the target TemplateSignature.
-   *
-   * <!-- Start of user code doc for validate_one_parameter_substitution -->
+	/**
+	 * A TemplateBiinding contains at most one TemplateParameterSubstitution for each formal TemplateParameter of the target TemplateSignature.
+	 *
+	 * <!-- Start of user code doc for validate_one_parameter_substitution -->
    * <!-- End of user code doc for validate_one_parameter_substitution -->
-   *
-   * @body signature.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)
-   */
-  def validate_one_parameter_substitution: Boolean = {
-    // Start of user code for "one_parameter_substitution"
+	 *
+	 * @body signature.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)
+	 */
+	def validate_one_parameter_substitution: Boolean = {
+		// Start of user code for "one_parameter_substitution"
     signature match {
       case Some(s) => s.parameter.forall { 
         p => parameterSubstitution.filter { 
@@ -120,18 +111,18 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
       case None => false
     }
     // End of user code
-  }
+	}
 
-  /**
-   * Each parameterSubstitution must refer to a formal TemplateParameter of the target TemplateSignature.
-   *
-   * <!-- Start of user code doc for validate_parameter_substitution_formal -->
+	/**
+	 * Each parameterSubstitution must refer to a formal TemplateParameter of the target TemplateSignature.
+	 *
+	 * <!-- Start of user code doc for validate_parameter_substitution_formal -->
    * <!-- End of user code doc for validate_parameter_substitution_formal -->
-   *
-   * @body parameterSubstitution->forAll(b | signature.parameter->includes(b.formal))
-   */
-  def validate_parameter_substitution_formal: Boolean = {
-    // Start of user code for "parameter_substitution_formal"
+	 *
+	 * @body parameterSubstitution->forAll(b | signature.parameter->includes(b.formal))
+	 */
+	def validate_parameter_substitution_formal: Boolean = {
+		// Start of user code for "parameter_substitution_formal"
     signature match {
       case Some(s) => 
         parameterSubstitution.forall { b => 
@@ -143,8 +134,8 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
       case None => false
     }
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTemplateBindingOps

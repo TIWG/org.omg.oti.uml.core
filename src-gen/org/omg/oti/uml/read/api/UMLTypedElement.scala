@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLTypedElementOps
  * <!-- End of user code documentation -->
 */
 trait UMLTypedElement[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLTypedElementOps[Uml] {
+	extends UMLNamedElement[Uml]
+	with UMLTypedElementOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The type of the TypedElement.
-   *
-   * <!-- Start of user code doc for _type -->
+	/**
+	 * The type of the TypedElement.
+	 *
+	 * <!-- Start of user code doc for _type -->
    * <!-- End of user code doc for _type -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLType.type_typedElement
-   */
-  def _type: Option[UMLType[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLType.type_typedElement
+	 */
+	def _type: Option[UMLType[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    typedElement_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		typedElement_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLTypedElement
-   *
-   * <!-- Start of user code doc for typedElement_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_metaAttributes -->
    * <!-- End of user code doc for typedElement_metaAttributes -->
-   */
-  def typedElement_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      namedElement_metaAttributes,
-      Seq ())
+	 */
+	def typedElement_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namedElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    typedElement_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		typedElement_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLTypedElement
-   *
-   * <!-- Start of user code doc for typedElement_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_compositeMetaProperties -->
    * <!-- End of user code doc for typedElement_compositeMetaProperties -->
-   */
-  def typedElement_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq ())
+	 */
+	def typedElement_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    typedElement_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		typedElement_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLTypedElement
-   *
-   * <!-- Start of user code doc for typedElement_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_referenceMetaProperties -->
    * <!-- End of user code doc for typedElement_referenceMetaProperties -->
-   */
-  def typedElement_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq (TypedElement_type))
+	 */
+	def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_referenceMetaProperties,
+			Seq (TypedElement_type))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    typedElement_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		typedElement_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLTypedElement
-   *
-   * <!-- Start of user code doc for typedElement_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLTypedElement
+	 *
+	 * <!-- Start of user code doc for typedElement_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for typedElement_forwardReferencesFromMetamodelAssociations -->
-   */
-  def typedElement_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    _type
+	 */
+	def typedElement_forwardReferencesFromMetamodelAssociations: Elements =
+		namedElement_forwardReferencesFromMetamodelAssociations ++
+		_type
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTypedElement

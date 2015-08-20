@@ -47,154 +47,148 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of
- * values either in terms of a UML Behavior or based on a textual statement in a language other than UML
+ * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * If an OpaqueExpression is specified using a UML Behavior, then this refers to
-   * the single required return Parameter of that Behavior. When the Behavior completes execution,
-   * the values on this Parameter give the result of evaluating the OpaqueExpression.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * If an OpaqueExpression is specified using a UML Behavior, then this refers to the single required return Parameter of that Behavior. When the Behavior completes execution, the values on this Parameter give the result of evaluating the OpaqueExpression.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLParameter.result_opaqueExpression
-   * @body result = (if behavior = null then
-   *   null
-   * else
-   *   behavior.ownedParameter->first()
-   * endif)
-   */
-  def result: Option[UMLParameter[Uml]] = {
-    // Start of user code for "result"
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLParameter.result_opaqueExpression
+	 * @body result = (if behavior = null then
+	 * 	null
+	 * else
+	 * 	behavior.ownedParameter->first()
+	 * endif)
+	 */
+	def result: Option[UMLParameter[Uml]] = {
+		// Start of user code for "result"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * <!-- Start of user code doc for mapping_abstraction -->
+	/**
+	 * <!-- Start of user code doc for mapping_abstraction -->
    * <!-- End of user code doc for mapping_abstraction -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLAbstraction.mapping
-   */
-  def mapping_abstraction: Option[UMLAbstraction[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLAbstraction[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLAbstraction.mapping
+	 */
+	def mapping_abstraction: Option[UMLAbstraction[Uml]] = owner.selectByKindOf { case x: UMLAbstraction[Uml] => x }
 
-  /**
-   * The query isIntegral() tells whether an expression is intended to produce an Integer.
-   *
-   * <!-- Start of user code doc for isIntegral -->
+	/**
+	 * The query isIntegral() tells whether an expression is intended to produce an Integer.
+	 *
+	 * <!-- Start of user code doc for isIntegral -->
    * <!-- End of user code doc for isIntegral -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (false)
-   */
-  def isIntegral: Boolean = {
-    // Start of user code for "isIntegral"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (false)
+	 */
+	def isIntegral: Boolean = {
+		// Start of user code for "isIntegral"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The query isNonNegative() tells whether an integer expression has a non-negative value.
-   *
-   * <!-- Start of user code doc for isNonNegative -->
+	/**
+	 * The query isNonNegative() tells whether an integer expression has a non-negative value.
+	 *
+	 * <!-- Start of user code doc for isNonNegative -->
    * <!-- End of user code doc for isNonNegative -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (false)
-   */
-  def isNonNegative: Boolean = {
-    // Start of user code for "isNonNegative"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (false)
+	 */
+	def isNonNegative: Boolean = {
+		// Start of user code for "isNonNegative"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The query isPositive() tells whether an integer expression has a positive value.
-   *
-   * <!-- Start of user code doc for isPositive -->
+	/**
+	 * The query isPositive() tells whether an integer expression has a positive value.
+	 *
+	 * <!-- Start of user code doc for isPositive -->
    * <!-- End of user code doc for isPositive -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (false)
-   */
-  def isPositive: Boolean = {
-    // Start of user code for "isPositive"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (false)
+	 */
+	def isPositive: Boolean = {
+		// Start of user code for "isPositive"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The query value() gives an integer value for an expression intended to produce one.
-   *
-   * <!-- Start of user code doc for value -->
+	/**
+	 * The query value() gives an integer value for an expression intended to produce one.
+	 *
+	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (0)
-   */
-  def value: Integer = {
-    // Start of user code for "value"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (0)
+	 */
+	def value: Integer = {
+		// Start of user code for "value"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * If the language attribute is not empty, then the size of the body and language arrays must be the same.
-   *
-   * <!-- Start of user code doc for validate_language_body_size -->
+	/**
+	 * If the language attribute is not empty, then the size of the body and language arrays must be the same.
+	 *
+	 * <!-- Start of user code doc for validate_language_body_size -->
    * <!-- End of user code doc for validate_language_body_size -->
-   *
-   * @body language->notEmpty() implies (_'body'->size() = language->size())
-   */
-  def validate_language_body_size: Boolean = {
-    // Start of user code for "language_body_size"
+	 *
+	 * @body language->notEmpty() implies (_'body'->size() = language->size())
+	 */
+	def validate_language_body_size: Boolean = {
+		// Start of user code for "language_body_size"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The behavior must have exactly one return result parameter.
-   *
-   * <!-- Start of user code doc for validate_one_return_result_parameter -->
+	/**
+	 * The behavior must have exactly one return result parameter.
+	 *
+	 * <!-- Start of user code doc for validate_one_return_result_parameter -->
    * <!-- End of user code doc for validate_one_return_result_parameter -->
-   *
-   * @body behavior <> null implies
-   *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
-   */
-  def validate_one_return_result_parameter: Boolean = {
-    // Start of user code for "one_return_result_parameter"
+	 *
+	 * @body behavior <> null implies
+	 *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
+	 */
+	def validate_one_return_result_parameter: Boolean = {
+		// Start of user code for "one_return_result_parameter"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The behavior may only have return result parameters.
-   *
-   * <!-- Start of user code doc for validate_only_return_result_parameters -->
+	/**
+	 * The behavior may only have return result parameters.
+	 *
+	 * <!-- Start of user code doc for validate_only_return_result_parameters -->
    * <!-- End of user code doc for validate_only_return_result_parameters -->
-   *
-   * @body behavior <> null implies
-   *      behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
-   */
-  def validate_only_return_result_parameters: Boolean = {
-    // Start of user code for "only_return_result_parameters"
+	 *
+	 * @body behavior <> null implies behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
+	 */
+	def validate_only_return_result_parameters: Boolean = {
+		// Start of user code for "only_return_result_parameters"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
     opaqueExpression_asForwardReferencesToImportableOuterPackageableElements

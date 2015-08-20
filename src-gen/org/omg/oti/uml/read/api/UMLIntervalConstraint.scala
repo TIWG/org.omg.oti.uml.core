@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLIntervalConstraintOps
  * <!-- End of user code documentation -->
 */
 trait UMLIntervalConstraint[Uml <: UML]
-  extends UMLConstraint[Uml]
-  with UMLIntervalConstraintOps[Uml] {
+	extends UMLConstraint[Uml]
+	with UMLIntervalConstraintOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    intervalConstraint_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		intervalConstraint_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLIntervalConstraint
-   *
-   * <!-- Start of user code doc for intervalConstraint_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLIntervalConstraint
+	 *
+	 * <!-- Start of user code doc for intervalConstraint_metaAttributes -->
    * <!-- End of user code doc for intervalConstraint_metaAttributes -->
-   */
-  def intervalConstraint_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      constraint_metaAttributes,
-      Seq ())
+	 */
+	def intervalConstraint_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			constraint_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    intervalConstraint_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		intervalConstraint_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLIntervalConstraint
-   *
-   * <!-- Start of user code doc for intervalConstraint_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLIntervalConstraint
+	 *
+	 * <!-- Start of user code doc for intervalConstraint_compositeMetaProperties -->
    * <!-- End of user code doc for intervalConstraint_compositeMetaProperties -->
-   */
-  def intervalConstraint_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      constraint_compositeMetaProperties,
-      Seq (IntervalConstraint_specification))
+	 */
+	def intervalConstraint_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			constraint_compositeMetaProperties,
+			Seq (IntervalConstraint_specification))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    intervalConstraint_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		intervalConstraint_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLIntervalConstraint
-   *
-   * <!-- Start of user code doc for intervalConstraint_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLIntervalConstraint
+	 *
+	 * <!-- Start of user code doc for intervalConstraint_referenceMetaProperties -->
    * <!-- End of user code doc for intervalConstraint_referenceMetaProperties -->
-   */
-  def intervalConstraint_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      constraint_referenceMetaProperties,
-      Seq ())
+	 */
+	def intervalConstraint_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			constraint_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    intervalConstraint_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		intervalConstraint_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLIntervalConstraint
-   *
-   * <!-- Start of user code doc for intervalConstraint_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLIntervalConstraint
+	 *
+	 * <!-- Start of user code doc for intervalConstraint_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for intervalConstraint_forwardReferencesFromMetamodelAssociations -->
-   */
-  def intervalConstraint_forwardReferencesFromMetamodelAssociations: Elements =
-    constraint_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def intervalConstraint_forwardReferencesFromMetamodelAssociations: Elements =
+		constraint_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLIntervalConstraint

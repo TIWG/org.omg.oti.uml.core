@@ -54,22 +54,22 @@ import scala.language.postfixOps
  */
 trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The VariableAction must be in the scope of the variable.
-   *
-   * <!-- Start of user code doc for validate_scope_of_variable -->
+	/**
+	 * The VariableAction must be in the scope of the variable.
+	 *
+	 * <!-- Start of user code doc for validate_scope_of_variable -->
    * <!-- End of user code doc for validate_scope_of_variable -->
-   *
-   * @body variable.isAccessibleBy(self)
-   */
-  def validate_scope_of_variable: Boolean = {
-    // Start of user code for "scope_of_variable"
+	 *
+	 * @body variable.isAccessibleBy(self)
+	 */
+	def validate_scope_of_variable: Boolean = {
+		// Start of user code for "scope_of_variable"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLVariableActionOps

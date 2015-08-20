@@ -52,124 +52,124 @@ import org.omg.oti.uml.read.operations.UMLExpansionRegionOps
  * <!-- End of user code documentation -->
 */
 trait UMLExpansionRegion[Uml <: UML]
-  extends UMLStructuredActivityNode[Uml]
-  with UMLExpansionRegionOps[Uml] {
+	extends UMLStructuredActivityNode[Uml]
+	with UMLExpansionRegionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The ExpansionNodes that hold the input collections for the ExpansionRegion.
-   *
-   * <!-- Start of user code doc for inputElement -->
+	/**
+	 * The ExpansionNodes that hold the input collections for the ExpansionRegion.
+	 *
+	 * <!-- Start of user code doc for inputElement -->
    * <!-- End of user code doc for inputElement -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-   * @opposite org.omg.oti.api.UMLExpansionNode.regionAsInput
-   */
-  def inputElement: Set[UMLExpansionNode[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLExpansionNode.regionAsInput
+	 */
+	def inputElement: Set[UMLExpansionNode[Uml]]
 
-  /**
-   * The mode in which the ExpansionRegion executes its contents. If parallel, executions are concurrent. If iterative, executions are sequential. If stream, a stream of values flows into a single execution.
-   *
-   * <!-- Start of user code doc for mode -->
+	/**
+	 * The mode in which the ExpansionRegion executes its contents. If parallel, executions are concurrent. If iterative, executions are sequential. If stream, a stream of values flows into a single execution.
+	 *
+	 * <!-- Start of user code doc for mode -->
    * <!-- End of user code doc for mode -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def mode: UMLExpansionKind.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def mode: UMLExpansionKind.Value
 
-  /**
-   * The ExpansionNodes that form the output collections of the ExpansionRegion.
-   *
-   * <!-- Start of user code doc for outputElement -->
+	/**
+	 * The ExpansionNodes that form the output collections of the ExpansionRegion.
+	 *
+	 * <!-- Start of user code doc for outputElement -->
    * <!-- End of user code doc for outputElement -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLExpansionNode.regionAsOutput
-   */
-  def outputElement: Set[UMLExpansionNode[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLExpansionNode.regionAsOutput
+	 */
+	def outputElement: Set[UMLExpansionNode[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    expansionRegion_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		expansionRegion_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLExpansionRegion
-   *
-   * <!-- Start of user code doc for expansionRegion_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_metaAttributes -->
    * <!-- End of user code doc for expansionRegion_metaAttributes -->
-   */
-  def expansionRegion_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      structuredActivityNode_metaAttributes,
-      Seq ())
+	 */
+	def expansionRegion_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			structuredActivityNode_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    expansionRegion_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		expansionRegion_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLExpansionRegion
-   *
-   * <!-- Start of user code doc for expansionRegion_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_compositeMetaProperties -->
    * <!-- End of user code doc for expansionRegion_compositeMetaProperties -->
-   */
-  def expansionRegion_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_compositeMetaProperties,
-      Seq ())
+	 */
+	def expansionRegion_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    expansionRegion_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		expansionRegion_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLExpansionRegion
-   *
-   * <!-- Start of user code doc for expansionRegion_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_referenceMetaProperties -->
    * <!-- End of user code doc for expansionRegion_referenceMetaProperties -->
-   */
-  def expansionRegion_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_referenceMetaProperties,
-      Seq (ExpansionRegion_inputElement,
-        ExpansionRegion_outputElement))
+	 */
+	def expansionRegion_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_referenceMetaProperties,
+			Seq (ExpansionRegion_inputElement,
+				ExpansionRegion_outputElement))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    expansionRegion_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		expansionRegion_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLExpansionRegion
-   *
-   * <!-- Start of user code doc for expansionRegion_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLExpansionRegion
+	 *
+	 * <!-- Start of user code doc for expansionRegion_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for expansionRegion_forwardReferencesFromMetamodelAssociations -->
-   */
-  def expansionRegion_forwardReferencesFromMetamodelAssociations: Elements =
-    structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
-    inputElement ++
-    outputElement
+	 */
+	def expansionRegion_forwardReferencesFromMetamodelAssociations: Elements =
+		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
+		inputElement ++
+		outputElement
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExpansionRegion

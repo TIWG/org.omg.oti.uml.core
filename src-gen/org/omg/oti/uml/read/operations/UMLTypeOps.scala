@@ -54,48 +54,42 @@ import scala.language.postfixOps
  */
 trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for endType_association -->
+	/**
+	 * <!-- Start of user code doc for endType_association -->
    * <!-- End of user code doc for endType_association -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLAssociation.endType
-   */
-  def endType_association: Set[UMLAssociation[Uml]] =
-    relatedElement_relationship
-    .selectByKindOf { case x: UMLAssociation[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.endType
+	 */
+	def endType_association: Set[UMLAssociation[Uml]] = relatedElement_relationship.selectByKindOf { case x: UMLAssociation[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for raisedException_operation -->
+	/**
+	 * <!-- Start of user code doc for raisedException_operation -->
    * <!-- End of user code doc for raisedException_operation -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLOperation.raisedException
-   */
-  def raisedException_operation: Set[UMLOperation[Uml]] =
-    raisedException_behavioralFeature
-    .selectByKindOf { case x: UMLOperation[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLOperation.raisedException
+	 */
+	def raisedException_operation: Set[UMLOperation[Uml]] = raisedException_behavioralFeature.selectByKindOf { case x: UMLOperation[Uml] => x }
 
-  /**
-   * The query conformsTo() gives true for a Type that conforms to another.
-   * By default, two Types do not conform to each other.
-   * This query is intended to be redefined for specific conformance situations.
-   *
-   * <!-- Start of user code doc for conformsTo -->
+	/**
+	 * The query conformsTo() gives true for a Type that conforms to another. By default, two Types do not conform to each other. This query is intended to be redefined for specific conformance situations.
+	 *
+	 * <!-- Start of user code doc for conformsTo -->
    * <!-- End of user code doc for conformsTo -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (false)
-   */
-  def conformsTo(other: Option[UMLType[Uml]]): Boolean = {
-    // Start of user code for "conformsTo"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (false)
+	 */
+	def conformsTo(other: Option[UMLType[Uml]]): Boolean = {
+		// Start of user code for "conformsTo"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   def endType_associationExceptRedefinedOrDerived
   : Set[UMLAssociation[Uml]] = {

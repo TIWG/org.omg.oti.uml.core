@@ -53,38 +53,33 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLPackageMergeOps[Uml <: UML] {
-  self: UMLPackageMerge[Uml] =>
+trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * References the Package that is to be merged with the receiving package of the PackageMerge.
-   *
-   * <!-- Start of user code doc for mergedPackage -->
+	/**
+	 * References the Package that is to be merged with the receiving package of the PackageMerge.
+	 *
+	 * <!-- Start of user code doc for mergedPackage -->
    * <!-- End of user code doc for mergedPackage -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLPackage.mergedPackage_packageMerge
-   */
-  def mergedPackage: Option[UMLPackage[Uml]] =
-    target
-    .selectByKindOf { case x: UMLPackage[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLPackage.mergedPackage_packageMerge
+	 */
+	def mergedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
 
-  /**
-   * References the Package that is being extended with the contents of the merged package of the PackageMerge.
-   *
-   * <!-- Start of user code doc for receivingPackage -->
+	/**
+	 * References the Package that is being extended with the contents of the merged package of the PackageMerge.
+	 *
+	 * <!-- Start of user code doc for receivingPackage -->
    * <!-- End of user code doc for receivingPackage -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLPackage.packageMerge
-   */
-  def receivingPackage: Option[UMLPackage[Uml]] =
-    owner
-    .selectByKindOf { case x: UMLPackage[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLPackage.packageMerge
+	 */
+	def receivingPackage: Option[UMLPackage[Uml]] = owner.selectByKindOf { case x: UMLPackage[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   /**
    * TIWG: see UMLUtil, Rule #3
@@ -96,6 +91,4 @@ trait UMLPackageMergeOps[Uml <: UML] {
     })
 
   // End of user code
-}
-
-//UMLPackageMergeOps
+} //UMLPackageMergeOps

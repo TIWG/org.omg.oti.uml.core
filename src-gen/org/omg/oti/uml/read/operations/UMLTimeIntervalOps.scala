@@ -54,19 +54,17 @@ import scala.language.postfixOps
  */
 trait UMLTimeIntervalOps[Uml <: UML] { self: UMLTimeInterval[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for specification_timeConstraint -->
+	/**
+	 * <!-- Start of user code doc for specification_timeConstraint -->
    * <!-- End of user code doc for specification_timeConstraint -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLTimeConstraint.specification
-   */
-  def specification_timeConstraint: Option[UMLTimeConstraint[Uml]] =
-    specification_intervalConstraint
-    .selectByKindOf { case x: UMLTimeConstraint[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTimeConstraint.specification
+	 */
+	def specification_timeConstraint: Option[UMLTimeConstraint[Uml]] = specification_intervalConstraint.selectByKindOf { case x: UMLTimeConstraint[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTimeIntervalOps

@@ -53,46 +53,43 @@ import scala.language.postfixOps
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLForkNodeOps[Uml <: UML] {
-  self: UMLForkNode[Uml] =>
+trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The ActivityEdges incoming to and outgoing from a ForkNode must be either all ObjectFlows or all ControlFlows.
-   *
-   * <!-- Start of user code doc for validate_edges -->
+	/**
+	 * The ActivityEdges incoming to and outgoing from a ForkNode must be either all ObjectFlows or all ControlFlows.
+	 *
+	 * <!-- Start of user code doc for validate_edges -->
    * <!-- End of user code doc for validate_edges -->
-   *
-   * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
-   *       allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
-   */
-  def validate_edges: Boolean = {
-    // Start of user code for "edges"
+	 *
+	 * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
+	 */
+	def validate_edges: Boolean = {
+		// Start of user code for "edges"
     (incoming ++ outgoing).forall {
                                     case _: UMLControlFlow[Uml] => true
                                     case _: UMLObjectFlow[Uml]  => true
                                     case _                      => false
                                   }
     // End of user code
-  }
+	}
 
-  /**
-   * A ForkNode has one incoming ActivityEdge.
-   *
-   * <!-- Start of user code doc for validate_one_incoming_edge -->
+	/**
+	 * A ForkNode has one incoming ActivityEdge.
+	 *
+	 * <!-- Start of user code doc for validate_one_incoming_edge -->
    * <!-- End of user code doc for validate_one_incoming_edge -->
-   *
-   * @body incoming->size()=1
-   */
-  def validate_one_incoming_edge: Boolean = {
-    // Start of user code for "one_incoming_edge"
+	 *
+	 * @body incoming->size()=1
+	 */
+	def validate_one_incoming_edge: Boolean = {
+		// Start of user code for "one_incoming_edge"
     1 == incoming.size
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
-}
-
-//UMLForkNodeOps
+} //UMLForkNodeOps

@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLValuePinOps
  * <!-- End of user code documentation -->
 */
 trait UMLValuePin[Uml <: UML]
-  extends UMLInputPin[Uml]
-  with UMLValuePinOps[Uml] {
+	extends UMLInputPin[Uml]
+	with UMLValuePinOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The ValueSpecification that is evaluated to obtain the value that the ValuePin will provide.
-   *
-   * <!-- Start of user code doc for value -->
+	/**
+	 * The ValueSpecification that is evaluated to obtain the value that the ValuePin will provide.
+	 *
+	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.value_valuePin
-   */
-  def value: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.value_valuePin
+	 */
+	def value: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    valuePin_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		valuePin_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLValuePin
-   *
-   * <!-- Start of user code doc for valuePin_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLValuePin
+	 *
+	 * <!-- Start of user code doc for valuePin_metaAttributes -->
    * <!-- End of user code doc for valuePin_metaAttributes -->
-   */
-  def valuePin_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      inputPin_metaAttributes,
-      Seq ())
+	 */
+	def valuePin_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			inputPin_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    valuePin_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		valuePin_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLValuePin
-   *
-   * <!-- Start of user code doc for valuePin_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLValuePin
+	 *
+	 * <!-- Start of user code doc for valuePin_compositeMetaProperties -->
    * <!-- End of user code doc for valuePin_compositeMetaProperties -->
-   */
-  def valuePin_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      inputPin_compositeMetaProperties,
-      Seq (ValuePin_value))
+	 */
+	def valuePin_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			inputPin_compositeMetaProperties,
+			Seq (ValuePin_value))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    valuePin_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		valuePin_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLValuePin
-   *
-   * <!-- Start of user code doc for valuePin_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLValuePin
+	 *
+	 * <!-- Start of user code doc for valuePin_referenceMetaProperties -->
    * <!-- End of user code doc for valuePin_referenceMetaProperties -->
-   */
-  def valuePin_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      inputPin_referenceMetaProperties,
-      Seq ())
+	 */
+	def valuePin_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			inputPin_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    valuePin_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		valuePin_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLValuePin
-   *
-   * <!-- Start of user code doc for valuePin_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLValuePin
+	 *
+	 * <!-- Start of user code doc for valuePin_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for valuePin_forwardReferencesFromMetamodelAssociations -->
-   */
-  def valuePin_forwardReferencesFromMetamodelAssociations: Elements =
-    inputPin_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def valuePin_forwardReferencesFromMetamodelAssociations: Elements =
+		inputPin_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLValuePin

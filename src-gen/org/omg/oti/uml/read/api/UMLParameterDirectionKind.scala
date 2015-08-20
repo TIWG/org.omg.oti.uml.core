@@ -46,44 +46,44 @@ package org.omg.oti.uml.read.api
  * <!-- End of user code documentation -->
  */
 object UMLParameterDirectionKind extends Enumeration {
-
-  /**
-   * The enumeration type
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	
+	/**
+	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  type UMLParameterDirectionKind = Value
+	 */
+	type UMLParameterDirectionKind = Value
 
-  /**
-    * Indicates that Parameter values are passed as return values back to the caller.
-   *
-   * <!-- Start of user code doc for _return -->
+	/**
+ 	 * Indicates that Parameter values are passed as return values back to the caller.
+	 *
+	 * <!-- Start of user code doc for _return -->
    * <!-- End of user code doc for _return -->
-    */
-  val _return = Value
+ 	 */
+	val _return = Value
 
-  /**
-    * Indicates that Parameter values are passed in by the caller.
-   *
-   * <!-- Start of user code doc for in -->
+	/**
+ 	 * Indicates that Parameter values are passed in by the caller. 
+	 *
+	 * <!-- Start of user code doc for in -->
    * <!-- End of user code doc for in -->
-    */
-  val in = Value
+ 	 */
+	val in = Value
 
-  /**
-    * Indicates that Parameter values are passed in by the caller and (possibly different) values passed out to the caller.
-   *
-   * <!-- Start of user code doc for inout -->
+	/**
+ 	 * Indicates that Parameter values are passed in by the caller and (possibly different) values passed out to the caller.
+	 *
+	 * <!-- Start of user code doc for inout -->
    * <!-- End of user code doc for inout -->
-    */
-  val inout = Value
+ 	 */
+	val inout = Value
 
-  /**
-    * Indicates that Parameter values are passed out to the caller.
-   *
-   * <!-- Start of user code doc for out -->
+	/**
+ 	 * Indicates that Parameter values are passed out to the caller.
+	 *
+	 * <!-- Start of user code doc for out -->
    * <!-- End of user code doc for out -->
-    */
-  val out = Value
+ 	 */
+	val out = Value
 }

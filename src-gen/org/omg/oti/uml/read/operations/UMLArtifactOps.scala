@@ -54,39 +54,39 @@ import scala.language.postfixOps
  */
 trait UMLArtifactOps[Uml <: UML] { self: UMLArtifact[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The set of model elements that are manifested in the Artifact. That is, these model elements are utilized in the construction (or generation) of the artifact.
-   *
-   * <!-- Start of user code doc for manifestation -->
+	/**
+	 * The set of model elements that are manifested in the Artifact. That is, these model elements are utilized in the construction (or generation) of the artifact.
+	 *
+	 * <!-- Start of user code doc for manifestation -->
    * <!-- End of user code doc for manifestation -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLManifestation.manifestation_artifact
-   */
-  def manifestation: Set[UMLManifestation[Uml]] = ownedElement.selectByKindOf { case x: UMLManifestation[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLManifestation.manifestation_artifact
+	 */
+	def manifestation: Set[UMLManifestation[Uml]] = ownedElement.selectByKindOf { case x: UMLManifestation[Uml] => x }
 
-  /**
-   * The Artifacts that are defined (nested) within the Artifact. The association is a specialization of the ownedMember association from Namespace to NamedElement.
-   *
-   * <!-- Start of user code doc for nestedArtifact -->
+	/**
+	 * The Artifacts that are defined (nested) within the Artifact. The association is a specialization of the ownedMember association from Namespace to NamedElement.
+	 *
+	 * <!-- Start of user code doc for nestedArtifact -->
    * <!-- End of user code doc for nestedArtifact -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLArtifact.nestedArtifact_artifact
-   */
-  def nestedArtifact: Set[UMLArtifact[Uml]] = ownedMember.selectByKindOf { case x: UMLArtifact[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLArtifact.nestedArtifact_artifact
+	 */
+	def nestedArtifact: Set[UMLArtifact[Uml]] = ownedMember.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for nestedArtifact_artifact -->
+	/**
+	 * <!-- Start of user code doc for nestedArtifact_artifact -->
    * <!-- End of user code doc for nestedArtifact_artifact -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLArtifact.nestedArtifact
-   */
-  def nestedArtifact_artifact: Option[UMLArtifact[Uml]] = namespace.selectByKindOf { case x: UMLArtifact[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLArtifact.nestedArtifact
+	 */
+	def nestedArtifact_artifact: Option[UMLArtifact[Uml]] = namespace.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLArtifactOps

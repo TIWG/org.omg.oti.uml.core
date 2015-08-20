@@ -47,56 +47,49 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * ConnectableElement is an abstract metaclass representing a set of instances
- * that play roles of a StructuredClassifier. ConnectableElements may be joined by
- * attached Connectors and specify configurations of linked instances
- * to be created within an instance of the containing StructuredClassifier.
+ * ConnectableElement is an abstract metaclass representing a set of instances that play roles of a StructuredClassifier. ConnectableElements may be joined by attached Connectors and specify configurations of linked instances to be created within an instance of the containing StructuredClassifier.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLConnectableElementOps[Uml <: UML] { self: UMLConnectableElement[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * A set of ConnectorEnds that attach to this ConnectableElement.
-   *
-   * <!-- Start of user code doc for end -->
+	/**
+	 * A set of ConnectorEnds that attach to this ConnectableElement.
+	 *
+	 * <!-- Start of user code doc for end -->
    * <!-- End of user code doc for end -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLConnectorEnd.role
-   * @body result = (ConnectorEnd.allInstances()->select(role = self))
-   */
-  def end: Set[UMLConnectorEnd[Uml]] = {
-    // Start of user code for "end"
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.role
+	 * @body result = (ConnectorEnd.allInstances()->select(role = self))
+	 */
+	def end: Set[UMLConnectorEnd[Uml]] = {
+		// Start of user code for "end"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * <!-- Start of user code doc for collaborationRole_collaboration -->
+	/**
+	 * <!-- Start of user code doc for collaborationRole_collaboration -->
    * <!-- End of user code doc for collaborationRole_collaboration -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLCollaboration.collaborationRole
-   */
-  def collaborationRole_collaboration: Set[UMLCollaboration[Uml]] =
-    role_structuredClassifier
-    .selectByKindOf { case x: UMLCollaboration[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLCollaboration.collaborationRole
+	 */
+	def collaborationRole_collaboration: Set[UMLCollaboration[Uml]] = role_structuredClassifier.selectByKindOf { case x: UMLCollaboration[Uml] => x }
 
-  /**
-   * <!-- Start of user code doc for role_structuredClassifier -->
+	/**
+	 * <!-- Start of user code doc for role_structuredClassifier -->
    * <!-- End of user code doc for role_structuredClassifier -->
-   *
-   * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLStructuredClassifier.role
-   */
-  def role_structuredClassifier: Set[UMLStructuredClassifier[Uml]] =
-    member_memberNamespace
-    .selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
+	 *
+	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.role
+	 */
+	def role_structuredClassifier: Set[UMLStructuredClassifier[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLConnectableElementOps

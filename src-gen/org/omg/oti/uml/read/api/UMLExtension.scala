@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLExtensionOps
  * <!-- End of user code documentation -->
 */
 trait UMLExtension[Uml <: UML]
-  extends UMLAssociation[Uml]
-  with UMLExtensionOps[Uml] {
+	extends UMLAssociation[Uml]
+	with UMLExtensionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    extension_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		extension_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLExtension
-   *
-   * <!-- Start of user code doc for extension_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_metaAttributes -->
    * <!-- End of user code doc for extension_metaAttributes -->
-   */
-  def extension_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      association_metaAttributes,
-      Seq ())
+	 */
+	def extension_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			association_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    extension_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		extension_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLExtension
-   *
-   * <!-- Start of user code doc for extension_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_compositeMetaProperties -->
    * <!-- End of user code doc for extension_compositeMetaProperties -->
-   */
-  def extension_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      association_compositeMetaProperties,
-      Seq (Extension_ownedEnd))
+	 */
+	def extension_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			association_compositeMetaProperties,
+			Seq (Extension_ownedEnd))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    extension_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		extension_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLExtension
-   *
-   * <!-- Start of user code doc for extension_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_referenceMetaProperties -->
    * <!-- End of user code doc for extension_referenceMetaProperties -->
-   */
-  def extension_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      association_referenceMetaProperties,
-      Seq ())
+	 */
+	def extension_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			association_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    extension_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		extension_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLExtension
-   *
-   * <!-- Start of user code doc for extension_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLExtension
+	 *
+	 * <!-- Start of user code doc for extension_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for extension_forwardReferencesFromMetamodelAssociations -->
-   */
-  def extension_forwardReferencesFromMetamodelAssociations: Elements =
-    association_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def extension_forwardReferencesFromMetamodelAssociations: Elements =
+		association_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLExtension

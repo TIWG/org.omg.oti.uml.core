@@ -52,111 +52,111 @@ import org.omg.oti.uml.read.operations.UMLDestroyObjectActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLDestroyObjectAction[Uml <: UML]
-  extends UMLAction[Uml]
-  with UMLDestroyObjectActionOps[Uml] {
+	extends UMLAction[Uml]
+	with UMLDestroyObjectActionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies whether links in which the object participates are destroyed along with the object.
-   *
-   * <!-- Start of user code doc for isDestroyLinks -->
+	/**
+	 * Specifies whether links in which the object participates are destroyed along with the object.
+	 *
+	 * <!-- Start of user code doc for isDestroyLinks -->
    * <!-- End of user code doc for isDestroyLinks -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isDestroyLinks: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isDestroyLinks: Boolean
 
-  /**
-   * Specifies whether objects owned by the object (via composition) are destroyed along with the object.
-   *
-   * <!-- Start of user code doc for isDestroyOwnedObjects -->
+	/**
+	 * Specifies whether objects owned by the object (via composition) are destroyed along with the object.
+	 *
+	 * <!-- Start of user code doc for isDestroyOwnedObjects -->
    * <!-- End of user code doc for isDestroyOwnedObjects -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def isDestroyOwnedObjects: Boolean
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def isDestroyOwnedObjects: Boolean
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    destroyObjectAction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		destroyObjectAction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLDestroyObjectAction
-   *
-   * <!-- Start of user code doc for destroyObjectAction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLDestroyObjectAction
+	 *
+	 * <!-- Start of user code doc for destroyObjectAction_metaAttributes -->
    * <!-- End of user code doc for destroyObjectAction_metaAttributes -->
-   */
-  def destroyObjectAction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      action_metaAttributes,
-      Seq (DestroyObjectAction_isDestroyLinks,
-        DestroyObjectAction_isDestroyOwnedObjects))
+	 */
+	def destroyObjectAction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			action_metaAttributes,
+			Seq (DestroyObjectAction_isDestroyLinks,
+				DestroyObjectAction_isDestroyOwnedObjects))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    destroyObjectAction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		destroyObjectAction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLDestroyObjectAction
-   *
-   * <!-- Start of user code doc for destroyObjectAction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLDestroyObjectAction
+	 *
+	 * <!-- Start of user code doc for destroyObjectAction_compositeMetaProperties -->
    * <!-- End of user code doc for destroyObjectAction_compositeMetaProperties -->
-   */
-  def destroyObjectAction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      action_compositeMetaProperties,
-      Seq (DestroyObjectAction_target))
+	 */
+	def destroyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			action_compositeMetaProperties,
+			Seq (DestroyObjectAction_target))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    destroyObjectAction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		destroyObjectAction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLDestroyObjectAction
-   *
-   * <!-- Start of user code doc for destroyObjectAction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLDestroyObjectAction
+	 *
+	 * <!-- Start of user code doc for destroyObjectAction_referenceMetaProperties -->
    * <!-- End of user code doc for destroyObjectAction_referenceMetaProperties -->
-   */
-  def destroyObjectAction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      action_referenceMetaProperties,
-      Seq ())
+	 */
+	def destroyObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			action_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    destroyObjectAction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		destroyObjectAction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLDestroyObjectAction
-   *
-   * <!-- Start of user code doc for destroyObjectAction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLDestroyObjectAction
+	 *
+	 * <!-- Start of user code doc for destroyObjectAction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for destroyObjectAction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def destroyObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
-    action_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def destroyObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
+		action_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDestroyObjectAction

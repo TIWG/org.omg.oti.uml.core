@@ -54,36 +54,36 @@ import scala.language.postfixOps
  */
 trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The interaction operator of a ConsiderIgnoreFragment must be either 'consider' or 'ignore'.
-   *
-   * <!-- Start of user code doc for validate_consider_or_ignore -->
+	/**
+	 * The interaction operator of a ConsiderIgnoreFragment must be either 'consider' or 'ignore'.
+	 *
+	 * <!-- Start of user code doc for validate_consider_or_ignore -->
    * <!-- End of user code doc for validate_consider_or_ignore -->
-   *
-   * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
-   */
-  def validate_consider_or_ignore: Boolean = {
-    // Start of user code for "consider_or_ignore"
+	 *
+	 * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
+	 */
+	def validate_consider_or_ignore: Boolean = {
+		// Start of user code for "consider_or_ignore"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The NamedElements must be of a type of element that can be a signature for a message (i.e.., an Operation, or a Signal).
-   *
-   * <!-- Start of user code doc for validate__type -->
+	/**
+	 * The NamedElements must be of a type of element that can be a signature for a message (i.e.., an Operation, or a Signal).
+	 *
+	 * <!-- Start of user code doc for validate__type -->
    * <!-- End of user code doc for validate__type -->
-   *
-   * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
-   */
-  def validate__type: Boolean = {
-    // Start of user code for "_type"
+	 *
+	 * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
+	 */
+	def validate__type: Boolean = {
+		// Start of user code for "_type"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLConsiderIgnoreFragmentOps

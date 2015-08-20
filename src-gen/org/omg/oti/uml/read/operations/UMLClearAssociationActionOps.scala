@@ -54,47 +54,47 @@ import scala.language.postfixOps
  */
 trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The InputPin that gives the object whose participation in the Association is to be cleared.
-   *
-   * <!-- Start of user code doc for _object -->
+	/**
+	 * The InputPin that gives the object whose participation in the Association is to be cleared.
+	 *
+	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.object_clearAssociationAction
-   */
-  def _object: Option[UMLInputPin[Uml]] = input headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_clearAssociationAction
+	 */
+	def _object: Option[UMLInputPin[Uml]] = input headOption
 
-  /**
-   * The multiplicity of the object InputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of the object InputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body object.is(1,1)
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body object.is(1,1)
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the InputPin must conform to the type of at least one of the memberEnds of the association.
-   *
-   * <!-- Start of user code doc for validate_same_type -->
+	/**
+	 * The type of the InputPin must conform to the type of at least one of the memberEnds of the association.
+	 *
+	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
-   *
-   * @body association.memberEnd->exists(self.object.type.conformsTo(type))
-   */
-  def validate_same_type: Boolean = {
-    // Start of user code for "same_type"
+	 *
+	 * @body association.memberEnd->exists(self.object.type.conformsTo(type))
+	 */
+	def validate_same_type: Boolean = {
+		// Start of user code for "same_type"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLClearAssociationActionOps

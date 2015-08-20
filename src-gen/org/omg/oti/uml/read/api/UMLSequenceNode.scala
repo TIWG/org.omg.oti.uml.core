@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLSequenceNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLSequenceNode[Uml <: UML]
-  extends UMLStructuredActivityNode[Uml]
-  with UMLSequenceNodeOps[Uml] {
+	extends UMLStructuredActivityNode[Uml]
+	with UMLSequenceNodeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The ordered set of ExecutableNodes to be sequenced.
-   *
-   * <!-- Start of user code doc for executableNode -->
+	/**
+	 * The ordered set of ExecutableNodes to be sequenced.
+	 *
+	 * <!-- Start of user code doc for executableNode -->
    * <!-- End of user code doc for executableNode -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLExecutableNode.executableNode_sequenceNode
-   */
-  def executableNode: Seq[UMLExecutableNode[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.executableNode_sequenceNode
+	 */
+	def executableNode: Seq[UMLExecutableNode[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    sequenceNode_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		sequenceNode_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLSequenceNode
-   *
-   * <!-- Start of user code doc for sequenceNode_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_metaAttributes -->
    * <!-- End of user code doc for sequenceNode_metaAttributes -->
-   */
-  def sequenceNode_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      structuredActivityNode_metaAttributes,
-      Seq ())
+	 */
+	def sequenceNode_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			structuredActivityNode_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    sequenceNode_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		sequenceNode_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLSequenceNode
-   *
-   * <!-- Start of user code doc for sequenceNode_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_compositeMetaProperties -->
    * <!-- End of user code doc for sequenceNode_compositeMetaProperties -->
-   */
-  def sequenceNode_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_compositeMetaProperties,
-      Seq (SequenceNode_executableNode))
+	 */
+	def sequenceNode_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_compositeMetaProperties,
+			Seq (SequenceNode_executableNode))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    sequenceNode_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		sequenceNode_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLSequenceNode
-   *
-   * <!-- Start of user code doc for sequenceNode_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_referenceMetaProperties -->
    * <!-- End of user code doc for sequenceNode_referenceMetaProperties -->
-   */
-  def sequenceNode_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      structuredActivityNode_referenceMetaProperties,
-      Seq ())
+	 */
+	def sequenceNode_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			structuredActivityNode_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    sequenceNode_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		sequenceNode_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLSequenceNode
-   *
-   * <!-- Start of user code doc for sequenceNode_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLSequenceNode
+	 *
+	 * <!-- Start of user code doc for sequenceNode_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for sequenceNode_forwardReferencesFromMetamodelAssociations -->
-   */
-  def sequenceNode_forwardReferencesFromMetamodelAssociations: Elements =
-    structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def sequenceNode_forwardReferencesFromMetamodelAssociations: Elements =
+		structuredActivityNode_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLSequenceNode

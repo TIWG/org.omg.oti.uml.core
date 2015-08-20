@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLPrimitiveTypeOps
  * <!-- End of user code documentation -->
 */
 trait UMLPrimitiveType[Uml <: UML]
-  extends UMLDataType[Uml]
-  with UMLPrimitiveTypeOps[Uml] {
+	extends UMLDataType[Uml]
+	with UMLPrimitiveTypeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    primitiveType_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		primitiveType_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLPrimitiveType
-   *
-   * <!-- Start of user code doc for primitiveType_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLPrimitiveType
+	 *
+	 * <!-- Start of user code doc for primitiveType_metaAttributes -->
    * <!-- End of user code doc for primitiveType_metaAttributes -->
-   */
-  def primitiveType_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      dataType_metaAttributes,
-      Seq ())
+	 */
+	def primitiveType_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			dataType_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    primitiveType_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		primitiveType_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLPrimitiveType
-   *
-   * <!-- Start of user code doc for primitiveType_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLPrimitiveType
+	 *
+	 * <!-- Start of user code doc for primitiveType_compositeMetaProperties -->
    * <!-- End of user code doc for primitiveType_compositeMetaProperties -->
-   */
-  def primitiveType_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      dataType_compositeMetaProperties,
-      Seq ())
+	 */
+	def primitiveType_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			dataType_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    primitiveType_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		primitiveType_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLPrimitiveType
-   *
-   * <!-- Start of user code doc for primitiveType_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLPrimitiveType
+	 *
+	 * <!-- Start of user code doc for primitiveType_referenceMetaProperties -->
    * <!-- End of user code doc for primitiveType_referenceMetaProperties -->
-   */
-  def primitiveType_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      dataType_referenceMetaProperties,
-      Seq ())
+	 */
+	def primitiveType_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			dataType_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    primitiveType_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		primitiveType_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLPrimitiveType
-   *
-   * <!-- Start of user code doc for primitiveType_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLPrimitiveType
+	 *
+	 * <!-- Start of user code doc for primitiveType_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for primitiveType_forwardReferencesFromMetamodelAssociations -->
-   */
-  def primitiveType_forwardReferencesFromMetamodelAssociations: Elements =
-    dataType_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def primitiveType_forwardReferencesFromMetamodelAssociations: Elements =
+		dataType_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLPrimitiveType

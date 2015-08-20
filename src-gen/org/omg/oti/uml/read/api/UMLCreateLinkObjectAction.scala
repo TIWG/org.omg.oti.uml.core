@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLCreateLinkObjectActionOps
  * <!-- End of user code documentation -->
 */
 trait UMLCreateLinkObjectAction[Uml <: UML]
-  extends UMLCreateLinkAction[Uml]
-  with UMLCreateLinkObjectActionOps[Uml] {
+	extends UMLCreateLinkAction[Uml]
+	with UMLCreateLinkObjectActionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    createLinkObjectAction_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		createLinkObjectAction_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLCreateLinkObjectAction
-   *
-   * <!-- Start of user code doc for createLinkObjectAction_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLCreateLinkObjectAction
+	 *
+	 * <!-- Start of user code doc for createLinkObjectAction_metaAttributes -->
    * <!-- End of user code doc for createLinkObjectAction_metaAttributes -->
-   */
-  def createLinkObjectAction_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      createLinkAction_metaAttributes,
-      Seq ())
+	 */
+	def createLinkObjectAction_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			createLinkAction_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    createLinkObjectAction_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		createLinkObjectAction_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLCreateLinkObjectAction
-   *
-   * <!-- Start of user code doc for createLinkObjectAction_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLCreateLinkObjectAction
+	 *
+	 * <!-- Start of user code doc for createLinkObjectAction_compositeMetaProperties -->
    * <!-- End of user code doc for createLinkObjectAction_compositeMetaProperties -->
-   */
-  def createLinkObjectAction_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      createLinkAction_compositeMetaProperties,
-      Seq (CreateLinkObjectAction_result))
+	 */
+	def createLinkObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			createLinkAction_compositeMetaProperties,
+			Seq (CreateLinkObjectAction_result))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    createLinkObjectAction_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		createLinkObjectAction_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLCreateLinkObjectAction
-   *
-   * <!-- Start of user code doc for createLinkObjectAction_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLCreateLinkObjectAction
+	 *
+	 * <!-- Start of user code doc for createLinkObjectAction_referenceMetaProperties -->
    * <!-- End of user code doc for createLinkObjectAction_referenceMetaProperties -->
-   */
-  def createLinkObjectAction_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      createLinkAction_referenceMetaProperties,
-      Seq ())
+	 */
+	def createLinkObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			createLinkAction_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    createLinkObjectAction_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		createLinkObjectAction_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLCreateLinkObjectAction
-   *
-   * <!-- Start of user code doc for createLinkObjectAction_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLCreateLinkObjectAction
+	 *
+	 * <!-- Start of user code doc for createLinkObjectAction_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for createLinkObjectAction_forwardReferencesFromMetamodelAssociations -->
-   */
-  def createLinkObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
-    createLinkAction_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def createLinkObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
+		createLinkAction_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLCreateLinkObjectAction

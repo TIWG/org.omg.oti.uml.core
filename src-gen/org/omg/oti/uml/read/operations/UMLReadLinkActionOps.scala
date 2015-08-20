@@ -54,115 +54,110 @@ import scala.language.postfixOps
  */
 trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The OutputPin on which the objects retrieved from the "open" end of
-   * those links whose values on other ends are given by the endData.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPin on which the objects retrieved from the "open" end of those links whose values on other ends are given by the endData.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_readLinkAction
-   */
-  def result: Option[UMLOutputPin[Uml]] =
-    output
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readLinkAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * Returns the ends corresponding to endData with no value InputPin.
-   * (A well-formed ReadLinkAction is constrained to have only one of these.)
-   *
-   * <!-- Start of user code doc for openEnd -->
+	/**
+	 * Returns the ends corresponding to endData with no value InputPin. (A well-formed ReadLinkAction is constrained to have only one of these.)
+	 *
+	 * <!-- Start of user code doc for openEnd -->
    * <!-- End of user code doc for openEnd -->
-   *
-   * @operation ordered="true" unique="true" multiplicity="0..*"
-   * @body result = (endData->select(value=null).end->asOrderedSet())
-   */
-  def openEnd: Seq[UMLProperty[Uml]] = {
-    // Start of user code for "openEnd"
+	 *
+	 * @operation ordered="true" unique="true" multiplicity="0..*"
+	 * @body result = (endData->select(value=null).end->asOrderedSet())
+	 */
+	def openEnd: Seq[UMLProperty[Uml]] = {
+		// Start of user code for "openEnd"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the open Association end must be compatible with
-   * the multiplicity of the result OutputPin.
-   *
-   * <!-- Start of user code doc for validate_compatible_multiplicity -->
+	/**
+	 * The multiplicity of the open Association end must be compatible with the multiplicity of the result OutputPin.
+	 *
+	 * <!-- Start of user code doc for validate_compatible_multiplicity -->
    * <!-- End of user code doc for validate_compatible_multiplicity -->
-   *
-   * @body self.openEnd()->first().compatibleWith(result)
-   */
-  def validate_compatible_multiplicity: Boolean = {
-    // Start of user code for "compatible_multiplicity"
+	 *
+	 * @body self.openEnd()->first().compatibleWith(result)
+	 */
+	def validate_compatible_multiplicity: Boolean = {
+		// Start of user code for "compatible_multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The open end must be navigable.
-   *
-   * <!-- Start of user code doc for validate_navigable_open_end -->
+	/**
+	 * The open end must be navigable.
+	 *
+	 * <!-- Start of user code doc for validate_navigable_open_end -->
    * <!-- End of user code doc for validate_navigable_open_end -->
-   *
-   * @body self.openEnd()->first().isNavigable()
-   */
-  def validate_navigable_open_end: Boolean = {
-    // Start of user code for "navigable_open_end"
+	 *
+	 * @body self.openEnd()->first().isNavigable()
+	 */
+	def validate_navigable_open_end: Boolean = {
+		// Start of user code for "navigable_open_end"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * Exactly one linkEndData specification (corresponding to the "open" end) must not have an value InputPin.
-   *
-   * <!-- Start of user code doc for validate_one_open_end -->
+	/**
+	 * Exactly one linkEndData specification (corresponding to the "open" end) must not have an value InputPin.
+	 *
+	 * <!-- Start of user code doc for validate_one_open_end -->
    * <!-- End of user code doc for validate_one_open_end -->
-   *
-   * @body self.openEnd()->size() = 1
-   */
-  def validate_one_open_end: Boolean = {
-    // Start of user code for "one_open_end"
+	 *
+	 * @body self.openEnd()->size() = 1
+	 */
+	def validate_one_open_end: Boolean = {
+		// Start of user code for "one_open_end"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type and ordering of the result OutputPin are same as the type and ordering of the open Association end.
-   *
-   * <!-- Start of user code doc for validate_type_and_ordering -->
+	/**
+	 * The type and ordering of the result OutputPin are same as the type and ordering of the open Association end.
+	 *
+	 * <!-- Start of user code doc for validate_type_and_ordering -->
    * <!-- End of user code doc for validate_type_and_ordering -->
-   *
-   * @body self.openEnd()->forAll(type=result.type and isOrdered=result.isOrdered)
-   */
-  def validate_type_and_ordering: Boolean = {
-    // Start of user code for "type_and_ordering"
+	 *
+	 * @body self.openEnd()->forAll(type=result.type and isOrdered=result.isOrdered)
+	 */
+	def validate_type_and_ordering: Boolean = {
+		// Start of user code for "type_and_ordering"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * Visibility of the open end must allow access from the object performing the action.
-   *
-   * <!-- Start of user code doc for validate_visibility -->
+	/**
+	 * Visibility of the open end must allow access from the object performing the action.
+	 *
+	 * <!-- Start of user code doc for validate_visibility -->
    * <!-- End of user code doc for validate_visibility -->
-   *
-   * @body let openEnd : Property = self.openEnd()->first() in
-   *   openEnd.visibility = VisibilityKind::public or
-   *   endData->exists(oed |
-   *     oed.end<>openEnd and
-   *     (_'context' = oed.end.type or
-   *       (openEnd.visibility = VisibilityKind::protected and
-   *         _'context'.conformsTo(oed.end.type.oclAsType(Classifier)))))
-   */
-  def validate_visibility: Boolean = {
-    // Start of user code for "visibility"
+	 *
+	 * @body let openEnd : Property = self.openEnd()->first() in
+	 *   openEnd.visibility = VisibilityKind::public or 
+	 *   endData->exists(oed | 
+	 *     oed.end<>openEnd and 
+	 *     (_'context' = oed.end.type or 
+	 *       (openEnd.visibility = VisibilityKind::protected and 
+	 *         _'context'.conformsTo(oed.end.type.oclAsType(Classifier)))))
+	 */
+	def validate_visibility: Boolean = {
+		// Start of user code for "visibility"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReadLinkActionOps

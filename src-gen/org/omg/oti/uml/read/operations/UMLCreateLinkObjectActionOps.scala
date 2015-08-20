@@ -54,61 +54,61 @@ import scala.language.postfixOps
  */
 trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The output pin on which the newly created link object is placed.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The output pin on which the newly created link object is placed.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_createLinkObjectAction
-   */
-  def result: Option[UMLOutputPin[Uml]] = output headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_createLinkObjectAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * The Association must be an AssociationClass.
-   *
-   * <!-- Start of user code doc for validate_association_class -->
+	/**
+	 * The Association must be an AssociationClass.
+	 *
+	 * <!-- Start of user code doc for validate_association_class -->
    * <!-- End of user code doc for validate_association_class -->
-   *
-   * @body self.association().oclIsKindOf(AssociationClass)
-   */
-  def validate_association_class: Boolean = {
-    // Start of user code for "association_class"
+	 *
+	 * @body self.association().oclIsKindOf(AssociationClass)
+	 */
+	def validate_association_class: Boolean = {
+		// Start of user code for "association_class"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the OutputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity -->
+	/**
+	 * The multiplicity of the OutputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
-   *
-   * @body result.is(1,1)
-   */
-  def validate_multiplicity: Boolean = {
-    // Start of user code for "multiplicity"
+	 *
+	 * @body result.is(1,1)
+	 */
+	def validate_multiplicity: Boolean = {
+		// Start of user code for "multiplicity"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The type of the result OutputPin must be the same as the Association of the CreateLinkObjectAction.
-   *
-   * <!-- Start of user code doc for validate_type_of_result -->
+	/**
+	 * The type of the result OutputPin must be the same as the Association of the CreateLinkObjectAction.
+	 *
+	 * <!-- Start of user code doc for validate_type_of_result -->
    * <!-- End of user code doc for validate_type_of_result -->
-   *
-   * @body result.type = association()
-   */
-  def validate_type_of_result: Boolean = {
-    // Start of user code for "type_of_result"
+	 *
+	 * @body result.type = association()
+	 */
+	def validate_type_of_result: Boolean = {
+		// Start of user code for "type_of_result"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLCreateLinkObjectActionOps

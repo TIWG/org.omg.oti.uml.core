@@ -52,90 +52,90 @@ import org.omg.oti.uml.read.operations.UMLDeviceOps
  * <!-- End of user code documentation -->
 */
 trait UMLDevice[Uml <: UML]
-  extends UMLNode[Uml]
-  with UMLDeviceOps[Uml] {
+	extends UMLNode[Uml]
+	with UMLDeviceOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    device_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		device_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLDevice
-   *
-   * <!-- Start of user code doc for device_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLDevice
+	 *
+	 * <!-- Start of user code doc for device_metaAttributes -->
    * <!-- End of user code doc for device_metaAttributes -->
-   */
-  def device_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      node_metaAttributes,
-      Seq ())
+	 */
+	def device_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			node_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    device_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		device_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLDevice
-   *
-   * <!-- Start of user code doc for device_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLDevice
+	 *
+	 * <!-- Start of user code doc for device_compositeMetaProperties -->
    * <!-- End of user code doc for device_compositeMetaProperties -->
-   */
-  def device_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      node_compositeMetaProperties,
-      Seq ())
+	 */
+	def device_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			node_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    device_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		device_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLDevice
-   *
-   * <!-- Start of user code doc for device_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLDevice
+	 *
+	 * <!-- Start of user code doc for device_referenceMetaProperties -->
    * <!-- End of user code doc for device_referenceMetaProperties -->
-   */
-  def device_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      node_referenceMetaProperties,
-      Seq ())
+	 */
+	def device_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			node_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    device_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		device_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLDevice
-   *
-   * <!-- Start of user code doc for device_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLDevice
+	 *
+	 * <!-- Start of user code doc for device_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for device_forwardReferencesFromMetamodelAssociations -->
-   */
-  def device_forwardReferencesFromMetamodelAssociations: Elements =
-    node_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def device_forwardReferencesFromMetamodelAssociations: Elements =
+		node_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDevice

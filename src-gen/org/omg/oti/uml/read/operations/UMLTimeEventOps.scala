@@ -54,35 +54,33 @@ import scala.language.postfixOps
  */
 trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * Specifies the time of the TimeEvent.
-   *
-   * <!-- Start of user code doc for when -->
+	/**
+	 * Specifies the time of the TimeEvent.
+	 *
+	 * <!-- Start of user code doc for when -->
    * <!-- End of user code doc for when -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLTimeExpression.when_timeEvent
-   */
-  def when: Option[UMLTimeExpression[Uml]] =
-    ownedElement
-    .selectByKindOf { case x: UMLTimeExpression[Uml] => x } headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLTimeExpression.when_timeEvent
+	 */
+	def when: Option[UMLTimeExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeExpression[Uml] => x } headOption
 
-  /**
-   * The ValueSpecification when must return a non-negative Integer.
-   *
-   * <!-- Start of user code doc for validate_when_non_negative -->
+	/**
+	 * The ValueSpecification when must return a non-negative Integer.
+	 *
+	 * <!-- Start of user code doc for validate_when_non_negative -->
    * <!-- End of user code doc for validate_when_non_negative -->
-   *
-   * @body when.integerValue() >= 0
-   */
-  def validate_when_non_negative: Boolean = {
-    // Start of user code for "when_non_negative"
+	 *
+	 * @body when.integerValue() >= 0
+	 */
+	def validate_when_non_negative: Boolean = {
+		// Start of user code for "when_non_negative"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTimeEventOps

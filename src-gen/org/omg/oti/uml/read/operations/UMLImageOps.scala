@@ -54,17 +54,17 @@ import scala.language.postfixOps
  */
 trait UMLImageOps[Uml <: UML] { self: UMLImage[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * <!-- Start of user code doc for icon_stereotype -->
+	/**
+	 * <!-- Start of user code doc for icon_stereotype -->
    * <!-- End of user code doc for icon_stereotype -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLStereotype.icon
-   */
-  def icon_stereotype: Option[UMLStereotype[Uml]] = owner.selectByKindOf { case x: UMLStereotype[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLStereotype.icon
+	 */
+	def icon_stereotype: Option[UMLStereotype[Uml]] = owner.selectByKindOf { case x: UMLStereotype[Uml] => x }
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLImageOps

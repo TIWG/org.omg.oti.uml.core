@@ -52,114 +52,114 @@ import org.omg.oti.uml.read.operations.UMLDecisionNodeOps
  * <!-- End of user code documentation -->
 */
 trait UMLDecisionNode[Uml <: UML]
-  extends UMLControlNode[Uml]
-  with UMLDecisionNodeOps[Uml] {
+	extends UMLControlNode[Uml]
+	with UMLDecisionNodeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * A Behavior that is executed to provide an input to guard ValueSpecifications on ActivityEdges outgoing from the DecisionNode.
-   *
-   * <!-- Start of user code doc for decisionInput -->
+	/**
+	 * A Behavior that is executed to provide an input to guard ValueSpecifications on ActivityEdges outgoing from the DecisionNode.
+	 *
+	 * <!-- Start of user code doc for decisionInput -->
    * <!-- End of user code doc for decisionInput -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLBehavior.decisionInput_decisionNode
-   */
-  def decisionInput: Option[UMLBehavior[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.decisionInput_decisionNode
+	 */
+	def decisionInput: Option[UMLBehavior[Uml]]
 
-  /**
-   * An additional ActivityEdge incoming to the DecisionNode that provides a decision input value for the guards ValueSpecifications on ActivityEdges outgoing from the DecisionNode.
-   *
-   * <!-- Start of user code doc for decisionInputFlow -->
+	/**
+	 * An additional ActivityEdge incoming to the DecisionNode that provides a decision input value for the guards ValueSpecifications on ActivityEdges outgoing from the DecisionNode.
+	 *
+	 * <!-- Start of user code doc for decisionInputFlow -->
    * <!-- End of user code doc for decisionInputFlow -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLObjectFlow.decisionInputFlow_decisionNode
-   */
-  def decisionInputFlow: Option[UMLObjectFlow[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLObjectFlow.decisionInputFlow_decisionNode
+	 */
+	def decisionInputFlow: Option[UMLObjectFlow[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    decisionNode_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		decisionNode_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLDecisionNode
-   *
-   * <!-- Start of user code doc for decisionNode_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLDecisionNode
+	 *
+	 * <!-- Start of user code doc for decisionNode_metaAttributes -->
    * <!-- End of user code doc for decisionNode_metaAttributes -->
-   */
-  def decisionNode_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      controlNode_metaAttributes,
-      Seq ())
+	 */
+	def decisionNode_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			controlNode_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    decisionNode_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		decisionNode_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLDecisionNode
-   *
-   * <!-- Start of user code doc for decisionNode_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLDecisionNode
+	 *
+	 * <!-- Start of user code doc for decisionNode_compositeMetaProperties -->
    * <!-- End of user code doc for decisionNode_compositeMetaProperties -->
-   */
-  def decisionNode_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      controlNode_compositeMetaProperties,
-      Seq ())
+	 */
+	def decisionNode_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			controlNode_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    decisionNode_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		decisionNode_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLDecisionNode
-   *
-   * <!-- Start of user code doc for decisionNode_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLDecisionNode
+	 *
+	 * <!-- Start of user code doc for decisionNode_referenceMetaProperties -->
    * <!-- End of user code doc for decisionNode_referenceMetaProperties -->
-   */
-  def decisionNode_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      controlNode_referenceMetaProperties,
-      Seq (DecisionNode_decisionInput,
-        DecisionNode_decisionInputFlow))
+	 */
+	def decisionNode_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			controlNode_referenceMetaProperties,
+			Seq (DecisionNode_decisionInput,
+				DecisionNode_decisionInputFlow))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    decisionNode_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		decisionNode_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLDecisionNode
-   *
-   * <!-- Start of user code doc for decisionNode_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLDecisionNode
+	 *
+	 * <!-- Start of user code doc for decisionNode_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for decisionNode_forwardReferencesFromMetamodelAssociations -->
-   */
-  def decisionNode_forwardReferencesFromMetamodelAssociations: Elements =
-    controlNode_forwardReferencesFromMetamodelAssociations ++
-    decisionInput ++
-    decisionInputFlow
+	 */
+	def decisionNode_forwardReferencesFromMetamodelAssociations: Elements =
+		controlNode_forwardReferencesFromMetamodelAssociations ++
+		decisionInput ++
+		decisionInputFlow
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLDecisionNode

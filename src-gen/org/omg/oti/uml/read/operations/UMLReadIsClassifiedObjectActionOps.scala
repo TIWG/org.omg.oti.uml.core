@@ -54,90 +54,86 @@ import scala.language.postfixOps
  */
 trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassifiedObjectAction[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The InputPin that holds the object whose classification is to be tested.
-   *
-   * <!-- Start of user code doc for _object -->
+	/**
+	 * The InputPin that holds the object whose classification is to be tested.
+	 *
+	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLInputPin.object_readIsClassifiedObjectAction
-   */
-  def _object: Option[UMLInputPin[Uml]] =
-    input
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_readIsClassifiedObjectAction
+	 */
+	def _object: Option[UMLInputPin[Uml]] = input headOption
 
-  /**
-   * The OutputPin that holds the Boolean result of the test.
-   *
-   * <!-- Start of user code doc for result -->
+	/**
+	 * The OutputPin that holds the Boolean result of the test.
+	 *
+	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOutputPin.result_readIsClassifiedObjectAction
-   */
-  def result: Option[UMLOutputPin[Uml]] =
-    output
-    .headOption
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readIsClassifiedObjectAction
+	 */
+	def result: Option[UMLOutputPin[Uml]] = output headOption
 
-  /**
-   * The type of the result OutputPin is Boolean.
-   *
-   * <!-- Start of user code doc for validate_boolean_result -->
+	/**
+	 * The type of the result OutputPin is Boolean.
+	 *
+	 * <!-- Start of user code doc for validate_boolean_result -->
    * <!-- End of user code doc for validate_boolean_result -->
-   *
-   * @body result.type = Boolean
-   */
-  def validate_boolean_result: Boolean = {
-    // Start of user code for "boolean_result"
+	 *
+	 * @body result.type = Boolean
+	 */
+	def validate_boolean_result: Boolean = {
+		// Start of user code for "boolean_result"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the object InputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_input -->
+	/**
+	 * The multiplicity of the object InputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_input -->
    * <!-- End of user code doc for validate_multiplicity_of_input -->
-   *
-   * @body object.is(1,1)
-   */
-  def validate_multiplicity_of_input: Boolean = {
-    // Start of user code for "multiplicity_of_input"
+	 *
+	 * @body object.is(1,1)
+	 */
+	def validate_multiplicity_of_input: Boolean = {
+		// Start of user code for "multiplicity_of_input"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The multiplicity of the result OutputPin is 1..1.
-   *
-   * <!-- Start of user code doc for validate_multiplicity_of_output -->
+	/**
+	 * The multiplicity of the result OutputPin is 1..1.
+	 *
+	 * <!-- Start of user code doc for validate_multiplicity_of_output -->
    * <!-- End of user code doc for validate_multiplicity_of_output -->
-   *
-   * @body result.is(1,1)
-   */
-  def validate_multiplicity_of_output: Boolean = {
-    // Start of user code for "multiplicity_of_output"
+	 *
+	 * @body result.is(1,1)
+	 */
+	def validate_multiplicity_of_output: Boolean = {
+		// Start of user code for "multiplicity_of_output"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * The object InputPin has no type.
-   *
-   * <!-- Start of user code doc for validate_no_type -->
+	/**
+	 * The object InputPin has no type.
+	 *
+	 * <!-- Start of user code doc for validate_no_type -->
    * <!-- End of user code doc for validate_no_type -->
-   *
-   * @body object.type = null
-   */
-  def validate_no_type: Boolean = {
-    // Start of user code for "no_type"
+	 *
+	 * @body object.type = null
+	 */
+	def validate_no_type: Boolean = {
+		// Start of user code for "no_type"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLReadIsClassifiedObjectActionOps

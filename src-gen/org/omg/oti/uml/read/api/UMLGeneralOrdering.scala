@@ -52,114 +52,114 @@ import org.omg.oti.uml.read.operations.UMLGeneralOrderingOps
  * <!-- End of user code documentation -->
 */
 trait UMLGeneralOrdering[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLGeneralOrderingOps[Uml] {
+	extends UMLNamedElement[Uml]
+	with UMLGeneralOrderingOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The OccurrenceSpecification referenced comes after the OccurrenceSpecification referenced by before.
-   *
-   * <!-- Start of user code doc for after -->
+	/**
+	 * The OccurrenceSpecification referenced comes after the OccurrenceSpecification referenced by before.
+	 *
+	 * <!-- Start of user code doc for after -->
    * <!-- End of user code doc for after -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOccurrenceSpecification.toBefore
-   */
-  def after: Option[UMLOccurrenceSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toBefore
+	 */
+	def after: Option[UMLOccurrenceSpecification[Uml]]
 
-  /**
-   * The OccurrenceSpecification referenced comes before the OccurrenceSpecification referenced by after.
-   *
-   * <!-- Start of user code doc for before -->
+	/**
+	 * The OccurrenceSpecification referenced comes before the OccurrenceSpecification referenced by after.
+	 *
+	 * <!-- Start of user code doc for before -->
    * <!-- End of user code doc for before -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLOccurrenceSpecification.toAfter
-   */
-  def before: Option[UMLOccurrenceSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toAfter
+	 */
+	def before: Option[UMLOccurrenceSpecification[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    generalOrdering_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		generalOrdering_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLGeneralOrdering
-   *
-   * <!-- Start of user code doc for generalOrdering_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLGeneralOrdering
+	 *
+	 * <!-- Start of user code doc for generalOrdering_metaAttributes -->
    * <!-- End of user code doc for generalOrdering_metaAttributes -->
-   */
-  def generalOrdering_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      namedElement_metaAttributes,
-      Seq ())
+	 */
+	def generalOrdering_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namedElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    generalOrdering_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		generalOrdering_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLGeneralOrdering
-   *
-   * <!-- Start of user code doc for generalOrdering_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLGeneralOrdering
+	 *
+	 * <!-- Start of user code doc for generalOrdering_compositeMetaProperties -->
    * <!-- End of user code doc for generalOrdering_compositeMetaProperties -->
-   */
-  def generalOrdering_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq ())
+	 */
+	def generalOrdering_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    generalOrdering_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		generalOrdering_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLGeneralOrdering
-   *
-   * <!-- Start of user code doc for generalOrdering_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLGeneralOrdering
+	 *
+	 * <!-- Start of user code doc for generalOrdering_referenceMetaProperties -->
    * <!-- End of user code doc for generalOrdering_referenceMetaProperties -->
-   */
-  def generalOrdering_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq (GeneralOrdering_after,
-        GeneralOrdering_before))
+	 */
+	def generalOrdering_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_referenceMetaProperties,
+			Seq (GeneralOrdering_after,
+				GeneralOrdering_before))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    generalOrdering_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		generalOrdering_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLGeneralOrdering
-   *
-   * <!-- Start of user code doc for generalOrdering_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLGeneralOrdering
+	 *
+	 * <!-- Start of user code doc for generalOrdering_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for generalOrdering_forwardReferencesFromMetamodelAssociations -->
-   */
-  def generalOrdering_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    after ++
-    before
+	 */
+	def generalOrdering_forwardReferencesFromMetamodelAssociations: Elements =
+		namedElement_forwardReferencesFromMetamodelAssociations ++
+		after ++
+		before
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLGeneralOrdering

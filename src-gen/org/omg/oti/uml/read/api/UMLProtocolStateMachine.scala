@@ -52,110 +52,110 @@ import org.omg.oti.uml.read.operations.UMLProtocolStateMachineOps
  * <!-- End of user code documentation -->
 */
 trait UMLProtocolStateMachine[Uml <: UML]
-  extends UMLStateMachine[Uml]
-  with UMLProtocolStateMachineOps[Uml] {
+	extends UMLStateMachine[Uml]
+	with UMLProtocolStateMachineOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies the namespace in which the protocol state machine is defined.
-   *
-   * <!-- Start of user code doc for protocol_interface -->
+	/**
+	 * Specifies the namespace in which the protocol state machine is defined.
+	 *
+	 * <!-- Start of user code doc for protocol_interface -->
    * <!-- End of user code doc for protocol_interface -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLInterface.protocol
-   */
-  def protocol_interface: Option[UMLInterface[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLInterface.protocol
+	 */
+	def protocol_interface: Option[UMLInterface[Uml]]
 
-  /**
-   * <!-- Start of user code doc for protocol_port -->
+	/**
+	 * <!-- Start of user code doc for protocol_port -->
    * <!-- End of user code doc for protocol_port -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLPort.protocol
-   */
-  def protocol_port: Set[UMLPort[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLPort.protocol
+	 */
+	def protocol_port: Set[UMLPort[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    protocolStateMachine_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		protocolStateMachine_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLProtocolStateMachine
-   *
-   * <!-- Start of user code doc for protocolStateMachine_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_metaAttributes -->
    * <!-- End of user code doc for protocolStateMachine_metaAttributes -->
-   */
-  def protocolStateMachine_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      stateMachine_metaAttributes,
-      Seq ())
+	 */
+	def protocolStateMachine_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			stateMachine_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    protocolStateMachine_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		protocolStateMachine_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLProtocolStateMachine
-   *
-   * <!-- Start of user code doc for protocolStateMachine_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_compositeMetaProperties -->
    * <!-- End of user code doc for protocolStateMachine_compositeMetaProperties -->
-   */
-  def protocolStateMachine_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      stateMachine_compositeMetaProperties,
-      Seq (ProtocolStateMachine_conformance))
+	 */
+	def protocolStateMachine_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			stateMachine_compositeMetaProperties,
+			Seq (ProtocolStateMachine_conformance))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    protocolStateMachine_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		protocolStateMachine_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLProtocolStateMachine
-   *
-   * <!-- Start of user code doc for protocolStateMachine_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_referenceMetaProperties -->
    * <!-- End of user code doc for protocolStateMachine_referenceMetaProperties -->
-   */
-  def protocolStateMachine_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      stateMachine_referenceMetaProperties,
-      Seq ())
+	 */
+	def protocolStateMachine_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			stateMachine_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    protocolStateMachine_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		protocolStateMachine_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLProtocolStateMachine
-   *
-   * <!-- Start of user code doc for protocolStateMachine_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLProtocolStateMachine
+	 *
+	 * <!-- Start of user code doc for protocolStateMachine_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for protocolStateMachine_forwardReferencesFromMetamodelAssociations -->
-   */
-  def protocolStateMachine_forwardReferencesFromMetamodelAssociations: Elements =
-    stateMachine_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def protocolStateMachine_forwardReferencesFromMetamodelAssociations: Elements =
+		stateMachine_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLProtocolStateMachine

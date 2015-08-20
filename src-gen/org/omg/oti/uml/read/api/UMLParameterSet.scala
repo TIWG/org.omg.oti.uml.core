@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLParameterSetOps
  * <!-- End of user code documentation -->
 */
 trait UMLParameterSet[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLParameterSetOps[Uml] {
+	extends UMLNamedElement[Uml]
+	with UMLParameterSetOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Parameters in the ParameterSet.
-   *
-   * <!-- Start of user code doc for parameter -->
+	/**
+	 * Parameters in the ParameterSet.
+	 *
+	 * <!-- Start of user code doc for parameter -->
    * <!-- End of user code doc for parameter -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-   * @opposite org.omg.oti.api.UMLParameter.parameterSet
-   */
-  def parameter: Set[UMLParameter[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLParameter.parameterSet
+	 */
+	def parameter: Set[UMLParameter[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    parameterSet_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		parameterSet_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLParameterSet
-   *
-   * <!-- Start of user code doc for parameterSet_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLParameterSet
+	 *
+	 * <!-- Start of user code doc for parameterSet_metaAttributes -->
    * <!-- End of user code doc for parameterSet_metaAttributes -->
-   */
-  def parameterSet_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      namedElement_metaAttributes,
-      Seq ())
+	 */
+	def parameterSet_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namedElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    parameterSet_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		parameterSet_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLParameterSet
-   *
-   * <!-- Start of user code doc for parameterSet_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLParameterSet
+	 *
+	 * <!-- Start of user code doc for parameterSet_compositeMetaProperties -->
    * <!-- End of user code doc for parameterSet_compositeMetaProperties -->
-   */
-  def parameterSet_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq (ParameterSet_condition))
+	 */
+	def parameterSet_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_compositeMetaProperties,
+			Seq (ParameterSet_condition))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    parameterSet_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		parameterSet_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLParameterSet
-   *
-   * <!-- Start of user code doc for parameterSet_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLParameterSet
+	 *
+	 * <!-- Start of user code doc for parameterSet_referenceMetaProperties -->
    * <!-- End of user code doc for parameterSet_referenceMetaProperties -->
-   */
-  def parameterSet_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq (ParameterSet_parameter))
+	 */
+	def parameterSet_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_referenceMetaProperties,
+			Seq (ParameterSet_parameter))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    parameterSet_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		parameterSet_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLParameterSet
-   *
-   * <!-- Start of user code doc for parameterSet_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLParameterSet
+	 *
+	 * <!-- Start of user code doc for parameterSet_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for parameterSet_forwardReferencesFromMetamodelAssociations -->
-   */
-  def parameterSet_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    parameter
+	 */
+	def parameterSet_forwardReferencesFromMetamodelAssociations: Elements =
+		namedElement_forwardReferencesFromMetamodelAssociations ++
+		parameter
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLParameterSet

@@ -80,19 +80,19 @@ import scala.util.{Failure, Try}
  * to existing implementations of OMG UML 2.5. Even though the OMG defined UML 2.5 as a CMOF metamodel,
  * the UML specification does not explicitly require that a compliant implementation provides API-level
  * support for link-related operations defined in MOF 2.5 (see section 15, CMOF Abstract Semantics).
- *
+ * 
  * MOF 2.5 is inconsistent about the semantics of link instances of CMOF metamodel associations.
  *
  * 13.2 (Link) Semantics states:
  * When a Link is created, it is not inserted into any Extent.
  * When one or more ends of the Association are ordered, links carry ordering information in addition to their end values.
- *
+ * 
  * The first point contradicts the operations defined for a CMOF Extent (13.7):
- *
+ * 
  * linksOfType(type : Association, includesSubtypes : Boolean) : Link[0..*]
  * This returns those links in the extent that are instances of the supplied Association, 
  * or of any of its subclasses if includesSubtypes is true.
- *
+ * 
  * The second point (carrying ordering information) is not reflected in the CMOF abstract syntax (section 13)
  * or in the CMOF abstract semantics (section 15)
  *
@@ -101,13 +101,14 @@ import scala.util.{Failure, Try}
  * do not have Associations either because Associations are not explicitly supported in Eclipse EMF ecore metamodels. 
  * That is, such implementations effectively treat UML as an EMOF metamodel and instead encode the semantics
  * of CMOF associations as part of the API for managing Class-owned association end properties.
- *
+ * 
  * set_<metaclass>_<dataProperty>
  *   (e: <metaclass>, value: <dataPropertyTypeOrCollection>): Try[Unit]
  */
 trait UMLUpdate[Uml <: UML] {
+
   implicit val ops: UMLOps[Uml]
-  
+
   // Abstraction
 
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
@@ -2512,7 +2513,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLWriteVariableAction[Uml],
    to: Option[UMLInputPin[Uml]]): Try[Unit]
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   type MetaPropertyCompositeReferenceQuery =
   MetaPropertyReference[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]

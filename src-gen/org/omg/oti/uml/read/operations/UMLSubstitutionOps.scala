@@ -47,17 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A substitution is a relationship between two classifiers signifying that the substituting classifier
- * complies with the contract specified by the contract classifier. This implies that instances of
- * the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
+ * A substitution is a relationship between two classifiers signifying that the substituting classifier complies with the contract specified by the contract classifier. This implies that instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLSubstitutionOps[Uml <: UML] { self: UMLSubstitution[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLSubstitutionOps

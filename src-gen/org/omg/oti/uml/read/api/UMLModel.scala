@@ -52,100 +52,100 @@ import org.omg.oti.uml.read.operations.UMLModelOps
  * <!-- End of user code documentation -->
 */
 trait UMLModel[Uml <: UML]
-  extends UMLPackage[Uml]
-  with UMLModelOps[Uml] {
+	extends UMLPackage[Uml]
+	with UMLModelOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The name of the viewpoint that is expressed by a model (this name may refer to a profile definition).
-   *
-   * <!-- Start of user code doc for viewpoint -->
+	/**
+	 * The name of the viewpoint that is expressed by a model (this name may refer to a profile definition).
+	 *
+	 * <!-- Start of user code doc for viewpoint -->
    * <!-- End of user code doc for viewpoint -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   */
-  def viewpoint: Option[String]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 */
+	def viewpoint: Option[String]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    model_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		model_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLModel
-   *
-   * <!-- Start of user code doc for model_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLModel
+	 *
+	 * <!-- Start of user code doc for model_metaAttributes -->
    * <!-- End of user code doc for model_metaAttributes -->
-   */
-  def model_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      package_metaAttributes,
-      Seq (Model_viewpoint))
+	 */
+	def model_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			package_metaAttributes,
+			Seq (Model_viewpoint))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    model_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		model_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLModel
-   *
-   * <!-- Start of user code doc for model_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLModel
+	 *
+	 * <!-- Start of user code doc for model_compositeMetaProperties -->
    * <!-- End of user code doc for model_compositeMetaProperties -->
-   */
-  def model_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      package_compositeMetaProperties,
-      Seq ())
+	 */
+	def model_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			package_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    model_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		model_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLModel
-   *
-   * <!-- Start of user code doc for model_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLModel
+	 *
+	 * <!-- Start of user code doc for model_referenceMetaProperties -->
    * <!-- End of user code doc for model_referenceMetaProperties -->
-   */
-  def model_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      package_referenceMetaProperties,
-      Seq ())
+	 */
+	def model_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			package_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    model_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		model_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLModel
-   *
-   * <!-- Start of user code doc for model_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLModel
+	 *
+	 * <!-- Start of user code doc for model_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for model_forwardReferencesFromMetamodelAssociations -->
-   */
-  def model_forwardReferencesFromMetamodelAssociations: Elements =
-    package_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def model_forwardReferencesFromMetamodelAssociations: Elements =
+		package_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLModel

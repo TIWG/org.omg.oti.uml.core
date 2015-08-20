@@ -54,8 +54,8 @@ import scala.language.postfixOps
  */
 trait UMLRelationshipOps[Uml <: UML] { self: UMLRelationship[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLRelationshipOps

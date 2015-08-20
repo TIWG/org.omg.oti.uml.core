@@ -52,122 +52,122 @@ import org.omg.oti.uml.read.operations.UMLOpaqueExpressionOps
  * <!-- End of user code documentation -->
 */
 trait UMLOpaqueExpression[Uml <: UML]
-  extends UMLValueSpecification[Uml]
-  with UMLOpaqueExpressionOps[Uml] {
+	extends UMLValueSpecification[Uml]
+	with UMLOpaqueExpressionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * Specifies the behavior of the OpaqueExpression as a UML Behavior.
-   *
-   * <!-- Start of user code doc for behavior -->
+	/**
+	 * Specifies the behavior of the OpaqueExpression as a UML Behavior.
+	 *
+	 * <!-- Start of user code doc for behavior -->
    * <!-- End of user code doc for behavior -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLBehavior.behavior_opaqueExpression
-   */
-  def behavior: Option[UMLBehavior[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.behavior_opaqueExpression
+	 */
+	def behavior: Option[UMLBehavior[Uml]]
 
-  /**
-   * A textual definition of the behavior of the OpaqueExpression, possibly in multiple languages.
-   *
-   * <!-- Start of user code doc for body -->
+	/**
+	 * A textual definition of the behavior of the OpaqueExpression, possibly in multiple languages.
+	 *
+	 * <!-- Start of user code doc for body -->
    * <!-- End of user code doc for body -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-   */
-  def body: Seq[String]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 */
+	def body: Seq[String]
 
-  /**
-   * Specifies the languages used to express the textual bodies of the OpaqueExpression.  Languages are matched to body Strings by order. The interpretation of the body depends on the languages. If the languages are unspecified, they may be implicit from the expression body or the context.
-   *
-   * <!-- Start of user code doc for language -->
+	/**
+	 * Specifies the languages used to express the textual bodies of the OpaqueExpression.  Languages are matched to body Strings by order. The interpretation of the body depends on the languages. If the languages are unspecified, they may be implicit from the expression body or the context.
+	 *
+	 * <!-- Start of user code doc for language -->
    * <!-- End of user code doc for language -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-   */
-  def language: Seq[String]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 */
+	def language: Seq[String]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    opaqueExpression_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		opaqueExpression_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLOpaqueExpression
-   *
-   * <!-- Start of user code doc for opaqueExpression_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLOpaqueExpression
+	 *
+	 * <!-- Start of user code doc for opaqueExpression_metaAttributes -->
    * <!-- End of user code doc for opaqueExpression_metaAttributes -->
-   */
-  def opaqueExpression_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      valueSpecification_metaAttributes,
-      Seq (OpaqueExpression_body,
-        OpaqueExpression_language))
+	 */
+	def opaqueExpression_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			valueSpecification_metaAttributes,
+			Seq (OpaqueExpression_body,
+				OpaqueExpression_language))
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    opaqueExpression_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		opaqueExpression_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLOpaqueExpression
-   *
-   * <!-- Start of user code doc for opaqueExpression_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLOpaqueExpression
+	 *
+	 * <!-- Start of user code doc for opaqueExpression_compositeMetaProperties -->
    * <!-- End of user code doc for opaqueExpression_compositeMetaProperties -->
-   */
-  def opaqueExpression_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_compositeMetaProperties,
-      Seq ())
+	 */
+	def opaqueExpression_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    opaqueExpression_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		opaqueExpression_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLOpaqueExpression
-   *
-   * <!-- Start of user code doc for opaqueExpression_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLOpaqueExpression
+	 *
+	 * <!-- Start of user code doc for opaqueExpression_referenceMetaProperties -->
    * <!-- End of user code doc for opaqueExpression_referenceMetaProperties -->
-   */
-  def opaqueExpression_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      valueSpecification_referenceMetaProperties,
-      Seq (OpaqueExpression_behavior))
+	 */
+	def opaqueExpression_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			valueSpecification_referenceMetaProperties,
+			Seq (OpaqueExpression_behavior))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    opaqueExpression_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		opaqueExpression_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLOpaqueExpression
-   *
-   * <!-- Start of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLOpaqueExpression
+	 *
+	 * <!-- Start of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
-   */
-  def opaqueExpression_forwardReferencesFromMetamodelAssociations: Elements =
-    valueSpecification_forwardReferencesFromMetamodelAssociations ++
-    behavior
+	 */
+	def opaqueExpression_forwardReferencesFromMetamodelAssociations: Elements =
+		valueSpecification_forwardReferencesFromMetamodelAssociations ++
+		behavior
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLOpaqueExpression

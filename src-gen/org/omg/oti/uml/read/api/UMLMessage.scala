@@ -52,179 +52,179 @@ import org.omg.oti.uml.read.operations.UMLMessageOps
  * <!-- End of user code documentation -->
 */
 trait UMLMessage[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLMessageOps[Uml] {
+	extends UMLNamedElement[Uml]
+	with UMLMessageOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The arguments of the Message.
-   *
-   * <!-- Start of user code doc for argument -->
+	/**
+	 * The arguments of the Message.
+	 *
+	 * <!-- Start of user code doc for argument -->
    * <!-- End of user code doc for argument -->
-   *
-   * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLValueSpecification.argument_message
-   */
-  def argument: Seq[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.argument_message
+	 */
+	def argument: Seq[UMLValueSpecification[Uml]]
 
-  /**
-   * The Connector on which this Message is sent.
-   *
-   * <!-- Start of user code doc for connector -->
+	/**
+	 * The Connector on which this Message is sent.
+	 *
+	 * <!-- Start of user code doc for connector -->
    * <!-- End of user code doc for connector -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLConnector.connector_message
-   */
-  def connector: Option[UMLConnector[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLConnector.connector_message
+	 */
+	def connector: Option[UMLConnector[Uml]]
 
-  /**
-   * The sort of communication reflected by the Message.
-   *
-   * <!-- Start of user code doc for messageSort -->
+	/**
+	 * The sort of communication reflected by the Message.
+	 *
+	 * <!-- Start of user code doc for messageSort -->
    * <!-- End of user code doc for messageSort -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   */
-  def messageSort: UMLMessageSort.Value
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 */
+	def messageSort: UMLMessageSort.Value
 
-  /**
-   * References the Receiving of the Message.
-   *
-   * <!-- Start of user code doc for receiveEvent -->
+	/**
+	 * References the Receiving of the Message.
+	 *
+	 * <!-- Start of user code doc for receiveEvent -->
    * <!-- End of user code doc for receiveEvent -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLMessageEnd.receiveEvent_endMessage
-   */
-  def receiveEvent: Option[UMLMessageEnd[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLMessageEnd.receiveEvent_endMessage
+	 */
+	def receiveEvent: Option[UMLMessageEnd[Uml]]
 
-  /**
-   * References the Sending of the Message.
-   *
-   * <!-- Start of user code doc for sendEvent -->
+	/**
+	 * References the Sending of the Message.
+	 *
+	 * <!-- Start of user code doc for sendEvent -->
    * <!-- End of user code doc for sendEvent -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLMessageEnd.sendEvent_endMessage
-   */
-  def sendEvent: Option[UMLMessageEnd[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLMessageEnd.sendEvent_endMessage
+	 */
+	def sendEvent: Option[UMLMessageEnd[Uml]]
 
-  /**
-   * The signature of the Message is the specification of its content. It refers either an Operation or a Signal.
-   *
-   * <!-- Start of user code doc for signature -->
+	/**
+	 * The signature of the Message is the specification of its content. It refers either an Operation or a Signal.
+	 *
+	 * <!-- Start of user code doc for signature -->
    * <!-- End of user code doc for signature -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-   * @opposite org.omg.oti.api.UMLNamedElement.signature_message
-   */
-  def signature: Option[UMLNamedElement[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.signature_message
+	 */
+	def signature: Option[UMLNamedElement[Uml]]
 
-  /**
-   * <!-- Start of user code doc for message_messageEnd -->
+	/**
+	 * <!-- Start of user code doc for message_messageEnd -->
    * <!-- End of user code doc for message_messageEnd -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
-   * @opposite org.omg.oti.api.UMLMessageEnd.message
-   */
-  def message_messageEnd: Set[UMLMessageEnd[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
+	 * @opposite org.omg.oti.uml.read.api.UMLMessageEnd.message
+	 */
+	def message_messageEnd: Set[UMLMessageEnd[Uml]]
 
-  /**
-   * <!-- Start of user code doc for realizingMessage_informationFlow -->
+	/**
+	 * <!-- Start of user code doc for realizingMessage_informationFlow -->
    * <!-- End of user code doc for realizingMessage_informationFlow -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-   * @opposite org.omg.oti.api.UMLInformationFlow.realizingMessage
-   */
-  def realizingMessage_informationFlow: Set[UMLInformationFlow[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.realizingMessage
+	 */
+	def realizingMessage_informationFlow: Set[UMLInformationFlow[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    message_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		message_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLMessage
-   *
-   * <!-- Start of user code doc for message_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_metaAttributes -->
    * <!-- End of user code doc for message_metaAttributes -->
-   */
-  def message_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      namedElement_metaAttributes,
-      Seq ())
+	 */
+	def message_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			namedElement_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    message_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		message_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLMessage
-   *
-   * <!-- Start of user code doc for message_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_compositeMetaProperties -->
    * <!-- End of user code doc for message_compositeMetaProperties -->
-   */
-  def message_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq (Message_argument))
+	 */
+	def message_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_compositeMetaProperties,
+			Seq (Message_argument))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    message_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		message_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLMessage
-   *
-   * <!-- Start of user code doc for message_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_referenceMetaProperties -->
    * <!-- End of user code doc for message_referenceMetaProperties -->
-   */
-  def message_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq (Message_connector,
-        Message_receiveEvent,
-        Message_sendEvent,
-        Message_signature))
+	 */
+	def message_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			namedElement_referenceMetaProperties,
+			Seq (Message_connector,
+				Message_receiveEvent,
+				Message_sendEvent,
+				Message_signature))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    message_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		message_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLMessage
-   *
-   * <!-- Start of user code doc for message_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLMessage
+	 *
+	 * <!-- Start of user code doc for message_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for message_forwardReferencesFromMetamodelAssociations -->
-   */
-  def message_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    connector ++
-    receiveEvent ++
-    sendEvent ++
-    signature
+	 */
+	def message_forwardReferencesFromMetamodelAssociations: Elements =
+		namedElement_forwardReferencesFromMetamodelAssociations ++
+		connector ++
+		receiveEvent ++
+		sendEvent ++
+		signature
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLMessage

@@ -52,99 +52,99 @@ import org.omg.oti.uml.read.operations.UMLStereotypeOps
  * <!-- End of user code documentation -->
 */
 trait UMLStereotype[Uml <: UML]
-  extends UMLClass[Uml]
-  with UMLStereotypeOps[Uml] {
+	extends UMLClass[Uml]
+	with UMLStereotypeOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * <!-- Start of user code doc for ownedStereotype_owningPackage -->
+	/**
+	 * <!-- Start of user code doc for ownedStereotype_owningPackage -->
    * <!-- End of user code doc for ownedStereotype_owningPackage -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLPackage.ownedStereotype
-   */
-  def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLPackage.ownedStereotype
+	 */
+	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    stereotype_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		stereotype_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLStereotype
-   *
-   * <!-- Start of user code doc for stereotype_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_metaAttributes -->
    * <!-- End of user code doc for stereotype_metaAttributes -->
-   */
-  def stereotype_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      class_metaAttributes,
-      Seq ())
+	 */
+	def stereotype_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			class_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    stereotype_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		stereotype_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLStereotype
-   *
-   * <!-- Start of user code doc for stereotype_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_compositeMetaProperties -->
    * <!-- End of user code doc for stereotype_compositeMetaProperties -->
-   */
-  def stereotype_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      class_compositeMetaProperties,
-      Seq (Stereotype_icon))
+	 */
+	def stereotype_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			class_compositeMetaProperties,
+			Seq (Stereotype_icon))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    stereotype_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		stereotype_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLStereotype
-   *
-   * <!-- Start of user code doc for stereotype_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_referenceMetaProperties -->
    * <!-- End of user code doc for stereotype_referenceMetaProperties -->
-   */
-  def stereotype_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      class_referenceMetaProperties,
-      Seq ())
+	 */
+	def stereotype_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			class_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    stereotype_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		stereotype_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLStereotype
-   *
-   * <!-- Start of user code doc for stereotype_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLStereotype
+	 *
+	 * <!-- Start of user code doc for stereotype_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for stereotype_forwardReferencesFromMetamodelAssociations -->
-   */
-  def stereotype_forwardReferencesFromMetamodelAssociations: Elements =
-    class_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def stereotype_forwardReferencesFromMetamodelAssociations: Elements =
+		class_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLStereotype

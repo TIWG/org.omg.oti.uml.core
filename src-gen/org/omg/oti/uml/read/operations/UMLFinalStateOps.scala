@@ -54,92 +54,92 @@ import scala.language.postfixOps
  */
 trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * A FinalState cannot reference a submachine.
-   *
-   * <!-- Start of user code doc for validate_cannot_reference_submachine -->
+	/**
+	 * A FinalState cannot reference a submachine.
+	 *
+	 * <!-- Start of user code doc for validate_cannot_reference_submachine -->
    * <!-- End of user code doc for validate_cannot_reference_submachine -->
-   *
-   * @body submachine->isEmpty()
-   */
-  def validate_cannot_reference_submachine: Boolean = {
-    // Start of user code for "cannot_reference_submachine"
+	 *
+	 * @body submachine->isEmpty()
+	 */
+	def validate_cannot_reference_submachine: Boolean = {
+		// Start of user code for "cannot_reference_submachine"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A FinalState has no entry Behavior.
-   *
-   * <!-- Start of user code doc for validate_no_entry_behavior -->
+	/**
+	 * A FinalState has no entry Behavior.
+	 *
+	 * <!-- Start of user code doc for validate_no_entry_behavior -->
    * <!-- End of user code doc for validate_no_entry_behavior -->
-   *
-   * @body entry->isEmpty()
-   */
-  def validate_no_entry_behavior: Boolean = {
-    // Start of user code for "no_entry_behavior"
+	 *
+	 * @body entry->isEmpty()
+	 */
+	def validate_no_entry_behavior: Boolean = {
+		// Start of user code for "no_entry_behavior"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A FinalState has no exit Behavior.
-   *
-   * <!-- Start of user code doc for validate_no_exit_behavior -->
+	/**
+	 * A FinalState has no exit Behavior.
+	 *
+	 * <!-- Start of user code doc for validate_no_exit_behavior -->
    * <!-- End of user code doc for validate_no_exit_behavior -->
-   *
-   * @body exit->isEmpty()
-   */
-  def validate_no_exit_behavior: Boolean = {
-    // Start of user code for "no_exit_behavior"
+	 *
+	 * @body exit->isEmpty()
+	 */
+	def validate_no_exit_behavior: Boolean = {
+		// Start of user code for "no_exit_behavior"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A FinalState cannot have any outgoing Transitions.
-   *
-   * <!-- Start of user code doc for validate_no_outgoing_transitions -->
+	/**
+	 * A FinalState cannot have any outgoing Transitions.
+	 *
+	 * <!-- Start of user code doc for validate_no_outgoing_transitions -->
    * <!-- End of user code doc for validate_no_outgoing_transitions -->
-   *
-   * @body outgoing->size() = 0
-   */
-  def validate_no_outgoing_transitions: Boolean = {
-    // Start of user code for "no_outgoing_transitions"
+	 *
+	 * @body outgoing->size() = 0
+	 */
+	def validate_no_outgoing_transitions: Boolean = {
+		// Start of user code for "no_outgoing_transitions"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A FinalState cannot have Regions.
-   *
-   * <!-- Start of user code doc for validate_no_regions -->
+	/**
+	 * A FinalState cannot have Regions.
+	 *
+	 * <!-- Start of user code doc for validate_no_regions -->
    * <!-- End of user code doc for validate_no_regions -->
-   *
-   * @body region->size() = 0
-   */
-  def validate_no_regions: Boolean = {
-    // Start of user code for "no_regions"
+	 *
+	 * @body region->size() = 0
+	 */
+	def validate_no_regions: Boolean = {
+		// Start of user code for "no_regions"
       ???
       // End of user code
-  }
+	}
 
-  /**
-   * A FinalState has no state (doActivity) Behavior.
-   *
-   * <!-- Start of user code doc for validate_no_state_behavior -->
+	/**
+	 * A FinalState has no state (doActivity) Behavior.
+	 *
+	 * <!-- Start of user code doc for validate_no_state_behavior -->
    * <!-- End of user code doc for validate_no_state_behavior -->
-   *
-   * @body doActivity->isEmpty()
-   */
-  def validate_no_state_behavior: Boolean = {
-    // Start of user code for "no_state_behavior"
+	 *
+	 * @body doActivity->isEmpty()
+	 */
+	def validate_no_state_behavior: Boolean = {
+		// Start of user code for "no_state_behavior"
       ???
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLFinalStateOps

@@ -46,28 +46,28 @@ package org.omg.oti.uml.read.api
  * <!-- End of user code documentation -->
  */
 object UMLConnectorKind extends Enumeration {
-
-  /**
-   * The enumeration type
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	
+	/**
+	 * The enumeration type
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  type UMLConnectorKind = Value
+	 */
+	type UMLConnectorKind = Value
 
-  /**
-    * Indicates that the Connector is an assembly Connector.
-   *
-   * <!-- Start of user code doc for assembly -->
+	/**
+ 	 * Indicates that the Connector is an assembly Connector.
+	 *
+	 * <!-- Start of user code doc for assembly -->
    * <!-- End of user code doc for assembly -->
-    */
-  val assembly = Value
+ 	 */
+	val assembly = Value
 
-  /**
-    * Indicates that the Connector is a delegation Connector.
-   *
-   * <!-- Start of user code doc for delegation -->
+	/**
+ 	 * Indicates that the Connector is a delegation Connector.
+	 *
+	 * <!-- Start of user code doc for delegation -->
    * <!-- End of user code doc for delegation -->
-    */
-  val delegation = Value
+ 	 */
+	val delegation = Value
 }

@@ -47,17 +47,15 @@ import scala.language.postfixOps
 // End of user code
 
 /**
- * A TimeObservation is a reference to a time instant during an execution.
- * It points out the NamedElement in the model to observe and whether
- * the observation is when this NamedElement is entered or when it is exited.
+ * A TimeObservation is a reference to a time instant during an execution. It points out the NamedElement in the model to observe and whether the observation is when this NamedElement is entered or when it is exited.
  *
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
 trait UMLTimeObservationOps[Uml <: UML] { self: UMLTimeObservation[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLTimeObservationOps

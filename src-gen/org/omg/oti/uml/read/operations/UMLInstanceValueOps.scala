@@ -54,9 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
     instanceValue_asForwardReferencesToImportableOuterPackageableElements

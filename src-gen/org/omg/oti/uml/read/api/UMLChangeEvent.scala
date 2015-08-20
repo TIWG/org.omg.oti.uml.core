@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLChangeEventOps
  * <!-- End of user code documentation -->
 */
 trait UMLChangeEvent[Uml <: UML]
-  extends UMLEvent[Uml]
-  with UMLChangeEventOps[Uml] {
+	extends UMLEvent[Uml]
+	with UMLChangeEventOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * A Boolean-valued ValueSpecification that will result in a ChangeEvent whenever its value changes from false to true.
-   *
-   * <!-- Start of user code doc for changeExpression -->
+	/**
+	 * A Boolean-valued ValueSpecification that will result in a ChangeEvent whenever its value changes from false to true.
+	 *
+	 * <!-- Start of user code doc for changeExpression -->
    * <!-- End of user code doc for changeExpression -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLValueSpecification.changeExpression_changeEvent
-   */
-  def changeExpression: Option[UMLValueSpecification[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.changeExpression_changeEvent
+	 */
+	def changeExpression: Option[UMLValueSpecification[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    changeEvent_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		changeEvent_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLChangeEvent
-   *
-   * <!-- Start of user code doc for changeEvent_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLChangeEvent
+	 *
+	 * <!-- Start of user code doc for changeEvent_metaAttributes -->
    * <!-- End of user code doc for changeEvent_metaAttributes -->
-   */
-  def changeEvent_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      event_metaAttributes,
-      Seq ())
+	 */
+	def changeEvent_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			event_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    changeEvent_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		changeEvent_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLChangeEvent
-   *
-   * <!-- Start of user code doc for changeEvent_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLChangeEvent
+	 *
+	 * <!-- Start of user code doc for changeEvent_compositeMetaProperties -->
    * <!-- End of user code doc for changeEvent_compositeMetaProperties -->
-   */
-  def changeEvent_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      event_compositeMetaProperties,
-      Seq (ChangeEvent_changeExpression))
+	 */
+	def changeEvent_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			event_compositeMetaProperties,
+			Seq (ChangeEvent_changeExpression))
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    changeEvent_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		changeEvent_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLChangeEvent
-   *
-   * <!-- Start of user code doc for changeEvent_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLChangeEvent
+	 *
+	 * <!-- Start of user code doc for changeEvent_referenceMetaProperties -->
    * <!-- End of user code doc for changeEvent_referenceMetaProperties -->
-   */
-  def changeEvent_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      event_referenceMetaProperties,
-      Seq ())
+	 */
+	def changeEvent_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			event_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    changeEvent_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		changeEvent_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLChangeEvent
-   *
-   * <!-- Start of user code doc for changeEvent_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLChangeEvent
+	 *
+	 * <!-- Start of user code doc for changeEvent_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for changeEvent_forwardReferencesFromMetamodelAssociations -->
-   */
-  def changeEvent_forwardReferencesFromMetamodelAssociations: Elements =
-    event_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def changeEvent_forwardReferencesFromMetamodelAssociations: Elements =
+		event_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLChangeEvent

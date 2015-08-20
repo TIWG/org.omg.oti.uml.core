@@ -57,39 +57,39 @@ import scala.util.Success
  */
 trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 
-  import self.ops._
+	import self.ops._
 
-  /**
-   * The query isComputable() is redefined to be true.
-   *
-   * <!-- Start of user code doc for isComputable -->
+	/**
+	 * The query isComputable() is redefined to be true.
+	 *
+	 * <!-- Start of user code doc for isComputable -->
    * <!-- End of user code doc for isComputable -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (true)
-   */
-  override def isComputable: Boolean = {
-    // Start of user code for "isComputable"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (true)
+	 */
+	override def isComputable: Boolean = {
+		// Start of user code for "isComputable"
       true
       // End of user code
-  }
+	}
 
-  /**
-   * The query isNull() returns true.
-   *
-   * <!-- Start of user code doc for isNull -->
+	/**
+	 * The query isNull() returns true.
+	 *
+	 * <!-- Start of user code doc for isNull -->
    * <!-- End of user code doc for isNull -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (true)
-   */
-  override def isNull: Boolean = {
-    // Start of user code for "isNull"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (true)
+	 */
+	override def isNull: Boolean = {
+		// Start of user code for "isNull"
       true
       // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   override def stringValue: Option[String]  = Some("***NULL***")  
   // End of user code
 } //UMLLiteralNullOps

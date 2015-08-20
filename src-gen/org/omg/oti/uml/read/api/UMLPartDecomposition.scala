@@ -52,99 +52,99 @@ import org.omg.oti.uml.read.operations.UMLPartDecompositionOps
  * <!-- End of user code documentation -->
 */
 trait UMLPartDecomposition[Uml <: UML]
-  extends UMLInteractionUse[Uml]
-  with UMLPartDecompositionOps[Uml] {
+	extends UMLInteractionUse[Uml]
+	with UMLPartDecompositionOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * <!-- Start of user code doc for decomposedAs_lifeline -->
+	/**
+	 * <!-- Start of user code doc for decomposedAs_lifeline -->
    * <!-- End of user code doc for decomposedAs_lifeline -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLLifeline.decomposedAs
-   */
-  def decomposedAs_lifeline: Option[UMLLifeline[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.decomposedAs
+	 */
+	def decomposedAs_lifeline: Option[UMLLifeline[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    partDecomposition_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		partDecomposition_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLPartDecomposition
-   *
-   * <!-- Start of user code doc for partDecomposition_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLPartDecomposition
+	 *
+	 * <!-- Start of user code doc for partDecomposition_metaAttributes -->
    * <!-- End of user code doc for partDecomposition_metaAttributes -->
-   */
-  def partDecomposition_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      interactionUse_metaAttributes,
-      Seq ())
+	 */
+	def partDecomposition_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			interactionUse_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    partDecomposition_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		partDecomposition_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLPartDecomposition
-   *
-   * <!-- Start of user code doc for partDecomposition_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLPartDecomposition
+	 *
+	 * <!-- Start of user code doc for partDecomposition_compositeMetaProperties -->
    * <!-- End of user code doc for partDecomposition_compositeMetaProperties -->
-   */
-  def partDecomposition_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      interactionUse_compositeMetaProperties,
-      Seq ())
+	 */
+	def partDecomposition_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			interactionUse_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    partDecomposition_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		partDecomposition_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLPartDecomposition
-   *
-   * <!-- Start of user code doc for partDecomposition_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLPartDecomposition
+	 *
+	 * <!-- Start of user code doc for partDecomposition_referenceMetaProperties -->
    * <!-- End of user code doc for partDecomposition_referenceMetaProperties -->
-   */
-  def partDecomposition_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      interactionUse_referenceMetaProperties,
-      Seq ())
+	 */
+	def partDecomposition_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			interactionUse_referenceMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    partDecomposition_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		partDecomposition_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLPartDecomposition
-   *
-   * <!-- Start of user code doc for partDecomposition_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLPartDecomposition
+	 *
+	 * <!-- Start of user code doc for partDecomposition_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for partDecomposition_forwardReferencesFromMetamodelAssociations -->
-   */
-  def partDecomposition_forwardReferencesFromMetamodelAssociations: Elements =
-    interactionUse_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+	 */
+	def partDecomposition_forwardReferencesFromMetamodelAssociations: Elements =
+		interactionUse_forwardReferencesFromMetamodelAssociations ++
+		Set ()
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLPartDecomposition

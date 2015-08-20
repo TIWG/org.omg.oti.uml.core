@@ -52,101 +52,101 @@ import org.omg.oti.uml.read.operations.UMLSignalEventOps
  * <!-- End of user code documentation -->
 */
 trait UMLSignalEvent[Uml <: UML]
-  extends UMLMessageEvent[Uml]
-  with UMLSignalEventOps[Uml] {
+	extends UMLMessageEvent[Uml]
+	with UMLSignalEventOps[Uml] {
+	
+	import ops._
 
-  import ops._
-
-  /**
-   * The specific Signal that is associated with this SignalEvent.
-   *
-   * <!-- Start of user code doc for signal -->
+	/**
+	 * The specific Signal that is associated with this SignalEvent.
+	 *
+	 * <!-- Start of user code doc for signal -->
    * <!-- End of user code doc for signal -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-   * @opposite org.omg.oti.api.UMLSignal.signal_signalEvent
-   */
-  def signal: Option[UMLSignal[Uml]]
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * @opposite org.omg.oti.uml.read.api.UMLSignal.signal_signalEvent
+	 */
+	def signal: Option[UMLSignal[Uml]]
 
-  /**
-   * The XMI meta-attributes relevant to this object
-   *
-   * <!-- Start of user code doc for metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to this object
+	 *
+	 * <!-- Start of user code doc for metaAttributes -->
    * <!-- End of user code doc for metaAttributes -->
-   */
-  override def metaAttributes: MetaAttributeFunctions =
-    signalEvent_metaAttributes
+	 */
+	override def metaAttributes: MetaAttributeFunctions =
+		signalEvent_metaAttributes
 
-  /**
-   * The XMI meta-attributes relevant to class UMLSignalEvent
-   *
-   * <!-- Start of user code doc for signalEvent_metaAttributes -->
+	/**
+	 * The XMI meta-attributes relevant to class UMLSignalEvent
+	 *
+	 * <!-- Start of user code doc for signalEvent_metaAttributes -->
    * <!-- End of user code doc for signalEvent_metaAttributes -->
-   */
-  def signalEvent_metaAttributes: MetaAttributeFunctions =
-    appendUnique(
-      messageEvent_metaAttributes,
-      Seq ())
+	 */
+	def signalEvent_metaAttributes: MetaAttributeFunctions = 
+		appendUnique(
+			messageEvent_metaAttributes,
+			Seq ())
 
-  /**
-   * The XMI composite meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for compositeMetaProperties -->
    * <!-- End of user code doc for compositeMetaProperties -->
-   */
-  override def compositeMetaProperties: MetaPropertyFunctions =
-    signalEvent_compositeMetaProperties
+	 */
+	override def compositeMetaProperties: MetaPropertyFunctions =
+		signalEvent_compositeMetaProperties
 
-  /**
-   * The XMI composite meta-properties relevant to class UMLSignalEvent
-   *
-   * <!-- Start of user code doc for signalEvent_compositeMetaProperties -->
+	/**
+	 * The XMI composite meta-properties relevant to class UMLSignalEvent
+	 *
+	 * <!-- Start of user code doc for signalEvent_compositeMetaProperties -->
    * <!-- End of user code doc for signalEvent_compositeMetaProperties -->
-   */
-  def signalEvent_compositeMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      messageEvent_compositeMetaProperties,
-      Seq ())
+	 */
+	def signalEvent_compositeMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			messageEvent_compositeMetaProperties,
+			Seq ())
 
-  /**
-   * The XMI reference meta-properties relevant to this object
-   *
-   * <!-- Start of user code doc for referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to this object
+	 *
+	 * <!-- Start of user code doc for referenceMetaProperties -->
    * <!-- End of user code doc for referenceMetaProperties -->
-   */
-  override def referenceMetaProperties: MetaPropertyFunctions =
-    signalEvent_referenceMetaProperties
+	 */
+	override def referenceMetaProperties: MetaPropertyFunctions =
+		signalEvent_referenceMetaProperties
 
-  /**
-   * The XMI reference meta-properties relevant to class UMLSignalEvent
-   *
-   * <!-- Start of user code doc for signalEvent_referenceMetaProperties -->
+	/**
+	 * The XMI reference meta-properties relevant to class UMLSignalEvent
+	 *
+	 * <!-- Start of user code doc for signalEvent_referenceMetaProperties -->
    * <!-- End of user code doc for signalEvent_referenceMetaProperties -->
-   */
-  def signalEvent_referenceMetaProperties: MetaPropertyFunctions =
-    appendUnique(
-      messageEvent_referenceMetaProperties,
-      Seq (SignalEvent_signal))
+	 */
+	def signalEvent_referenceMetaProperties: MetaPropertyFunctions = 
+		appendUnique(
+			messageEvent_referenceMetaProperties,
+			Seq (SignalEvent_signal))
 
-  /**
-   * The XMI forward references from metamodel associations relevant to this object
-   *
-   * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to this object
+	 *
+	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-   */
-  override def forwardReferencesFromMetamodelAssociations: Elements =
-    signalEvent_forwardReferencesFromMetamodelAssociations
+	 */
+	override def forwardReferencesFromMetamodelAssociations: Elements =
+		signalEvent_forwardReferencesFromMetamodelAssociations
 
-  /**
-   * The XMI forward references from metamodel associations relevant to class UMLSignalEvent
-   *
-   * <!-- Start of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
+	/**
+	 * The XMI forward references from metamodel associations relevant to class UMLSignalEvent
+	 *
+	 * <!-- Start of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
    * <!-- End of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
-   */
-  def signalEvent_forwardReferencesFromMetamodelAssociations: Elements =
-    messageEvent_forwardReferencesFromMetamodelAssociations ++
-    signal
+	 */
+	def signalEvent_forwardReferencesFromMetamodelAssociations: Elements =
+		messageEvent_forwardReferencesFromMetamodelAssociations ++
+		signal
 
-  // Start of user code for additional features
+	// Start of user code for additional features
   // End of user code
 } //UMLSignalEvent
