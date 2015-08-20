@@ -91,20 +91,14 @@ To manually refresh it, use View | Tool Windows > SBT, then click on the refresh
 
 See https://github.com/typesafehub/sbteclipse
 
-1. Add to ~/.sbt/0.13/plugins/plugins.sbt
-
-    `// https://github.com/typesafehub/sbteclipse`
-    
-    `addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")`
-
-2. Use SBT to create the Eclipse metadata files (.project, .classpath)
+1. Use SBT to create the Eclipse metadata files (.project, .classpath)
 
     `sbt -DOTI_LOCAL_REPOSITORY=<dir> eclipse`
 
-3. File | Import ...
-4. Choose: "Existing Projects into Workspace"
-5. Select the location of the project
-6. In Options, make sure to *UNCHECK* "Copy projects into workspace"
+2. File | Import ...
+3. Choose: "Existing Projects into Workspace"
+4. Select the location of the project
+5. In Options, make sure to *UNCHECK* "Copy projects into workspace"
 
 If you change the SBT build specification, close the project in Eclipse.
 Use SBT to re-generate the Eclipse metadata.

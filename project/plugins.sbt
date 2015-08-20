@@ -4,6 +4,9 @@ resolvers ++= List(
   "2.11.7 plugins" at "https://oss.sonatype.org/content/repositories/orgscala-lang-1230/org/"
 )
 
+// https://github.com/typesafehub/sbteclipse`
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
+    
 resolvers += Resolver.url("sbt-license-plugin-releases", url("http://dl.bintray.com/banno/oss"))(Resolver.ivyStylePatterns)
 
 // https://github.com/Banno/sbt-license-plugin

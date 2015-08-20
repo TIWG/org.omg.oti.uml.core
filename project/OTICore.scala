@@ -5,10 +5,20 @@ import net.virtualvoid.sbt.graph.Plugin.graphSettings
 import sbt.Keys._
 import sbt._
 import com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._
+import com.typesafe.sbteclipse.plugin.EclipsePlugin._
+import scala.xml.{Attribute, Elem, MetaData, Node, NodeSeq, Null, Text}
 
 object OTICore extends Build {
 
   // ======================
+
+  def exportClasspathLibraries(nodes: Seq[Node]): Seq[Node] =
+    nodes.map {
+      case Elem(pf, "classpathentry", attrs, scope, child@_*) if attrs("kind") == Text("lib") =>
+        val meta: MetaData = Attribute("exported", Text("true"), attrs)
+        Elem(pf, "classpathentry", meta, scope, minimizeEmpty = true, child: _*)
+      case n                                                                                  => n
+    }
 
   lazy val otiSettings = Seq(
     scalaVersion := Versions.scala,
@@ -16,45 +26,68 @@ object OTICore extends Build {
     organizationName := "JPL, Caltech & Object Management Group",
     organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
+    EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE18),
+    retrieveManaged := true,
+    EclipseKeys.classpathTransformerFactories ++= Seq(transformNode("classpath", exportClasspathLibraries)),
+    EclipseKeys.relativizeLibs := false,
+
     // include repositories used in module configurations into the POM repositories section
     pomAllRepositories := true,
 
-    // publish Maven POM metadata (instead of Ivy); this is important for the UpdatesPlugin's ability to find available updates.
-    publishMavenStyle := true) ++
-    ((Option.apply(System.getProperty("OTI_LOCAL_REPOSITORY")), Option.apply(System.getProperty("OTI_REMOTE_REPOSITORY"))) match {
-      case (Some(dir), _) =>
-        if (new File(dir) / "settings.xml" exists) {
-          val cache = new MavenCache("JPL-OMG", new File(dir))
-          Seq(
-            publishTo := Some(cache),
-            resolvers += cache)
-        }
-        else
-          sys.error(s"The OTI_LOCAL_REPOSITORY folder, '$dir', does not have a 'settings.xml' file.")
-      case (None, Some(url)) => {
-        val repo = new MavenRepository("JPL-OMG", url)
+    // publish Maven POM metadata (instead of Ivy);
+    // this is important for the UpdatesPlugin's ability to find available updates.
+    publishMavenStyle := true
+  ) ++ ((Option.apply(System.getProperty("OTI_LOCAL_REPOSITORY")),
+    Option.apply(System.getProperty("OTI_REMOTE_REPOSITORY"))) match {
+    case (Some(dir), _)    =>
+      if (new File(dir) / "settings.xml" exists) {
+        val cache = new MavenCache("JPL-OMG", new File(dir))
         Seq(
-          publishTo := Some(repo),
-          resolvers += repo)
+          publishTo := Some(cache),
+          resolvers += cache)
       }
-      case _ => sys.error("Set either -DOTI_LOCAL_REPOSITORY=<dir> or -DOTI_REMOTE_REPOSITORY=<url> where <dir> is a local Maven repository directory or <url> is a remote Maven repository URL")
-    })
+      else
+        sys
+        .error(s"The OTI_LOCAL_REPOSITORY folder, '$dir', does not have a 'settings.xml' file.")
+    case (None, Some(url)) => {
+      val repo = new MavenRepository("JPL-OMG", url)
+      Seq(
+        publishTo := Some(repo),
+        resolvers += repo)
+    }
+    case _                 => sys
+                              .error("Set either -DOTI_LOCAL_REPOSITORY=<dir> or -DOTI_REMOTE_REPOSITORY=<url> " +
+                                     "where <dir> is a local Maven repository directory or " +
+                                     "<url> is a remote Maven repository URL")
+  })
 
   lazy val commonSettings =
     Defaults.coreDefaultSettings ++
-      Defaults.runnerSettings ++
-      Defaults.baseTasks ++
-      graphSettings ++
-      com.banno.license.Plugin.licenseSettings ++
-      aether.AetherPlugin.autoImport.overridePublishSettings ++
-      Seq(
-        sourceDirectories in Compile ~= { _.filter(_.exists) },
-        sourceDirectories in Test ~= { _.filter(_.exists) },
-        unmanagedSourceDirectories in Compile ~= { _.filter(_.exists) },
-        unmanagedSourceDirectories in Test ~= { _.filter(_.exists) },
-        unmanagedResourceDirectories in Compile ~= { _.filter(_.exists) },
-        unmanagedResourceDirectories in Test ~= { _.filter(_.exists) }
-      )
+    Defaults.runnerSettings ++
+    Defaults.baseTasks ++
+    graphSettings ++
+    com.banno.license.Plugin.licenseSettings ++
+    aether.AetherPlugin.autoImport.overridePublishSettings ++
+    Seq(
+      sourceDirectories in Compile ~= {
+        _.filter(_.exists)
+      },
+      sourceDirectories in Test ~= {
+        _.filter(_.exists)
+      },
+      unmanagedSourceDirectories in Compile ~= {
+        _.filter(_.exists)
+      },
+      unmanagedSourceDirectories in Test ~= {
+        _.filter(_.exists)
+      },
+      unmanagedResourceDirectories in Compile ~= {
+        _.filter(_.exists)
+      },
+      unmanagedResourceDirectories in Test ~= {
+        _.filter(_.exists)
+      }
+    )
 
   def addIfExists(f: File, name: String): Seq[(File, String)] =
     if (!f.exists) Seq()
@@ -62,58 +95,82 @@ object OTICore extends Build {
 
   val QUALIFIED_NAME = "^[a-zA-Z][\\w_]*(\\.[a-zA-Z][\\w_]*)*$".r
 
-  lazy val core = Project(
-    "oti-core",
-    file(".")).
-    enablePlugins(aether.AetherPlugin).
-    enablePlugins(com.typesafe.sbt.packager.universal.UniversalPlugin).
-    settings(otiSettings: _*).
-    settings(commonSettings: _*).
-    settings(
+  lazy val core =
+    Project(
+      "oti-core",
+      file("."))
+    .enablePlugins(aether.AetherPlugin)
+    .enablePlugins(com.typesafe.sbt.packager.universal.UniversalPlugin)
+    .settings(otiSettings: _*)
+    .settings(commonSettings: _*)
+    .settings(
       version := Versions.version,
       removeExistingHeaderBlock := true,
       libraryDependencies ++= Seq(
-        "org.scala-lang.modules" %% "scala-java8-compat" % Versions.scala_java8_compat withSources() withJavadoc(),
-        "org.scala-lang" % "scala-reflect" % Versions.scala % "provided" withSources() withJavadoc(),
-        "org.scala-lang" % "scala-library" % Versions.scala % "provided" withSources() withJavadoc(),
-        "org.scala-lang" % "scala-compiler" % Versions.scala % "provided" withSources() withJavadoc(),
-        "org.scalaz" %% "scalaz-core" % Versions.scalaz % "compile" withSources() withJavadoc(),
-        "xml-resolver" % "xml-resolver" % Versions.xmlResolver % "compile" withSources(),
-        "com.assembla.scala-incubator" %% "graph-core" % Versions.graph_core % "compile" withSources() withJavadoc(),
-        "com.assembla.scala-incubator" %% "graph-constrained" % Versions.graph_constrained % "compile" withSources() withJavadoc(),
-        "com.assembla.scala-incubator" %% "graph-json" % Versions.graph_json % "compile" withSources() withJavadoc(),
-        "com.assembla.scala-incubator" %% "graph-dot" % Versions.graph_dot % "compile" withSources() withJavadoc()
+        "org.scala-lang" % "scala-reflect"
+        % Versions.scala % "provided" withSources() withJavadoc(),
+
+        "org.scala-lang" % "scala-library"
+        % Versions.scala % "provided" withSources() withJavadoc(),
+
+        "org.scala-lang" % "scala-compiler"
+        % Versions.scala % "provided" withSources() withJavadoc(),
+
+        "org.scala-lang.modules" %% "scala-java8-compat"
+        % Versions.scala_java8_compat % "compile" withSources() withJavadoc(),
+
+        "org.scalaz" %% "scalaz-core"
+        % Versions.scalaz % "compile" withSources() withJavadoc(),
+
+        "xml-resolver" % "xml-resolver"
+        % Versions.xmlResolver % "compile" withSources(),
+
+        "com.assembla.scala-incubator" %% "graph-core"
+        % Versions.graph_core % "compile" withSources() withJavadoc(),
+
+        "com.assembla.scala-incubator" %% "graph-constrained"
+        % Versions.graph_constrained % "compile" withSources() withJavadoc(),
+
+        "com.assembla.scala-incubator" %% "graph-json"
+        % Versions.graph_json % "compile" withSources() withJavadoc(),
+
+        "com.assembla.scala-incubator" %% "graph-dot"
+        % Versions.graph_dot % "compile" withSources() withJavadoc()
       ),
-      
+
       // https://github.com/lrytz/experimental-backend-2.11/blob/master/build.sbt
       scalacOptions ++= List("-Ybackend:GenBCode", "-Ydelambdafy:method", "-target:jvm-1.8", "-Yopt:l:classpath"),
-      
+
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
       classDirectory in Compile := baseDirectory.value / "bin",
 
       // the '*-resource.zip' archive will start from: 'dynamicScripts/<dynamicScriptsProjectName>'
-      com.typesafe.sbt.packager.Keys.topLevelDirectory in Universal := Some("dynamicScripts/org.omg.oti"),
+      com.typesafe.sbt.packager.Keys
+      .topLevelDirectory in Universal := Some("dynamicScripts/org.omg.oti"),
 
       // name the '*-resource.zip' in the same way as other artifacts
       com.typesafe.sbt.packager.Keys.packageName in Universal :=
-        normalizedName.value + "_" + scalaBinaryVersion.value + "-" + version.value + "-resource",
+      normalizedName.value + "_" + scalaBinaryVersion.value + "-" + version.value + "-resource",
 
       // contents of the '*-resource.zip' to be produced by 'universal:packageBin'
-      mappings in Universal <++= (baseDirectory,
+      mappings in Universal <++=
+      (baseDirectory,
         packageBin in Compile, packageSrc in Compile, packageDoc in Compile,
         packageBin in Test, packageSrc in Test, packageDoc in Test) map {
         (dir, bin, src, doc, binT, srcT, docT) =>
           (dir ** "*.dynamicScripts").pair(relativeTo(dir)) ++
-            ((dir ** "*.md") --- (dir / "sbt.staging" ***)).pair(relativeTo(dir)) ++
-            (dir / "models" ** "*.mdzip").pair(relativeTo(dir)) ++
-            com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
-            addIfExists(bin, "lib/" + bin.name) ++
-            addIfExists(binT, "lib/" + binT.name) ++
-            addIfExists(src, "lib.sources/" + src.name) ++
-            addIfExists(srcT, "lib.sources/" + srcT.name) ++
-            addIfExists(doc, "lib.javadoc/" + doc.name) ++
-            addIfExists(docT, "lib.javadoc/" + docT.name)
+          ((dir ** "*.md") --- (dir / "sbt.staging" ***))
+          .pair(relativeTo(dir)) ++
+          (dir / "models" ** "*.mdzip").pair(relativeTo(dir)) ++
+          com.typesafe.sbt.packager.MappingsHelper
+          .directory(dir / "resources") ++
+          addIfExists(bin, "lib/" + bin.name) ++
+          addIfExists(binT, "lib/" + binT.name) ++
+          addIfExists(src, "lib.sources/" + src.name) ++
+          addIfExists(srcT, "lib.sources/" + srcT.name) ++
+          addIfExists(doc, "lib.javadoc/" + doc.name) ++
+          addIfExists(docT, "lib.javadoc/" + docT.name)
       },
 
       // add the '*-resource.zip' to the list of artifacts to publish; note that '.zip' will change to '.jar'
@@ -123,15 +180,17 @@ object OTICore extends Build {
       },
 
       aether.AetherKeys.aetherArtifact <<=
-        (aether.AetherKeys.aetherCoordinates,
-          aether.AetherKeys.aetherPackageMain,
-          makePom in Compile,
-          packagedArtifacts in Compile) map {
-          (coords: aether.MavenCoordinates, mainArtifact: File, pom: File, artifacts: Map[Artifact, File]) =>
-            aether.AetherPlugin.createArtifact(artifacts, pom, coords, mainArtifact)
-        },
+      (aether.AetherKeys.aetherCoordinates,
+        aether.AetherKeys.aetherPackageMain,
+        makePom in Compile,
+        packagedArtifacts in Compile) map {
+        (coords: aether.MavenCoordinates, mainArtifact: File, pom: File, artifacts: Map[Artifact, File]) =>
+          aether.AetherPlugin.createArtifact(artifacts, pom, coords, mainArtifact)
+      },
 
-      shellPrompt := { state => Project.extract(state).currentRef.project + " @ " + Versions.version_suffix + "> " }
+      shellPrompt := { state =>
+        Project.extract(state).currentRef.project + " @ " + Versions.version_suffix + "> "
+      }
     )
 
 }
