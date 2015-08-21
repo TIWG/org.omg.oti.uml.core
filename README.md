@@ -18,11 +18,6 @@ This functional API is parameterized by the implementation of OMG UML 2.5, inclu
 
 ## Dependencies
 
-### [Java8](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html)
-
-Although the OTI is written in Scala, the [Java8 compatibility kit](https://github.com/scala/scala-java8-compat) 
-for Scala 2.11 facilitates using the OTI from Java8.
-
 ### [Scala](http://www.scala-lang.org)
 
 Scala provides a powerful blend of functional and object-oriented programming with a powerful type system.
@@ -103,3 +98,10 @@ See https://github.com/typesafehub/sbteclipse
 If you change the SBT build specification, close the project in Eclipse.
 Use SBT to re-generate the Eclipse metadata.
 Re-open the project in Eclipse.
+
+
+## Scala & Java interoperability
+
+The OTI is written in Scala; experience from the MagicDraw & Papyrus adapters confirms that calling Java libraries from Scala code in OTI is not a problem.
+
+However, writing Java applications that use the Scala OTI is more difficult with current Scala 2.11; however, []the planned improvements for Scala 2.12](http://www.scala-lang.org/news/2.12-roadmap) should improve the interoperability for the OTI as well.

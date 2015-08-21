@@ -28,9 +28,9 @@ object OTICore extends Build {
 
     EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE18),
     EclipseKeys.classpathTransformerFactories ++= Seq(transformNode("classpath", exportClasspathLibraries)),
-    // do not relativize the managed classpath!
-    retrieveManaged := false,
-    EclipseKeys.relativizeLibs := false,
+    // must relativize the managed classpath so that it can be included in the plugin manifest!
+    retrieveManaged := true,
+    EclipseKeys.relativizeLibs := true,
 
     // include repositories used in module configurations into the POM repositories section
     pomAllRepositories := true,
@@ -117,9 +117,6 @@ object OTICore extends Build {
         "org.scala-lang" % "scala-compiler"
         % Versions.scala % "provided" withSources() withJavadoc(),
 
-        "org.scala-lang.modules" %% "scala-java8-compat"
-        % Versions.scala_java8_compat % "compile" withSources() withJavadoc(),
-
         "org.scalaz" %% "scalaz-core"
         % Versions.scalaz % "compile" withSources() withJavadoc(),
 
@@ -139,8 +136,7 @@ object OTICore extends Build {
         % Versions.graph_dot % "compile" withSources() withJavadoc()
       ),
 
-      // https://github.com/lrytz/experimental-backend-2.11/blob/master/build.sbt
-      scalacOptions ++= List("-Ybackend:GenBCode", "-Ydelambdafy:method", "-target:jvm-1.8", "-Yopt:l:classpath"),
+      scalacOptions ++= List("-target:jvm-1.7"),
 
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",

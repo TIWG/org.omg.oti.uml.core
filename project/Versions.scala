@@ -24,7 +24,6 @@ object Versions {
 
   // otherLibs
 
-  val scala_java8_compat = "0.5.0"
   val config = "1.2.1"
   val scalaCheck = "1.12.2"
   val scalaTest = "2.2.4"
