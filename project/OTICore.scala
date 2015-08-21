@@ -26,7 +26,7 @@ object OTICore extends Build {
     organizationName := "JPL, Caltech & Object Management Group",
     organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
-    EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE18),
+    EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE17),
     EclipseKeys.classpathTransformerFactories ++= Seq(transformNode("classpath", exportClasspathLibraries)),
     // must relativize the managed classpath so that it can be included in the plugin manifest!
     retrieveManaged := true,
