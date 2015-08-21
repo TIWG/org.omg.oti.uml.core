@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: OMG Tool-neutral Interface (OTI) API for OMG UML 2.5-compatible modeling tools
 Bundle-SymbolicName: org.omg.oti
 Bundle-Version: 0.16.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.omg.oti.uml,
  org.omg.oti.uml.canonicalXMI,
  org.omg.oti.uml.read,
