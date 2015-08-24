@@ -115,7 +115,12 @@ trait IDGenerator[Uml <: UML] {
     case ( Some( d1 ), Some( d2: BuiltInDocument[Uml] ) ) =>
       require( d1 != d2 )
       // Based on the built-in 'to' element ID, construct the built-in URI for the 'to' element.
-      val builtInURITo = d2.documentURL.resolve("#"+to.id).toString
+      val builtIn_d2_id = to.toolSpecific_id match {
+        case Some(id) => id
+        case None =>
+          throw new IllegalArgumentException(s"There should be a tool-specific xmi:id for $d2")
+      } 
+      val builtInURITo = d2.documentURL.resolve("#"+builtIn_d2_id).toString
       // use the builtInURIMapper to convert the built-in URI of the 'to' element into an OMG URI
       val mappedURITo = resolvedDocumentSet.ds.builtInURIMapper.resolve( builtInURITo ).getOrElse( builtInURITo )
       val fragmentIndex = mappedURITo.lastIndexOf('#')
@@ -310,11 +315,16 @@ trait IDGenerator[Uml <: UML] {
                     Success( slotValues.indexOf( fv ).toString )
                   }
               }
-            case ( o1, o2 ) =>
+            case ( o1, Some(o2) ) =>
               require(
                 !isCollection,
-                s" o1=${o1.id}, o2=${o2.get.id} / o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2.get).get}" )
+                s" o1=${o1.toolSpecific_id}, o2=${o2.toolSpecific_id} / o1=${getXMI_ID(o1).get}, o2=${getXMI_ID(o2).get}" )
               Success( "" )
+            case ( o1, None ) =>
+              require(
+                !isCollection,
+                s" o1=${o1.toolSpecific_id} / o1=${getXMI_ID(o1).get}" )
+              Success( "" )              
           }
         case ( Success( s ), _ ) =>
           Success( s )

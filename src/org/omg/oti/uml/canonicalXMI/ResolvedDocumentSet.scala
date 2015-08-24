@@ -72,10 +72,10 @@ case class ResolvedDocumentSet[Uml <: UML](
     element2mappedDocument(s) match {
       case None =>
         throw new IllegalArgumentException(
-          s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.id})")
+          s"There should be a document for stereotype ${s.qualifiedName.get} (ID=${s.xmiID.head})")
 
       case Some(d: BuiltInDocument[Uml]) =>
-        val builtInURI = d.documentURL.resolve("#" + s.id).toString
+        val builtInURI = d.documentURL.resolve("#" + s.xmiID.head).toString
         val mappedURI = ds.builtInURIMapper.resolve(builtInURI).getOrElse(builtInURI)
         val fragmentIndex = mappedURI.lastIndexOf('#')
         require(fragmentIndex > 0)
@@ -623,7 +623,7 @@ case class ResolvedDocumentSet[Uml <: UML](
      sub: UMLElement[Uml])
     : Try[scala.xml.Node] = {
       val idRefAttrib: MetaData =
-        new PrefixedAttribute(pre = "xmi", key = "idref", value = sub.id, Null)
+        new PrefixedAttribute(pre = "xmi", key = "idref", value = sub.xmiID.head, Null)
 
       val idRefNode: Node = Elem(
         prefix = null,
@@ -661,7 +661,7 @@ case class ResolvedDocumentSet[Uml <: UML](
               waitGenerateNodeReference(f, subElement) match {
                 case Failure(f) => return Failure(f)
                 case Success(subNode) =>
-                  Tuple3(visitedElements + subElement, sub_nested, sub_idrefs + (subElement.id -> subNode))
+                  Tuple3(visitedElements + subElement, sub_nested, sub_idrefs + (subElement.xmiID.head -> subNode))
               }
             else
               callGenerateNodeElement(f, subElement).run match {

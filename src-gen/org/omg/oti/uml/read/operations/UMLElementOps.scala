@@ -506,20 +506,36 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         }
     }
 
+  /**
+   * Returns the value of the OTI::Identity::xmiID tag property on the element, if any. 
+   */
   def oti_xmiID: Option[String] =
     getStereotypeTagPropertyStringValues(OTI_IDENTITY_xmiID).headOption
 
+  /**
+   * Returns the value of the OTI::Identity::xmiUUID tag property on the element, if any. 
+   */
   def oti_xmiUUID: Option[String] =
     getStereotypeTagPropertyStringValues(OTI_IDENTITY_xmiUUID).headOption
 
+  /**
+   * Returns the OTI xmi:id for the element, which is either:
+   * - the value of the OTI::Identity::xmiID tag property on the element, if specified, or
+   * - the generated OTI xmi:id
+   */
   def xmiID: Iterable[String] = oti_xmiID match {
-    case None => Iterable(id)
     case Some(oid) => Iterable(oid)
+    case None => Iterable(generatedOTI_id)
   }
 
+  /**
+   * Returns the OTI xmi:uuid for the element, which is either:
+   * - the value of the OTI::Identity::xmiUUID tag property on the element, if specified, or
+   * - the generated OTI xmi:uuid
+   */
   def xmiUUID: Iterable[String] = oti_xmiUUID match {
-    case None => uuid.toIterable
     case Some(ouuid) => Iterable(ouuid)
+    case None => Iterable(generatedOTI_uuid)
   }
 
   def xmiElementLabel: String = mofMetaclassName
@@ -694,27 +710,32 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     }
 
   /**
+   * The computed OTI xmi:id for the element
+   */
+  def generatedOTI_id: String
+  
+  /**
+   * The computed OTI xmi:uuid for the element
+   */
+  def generatedOTI_uuid: String
+
+  /* 
    * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.
    * This "xmi:id" is a local with respect to the "XMI" document in which the UML Element is serialized.
    *
    * @return the tool-specific "xmi:id" identifier for the UML Element.
    * @throws java.lang.IllegalArgumentException if there is no tool-specific "xmi:id" available.
    */
-  def id: String
-  
+  def toolSpecific_id: Option[String] = ???
+    
   /**
    * Every UML Element should have a tool-specific "xmi:uuid" identifier of some kind.
-   * This "xmi:uuid" should be globally unique.
+   * This "xmi:uuid", if supported by the specific tool, should be globally unique.
    *
    * @return the tool-specific "xmi:uuid" global identifier for the UML Element, if any.
    */
-  def uuid: Option[String]
-
-   /* the builtInID method is intended to provide the xmi:id as serialized in the file,
-   * as opposed to as computed by the IDGenerator  
-   */
-   def builtInID: Option[String] = ???
-    
+  def toolSpecific_uuid: Option[String] = ???
+  
   def hasStereotype( s: UMLStereotype[Uml] ): Boolean
 
   /**

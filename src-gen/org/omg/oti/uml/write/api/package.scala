@@ -41,6 +41,7 @@ package org.omg.oti.uml.write
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
+import scala.language.implicitConversions
 import scala.util.Try
 // End of user code
 

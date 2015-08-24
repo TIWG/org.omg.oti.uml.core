@@ -200,7 +200,7 @@ case class DocumentSet[Uml <: UML]
           if ( found ) None
           else {
             System.out.println(
-              s" => unresolved! from ${e.xmiType.head} (ID=${e.id} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.id})" )
+              s" => unresolved! from ${e.xmiType.head} (ID=${e.xmiID.head} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.xmiID.head})" )
             Some( UnresolvedElementCrossReference( d, e, eRef ) )
           }
         }
