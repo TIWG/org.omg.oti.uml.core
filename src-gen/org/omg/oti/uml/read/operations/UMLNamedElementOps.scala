@@ -111,7 +111,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
       case (Some(n1), ns) =>
         ns.name match {
           case None => None
-          case Some(n2) => Some( n1+separator+n2 )
+          case Some(n2) => Some( n1+separator.get+n2 )
         }
     }
     // End of user code
