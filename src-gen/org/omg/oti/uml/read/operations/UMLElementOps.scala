@@ -519,24 +519,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     getStereotypeTagPropertyStringValues(OTI_IDENTITY_xmiUUID).headOption
 
   /**
-   * Returns the OTI xmi:id for the element, which is either:
+   * Implementation shall returns the xmi:id for the element as computed by the IDGenerator, which is either:
    * - the value of the OTI::Identity::xmiID tag property on the element, if specified, or
    * - the generated OTI xmi:id
    */
-  def xmiID: Iterable[String] = oti_xmiID match {
-    case Some(oid) => Iterable(oid)
-    case None => Iterable(generatedOTI_id)
-  }
+  def xmiID: Iterable[String] 
 
   /**
-   * Returns the OTI xmi:uuid for the element, which is either:
+   * Implementation shall returns the xmi:uuid for the element as computed by the IDGenerator, which is either:
    * - the value of the OTI::Identity::xmiUUID tag property on the element, if specified, or
    * - the generated OTI xmi:uuid
    */
-  def xmiUUID: Iterable[String] = oti_xmiUUID match {
-    case Some(ouuid) => Iterable(ouuid)
-    case None => Iterable(generatedOTI_uuid)
-  }
+  def xmiUUID: Iterable[String]
 
   def xmiElementLabel: String = mofMetaclassName
   def metaclass_name: String = mofMetaclassName( 0 ).toLower + mofMetaclassName.drop( 1 )
@@ -708,16 +702,6 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case rf: MetaReferenceEvaluator => for { v <- rf.evaluate(self) } yield v
       case cf: MetaCollectionEvaluator => cf.evaluate(self)
     }
-
-  /**
-   * The computed OTI xmi:id for the element
-   */
-  def generatedOTI_id: String
-  
-  /**
-   * The computed OTI xmi:uuid for the element
-   */
-  def generatedOTI_uuid: String
 
   /* 
    * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.

@@ -69,6 +69,8 @@ trait IDGenerator[Uml <: UML] {
   
   val resolvedDocumentSet: ResolvedDocumentSet[Uml]
   
+  val UUID_PREFIX: String = "org.omg."
+  
   protected val element2id: Element2IDHashMap
 
   protected val elementRules: List[Element2IDRule]
@@ -174,6 +176,28 @@ trait IDGenerator[Uml <: UML] {
         }
       } )
 
+        /**
+   * The xmi:ID of an element depends on what kind of document it is contained in.
+   * - BuiltInDocument: this is deferred to builtInID, which is implementation-specific.
+   * - SerializableDocument: this is the OTI implementation of Canonical XMI ID
+   * unless it is overriden by an application of the OTI::Identity stereotype
+   */
+  def getXMI_UUID( self: UMLElement[Uml] ): Try[String] =
+    resolvedDocumentSet.element2document.get( self ) match {
+      case None => 
+          Failure( illegalElementException( "Unknown document for element reference ", self ) )
+            
+      case Some(d: BuiltInDocument[Uml]) =>
+          builtInUUID(self)
+           
+      case Some(d: SerializableDocument[Uml]) =>
+          self.oti_xmiUUID match {
+            case Some(id) => Success(id)
+            case None => Success(UUID_PREFIX+getXMI_ID(self))
+          }
+        
+    } 
+
   def computeID( self: UMLElement[Uml] ): Try[String] = {
     val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) =>
       !r.isDefinedAt( self ) )
@@ -208,6 +232,11 @@ trait IDGenerator[Uml <: UML] {
   */
   def builtInID( self: UMLElement[Uml] ): Try[String] = ???
 
+  /* the builtInUUID method is intended to provide the xmi:uuid as serialized in the file,
+  * as opposed to as computed by the IDGenerator
+  * Implementation is tool specific  
+  */
+  def builtInUUID( self: UMLElement[Uml] ): Try[String] = ???
 
   val rule0: Element2IDRule = {
     case root: UMLPackage[Uml] if (
@@ -335,7 +364,7 @@ trait IDGenerator[Uml <: UML] {
         case Success( s ) =>
           Success( ownerID + "_" + xmlSafeID( cf.propertyName + s ) )
       }
-  }
+  } 
 
   /**
    * Rule #1 (NamedElement)
@@ -505,14 +534,15 @@ trait IDGenerator[Uml <: UML] {
 
 object IDGenerator {
   
+ 
   def xmlSafeID( self: String ): String = self match {
     case null =>
       ""
     case s =>
       getValidNCName( s )
   }
-
-  /** NCName start character mask. */
+  
+ /** NCName start character mask. */
   val MASK_NCNAME_START: Char = 0x40
 
   /** NCName character mask. */
