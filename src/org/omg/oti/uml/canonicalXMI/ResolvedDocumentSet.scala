@@ -138,11 +138,11 @@ case class ResolvedDocumentSet[Uml <: UML](
   }
 
   protected def foldTagValues
-  (xmiScopes: scala.xml.NamespaceBinding)
+  (xmiScopes: scala.xml.NamespaceBinding, idg: IDGenerator[Uml])
   (tagValueNodes: Try[List[scala.xml.Elem]],
    stereotypeTagValue: UMLStereotypeTagValue[Uml])
   : Try[List[scala.xml.Elem]] =
-    stereotypeTagValue.serialize(xmiScopes) match {
+    stereotypeTagValue.serialize(xmiScopes, idg) match {
       case Failure(f) =>
         Failure(f)
       case Success(values) =>
@@ -273,7 +273,7 @@ case class ResolvedDocumentSet[Uml <: UML](
                           case None => Nil
                           case Some(vs) =>
                             val tagValueAttribute0: Try[List[Elem]] = Success(Nil)
-                            val tagValueAttributeN = (tagValueAttribute0 /: vs)(foldTagValues(xmiScopes))
+                            val tagValueAttributeN = (tagValueAttribute0 /: vs)(foldTagValues(xmiScopes, idg))
                             tagValueAttributeN match {
                               case Failure(t) =>
                                 return Failure(t)
