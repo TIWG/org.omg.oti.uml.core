@@ -511,8 +511,7 @@ trait IDGenerator[Uml <: UML] {
            id.get
            
          case Failure(t) => 
-           println("***Fail!***")
-           t.toString
+           s"*** Fail: ${t.toString}"
       } 
       x match {
         case ne: UMLNamedElement[Uml] => 

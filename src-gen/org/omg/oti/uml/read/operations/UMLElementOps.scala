@@ -737,7 +737,27 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     
   def isAncestorOf( other: UMLElement[Uml] ): Boolean
   
-  def toWrappedObjectString : String = ???
+  def toWrappedObjectString : String = {
+
+    @annotation.tailrec def describe(context: Option[UMLElement[Uml]], path: Seq[String]): String =
+      context match {
+        case None =>
+
+          def prefixStream(prefix: String): Stream[String] = prefix #:: prefixStream(prefix + "  ")
+          val prefixes: List[String] = prefixStream("").take(path.length).toList
+
+          val pair = ((new StringBuffer(""), prefixes) /: path.reverse) {
+            case ((result: StringBuffer, ps: List[String]), segment: String) =>
+              (result.append("\n" + ps.head + segment), ps.tail)
+          }
+          pair._1.toString
+
+        case Some(e) =>
+          describe(e.owner, path :+ (e.xmiType.head + " {tool id=" + e.toolSpecific_id.get + "}"))
+      }
+
+    describe(Some(this), Seq())
+  }
   
   // isSpecicationRoot allows knowing whether this element is a root of an OMG specification
   // it is true if the <<SpecificationRoot>> stereotype is applied, and false otherwise
