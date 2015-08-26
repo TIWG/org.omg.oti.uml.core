@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UMLPackage, UML, UMLPackageMerge}
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 
@@ -84,7 +85,7 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey: String =
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
     element_xmiOrderingKey + (mergedPackage match {
       case None     => "_"
       case Some(mp) => "_" + mp.xmiOrderingKey

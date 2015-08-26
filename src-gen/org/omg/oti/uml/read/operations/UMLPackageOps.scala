@@ -44,6 +44,7 @@ package org.omg.oti.uml.read.operations
 import org.omg.oti.uml._
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 import scala.util.Try
@@ -401,6 +402,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * This does not include references from elements in nested packages.
    */
   def forwardReferencesToPackagesOrProfiles
+  ()
+  (implicit idg: IDGenerator[Uml])
   : Try[Set[UMLPackage[Uml]]] =
     forwardReferencesBeyondPackageScope match {
       case Failure(t)       => Failure(t)
@@ -418,6 +421,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
   def forwardReferencesBeyondPackageScope
+  ()
+  (implicit idg: IDGenerator[Uml])
   : Try[Set[RelationTriple[Uml]]] = {
 
     val scope = self.allOwnedElementsWithinPackageScope

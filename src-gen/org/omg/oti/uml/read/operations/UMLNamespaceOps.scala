@@ -43,6 +43,7 @@ package org.omg.oti.uml.read.operations
 
 import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 import scala.util.Try
@@ -482,7 +483,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
    * This does not include references from elements in nested packages.
    */
-  def forwardReferencesToNamespaces: Try[Set[UMLNamespace[Uml]]] =
+  def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml]): Try[Set[UMLNamespace[Uml]]] =
     forwardReferencesBeyondNamespaceScope match {
       case Failure(t)       => Failure(t)
       case Success(triples) =>
@@ -498,7 +499,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * The object of each relation triple is an element outside the ownership scope of the namespace.
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
-  def forwardReferencesBeyondNamespaceScope: Try[Set[RelationTriple[Uml]]] = {
+  def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml]): Try[Set[RelationTriple[Uml]]] = {
 
     val scope = self.ownedElement
 

@@ -41,6 +41,7 @@ package org.omg.oti
 
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.reflect.ClassTag
 import scala.language.existentials
@@ -58,13 +59,25 @@ package object uml {
     implicit val UType: TypeTag[U]
     val attributePrefix: Option[String]
     val attributeName: String
-    val f: U => Iterable[DT]
+    val f: Option[U => Iterable[DT]]
+    val df: Option[(U, IDGenerator[Uml]) => Iterable[DT]]
 
-    def evaluate(e: UMLElement[Uml])(implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U]):
-    Try[Iterable[String]] =
+    def evaluate
+    (e: UMLElement[Uml], idg: IDGenerator[Uml])
+    (implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U])
+    : Try[Iterable[String]] =
       e match {
-        case u: U => Success(f(u).map(_.toString))
-        case _ => Failure(IllegalMetaAttributeEvaluation(e, this))
+        case u: U => 
+          (f, df) match {
+            case (Some(_f), _) =>
+              Success(_f(u).map(_.toString))
+            case (None, Some(_df)) =>
+              Success(_df(u, idg).map(_.toString))
+            case _ =>
+              Failure(IllegalMetaAttributeEvaluation(e, this))
+          }
+        case _ => 
+          Failure(IllegalMetaAttributeEvaluation(e, this))
       }
 
     override def toString: String = {
@@ -80,10 +93,12 @@ package object uml {
   case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
-   f: Function1[U, Iterable[Boolean]])
+   f1: Function1[U, Iterable[Boolean]])
     extends MetaAttributeAbstractFunction[Uml, U, Boolean] {
     implicit val UType: TypeTag[U] = typeTag[U]
-
+    override val f = Some(f1)
+    override val df = None
+    
     override def equals(other: Any): Boolean =
       other match {
         case that: MetaAttributeBooleanFunction[Uml, _] =>
@@ -104,9 +119,11 @@ package object uml {
   case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
-   f: Function1[U, Iterable[Integer]])
+   f1: Function1[U, Iterable[Integer]])
     extends MetaAttributeAbstractFunction[Uml, U, Integer] {
     implicit val UType: TypeTag[U] = typeTag[U]
+    override val f = Some(f1)
+    override val df = None
 
     override def equals(other: Any): Boolean =
       other match {
@@ -128,9 +145,11 @@ package object uml {
   case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
-   f: Function1[U, Iterable[String]])
+   f1: Function1[U, Iterable[String]])
     extends MetaAttributeAbstractFunction[Uml, U, String] {
     implicit val UType: TypeTag[U] = typeTag[U]
+    override val f = Some(f1)
+    override val df = None
 
     override def equals(other: Any): Boolean =
       other match {
@@ -152,9 +171,11 @@ package object uml {
   case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
-   f: Function1[U, Iterable[String]])
+   f1: Function1[U, Iterable[String]])
     extends MetaAttributeAbstractFunction[Uml, U, String] {
     implicit val UType: TypeTag[U] = typeTag[U]
+    override val f = Some(f1)
+    override val df = None
 
     override def equals(other: Any): Boolean =
       other match {
@@ -176,9 +197,11 @@ package object uml {
   case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
-   f: Function1[U, Iterable[Double]])
+   f1: Function1[U, Iterable[Double]])
     extends MetaAttributeAbstractFunction[Uml, U, Double] {
     implicit val UType: TypeTag[U] = typeTag[U]
+    override val f = Some(f1)
+    override val df = None
 
     override def equals(other: Any): Boolean =
       other match {
@@ -197,6 +220,32 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  case class MetaDocumentAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
+  (attributePrefix: Option[String] = None,
+   attributeName: String,
+   df1: Function2[U, IDGenerator[Uml], Iterable[String]])
+    extends MetaAttributeAbstractFunction[Uml, U, String] {
+    implicit val UType: TypeTag[U] = typeTag[U]
+    override val f = None
+    override val df = Some(df1)
+
+    override def equals(other: Any): Boolean =
+      other match {
+        case that: MetaDocumentAttributeStringFunction[Uml, _] =>
+          (that canEqual this) &&
+            attributePrefix == that.attributePrefix &&
+            attributeName == that.attributeName
+        case _ =>
+          false
+      }
+
+    def canEqual(other: Any): Boolean =
+      other.isInstanceOf[MetaDocumentAttributeStringFunction[Uml, _]]
+
+    override def hashCode: Int =
+      41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
+  }
+  
   /**
    * Error type: IllegalMetaPropertyEvaluation
    */
@@ -249,9 +298,9 @@ package object uml {
      * B5.3 Property Content for Class-typed Properties
      * For ordering of elements within the serialization of a class-typed property value (usually an association end),
      * where the property does not have isOrdered='true' in the metamodel, the ordering is as follows:
-     * â€¢ All nested elements precede all link elements (those referencing another element)
+     * - All nested elements precede all link elements (those referencing another element)
      *   Within the set of nested elements the order is alphabetically ordered by the value of the xmi:uuid.
-     * â€¢ Within the set of link elements all links using xmi:idref preceded elements using href.
+     * - Within the set of link elements all links using xmi:idref preceded elements using href.
      *   The set of xmi:idref elements is alphabetically ordered by the value of the xmi:idref, and the set
      *   of href elements is alphabetically ordered by the value of the href.
      * B5.4 Property Content for DataType-typed Properties
@@ -259,11 +308,10 @@ package object uml {
      * where the property does not have isOrdered='true' in the metamodel,
      * there will be no links nor xmi:uuids and the ordering is as follows.
      * Note that for structured Datatypes the properties will be ordered as per B5.1.
-     * â€¢ For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
+     * - For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
      *   taken in order (if the values of the first properties are identical the second is compared and so on)
-     * â€¢ For simple datatypes the nested elements are sorted alphabetically by their values.
-     * Note that alphabetic ordering is used â€“ so that, even if the property is of type Integer,
-     * â€œ10â€� will precede â€œ9â€�.
+     * - For simple datatypes the nested elements are sorted alphabetically by their values.
+     * Note that alphabetic ordering is used so that, even if the property is of type Integer, 10 will precede 9.
      */
     val isOrdered: Boolean
 
@@ -344,7 +392,7 @@ package object uml {
   (implicit val u: ClassTag[U])
     extends MetaPropertyFunction[Uml, U, V] {
 
-    val isCollection: Boolean = false
+    val isCollection: Boolean = true
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = None
 
@@ -361,7 +409,7 @@ package object uml {
           else if (isOrdered)
             Success(v.toList)
           else
-            Success(v.toList/*.sortBy(_.xmiOrderingKey)*/)
+            Success(v.toList)
         case _ =>
           Failure(IllegalMetaPropertyEvaluation(e, this))
       }

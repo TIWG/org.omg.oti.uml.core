@@ -53,7 +53,10 @@ import scala.util.{Failure, Try}
 /**
  * There are 5 kinds of update methods:
  * 1) creating/deleting link instances of a composite association
+ *    Note that creating a new element must be immediately followed by compositionally linking it to an owner 
+ *    
  * 2) creating/deleting link instances of a reference association
+ *
  * 3) setting/clearing the value of a DataType metaclass property
  *
  * Unfortunately, the names of UML associations is not necessarily consistent with that of the association ends.

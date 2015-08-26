@@ -200,7 +200,7 @@ case class DocumentSet[Uml <: UML]
           if ( found ) None
           else {
             System.out.println(
-              s" => unresolved! from ${e.xmiType.head} (ID=${e.xmiID.head} in ${d.uri}) to ${eRef.xmiType.head} (ID=${eRef.xmiID.head})" )
+              s" => unresolved! from ${e.xmiType.head} in ${d.uri} to ${eRef.xmiType.head}" )
             Some( UnresolvedElementCrossReference( d, e, eRef ) )
           }
         }
@@ -270,6 +270,7 @@ object DocumentSet {
    */
   def serializeValueSpecificationAsTagValue[Uml <: UML]
   ( value: UMLValueSpecification[Uml] )
+  (implicit idg: IDGenerator[Uml])
   : Try[Option[String]] =
     value match {
       case l: UMLLiteralBoolean[Uml] =>
@@ -281,10 +282,10 @@ object DocumentSet {
       case l: UMLLiteralString[Uml]  =>
         Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
       case iv: UMLInstanceValue[Uml] =>
-        Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID.head ) } )
+        Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID ) } )
       case v =>
         Failure( new IllegalArgumentException(
-          s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID.head})" ) )
+          s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID})" ) )
     }
 
   def constructDocumentSetCrossReferenceGraph[Uml <: UML]
@@ -308,12 +309,14 @@ object DocumentSet {
         root <- roots
         rootURI <- root.getEffectiveURI
         rootURL <- root.getDocumentURL
+        rootUUIDPrefix = root.oti_uuidPrefix.getOrElse(rootURI+"#")
       } yield {
         System.out.println(
           s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}" )
         SerializableDocument(
           uri = new java.net.URI( rootURI ),
           nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
+          uuidPrefix = rootUUIDPrefix,
           documentURL = new java.net.URI( rootURL ),
           scope = root )
       }

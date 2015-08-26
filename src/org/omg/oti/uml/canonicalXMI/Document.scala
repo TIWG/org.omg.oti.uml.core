@@ -49,6 +49,7 @@ sealed abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   val uri: URI
   val nsPrefix: String
+  val uuidPrefix: String
   val documentURL: URI
   val scope: UMLElement[Uml]
   
@@ -58,11 +59,12 @@ sealed abstract trait Document[Uml <: UML] {
 }
 
 case class BuiltInDocument[Uml <: UML]
-( val uri: URI,
-  val nsPrefix: String,
-  val scope: UMLElement[Uml],
-  val documentURL: URI,
-  val builtInExtent: Set[UMLElement[Uml]])
+( uri: URI,
+  nsPrefix: String,
+  uuidPrefix: String,
+  scope: UMLElement[Uml],
+  documentURL: URI,
+  builtInExtent: Set[UMLElement[Uml]])
 ( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   override lazy val extent = builtInExtent
@@ -70,10 +72,11 @@ extends Document[Uml] {
 }
     
 case class SerializableDocument[Uml <: UML]
-( val uri: URI,
-  val nsPrefix: String,
-  val documentURL: URI,
-  val scope: UMLElement[Uml])
+( uri: URI,
+  nsPrefix: String,
+  uuidPrefix: String,
+  documentURL: URI,
+  scope: UMLElement[Uml])
 ( implicit val ops: UMLOps[Uml] )
 extends Document[Uml] {
   override def toString: String = s"SerializableDocument(uri=${uri})"  

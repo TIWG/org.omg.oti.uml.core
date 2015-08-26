@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLDependency, UMLCollaborationUse, UMLNamedElement}
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 // End of user code
@@ -65,7 +66,8 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.clientDependency
 	 */
-	def client: Set[UMLNamedElement[Uml]] = source.selectByKindOf { case x: UMLNamedElement[Uml] => x }
+	def client: Set[UMLNamedElement[Uml]] =
+    source.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
 	/**
 	 * The Element(s) on which the client Element(s) depend in some respect. The modeler may stipulate a sense of Dependency direction suitable for their domain.
@@ -76,7 +78,8 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.supplier_supplierDependency
 	 */
-	def supplier: Set[UMLNamedElement[Uml]] = target.selectByKindOf { case x: UMLNamedElement[Uml] => x }
+	def supplier: Set[UMLNamedElement[Uml]] =
+    target.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
 	/**
 	 * <!-- Start of user code doc for roleBinding_collaborationUse -->
@@ -85,14 +88,15 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * @opposite org.omg.oti.uml.read.api.UMLCollaborationUse.roleBinding
 	 */
-	def roleBinding_collaborationUse: Option[UMLCollaborationUse[Uml]] = owner.selectByKindOf { case x: UMLCollaborationUse[Uml] => x }
+	def roleBinding_collaborationUse: Option[UMLCollaborationUse[Uml]] =
+		owner.selectByKindOf { case x: UMLCollaborationUse[Uml] => x }
 
 	// Start of user code for additional features
 
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey: String = 
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
     element_xmiOrderingKey + 
     (client map (_.xmiOrderingKey)).mkString("_", "_", "-") + 
     (supplier map (_.xmiOrderingKey)).mkString("_")

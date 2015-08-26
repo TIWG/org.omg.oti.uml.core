@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api._
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 
@@ -142,7 +143,8 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey: String = element_xmiOrderingKey + (importedElement match {
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
+    element_xmiOrderingKey + (importedElement match {
     case None     => "_"
     case Some(ie) => "_" + ie.xmiOrderingKey
   })

@@ -42,6 +42,7 @@ package org.omg.oti.uml.validation
 import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
+import org.omg.oti.uml.canonicalXMI.IDGenerator
 
 import scala.language.postfixOps
 
@@ -157,7 +158,8 @@ object TypedElementValidationHelper {
 
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
-  (implicit umlOps: UmlOps): Iterable[TypedElementValidationInfo[Uml]] = {
+  (implicit umlOps: UmlOps, idg: IDGenerator[Uml])
+  : Iterable[TypedElementValidationInfo[Uml]] = {
 
     import umlOps._
 

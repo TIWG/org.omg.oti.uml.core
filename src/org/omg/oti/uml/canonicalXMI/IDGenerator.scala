@@ -50,14 +50,6 @@ import scala.util.Success
 import scala.util.Try
 
 /**
- * TIWG-29: This needs to be refactored so that all references to
- * isMetamodelPropertySlotValue,
- * isMetamodelPropertyOrdered,
- * getMetamodelPropertyName,
- * getMetamodelPropertyUpperBound
- *
- * are replaced with accessors based on an element's compositeMetaProperty information.
- *
  * @tparam Uml
  */
 trait IDGenerator[Uml <: UML] { 
@@ -67,9 +59,7 @@ trait IDGenerator[Uml <: UML] {
   
   import IDGenerator._
   
-  val resolvedDocumentSet: ResolvedDocumentSet[Uml]
-  
-  val UUID_PREFIX: String = "org.omg."
+  implicit val resolvedDocumentSet: ResolvedDocumentSet[Uml] 
   
   protected val element2id: Element2IDHashMap
 
@@ -166,7 +156,10 @@ trait IDGenerator[Uml <: UML] {
             Failure( illegalElementException( "Unknown document for element reference ", self ) )
             
           case Some(d: BuiltInDocument[Uml]) =>
-            builtInID(self)
+            self.toolSpecific_id match {
+              case Some(id) => Success(id)
+              case None => Failure( illegalElementException( "Element from a BuiltInDocument without xmi:id", self ) )
+            }
            
           case Some(d: SerializableDocument[Uml]) =>
             self.oti_xmiID match {
@@ -176,28 +169,6 @@ trait IDGenerator[Uml <: UML] {
         }
       } )
 
-        /**
-   * The xmi:ID of an element depends on what kind of document it is contained in.
-   * - BuiltInDocument: this is deferred to builtInID, which is implementation-specific.
-   * - SerializableDocument: this is the OTI implementation of Canonical XMI ID
-   * unless it is overriden by an application of the OTI::Identity stereotype
-   */
-  def getXMI_UUID( self: UMLElement[Uml] ): Try[String] =
-    resolvedDocumentSet.element2document.get( self ) match {
-      case None => 
-          Failure( illegalElementException( "Unknown document for element reference ", self ) )
-            
-      case Some(d: BuiltInDocument[Uml]) =>
-          builtInUUID(self)
-           
-      case Some(d: SerializableDocument[Uml]) =>
-          self.oti_xmiUUID match {
-            case Some(id) => Success(id)
-            case None => Success(UUID_PREFIX+getXMI_ID(self))
-          }
-        
-    } 
-
   def computeID( self: UMLElement[Uml] ): Try[String] = {
     val r = elementRules.toStream.dropWhile( ( r: Element2IDRule ) =>
       !r.isDefinedAt( self ) )
@@ -206,7 +177,7 @@ trait IDGenerator[Uml <: UML] {
       case None =>
         Failure( illegalElementException( "Element without an owner is not supported(1)", self ) )
       case Some( owner ) =>
-        self.getContainingMetaPropertyEvaluator match {
+        self.getContainingMetaPropertyEvaluator()(this) match {
           case Failure(f) =>
             Failure(f)
           case Success(None) =>
@@ -225,18 +196,6 @@ trait IDGenerator[Uml <: UML] {
         }
     }
   }
-  
-  /* the builtInID method is intended to provide the xmi:id as serialized in the file,
-  * as opposed to as computed by the IDGenerator.computeID
-  * Implementation is tool specific  
-  */
-  def builtInID( self: UMLElement[Uml] ): Try[String] = ???
-
-  /* the builtInUUID method is intended to provide the xmi:uuid as serialized in the file,
-  * as opposed to as computed by the IDGenerator
-  * Implementation is tool specific  
-  */
-  def builtInUUID( self: UMLElement[Uml] ): Try[String] = ???
 
   val rule0: Element2IDRule = {
     case root: UMLPackage[Uml] if (
@@ -264,7 +223,7 @@ trait IDGenerator[Uml <: UML] {
             case None =>
               Failure( illegalElementException( "InstanceValue must refer to a named InstanceSpecification", is ) )
             case Some( nInstance ) =>
-              iv.getContainingMetaPropertyEvaluator match {
+              iv.getContainingMetaPropertyEvaluator()(this) match {
                 case Failure( t ) =>
                   Failure( t )
                 case Success( None ) =>
@@ -340,8 +299,9 @@ trait IDGenerator[Uml <: UML] {
                     Success( "" )
                   else {
                     val slotValues = s.value.toList
-                    require( slotValues.contains( fv ) )
-                    Success( slotValues.indexOf( fv ).toString )
+                    val orderedValues = if (cf.isOrdered) slotValues else slotValues.sortBy(_.xmiOrderingKey()(this))
+                    require( orderedValues.contains( fv ) )
+                    Success( orderedValues.indexOf( fv ).toString )
                   }
               }
             case ( o1, Some(o2) ) =>
@@ -364,7 +324,7 @@ trait IDGenerator[Uml <: UML] {
         case Success( s ) =>
           Success( ownerID + "_" + xmlSafeID( cf.propertyName + s ) )
       }
-  } 
+  }
 
   /**
    * Rule #1 (NamedElement)
@@ -384,7 +344,7 @@ trait IDGenerator[Uml <: UML] {
    */
   val crule2: ContainedElement2IDRule = {
     case ( owner, ownerID, cf, e ) if cf.isOrdered && cf.isCollection =>
-      e.getElementMetamodelPropertyValue( cf ) match {
+      e.getElementMetamodelPropertyValue( cf )(this) match {
         case Failure(t) =>
           Failure(t)
         case Success(vs) =>
@@ -533,15 +493,14 @@ trait IDGenerator[Uml <: UML] {
 
 object IDGenerator {
   
- 
   def xmlSafeID( self: String ): String = self match {
     case null =>
       ""
     case s =>
       getValidNCName( s )
   }
-  
- /** NCName start character mask. */
+
+  /** NCName start character mask. */
   val MASK_NCNAME_START: Char = 0x40
 
   /** NCName character mask. */
