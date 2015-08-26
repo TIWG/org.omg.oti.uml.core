@@ -361,7 +361,7 @@ package object uml {
           else if (isOrdered)
             Success(v.toList)
           else
-            Success(v.toList.sortBy(_.xmiOrderingKey))
+            Success(v.toList/*.sortBy(_.xmiOrderingKey)*/)
         case _ =>
           Failure(IllegalMetaPropertyEvaluation(e, this))
       }

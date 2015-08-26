@@ -258,7 +258,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
     asForwardReferencesToOwningElementImportableOuterPackageableElements
 
-  def mofXMI_metaAtttributes: MetaAttributeFunctions =
+  def mofXMI_metaAttributes: MetaAttributeFunctions =
     Seq(
       MetaAttributeStringFunction[Uml, UMLElement[Uml]]( Some( "xmi" ), "id", _.xmiID ),
       MetaAttributeStringFunction[Uml, UMLElement[Uml]]( Some( "xmi" ), "uuid", _.xmiUUID ),

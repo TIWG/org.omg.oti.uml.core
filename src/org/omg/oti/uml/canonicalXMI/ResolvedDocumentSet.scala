@@ -807,7 +807,7 @@ case class ResolvedDocumentSet[Uml <: UML](
     require(duplicates.isEmpty, s"${e.xmiType} ${duplicates.size}: $duplicates")
 
     val mofAttributes0: Try[MetaData] = Success(Null)
-    (mofAttributes0 /: e.mofXMI_metaAtttributes.reverse)(foldAttribute) match {
+    (mofAttributes0 /: e.mofXMI_metaAttributes.reverse)(foldAttribute) match {
       case Failure(t) =>
         return_ {
           Failure(t)
