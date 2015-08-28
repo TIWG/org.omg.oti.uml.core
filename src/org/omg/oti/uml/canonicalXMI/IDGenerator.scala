@@ -365,7 +365,25 @@ trait IDGenerator[Uml <: UML] {
           case Failure( t )   =>
             Failure( illegalElementException( s"Binary DirectedRelationship must have a target - $t", dr ) )
           case Success( tid ) =>
-            Success( ownerID + "._" + xmlSafeID( cf.propertyName) + "." + tid )
+            /* We need to prevent ID duplication when more than one relationship of the same kind
+             *  target packages which have the same name (cf. ImportPackages in UML2.5).
+             *  The code below is a workaround for dealing with the current situation where
+             *  OMG xmi:ID are not "OTI compliant" in the special case of packages named "_0"
+             *  In such cases, the code below replace the ID of the target package by
+             *  its URI
+             */
+            val usedId = tid match {
+              case "_0" =>
+                resolvedDocumentSet.element2document.get( t ) match {
+                  case Some(d: BuiltInDocument[Uml]) =>
+                    d.uri.toString()
+                    
+                  case _ => tid
+                }
+                
+              case _ => tid                
+            }
+            Success( ownerID + "._" + xmlSafeID( cf.propertyName) + "." + usedId )
         }
         case _ =>
           Failure( illegalElementException( "Binary DirectedRelationship must have a target", dr ) )
