@@ -94,7 +94,24 @@ See https://github.com/typesafehub/sbteclipse
 3. Choose: "Existing Projects into Workspace"
 4. Select the location of the project
 5. In Options, make sure to *UNCHECK* "Copy projects into workspace"
+6. Edit the .project file to replace the following line:
 
+        </linkedResources>
+
+    With the following: 
+
+        <linkedResources>
+	  	<link>
+			<name>catalogs</name>
+			<type>2</type>
+			<locationURI>PROJECT_LOC/resources</locationURI>
+		</link>
+        </linkedResources>
+
+7. Edit the .classpath file to add the following line:
+
+	<classpathentry kind="src" path="catalogs"/>
+	
 If you change the SBT build specification, close the project in Eclipse.
 Use SBT to re-generate the Eclipse metadata.
 Re-open the project in Eclipse.
