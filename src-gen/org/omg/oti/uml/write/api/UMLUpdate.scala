@@ -41,11 +41,12 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 
-import org.omg.oti.uml.{MetaPropertyCollection, MetaPropertyReference}
+import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.language.implicitConversions
+import scala.language.existentials
 import scala.reflect._
 import scala.util.{Failure, Try}
 // End of user code
@@ -53,10 +54,7 @@ import scala.util.{Failure, Try}
 /**
  * There are 5 kinds of update methods:
  * 1) creating/deleting link instances of a composite association
- *    Note that creating a new element must be immediately followed by compositionally linking it to an owner 
- *    
  * 2) creating/deleting link instances of a reference association
- *
  * 3) setting/clearing the value of a DataType metaclass property
  *
  * Unfortunately, the names of UML associations is not necessarily consistent with that of the association ends.
@@ -2516,17 +2514,1949 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLWriteVariableAction[Uml],
    to: Option[UMLInputPin[Uml]]): Try[Unit]
 
+  val MetaPropertyReference2LinksUpdate
+  : Seq[CompositeReferenceUpdater]
+  = Seq(
+      // Abstraction
+      CompositeReferenceUpdate(
+        links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
+        ops.Abstraction_mapping),      // AcceptCallAction
+      CompositeReferenceUpdate(
+        links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin _,
+        ops.AcceptCallAction_returnInformation),      // AcceptEventAction
+      // Action
+      // ActionExecutionSpecification
+      CompositeReferenceUpdate(
+        links_ActionExecutionSpecification_actionExecutionSpecification_reference_action_Action _,
+        ops.ActionExecutionSpecification_action),      // ActionInputPin
+      CompositeReferenceUpdate(
+        links_ActionInputPin_actionInputPin_compose_fromAction_Action _,
+        ops.ActionInputPin_fromAction),      // Activity
+      // ActivityEdge
+      CompositeReferenceUpdate(
+        links_ActivityEdge_activityEdge_compose_guard_ValueSpecification _,
+        ops.ActivityEdge_guard),
+      CompositeReferenceUpdate(
+        links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion _,
+        ops.ActivityEdge_interrupts),
+      CompositeReferenceUpdate(
+        links_ActivityEdge_outgoing_reference_source_ActivityNode _,
+        ops.ActivityEdge_source),
+      CompositeReferenceUpdate(
+        links_ActivityEdge_incoming_reference_target_ActivityNode _,
+        ops.ActivityEdge_target),
+      CompositeReferenceUpdate(
+        links_ActivityEdge_activityEdge_compose_weight_ValueSpecification _,
+        ops.ActivityEdge_weight),      // ActivityFinalNode
+      // ActivityGroup
+      // ActivityNode
+      // ActivityParameterNode
+      CompositeReferenceUpdate(
+        links_ActivityParameterNode_activityParameterNode_reference_parameter_Parameter _,
+        ops.ActivityParameterNode_parameter),      // ActivityPartition
+      CompositeReferenceUpdate(
+        links_ActivityPartition_activityPartition_reference_represents_Element _,
+        ops.ActivityPartition_represents),      // Actor
+      // AddStructuralFeatureValueAction
+      CompositeReferenceUpdate(
+        links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin _,
+        ops.AddStructuralFeatureValueAction_insertAt),      // AddVariableValueAction
+      CompositeReferenceUpdate(
+        links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin _,
+        ops.AddVariableValueAction_insertAt),      // AnyReceiveEvent
+      // Artifact
+      // Association
+      // AssociationClass
+      // Behavior
+      CompositeReferenceUpdate(
+        links_Behavior_method_reference_specification_BehavioralFeature _,
+        ops.Behavior_specification),      // BehaviorExecutionSpecification
+      CompositeReferenceUpdate(
+        links_BehaviorExecutionSpecification_behaviorExecutionSpecification_reference_behavior_Behavior _,
+        ops.BehaviorExecutionSpecification_behavior),      // BehavioralFeature
+      // BehavioredClassifier
+      CompositeReferenceUpdate(
+        links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
+        ops.BehavioredClassifier_classifierBehavior),      // BroadcastSignalAction
+      CompositeReferenceUpdate(
+        links_BroadcastSignalAction_broadcastSignalAction_reference_signal_Signal _,
+        ops.BroadcastSignalAction_signal),      // CallAction
+      // CallBehaviorAction
+      CompositeReferenceUpdate(
+        links_CallBehaviorAction_callBehaviorAction_reference_behavior_Behavior _,
+        ops.CallBehaviorAction_behavior),      // CallEvent
+      CompositeReferenceUpdate(
+        links_CallEvent_callEvent_reference_operation_Operation _,
+        ops.CallEvent_operation),      // CallOperationAction
+      CompositeReferenceUpdate(
+        links_CallOperationAction_callOperationAction_reference_operation_Operation _,
+        ops.CallOperationAction_operation),
+      CompositeReferenceUpdate(
+        links_CallOperationAction_callOperationAction_compose_target_InputPin _,
+        ops.CallOperationAction_target),      // CentralBufferNode
+      // ChangeEvent
+      CompositeReferenceUpdate(
+        links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification _,
+        ops.ChangeEvent_changeExpression),      // Class
+      // Classifier
+      CompositeReferenceUpdate(
+        links_Classifier_classifier_compose_ownedTemplateSignature_RedefinableTemplateSignature _,
+        ops.Classifier_ownedTemplateSignature),
+      CompositeReferenceUpdate(
+        links_Classifier_classifier_reference_representation_CollaborationUse _,
+        ops.Classifier_representation),
+      CompositeReferenceUpdate(
+        links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
+        ops.Classifier_templateParameter),      // ClassifierTemplateParameter
+      CompositeReferenceUpdate(
+        links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier _,
+        ops.ClassifierTemplateParameter_parameteredElement),      // Clause
+      CompositeReferenceUpdate(
+        links_Clause_clause_reference_decider_OutputPin _,
+        ops.Clause_decider),      // ClearAssociationAction
+      CompositeReferenceUpdate(
+        links_ClearAssociationAction_clearAssociationAction_reference_association_Association _,
+        ops.ClearAssociationAction_association),
+      CompositeReferenceUpdate(
+        links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin _,
+        ops.ClearAssociationAction_object),      // ClearStructuralFeatureAction
+      CompositeReferenceUpdate(
+        links_ClearStructuralFeatureAction_clearStructuralFeatureAction_compose_result_OutputPin _,
+        ops.ClearStructuralFeatureAction_result),      // ClearVariableAction
+      // Collaboration
+      // CollaborationUse
+      CompositeReferenceUpdate(
+        links_CollaborationUse_collaborationUse_reference_type_Collaboration _,
+        ops.CollaborationUse_type),      // CombinedFragment
+      // Comment
+      // CommunicationPath
+      // Component
+      // ComponentRealization
+      // ConditionalNode
+      // ConnectableElement
+      CompositeReferenceUpdate(
+        links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
+        ops.ConnectableElement_templateParameter),      // ConnectableElementTemplateParameter
+      CompositeReferenceUpdate(
+        links_ConnectableElementTemplateParameter_templateParameter_reference_parameteredElement_ConnectableElement _,
+        ops.ConnectableElementTemplateParameter_parameteredElement),      // ConnectionPointReference
+      // Connector
+      CompositeReferenceUpdate(
+        links_Connector_connector_reference_type_Association _,
+        ops.Connector_type),      // ConnectorEnd
+      CompositeReferenceUpdate(
+        links_ConnectorEnd_connectorEnd_reference_partWithPort_Property _,
+        ops.ConnectorEnd_partWithPort),      // ConsiderIgnoreFragment
+      // Constraint
+      CompositeReferenceUpdate(
+        links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
+        ops.Constraint_specification),      // Continuation
+      // ControlFlow
+      // ControlNode
+      // CreateLinkAction
+      // CreateLinkObjectAction
+      CompositeReferenceUpdate(
+        links_CreateLinkObjectAction_createLinkObjectAction_compose_result_OutputPin _,
+        ops.CreateLinkObjectAction_result),      // CreateObjectAction
+      CompositeReferenceUpdate(
+        links_CreateObjectAction_createObjectAction_reference_classifier_Classifier _,
+        ops.CreateObjectAction_classifier),
+      CompositeReferenceUpdate(
+        links_CreateObjectAction_createObjectAction_compose_result_OutputPin _,
+        ops.CreateObjectAction_result),      // DataStoreNode
+      // DataType
+      // DecisionNode
+      CompositeReferenceUpdate(
+        links_DecisionNode_decisionNode_reference_decisionInput_Behavior _,
+        ops.DecisionNode_decisionInput),
+      CompositeReferenceUpdate(
+        links_DecisionNode_decisionNode_reference_decisionInputFlow_ObjectFlow _,
+        ops.DecisionNode_decisionInputFlow),      // Dependency
+      // DeployedArtifact
+      // Deployment
+      // DeploymentSpecification
+      // DeploymentTarget
+      // DestroyLinkAction
+      // DestroyObjectAction
+      CompositeReferenceUpdate(
+        links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin _,
+        ops.DestroyObjectAction_target),      // DestructionOccurrenceSpecification
+      // Device
+      // DirectedRelationship
+      // Duration
+      CompositeReferenceUpdate(
+        links_Duration_duration_compose_expr_ValueSpecification _,
+        ops.Duration_expr),      // DurationConstraint
+      CompositeReferenceUpdate(
+        links_DurationConstraint_durationConstraint_compose_specification_DurationInterval _,
+        ops.DurationConstraint_specification),      // DurationInterval
+      CompositeReferenceUpdate(
+        links_DurationInterval_durationInterval_reference_max_Duration _,
+        ops.DurationInterval_max),
+      CompositeReferenceUpdate(
+        links_DurationInterval_durationInterval_reference_min_Duration _,
+        ops.DurationInterval_min),      // DurationObservation
+      // Element
+      // ElementImport
+      CompositeReferenceUpdate(
+        links_ElementImport_import_reference_importedElement_PackageableElement _,
+        ops.ElementImport_importedElement),      // EncapsulatedClassifier
+      // Enumeration
+      // EnumerationLiteral
+      // Event
+      // ExceptionHandler
+      CompositeReferenceUpdate(
+        links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode _,
+        ops.ExceptionHandler_exceptionInput),
+      CompositeReferenceUpdate(
+        links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode _,
+        ops.ExceptionHandler_handlerBody),      // ExecutableNode
+      // ExecutionEnvironment
+      // ExecutionOccurrenceSpecification
+      CompositeReferenceUpdate(
+        links_ExecutionOccurrenceSpecification_executionOccurrenceSpecification_reference_execution_ExecutionSpecification _,
+        ops.ExecutionOccurrenceSpecification_execution),      // ExecutionSpecification
+      CompositeReferenceUpdate(
+        links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification _,
+        ops.ExecutionSpecification_finish),
+      CompositeReferenceUpdate(
+        links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification _,
+        ops.ExecutionSpecification_start),      // ExpansionNode
+      CompositeReferenceUpdate(
+        links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion _,
+        ops.ExpansionNode_regionAsInput),
+      CompositeReferenceUpdate(
+        links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion _,
+        ops.ExpansionNode_regionAsOutput),      // ExpansionRegion
+      // Expression
+      // Extend
+      CompositeReferenceUpdate(
+        links_Extend_extend_compose_condition_Constraint _,
+        ops.Extend_condition),
+      CompositeReferenceUpdate(
+        links_Extend_extend_reference_extendedCase_UseCase _,
+        ops.Extend_extendedCase),      // Extension
+      // ExtensionEnd
+      CompositeReferenceUpdate(
+        links_ExtensionEnd_extensionEnd_reference_type_Stereotype _,
+        ops.ExtensionEnd_type),      // ExtensionPoint
+      // Feature
+      // FinalNode
+      // FinalState
+      // FlowFinalNode
+      // ForkNode
+      // FunctionBehavior
+      // Gate
+      // GeneralOrdering
+      CompositeReferenceUpdate(
+        links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification _,
+        ops.GeneralOrdering_after),
+      CompositeReferenceUpdate(
+        links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification _,
+        ops.GeneralOrdering_before),      // Generalization
+      CompositeReferenceUpdate(
+        links_Generalization_generalization_reference_general_Classifier _,
+        ops.Generalization_general),      // GeneralizationSet
+      CompositeReferenceUpdate(
+        links_GeneralizationSet_powertypeExtent_reference_powertype_Classifier _,
+        ops.GeneralizationSet_powertype),      // Image
+      // Include
+      CompositeReferenceUpdate(
+        links_Include_include_reference_addition_UseCase _,
+        ops.Include_addition),      // InformationFlow
+      // InformationItem
+      // InitialNode
+      // InputPin
+      // InstanceSpecification
+      CompositeReferenceUpdate(
+        links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification _,
+        ops.InstanceSpecification_specification),      // InstanceValue
+      CompositeReferenceUpdate(
+        links_InstanceValue_instanceValue_reference_instance_InstanceSpecification _,
+        ops.InstanceValue_instance),      // Interaction
+      // InteractionConstraint
+      CompositeReferenceUpdate(
+        links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification _,
+        ops.InteractionConstraint_maxint),
+      CompositeReferenceUpdate(
+        links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification _,
+        ops.InteractionConstraint_minint),      // InteractionFragment
+      // InteractionOperand
+      CompositeReferenceUpdate(
+        links_InteractionOperand_interactionOperand_compose_guard_InteractionConstraint _,
+        ops.InteractionOperand_guard),      // InteractionUse
+      CompositeReferenceUpdate(
+        links_InteractionUse_interactionUse_reference_refersTo_Interaction _,
+        ops.InteractionUse_refersTo),
+      CompositeReferenceUpdate(
+        links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification _,
+        ops.InteractionUse_returnValue),
+      CompositeReferenceUpdate(
+        links_InteractionUse_interactionUse_reference_returnValueRecipient_Property _,
+        ops.InteractionUse_returnValueRecipient),      // Interface
+      CompositeReferenceUpdate(
+        links_Interface_interface_compose_protocol_ProtocolStateMachine _,
+        ops.Interface_protocol),      // InterfaceRealization
+      CompositeReferenceUpdate(
+        links_InterfaceRealization_interfaceRealization_reference_contract_Interface _,
+        ops.InterfaceRealization_contract),      // InterruptibleActivityRegion
+      // Interval
+      CompositeReferenceUpdate(
+        links_Interval_interval_reference_max_ValueSpecification _,
+        ops.Interval_max),
+      CompositeReferenceUpdate(
+        links_Interval_interval_reference_min_ValueSpecification _,
+        ops.Interval_min),      // IntervalConstraint
+      CompositeReferenceUpdate(
+        links_IntervalConstraint_intervalConstraint_compose_specification_Interval _,
+        ops.IntervalConstraint_specification),      // InvocationAction
+      CompositeReferenceUpdate(
+        links_InvocationAction_invocationAction_reference_onPort_Port _,
+        ops.InvocationAction_onPort),      // JoinNode
+      CompositeReferenceUpdate(
+        links_JoinNode_joinNode_compose_joinSpec_ValueSpecification _,
+        ops.JoinNode_joinSpec),      // Lifeline
+      CompositeReferenceUpdate(
+        links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition _,
+        ops.Lifeline_decomposedAs),
+      CompositeReferenceUpdate(
+        links_Lifeline_lifeline_reference_represents_ConnectableElement _,
+        ops.Lifeline_represents),
+      CompositeReferenceUpdate(
+        links_Lifeline_lifeline_compose_selector_ValueSpecification _,
+        ops.Lifeline_selector),      // LinkAction
+      // LinkEndCreationData
+      CompositeReferenceUpdate(
+        links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin _,
+        ops.LinkEndCreationData_insertAt),      // LinkEndData
+      CompositeReferenceUpdate(
+        links_LinkEndData_linkEndData_reference_end_Property _,
+        ops.LinkEndData_end),
+      CompositeReferenceUpdate(
+        links_LinkEndData_linkEndData_reference_value_InputPin _,
+        ops.LinkEndData_value),      // LinkEndDestructionData
+      CompositeReferenceUpdate(
+        links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin _,
+        ops.LinkEndDestructionData_destroyAt),      // LiteralBoolean
+      // LiteralInteger
+      // LiteralNull
+      // LiteralReal
+      // LiteralSpecification
+      // LiteralString
+      // LiteralUnlimitedNatural
+      // LoopNode
+      CompositeReferenceUpdate(
+        links_LoopNode_loopNode_reference_decider_OutputPin _,
+        ops.LoopNode_decider),      // Manifestation
+      CompositeReferenceUpdate(
+        links_Manifestation_manifestation_reference_utilizedElement_PackageableElement _,
+        ops.Manifestation_utilizedElement),      // MergeNode
+      // Message
+      CompositeReferenceUpdate(
+        links_Message_message_reference_connector_Connector _,
+        ops.Message_connector),
+      CompositeReferenceUpdate(
+        links_Message_endMessage_reference_receiveEvent_MessageEnd _,
+        ops.Message_receiveEvent),
+      CompositeReferenceUpdate(
+        links_Message_endMessage_reference_sendEvent_MessageEnd _,
+        ops.Message_sendEvent),
+      CompositeReferenceUpdate(
+        links_Message_message_reference_signature_NamedElement _,
+        ops.Message_signature),      // MessageEnd
+      CompositeReferenceUpdate(
+        links_MessageEnd_messageEnd_reference_message_Message _,
+        ops.MessageEnd_message),      // MessageEvent
+      // MessageOccurrenceSpecification
+      // Model
+      // MultiplicityElement
+      CompositeReferenceUpdate(
+        links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
+        ops.MultiplicityElement_lowerValue),
+      CompositeReferenceUpdate(
+        links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
+        ops.MultiplicityElement_upperValue),      // NamedElement
+      CompositeReferenceUpdate(
+        links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
+        ops.NamedElement_nameExpression),      // Namespace
+      // Node
+      // ObjectFlow
+      CompositeReferenceUpdate(
+        links_ObjectFlow_objectFlow_reference_selection_Behavior _,
+        ops.ObjectFlow_selection),
+      CompositeReferenceUpdate(
+        links_ObjectFlow_objectFlow_reference_transformation_Behavior _,
+        ops.ObjectFlow_transformation),      // ObjectNode
+      CompositeReferenceUpdate(
+        links_ObjectNode_objectNode_reference_selection_Behavior _,
+        ops.ObjectNode_selection),
+      CompositeReferenceUpdate(
+        links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
+        ops.ObjectNode_upperBound),      // Observation
+      // OccurrenceSpecification
+      // OpaqueAction
+      // OpaqueBehavior
+      // OpaqueExpression
+      CompositeReferenceUpdate(
+        links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior _,
+        ops.OpaqueExpression_behavior),      // Operation
+      CompositeReferenceUpdate(
+        links_Operation_bodyContext_compose_bodyCondition_Constraint _,
+        ops.Operation_bodyCondition),
+      CompositeReferenceUpdate(
+        links_Operation_parameteredElement_reference_templateParameter_OperationTemplateParameter _,
+        ops.Operation_templateParameter),      // OperationTemplateParameter
+      CompositeReferenceUpdate(
+        links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation _,
+        ops.OperationTemplateParameter_parameteredElement),      // OutputPin
+      // Package
+      // PackageImport
+      CompositeReferenceUpdate(
+        links_PackageImport_packageImport_reference_importedPackage_Package _,
+        ops.PackageImport_importedPackage),      // PackageMerge
+      CompositeReferenceUpdate(
+        links_PackageMerge_packageMerge_reference_mergedPackage_Package _,
+        ops.PackageMerge_mergedPackage),      // PackageableElement
+      // Parameter
+      CompositeReferenceUpdate(
+        links_Parameter_owningParameter_compose_defaultValue_ValueSpecification _,
+        ops.Parameter_defaultValue),      // ParameterSet
+      // ParameterableElement
+      CompositeReferenceUpdate(
+        links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
+        ops.ParameterableElement_templateParameter),      // PartDecomposition
+      // Pin
+      // Port
+      CompositeReferenceUpdate(
+        links_Port_port_reference_protocol_ProtocolStateMachine _,
+        ops.Port_protocol),      // PrimitiveType
+      // Profile
+      // ProfileApplication
+      CompositeReferenceUpdate(
+        links_ProfileApplication_profileApplication_reference_appliedProfile_Profile _,
+        ops.ProfileApplication_appliedProfile),      // Property
+      CompositeReferenceUpdate(
+        links_Property_memberEnd_reference_association_Association _,
+        ops.Property_association),
+      CompositeReferenceUpdate(
+        links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
+        ops.Property_defaultValue),      // ProtocolConformance
+      CompositeReferenceUpdate(
+        links_ProtocolConformance_protocolConformance_reference_generalMachine_ProtocolStateMachine _,
+        ops.ProtocolConformance_generalMachine),      // ProtocolStateMachine
+      // ProtocolTransition
+      CompositeReferenceUpdate(
+        links_ProtocolTransition_owningTransition_compose_postCondition_Constraint _,
+        ops.ProtocolTransition_postCondition),
+      CompositeReferenceUpdate(
+        links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint _,
+        ops.ProtocolTransition_preCondition),      // Pseudostate
+      // QualifierValue
+      CompositeReferenceUpdate(
+        links_QualifierValue_qualifierValue_reference_qualifier_Property _,
+        ops.QualifierValue_qualifier),
+      CompositeReferenceUpdate(
+        links_QualifierValue_qualifierValue_reference_value_InputPin _,
+        ops.QualifierValue_value),      // RaiseExceptionAction
+      CompositeReferenceUpdate(
+        links_RaiseExceptionAction_raiseExceptionAction_compose_exception_InputPin _,
+        ops.RaiseExceptionAction_exception),      // ReadExtentAction
+      CompositeReferenceUpdate(
+        links_ReadExtentAction_readExtentAction_reference_classifier_Classifier _,
+        ops.ReadExtentAction_classifier),
+      CompositeReferenceUpdate(
+        links_ReadExtentAction_readExtentAction_compose_result_OutputPin _,
+        ops.ReadExtentAction_result),      // ReadIsClassifiedObjectAction
+      CompositeReferenceUpdate(
+        links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier _,
+        ops.ReadIsClassifiedObjectAction_classifier),
+      CompositeReferenceUpdate(
+        links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin _,
+        ops.ReadIsClassifiedObjectAction_object),
+      CompositeReferenceUpdate(
+        links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_result_OutputPin _,
+        ops.ReadIsClassifiedObjectAction_result),      // ReadLinkAction
+      CompositeReferenceUpdate(
+        links_ReadLinkAction_readLinkAction_compose_result_OutputPin _,
+        ops.ReadLinkAction_result),      // ReadLinkObjectEndAction
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property _,
+        ops.ReadLinkObjectEndAction_end),
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin _,
+        ops.ReadLinkObjectEndAction_object),
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_result_OutputPin _,
+        ops.ReadLinkObjectEndAction_result),      // ReadLinkObjectEndQualifierAction
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_object_InputPin _,
+        ops.ReadLinkObjectEndQualifierAction_object),
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_reference_qualifier_Property _,
+        ops.ReadLinkObjectEndQualifierAction_qualifier),
+      CompositeReferenceUpdate(
+        links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_result_OutputPin _,
+        ops.ReadLinkObjectEndQualifierAction_result),      // ReadSelfAction
+      CompositeReferenceUpdate(
+        links_ReadSelfAction_readSelfAction_compose_result_OutputPin _,
+        ops.ReadSelfAction_result),      // ReadStructuralFeatureAction
+      CompositeReferenceUpdate(
+        links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin _,
+        ops.ReadStructuralFeatureAction_result),      // ReadVariableAction
+      CompositeReferenceUpdate(
+        links_ReadVariableAction_readVariableAction_compose_result_OutputPin _,
+        ops.ReadVariableAction_result),      // Realization
+      // Reception
+      CompositeReferenceUpdate(
+        links_Reception_reception_reference_signal_Signal _,
+        ops.Reception_signal),      // ReclassifyObjectAction
+      CompositeReferenceUpdate(
+        links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin _,
+        ops.ReclassifyObjectAction_object),      // RedefinableElement
+      // RedefinableTemplateSignature
+      // ReduceAction
+      CompositeReferenceUpdate(
+        links_ReduceAction_reduceAction_compose_collection_InputPin _,
+        ops.ReduceAction_collection),
+      CompositeReferenceUpdate(
+        links_ReduceAction_reduceAction_reference_reducer_Behavior _,
+        ops.ReduceAction_reducer),
+      CompositeReferenceUpdate(
+        links_ReduceAction_reduceAction_compose_result_OutputPin _,
+        ops.ReduceAction_result),      // Region
+      CompositeReferenceUpdate(
+        links_Region_region_reference_extendedRegion_Region _,
+        ops.Region_extendedRegion),      // Relationship
+      // RemoveStructuralFeatureValueAction
+      CompositeReferenceUpdate(
+        links_RemoveStructuralFeatureValueAction_removeStructuralFeatureValueAction_compose_removeAt_InputPin _,
+        ops.RemoveStructuralFeatureValueAction_removeAt),      // RemoveVariableValueAction
+      CompositeReferenceUpdate(
+        links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin _,
+        ops.RemoveVariableValueAction_removeAt),      // ReplyAction
+      CompositeReferenceUpdate(
+        links_ReplyAction_replyAction_reference_replyToCall_Trigger _,
+        ops.ReplyAction_replyToCall),
+      CompositeReferenceUpdate(
+        links_ReplyAction_replyAction_compose_returnInformation_InputPin _,
+        ops.ReplyAction_returnInformation),      // SendObjectAction
+      CompositeReferenceUpdate(
+        links_SendObjectAction_sendObjectAction_compose_request_InputPin _,
+        ops.SendObjectAction_request),
+      CompositeReferenceUpdate(
+        links_SendObjectAction_sendObjectAction_compose_target_InputPin _,
+        ops.SendObjectAction_target),      // SendSignalAction
+      CompositeReferenceUpdate(
+        links_SendSignalAction_sendSignalAction_reference_signal_Signal _,
+        ops.SendSignalAction_signal),
+      CompositeReferenceUpdate(
+        links_SendSignalAction_sendSignalAction_compose_target_InputPin _,
+        ops.SendSignalAction_target),      // SequenceNode
+      // Signal
+      // SignalEvent
+      CompositeReferenceUpdate(
+        links_SignalEvent_signalEvent_reference_signal_Signal _,
+        ops.SignalEvent_signal),      // Slot
+      CompositeReferenceUpdate(
+        links_Slot_slot_reference_definingFeature_StructuralFeature _,
+        ops.Slot_definingFeature),      // StartClassifierBehaviorAction
+      CompositeReferenceUpdate(
+        links_StartClassifierBehaviorAction_startClassifierBehaviorAction_compose_object_InputPin _,
+        ops.StartClassifierBehaviorAction_object),      // StartObjectBehaviorAction
+      CompositeReferenceUpdate(
+        links_StartObjectBehaviorAction_startObjectBehaviorAction_compose_object_InputPin _,
+        ops.StartObjectBehaviorAction_object),      // State
+      CompositeReferenceUpdate(
+        links_State_state_compose_doActivity_Behavior _,
+        ops.State_doActivity),
+      CompositeReferenceUpdate(
+        links_State_state_compose_entry_Behavior _,
+        ops.State_entry),
+      CompositeReferenceUpdate(
+        links_State_state_compose_exit_Behavior _,
+        ops.State_exit),
+      CompositeReferenceUpdate(
+        links_State_state_reference_redefinedState_State _,
+        ops.State_redefinedState),
+      CompositeReferenceUpdate(
+        links_State_owningState_compose_stateInvariant_Constraint _,
+        ops.State_stateInvariant),
+      CompositeReferenceUpdate(
+        links_State_submachineState_reference_submachine_StateMachine _,
+        ops.State_submachine),      // StateInvariant
+      CompositeReferenceUpdate(
+        links_StateInvariant_stateInvariant_compose_invariant_Constraint _,
+        ops.StateInvariant_invariant),      // StateMachine
+      // Stereotype
+      // StringExpression
+      // StructuralFeature
+      // StructuralFeatureAction
+      CompositeReferenceUpdate(
+        links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
+        ops.StructuralFeatureAction_object),
+      CompositeReferenceUpdate(
+        links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature _,
+        ops.StructuralFeatureAction_structuralFeature),      // StructuredActivityNode
+      // StructuredClassifier
+      // Substitution
+      CompositeReferenceUpdate(
+        links_Substitution_substitution_reference_contract_Classifier _,
+        ops.Substitution_contract),      // TemplateBinding
+      CompositeReferenceUpdate(
+        links_TemplateBinding_templateBinding_reference_signature_TemplateSignature _,
+        ops.TemplateBinding_signature),      // TemplateParameter
+      CompositeReferenceUpdate(
+        links_TemplateParameter_templateParameter_reference_default_ParameterableElement _,
+        ops.TemplateParameter_default),
+      CompositeReferenceUpdate(
+        links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement _,
+        ops.TemplateParameter_ownedDefault),
+      CompositeReferenceUpdate(
+        links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
+        ops.TemplateParameter_ownedParameteredElement),
+      CompositeReferenceUpdate(
+        links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
+        ops.TemplateParameter_parameteredElement),      // TemplateParameterSubstitution
+      CompositeReferenceUpdate(
+        links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement _,
+        ops.TemplateParameterSubstitution_actual),
+      CompositeReferenceUpdate(
+        links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter _,
+        ops.TemplateParameterSubstitution_formal),
+      CompositeReferenceUpdate(
+        links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement _,
+        ops.TemplateParameterSubstitution_ownedActual),      // TemplateSignature
+      // TemplateableElement
+      CompositeReferenceUpdate(
+        links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _,
+        ops.TemplateableElement_ownedTemplateSignature),      // TestIdentityAction
+      CompositeReferenceUpdate(
+        links_TestIdentityAction_testIdentityAction_compose_first_InputPin _,
+        ops.TestIdentityAction_first),
+      CompositeReferenceUpdate(
+        links_TestIdentityAction_testIdentityAction_compose_result_OutputPin _,
+        ops.TestIdentityAction_result),
+      CompositeReferenceUpdate(
+        links_TestIdentityAction_testIdentityAction_compose_second_InputPin _,
+        ops.TestIdentityAction_second),      // TimeConstraint
+      CompositeReferenceUpdate(
+        links_TimeConstraint_timeConstraint_compose_specification_TimeInterval _,
+        ops.TimeConstraint_specification),      // TimeEvent
+      CompositeReferenceUpdate(
+        links_TimeEvent_timeEvent_compose_when_TimeExpression _,
+        ops.TimeEvent_when),      // TimeExpression
+      CompositeReferenceUpdate(
+        links_TimeExpression_timeExpression_compose_expr_ValueSpecification _,
+        ops.TimeExpression_expr),      // TimeInterval
+      CompositeReferenceUpdate(
+        links_TimeInterval_timeInterval_reference_max_TimeExpression _,
+        ops.TimeInterval_max),
+      CompositeReferenceUpdate(
+        links_TimeInterval_timeInterval_reference_min_TimeExpression _,
+        ops.TimeInterval_min),      // TimeObservation
+      CompositeReferenceUpdate(
+        links_TimeObservation_timeObservation_reference_event_NamedElement _,
+        ops.TimeObservation_event),      // Transition
+      CompositeReferenceUpdate(
+        links_Transition_transition_compose_effect_Behavior _,
+        ops.Transition_effect),
+      CompositeReferenceUpdate(
+        links_Transition_transition_compose_guard_Constraint _,
+        ops.Transition_guard),
+      CompositeReferenceUpdate(
+        links_Transition_transition_reference_redefinedTransition_Transition _,
+        ops.Transition_redefinedTransition),      // Trigger
+      CompositeReferenceUpdate(
+        links_Trigger_trigger_reference_event_Event _,
+        ops.Trigger_event),      // Type
+      // TypedElement
+      CompositeReferenceUpdate(
+        links_TypedElement_typedElement_reference_type_Type _,
+        ops.TypedElement_type),      // UnmarshallAction
+      CompositeReferenceUpdate(
+        links_UnmarshallAction_unmarshallAction_compose_object_InputPin _,
+        ops.UnmarshallAction_object),
+      CompositeReferenceUpdate(
+        links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier _,
+        ops.UnmarshallAction_unmarshallType),      // Usage
+      // UseCase
+      // ValuePin
+      CompositeReferenceUpdate(
+        links_ValuePin_valuePin_compose_value_ValueSpecification _,
+        ops.ValuePin_value),      // ValueSpecification
+      // ValueSpecificationAction
+      CompositeReferenceUpdate(
+        links_ValueSpecificationAction_valueSpecificationAction_compose_result_OutputPin _,
+        ops.ValueSpecificationAction_result),
+      CompositeReferenceUpdate(
+        links_ValueSpecificationAction_valueSpecificationAction_compose_value_ValueSpecification _,
+        ops.ValueSpecificationAction_value),      // Variable
+      // VariableAction
+      CompositeReferenceUpdate(
+        links_VariableAction_variableAction_reference_variable_Variable _,
+        ops.VariableAction_variable),      // Vertex
+      // WriteLinkAction
+      // WriteStructuralFeatureAction
+      CompositeReferenceUpdate(
+        links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin _,
+        ops.WriteStructuralFeatureAction_result),
+      CompositeReferenceUpdate(
+        links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin _,
+        ops.WriteStructuralFeatureAction_value),      // WriteVariableAction
+      CompositeReferenceUpdate(
+        links_WriteVariableAction_writeVariableAction_compose_value_InputPin _,
+        ops.WriteVariableAction_value)
+  )
+
+  val MetaPropertyIterable2LinksUpdate
+  : Seq[CompositeIterableUpdater]
+  = Seq(
+      // Abstraction
+      // AcceptCallAction
+      // AcceptEventAction
+      // Action
+      // ActionExecutionSpecification
+      // ActionInputPin
+      // Activity
+      // ActivityEdge
+      // ActivityFinalNode
+      // ActivityGroup
+      // ActivityNode
+      // ActivityParameterNode
+      // ActivityPartition
+      // Actor
+      // AddStructuralFeatureValueAction
+      // AddVariableValueAction
+      // AnyReceiveEvent
+      // Artifact
+      // Association
+      CompositeIterableUpdate(
+        links_Association_owningAssociation_compose_ownedEnd_Property _,
+        ops.Association_ownedEnd),      // AssociationClass
+      // Behavior
+      // BehaviorExecutionSpecification
+      // BehavioralFeature
+      // BehavioredClassifier
+      // BroadcastSignalAction
+      // CallAction
+      // CallBehaviorAction
+      // CallEvent
+      // CallOperationAction
+      // CentralBufferNode
+      // ChangeEvent
+      // Class
+      // Classifier
+      // ClassifierTemplateParameter
+      // Clause
+      // ClearAssociationAction
+      // ClearStructuralFeatureAction
+      // ClearVariableAction
+      // Collaboration
+      // CollaborationUse
+      // CombinedFragment
+      // Comment
+      // CommunicationPath
+      // Component
+      // ComponentRealization
+      // ConditionalNode
+      // ConnectableElement
+      // ConnectableElementTemplateParameter
+      // ConnectionPointReference
+      // Connector
+      // ConnectorEnd
+      // ConsiderIgnoreFragment
+      // Constraint
+      // Continuation
+      // ControlFlow
+      // ControlNode
+      // CreateLinkAction
+      CompositeIterableUpdate(
+        links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData _,
+        ops.CreateLinkAction_endData),      // CreateLinkObjectAction
+      // CreateObjectAction
+      // DataStoreNode
+      // DataType
+      // DecisionNode
+      // Dependency
+      // DeployedArtifact
+      // Deployment
+      // DeploymentSpecification
+      // DeploymentTarget
+      // DestroyLinkAction
+      CompositeIterableUpdate(
+        links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData _,
+        ops.DestroyLinkAction_endData),      // DestroyObjectAction
+      // DestructionOccurrenceSpecification
+      // Device
+      // DirectedRelationship
+      // Duration
+      // DurationConstraint
+      // DurationInterval
+      // DurationObservation
+      // Element
+      // ElementImport
+      // EncapsulatedClassifier
+      // Enumeration
+      // EnumerationLiteral
+      // Event
+      // ExceptionHandler
+      // ExecutableNode
+      // ExecutionEnvironment
+      // ExecutionOccurrenceSpecification
+      // ExecutionSpecification
+      // ExpansionNode
+      // ExpansionRegion
+      // Expression
+      // Extend
+      // Extension
+      CompositeIterableUpdate(
+        links_Extension_extension_compose_ownedEnd_ExtensionEnd _,
+        ops.Extension_ownedEnd),      // ExtensionEnd
+      // ExtensionPoint
+      // Feature
+      // FinalNode
+      // FinalState
+      // FlowFinalNode
+      // ForkNode
+      // FunctionBehavior
+      // Gate
+      // GeneralOrdering
+      // Generalization
+      // GeneralizationSet
+      // Image
+      // Include
+      // InformationFlow
+      // InformationItem
+      // InitialNode
+      // InputPin
+      // InstanceSpecification
+      CompositeIterableUpdate(
+        links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier _,
+        ops.InstanceSpecification_classifier),      // InstanceValue
+      // Interaction
+      // InteractionConstraint
+      // InteractionFragment
+      CompositeIterableUpdate(
+        links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
+        ops.InteractionFragment_covered),      // InteractionOperand
+      // InteractionUse
+      // Interface
+      // InterfaceRealization
+      // InterruptibleActivityRegion
+      // Interval
+      // IntervalConstraint
+      // InvocationAction
+      // JoinNode
+      // Lifeline
+      // LinkAction
+      CompositeIterableUpdate(
+        links_LinkAction_linkAction_compose_endData_LinkEndData _,
+        ops.LinkAction_endData),      // LinkEndCreationData
+      // LinkEndData
+      // LinkEndDestructionData
+      // LiteralBoolean
+      // LiteralInteger
+      // LiteralNull
+      // LiteralReal
+      // LiteralSpecification
+      // LiteralString
+      // LiteralUnlimitedNatural
+      // LoopNode
+      // Manifestation
+      // MergeNode
+      // Message
+      // MessageEnd
+      // MessageEvent
+      // MessageOccurrenceSpecification
+      // Model
+      // MultiplicityElement
+      // NamedElement
+      // Namespace
+      // Node
+      // ObjectFlow
+      // ObjectNode
+      // Observation
+      // OccurrenceSpecification
+      CompositeIterableUpdate(
+        links_OccurrenceSpecification_events_reference_covered_Lifeline _,
+        ops.OccurrenceSpecification_covered),      // OpaqueAction
+      // OpaqueBehavior
+      // OpaqueExpression
+      // Operation
+      // OperationTemplateParameter
+      // OutputPin
+      // Package
+      // PackageImport
+      // PackageMerge
+      // PackageableElement
+      // Parameter
+      // ParameterSet
+      // ParameterableElement
+      // PartDecomposition
+      // Pin
+      // Port
+      // PrimitiveType
+      // Profile
+      // ProfileApplication
+      // Property
+      // ProtocolConformance
+      // ProtocolStateMachine
+      // ProtocolTransition
+      // Pseudostate
+      // QualifierValue
+      // RaiseExceptionAction
+      // ReadExtentAction
+      // ReadIsClassifiedObjectAction
+      // ReadLinkAction
+      // ReadLinkObjectEndAction
+      // ReadLinkObjectEndQualifierAction
+      // ReadSelfAction
+      // ReadStructuralFeatureAction
+      // ReadVariableAction
+      // Realization
+      // Reception
+      // ReclassifyObjectAction
+      // RedefinableElement
+      // RedefinableTemplateSignature
+      // ReduceAction
+      // Region
+      // Relationship
+      // RemoveStructuralFeatureValueAction
+      // RemoveVariableValueAction
+      // ReplyAction
+      // SendObjectAction
+      // SendSignalAction
+      // SequenceNode
+      // Signal
+      // SignalEvent
+      // Slot
+      // StartClassifierBehaviorAction
+      // StartObjectBehaviorAction
+      // State
+      // StateInvariant
+      CompositeIterableUpdate(
+        links_StateInvariant_stateInvariant_reference_covered_Lifeline _,
+        ops.StateInvariant_covered)
+     // StateMachine
+      // Stereotype
+      // StringExpression
+      // StructuralFeature
+      // StructuralFeatureAction
+      // StructuredActivityNode
+      // StructuredClassifier
+      // Substitution
+      // TemplateBinding
+      // TemplateParameter
+      // TemplateParameterSubstitution
+      // TemplateSignature
+      // TemplateableElement
+      // TestIdentityAction
+      // TimeConstraint
+      // TimeEvent
+      // TimeExpression
+      // TimeInterval
+      // TimeObservation
+      // Transition
+      // Trigger
+      // Type
+      // TypedElement
+      // UnmarshallAction
+      // Usage
+      // UseCase
+      // ValuePin
+      // ValueSpecification
+      // ValueSpecificationAction
+      // Variable
+      // VariableAction
+      // Vertex
+      // WriteLinkAction
+      // WriteStructuralFeatureAction
+      // WriteVariableAction
+    )
+
+  val MetaPropertySequence2LinksUpdate
+  : Seq[CompositeSequenceUpdater]
+  = Seq(
+      // Abstraction
+      // AcceptCallAction
+      // AcceptEventAction
+      CompositeSequenceUpdate(
+        links_AcceptEventAction_acceptEventAction_compose_result_OutputPin _,
+        ops.AcceptEventAction_result),      // Action
+      // ActionExecutionSpecification
+      // ActionInputPin
+      // Activity
+      // ActivityEdge
+      // ActivityFinalNode
+      // ActivityGroup
+      // ActivityNode
+      // ActivityParameterNode
+      // ActivityPartition
+      // Actor
+      // AddStructuralFeatureValueAction
+      // AddVariableValueAction
+      // AnyReceiveEvent
+      // Artifact
+      CompositeSequenceUpdate(
+        links_Artifact_artifact_compose_ownedAttribute_Property _,
+        ops.Artifact_ownedAttribute),
+      CompositeSequenceUpdate(
+        links_Artifact_artifact_compose_ownedOperation_Operation _,
+        ops.Artifact_ownedOperation),      // Association
+      CompositeSequenceUpdate(
+        links_Association_association_reference_memberEnd_Property _,
+        ops.Association_memberEnd),      // AssociationClass
+      // Behavior
+      CompositeSequenceUpdate(
+        links_Behavior_behavior_compose_ownedParameter_Parameter _,
+        ops.Behavior_ownedParameter),      // BehaviorExecutionSpecification
+      // BehavioralFeature
+      CompositeSequenceUpdate(
+        links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter _,
+        ops.BehavioralFeature_ownedParameter),      // BehavioredClassifier
+      // BroadcastSignalAction
+      // CallAction
+      CompositeSequenceUpdate(
+        links_CallAction_callAction_compose_result_OutputPin _,
+        ops.CallAction_result),      // CallBehaviorAction
+      // CallEvent
+      // CallOperationAction
+      // CentralBufferNode
+      // ChangeEvent
+      // Class
+      CompositeSequenceUpdate(
+        links_Class_nestingClass_compose_nestedClassifier_Classifier _,
+        ops.Class_nestedClassifier),
+      CompositeSequenceUpdate(
+        links_Class_class_compose_ownedAttribute_Property _,
+        ops.Class_ownedAttribute),
+      CompositeSequenceUpdate(
+        links_Class_class_compose_ownedOperation_Operation _,
+        ops.Class_ownedOperation),      // Classifier
+      // ClassifierTemplateParameter
+      // Clause
+      CompositeSequenceUpdate(
+        links_Clause_clause_reference_bodyOutput_OutputPin _,
+        ops.Clause_bodyOutput),      // ClearAssociationAction
+      // ClearStructuralFeatureAction
+      // ClearVariableAction
+      // Collaboration
+      // CollaborationUse
+      // CombinedFragment
+      CompositeSequenceUpdate(
+        links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand _,
+        ops.CombinedFragment_operand),      // Comment
+      // CommunicationPath
+      // Component
+      // ComponentRealization
+      // ConditionalNode
+      CompositeSequenceUpdate(
+        links_ConditionalNode_conditionalNode_compose_result_OutputPin _,
+        ops.ConditionalNode_result),      // ConnectableElement
+      // ConnectableElementTemplateParameter
+      // ConnectionPointReference
+      // Connector
+      CompositeSequenceUpdate(
+        links_Connector_connector_compose_end_ConnectorEnd _,
+        ops.Connector_end),      // ConnectorEnd
+      // ConsiderIgnoreFragment
+      // Constraint
+      CompositeSequenceUpdate(
+        links_Constraint_constraint_reference_constrainedElement_Element _,
+        ops.Constraint_constrainedElement),      // Continuation
+      // ControlFlow
+      // ControlNode
+      // CreateLinkAction
+      // CreateLinkObjectAction
+      // CreateObjectAction
+      // DataStoreNode
+      // DataType
+      CompositeSequenceUpdate(
+        links_DataType_datatype_compose_ownedAttribute_Property _,
+        ops.DataType_ownedAttribute),
+      CompositeSequenceUpdate(
+        links_DataType_datatype_compose_ownedOperation_Operation _,
+        ops.DataType_ownedOperation),      // DecisionNode
+      // Dependency
+      // DeployedArtifact
+      // Deployment
+      // DeploymentSpecification
+      // DeploymentTarget
+      // DestroyLinkAction
+      // DestroyObjectAction
+      // DestructionOccurrenceSpecification
+      // Device
+      // DirectedRelationship
+      // Duration
+      // DurationConstraint
+      // DurationInterval
+      // DurationObservation
+      CompositeSequenceUpdate(
+        links_DurationObservation_durationObservation_reference_event_NamedElement _,
+        ops.DurationObservation_event),      // Element
+      // ElementImport
+      // EncapsulatedClassifier
+      // Enumeration
+      CompositeSequenceUpdate(
+        links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral _,
+        ops.Enumeration_ownedLiteral),      // EnumerationLiteral
+      // Event
+      // ExceptionHandler
+      // ExecutableNode
+      // ExecutionEnvironment
+      // ExecutionOccurrenceSpecification
+      // ExecutionSpecification
+      // ExpansionNode
+      // ExpansionRegion
+      // Expression
+      CompositeSequenceUpdate(
+        links_Expression_expression_compose_operand_ValueSpecification _,
+        ops.Expression_operand),      // Extend
+      CompositeSequenceUpdate(
+        links_Extend_extension_reference_extensionLocation_ExtensionPoint _,
+        ops.Extend_extensionLocation),      // Extension
+      // ExtensionEnd
+      // ExtensionPoint
+      // Feature
+      // FinalNode
+      // FinalState
+      // FlowFinalNode
+      // ForkNode
+      // FunctionBehavior
+      // Gate
+      // GeneralOrdering
+      // Generalization
+      // GeneralizationSet
+      // Image
+      // Include
+      // InformationFlow
+      // InformationItem
+      // InitialNode
+      // InputPin
+      // InstanceSpecification
+      // InstanceValue
+      // Interaction
+      CompositeSequenceUpdate(
+        links_Interaction_enclosingInteraction_compose_fragment_InteractionFragment _,
+        ops.Interaction_fragment),      // InteractionConstraint
+      // InteractionFragment
+      // InteractionOperand
+      CompositeSequenceUpdate(
+        links_InteractionOperand_enclosingOperand_compose_fragment_InteractionFragment _,
+        ops.InteractionOperand_fragment),      // InteractionUse
+      CompositeSequenceUpdate(
+        links_InteractionUse_interactionUse_compose_argument_ValueSpecification _,
+        ops.InteractionUse_argument),      // Interface
+      CompositeSequenceUpdate(
+        links_Interface_interface_compose_nestedClassifier_Classifier _,
+        ops.Interface_nestedClassifier),
+      CompositeSequenceUpdate(
+        links_Interface_interface_compose_ownedAttribute_Property _,
+        ops.Interface_ownedAttribute),
+      CompositeSequenceUpdate(
+        links_Interface_interface_compose_ownedOperation_Operation _,
+        ops.Interface_ownedOperation),      // InterfaceRealization
+      // InterruptibleActivityRegion
+      // Interval
+      // IntervalConstraint
+      // InvocationAction
+      CompositeSequenceUpdate(
+        links_InvocationAction_invocationAction_compose_argument_InputPin _,
+        ops.InvocationAction_argument),      // JoinNode
+      // Lifeline
+      // LinkAction
+      // LinkEndCreationData
+      // LinkEndData
+      // LinkEndDestructionData
+      // LiteralBoolean
+      // LiteralInteger
+      // LiteralNull
+      // LiteralReal
+      // LiteralSpecification
+      // LiteralString
+      // LiteralUnlimitedNatural
+      // LoopNode
+      CompositeSequenceUpdate(
+        links_LoopNode_loopNode_reference_bodyOutput_OutputPin _,
+        ops.LoopNode_bodyOutput),
+      CompositeSequenceUpdate(
+        links_LoopNode_loopNode_compose_loopVariable_OutputPin _,
+        ops.LoopNode_loopVariable),
+      CompositeSequenceUpdate(
+        links_LoopNode_loopNode_compose_loopVariableInput_InputPin _,
+        ops.LoopNode_loopVariableInput),
+      CompositeSequenceUpdate(
+        links_LoopNode_loopNode_compose_result_OutputPin _,
+        ops.LoopNode_result),      // Manifestation
+      // MergeNode
+      // Message
+      CompositeSequenceUpdate(
+        links_Message_message_compose_argument_ValueSpecification _,
+        ops.Message_argument),      // MessageEnd
+      // MessageEvent
+      // MessageOccurrenceSpecification
+      // Model
+      // MultiplicityElement
+      // NamedElement
+      // Namespace
+      // Node
+      // ObjectFlow
+      // ObjectNode
+      // Observation
+      // OccurrenceSpecification
+      // OpaqueAction
+      // OpaqueBehavior
+      // OpaqueExpression
+      // Operation
+      CompositeSequenceUpdate(
+        links_Operation_operation_compose_ownedParameter_Parameter _,
+        ops.Operation_ownedParameter),      // OperationTemplateParameter
+      // OutputPin
+      // Package
+      // PackageImport
+      // PackageMerge
+      // PackageableElement
+      // Parameter
+      // ParameterSet
+      // ParameterableElement
+      // PartDecomposition
+      // Pin
+      // Port
+      // PrimitiveType
+      // Profile
+      // ProfileApplication
+      // Property
+      CompositeSequenceUpdate(
+        links_Property_associationEnd_compose_qualifier_Property _,
+        ops.Property_qualifier),      // ProtocolConformance
+      // ProtocolStateMachine
+      // ProtocolTransition
+      // Pseudostate
+      // QualifierValue
+      // RaiseExceptionAction
+      // ReadExtentAction
+      // ReadIsClassifiedObjectAction
+      // ReadLinkAction
+      // ReadLinkObjectEndAction
+      // ReadLinkObjectEndQualifierAction
+      // ReadSelfAction
+      // ReadStructuralFeatureAction
+      // ReadVariableAction
+      // Realization
+      // Reception
+      // ReclassifyObjectAction
+      // RedefinableElement
+      // RedefinableTemplateSignature
+      // ReduceAction
+      // Region
+      // Relationship
+      // RemoveStructuralFeatureValueAction
+      // RemoveVariableValueAction
+      // ReplyAction
+      CompositeSequenceUpdate(
+        links_ReplyAction_replyAction_compose_replyValue_InputPin _,
+        ops.ReplyAction_replyValue),      // SendObjectAction
+      // SendSignalAction
+      // SequenceNode
+      CompositeSequenceUpdate(
+        links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode _,
+        ops.SequenceNode_executableNode),      // Signal
+      CompositeSequenceUpdate(
+        links_Signal_owningSignal_compose_ownedAttribute_Property _,
+        ops.Signal_ownedAttribute),      // SignalEvent
+      // Slot
+      CompositeSequenceUpdate(
+        links_Slot_owningSlot_compose_value_ValueSpecification _,
+        ops.Slot_value),      // StartClassifierBehaviorAction
+      // StartObjectBehaviorAction
+      // State
+      // StateInvariant
+      // StateMachine
+      // Stereotype
+      // StringExpression
+      CompositeSequenceUpdate(
+        links_StringExpression_owningExpression_compose_subExpression_StringExpression _,
+        ops.StringExpression_subExpression),      // StructuralFeature
+      // StructuralFeatureAction
+      // StructuredActivityNode
+      // StructuredClassifier
+      CompositeSequenceUpdate(
+        links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
+        ops.StructuredClassifier_ownedAttribute),      // Substitution
+      // TemplateBinding
+      // TemplateParameter
+      // TemplateParameterSubstitution
+      // TemplateSignature
+      CompositeSequenceUpdate(
+        links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter _,
+        ops.TemplateSignature_ownedParameter),
+      CompositeSequenceUpdate(
+        links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter _,
+        ops.TemplateSignature_parameter),      // TemplateableElement
+      // TestIdentityAction
+      // TimeConstraint
+      // TimeEvent
+      // TimeExpression
+      // TimeInterval
+      // TimeObservation
+      // Transition
+      // Trigger
+      // Type
+      // TypedElement
+      // UnmarshallAction
+      CompositeSequenceUpdate(
+        links_UnmarshallAction_unmarshallAction_compose_result_OutputPin _,
+        ops.UnmarshallAction_result)      // Usage
+      // UseCase
+      // ValuePin
+      // ValueSpecification
+      // ValueSpecificationAction
+      // Variable
+      // VariableAction
+      // Vertex
+      // WriteLinkAction
+      // WriteStructuralFeatureAction
+      // WriteVariableAction
+    )
+
+  val MetaPropertySet2LinksUpdate
+  : Seq[CompositeSetUpdater]
+  = Seq(
+    // Abstraction
+    // AcceptCallAction
+    // AcceptEventAction
+      CompositeSetUpdate(
+        links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger _,
+        ops.AcceptEventAction_trigger),    // Action
+      CompositeSetUpdate(
+        links_Action_action_compose_localPostcondition_Constraint _,
+        ops.Action_localPostcondition),
+      CompositeSetUpdate(
+        links_Action_action_compose_localPrecondition_Constraint _,
+        ops.Action_localPrecondition),    // ActionExecutionSpecification
+    // ActionInputPin
+    // Activity
+      CompositeSetUpdate(
+        links_Activity_activity_compose_edge_ActivityEdge _,
+        ops.Activity_edge),
+      CompositeSetUpdate(
+        links_Activity_inActivity_compose_group_ActivityGroup _,
+        ops.Activity_group),
+      CompositeSetUpdate(
+        links_Activity_activity_compose_node_ActivityNode _,
+        ops.Activity_node),
+      CompositeSetUpdate(
+        links_Activity_activity_reference_partition_ActivityPartition _,
+        ops.Activity_partition),
+      CompositeSetUpdate(
+        links_Activity_activity_compose_structuredNode_StructuredActivityNode _,
+        ops.Activity_structuredNode),
+      CompositeSetUpdate(
+        links_Activity_activityScope_compose_variable_Variable _,
+        ops.Activity_variable),    // ActivityEdge
+      CompositeSetUpdate(
+        links_ActivityEdge_edge_reference_inPartition_ActivityPartition _,
+        ops.ActivityEdge_inPartition),
+      CompositeSetUpdate(
+        links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge _,
+        ops.ActivityEdge_redefinedEdge),    // ActivityFinalNode
+    // ActivityGroup
+    // ActivityNode
+      CompositeSetUpdate(
+        links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
+        ops.ActivityNode_inInterruptibleRegion),
+      CompositeSetUpdate(
+        links_ActivityNode_node_reference_inPartition_ActivityPartition _,
+        ops.ActivityNode_inPartition),
+      CompositeSetUpdate(
+        links_ActivityNode_target_reference_incoming_ActivityEdge _,
+        ops.ActivityNode_incoming),
+      CompositeSetUpdate(
+        links_ActivityNode_source_reference_outgoing_ActivityEdge _,
+        ops.ActivityNode_outgoing),
+      CompositeSetUpdate(
+        links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
+        ops.ActivityNode_redefinedNode),    // ActivityParameterNode
+    // ActivityPartition
+      CompositeSetUpdate(
+        links_ActivityPartition_inPartition_reference_edge_ActivityEdge _,
+        ops.ActivityPartition_edge),
+      CompositeSetUpdate(
+        links_ActivityPartition_inPartition_reference_node_ActivityNode _,
+        ops.ActivityPartition_node),
+      CompositeSetUpdate(
+        links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition _,
+        ops.ActivityPartition_subpartition),    // Actor
+    // AddStructuralFeatureValueAction
+    // AddVariableValueAction
+    // AnyReceiveEvent
+    // Artifact
+      CompositeSetUpdate(
+        links_Artifact_artifact_compose_manifestation_Manifestation _,
+        ops.Artifact_manifestation),
+      CompositeSetUpdate(
+        links_Artifact_artifact_compose_nestedArtifact_Artifact _,
+        ops.Artifact_nestedArtifact),    // Association
+      CompositeSetUpdate(
+        links_Association_association_reference_navigableOwnedEnd_Property _,
+        ops.Association_navigableOwnedEnd),    // AssociationClass
+    // Behavior
+      CompositeSetUpdate(
+        links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
+        ops.Behavior_ownedParameterSet),
+      CompositeSetUpdate(
+        links_Behavior_behavior_compose_postcondition_Constraint _,
+        ops.Behavior_postcondition),
+      CompositeSetUpdate(
+        links_Behavior_behavior_compose_precondition_Constraint _,
+        ops.Behavior_precondition),
+      CompositeSetUpdate(
+        links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
+        ops.Behavior_redefinedBehavior),    // BehaviorExecutionSpecification
+    // BehavioralFeature
+      CompositeSetUpdate(
+        links_BehavioralFeature_specification_reference_method_Behavior _,
+        ops.BehavioralFeature_method),
+      CompositeSetUpdate(
+        links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet _,
+        ops.BehavioralFeature_ownedParameterSet),
+      CompositeSetUpdate(
+        links_BehavioralFeature_behavioralFeature_reference_raisedException_Type _,
+        ops.BehavioralFeature_raisedException),    // BehavioredClassifier
+      CompositeSetUpdate(
+        links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
+        ops.BehavioredClassifier_interfaceRealization),
+      CompositeSetUpdate(
+        links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
+        ops.BehavioredClassifier_ownedBehavior),    // BroadcastSignalAction
+    // CallAction
+    // CallBehaviorAction
+    // CallEvent
+    // CallOperationAction
+    // CentralBufferNode
+    // ChangeEvent
+    // Class
+      CompositeSetUpdate(
+        links_Class_class_compose_ownedReception_Reception _,
+        ops.Class_ownedReception),    // Classifier
+      CompositeSetUpdate(
+        links_Classifier_classifier_compose_collaborationUse_CollaborationUse _,
+        ops.Classifier_collaborationUse),
+      CompositeSetUpdate(
+        links_Classifier_specific_compose_generalization_Generalization _,
+        ops.Classifier_generalization),
+      CompositeSetUpdate(
+        links_Classifier_classifier_compose_ownedUseCase_UseCase _,
+        ops.Classifier_ownedUseCase),
+      CompositeSetUpdate(
+        links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
+        ops.Classifier_powertypeExtent),
+      CompositeSetUpdate(
+        links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
+        ops.Classifier_redefinedClassifier),
+      CompositeSetUpdate(
+        links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
+        ops.Classifier_substitution),
+      CompositeSetUpdate(
+        links_Classifier_subject_reference_useCase_UseCase _,
+        ops.Classifier_useCase),    // ClassifierTemplateParameter
+      CompositeSetUpdate(
+        links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier _,
+        ops.ClassifierTemplateParameter_constrainingClassifier),    // Clause
+      CompositeSetUpdate(
+        links_Clause_clause_reference_body_ExecutableNode _,
+        ops.Clause_body),
+      CompositeSetUpdate(
+        links_Clause_successorClause_reference_predecessorClause_Clause _,
+        ops.Clause_predecessorClause),
+      CompositeSetUpdate(
+        links_Clause_predecessorClause_reference_successorClause_Clause _,
+        ops.Clause_successorClause),
+      CompositeSetUpdate(
+        links_Clause_clause_reference_test_ExecutableNode _,
+        ops.Clause_test),    // ClearAssociationAction
+    // ClearStructuralFeatureAction
+    // ClearVariableAction
+    // Collaboration
+      CompositeSetUpdate(
+        links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement _,
+        ops.Collaboration_collaborationRole),    // CollaborationUse
+      CompositeSetUpdate(
+        links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency _,
+        ops.CollaborationUse_roleBinding),    // CombinedFragment
+      CompositeSetUpdate(
+        links_CombinedFragment_combinedFragment_compose_cfragmentGate_Gate _,
+        ops.CombinedFragment_cfragmentGate),    // Comment
+      CompositeSetUpdate(
+        links_Comment_comment_reference_annotatedElement_Element _,
+        ops.Comment_annotatedElement),    // CommunicationPath
+    // Component
+      CompositeSetUpdate(
+        links_Component_component_compose_packagedElement_PackageableElement _,
+        ops.Component_packagedElement),
+      CompositeSetUpdate(
+        links_Component_abstraction_compose_realization_ComponentRealization _,
+        ops.Component_realization),    // ComponentRealization
+      CompositeSetUpdate(
+        links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier _,
+        ops.ComponentRealization_realizingClassifier),    // ConditionalNode
+      CompositeSetUpdate(
+        links_ConditionalNode_conditionalNode_compose_clause_Clause _,
+        ops.ConditionalNode_clause),    // ConnectableElement
+    // ConnectableElementTemplateParameter
+    // ConnectionPointReference
+      CompositeSetUpdate(
+        links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate _,
+        ops.ConnectionPointReference_entry),
+      CompositeSetUpdate(
+        links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate _,
+        ops.ConnectionPointReference_exit),    // Connector
+      CompositeSetUpdate(
+        links_Connector_connector_reference_contract_Behavior _,
+        ops.Connector_contract),
+      CompositeSetUpdate(
+        links_Connector_connector_reference_redefinedConnector_Connector _,
+        ops.Connector_redefinedConnector),    // ConnectorEnd
+    // ConsiderIgnoreFragment
+      CompositeSetUpdate(
+        links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement _,
+        ops.ConsiderIgnoreFragment_message),    // Constraint
+    // Continuation
+    // ControlFlow
+    // ControlNode
+    // CreateLinkAction
+    // CreateLinkObjectAction
+    // CreateObjectAction
+    // DataStoreNode
+    // DataType
+    // DecisionNode
+    // Dependency
+      CompositeSetUpdate(
+        links_Dependency_supplierDependency_reference_supplier_NamedElement _,
+        ops.Dependency_supplier),    // DeployedArtifact
+    // Deployment
+      CompositeSetUpdate(
+        links_Deployment_deployment_compose_configuration_DeploymentSpecification _,
+        ops.Deployment_configuration),
+      CompositeSetUpdate(
+        links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact _,
+        ops.Deployment_deployedArtifact),    // DeploymentSpecification
+    // DeploymentTarget
+      CompositeSetUpdate(
+        links_DeploymentTarget_location_compose_deployment_Deployment _,
+        ops.DeploymentTarget_deployment),    // DestroyLinkAction
+    // DestroyObjectAction
+    // DestructionOccurrenceSpecification
+    // Device
+    // DirectedRelationship
+    // Duration
+      CompositeSetUpdate(
+        links_Duration_duration_reference_observation_Observation _,
+        ops.Duration_observation),    // DurationConstraint
+    // DurationInterval
+    // DurationObservation
+    // Element
+      CompositeSetUpdate(
+        links_Element_owningElement_compose_ownedComment_Comment _,
+        ops.Element_ownedComment),    // ElementImport
+    // EncapsulatedClassifier
+    // Enumeration
+    // EnumerationLiteral
+    // Event
+    // ExceptionHandler
+      CompositeSetUpdate(
+        links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier _,
+        ops.ExceptionHandler_exceptionType),    // ExecutableNode
+      CompositeSetUpdate(
+        links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
+        ops.ExecutableNode_handler),    // ExecutionEnvironment
+    // ExecutionOccurrenceSpecification
+    // ExecutionSpecification
+    // ExpansionNode
+    // ExpansionRegion
+      CompositeSetUpdate(
+        links_ExpansionRegion_regionAsInput_reference_inputElement_ExpansionNode _,
+        ops.ExpansionRegion_inputElement),
+      CompositeSetUpdate(
+        links_ExpansionRegion_regionAsOutput_reference_outputElement_ExpansionNode _,
+        ops.ExpansionRegion_outputElement),    // Expression
+    // Extend
+    // Extension
+    // ExtensionEnd
+    // ExtensionPoint
+    // Feature
+    // FinalNode
+    // FinalState
+    // FlowFinalNode
+    // ForkNode
+    // FunctionBehavior
+    // Gate
+    // GeneralOrdering
+    // Generalization
+      CompositeSetUpdate(
+        links_Generalization_generalization_reference_generalizationSet_GeneralizationSet _,
+        ops.Generalization_generalizationSet),    // GeneralizationSet
+      CompositeSetUpdate(
+        links_GeneralizationSet_generalizationSet_reference_generalization_Generalization _,
+        ops.GeneralizationSet_generalization),    // Image
+    // Include
+    // InformationFlow
+      CompositeSetUpdate(
+        links_InformationFlow_conveyingFlow_reference_conveyed_Classifier _,
+        ops.InformationFlow_conveyed),
+      CompositeSetUpdate(
+        links_InformationFlow_informationFlow_reference_informationSource_NamedElement _,
+        ops.InformationFlow_informationSource),
+      CompositeSetUpdate(
+        links_InformationFlow_informationFlow_reference_informationTarget_NamedElement _,
+        ops.InformationFlow_informationTarget),
+      CompositeSetUpdate(
+        links_InformationFlow_abstraction_reference_realization_Relationship _,
+        ops.InformationFlow_realization),
+      CompositeSetUpdate(
+        links_InformationFlow_informationFlow_reference_realizingActivityEdge_ActivityEdge _,
+        ops.InformationFlow_realizingActivityEdge),
+      CompositeSetUpdate(
+        links_InformationFlow_informationFlow_reference_realizingConnector_Connector _,
+        ops.InformationFlow_realizingConnector),
+      CompositeSetUpdate(
+        links_InformationFlow_informationFlow_reference_realizingMessage_Message _,
+        ops.InformationFlow_realizingMessage),    // InformationItem
+      CompositeSetUpdate(
+        links_InformationItem_representation_reference_represented_Classifier _,
+        ops.InformationItem_represented),    // InitialNode
+    // InputPin
+    // InstanceSpecification
+      CompositeSetUpdate(
+        links_InstanceSpecification_owningInstance_compose_slot_Slot _,
+        ops.InstanceSpecification_slot),    // InstanceValue
+    // Interaction
+      CompositeSetUpdate(
+        links_Interaction_interaction_compose_action_Action _,
+        ops.Interaction_action),
+      CompositeSetUpdate(
+        links_Interaction_interaction_compose_formalGate_Gate _,
+        ops.Interaction_formalGate),
+      CompositeSetUpdate(
+        links_Interaction_interaction_compose_lifeline_Lifeline _,
+        ops.Interaction_lifeline),
+      CompositeSetUpdate(
+        links_Interaction_interaction_compose_message_Message _,
+        ops.Interaction_message),    // InteractionConstraint
+    // InteractionFragment
+      CompositeSetUpdate(
+        links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
+        ops.InteractionFragment_generalOrdering),    // InteractionOperand
+    // InteractionUse
+      CompositeSetUpdate(
+        links_InteractionUse_interactionUse_compose_actualGate_Gate _,
+        ops.InteractionUse_actualGate),    // Interface
+      CompositeSetUpdate(
+        links_Interface_interface_compose_ownedReception_Reception _,
+        ops.Interface_ownedReception),
+      CompositeSetUpdate(
+        links_Interface_interface_reference_redefinedInterface_Interface _,
+        ops.Interface_redefinedInterface),    // InterfaceRealization
+    // InterruptibleActivityRegion
+      CompositeSetUpdate(
+        links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge _,
+        ops.InterruptibleActivityRegion_interruptingEdge),
+      CompositeSetUpdate(
+        links_InterruptibleActivityRegion_inInterruptibleRegion_reference_node_ActivityNode _,
+        ops.InterruptibleActivityRegion_node),    // Interval
+    // IntervalConstraint
+    // InvocationAction
+    // JoinNode
+    // Lifeline
+      CompositeSetUpdate(
+        links_Lifeline_covered_reference_coveredBy_InteractionFragment _,
+        ops.Lifeline_coveredBy),    // LinkAction
+      CompositeSetUpdate(
+        links_LinkAction_linkAction_compose_inputValue_InputPin _,
+        ops.LinkAction_inputValue),    // LinkEndCreationData
+    // LinkEndData
+      CompositeSetUpdate(
+        links_LinkEndData_linkEndData_compose_qualifier_QualifierValue _,
+        ops.LinkEndData_qualifier),    // LinkEndDestructionData
+    // LiteralBoolean
+    // LiteralInteger
+    // LiteralNull
+    // LiteralReal
+    // LiteralSpecification
+    // LiteralString
+    // LiteralUnlimitedNatural
+    // LoopNode
+      CompositeSetUpdate(
+        links_LoopNode_loopNode_reference_bodyPart_ExecutableNode _,
+        ops.LoopNode_bodyPart),
+      CompositeSetUpdate(
+        links_LoopNode_loopNode_reference_setupPart_ExecutableNode _,
+        ops.LoopNode_setupPart),
+      CompositeSetUpdate(
+        links_LoopNode_loopNode_reference_test_ExecutableNode _,
+        ops.LoopNode_test),    // Manifestation
+    // MergeNode
+    // Message
+    // MessageEnd
+    // MessageEvent
+    // MessageOccurrenceSpecification
+    // Model
+    // MultiplicityElement
+    // NamedElement
+    // Namespace
+      CompositeSetUpdate(
+        links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
+        ops.Namespace_elementImport),
+      CompositeSetUpdate(
+        links_Namespace_context_compose_ownedRule_Constraint _,
+        ops.Namespace_ownedRule),
+      CompositeSetUpdate(
+        links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
+        ops.Namespace_packageImport),    // Node
+      CompositeSetUpdate(
+        links_Node_node_compose_nestedNode_Node _,
+        ops.Node_nestedNode),    // ObjectFlow
+    // ObjectNode
+      CompositeSetUpdate(
+        links_ObjectNode_objectNode_reference_inState_State _,
+        ops.ObjectNode_inState),    // Observation
+    // OccurrenceSpecification
+      CompositeSetUpdate(
+        links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering _,
+        ops.OccurrenceSpecification_toAfter),
+      CompositeSetUpdate(
+        links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering _,
+        ops.OccurrenceSpecification_toBefore),    // OpaqueAction
+      CompositeSetUpdate(
+        links_OpaqueAction_opaqueAction_compose_inputValue_InputPin _,
+        ops.OpaqueAction_inputValue),
+      CompositeSetUpdate(
+        links_OpaqueAction_opaqueAction_compose_outputValue_OutputPin _,
+        ops.OpaqueAction_outputValue),    // OpaqueBehavior
+    // OpaqueExpression
+    // Operation
+      CompositeSetUpdate(
+        links_Operation_postContext_compose_postcondition_Constraint _,
+        ops.Operation_postcondition),
+      CompositeSetUpdate(
+        links_Operation_preContext_compose_precondition_Constraint _,
+        ops.Operation_precondition),
+      CompositeSetUpdate(
+        links_Operation_operation_reference_raisedException_Type _,
+        ops.Operation_raisedException),
+      CompositeSetUpdate(
+        links_Operation_operation_reference_redefinedOperation_Operation _,
+        ops.Operation_redefinedOperation),    // OperationTemplateParameter
+    // OutputPin
+    // Package
+      CompositeSetUpdate(
+        links_Package_receivingPackage_compose_packageMerge_PackageMerge _,
+        ops.Package_packageMerge),
+      CompositeSetUpdate(
+        links_Package_owningPackage_compose_packagedElement_PackageableElement _,
+        ops.Package_packagedElement),
+      CompositeSetUpdate(
+        links_Package_applyingPackage_compose_profileApplication_ProfileApplication _,
+        ops.Package_profileApplication),    // PackageImport
+    // PackageMerge
+    // PackageableElement
+    // Parameter
+      CompositeSetUpdate(
+        links_Parameter_parameter_reference_parameterSet_ParameterSet _,
+        ops.Parameter_parameterSet),    // ParameterSet
+      CompositeSetUpdate(
+        links_ParameterSet_parameterSet_compose_condition_Constraint _,
+        ops.ParameterSet_condition),
+      CompositeSetUpdate(
+        links_ParameterSet_parameterSet_reference_parameter_Parameter _,
+        ops.ParameterSet_parameter),    // ParameterableElement
+    // PartDecomposition
+    // Pin
+    // Port
+      CompositeSetUpdate(
+        links_Port_port_reference_redefinedPort_Port _,
+        ops.Port_redefinedPort),    // PrimitiveType
+    // Profile
+      CompositeSetUpdate(
+        links_Profile_profile_compose_metaclassReference_ElementImport _,
+        ops.Profile_metaclassReference),
+      CompositeSetUpdate(
+        links_Profile_profile_compose_metamodelReference_PackageImport _,
+        ops.Profile_metamodelReference),    // ProfileApplication
+    // Property
+      CompositeSetUpdate(
+        links_Property_property_reference_redefinedProperty_Property _,
+        ops.Property_redefinedProperty),
+      CompositeSetUpdate(
+        links_Property_property_reference_subsettedProperty_Property _,
+        ops.Property_subsettedProperty),    // ProtocolConformance
+    // ProtocolStateMachine
+      CompositeSetUpdate(
+        links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance _,
+        ops.ProtocolStateMachine_conformance),    // ProtocolTransition
+    // Pseudostate
+    // QualifierValue
+    // RaiseExceptionAction
+    // ReadExtentAction
+    // ReadIsClassifiedObjectAction
+    // ReadLinkAction
+    // ReadLinkObjectEndAction
+    // ReadLinkObjectEndQualifierAction
+    // ReadSelfAction
+    // ReadStructuralFeatureAction
+    // ReadVariableAction
+    // Realization
+    // Reception
+    // ReclassifyObjectAction
+      CompositeSetUpdate(
+        links_ReclassifyObjectAction_reclassifyObjectAction_reference_newClassifier_Classifier _,
+        ops.ReclassifyObjectAction_newClassifier),
+      CompositeSetUpdate(
+        links_ReclassifyObjectAction_reclassifyObjectAction_reference_oldClassifier_Classifier _,
+        ops.ReclassifyObjectAction_oldClassifier),    // RedefinableElement
+    // RedefinableTemplateSignature
+      CompositeSetUpdate(
+        links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature _,
+        ops.RedefinableTemplateSignature_extendedSignature),    // ReduceAction
+    // Region
+      CompositeSetUpdate(
+        links_Region_container_compose_subvertex_Vertex _,
+        ops.Region_subvertex),
+      CompositeSetUpdate(
+        links_Region_container_compose_transition_Transition _,
+        ops.Region_transition),    // Relationship
+    // RemoveStructuralFeatureValueAction
+    // RemoveVariableValueAction
+    // ReplyAction
+    // SendObjectAction
+    // SendSignalAction
+    // SequenceNode
+    // Signal
+    // SignalEvent
+    // Slot
+    // StartClassifierBehaviorAction
+    // StartObjectBehaviorAction
+    // State
+      CompositeSetUpdate(
+        links_State_state_compose_connection_ConnectionPointReference _,
+        ops.State_connection),
+      CompositeSetUpdate(
+        links_State_state_compose_connectionPoint_Pseudostate _,
+        ops.State_connectionPoint),
+      CompositeSetUpdate(
+        links_State_state_compose_deferrableTrigger_Trigger _,
+        ops.State_deferrableTrigger),
+      CompositeSetUpdate(
+        links_State_state_compose_region_Region _,
+        ops.State_region),    // StateInvariant
+    // StateMachine
+      CompositeSetUpdate(
+        links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate _,
+        ops.StateMachine_connectionPoint),
+      CompositeSetUpdate(
+        links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine _,
+        ops.StateMachine_extendedStateMachine),
+      CompositeSetUpdate(
+        links_StateMachine_stateMachine_compose_region_Region _,
+        ops.StateMachine_region),
+      CompositeSetUpdate(
+        links_StateMachine_submachine_reference_submachineState_State _,
+        ops.StateMachine_submachineState),    // Stereotype
+      CompositeSetUpdate(
+        links_Stereotype_stereotype_compose_icon_Image _,
+        ops.Stereotype_icon),    // StringExpression
+    // StructuralFeature
+    // StructuralFeatureAction
+    // StructuredActivityNode
+      CompositeSetUpdate(
+        links_StructuredActivityNode_inStructuredNode_compose_edge_ActivityEdge _,
+        ops.StructuredActivityNode_edge),
+      CompositeSetUpdate(
+        links_StructuredActivityNode_inStructuredNode_compose_node_ActivityNode _,
+        ops.StructuredActivityNode_node),
+      CompositeSetUpdate(
+        links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeInput_InputPin _,
+        ops.StructuredActivityNode_structuredNodeInput),
+      CompositeSetUpdate(
+        links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeOutput_OutputPin _,
+        ops.StructuredActivityNode_structuredNodeOutput),
+      CompositeSetUpdate(
+        links_StructuredActivityNode_scope_compose_variable_Variable _,
+        ops.StructuredActivityNode_variable),    // StructuredClassifier
+      CompositeSetUpdate(
+        links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
+        ops.StructuredClassifier_ownedConnector),    // Substitution
+    // TemplateBinding
+      CompositeSetUpdate(
+        links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution _,
+        ops.TemplateBinding_parameterSubstitution),    // TemplateParameter
+    // TemplateParameterSubstitution
+    // TemplateSignature
+    // TemplateableElement
+      CompositeSetUpdate(
+        links_TemplateableElement_boundElement_compose_templateBinding_TemplateBinding _,
+        ops.TemplateableElement_templateBinding),    // TestIdentityAction
+    // TimeConstraint
+    // TimeEvent
+    // TimeExpression
+      CompositeSetUpdate(
+        links_TimeExpression_timeExpression_reference_observation_Observation _,
+        ops.TimeExpression_observation),    // TimeInterval
+    // TimeObservation
+    // Transition
+      CompositeSetUpdate(
+        links_Transition_transition_compose_trigger_Trigger _,
+        ops.Transition_trigger),    // Trigger
+      CompositeSetUpdate(
+        links_Trigger_trigger_reference_port_Port _,
+        ops.Trigger_port),    // Type
+    // TypedElement
+    // UnmarshallAction
+    // Usage
+    // UseCase
+      CompositeSetUpdate(
+        links_UseCase_extension_compose_extend_Extend _,
+        ops.UseCase_extend),
+      CompositeSetUpdate(
+        links_UseCase_useCase_compose_extensionPoint_ExtensionPoint _,
+        ops.UseCase_extensionPoint),
+      CompositeSetUpdate(
+        links_UseCase_includingCase_compose_include_Include _,
+        ops.UseCase_include),
+      CompositeSetUpdate(
+        links_UseCase_useCase_reference_subject_Classifier _,
+        ops.UseCase_subject)    // ValuePin
+    // ValueSpecification
+    // ValueSpecificationAction
+    // Variable
+    // VariableAction
+    // Vertex
+    // WriteLinkAction
+    // WriteStructuralFeatureAction
+    // WriteVariableAction
+    )
+
 	// Start of user code for additional features
+
+  type MetaPropertyCompositeFunctionQuery =
+  MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
 
   type MetaPropertyCompositeReferenceQuery =
   MetaPropertyReference[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
 
-  trait CompositeReferenceUpdater {
+  trait CompositeReferenceSingleUpdate {
+
+    def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit]
+  }
+
+  trait CompositeReferenceUpdater extends CompositeReferenceSingleUpdate {
+    val links_query: MetaPropertyCompositeReferenceQuery
     def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit]
   }
 
   case class CompositeReferenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Option[V]) => Try[Unit])
+  ( links_composes: (U, Option[V]) => Try[Unit],
+    override val links_query: MetaPropertyCompositeReferenceQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends CompositeReferenceUpdater {
 
@@ -2540,22 +4470,21 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
+    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+      linksComposes(owner, Some(owned))
   }
-
-  implicit def compositeReferenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Option[V]) => Try[Unit])
-  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeReferenceUpdate[U, V] =
-    CompositeReferenceUpdate[U, V](links_composes)
 
   type MetaPropertyCompositeCollectionQuery =
   MetaPropertyCollection[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
 
-  trait CompositeIterableUpdater {
+  trait CompositeIterableUpdater extends CompositeReferenceSingleUpdate {
+    val links_query: MetaPropertyCompositeCollectionQuery
     def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
   }
 
   case class CompositeIterableUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Iterable[V]) => Try[Unit])
+  ( links_composes: (U, Iterable[V]) => Try[Unit],
+    override val links_query: MetaPropertyCompositeCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends CompositeIterableUpdater {
 
@@ -2567,19 +4496,22 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
+    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+      for {
+        composed <- links_query.evaluate(owner)
+        updated = if (composed.contains(owned)) composed else composed :+ owned
+      } yield linksComposes(owner, updated)
+
   }
 
-  implicit def compositeIterableUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Iterable[V]) => Try[Unit])
-  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeIterableUpdate[U, V] =
-    CompositeIterableUpdate[U, V](links_composes)
-
-  trait CompositeSequenceUpdater {
+  trait CompositeSequenceUpdater extends CompositeReferenceSingleUpdate {
+    val links_query: MetaPropertyCompositeCollectionQuery
     def linksComposes(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit]
   }
 
   case class CompositeSequenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Seq[V]) => Try[Unit])
+  ( links_composes: (U, Seq[V]) => Try[Unit],
+    override val links_query: MetaPropertyCompositeCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends CompositeSequenceUpdater {
 
@@ -2591,19 +4523,22 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
+    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+      for {
+        composed <- links_query.evaluate(owner)
+        updated = if (composed.contains(owned)) composed else composed :+ owned
+      } yield linksComposes(owner, updated)
+
   }
 
-  implicit def compositeSequenceUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Seq[V]) => Try[Unit])
-  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeSequenceUpdate[U, V] =
-    CompositeSequenceUpdate[U, V](links_composes)
-
-  trait CompositeSetUpdater {
+  trait CompositeSetUpdater extends CompositeReferenceSingleUpdate {
+    val links_query: MetaPropertyCompositeCollectionQuery
     def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
   }
 
   case class CompositeSetUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Set[V]) => Try[Unit])
+  ( links_composes: (U, Set[V]) => Try[Unit],
+    override val links_query: MetaPropertyCompositeCollectionQuery)
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends CompositeSetUpdater {
 
@@ -2615,81 +4550,13 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
+    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+      for {
+        composed <- links_query.evaluate(owner)
+        updated = if (composed.contains(owned)) composed else composed :+ owned
+      } yield linksComposes(owner, updated)
+
   }
-
-  implicit def compositeSetUpdate[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Set[V]) => Try[Unit])
-  ( implicit utag: ClassTag[U], vtag: ClassTag[V]): CompositeSetUpdate[U, V] =
-    CompositeSetUpdate[U, V](links_composes)
-
-  // @TODO generate...
-
-  val MetaPropertyReference2LinksUpdate
-  : Map[MetaPropertyCompositeReferenceQuery, CompositeReferenceUpdater]
-  = Map(
-    ops.Abstraction_mapping ->
-      links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
-    ops.AcceptCallAction_returnInformation ->
-      links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin _,
-    ops.ActionInputPin_fromAction ->
-      links_ActionInputPin_actionInputPin_compose_fromAction_Action _,
-    ops.ActivityEdge_guard ->
-      links_ActivityEdge_activityEdge_compose_guard_ValueSpecification _,
-    ops.ActivityEdge_weight ->
-      links_ActivityEdge_activityEdge_compose_weight_ValueSpecification _,
-    ops.AddStructuralFeatureValueAction_insertAt ->
-      links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin _,
-
-    ops.TemplateableElement_ownedTemplateSignature ->
-      links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _
-
-  )
-
-  val MetaPropertyIterable2LinksUpdate
-  : Map[MetaPropertyCompositeCollectionQuery, CompositeIterableUpdater]
-  = Map(
-    ops.Association_ownedEnd ->
-      links_Association_owningAssociation_compose_ownedEnd_Property _
-  )
-
-  val MetaPropertySequence2LinksUpdate
-  : Map[MetaPropertyCompositeCollectionQuery, CompositeSequenceUpdater]
-  = Map(
-    ops.AcceptEventAction_result ->
-      links_AcceptEventAction_acceptEventAction_compose_result_OutputPin _,
-    ops.Artifact_ownedAttribute ->
-      links_Artifact_artifact_compose_ownedAttribute_Property _,
-    ops.Artifact_ownedOperation ->
-      links_Artifact_artifact_compose_ownedOperation_Operation _
-
-  )
-
-  val MetaPropertySet2LinksUpdate
-  : Map[MetaPropertyCompositeCollectionQuery, CompositeSetUpdater]
-  = Map(
-    ops.AcceptEventAction_trigger ->
-      links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger _,
-    ops.Action_localPostcondition ->
-      links_Action_action_compose_localPostcondition_Constraint _,
-    ops.Action_localPrecondition ->
-      links_Action_action_compose_localPostcondition_Constraint _,
-    ops.Activity_edge ->
-      links_Activity_activity_compose_edge_ActivityEdge _,
-    ops.Activity_group ->
-      links_Activity_inActivity_compose_group_ActivityGroup _,
-    ops.Activity_node ->
-      links_Activity_activity_compose_node_ActivityNode _,
-    ops.Activity_structuredNode ->
-      links_Activity_activity_compose_structuredNode_StructuredActivityNode _,
-    ops.Activity_variable ->
-      links_Activity_activityScope_compose_variable_Variable _,
-    ops.ActivityPartition_subpartition ->
-      links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition _,
-    ops.Artifact_manifestation ->
-      links_Artifact_artifact_compose_manifestation_Manifestation _,
-    ops.Artifact_nestedArtifact ->
-      links_Artifact_artifact_compose_nestedArtifact_Artifact _
-  )
 
   // End of user code
 }

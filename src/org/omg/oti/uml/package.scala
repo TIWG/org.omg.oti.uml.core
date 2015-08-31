@@ -43,7 +43,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.canonicalXMI.IDGenerator
 
-import scala.reflect.ClassTag
+import scala.reflect._
 import scala.language.existentials
 import scala.reflect.runtime.universe._
 import scala.util.{Failure, Success, Try}
@@ -290,28 +290,35 @@ package object uml {
    * @tparam V The metaclass that is the type of the property
    */
   sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]] {
+    val domainType: ClassTag[U]
+    val rangeType: ClassTag[V]
+     
     val propertyName: String
 
     /**
      * Ordering matters for serialization per Canonical XMI ptc/2013-08-31:
      *
      * B5.3 Property Content for Class-typed Properties
-     * For ordering of elements within the serialization of a class-typed property value (usually an association end),
-     * where the property does not have isOrdered='true' in the metamodel, the ordering is as follows:
+     * For ordering of elements within the serialization of a class-typed property value
+     * (usually an association end) where the property does not have isOrdered='true'
+     * in the metamodel, the ordering is as follows:
      * - All nested elements precede all link elements (those referencing another element)
-     *   Within the set of nested elements the order is alphabetically ordered by the value of the xmi:uuid.
+     *   Within the set of nested elements the order is alphabetically ordered by
+     *   the value of the xmi:uuid.
      * - Within the set of link elements all links using xmi:idref preceded elements using href.
-     *   The set of xmi:idref elements is alphabetically ordered by the value of the xmi:idref, and the set
-     *   of href elements is alphabetically ordered by the value of the href.
+     *   The set of xmi:idref elements is alphabetically ordered by the value of the xmi:idref,
+     *   and the set of href elements is alphabetically ordered by the value of the href.
      * B5.4 Property Content for DataType-typed Properties
      * For ordering of elements within the serialization of a data-typed property value,
      * where the property does not have isOrdered='true' in the metamodel,
      * there will be no links nor xmi:uuids and the ordering is as follows.
      * Note that for structured Datatypes the properties will be ordered as per B5.1.
-     * - For structured datatypes the nested elements are alphabetically ordered by the values of their properties,
-     *   taken in order (if the values of the first properties are identical the second is compared and so on)
+     * - For structured datatypes the nested elements are alphabetically ordered by
+     *   the values of their properties, taken in order
+     *   (if the values of the first properties are identical the second is compared and so on)
      * - For simple datatypes the nested elements are sorted alphabetically by their values.
-     * Note that alphabetic ordering is used so that, even if the property is of type Integer, 10 will precede 9.
+     * Note that alphabetic ordering is used so that, even if the property is of type Integer,
+     * 10 will precede 9.
      */
     val isOrdered: Boolean
 
@@ -335,10 +342,14 @@ package object uml {
      * The following additional rules are defined to suppress redundant information.
      * They can be overriden using XMI tags:
      * In the case where a Property redefines another Property, only the redefining Property is serialized.
-     * (Note that when serializing an instance of a concrete supertype whose Property has been redefined,
-     * the supertype is unaware of the redefinition, and the Property as defined on the supertype is serialized.)
+     * (Note that when serializing an instance of a concrete supertype whose
+     *  Property has been redefined the supertype is unaware of the redefinition, and
+     *  the Property as defined on the supertype is serialized.)
      */
-    val redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+    val redefinedMetaProperties: Set[
+      _ <: MetaPropertyFunction[Uml,
+      _ <: UMLElement[Uml],
+      _ <: UMLElement[Uml]]]
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]]
 
@@ -351,10 +362,15 @@ package object uml {
   (propertyName: String,
    f: U => Option[V],
    isOrdered: Boolean = false,
-   redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())
-  (implicit val u: ClassTag[U])
+   redefinedMetaProperties:
+   Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
+   Set())
+  (implicit val uType: ClassTag[U], vType: ClassTag[V])
     extends MetaPropertyFunction[Uml, U, V] {
 
+    override val domainType = uType
+    override val rangeType = vType
+    
     val isCollection: Boolean = false
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = Some(this)
@@ -367,13 +383,16 @@ package object uml {
         case _ => Failure(IllegalMetaPropertyEvaluation(e, this))
       }
 
-    override def toString: String = s"MetaPropertyReference($propertyName on $u${if (isOrdered) " {ordered}" else ""})"
+    override def toString: String =
+      s"MetaPropertyReference($propertyName on $uType${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {
         case that: MetaPropertyReference[Uml, _, _] =>
           (that canEqual this) &&
-            propertyName == that.propertyName
+            propertyName == that.propertyName &&
+            domainType.runtimeClass.getName == that.domainType.runtimeClass.getName &&
+            rangeType.runtimeClass.getName == that.rangeType.runtimeClass.getName
         case _ =>
           false
       }
@@ -388,10 +407,15 @@ package object uml {
   (propertyName: String,
    f: U => Iterable[V],
    isOrdered: Boolean = false,
-   redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] = Set())
-  (implicit val u: ClassTag[U])
+   redefinedMetaProperties:
+   Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
+   Set())
+  (implicit val uType: ClassTag[U], vType: ClassTag[V])
     extends MetaPropertyFunction[Uml, U, V] {
 
+    override val domainType = uType
+    override val rangeType = vType
+    
     val isCollection: Boolean = true
 
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = None
@@ -416,13 +440,15 @@ package object uml {
     }
 
     override def toString: String =
-      s"MetaPropertyCollection($propertyName on $u${if (isOrdered) " {ordered}" else ""})"
+      s"MetaPropertyCollection($propertyName on $uType${if (isOrdered) " {ordered}" else ""})"
 
     override def equals(other: Any): Boolean =
       other match {
         case that: MetaPropertyCollection[Uml, _, _] =>
           (that canEqual this) &&
-            propertyName == that.propertyName
+            propertyName == that.propertyName &&
+            domainType.runtimeClass.getName == that.domainType.runtimeClass.getName &&
+            rangeType.runtimeClass.getName == that.rangeType.runtimeClass.getName
         case _ =>
           false
       }
@@ -489,8 +515,9 @@ package object uml {
         }
     }
 
-  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]](source: T, targets: Set[T], next: T => Set[T]):
-  Set[Seq[(T, T)]] = {
+  def findAllPathsTo[Uml <: UML, T <: UMLElement[Uml]]
+  (source: T, targets: Set[T], next: T => Set[T])
+  : Set[Seq[(T, T)]] = {
 
     val paths = scala.collection.mutable.HashSet[Seq[(T, T)]]()
 
@@ -518,35 +545,45 @@ package object uml {
     growPaths(next(source) map ((n) => Seq((source, n))))
   }
 
-  def getGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypes[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     import ops._
     s.general.selectByKindOf({ case s: UMLStereotype[Uml] => s })
   }
 
-  def getGeneralStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypesOutsideProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     getGeneralStereotypes(s).filter((s1) => s1.profile != s.profile)
   }
 
-  def getGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getGeneralStereotypesWithinProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     getGeneralStereotypes(s).filter((s1) => s1.profile == s.profile)
   }
 
-  def getAllGeneralStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getAllGeneralStereotypes[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getGeneralStereotypes(_) + s)
   }
 
-  def getAllGeneralStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  def getAllGeneralStereotypesWithinProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
   Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getGeneralStereotypesWithinProfile(_) + s)
   }
 
-  def getGeneralStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
+  def getGeneralStereotypesFromOtherProfiles[Uml <: UML]
+  (s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
   Set[UMLStereotype[Uml]] =
     s.profile match {
       case None => Set()
@@ -554,36 +591,48 @@ package object uml {
         getAllGeneralStereotypesWithinProfile(s).flatMap(getGeneralStereotypesOutsideProfile(_))
     }
 
-  def getSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypes[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     import ops._
     s.general_classifier.selectByKindOf({ case s: UMLStereotype[Uml] => s })
   }
 
-  def getSpecializedStereotypesOutsideProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypesOutsideProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     getSpecializedStereotypes(s).filter((s1) => s1.profile != s.profile)
   }
 
-  def getSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getSpecializedStereotypesWithinProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     getSpecializedStereotypes(s).filter((s1) => s1.profile == s.profile)
   }
 
-  def getAllSpecializedStereotypes[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getAllSpecializedStereotypes[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getSpecializedStereotypes(_) + s)
   }
 
-  def getAllSpecializedStereotypesWithinProfile[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] = {
+  def getAllSpecializedStereotypesWithinProfile[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] = {
     import ops._
     closure[UMLStereotype[Uml], UMLStereotype[Uml]](s, getSpecializedStereotypesWithinProfile(_) + s)
   }
 
-  def getSpecializedStereotypesFromOtherProfiles[Uml <: UML](s: UMLStereotype[Uml])(implicit ops: UMLOps[Uml]):
-  Set[UMLStereotype[Uml]] =
+  def getSpecializedStereotypesFromOtherProfiles[Uml <: UML]
+  (s: UMLStereotype[Uml])
+  (implicit ops: UMLOps[Uml])
+  : Set[UMLStereotype[Uml]] =
     s.profile match {
       case None => Set()
       case Some(pf) =>

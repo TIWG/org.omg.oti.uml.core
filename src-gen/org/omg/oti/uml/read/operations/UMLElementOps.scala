@@ -62,86 +62,83 @@ import org.omg.oti.uml.canonicalXMI.IDGenerator
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLElementOps[Uml <: UML] {
-  self: UMLElement[Uml] =>
+trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
-  implicit val ops: UMLOps[Uml]
+	implicit val ops: UMLOps[Uml]
+	import self.ops._
 
-  import self.ops._
-
-  /**
-   * The Comments owned by this Element.
-   *
-   * <!-- Start of user code doc for ownedComment -->
+	/**
+	 * The Comments owned by this Element.
+	 *
+	 * <!-- Start of user code doc for ownedComment -->
    * <!-- End of user code doc for ownedComment -->
-   *
-   * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * @opposite org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
-   */
-  def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
+	 *
+	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * @opposite org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
+	 */
+	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
-  /**
-   * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
-   *
-   * <!-- Start of user code doc for allOwnedElements -->
+	/**
+	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
+	 *
+	 * <!-- Start of user code doc for allOwnedElements -->
    * <!-- End of user code doc for allOwnedElements -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="0..*"
-   * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
-   */
-  def allOwnedElements: Set[UMLElement[Uml]] = {
-    // Start of user code for "allOwnedElements"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="0..*"
+	 * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+	 */
+	def allOwnedElements: Set[UMLElement[Uml]] = {
+		// Start of user code for "allOwnedElements"
     closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
     // End of user code
-  }
+	}
 
-  /**
-   * The query mustBeOwned() indicates whether Elements of this type must have an owner.
-   * Subclasses of Element that do not require an owner must override this operation.
-   *
-   * <!-- Start of user code doc for mustBeOwned -->
+	/**
+	 * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
+	 *
+	 * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
-   *
-   * @operation ordered="false" unique="true" multiplicity="1..1"
-   * @body result = (true)
-   */
-  def mustBeOwned: Boolean = {
-    // Start of user code for "mustBeOwned"
+	 *
+	 * @operation ordered="false" unique="true" multiplicity="1..1"
+	 * @body result = (true)
+	 */
+	def mustBeOwned: Boolean = {
+		// Start of user code for "mustBeOwned"
     true
     // End of user code
-  }
+	}
 
-  /**
-   * Elements that must be owned must have an owner.
-   *
-   * <!-- Start of user code doc for validate_has_owner -->
+	/**
+	 * Elements that must be owned must have an owner.
+	 *
+	 * <!-- Start of user code doc for validate_has_owner -->
    * <!-- End of user code doc for validate_has_owner -->
-   *
-   * @body mustBeOwned() implies owner->notEmpty()
-   */
-  def validate_has_owner: Boolean = {
-    // Start of user code for "has_owner"
+	 *
+	 * @body mustBeOwned() implies owner->notEmpty()
+	 */
+	def validate_has_owner: Boolean = {
+		// Start of user code for "has_owner"
     if (mustBeOwned) {
       owner.isDefined
     } else true
     // End of user code
-  }
+	}
 
-  /**
-   * An element may not directly or indirectly own itself.
-   *
-   * <!-- Start of user code doc for validate_not_own_self -->
+	/**
+	 * An element may not directly or indirectly own itself.
+	 *
+	 * <!-- Start of user code doc for validate_not_own_self -->
    * <!-- End of user code doc for validate_not_own_self -->
-   *
-   * @body not allOwnedElements()->includes(self)
-   */
-  def validate_not_own_self: Boolean = {
-    // Start of user code for "not_own_self"
+	 *
+	 * @body not allOwnedElements()->includes(self)
+	 */
+	def validate_not_own_self: Boolean = {
+		// Start of user code for "not_own_self"
     !allOwnedElements.contains(self)
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   /**
    * The element or the first owner of the element that is a package with an effective URI;
@@ -544,7 +541,7 @@ trait UMLElementOps[Uml <: UML] {
    * This attribute may be used as the value of the idref attribute defined in the next sub clause.
    * It may also be included as part of the value of the href attribute in XLinks.
    * An example of the use of this attribute and the other attributes in this sub clause can be found in 7.10.3.
-   * If the metaclass has (or inherits) a Property with isId = ‘true,’ then
+   * If the metaclass has (or inherits) a Property with isId = ???true,??? then
    * the value of that property may be used as the basis of the xmi:id and/or xmi:uuid attributes.
    * This is not mandatory, and the exact algorithm to be used is not specified in this International Standard.
    * However it is important, to be a valid XML document, that the value for xmi:id is unique
@@ -855,6 +852,4 @@ trait UMLElementOps[Uml <: UML] {
   }
 
   // End of user code
-}
-
-//UMLElementOps
+} //UMLElementOps
