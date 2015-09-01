@@ -68,7 +68,14 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def lower: Integer = {
 		// Start of user code for "lower"
-    ???
+    lowerValue match {
+      case None => 1
+      
+      case Some(v) => v.integerValue match {
+        case Some(i) => i
+        case None => 1
+      }
+    }
     // End of user code
 	}
 
@@ -83,7 +90,15 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 */
 	def upper: Integer = {
 		// Start of user code for "upper"
-    ???
+    upperValue match {
+      case None => 1
+      
+      case Some(v) => v.unlimitedValue match {
+        case Some(u) => u
+        case None => 1
+      }
+    }
+    
     // End of user code
 	}
 
