@@ -73,9 +73,9 @@ Bundle-ClassPath: .,
  lib_managed/jars/xml-resolver/xml-resolver/xml-resolver-1.2.jar,
  lib_managed/jars/net.liftweb/lift-json_2.11/lift-json_2.11-2.6-M4.jar,
  lib_managed/jars/org.scala-lang/scalap/scalap-2.11.1.jar
-Require-Bundle: org.scala-lang.modules.scala-parser-combinators;bundle-version="1.0.3",
+Require-Bundle: org.scala-lang.modules.scala-parser-combinators;bundle-version="1.0.3";visibility:=reexport,
  org.scala-lang.modules.scala-xml;bundle-version="1.0.3";visibility:=reexport,
- org.scala-lang.scala-compiler;bundle-version="2.11.7",
- org.scala-lang.scala-library;bundle-version="2.11.7",
- org.scala-lang.scala-reflect;bundle-version="2.11.7"
+ org.scala-lang.scala-compiler;bundle-version="2.11.7";visibility:=reexport,
+ org.scala-lang.scala-reflect;bundle-version="2.11.7";visibility:=reexport,
+ org.scala-lang.scala-library;bundle-version="2.11.7";visibility:=reexport
 Bundle-ActivationPolicy: lazy
