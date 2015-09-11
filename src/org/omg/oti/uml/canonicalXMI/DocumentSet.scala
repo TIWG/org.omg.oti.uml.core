@@ -72,98 +72,104 @@ import scalaz._, Scalaz._, Free._
  * There seems to be a bug in scala-graph core 1.9.1
  * @see https://github.com/scala-graph/scala-graph/issues/29
  *
- * As a workaround, the edge is defined as a kind of directed hyperedge (DiHyperEdge) but
- * this is overkill, it should be just a directed edge (DiEdge)
+ *      As a workaround, the edge is defined as a kind of directed hyperedge (DiHyperEdge) but
+ *      this is overkill, it should be just a directed edge (DiEdge)
  */
-class DocumentEdge[N]( nodes: Product )
-  extends DiHyperEdge[N]( nodes ) // DiEdge
-  with EdgeCopy[DocumentEdge]
-  with OuterEdge[N, DocumentEdge] {
+class DocumentEdge[N](nodes: Product)
+  extends DiHyperEdge[N](nodes) // DiEdge
+          with EdgeCopy[DocumentEdge]
+          with OuterEdge[N, DocumentEdge] {
 
-  override def copy[NN]( newNodes: Product ) = DocumentEdge.newEdge[NN]( newNodes )
+  override def copy[NN](newNodes: Product) = DocumentEdge.newEdge[NN]( newNodes )
 }
 
 object DocumentEdge extends EdgeCompanion[DocumentEdge] {
-  protected def newEdge[N]( nodes: Product ) = new DocumentEdge[N]( nodes )
+  protected def newEdge[N](nodes: Product) = new DocumentEdge[N](nodes)
 
   /**
    * @see https://github.com/scala-graph/scala-graph/issues/29
-   * should be DiEdge[Project with ... ]
+   *      should be DiEdge[Project with ... ]
    */
-  def apply[Uml <: UML]( e: DiHyperEdge[Product with Serializable with Document[Uml]] ) =
-    new DocumentEdge[Document[Uml]]( NodeProduct( e.from, e.to ) )
+  def apply[Uml <: UML](e: DiHyperEdge[Product with Serializable with Document[Uml]]) =
+    new DocumentEdge[Document[Uml]](NodeProduct(e.from, e.to))
 
-  def apply[Uml <: UML]( from: Document[Uml], to: Document[Uml] ) =
-    new DocumentEdge[Document[Uml]]( NodeProduct( from, to ) )
+  def apply[Uml <: UML](from: Document[Uml], to: Document[Uml]) =
+    new DocumentEdge[Document[Uml]](NodeProduct(from, to))
 
-  def unapply[Uml <: UML]( e: DocumentEdge[Document[Uml]] ) =
-    Some( e )
+  def unapply[Uml <: UML](e: DocumentEdge[Document[Uml]]) =
+    Some(e)
 
-  def apply[N]( from: N, to: N ): DocumentEdge[N] =
-    new DocumentEdge[N]( NodeProduct( from, to ) )
+  def apply[N](from: N, to: N): DocumentEdge[N] =
+    new DocumentEdge[N](NodeProduct(from, to))
 
-  override def from[N]( nodes: Product ): DocumentEdge[N] =
-    new DocumentEdge[N]( NodeProduct( nodes.productElement( 1 ), nodes.productElement( 2 ) ) )
+  override def from[N](nodes: Product): DocumentEdge[N] =
+    new DocumentEdge[N](NodeProduct(nodes.productElement(1), nodes.productElement(2)))
 }
 
 case class UnresolvedElementCrossReference[Uml <: UML](
-  document: Document[Uml],
-  documentElement: UMLElement[Uml],
-  externalReference: UMLElement[Uml] )
+                                                        document: Document[Uml],
+                                                        documentElement: UMLElement[Uml],
+                                                        externalReference: UMLElement[Uml])
 
 /**
  * @todo: add support for the possibility that a stereotype tag value may
- * refer to an element serialized in a different document.
+ *        refer to an element serialized in a different document.
  */
-case class DocumentSet[Uml <: UML]
-( val serializableDocuments: Set[SerializableDocument[Uml]],
-  val builtInDocuments: Set[BuiltInDocument[Uml]],
-  val builtInDocumentEdges: Set[DocumentEdge[Document[Uml]]],
-  val documentURIMapper: CatalogURIMapper,
-  val builtInURIMapper: CatalogURIMapper )
-( implicit val ops: UMLOps[Uml], nodeT: TypeTag[Document[Uml]], edgeT: TypeTag[DocumentEdge[Document[Uml]]] ) {
+trait DocumentSet[Uml <: UML] {
+  val serializableDocuments: Set[SerializableDocument[Uml]]
+  val builtInDocuments: Set[BuiltInDocument[Uml]]
+  val builtInDocumentEdges: Set[DocumentEdge[Document[Uml]]]
+  val documentURIMapper: CatalogURIMapper
+  val builtInURIMapper: CatalogURIMapper
 
-  implicit val myConfig = CoreConfig( orderHint = 5000, Hints( 64, 0, 64, 75 ) )
+  implicit val ops: UMLOps[Uml]
+  implicit val nodeT: TypeTag[Document[Uml]]
+  implicit val edgeT: TypeTag[DocumentEdge[Document[Uml]]]
+
+  implicit val myConfig = CoreConfig(orderHint = 5000, Hints(64, 0, 64, 75))
 
   //implicit val documentEdgeTag: TypeTag[DocumentEdge[Document[Uml]]] = typeTag[DocumentEdge[Document[Uml]]]
 
   class TConnected[CC[N, E[X] <: EdgeLikeIn[X]] <: Graph[N, E] with GraphLike[N, E, CC]]
-  ( val factory: GraphConstrainedCompanion[CC] ) {
+  (val factory: GraphConstrainedCompanion[CC]) {
     implicit val config: Config = NoneConstraint
 
     def empty() = factory[Document[Uml], DocumentEdge]()
   }
 
   type MutableDocumentSetGraph = mutable.Graph[Document[Uml], DocumentEdge]
-  val mGraphFactory = new TConnected[mutable.Graph]( mutable.Graph )
+  val mGraphFactory = new TConnected[mutable.Graph](mutable.Graph)
 
   type ImmutableDocumentSetGraph = immutable.Graph[Document[Uml], DocumentEdge]
-  val iGraphFactory = new TConnected[immutable.Graph]( immutable.Graph )
+  val iGraphFactory = new TConnected[immutable.Graph](immutable.Graph)
+
   /**
    * Construct the graph of document (nodes) and cross-references among documents (edges) and
    * determine unresolvable cross-references
    *
    * @param ignoreCrossReferencedElementFilter A predicate determing whether to ignore
-   * an element or a cross reference to an element.
+   *                                           an element or a cross reference to an element.
    *
    * @return a 3-tuple:
-   * - the graph of document-level cross references
-   * - the map of elements to theirs serialization document
-   * - the unresolved cross references
+   *         - the graph of document-level cross references
+   *         - the map of elements to theirs serialization document
+   *         - the unresolved cross references
    */
   def resolve
-  ( ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean,
-    unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] )
-  : ( ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]] ) = {
+  (ignoreCrossReferencedElementFilter: UMLElement[Uml] => Boolean,
+   unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]])
+  : Try[(ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]])] = {
 
     val element2document: Map[UMLElement[Uml], Document[Uml]] =
-      ( serializableDocuments ++ builtInDocuments ) flatMap {
+      (serializableDocuments ++ builtInDocuments)
+      .flatMap {
         d =>
           d.extent flatMap { e =>
-            if ( ignoreCrossReferencedElementFilter( e ) ) None
-            else Some( ( e -> d ) )
+            if (ignoreCrossReferencedElementFilter(e)) None
+            else Some(e -> d)
           }
-      } toMap
+      }
+      .toMap
 
     val g = mGraphFactory.empty()
 
@@ -174,47 +180,47 @@ case class DocumentSet[Uml <: UML]
     g ++= builtInDocumentEdges
 
     val unresolved = for {
-      ( e, d ) <- element2document
+      (e, d) <- element2document
       eRef <- e.allForwardReferencesToElements
-    } yield element2document.get( eRef ) match {
-      case None =>
-        if ( ignoreCrossReferencedElementFilter( eRef ) ) {
-          None
-        } else {
-          val found = unresolvedElementMapper( eRef ) match {
-            case Some( mRef ) => element2document.get( mRef ) match {
-              case Some( dRef ) =>
-                if ( d != dRef )
+    } yield element2document.get(eRef) match {
+        case None       =>
+          if (ignoreCrossReferencedElementFilter(eRef)) {
+            None
+          } else {
+            val found = unresolvedElementMapper(eRef) match {
+              case Some(mRef) => element2document.get(mRef) match {
+                case Some(dRef) =>
+                  if (d != dRef)
                   // add cross-reference edge only if the source is not a built-in document
-                  d match {
-                    case sd: SerializableDocument[Uml] => g += DocumentEdge( sd, dRef )
-                    case _: BuiltInDocument[Uml]       => ()
-                  }
-                true
-              case None =>
+                    d match {
+                      case sd: SerializableDocument[Uml] => g += DocumentEdge(sd, dRef)
+                      case _: BuiltInDocument[Uml]       => ()
+                    }
+                  true
+                case None       =>
+                  false
+              }
+              case None       =>
                 false
             }
-            case None =>
-              false
+            if (found) None
+            else {
+              System.out.println(
+                s" => unresolved! from ${e.xmiType.head} in ${d.uri} to ${eRef.xmiType.head}")
+              Some(UnresolvedElementCrossReference(d, e, eRef))
+            }
           }
-          if ( found ) None
-          else {
-            System.out.println(
-              s" => unresolved! from ${e.xmiType.head} in ${d.uri} to ${eRef.xmiType.head}" )
-            Some( UnresolvedElementCrossReference( d, e, eRef ) )
-          }
-        }
-      case Some( dRef ) =>
-        if ( d != dRef )
+        case Some(dRef) =>
+          if (d != dRef)
           // add cross-reference edge only if the source is not a built-in document
-          d match {
-            case sd: SerializableDocument[Uml] => g += DocumentEdge( sd, dRef )
-            case _: BuiltInDocument[Uml]       => ()
-          }
-        None
-    }
+            d match {
+              case sd: SerializableDocument[Uml] => g += DocumentEdge(sd, dRef)
+              case _: BuiltInDocument[Uml]       => ()
+            }
+          None
+      }
 
-    ( ResolvedDocumentSet( this, g, element2document, unresolvedElementMapper ), unresolved.flatten )
+    Success((ResolvedDocumentSet(this, g, element2document, unresolvedElementMapper), unresolved.flatten))
   }
 
   /**
@@ -223,36 +229,36 @@ case class DocumentSet[Uml <: UML]
    * @see https://groups.google.com/forum/#!searchin/scala-graph/typetag/scala-graph/2x207RGtBSE/ipbLAUwcM0EJ
    */
   def topologicalSort
-  ( g: MutableDocumentSetGraph )
+  (g: MutableDocumentSetGraph)
   : Either[Document[Uml], List[Document[Uml]]] =
-    searchAll( g.nodes, Memo() ).right.map( _.sorted.map( _.value ) )
+    searchAll(g.nodes, Memo()).right.map(_.sorted.map(_.value))
 
   case class Memo(
-    sorted: List[Document[Uml]] = Nil,
-    grey: MutableDocumentSetGraph = mGraphFactory.empty(),
-    black: MutableDocumentSetGraph = mGraphFactory.empty() )
+                   sorted: List[Document[Uml]] = Nil,
+                   grey: MutableDocumentSetGraph = mGraphFactory.empty(),
+                   black: MutableDocumentSetGraph = mGraphFactory.empty())
 
   def dfs
-  ( node: MutableDocumentSetGraph#NodeT, memo: Memo )
+  (node: MutableDocumentSetGraph#NodeT, memo: Memo)
   : Either[Document[Uml], Memo] = {
-    if ( memo.grey.contains( OuterNode( node.value ) ) )
+    if (memo.grey.contains(OuterNode(node.value)))
       Left[Document[Uml], Memo]( node.value )
-    else if ( memo.black.contains( OuterNode( node.value ) ) )
-      right( memo )
+    else if (memo.black.contains(OuterNode(node.value)))
+      right(memo)
     else
-      searchAll (
+      searchAll(
         node.outNeighbors.toIterable,
-        memo.copy( grey = memo.grey + node ) ).
-        right.map( a => Memo( node.value :: a.sorted, memo.grey, a.black + node ) )
+        memo.copy(grey = memo.grey + node)).
+      right.map(a => Memo(node.value :: a.sorted, memo.grey, a.black + node))
   }
 
   def searchAll
-  ( nodes: Iterable[MutableDocumentSetGraph#NodeT], memo: Memo )
+  (nodes: Iterable[MutableDocumentSetGraph#NodeT], memo: Memo)
   : Either[Document[Uml], Memo] = {
     ( right( memo ) /: nodes )( ( accu, node ) => accu.right.flatMap( m => dfs( node, m ) ) )
   }
 
-  def right( m: Memo ): Either[Document[Uml], Memo] = Right( m )
+  def right(m: Memo): Either[Document[Uml], Memo] = Right(m)
 
 }
 
@@ -269,68 +275,77 @@ object DocumentSet {
    * Check http://solitaire.omg.org/browse/TIWG-3
    */
   def serializeValueSpecificationAsTagValue[Uml <: UML]
-  ( value: UMLValueSpecification[Uml] )
+  (value: UMLValueSpecification[Uml])
   (implicit idg: IDGenerator[Uml])
   : Try[Option[String]] =
     value match {
       case l: UMLLiteralBoolean[Uml] =>
-        Success( Some( l.value.toString ) )
+        Success(Some(l.value.toString))
       case l: UMLLiteralInteger[Uml] =>
-        Success( Some( l.value.toString ) )
+        Success(Some(l.value.toString))
       case l: UMLLiteralReal[Uml]    =>
-        Success( Some( l.value.toString ) )
+        Success(Some(l.value.toString))
       case l: UMLLiteralString[Uml]  =>
-        Success( l.value match { case None => None; case Some( s ) => Some( s ) } )
+        Success(l.value match { case None => None; case Some(s) => Some(s) })
       case iv: UMLInstanceValue[Uml] =>
-        Success( iv.instance match { case None => None; case Some( is ) => Some( is.xmiID ) } )
-      case v =>
-        Failure( new IllegalArgumentException(
-          s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID})" ) )
+        Success(iv.instance match { case None => None; case Some(is) => Some(is.xmiID) })
+      case v                         =>
+        Failure(new IllegalArgumentException(
+          s"No value=>string serialization support for ${v.xmiType.head} (ID=${v.xmiID})"))
     }
 
   def constructDocumentSetCrossReferenceGraph[Uml <: UML]
-  ( specificationRootPackages: Set[UMLPackage[Uml]],
-    documentURIMapper: CatalogURIMapper,
-    builtInURIMapper: CatalogURIMapper,
-    builtInDocuments: Set[BuiltInDocument[Uml]],
-    builtInDocumentEdges: Set[DocumentEdge[Document[Uml]]],
-    ignoreCrossReferencedElementFilter: Function1[UMLElement[Uml], Boolean],
-    unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]] )
-  ( implicit ops: UMLOps[Uml], nodeT: TypeTag[Document[Uml]], edgeT: TypeTag[DocumentEdge[Document[Uml]]] )
-  : Try[( ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]] )] = {
+  (specificationRootPackages: Set[UMLPackage[Uml]],
+   documentURIMapper: CatalogURIMapper,
+   builtInURIMapper: CatalogURIMapper,
+   builtInDocuments: Set[BuiltInDocument[Uml]],
+   builtInDocumentEdges: Set[DocumentEdge[Document[Uml]]],
+   ignoreCrossReferencedElementFilter: Function1[UMLElement[Uml], Boolean],
+   unresolvedElementMapper: UMLElement[Uml] => Option[UMLElement[Uml]])
+  (implicit ops: UMLOps[Uml], documentOps: DocumentOps[Uml],
+   nodeT: TypeTag[Document[Uml]],
+   edgeT: TypeTag[DocumentEdge[Document[Uml]]])
+  : Try[(ResolvedDocumentSet[Uml], Iterable[UnresolvedElementCrossReference[Uml]])] = {
 
     import ops._
-    val ( roots, anonymousRoots ) = specificationRootPackages partition ( _.getEffectiveURI.isDefined )
-    if ( anonymousRoots.nonEmpty )
-      Failure( illegalElementException(
-        "Document-level packages must have an effective URI for export", anonymousRoots ) )
+    import documentOps._
+
+    val (roots, anonymousRoots) = specificationRootPackages partition (_.getEffectiveURI.isDefined)
+    if (anonymousRoots.nonEmpty)
+      Failure(illegalElementException(
+        "Document-level packages must have an effective URI for export", anonymousRoots))
     else {
       val serializableDocuments = for {
         root <- roots
-        rootURI <- root.getEffectiveURI
-        rootURL <- root.getDocumentURL
-        rootUUIDPrefix = root.oti_uuidPrefix.getOrElse(rootURI+"#")
-      } yield {
-        System.out.println(
-          s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}" )
-        SerializableDocument(
-          uri = new java.net.URI( rootURI ),
-          nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
-          uuidPrefix = rootUUIDPrefix,
-          documentURL = new java.net.URI( rootURL ),
-          scope = root )
-      }
+        sd <- createSerializableDocumentFromExistingRootPackage(root)
+      } yield sd
 
-      val ds = DocumentSet(
-        serializableDocuments,
-        builtInDocuments,
-        builtInDocumentEdges,
-        documentURIMapper,
-        builtInURIMapper )
-      Success(
-        ds.resolve(
+      //        rootURI <- root.getEffectiveURI
+      //        rootURL <- root.getDocumentURL
+      //        rootUUIDPrefix = root.oti_uuidPrefix.getOrElse(rootURI+"#")
+      //      } yield {
+      //        System.out.println(
+      //          s"# SerializableDocument: rootURI=${rootURI}, nsPrefix=${root.name.get}, documentURL=${rootURL}" )
+      //        SerializableDocument(
+      //          uri = new java.net.URI( rootURI ),
+      //          nsPrefix = IDGenerator.xmlSafeID( root.name.get ),
+      //          uuidPrefix = rootUUIDPrefix,
+      //          documentURL = new java.net.URI( rootURL ),
+      //          scope = root )
+      //      }
+
+      for {
+        ds <- createDocumentSet(
+          serializableDocuments,
+          builtInDocuments,
+          builtInDocumentEdges,
+          documentURIMapper,
+          builtInURIMapper)
+
+        rds <- ds.resolve(
           ignoreCrossReferencedElementFilter,
-          unresolvedElementMapper ) )
+          unresolvedElementMapper)
+      } yield rds
     }
   }
 }

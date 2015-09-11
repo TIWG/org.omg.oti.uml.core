@@ -642,5 +642,12 @@ trait UMLFactory[Uml <: UML] {
   def createUMLVariable: Try[UMLVariable[Uml]]
 
 	// Start of user code for additional features
+
+  val reflectivePackageFactoryLookup: Map[String, (UMLFactory[Uml] => Try[_ <: UMLPackage[Uml]])] =
+    Map(
+      "Package" -> (f => f.createUMLPackage),
+      "Model" -> (f => f.createUMLModel),
+      "Profile" -> (f => f.createUMLProfile))
+
 	// End of user code
 }
