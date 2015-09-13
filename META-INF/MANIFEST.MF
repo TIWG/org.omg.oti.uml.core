@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OMG Tool-neutral Interface (OTI) API for OMG UML 2.5-compatible modeling tools
 Bundle-SymbolicName: org.omg.oti;singleton:=true
-Bundle-Version: 0.17.0.qualifier
+Bundle-Version: 0.18.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.thoughtworks.paranamer,
  net.liftweb.json,

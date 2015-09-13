@@ -37,7 +37,7 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.uml.canonicalXMI
+package org.omg.oti.uml.xmi
 
 import java.net.URI
 import org.omg.oti.uml.read.api.{UML, UMLElement}
@@ -50,20 +50,34 @@ sealed abstract trait Document[Uml <: UML] {
   val uri: URI
   val nsPrefix: String
   val uuidPrefix: String
+
+  /**
+   * The official URI where this document is published as a resource that can be referenced by other documents
+   * and whose contents can be referenced starting from this URI
+   */
   val documentURL: URI
+
+  /**
+   * The root element defining the containment scope of this document
+   */
   val scope: UMLElement[Uml]
-  
-  lazy val extent: Set[UMLElement[Uml]] = 
-     (Stream(scope) ++ scope.allOwnedElements) toSet
-  
+
+  /**
+   * The set of all elements directly or indirectly owned by `scope`, including `scope`
+   *
+   * @return The reflexive, transitive closure of containment from `scope`
+   */
+  def extent: Set[UMLElement[Uml]]
 }
 
 trait BuiltInDocument[Uml <: UML] extends Document[Uml] {
-  def builtInExtent: Set[UMLElement[Uml]]
-  override lazy val extent = builtInExtent
-  override def toString: String = s"BuiltInDocument(uri=${uri})"
+  /**
+   * The extent of a built-in document, which is a tool-specific representation of a published document.
+   * This extent may be a partial representation of the full extent of the published document.
+   */
+  val builtInExtent: Set[UMLElement[Uml]]
+
+  override def extent = builtInExtent
 }
     
-trait SerializableDocument[Uml <: UML] extends Document[Uml] {
-  override def toString: String = s"SerializableDocument(uri=${uri})"  
-}
+trait SerializableDocument[Uml <: UML] extends Document[Uml] 

@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.read.api.{UML, UMLDependency, UMLCollaborationUse, UMLNamedElement}
-import org.omg.oti.uml.canonicalXMI.IDGenerator
+import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.postfixOps
 // End of user code

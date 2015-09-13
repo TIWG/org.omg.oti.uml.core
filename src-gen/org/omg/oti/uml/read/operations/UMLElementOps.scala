@@ -52,7 +52,7 @@ import scala.reflect._
 import scala.util.Try
 import scala.util.Success
 import scala.util.Failure
-import org.omg.oti.uml.canonicalXMI.IDGenerator
+import org.omg.oti.uml.xmi.IDGenerator
 
 // End of user code
 
@@ -781,7 +781,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The computed OTI xmi:uuid for the element
    */
   def generatedOTI_uuid()(implicit idg: IDGenerator[Uml]): String =
-    idg.resolvedDocumentSet.element2mappedDocument(self) match {
+    idg.element2mappedDocument(self) match {
       case Some(d) => d.uuidPrefix + xmiID()
       case None =>
         throw new IllegalArgumentException(s"Cannot generate the OTI uuid for $self " +

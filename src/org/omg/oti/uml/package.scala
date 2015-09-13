@@ -41,7 +41,7 @@ package org.omg.oti
 
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
-import org.omg.oti.uml.canonicalXMI.IDGenerator
+import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.reflect._
 import scala.language.existentials

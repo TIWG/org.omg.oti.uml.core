@@ -44,7 +44,7 @@ package org.omg.oti.uml.read.operations
 import org.omg.oti.uml._
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
-import org.omg.oti.uml.canonicalXMI.IDGenerator
+import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.postfixOps
 import scala.util.Try

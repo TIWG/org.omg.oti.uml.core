@@ -39,7 +39,7 @@
  */
 package org.omg.oti.uml.read
 
-import org.omg.oti.uml.canonicalXMI.IDGenerator
+import org.omg.oti.uml.xmi.IDGenerator
 import org.omg.oti.uml.read.api.UML
 import org.omg.oti.uml.read.api.UMLElement
 import org.omg.oti.uml.read.api.UMLEnumerationLiteral
