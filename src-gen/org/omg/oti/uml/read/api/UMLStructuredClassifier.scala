@@ -63,8 +63,8 @@ trait UMLStructuredClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_structuredClassifier
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_structuredClassifier
 	 */
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLStructuredClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for role -->
    * <!-- End of user code doc for role -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectableElement.role_structuredClassifier
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElement.role_structuredClassifier
 	 */
 	def role: Set[UMLConnectableElement[Uml]]
 

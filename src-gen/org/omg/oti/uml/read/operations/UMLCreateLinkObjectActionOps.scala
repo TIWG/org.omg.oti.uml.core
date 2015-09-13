@@ -62,8 +62,8 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_createLinkObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_createLinkObjectAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * <!-- Start of user code doc for validate_association_class -->
    * <!-- End of user code doc for validate_association_class -->
 	 *
-	 * @body self.association().oclIsKindOf(AssociationClass)
+	 * {{{
+	 * OCL Body self.association().oclIsKindOf(AssociationClass)
+	 * }}}
 	 */
 	def validate_association_class: Boolean = {
 		// Start of user code for "association_class"
@@ -87,7 +89,9 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -101,7 +105,9 @@ trait UMLCreateLinkObjectActionOps[Uml <: UML] { self: UMLCreateLinkObjectAction
 	 * <!-- Start of user code doc for validate_type_of_result -->
    * <!-- End of user code doc for validate_type_of_result -->
 	 *
-	 * @body result.type = association()
+	 * {{{
+	 * OCL Body result.type = association()
+	 * }}}
 	 */
 	def validate_type_of_result: Boolean = {
 		// Start of user code for "type_of_result"

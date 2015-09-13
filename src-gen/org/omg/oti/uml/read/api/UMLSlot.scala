@@ -63,8 +63,8 @@ trait UMLSlot[Uml <: UML]
 	 * <!-- Start of user code doc for definingFeature -->
    * <!-- End of user code doc for definingFeature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuralFeature.definingFeature_slot
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeature.definingFeature_slot
 	 */
 	def definingFeature: Option[UMLStructuralFeature[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLSlot[Uml <: UML]
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.value_owningSlot
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.value_owningSlot
 	 */
 	def value: Seq[UMLValueSpecification[Uml]]
 

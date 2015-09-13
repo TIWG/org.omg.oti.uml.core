@@ -63,7 +63,7 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for isReentrant -->
    * <!-- End of user code doc for isReentrant -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReentrant: Boolean
 
@@ -73,8 +73,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for ownedParameter -->
    * <!-- End of user code doc for ownedParameter -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameter.ownedParameter_behavior
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.ownedParameter_behavior
 	 */
 	def ownedParameter: Seq[UMLParameter[Uml]]
 
@@ -84,8 +84,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for postcondition -->
    * <!-- End of user code doc for postcondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.postcondition_behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.postcondition_behavior
 	 */
 	def postcondition: Set[UMLConstraint[Uml]]
 
@@ -95,8 +95,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for precondition -->
    * <!-- End of user code doc for precondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.precondition_behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.precondition_behavior
 	 */
 	def precondition: Set[UMLConstraint[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedBehavior -->
    * <!-- End of user code doc for redefinedBehavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior_behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior_behavior
 	 */
 	def redefinedBehavior: Set[UMLBehavior[Uml]]
 
@@ -117,8 +117,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioralFeature.method
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioralFeature.method
 	 */
 	def specification: Option[UMLBehavioralFeature[Uml]]
 
@@ -126,8 +126,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for behavior_behaviorExecutionSpecification -->
    * <!-- End of user code doc for behavior_behaviorExecutionSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehaviorExecutionSpecification.behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehaviorExecutionSpecification.behavior
 	 */
 	def behavior_behaviorExecutionSpecification: Set[UMLBehaviorExecutionSpecification[Uml]]
 
@@ -135,8 +135,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for behavior_callBehaviorAction -->
    * <!-- End of user code doc for behavior_callBehaviorAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCallBehaviorAction.behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCallBehaviorAction.behavior
 	 */
 	def behavior_callBehaviorAction: Set[UMLCallBehaviorAction[Uml]]
 
@@ -144,8 +144,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for behavior_opaqueExpression -->
    * <!-- End of user code doc for behavior_opaqueExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOpaqueExpression.behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.behavior
 	 */
 	def behavior_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
 
@@ -153,8 +153,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for contract_connector -->
    * <!-- End of user code doc for contract_connector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.contract
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.contract
 	 */
 	def contract_connector: Set[UMLConnector[Uml]]
 
@@ -162,8 +162,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for decisionInput_decisionNode -->
    * <!-- End of user code doc for decisionInput_decisionNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDecisionNode.decisionInput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDecisionNode.decisionInput
 	 */
 	def decisionInput_decisionNode: Set[UMLDecisionNode[Uml]]
 
@@ -171,8 +171,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for doActivity_state -->
    * <!-- End of user code doc for doActivity_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.doActivity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.doActivity
 	 */
 	def doActivity_state: Option[UMLState[Uml]]
 
@@ -180,8 +180,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for entry_state -->
    * <!-- End of user code doc for entry_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.entry
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.entry
 	 */
 	def entry_state: Option[UMLState[Uml]]
 
@@ -189,8 +189,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for exit_state -->
    * <!-- End of user code doc for exit_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.exit
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.exit
 	 */
 	def exit_state: Option[UMLState[Uml]]
 
@@ -198,8 +198,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for ownedBehavior_behavioredClassifier -->
    * <!-- End of user code doc for ownedBehavior_behavioredClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioredClassifier.ownedBehavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.ownedBehavior
 	 */
 	def ownedBehavior_behavioredClassifier: Option[UMLBehavioredClassifier[Uml]]
 
@@ -207,8 +207,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedBehavior_behavior -->
    * <!-- End of user code doc for redefinedBehavior_behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior
 	 */
 	def redefinedBehavior_behavior: Set[UMLBehavior[Uml]]
 
@@ -216,8 +216,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for reducer_reduceAction -->
    * <!-- End of user code doc for reducer_reduceAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReduceAction.reducer
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReduceAction.reducer
 	 */
 	def reducer_reduceAction: Set[UMLReduceAction[Uml]]
 
@@ -225,8 +225,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for selection_objectFlow -->
    * <!-- End of user code doc for selection_objectFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectFlow.selection
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectFlow.selection
 	 */
 	def selection_objectFlow: Set[UMLObjectFlow[Uml]]
 
@@ -234,8 +234,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for selection_objectNode -->
    * <!-- End of user code doc for selection_objectNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectNode.selection
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.selection
 	 */
 	def selection_objectNode: Set[UMLObjectNode[Uml]]
 
@@ -243,8 +243,8 @@ trait UMLBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for transformation_objectFlow -->
    * <!-- End of user code doc for transformation_objectFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectFlow.transformation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectFlow.transformation
 	 */
 	def transformation_objectFlow: Set[UMLObjectFlow[Uml]]
 

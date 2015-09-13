@@ -75,10 +75,18 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_input_and_output_parameter -->
    * <!-- End of user code doc for validate_input_and_output_parameter -->
 	 *
-	 * @body selection<>null implies
+	 * {{{
+	 * OCL Body selection<>null implies
+	 * }}}
+	 * {{{
 	 * 	selection.inputParameters()->size()=1 and
+	 * }}}
+	 * {{{
 	 * 	selection.inputParameters()->forAll(not isUnique and is(0,*)) and
+	 * }}}
+	 * {{{
 	 * 	selection.outputParameters()->size()=1
+	 * }}}
 	 */
 	def validate_input_and_output_parameter: Boolean = {
 		// Start of user code for "input_and_output_parameter"
@@ -92,7 +100,9 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_is_multicast_or_is_multireceive -->
    * <!-- End of user code doc for validate_is_multicast_or_is_multireceive -->
 	 *
-	 * @body not (isMulticast and isMultireceive)
+	 * {{{
+	 * OCL Body not (isMulticast and isMultireceive)
+	 * }}}
 	 */
 	def validate_is_multicast_or_is_multireceive: Boolean = {
 		// Start of user code for "is_multicast_or_is_multireceive"
@@ -106,7 +116,9 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_no_executable_nodes -->
    * <!-- End of user code doc for validate_no_executable_nodes -->
 	 *
-	 * @body not (source.oclIsKindOf(ExecutableNode) or target.oclIsKindOf(ExecutableNode))
+	 * {{{
+	 * OCL Body not (source.oclIsKindOf(ExecutableNode) or target.oclIsKindOf(ExecutableNode))
+	 * }}}
 	 */
 	def validate_no_executable_nodes: Boolean = {
 		// Start of user code for "no_executable_nodes"
@@ -133,7 +145,9 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_selection_behavior -->
    * <!-- End of user code doc for validate_selection_behavior -->
 	 *
-	 * @body selection<>null implies source.oclIsKindOf(ObjectNode)
+	 * {{{
+	 * OCL Body selection<>null implies source.oclIsKindOf(ObjectNode)
+	 * }}}
 	 */
 	def validate_selection_behavior: Boolean = {
 		// Start of user code for "selection_behavior"
@@ -160,9 +174,15 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_transformation_behavior -->
    * <!-- End of user code doc for validate_transformation_behavior -->
 	 *
-	 * @body transformation<>null implies
+	 * {{{
+	 * OCL Body transformation<>null implies
+	 * }}}
+	 * {{{
 	 * 	transformation.inputParameters()->size()=1 and
+	 * }}}
+	 * {{{
 	 * 	transformation.outputParameters()->size()=1
+	 * }}}
 	 */
 	def validate_transformation_behavior: Boolean = {
 		// Start of user code for "transformation_behavior"

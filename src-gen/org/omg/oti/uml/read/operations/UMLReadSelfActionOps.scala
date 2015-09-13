@@ -62,8 +62,8 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readSelfAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readSelfAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * <!-- Start of user code doc for validate_contained -->
    * <!-- End of user code doc for validate_contained -->
 	 *
-	 * @body _'context' <> null
+	 * {{{
+	 * OCL Body _'context' <> null
+	 * }}}
 	 */
 	def validate_contained: Boolean = {
 		// Start of user code for "contained"
@@ -87,7 +89,9 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -101,8 +105,12 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * <!-- Start of user code doc for validate_not_static -->
    * <!-- End of user code doc for validate_not_static -->
 	 *
-	 * @body let behavior: Behavior = self.containingBehavior() in
+	 * {{{
+	 * OCL Body let behavior: Behavior = self.containingBehavior() in
+	 * }}}
+	 * {{{
 	 * behavior.specification<>null implies not behavior.specification.isStatic
+	 * }}}
 	 */
 	def validate_not_static: Boolean = {
 		// Start of user code for "not_static"
@@ -116,7 +124,9 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 * <!-- Start of user code doc for validate__type -->
    * <!-- End of user code doc for validate__type -->
 	 *
-	 * @body result.type = _'context'
+	 * {{{
+	 * OCL Body result.type = _'context'
+	 * }}}
 	 */
 	def validate__type: Boolean = {
 		// Start of user code for "_type"

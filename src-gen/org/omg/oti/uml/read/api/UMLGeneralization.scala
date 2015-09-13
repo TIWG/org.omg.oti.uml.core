@@ -63,8 +63,8 @@ trait UMLGeneralization[Uml <: UML]
 	 * <!-- Start of user code doc for generalizationSet -->
    * <!-- End of user code doc for generalizationSet -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralizationSet.generalization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralizationSet.generalization
 	 */
 	def generalizationSet: Set[UMLGeneralizationSet[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLGeneralization[Uml <: UML]
 	 * <!-- Start of user code doc for isSubstitutable -->
    * <!-- End of user code doc for isSubstitutable -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def isSubstitutable: Option[Boolean]
 

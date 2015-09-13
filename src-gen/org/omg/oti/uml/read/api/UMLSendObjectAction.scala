@@ -63,8 +63,8 @@ trait UMLSendObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.target_sendObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.target_sendObjectAction
 	 */
 	def target: Option[UMLInputPin[Uml]]
 

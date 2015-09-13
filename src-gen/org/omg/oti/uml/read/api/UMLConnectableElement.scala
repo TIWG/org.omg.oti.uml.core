@@ -64,8 +64,8 @@ trait UMLConnectableElement[Uml <: UML]
 	 * <!-- Start of user code doc for templateParameter -->
    * <!-- End of user code doc for templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectableElementTemplateParameter.parameteredElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElementTemplateParameter.parameteredElement
 	 */
 	override def templateParameter: Option[UMLConnectableElementTemplateParameter[Uml]]
 
@@ -73,8 +73,8 @@ trait UMLConnectableElement[Uml <: UML]
 	 * <!-- Start of user code doc for represents_lifeline -->
    * <!-- End of user code doc for represents_lifeline -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.represents
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.represents
 	 */
 	def represents_lifeline: Set[UMLLifeline[Uml]]
 

@@ -62,8 +62,8 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_reclassifyObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_reclassifyObjectAction
 	 */
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,7 +73,9 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
    * <!-- End of user code doc for validate_classifier_not_abstract -->
 	 *
-	 * @body not newClassifier->exists(isAbstract)
+	 * {{{
+	 * OCL Body not newClassifier->exists(isAbstract)
+	 * }}}
 	 */
 	def validate_classifier_not_abstract: Boolean = {
 		// Start of user code for "classifier_not_abstract"
@@ -87,7 +89,9 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * <!-- Start of user code doc for validate_input_pin -->
    * <!-- End of user code doc for validate_input_pin -->
 	 *
-	 * @body object.type = null
+	 * {{{
+	 * OCL Body object.type = null
+	 * }}}
 	 */
 	def validate_input_pin: Boolean = {
 		// Start of user code for "input_pin"
@@ -101,7 +105,9 @@ trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"

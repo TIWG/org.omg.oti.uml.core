@@ -62,14 +62,16 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for kind -->
    * <!-- End of user code doc for kind -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if end->exists(
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if end->exists(
 	 * 		role.oclIsKindOf(Port) 
 	 * 		and partWithPort->isEmpty()
 	 * 		and not role.oclAsType(Port).isBehavior)
 	 * then ConnectorKind::delegation 
 	 * else ConnectorKind::assembly 
 	 * endif)
+	 * }}}
 	 */
 	def kind: UMLConnectorKind.Value = {
 		// Start of user code for "kind"
@@ -83,8 +85,8 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for redefinedConnector -->
    * <!-- End of user code doc for redefinedConnector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.redefinedConnector_connector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.redefinedConnector_connector
 	 */
 	def redefinedConnector: Set[UMLConnector[Uml]] = redefinedElement.selectByKindOf { case x: UMLConnector[Uml] => x }
 
@@ -92,8 +94,8 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for ownedConnector_structuredClassifier -->
    * <!-- End of user code doc for ownedConnector_structuredClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.ownedConnector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredClassifier.ownedConnector
 	 */
 	def ownedConnector_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = featuringClassifier.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 
@@ -101,8 +103,8 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for redefinedConnector_connector -->
    * <!-- End of user code doc for redefinedConnector_connector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.redefinedConnector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.redefinedConnector
 	 */
 	def redefinedConnector_connector: Set[UMLConnector[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLConnector[Uml] => x }
 
@@ -112,11 +114,21 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for validate_roles -->
    * <!-- End of user code doc for validate_roles -->
 	 *
-	 * @body structuredClassifier <> null
+	 * {{{
+	 * OCL Body structuredClassifier <> null
+	 * }}}
+	 * {{{
 	 * and
+	 * }}}
+	 * {{{
 	 *   end->forAll( e | structuredClassifier.allRoles()->includes(e.role)
+	 * }}}
+	 * {{{
 	 * or
+	 * }}}
+	 * {{{
 	 *   e.role.oclIsKindOf(Port) and structuredClassifier.allRoles()->includes(e.partWithPort))
+	 * }}}
 	 */
 	def validate_roles: Boolean = {
 		// Start of user code for "roles"
@@ -130,9 +142,15 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * <!-- Start of user code doc for validate_types -->
    * <!-- End of user code doc for validate_types -->
 	 *
-	 * @body type<>null implies 
+	 * {{{
+	 * OCL Body type<>null implies 
+	 * }}}
+	 * {{{
 	 *   let noOfEnds : Integer = end->size() in 
+	 * }}}
+	 * {{{
 	 *   (type.memberEnd->size() = noOfEnds) and Sequence{1..noOfEnds}->forAll(i | end->at(i).role.type.conformsTo(type.memberEnd->at(i).type))
+	 * }}}
 	 */
 	def validate_types: Boolean = {
 		// Start of user code for "types"

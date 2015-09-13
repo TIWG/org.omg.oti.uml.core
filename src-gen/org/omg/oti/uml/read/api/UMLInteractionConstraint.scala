@@ -63,8 +63,8 @@ trait UMLInteractionConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for maxint -->
    * <!-- End of user code doc for maxint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.maxint_interactionConstraint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.maxint_interactionConstraint
 	 */
 	def maxint: Option[UMLValueSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInteractionConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for minint -->
    * <!-- End of user code doc for minint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.minint_interactionConstraint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.minint_interactionConstraint
 	 */
 	def minint: Option[UMLValueSpecification[Uml]]
 

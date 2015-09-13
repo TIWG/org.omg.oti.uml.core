@@ -63,8 +63,8 @@ trait UMLComponentRealization[Uml <: UML]
 	 * <!-- Start of user code doc for abstraction -->
    * <!-- End of user code doc for abstraction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponent.realization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.realization
 	 */
 	def abstraction: Option[UMLComponent[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLComponentRealization[Uml <: UML]
 	 * <!-- Start of user code doc for realizingClassifier -->
    * <!-- End of user code doc for realizingClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.realizingClassifier_componentRealization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.realizingClassifier_componentRealization
 	 */
 	def realizingClassifier: Set[UMLClassifier[Uml]]
 

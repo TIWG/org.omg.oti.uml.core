@@ -65,7 +65,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * <!-- Start of user code doc for mustIsolate -->
    * <!-- End of user code doc for mustIsolate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def mustIsolate: Boolean
 

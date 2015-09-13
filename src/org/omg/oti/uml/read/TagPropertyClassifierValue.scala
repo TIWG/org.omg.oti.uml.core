@@ -67,7 +67,7 @@ import org.omg.oti.uml.read.api._
  * indirectly related to a stereotype tag property value.
  * It is deleted when the profile is unapplied.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 trait TagPropertyClassifierValue[Uml <: UML] {
 
@@ -90,7 +90,7 @@ trait TagPropertyClassifierValue[Uml <: UML] {
  * is independent of applying/unapplying a profile; that is, the value
  * is a reference to a UML classifier instance owned by a UML element.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyProfileLifecycleIndependentClassifierValue[Uml <: UML]
   extends TagPropertyClassifierValue[Uml]
@@ -99,7 +99,7 @@ trait TagPropertyProfileLifecycleIndependentClassifierValue[Uml <: UML]
  * A reference to an EnumerationLiteral as the value of a stereotype tag property typed by the Enumeration
  * that is the classifier of the EnumerationLiteral. The EnumerationLiteral is owned by a UML Enumeration.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyEnumerationLiteralValue[Uml <: UML]
   extends TagPropertyProfileLifecycleIndependentClassifierValue[Uml] {
@@ -117,7 +117,7 @@ trait TagPropertyEnumerationLiteralValue[Uml <: UML]
  * that is the classifier (or a generalization parent classifier) of the InstanceSpecification.
  * The InstanceSpecification is owned by a UML element.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyInstanceSpecificationValue[Uml <: UML]
   extends TagPropertyProfileLifecycleIndependentClassifierValue[Uml] {
@@ -134,7 +134,7 @@ trait TagPropertyInstanceSpecificationValue[Uml <: UML]
  * A Profile-defined Classifier that is semantically equivalent to one of UML's PrimitiveTypes.
  * The value is owned by the stereotype tag property value collection.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyPrimitiveValue[Uml <: UML]
   extends TagPropertyClassifierValue[Uml] {
@@ -189,7 +189,7 @@ trait TagPropertyStringValue[Uml <: UML]
  *
  * The value is directly or indirectly owned by a stereotype tag property value collection.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyProfileLifecycleDependentClassifierValue[Uml <: UML]
   extends TagPropertyClassifierValue[Uml]
@@ -197,7 +197,7 @@ trait TagPropertyProfileLifecycleDependentClassifierValue[Uml <: UML]
 /**
  * The value is a reference to a classifier value object.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyProfileLifecycleDependentClassifierValueReference[Uml <: UML]
   extends TagPropertyProfileLifecycleDependentClassifierValue[Uml] {
@@ -213,7 +213,7 @@ trait TagPropertyProfileLifecycleDependentClassifierValueReference[Uml <: UML]
  * (not a stereotype, not an extension)
  * (may be a Class, Enumeration, PrimitiveType, Datatype or Association)
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait TagPropertyProfileLifecycleDependentClassifierValueObject[Uml <: UML]
   extends TagPropertyProfileLifecycleDependentClassifierValue[Uml] {

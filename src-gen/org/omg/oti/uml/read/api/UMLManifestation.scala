@@ -63,8 +63,8 @@ trait UMLManifestation[Uml <: UML]
 	 * <!-- Start of user code doc for utilizedElement -->
    * <!-- End of user code doc for utilizedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageableElement.utilizedElement_manifestation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.utilizedElement_manifestation
 	 */
 	def utilizedElement: Option[UMLPackageableElement[Uml]]
 

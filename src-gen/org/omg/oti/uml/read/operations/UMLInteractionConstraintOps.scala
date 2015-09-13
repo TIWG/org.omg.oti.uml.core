@@ -60,8 +60,8 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for guard_interactionOperand -->
    * <!-- End of user code doc for guard_interactionOperand -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionOperand.guard
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionOperand.guard
 	 */
 	def guard_interactionOperand: Option[UMLInteractionOperand[Uml]] = owner.selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
 
@@ -97,9 +97,15 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_maxint_greater_equal_minint -->
    * <!-- End of user code doc for validate_maxint_greater_equal_minint -->
 	 *
-	 * @body maxint->notEmpty() implies (minint->notEmpty() and 
+	 * {{{
+	 * OCL Body maxint->notEmpty() implies (minint->notEmpty() and 
+	 * }}}
+	 * {{{
 	 * maxint->asSequence()->first().integerValue() >=
+	 * }}}
+	 * {{{
 	 * minint->asSequence()->first().integerValue() )
+	 * }}}
 	 */
 	def validate_maxint_greater_equal_minint: Boolean = {
 		// Start of user code for "maxint_greater_equal_minint"
@@ -113,8 +119,12 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_maxint_positive -->
    * <!-- End of user code doc for validate_maxint_positive -->
 	 *
-	 * @body maxint->notEmpty() implies 
+	 * {{{
+	 * OCL Body maxint->notEmpty() implies 
+	 * }}}
+	 * {{{
 	 * maxint->asSequence()->first().integerValue() > 0
+	 * }}}
 	 */
 	def validate_maxint_positive: Boolean = {
 		// Start of user code for "maxint_positive"
@@ -128,9 +138,15 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_minint_maxint -->
    * <!-- End of user code doc for validate_minint_maxint -->
 	 *
-	 * @body maxint->notEmpty() or minint->notEmpty() implies
+	 * {{{
+	 * OCL Body maxint->notEmpty() or minint->notEmpty() implies
+	 * }}}
+	 * {{{
 	 * interactionOperand.combinedFragment.interactionOperator =
+	 * }}}
+	 * {{{
 	 * InteractionOperatorKind::loop
+	 * }}}
 	 */
 	def validate_minint_maxint: Boolean = {
 		// Start of user code for "minint_maxint"
@@ -144,8 +160,12 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_minint_non_negative -->
    * <!-- End of user code doc for validate_minint_non_negative -->
 	 *
-	 * @body minint->notEmpty() implies 
+	 * {{{
+	 * OCL Body minint->notEmpty() implies 
+	 * }}}
+	 * {{{
 	 * minint->asSequence()->first().integerValue() >= 0
+	 * }}}
 	 */
 	def validate_minint_non_negative: Boolean = {
 		// Start of user code for "minint_non_negative"

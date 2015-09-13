@@ -63,7 +63,7 @@ trait UMLTimeEvent[Uml <: UML]
 	 * <!-- Start of user code doc for isRelative -->
    * <!-- End of user code doc for isRelative -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isRelative: Boolean
 

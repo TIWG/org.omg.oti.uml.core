@@ -62,8 +62,8 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for state -->
    * <!-- End of user code doc for state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.connectionPoint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.connectionPoint
 	 */
 	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for stateMachine -->
    * <!-- End of user code doc for stateMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateMachine.connectionPoint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.connectionPoint
 	 */
 	def stateMachine: Option[UMLStateMachine[Uml]] = namespace.selectByKindOf { case x: UMLStateMachine[Uml] => x }
 
@@ -84,7 +84,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_choice_vertex -->
    * <!-- End of user code doc for validate_choice_vertex -->
 	 *
-	 * @body (kind = PseudostateKind::choice) implies (incoming->size() >= 1 and outgoing->size() >= 1)
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::choice) implies (incoming->size() >= 1 and outgoing->size() >= 1)
+	 * }}}
 	 */
 	def validate_choice_vertex: Boolean = {
 		// Start of user code for "choice_vertex"
@@ -98,7 +100,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_fork_vertex -->
    * <!-- End of user code doc for validate_fork_vertex -->
 	 *
-	 * @body (kind = PseudostateKind::fork) implies (incoming->size() = 1 and outgoing->size() >= 2)
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::fork) implies (incoming->size() = 1 and outgoing->size() >= 2)
+	 * }}}
 	 */
 	def validate_fork_vertex: Boolean = {
 		// Start of user code for "fork_vertex"
@@ -112,7 +116,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_history_vertices -->
    * <!-- End of user code doc for validate_history_vertices -->
 	 *
-	 * @body ((kind = PseudostateKind::deepHistory) or (kind = PseudostateKind::shallowHistory)) implies (outgoing->size() <= 1)
+	 * {{{
+	 * OCL Body ((kind = PseudostateKind::deepHistory) or (kind = PseudostateKind::shallowHistory)) implies (outgoing->size() <= 1)
+	 * }}}
 	 */
 	def validate_history_vertices: Boolean = {
 		// Start of user code for "history_vertices"
@@ -126,7 +132,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_initial_vertex -->
    * <!-- End of user code doc for validate_initial_vertex -->
 	 *
-	 * @body (kind = PseudostateKind::initial) implies (outgoing->size() <= 1)
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::initial) implies (outgoing->size() <= 1)
+	 * }}}
 	 */
 	def validate_initial_vertex: Boolean = {
 		// Start of user code for "initial_vertex"
@@ -140,7 +148,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_join_vertex -->
    * <!-- End of user code doc for validate_join_vertex -->
 	 *
-	 * @body (kind = PseudostateKind::join) implies (outgoing->size() = 1 and incoming->size() >= 2)
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::join) implies (outgoing->size() = 1 and incoming->size() >= 2)
+	 * }}}
 	 */
 	def validate_join_vertex: Boolean = {
 		// Start of user code for "join_vertex"
@@ -154,7 +164,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_junction_vertex -->
    * <!-- End of user code doc for validate_junction_vertex -->
 	 *
-	 * @body (kind = PseudostateKind::junction) implies (incoming->size() >= 1 and outgoing->size() >= 1)
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::junction) implies (incoming->size() >= 1 and outgoing->size() >= 1)
+	 * }}}
 	 */
 	def validate_junction_vertex: Boolean = {
 		// Start of user code for "junction_vertex"
@@ -168,7 +180,9 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_outgoing_from_initial -->
    * <!-- End of user code doc for validate_outgoing_from_initial -->
 	 *
-	 * @body (kind = PseudostateKind::initial) implies (outgoing.guard = null and outgoing.trigger->isEmpty())
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::initial) implies (outgoing.guard = null and outgoing.trigger->isEmpty())
+	 * }}}
 	 */
 	def validate_outgoing_from_initial: Boolean = {
 		// Start of user code for "outgoing_from_initial"
@@ -182,12 +196,24 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_transitions_incoming -->
    * <!-- End of user code doc for validate_transitions_incoming -->
 	 *
-	 * @body (kind = PseudostateKind::join) implies
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::join) implies
+	 * }}}
+	 * {{{
 	 * -- for any pair of incoming transitions there exists an orthogonal state which contains the source vetices of these transitions 
+	 * }}}
+	 * {{{
 	 * -- such that these source vertices belong to different regions of that orthogonal state 
+	 * }}}
+	 * {{{
 	 * incoming->forAll(t1:Transition, t2:Transition | let contState:State = containingStateMachine().LCAState(t1.source, t2.source) in
+	 * }}}
+	 * {{{
 	 * 	((contState <> null) and (contState.region
+	 * }}}
+	 * {{{
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.source.isContainedInRegion(r1) and t2.source.isContainedInRegion(r2)))))
+	 * }}}
 	 */
 	def validate_transitions_incoming: Boolean = {
 		// Start of user code for "transitions_incoming"
@@ -201,13 +227,27 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 * <!-- Start of user code doc for validate_transitions_outgoing -->
    * <!-- End of user code doc for validate_transitions_outgoing -->
 	 *
-	 * @body (kind = PseudostateKind::fork) implies
+	 * {{{
+	 * OCL Body (kind = PseudostateKind::fork) implies
+	 * }}}
+	 * {{{
 	 * -- for any pair of outgoing transitions there exists an orthogonal state which contains the targets of these transitions 
+	 * }}}
+	 * {{{
 	 * -- such that these targets belong to different regions of that orthogonal state 
+	 * }}}
+	 * {{{
 	 * outgoing->forAll(t1:Transition, t2:Transition | let contState:State = containingStateMachine().LCAState(t1.target, t2.target) in
+	 * }}}
+	 * {{{
 	 * 	((contState <> null) and (contState.region
+	 * }}}
+	 * {{{
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.target.isContainedInRegion(r1) and t2.target.isContainedInRegion(r2)))))
+	 * }}}
+	 * {{{
 	 * 	
+	 * }}}
 	 */
 	def validate_transitions_outgoing: Boolean = {
 		// Start of user code for "transitions_outgoing"

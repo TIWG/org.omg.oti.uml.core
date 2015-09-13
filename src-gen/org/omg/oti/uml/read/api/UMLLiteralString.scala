@@ -63,7 +63,7 @@ trait UMLLiteralString[Uml <: UML]
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def value: Option[String]
 

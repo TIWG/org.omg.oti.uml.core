@@ -60,8 +60,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for condition_extend -->
    * <!-- End of user code doc for condition_extend -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtend.condition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtend.condition
 	 */
 	def condition_extend: Option[UMLExtend[Uml]] = owner.selectByKindOf { case x: UMLExtend[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for condition_parameterSet -->
    * <!-- End of user code doc for condition_parameterSet -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterSet.condition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterSet.condition
 	 */
 	def condition_parameterSet: Option[UMLParameterSet[Uml]] = owner.selectByKindOf { case x: UMLParameterSet[Uml] => x }
 
@@ -78,8 +78,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for invariant_stateInvariant -->
    * <!-- End of user code doc for invariant_stateInvariant -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateInvariant.invariant
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateInvariant.invariant
 	 */
 	def invariant_stateInvariant: Option[UMLStateInvariant[Uml]] = owner.selectByKindOf { case x: UMLStateInvariant[Uml] => x }
 
@@ -87,8 +87,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for preCondition_protocolTransition -->
    * <!-- End of user code doc for preCondition_protocolTransition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolTransition.preCondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolTransition.preCondition
 	 */
 	def preCondition_protocolTransition: Option[UMLProtocolTransition[Uml]] = guard_transition.selectByKindOf { case x: UMLProtocolTransition[Uml] => x }
 
@@ -124,7 +124,9 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for validate_not_apply_to_self -->
    * <!-- End of user code doc for validate_not_apply_to_self -->
 	 *
-	 * @body not constrainedElement->includes(self)
+	 * {{{
+	 * OCL Body not constrainedElement->includes(self)
+	 * }}}
 	 */
 	def validate_not_apply_to_self: Boolean = {
 		// Start of user code for "not_apply_to_self"

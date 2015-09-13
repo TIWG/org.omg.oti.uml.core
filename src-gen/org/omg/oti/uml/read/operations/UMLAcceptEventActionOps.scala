@@ -63,8 +63,8 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for trigger -->
    * <!-- End of user code doc for trigger -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.trigger_acceptEventAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.trigger_acceptEventAction
 	 */
 	def trigger: Set[UMLTrigger[Uml]] = ownedElement.selectByKindOf { case x: UMLTrigger[Uml] => x }
 
@@ -74,12 +74,24 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for validate_conforming_type -->
    * <!-- End of user code doc for validate_conforming_type -->
 	 *
-	 * @body not isUnmarshall implies 
+	 * {{{
+	 * OCL Body not isUnmarshall implies 
+	 * }}}
+	 * {{{
 	 * 	result->isEmpty() or
+	 * }}}
+	 * {{{
 	 * 	let type: Type = result->first().type in
+	 * }}}
+	 * {{{
 	 * 	type=null or 
+	 * }}}
+	 * {{{
 	 * 		(trigger->forAll(event.oclIsKindOf(SignalEvent)) and 
+	 * }}}
+	 * {{{
 	 * 		 trigger.event.oclAsType(SignalEvent).signal->forAll(s | s.conformsTo(type)))
+	 * }}}
 	 */
 	def validate_conforming_type: Boolean = {
 		// Start of user code for "conforming_type"
@@ -110,7 +122,9 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for validate_no_input_pins -->
    * <!-- End of user code doc for validate_no_input_pins -->
 	 *
-	 * @body input->size() = 0
+	 * {{{
+	 * OCL Body input->size() = 0
+	 * }}}
 	 */
 	def validate_no_input_pins: Boolean = {
 		// Start of user code for "no_input_pins"
@@ -124,10 +138,18 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for validate_no_output_pins -->
    * <!-- End of user code doc for validate_no_output_pins -->
 	 *
-	 * @body (self.oclIsTypeOf(AcceptEventAction) and
+	 * {{{
+	 * OCL Body (self.oclIsTypeOf(AcceptEventAction) and
+	 * }}}
+	 * {{{
 	 *    (trigger->forAll(event.oclIsKindOf(ChangeEvent) or  
+	 * }}}
+	 * {{{
 	 *                              event.oclIsKindOf(CallEvent))))
+	 * }}}
+	 * {{{
 	 * implies output->size() = 0
+	 * }}}
 	 */
 	def validate_no_output_pins: Boolean = {
 		// Start of user code for "no_output_pins"
@@ -151,8 +173,12 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for validate_one_output_pin -->
    * <!-- End of user code doc for validate_one_output_pin -->
 	 *
-	 * @body not isUnmarshall and trigger->exists(event.oclIsKindOf(SignalEvent) or event.oclIsKindOf(TimeEvent)) implies 
+	 * {{{
+	 * OCL Body not isUnmarshall and trigger->exists(event.oclIsKindOf(SignalEvent) or event.oclIsKindOf(TimeEvent)) implies 
+	 * }}}
+	 * {{{
 	 * 	output->size() = 1 and output->first().is(1,1)
+	 * }}}
 	 */
 	def validate_one_output_pin: Boolean = {
 		// Start of user code for "one_output_pin"
@@ -171,15 +197,33 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 * <!-- Start of user code doc for validate_unmarshall_signal_events -->
    * <!-- End of user code doc for validate_unmarshall_signal_events -->
 	 *
-	 * @body isUnmarshall and self.oclIsTypeOf(AcceptEventAction) implies
+	 * {{{
+	 * OCL Body isUnmarshall and self.oclIsTypeOf(AcceptEventAction) implies
+	 * }}}
+	 * {{{
 	 * 	trigger->size()=1 and
+	 * }}}
+	 * {{{
 	 * 	trigger->asSequence()->first().event.oclIsKindOf(SignalEvent) and
+	 * }}}
+	 * {{{
 	 * 	let attribute: OrderedSet(Property) = trigger->asSequence()->first().event.oclAsType(SignalEvent).signal.allAttributes() in
+	 * }}}
+	 * {{{
 	 * 	attribute->size()>0 and result->size() = attribute->size() and
+	 * }}}
+	 * {{{
 	 * 	Sequence{1..result->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 		result->at(i).type = attribute->at(i).type and 
+	 * }}}
+	 * {{{
 	 * 		result->at(i).isOrdered = attribute->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 		result->at(i).includesMultiplicity(attribute->at(i)))
+	 * }}}
 	 */
 	def validate_unmarshall_signal_events: Boolean = {
 		// Start of user code for "unmarshall_signal_events"

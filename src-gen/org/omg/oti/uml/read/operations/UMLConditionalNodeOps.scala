@@ -62,8 +62,8 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for clause -->
    * <!-- End of user code doc for clause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.clause_conditionalNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.clause_conditionalNode
 	 */
 	def clause: Set[UMLClause[Uml]] = ownedElement.selectByKindOf { case x: UMLClause[Uml] => x }
 
@@ -73,8 +73,10 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for allActions -->
    * <!-- End of user code doc for allActions -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self->asSet())
+	 * }}}
 	 */
 	override def allActions: Set[UMLAction[Uml]] = {
 		// Start of user code for "allActions"
@@ -88,7 +90,9 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_clause_no_predecessor -->
    * <!-- End of user code doc for validate_clause_no_predecessor -->
 	 *
-	 * @body clause->closure(predecessorClause)->intersection(clause)->isEmpty()
+	 * {{{
+	 * OCL Body clause->closure(predecessorClause)->intersection(clause)->isEmpty()
+	 * }}}
 	 */
 	def validate_clause_no_predecessor: Boolean = {
 		// Start of user code for "clause_no_predecessor"
@@ -102,7 +106,9 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_executable_nodes -->
    * <!-- End of user code doc for validate_executable_nodes -->
 	 *
-	 * @body clause.test->union(clause._'body') = node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)
+	 * {{{
+	 * OCL Body clause.test->union(clause._'body') = node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)
+	 * }}}
 	 */
 	def validate_executable_nodes: Boolean = {
 		// Start of user code for "executable_nodes"
@@ -116,13 +122,27 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_matching_output_pins -->
    * <!-- End of user code doc for validate_matching_output_pins -->
 	 *
-	 * @body clause->forAll(
+	 * {{{
+	 * OCL Body clause->forAll(
+	 * }}}
+	 * {{{
 	 * 	bodyOutput->size()=self.result->size() and
+	 * }}}
+	 * {{{
 	 * 	Sequence{1..self.result->size()}->forAll(i |
+	 * }}}
+	 * {{{
 	 * 		bodyOutput->at(i).type.conformsTo(result->at(i).type) and
+	 * }}}
+	 * {{{
 	 * 		bodyOutput->at(i).isOrdered = result->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 		bodyOutput->at(i).isUnique = result->at(i).isUnique and
+	 * }}}
+	 * {{{
 	 * 		bodyOutput->at(i).compatibleWith(result->at(i))))
+	 * }}}
 	 */
 	def validate_matching_output_pins: Boolean = {
 		// Start of user code for "matching_output_pins"
@@ -136,7 +156,9 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_no_input_pins -->
    * <!-- End of user code doc for validate_no_input_pins -->
 	 *
-	 * @body input->isEmpty()
+	 * {{{
+	 * OCL Body input->isEmpty()
+	 * }}}
 	 */
 	def validate_no_input_pins: Boolean = {
 		// Start of user code for "no_input_pins"
@@ -150,8 +172,12 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_one_clause_with_executable_node -->
    * <!-- End of user code doc for validate_one_clause_with_executable_node -->
 	 *
-	 * @body node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)->forAll(n | 
+	 * {{{
+	 * OCL Body node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)->forAll(n | 
+	 * }}}
+	 * {{{
 	 * 	self.clause->select(test->union(_'body')->includes(n))->size()=1)
+	 * }}}
 	 */
 	def validate_one_clause_with_executable_node: Boolean = {
 		// Start of user code for "one_clause_with_executable_node"
@@ -165,7 +191,9 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_result_no_incoming -->
    * <!-- End of user code doc for validate_result_no_incoming -->
 	 *
-	 * @body result.incoming->isEmpty()
+	 * {{{
+	 * OCL Body result.incoming->isEmpty()
+	 * }}}
 	 */
 	def validate_result_no_incoming: Boolean = {
 		// Start of user code for "result_no_incoming"

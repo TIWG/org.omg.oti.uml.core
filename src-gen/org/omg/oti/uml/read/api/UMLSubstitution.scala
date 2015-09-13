@@ -63,8 +63,8 @@ trait UMLSubstitution[Uml <: UML]
 	 * <!-- Start of user code doc for contract -->
    * <!-- End of user code doc for contract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.contract_substitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.contract_substitution
 	 */
 	def contract: Option[UMLClassifier[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLSubstitution[Uml <: UML]
 	 * <!-- Start of user code doc for substitutingClassifier -->
    * <!-- End of user code doc for substitutingClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.substitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.substitution
 	 */
 	def substitutingClassifier: Option[UMLClassifier[Uml]]
 

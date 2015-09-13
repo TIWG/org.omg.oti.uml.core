@@ -62,8 +62,8 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * <!-- Start of user code doc for boundElement -->
    * <!-- End of user code doc for boundElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateableElement.templateBinding
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateableElement.templateBinding
 	 */
 	def boundElement: Option[UMLTemplateableElement[Uml]] = owner.selectByKindOf { case x: UMLTemplateableElement[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * <!-- Start of user code doc for parameterSubstitution -->
    * <!-- End of user code doc for parameterSubstitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.templateBinding
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.templateBinding
 	 */
 	def parameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateParameterSubstitution[Uml] => x }
 
@@ -84,8 +84,8 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * <!-- Start of user code doc for signature -->
    * <!-- End of user code doc for signature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.signature_templateBinding
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.signature_templateBinding
 	 */
 	def signature: Option[UMLTemplateSignature[Uml]] = target.selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
 
@@ -95,7 +95,9 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * <!-- Start of user code doc for validate_one_parameter_substitution -->
    * <!-- End of user code doc for validate_one_parameter_substitution -->
 	 *
-	 * @body signature.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)
+	 * {{{
+	 * OCL Body signature.parameter->forAll(p | parameterSubstitution->select(b | b.formal = p)->size() <= 1)
+	 * }}}
 	 */
 	def validate_one_parameter_substitution: Boolean = {
 		// Start of user code for "one_parameter_substitution"
@@ -119,7 +121,9 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 * <!-- Start of user code doc for validate_parameter_substitution_formal -->
    * <!-- End of user code doc for validate_parameter_substitution_formal -->
 	 *
-	 * @body parameterSubstitution->forAll(b | signature.parameter->includes(b.formal))
+	 * {{{
+	 * OCL Body parameterSubstitution->forAll(b | signature.parameter->includes(b.formal))
+	 * }}}
 	 */
 	def validate_parameter_substitution_formal: Boolean = {
 		// Start of user code for "parameter_substitution_formal"

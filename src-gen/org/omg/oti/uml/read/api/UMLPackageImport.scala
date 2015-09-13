@@ -63,7 +63,7 @@ trait UMLPackageImport[Uml <: UML]
 	 * <!-- Start of user code doc for visibility -->
    * <!-- End of user code doc for visibility -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def visibility: UMLVisibilityKind.Value
 
@@ -71,8 +71,8 @@ trait UMLPackageImport[Uml <: UML]
 	 * <!-- Start of user code doc for metamodelReference_profile -->
    * <!-- End of user code doc for metamodelReference_profile -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfile.metamodelReference
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfile.metamodelReference
 	 */
 	def metamodelReference_profile: Option[UMLProfile[Uml]]
 

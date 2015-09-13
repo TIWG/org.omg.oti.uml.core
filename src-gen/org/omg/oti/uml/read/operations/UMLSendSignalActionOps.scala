@@ -62,7 +62,9 @@ trait UMLSendSignalActionOps[Uml <: UML] { self: UMLSendSignalAction[Uml] =>
 	 * <!-- Start of user code doc for validate_number_order -->
    * <!-- End of user code doc for validate_number_order -->
 	 *
-	 * @body argument->size()=signal.allAttributes()->size()
+	 * {{{
+	 * OCL Body argument->size()=signal.allAttributes()->size()
+	 * }}}
 	 */
 	def validate_number_order: Boolean = {
 		// Start of user code for "number_order"
@@ -76,11 +78,21 @@ trait UMLSendSignalActionOps[Uml <: UML] { self: UMLSendSignalAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_ordering_multiplicity -->
    * <!-- End of user code doc for validate_type_ordering_multiplicity -->
 	 *
-	 * @body let attribute: OrderedSet(Property) = signal.allAttributes() in
+	 * {{{
+	 * OCL Body let attribute: OrderedSet(Property) = signal.allAttributes() in
+	 * }}}
+	 * {{{
 	 * Sequence{1..argument->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).type.conformsTo(attribute->at(i).type) and 
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).isOrdered = attribute->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).compatibleWith(attribute->at(i)))
+	 * }}}
 	 */
 	def validate_type_ordering_multiplicity: Boolean = {
 		// Start of user code for "type_ordering_multiplicity"
@@ -94,7 +106,9 @@ trait UMLSendSignalActionOps[Uml <: UML] { self: UMLSendSignalAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_target_pin -->
    * <!-- End of user code doc for validate_type_target_pin -->
 	 *
-	 * @body not onPort->isEmpty() implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
+	 * {{{
+	 * OCL Body not onPort->isEmpty() implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
+	 * }}}
 	 */
 	def validate_type_target_pin: Boolean = {
 		// Start of user code for "type_target_pin"

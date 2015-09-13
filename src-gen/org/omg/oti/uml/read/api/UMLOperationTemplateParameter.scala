@@ -63,8 +63,8 @@ trait UMLOperationTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameteredElement -->
    * <!-- End of user code doc for parameteredElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.templateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.templateParameter
 	 */
 	override def parameteredElement: Option[UMLOperation[Uml]]
 

@@ -62,8 +62,8 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * <!-- Start of user code doc for preCondition -->
    * <!-- End of user code doc for preCondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.preCondition_protocolTransition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.preCondition_protocolTransition
 	 */
 	def preCondition: Option[UMLConstraint[Uml]] = guard
 
@@ -73,9 +73,11 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * <!-- Start of user code doc for referred -->
    * <!-- End of user code doc for referred -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.referred_protocolTransition
-	 * @body result = (trigger->collect(event)->select(oclIsKindOf(CallEvent))->collect(oclAsType(CallEvent).operation)->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.referred_protocolTransition
+	 * {{{
+	 * OCL Body result = (trigger->collect(event)->select(oclIsKindOf(CallEvent))->collect(oclAsType(CallEvent).operation)->asSet())
+	 * }}}
 	 */
 	def referred: Set[UMLOperation[Uml]] = {
 		// Start of user code for "referred"
@@ -89,7 +91,9 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_associated_actions -->
    * <!-- End of user code doc for validate_associated_actions -->
 	 *
-	 * @body effect = null
+	 * {{{
+	 * OCL Body effect = null
+	 * }}}
 	 */
 	def validate_associated_actions: Boolean = {
 		// Start of user code for "associated_actions"
@@ -103,7 +107,9 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_belongs_to_psm -->
    * <!-- End of user code doc for validate_belongs_to_psm -->
 	 *
-	 * @body container.belongsToPSM()
+	 * {{{
+	 * OCL Body container.belongsToPSM()
+	 * }}}
 	 */
 	def validate_belongs_to_psm: Boolean = {
 		// Start of user code for "belongs_to_psm"
@@ -117,9 +123,15 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_refers_to_operation -->
    * <!-- End of user code doc for validate_refers_to_operation -->
 	 *
-	 * @body if (referred()->notEmpty() and containingStateMachine()._'context'->notEmpty()) then 
+	 * {{{
+	 * OCL Body if (referred()->notEmpty() and containingStateMachine()._'context'->notEmpty()) then 
+	 * }}}
+	 * {{{
 	 *     containingStateMachine()._'context'.oclAsType(BehavioredClassifier).allFeatures()->includesAll(referred())
+	 * }}}
+	 * {{{
 	 * else true endif
+	 * }}}
 	 */
 	def validate_refers_to_operation: Boolean = {
 		// Start of user code for "refers_to_operation"

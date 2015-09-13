@@ -61,8 +61,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for bodyOutput_clause -->
    * <!-- End of user code doc for bodyOutput_clause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.bodyOutput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.bodyOutput
 	 */
 	def bodyOutput_clause: Set[UMLClause[Uml]]
 
@@ -70,8 +70,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for bodyOutput_loopNode -->
    * <!-- End of user code doc for bodyOutput_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.bodyOutput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.bodyOutput
 	 */
 	def bodyOutput_loopNode: Set[UMLLoopNode[Uml]]
 
@@ -79,8 +79,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for decider_clause -->
    * <!-- End of user code doc for decider_clause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.decider
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.decider
 	 */
 	def decider_clause: Option[UMLClause[Uml]]
 
@@ -88,8 +88,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for decider_loopNode -->
    * <!-- End of user code doc for decider_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.decider
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.decider
 	 */
 	def decider_loopNode: Option[UMLLoopNode[Uml]]
 
@@ -97,8 +97,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for loopVariable_loopNode -->
    * <!-- End of user code doc for loopVariable_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.loopVariable
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.loopVariable
 	 */
 	def loopVariable_loopNode: Option[UMLLoopNode[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for output_action -->
    * <!-- End of user code doc for output_action -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.output
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.output
 	 */
 	def output_action: Option[UMLAction[Uml]]
 
@@ -115,8 +115,8 @@ trait UMLOutputPin[Uml <: UML]
 	 * <!-- Start of user code doc for result_acceptEventAction -->
    * <!-- End of user code doc for result_acceptEventAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAcceptEventAction.result
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAcceptEventAction.result
 	 */
 	def result_acceptEventAction: Option[UMLAcceptEventAction[Uml]]
 

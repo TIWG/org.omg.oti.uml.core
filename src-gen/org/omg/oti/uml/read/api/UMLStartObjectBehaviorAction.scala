@@ -63,8 +63,8 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_startObjectBehaviorAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_startObjectBehaviorAction
 	 */
 	def _object: Option[UMLInputPin[Uml]]
 

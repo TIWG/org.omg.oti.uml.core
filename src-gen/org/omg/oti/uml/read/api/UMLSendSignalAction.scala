@@ -63,8 +63,8 @@ trait UMLSendSignalAction[Uml <: UML]
 	 * <!-- Start of user code doc for signal -->
    * <!-- End of user code doc for signal -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLSignal.signal_sendSignalAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSignal.signal_sendSignalAction
 	 */
 	def signal: Option[UMLSignal[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLSendSignalAction[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.target_sendSignalAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.target_sendSignalAction
 	 */
 	def target: Option[UMLInputPin[Uml]]
 

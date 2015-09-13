@@ -63,8 +63,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for body -->
    * <!-- End of user code doc for body -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.body_clause
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.body_clause
 	 */
 	def body: Set[UMLExecutableNode[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for bodyOutput -->
    * <!-- End of user code doc for bodyOutput -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.bodyOutput_clause
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.bodyOutput_clause
 	 */
 	def bodyOutput: Seq[UMLOutputPin[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for decider -->
    * <!-- End of user code doc for decider -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.decider_clause
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.decider_clause
 	 */
 	def decider: Option[UMLOutputPin[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for predecessorClause -->
    * <!-- End of user code doc for predecessorClause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.successorClause
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.successorClause
 	 */
 	def predecessorClause: Set[UMLClause[Uml]]
 
@@ -107,8 +107,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for successorClause -->
    * <!-- End of user code doc for successorClause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.predecessorClause
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.predecessorClause
 	 */
 	def successorClause: Set[UMLClause[Uml]]
 
@@ -118,8 +118,8 @@ trait UMLClause[Uml <: UML]
 	 * <!-- Start of user code doc for test -->
    * <!-- End of user code doc for test -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.test_clause
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.test_clause
 	 */
 	def test: Set[UMLExecutableNode[Uml]]
 

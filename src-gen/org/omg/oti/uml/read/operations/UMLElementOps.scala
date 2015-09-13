@@ -73,8 +73,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * <!-- Start of user code doc for ownedComment -->
    * <!-- End of user code doc for ownedComment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
 	 */
 	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
@@ -84,8 +84,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * <!-- Start of user code doc for allOwnedElements -->
    * <!-- End of user code doc for allOwnedElements -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+	 * }}}
 	 */
 	def allOwnedElements: Set[UMLElement[Uml]] = {
 		// Start of user code for "allOwnedElements"
@@ -99,8 +101,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	def mustBeOwned: Boolean = {
 		// Start of user code for "mustBeOwned"
@@ -114,7 +118,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * <!-- Start of user code doc for validate_has_owner -->
    * <!-- End of user code doc for validate_has_owner -->
 	 *
-	 * @body mustBeOwned() implies owner->notEmpty()
+	 * {{{
+	 * OCL Body mustBeOwned() implies owner->notEmpty()
+	 * }}}
 	 */
 	def validate_has_owner: Boolean = {
 		// Start of user code for "has_owner"
@@ -130,7 +136,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * <!-- Start of user code doc for validate_not_own_self -->
    * <!-- End of user code doc for validate_not_own_self -->
 	 *
-	 * @body not allOwnedElements()->includes(self)
+	 * {{{
+	 * OCL Body not allOwnedElements()->includes(self)
+	 * }}}
 	 */
 	def validate_not_own_self: Boolean = {
 		// Start of user code for "not_own_self"
@@ -221,17 +229,16 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The set of Elements referenced from this Element due to link instances of
    * directed, non-composite, non-derived associations defined in the UML metamodel
    *
-   * This method is defined for every metaclass according to the figures from the UML spec in two idioms:
-   * - concrete metaclasses:
+   * This method is defined for every metaclass according to the figures from the UML spec.
    *
    * The override method includes up to 3 contributions:
-   * - those of the metaclass itself
+   *   - those of the metaclass itself
    *
-   * - the concrete direct generalization parent metaclass (zero or one)
-   * => super.forwardReferencesFromMetamodelAssociations
+   *   - the concrete direct generalization parent metaclass (zero or one)
+   *     {{{super.forwardReferencesFromMetamodelAssociations}}}
    *
-   * - each abstract direct generalization parent metaclass (zero or more)
-   * => [metaclass name]_forwardReferencesFromMetamodelAssociations
+   *   - each abstract direct generalization parent metaclass (zero or more)
+   *     {{{[metaclass name]_forwardReferencesFromMetamodelAssociations}}}
    */
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
@@ -697,16 +704,17 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     }
 
   /**
-   * @See MOF2.5
+   * @see OMG MOF2.5
    *
    *      Section 15.9 Additional Operations
    *      [6] This returns the single Property with a slot that represents
    *      the current owner of the Object based on current instance values;
    *      may be null for top level objects.
-   *
+   * {{{
    *      (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
    *      result = self.classifier.allSlottableProperties()
    *      ->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   * }}}
    *
    * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
    */
@@ -733,9 +741,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     }
 
   /**
-   * @See MOF 2.5
+   * See MOF 2.5
    *
-   *      Section 9.4
+   *   - Section 9.4:
+   *
    *      get(property: Property) : Object
    *      Gets the value of the given property.
    *      If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
@@ -744,7 +753,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *      If there are no values, the ReflectiveCollection returned is empty.
    *      Exception: throws IllegalArgumentException if Property is not a member of the Class from class().
    *
-   *      Section 15.5
+   *   - Section 15.5
+   *      {{{
    *      Object::get(Property p): Element
    *      modeled as ObjectInstance::get(Property p): ElementInstance
    *      -- If a foreign association end, then navigate link, else access slot or derive the value
@@ -753,11 +763,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *      (self.propertySlot(p).value <> null and result = self.propertySlot(p).value) or result = p.default) or
    *      (p.isDerivedUnion and result = unionedProperties(p)->union(s| s = self.get(s)) or
    *      (p.isDerived and result = self.extInvoke('get', p))
+   *      }}}
    *
    * @param f (M2)Property
    * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
-   * @throws IllegalArgumentException if `f` is not an (M2)Property of the (M2)Class that
-   *                                  is the metaclass of the element.
    */
   def getElementMetamodelPropertyValue
   (f: MetaPropertyEvaluator)

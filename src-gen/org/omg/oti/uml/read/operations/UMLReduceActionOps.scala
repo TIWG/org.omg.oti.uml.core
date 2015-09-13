@@ -62,8 +62,8 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for collection -->
    * <!-- End of user code doc for collection -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.collection_reduceAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.collection_reduceAction
 	 */
 	def collection: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,8 +73,8 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_reduceAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_reduceAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -97,7 +97,9 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for validate_output_types_are_compatible -->
    * <!-- End of user code doc for validate_output_types_are_compatible -->
 	 *
-	 * @body reducer.outputParameters().type->forAll(conformsTo(result.type))
+	 * {{{
+	 * OCL Body reducer.outputParameters().type->forAll(conformsTo(result.type))
+	 * }}}
 	 */
 	def validate_output_types_are_compatible: Boolean = {
 		// Start of user code for "output_types_are_compatible"
@@ -111,13 +113,27 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for validate_reducer_inputs_output -->
    * <!-- End of user code doc for validate_reducer_inputs_output -->
 	 *
-	 * @body let inputs: OrderedSet(Parameter) = reducer.inputParameters() in
+	 * {{{
+	 * OCL Body let inputs: OrderedSet(Parameter) = reducer.inputParameters() in
+	 * }}}
+	 * {{{
 	 * let outputs: OrderedSet(Parameter) = reducer.outputParameters() in
+	 * }}}
+	 * {{{
 	 * inputs->size()=2 and outputs->size()=1 and
+	 * }}}
+	 * {{{
 	 * inputs.type->forAll(t | 
+	 * }}}
+	 * {{{
 	 * 	outputs.type->forAll(conformsTo(t)) and 
+	 * }}}
+	 * {{{
 	 * 	-- Note that the following only checks the case when the collection is via multiple tokens.
+	 * }}}
+	 * {{{
 	 * 	collection.upper()>1 implies collection.type.conformsTo(t))
+	 * }}}
 	 */
 	def validate_reducer_inputs_output: Boolean = {
 		// Start of user code for "reducer_inputs_output"

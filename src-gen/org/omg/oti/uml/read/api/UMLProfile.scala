@@ -63,8 +63,8 @@ trait UMLProfile[Uml <: UML]
 	 * <!-- Start of user code doc for metaclassReference -->
    * <!-- End of user code doc for metaclassReference -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElementImport.metaclassReference_profile
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.metaclassReference_profile
 	 */
 	def metaclassReference: Set[UMLElementImport[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLProfile[Uml <: UML]
 	 * <!-- Start of user code doc for metamodelReference -->
    * <!-- End of user code doc for metamodelReference -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageImport.metamodelReference_profile
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.metamodelReference_profile
 	 */
 	def metamodelReference: Set[UMLPackageImport[Uml]]
 
@@ -83,8 +83,8 @@ trait UMLProfile[Uml <: UML]
 	 * <!-- Start of user code doc for profile_stereotype -->
    * <!-- End of user code doc for profile_stereotype -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStereotype.profile
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.profile
 	 */
 	def profile_stereotype: Set[UMLStereotype[Uml]]
 

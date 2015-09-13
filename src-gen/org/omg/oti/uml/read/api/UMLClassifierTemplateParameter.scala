@@ -63,7 +63,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for allowSubstitutable -->
    * <!-- End of user code doc for allowSubstitutable -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def allowSubstitutable: Boolean
 
@@ -73,8 +73,8 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for constrainingClassifier -->
    * <!-- End of user code doc for constrainingClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.constrainingClassifier_classifierTemplateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.constrainingClassifier_classifierTemplateParameter
 	 */
 	def constrainingClassifier: Set[UMLClassifier[Uml]]
 
@@ -84,8 +84,8 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameteredElement -->
    * <!-- End of user code doc for parameteredElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.templateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.templateParameter
 	 */
 	override def parameteredElement: Option[UMLClassifier[Uml]]
 

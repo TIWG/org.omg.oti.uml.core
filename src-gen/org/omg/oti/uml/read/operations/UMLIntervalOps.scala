@@ -60,8 +60,8 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 	 * <!-- Start of user code doc for specification_intervalConstraint -->
    * <!-- End of user code doc for specification_intervalConstraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLIntervalConstraint.specification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLIntervalConstraint.specification
 	 */
 	def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] = specification_owningConstraint.selectByKindOf { case x: UMLIntervalConstraint[Uml] => x }
 

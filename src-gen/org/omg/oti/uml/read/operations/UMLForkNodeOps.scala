@@ -63,8 +63,12 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 	 * <!-- Start of user code doc for validate_edges -->
    * <!-- End of user code doc for validate_edges -->
 	 *
-	 * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * {{{
+	 * OCL Body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * }}}
+	 * {{{
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
+	 * }}}
 	 */
 	def validate_edges: Boolean = {
 		// Start of user code for "edges"
@@ -82,7 +86,9 @@ trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 	 * <!-- Start of user code doc for validate_one_incoming_edge -->
    * <!-- End of user code doc for validate_one_incoming_edge -->
 	 *
-	 * @body incoming->size()=1
+	 * {{{
+	 * OCL Body incoming->size()=1
+	 * }}}
 	 */
 	def validate_one_incoming_edge: Boolean = {
 		// Start of user code for "one_incoming_edge"

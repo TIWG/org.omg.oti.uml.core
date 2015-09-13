@@ -63,8 +63,8 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for input -->
    * <!-- End of user code doc for input -->
 	 *
-	 * @property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.input_action
+	 * UML Property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.input_action
 	 */
 	def input: Seq[UMLInputPin[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for isLocallyReentrant -->
    * <!-- End of user code doc for isLocallyReentrant -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isLocallyReentrant: Boolean
 
@@ -84,8 +84,8 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for localPostcondition -->
    * <!-- End of user code doc for localPostcondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.localPostcondition_action
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.localPostcondition_action
 	 */
 	def localPostcondition: Set[UMLConstraint[Uml]]
 
@@ -95,8 +95,8 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for localPrecondition -->
    * <!-- End of user code doc for localPrecondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.localPrecondition_action
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.localPrecondition_action
 	 */
 	def localPrecondition: Set[UMLConstraint[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for output -->
    * <!-- End of user code doc for output -->
 	 *
-	 * @property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.output_action
+	 * UML Property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.output_action
 	 */
 	def output: Seq[UMLOutputPin[Uml]]
 
@@ -115,8 +115,8 @@ trait UMLAction[Uml <: UML]
 	 * <!-- Start of user code doc for action_actionExecutionSpecification -->
    * <!-- End of user code doc for action_actionExecutionSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActionExecutionSpecification.action
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActionExecutionSpecification.action
 	 */
 	def action_actionExecutionSpecification: Set[UMLActionExecutionSpecification[Uml]]
 

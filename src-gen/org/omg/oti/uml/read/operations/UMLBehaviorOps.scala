@@ -64,9 +64,10 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for context -->
    * <!-- End of user code doc for context -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioredClassifier.context_behavior
-	 * @body result = (if nestingClass <> null then
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.context_behavior
+	 * {{{
+	 * OCL Body result = (if nestingClass <> null then
 	 *     null
 	 * else
 	 *     let b:BehavioredClassifier = self.behavioredClassifier(self.owner) in
@@ -77,6 +78,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 *     endif
 	 * endif
 	 *         )
+	 * }}}
 	 */
 	def context: Option[UMLBehavioredClassifier[Uml]] = {
 		// Start of user code for "context"
@@ -96,8 +98,8 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for ownedParameterSet -->
    * <!-- End of user code doc for ownedParameterSet -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterSet.ownedParameterSet_behavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterSet.ownedParameterSet_behavior
 	 */
 	def ownedParameterSet: Set[UMLParameterSet[Uml]] = ownedMember.selectByKindOf { case x: UMLParameterSet[Uml] => x }
 
@@ -105,8 +107,8 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for classifierBehavior_behavioredClassifier -->
    * <!-- End of user code doc for classifierBehavior_behavioredClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioredClassifier.classifierBehavior
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.classifierBehavior
 	 */
 	def classifierBehavior_behavioredClassifier: Option[UMLBehavioredClassifier[Uml]] = ownedBehavior_behavioredClassifier
 
@@ -114,8 +116,8 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for effect_transition -->
    * <!-- End of user code doc for effect_transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.effect
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.effect
 	 */
 	def effect_transition: Option[UMLTransition[Uml]] = owner.selectByKindOf { case x: UMLTransition[Uml] => x }
 
@@ -125,8 +127,9 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for behavioredClassifier -->
    * <!-- End of user code doc for behavioredClassifier -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body if from.oclIsKindOf(BehavioredClassifier) then
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body if from.oclIsKindOf(BehavioredClassifier) then
 	 *     from.oclAsType(BehavioredClassifier)
 	 * else if from.owner = null then
 	 *     null
@@ -135,6 +138,7 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * endif
 	 * endif
 	 *     
+	 * }}}
 	 */
 	def behavioredClassifier(from: Option[UMLElement[Uml]]): Option[UMLBehavioredClassifier[Uml]] = {
 		// Start of user code for "behavioredClassifier"
@@ -156,8 +160,10 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
+	 * }}}
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
@@ -175,8 +181,10 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
+	 * }}}
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
@@ -194,7 +202,9 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for validate_feature_of_context_classifier -->
    * <!-- End of user code doc for validate_feature_of_context_classifier -->
 	 *
-	 * @body _'context'.feature->includes(specification)
+	 * {{{
+	 * OCL Body _'context'.feature->includes(specification)
+	 * }}}
 	 */
 	def validate_feature_of_context_classifier: Boolean = {
 		// Start of user code for "feature_of_context_classifier"
@@ -211,7 +221,9 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for validate_most_one_behavior -->
    * <!-- End of user code doc for validate_most_one_behavior -->
 	 *
-	 * @body specification <> null implies _'context'.ownedBehavior->select(specification=self.specification)->size() = 1
+	 * {{{
+	 * OCL Body specification <> null implies _'context'.ownedBehavior->select(specification=self.specification)->size() = 1
+	 * }}}
 	 */
 	def validate_most_one_behavior: Boolean = {
 		// Start of user code for "most_one_behavior"
@@ -229,7 +241,9 @@ trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 	 * <!-- Start of user code doc for validate_parameters_match -->
    * <!-- End of user code doc for validate_parameters_match -->
 	 *
-	 * @body specification <> null implies ownedParameter->size() = specification.ownedParameter->size()
+	 * {{{
+	 * OCL Body specification <> null implies ownedParameter->size() = specification.ownedParameter->size()
+	 * }}}
 	 */
 	def validate_parameters_match: Boolean = {
 		// Start of user code for "parameters_match"

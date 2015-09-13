@@ -62,8 +62,8 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_testIdentityAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_testIdentityAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body first.is(1,1) and second.is(1,1)
+	 * {{{
+	 * OCL Body first.is(1,1) and second.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -87,7 +89,9 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * <!-- Start of user code doc for validate_no_type -->
    * <!-- End of user code doc for validate_no_type -->
 	 *
-	 * @body first.type= null and second.type = null
+	 * {{{
+	 * OCL Body first.type= null and second.type = null
+	 * }}}
 	 */
 	def validate_no_type: Boolean = {
 		// Start of user code for "no_type"
@@ -101,7 +105,9 @@ trait UMLTestIdentityActionOps[Uml <: UML] { self: UMLTestIdentityAction[Uml] =>
 	 * <!-- Start of user code doc for validate_result_is_boolean -->
    * <!-- End of user code doc for validate_result_is_boolean -->
 	 *
-	 * @body result.type=Boolean
+	 * {{{
+	 * OCL Body result.type=Boolean
+	 * }}}
 	 */
 	def validate_result_is_boolean: Boolean = {
 		// Start of user code for "result_is_boolean"

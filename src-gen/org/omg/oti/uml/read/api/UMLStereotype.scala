@@ -61,8 +61,8 @@ trait UMLStereotype[Uml <: UML]
 	 * <!-- Start of user code doc for ownedStereotype_owningPackage -->
    * <!-- End of user code doc for ownedStereotype_owningPackage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.ownedStereotype
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.ownedStereotype
 	 */
 	def ownedStereotype_owningPackage: Option[UMLPackage[Uml]]
 

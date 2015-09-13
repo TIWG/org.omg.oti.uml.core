@@ -60,8 +60,8 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * <!-- Start of user code doc for ownedReception_class -->
    * <!-- End of user code doc for ownedReception_class -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.ownedReception
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.ownedReception
 	 */
 	def ownedReception_class: Option[UMLClass[Uml]] = featuringClassifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * <!-- Start of user code doc for ownedReception_interface -->
    * <!-- End of user code doc for ownedReception_interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.ownedReception
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.ownedReception
 	 */
 	def ownedReception_interface: Option[UMLInterface[Uml]] = featuringClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
 
@@ -80,7 +80,9 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * <!-- Start of user code doc for validate_same_name_as_signal -->
    * <!-- End of user code doc for validate_same_name_as_signal -->
 	 *
-	 * @body name = signal.name
+	 * {{{
+	 * OCL Body name = signal.name
+	 * }}}
 	 */
 	def validate_same_name_as_signal: Boolean = {
 		// Start of user code for "same_name_as_signal"
@@ -94,14 +96,30 @@ trait UMLReceptionOps[Uml <: UML] { self: UMLReception[Uml] =>
 	 * <!-- Start of user code doc for validate_same_structure_as_signal -->
    * <!-- End of user code doc for validate_same_structure_as_signal -->
 	 *
-	 * @body signal.ownedAttribute->size() = ownedParameter->size() and
+	 * {{{
+	 * OCL Body signal.ownedAttribute->size() = ownedParameter->size() and
+	 * }}}
+	 * {{{
 	 * Sequence{1..signal.ownedAttribute->size()}->forAll( i | 
+	 * }}}
+	 * {{{
 	 *     ownedParameter->at(i).direction = ParameterDirectionKind::_'in' and 
+	 * }}}
+	 * {{{
 	 *     ownedParameter->at(i).name = signal.ownedAttribute->at(i).name and
+	 * }}}
+	 * {{{
 	 *     ownedParameter->at(i).type = signal.ownedAttribute->at(i).type and
+	 * }}}
+	 * {{{
 	 *     ownedParameter->at(i).lower() = signal.ownedAttribute->at(i).lower() and
+	 * }}}
+	 * {{{
 	 *     ownedParameter->at(i).upper() = signal.ownedAttribute->at(i).upper()
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_same_structure_as_signal: Boolean = {
 		// Start of user code for "same_structure_as_signal"

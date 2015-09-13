@@ -63,7 +63,9 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_actual_is_classifier -->
    * <!-- End of user code doc for validate_actual_is_classifier -->
 	 *
-	 * @body  templateParameterSubstitution.actual->forAll(a | a.oclIsKindOf(Classifier))
+	 * {{{
+	 * OCL Body  templateParameterSubstitution.actual->forAll(a | a.oclIsKindOf(Classifier))
+	 * }}}
 	 */
 	def validate_actual_is_classifier: Boolean = {
 		// Start of user code for "actual_is_classifier"
@@ -80,13 +82,27 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_constraining_classifiers_constrain_args -->
    * <!-- End of user code doc for validate_constraining_classifiers_constrain_args -->
 	 *
-	 * @body templateParameterSubstitution.actual->forAll( a |
+	 * {{{
+	 * OCL Body templateParameterSubstitution.actual->forAll( a |
+	 * }}}
+	 * {{{
 	 *   let arg : Classifier = a.oclAsType(Classifier) in
+	 * }}}
+	 * {{{
 	 *     constrainingClassifier->forAll(
+	 * }}}
+	 * {{{
 	 *       cc |  
+	 * }}}
+	 * {{{
 	 *          arg = cc or arg.conformsTo(cc) or (allowSubstitutable and arg.isSubstitutableFor(cc))
+	 * }}}
+	 * {{{
 	 *       )
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_constraining_classifiers_constrain_args: Boolean = {
 		// Start of user code for "constraining_classifiers_constrain_args"
@@ -110,9 +126,15 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_constraining_classifiers_constrain_parametered_element -->
    * <!-- End of user code doc for validate_constraining_classifiers_constrain_parametered_element -->
 	 *
-	 * @body constrainingClassifier->forAll(
+	 * {{{
+	 * OCL Body constrainingClassifier->forAll(
+	 * }}}
+	 * {{{
 	 *      cc |  parameteredElement = cc or parameteredElement.conformsTo(cc) or (allowSubstitutable and parameteredElement.isSubstitutableFor(cc))
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_constraining_classifiers_constrain_parametered_element: Boolean = {
 		// Start of user code for "constraining_classifiers_constrain_parametered_element"
@@ -136,7 +158,9 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_has_constraining_classifier -->
    * <!-- End of user code doc for validate_has_constraining_classifier -->
 	 *
-	 * @body allowSubstitutable implies constrainingClassifier->notEmpty()
+	 * {{{
+	 * OCL Body allowSubstitutable implies constrainingClassifier->notEmpty()
+	 * }}}
 	 */
 	def validate_has_constraining_classifier: Boolean = {
 		// Start of user code for "has_constraining_classifier"
@@ -150,7 +174,9 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_matching_abstract -->
    * <!-- End of user code doc for validate_matching_abstract -->
 	 *
-	 * @body (not parameteredElement.isAbstract) implies templateParameterSubstitution.actual->forAll(a | not a.oclAsType(Classifier).isAbstract)
+	 * {{{
+	 * OCL Body (not parameteredElement.isAbstract) implies templateParameterSubstitution.actual->forAll(a | not a.oclAsType(Classifier).isAbstract)
+	 * }}}
 	 */
 	def validate_matching_abstract: Boolean = {
 		// Start of user code for "matching_abstract"
@@ -178,7 +204,9 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 * <!-- Start of user code doc for validate_parametered_element_no_features -->
    * <!-- End of user code doc for validate_parametered_element_no_features -->
 	 *
-	 * @body parameteredElement.feature->isEmpty() and (constrainingClassifier->isEmpty() implies  parameteredElement.allParents()->isEmpty())
+	 * {{{
+	 * OCL Body parameteredElement.feature->isEmpty() and (constrainingClassifier->isEmpty() implies  parameteredElement.allParents()->isEmpty())
+	 * }}}
 	 */
 	def validate_parametered_element_no_features: Boolean = {
 		// Start of user code for "parametered_element_no_features"

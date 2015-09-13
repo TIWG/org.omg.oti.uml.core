@@ -62,8 +62,8 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for container -->
    * <!-- End of user code doc for container -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.subvertex
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.subvertex
 	 */
 	def container: Option[UMLRegion[Uml]] = namespace.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -73,9 +73,11 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for incoming -->
    * <!-- End of user code doc for incoming -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.target
-	 * @body result = (Transition.allInstances()->select(target=self))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.target
+	 * {{{
+	 * OCL Body result = (Transition.allInstances()->select(target=self))
+	 * }}}
 	 */
 	def incoming: Set[UMLTransition[Uml]] = {
 		// Start of user code for "incoming"
@@ -89,9 +91,11 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for outgoing -->
    * <!-- End of user code doc for outgoing -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.source
-	 * @body result = (Transition.allInstances()->select(source=self))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.source
+	 * {{{
+	 * OCL Body result = (Transition.allInstances()->select(source=self))
+	 * }}}
 	 */
 	def outgoing: Set[UMLTransition[Uml]] = {
 		// Start of user code for "outgoing"
@@ -105,8 +109,9 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for containingStateMachine -->
    * <!-- End of user code doc for containingStateMachine -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if container <> null
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if container <> null
 	 * then
 	 * -- the container is a region
 	 *    container.containingStateMachine()
@@ -122,6 +127,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 *    endif
 	 * endif
 	 * )
+	 * }}}
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
@@ -135,8 +141,9 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for isContainedInRegion -->
    * <!-- End of user code doc for isContainedInRegion -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if (container = r) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if (container = r) then
 	 * 	true
 	 * else
 	 * 	if (r.state->isEmpty()) then
@@ -145,6 +152,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * 		container.state.isContainedInRegion(r)
 	 * 	endif
 	 * endif)
+	 * }}}
 	 */
 	def isContainedInRegion(r: Option[UMLRegion[Uml]]): Boolean = {
 		// Start of user code for "isContainedInRegion"
@@ -158,8 +166,9 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * <!-- Start of user code doc for isContainedInState -->
    * <!-- End of user code doc for isContainedInState -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if not s.isComposite() or container->isEmpty() then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if not s.isComposite() or container->isEmpty() then
 	 * 	false
 	 * else
 	 * 	if container.state = s then 
@@ -168,6 +177,7 @@ trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 	 * 		container.state.isContainedInState(s)
 	 * 	endif
 	 * endif)
+	 * }}}
 	 */
 	def isContainedInState(s: Option[UMLState[Uml]]): Boolean = {
 		// Start of user code for "isContainedInState"

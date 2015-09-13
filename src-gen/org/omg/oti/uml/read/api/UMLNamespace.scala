@@ -63,8 +63,8 @@ trait UMLNamespace[Uml <: UML]
 	 * <!-- Start of user code doc for member -->
    * <!-- End of user code doc for member -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.member_memberNamespace
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.member_memberNamespace
 	 */
 	def member: Set[UMLNamedElement[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLNamespace[Uml <: UML]
 	 * <!-- Start of user code doc for ownedMember -->
    * <!-- End of user code doc for ownedMember -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.namespace
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.namespace
 	 */
 	def ownedMember: Set[UMLNamedElement[Uml]]
 

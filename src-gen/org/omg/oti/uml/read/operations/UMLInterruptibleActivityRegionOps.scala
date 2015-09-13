@@ -62,8 +62,8 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	 * <!-- Start of user code doc for node -->
    * <!-- End of user code doc for node -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.inInterruptibleRegion
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inInterruptibleRegion
 	 */
 	def node: Set[UMLActivityNode[Uml]] = containedNode
 
@@ -73,8 +73,12 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	 * <!-- Start of user code doc for validate_interrupting_edges -->
    * <!-- End of user code doc for validate_interrupting_edges -->
 	 *
-	 * @body interruptingEdge->forAll(edge | 
+	 * {{{
+	 * OCL Body interruptingEdge->forAll(edge | 
+	 * }}}
+	 * {{{
 	 *   node->includes(edge.source) and node->excludes(edge.target) and edge.target.containingActivity() = inActivity)
+	 * }}}
 	 */
 	def validate_interrupting_edges: Boolean = {
 		// Start of user code for "interrupting_edges"

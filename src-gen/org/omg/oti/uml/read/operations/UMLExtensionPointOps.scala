@@ -62,8 +62,8 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 	 * <!-- Start of user code doc for useCase -->
    * <!-- End of user code doc for useCase -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extensionPoint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.extensionPoint
 	 */
 	def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
@@ -73,7 +73,9 @@ trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 	 * <!-- Start of user code doc for validate_must_have_name -->
    * <!-- End of user code doc for validate_must_have_name -->
 	 *
-	 * @body name->notEmpty ()
+	 * {{{
+	 * OCL Body name->notEmpty ()
+	 * }}}
 	 */
 	def validate_must_have_name: Boolean = {
 		// Start of user code for "must_have_name"

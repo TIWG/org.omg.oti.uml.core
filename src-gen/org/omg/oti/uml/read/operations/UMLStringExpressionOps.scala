@@ -62,8 +62,8 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * <!-- Start of user code doc for owningExpression -->
    * <!-- End of user code doc for owningExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStringExpression.subExpression
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStringExpression.subExpression
 	 */
 	def owningExpression: Option[UMLStringExpression[Uml]] = owner.selectByKindOf { case x: UMLStringExpression[Uml] => x }
 
@@ -73,11 +73,13 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * <!-- Start of user code doc for stringValue -->
    * <!-- End of user code doc for stringValue -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if subExpression->notEmpty()
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if subExpression->notEmpty()
 	 * then subExpression->iterate(se; stringValue: String = '' | stringValue.concat(se.stringValue()))
 	 * else operand->iterate(op; stringValue: String = '' | stringValue.concat(op.stringValue()))
 	 * endif)
+	 * }}}
 	 */
 	override def stringValue: Option[String] = {
 		// Start of user code for "stringValue"
@@ -91,7 +93,9 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * <!-- Start of user code doc for validate_operands -->
    * <!-- End of user code doc for validate_operands -->
 	 *
-	 * @body operand->forAll (oclIsKindOf (LiteralString))
+	 * {{{
+	 * OCL Body operand->forAll (oclIsKindOf (LiteralString))
+	 * }}}
 	 */
 	def validate_operands: Boolean = {
 		// Start of user code for "operands"
@@ -105,7 +109,9 @@ trait UMLStringExpressionOps[Uml <: UML] { self: UMLStringExpression[Uml] =>
 	 * <!-- Start of user code doc for validate_subexpressions -->
    * <!-- End of user code doc for validate_subexpressions -->
 	 *
-	 * @body if subExpression->notEmpty() then operand->isEmpty() else operand->notEmpty() endif
+	 * {{{
+	 * OCL Body if subExpression->notEmpty() then operand->isEmpty() else operand->notEmpty() endif
+	 * }}}
 	 */
 	def validate_subexpressions: Boolean = {
 		// Start of user code for "subexpressions"

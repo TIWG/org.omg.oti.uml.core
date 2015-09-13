@@ -63,8 +63,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for lower -->
    * <!-- End of user code doc for lower -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if (lowerValue=null or lowerValue.integerValue()=null) then 1 else lowerValue.integerValue() endif)
+	 * }}}
 	 */
 	def lower: Integer = {
 		// Start of user code for "lower"
@@ -85,8 +87,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for upper -->
    * <!-- End of user code doc for upper -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if (upperValue=null or upperValue.unlimitedValue()=null) then 1 else upperValue.unlimitedValue() endif)
+	 * }}}
 	 */
 	def upper: Integer = {
 		// Start of user code for "upper"
@@ -108,8 +112,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for compatibleWith -->
    * <!-- End of user code doc for compatibleWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((other.lower() <= self.lower()) and ((other.upper() = *) or (self.upper() <= other.upper())))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ((other.lower() <= self.lower()) and ((other.upper() = *) or (self.upper() <= other.upper())))
+	 * }}}
 	 */
 	def compatibleWith(other: Option[UMLMultiplicityElement[Uml]]): Boolean = {
 		// Start of user code for "compatibleWith"
@@ -123,8 +129,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for includesMultiplicity -->
    * <!-- End of user code doc for includesMultiplicity -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((self.lower() <= M.lower()) and (self.upper() >= M.upper()))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ((self.lower() <= M.lower()) and (self.upper() >= M.upper()))
+	 * }}}
 	 */
 	def includesMultiplicity(M: Option[UMLMultiplicityElement[Uml]]): Boolean = {
 		// Start of user code for "includesMultiplicity"
@@ -138,8 +146,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for is -->
    * <!-- End of user code doc for is -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (lowerbound = self.lower() and upperbound = self.upper())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (lowerbound = self.lower() and upperbound = self.upper())
+	 * }}}
 	 */
 	def is(lowerbound: Integer, upperbound: Integer): Boolean = {
 		// Start of user code for "is"
@@ -153,8 +163,10 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for isMultivalued -->
    * <!-- End of user code doc for isMultivalued -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (upper() > 1)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (upper() > 1)
+	 * }}}
 	 */
 	def isMultivalued: Boolean = {
 		// Start of user code for "isMultivalued"
@@ -168,7 +180,9 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_lower_ge_0 -->
    * <!-- End of user code doc for validate_lower_ge_0 -->
 	 *
-	 * @body lower() >= 0
+	 * {{{
+	 * OCL Body lower() >= 0
+	 * }}}
 	 */
 	def validate_lower_ge_0: Boolean = {
 		// Start of user code for "lower_ge_0"
@@ -182,7 +196,9 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_lower_is_integer -->
    * <!-- End of user code doc for validate_lower_is_integer -->
 	 *
-	 * @body lowerValue <> null implies lowerValue.integerValue() <> null
+	 * {{{
+	 * OCL Body lowerValue <> null implies lowerValue.integerValue() <> null
+	 * }}}
 	 */
 	def validate_lower_is_integer: Boolean = {
 		// Start of user code for "lower_is_integer"
@@ -196,7 +212,9 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_upper_ge_lower -->
    * <!-- End of user code doc for validate_upper_ge_lower -->
 	 *
-	 * @body upper() >= lower()
+	 * {{{
+	 * OCL Body upper() >= lower()
+	 * }}}
 	 */
 	def validate_upper_ge_lower: Boolean = {
 		// Start of user code for "upper_ge_lower"
@@ -210,7 +228,9 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_upper_is_unlimitedNatural -->
    * <!-- End of user code doc for validate_upper_is_unlimitedNatural -->
 	 *
-	 * @body upperValue <> null implies upperValue.unlimitedValue() <> null
+	 * {{{
+	 * OCL Body upperValue <> null implies upperValue.unlimitedValue() <> null
+	 * }}}
 	 */
 	def validate_upper_is_unlimitedNatural: Boolean = {
 		// Start of user code for "upper_is_unlimitedNatural"

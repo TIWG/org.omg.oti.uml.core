@@ -62,7 +62,9 @@ trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 	 * <!-- Start of user code doc for validate_event_on_reply_to_call_trigger -->
    * <!-- End of user code doc for validate_event_on_reply_to_call_trigger -->
 	 *
-	 * @body replyToCall.event.oclIsKindOf(CallEvent)
+	 * {{{
+	 * OCL Body replyToCall.event.oclIsKindOf(CallEvent)
+	 * }}}
 	 */
 	def validate_event_on_reply_to_call_trigger: Boolean = {
 		// Start of user code for "event_on_reply_to_call_trigger"
@@ -76,12 +78,24 @@ trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 	 * <!-- Start of user code doc for validate_pins_match_parameter -->
    * <!-- End of user code doc for validate_pins_match_parameter -->
 	 *
-	 * @body let parameter:OrderedSet(Parameter) = replyToCall.event.oclAsType(CallEvent).operation.outputParameters() in
+	 * {{{
+	 * OCL Body let parameter:OrderedSet(Parameter) = replyToCall.event.oclAsType(CallEvent).operation.outputParameters() in
+	 * }}}
+	 * {{{
 	 * replyValue->size()=parameter->size() and
+	 * }}}
+	 * {{{
 	 * Sequence{1..replyValue->size()}->forAll(i |
+	 * }}}
+	 * {{{
 	 * 	replyValue->at(i).type.conformsTo(parameter->at(i).type) and
+	 * }}}
+	 * {{{
 	 * 	replyValue->at(i).isOrdered=parameter->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	replyValue->at(i).compatibleWith(parameter->at(i)))
+	 * }}}
 	 */
 	def validate_pins_match_parameter: Boolean = {
 		// Start of user code for "pins_match_parameter"

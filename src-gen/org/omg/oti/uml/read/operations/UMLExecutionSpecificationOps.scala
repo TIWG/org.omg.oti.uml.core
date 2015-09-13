@@ -62,7 +62,9 @@ trait UMLExecutionSpecificationOps[Uml <: UML] { self: UMLExecutionSpecification
 	 * <!-- Start of user code doc for validate_same_lifeline -->
    * <!-- End of user code doc for validate_same_lifeline -->
 	 *
-	 * @body start.covered = finish.covered
+	 * {{{
+	 * OCL Body start.covered = finish.covered
+	 * }}}
 	 */
 	def validate_same_lifeline: Boolean = {
 		// Start of user code for "same_lifeline"

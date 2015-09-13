@@ -63,8 +63,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for nestedClassifier -->
    * <!-- End of user code doc for nestedClassifier -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.nestedClassifier_interface
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.nestedClassifier_interface
 	 */
 	def nestedClassifier: Seq[UMLClassifier[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.interface
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.interface
 	 */
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for ownedOperation -->
    * <!-- End of user code doc for ownedOperation -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.interface
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.interface
 	 */
 	def ownedOperation: Seq[UMLOperation[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedInterface -->
    * <!-- End of user code doc for redefinedInterface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.redefinedInterface_interface
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.redefinedInterface_interface
 	 */
 	def redefinedInterface: Set[UMLInterface[Uml]]
 
@@ -105,8 +105,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for contract_interfaceRealization -->
    * <!-- End of user code doc for contract_interfaceRealization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterfaceRealization.contract
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterfaceRealization.contract
 	 */
 	def contract_interfaceRealization: Set[UMLInterfaceRealization[Uml]]
 
@@ -114,8 +114,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for provided_component -->
    * <!-- End of user code doc for provided_component -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponent.provided
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.provided
 	 */
 	def provided_component: Set[UMLComponent[Uml]]
 
@@ -123,8 +123,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for provided_port -->
    * <!-- End of user code doc for provided_port -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.provided
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.provided
 	 */
 	def provided_port: Set[UMLPort[Uml]]
 
@@ -132,8 +132,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedInterface_interface -->
    * <!-- End of user code doc for redefinedInterface_interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.redefinedInterface
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.redefinedInterface
 	 */
 	def redefinedInterface_interface: Set[UMLInterface[Uml]]
 
@@ -141,8 +141,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for required_component -->
    * <!-- End of user code doc for required_component -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponent.required
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.required
 	 */
 	def required_component: Set[UMLComponent[Uml]]
 
@@ -150,8 +150,8 @@ trait UMLInterface[Uml <: UML]
 	 * <!-- Start of user code doc for required_port -->
    * <!-- End of user code doc for required_port -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.required
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.required
 	 */
 	def required_port: Set[UMLPort[Uml]]
 

@@ -64,8 +64,8 @@ trait UMLExtend[Uml <: UML]
 	 * <!-- Start of user code doc for extensionLocation -->
    * <!-- End of user code doc for extensionLocation -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtensionPoint.extensionLocation_extension
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtensionPoint.extensionLocation_extension
 	 */
 	def extensionLocation: Seq[UMLExtensionPoint[Uml]]
 

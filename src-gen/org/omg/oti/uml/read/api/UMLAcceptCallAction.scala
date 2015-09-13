@@ -63,8 +63,8 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * <!-- Start of user code doc for returnInformation -->
    * <!-- End of user code doc for returnInformation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.returnInformation_acceptCallAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.returnInformation_acceptCallAction
 	 */
 	def returnInformation: Option[UMLOutputPin[Uml]]
 

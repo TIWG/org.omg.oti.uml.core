@@ -63,8 +63,8 @@ trait UMLGeneralOrdering[Uml <: UML]
 	 * <!-- Start of user code doc for after -->
    * <!-- End of user code doc for after -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toBefore
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toBefore
 	 */
 	def after: Option[UMLOccurrenceSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLGeneralOrdering[Uml <: UML]
 	 * <!-- Start of user code doc for before -->
    * <!-- End of user code doc for before -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toAfter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.toAfter
 	 */
 	def before: Option[UMLOccurrenceSpecification[Uml]]
 

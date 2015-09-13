@@ -63,8 +63,8 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for edge -->
    * <!-- End of user code doc for edge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.activity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.activity
 	 */
 	def edge: Set[UMLActivityEdge[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for group -->
    * <!-- End of user code doc for group -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityGroup.inActivity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.inActivity
 	 */
 	def group: Set[UMLActivityGroup[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
@@ -85,8 +85,8 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for node -->
    * <!-- End of user code doc for node -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.activity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.activity
 	 */
 	def node: Set[UMLActivityNode[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityNode[Uml] => x }
 
@@ -96,8 +96,8 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for structuredNode -->
    * <!-- End of user code doc for structuredNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredActivityNode.activity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.activity
 	 */
 	def structuredNode: Set[UMLStructuredActivityNode[Uml]] = group.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
 
@@ -107,8 +107,8 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for variable -->
    * <!-- End of user code doc for variable -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLVariable.activityScope
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVariable.activityScope
 	 */
 	def variable: Set[UMLVariable[Uml]] = ownedMember.selectByKindOf { case x: UMLVariable[Uml] => x }
 
@@ -118,9 +118,15 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for validate_maximum_one_parameter_node -->
    * <!-- End of user code doc for validate_maximum_one_parameter_node -->
 	 *
-	 * @body ownedParameter->forAll(p | 
+	 * {{{
+	 * OCL Body ownedParameter->forAll(p | 
+	 * }}}
+	 * {{{
 	 *    p.direction <> ParameterDirectionKind::inout implies node->select(
+	 * }}}
+	 * {{{
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p)->size()= 1)
+	 * }}}
 	 */
 	def validate_maximum_one_parameter_node: Boolean = {
 		// Start of user code for "maximum_one_parameter_node"
@@ -143,14 +149,30 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 * <!-- Start of user code doc for validate_maximum_two_parameter_nodes -->
    * <!-- End of user code doc for validate_maximum_two_parameter_nodes -->
 	 *
-	 * @body ownedParameter->forAll(p | 
+	 * {{{
+	 * OCL Body ownedParameter->forAll(p | 
+	 * }}}
+	 * {{{
 	 * p.direction = ParameterDirectionKind::inout implies
+	 * }}}
+	 * {{{
 	 * let associatedNodes : Set(ActivityNode) = node->select(
+	 * }}}
+	 * {{{
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p) in 
+	 * }}}
+	 * {{{
 	 *   associatedNodes->size()=2 and
+	 * }}}
+	 * {{{
 	 *   associatedNodes->select(incoming->notEmpty())->size()<=1 and
+	 * }}}
+	 * {{{
 	 *   associatedNodes->select(outgoing->notEmpty())->size()<=1
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_maximum_two_parameter_nodes: Boolean = {
 		// Start of user code for "maximum_two_parameter_nodes"

@@ -62,8 +62,8 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readVariableAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readVariableAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 * <!-- Start of user code doc for validate_compatible_multiplicity -->
    * <!-- End of user code doc for validate_compatible_multiplicity -->
 	 *
-	 * @body variable.compatibleWith(result)
+	 * {{{
+	 * OCL Body variable.compatibleWith(result)
+	 * }}}
 	 */
 	def validate_compatible_multiplicity: Boolean = {
 		// Start of user code for "compatible_multiplicity"
@@ -87,8 +89,12 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_and_ordering -->
    * <!-- End of user code doc for validate_type_and_ordering -->
 	 *
-	 * @body result.type =variable.type and 
+	 * {{{
+	 * OCL Body result.type =variable.type and 
+	 * }}}
+	 * {{{
 	 * result.isOrdered = variable.isOrdered
+	 * }}}
 	 */
 	def validate_type_and_ordering: Boolean = {
 		// Start of user code for "type_and_ordering"

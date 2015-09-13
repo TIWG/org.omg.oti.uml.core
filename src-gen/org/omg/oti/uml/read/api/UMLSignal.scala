@@ -63,8 +63,8 @@ trait UMLSignal[Uml <: UML]
 	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_owningSignal
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_owningSignal
 	 */
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLSignal[Uml <: UML]
 	 * <!-- Start of user code doc for signal_broadcastSignalAction -->
    * <!-- End of user code doc for signal_broadcastSignalAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBroadcastSignalAction.signal
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBroadcastSignalAction.signal
 	 */
 	def signal_broadcastSignalAction: Set[UMLBroadcastSignalAction[Uml]]
 
@@ -81,8 +81,8 @@ trait UMLSignal[Uml <: UML]
 	 * <!-- Start of user code doc for signal_reception -->
    * <!-- End of user code doc for signal_reception -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReception.signal
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReception.signal
 	 */
 	def signal_reception: Set[UMLReception[Uml]]
 
@@ -90,8 +90,8 @@ trait UMLSignal[Uml <: UML]
 	 * <!-- Start of user code doc for signal_sendSignalAction -->
    * <!-- End of user code doc for signal_sendSignalAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSendSignalAction.signal
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSendSignalAction.signal
 	 */
 	def signal_sendSignalAction: Set[UMLSendSignalAction[Uml]]
 
@@ -99,8 +99,8 @@ trait UMLSignal[Uml <: UML]
 	 * <!-- Start of user code doc for signal_signalEvent -->
    * <!-- End of user code doc for signal_signalEvent -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSignalEvent.signal
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSignalEvent.signal
 	 */
 	def signal_signalEvent: Set[UMLSignalEvent[Uml]]
 

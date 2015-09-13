@@ -62,7 +62,9 @@ trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 	 * <!-- Start of user code doc for validate_scope_of_variable -->
    * <!-- End of user code doc for validate_scope_of_variable -->
 	 *
-	 * @body variable.isAccessibleBy(self)
+	 * {{{
+	 * OCL Body variable.isAccessibleBy(self)
+	 * }}}
 	 */
 	def validate_scope_of_variable: Boolean = {
 		// Start of user code for "scope_of_variable"

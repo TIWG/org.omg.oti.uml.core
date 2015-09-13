@@ -62,8 +62,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for activity -->
    * <!-- End of user code doc for activity -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivity.structuredNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.structuredNode
 	 */
 	override def activity: Option[UMLActivity[Uml]] = inActivity
 
@@ -73,8 +73,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for edge -->
    * <!-- End of user code doc for edge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.inStructuredNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.inStructuredNode
 	 */
 	def edge: Set[UMLActivityEdge[Uml]] = containedEdge
 
@@ -84,8 +84,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for node -->
    * <!-- End of user code doc for node -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.inStructuredNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inStructuredNode
 	 */
 	def node: Set[UMLActivityNode[Uml]] = containedNode
 
@@ -95,8 +95,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for structuredNodeInput -->
    * <!-- End of user code doc for structuredNodeInput -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.structuredNodeInput_structuredActivityNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.structuredNodeInput_structuredActivityNode
 	 */
 	def structuredNodeInput: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for structuredNodeOutput -->
    * <!-- End of user code doc for structuredNodeOutput -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.structuredNodeOutput_structuredActivityNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.structuredNodeOutput_structuredActivityNode
 	 */
 	def structuredNodeOutput: Set[UMLOutputPin[Uml]] = output.toSet[UMLOutputPin[Uml]]
 
@@ -117,8 +117,8 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for variable -->
    * <!-- End of user code doc for variable -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLVariable.scope
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVariable.scope
 	 */
 	def variable: Set[UMLVariable[Uml]] = ownedMember.selectByKindOf { case x: UMLVariable[Uml] => x }
 
@@ -128,8 +128,10 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for allActions -->
    * <!-- End of user code doc for allActions -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (node->select(oclIsKindOf(Action)).oclAsType(Action).allActions()->including(self)->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (node->select(oclIsKindOf(Action)).oclAsType(Action).allActions()->including(self)->asSet())
+	 * }}}
 	 */
 	override def allActions: Set[UMLAction[Uml]] = {
 		// Start of user code for "allActions"
@@ -143,8 +145,10 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for allOwnedNodes -->
    * <!-- End of user code doc for allOwnedNodes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self.Action::allOwnedNodes()->union(node)->union(node->select(oclIsKindOf(Action)).oclAsType(Action).allOwnedNodes())->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.Action::allOwnedNodes()->union(node)->union(node->select(oclIsKindOf(Action)).oclAsType(Action).allOwnedNodes())->asSet())
+	 * }}}
 	 */
 	override def allOwnedNodes: Set[UMLActivityNode[Uml]] = {
 		// Start of user code for "allOwnedNodes"
@@ -158,8 +162,10 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for containingActivity -->
    * <!-- End of user code doc for containingActivity -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (self.Action::containingActivity())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (self.Action::containingActivity())
+	 * }}}
 	 */
 	override def containingActivity: Option[UMLActivity[Uml]] = {
 		// Start of user code for "containingActivity"
@@ -173,9 +179,11 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for sourceNodes -->
    * <!-- End of user code doc for sourceNodes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (node->union(input.oclAsType(ActivityNode)->asSet())->
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (node->union(input.oclAsType(ActivityNode)->asSet())->
 	 *   union(node->select(oclIsKindOf(Action)).oclAsType(Action).output)->asSet())
+	 * }}}
 	 */
 	def sourceNodes: Set[UMLActivityNode[Uml]] = {
 		// Start of user code for "sourceNodes"
@@ -189,9 +197,11 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for targetNodes -->
    * <!-- End of user code doc for targetNodes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (node->union(output.oclAsType(ActivityNode)->asSet())->
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (node->union(output.oclAsType(ActivityNode)->asSet())->
 	 *   union(node->select(oclIsKindOf(Action)).oclAsType(Action).input)->asSet())
+	 * }}}
 	 */
 	def targetNodes: Set[UMLActivityNode[Uml]] = {
 		// Start of user code for "targetNodes"
@@ -205,8 +215,12 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for validate_edges -->
    * <!-- End of user code doc for validate_edges -->
 	 *
-	 * @body edge=self.sourceNodes().outgoing->intersection(self.allOwnedNodes().incoming)->
+	 * {{{
+	 * OCL Body edge=self.sourceNodes().outgoing->intersection(self.allOwnedNodes().incoming)->
+	 * }}}
+	 * {{{
 	 * 	union(self.targetNodes().incoming->intersection(self.allOwnedNodes().outgoing))->asSet()
+	 * }}}
 	 */
 	def validate_edges: Boolean = {
 		// Start of user code for "edges"
@@ -220,7 +234,9 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for validate_input_pin_edges -->
    * <!-- End of user code doc for validate_input_pin_edges -->
 	 *
-	 * @body input.incoming.source->excludesAll(allOwnedNodes()-output)
+	 * {{{
+	 * OCL Body input.incoming.source->excludesAll(allOwnedNodes()-output)
+	 * }}}
 	 */
 	def validate_input_pin_edges: Boolean = {
 		// Start of user code for "input_pin_edges"
@@ -234,7 +250,9 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 * <!-- Start of user code doc for validate_output_pin_edges -->
    * <!-- End of user code doc for validate_output_pin_edges -->
 	 *
-	 * @body output.outgoing.target->excludesAll(allOwnedNodes()-input)
+	 * {{{
+	 * OCL Body output.outgoing.target->excludesAll(allOwnedNodes()-input)
+	 * }}}
 	 */
 	def validate_output_pin_edges: Boolean = {
 		// Start of user code for "output_pin_edges"

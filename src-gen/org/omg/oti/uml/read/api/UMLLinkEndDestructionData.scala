@@ -63,8 +63,8 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	 * <!-- Start of user code doc for destroyAt -->
    * <!-- End of user code doc for destroyAt -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.destroyAt_linkEndDestructionData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.destroyAt_linkEndDestructionData
 	 */
 	def destroyAt: Option[UMLInputPin[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLLinkEndDestructionData[Uml <: UML]
 	 * <!-- Start of user code doc for isDestroyDuplicates -->
    * <!-- End of user code doc for isDestroyDuplicates -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDestroyDuplicates: Boolean
 

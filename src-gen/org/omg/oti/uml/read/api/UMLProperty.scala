@@ -65,7 +65,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for aggregation -->
    * <!-- End of user code doc for aggregation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def aggregation: UMLAggregationKind.Value
 
@@ -75,8 +75,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for defaultValue -->
    * <!-- End of user code doc for defaultValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningProperty
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningProperty
 	 */
 	def defaultValue: Option[UMLValueSpecification[Uml]]
 
@@ -86,7 +86,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for isDerived -->
    * <!-- End of user code doc for isDerived -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDerived: Boolean
 
@@ -96,7 +96,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for isDerivedUnion -->
    * <!-- End of user code doc for isDerivedUnion -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDerivedUnion: Boolean
 
@@ -106,7 +106,7 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for isID -->
    * <!-- End of user code doc for isID -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isID: Boolean
 
@@ -116,8 +116,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for qualifier -->
    * <!-- End of user code doc for qualifier -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.associationEnd
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.associationEnd
 	 */
 	def qualifier: Seq[UMLProperty[Uml]]
 
@@ -127,8 +127,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for subsettedProperty -->
    * <!-- End of user code doc for subsettedProperty -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.subsettedProperty_property
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.subsettedProperty_property
 	 */
 	def subsettedProperty: Set[UMLProperty[Uml]]
 
@@ -136,8 +136,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for attribute_classifier -->
    * <!-- End of user code doc for attribute_classifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.attribute
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.attribute
 	 */
 	def attribute_classifier: Option[UMLClassifier[Uml]]
 
@@ -145,8 +145,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for definingEnd_connectorEnd -->
    * <!-- End of user code doc for definingEnd_connectorEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.definingEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectorEnd.definingEnd
 	 */
 	def definingEnd_connectorEnd: Set[UMLConnectorEnd[Uml]]
 
@@ -154,8 +154,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for end_linkEndData -->
    * <!-- End of user code doc for end_linkEndData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndData.end
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndData.end
 	 */
 	def end_linkEndData: Set[UMLLinkEndData[Uml]]
 
@@ -163,8 +163,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for end_readLinkObjectEndAction -->
    * <!-- End of user code doc for end_readLinkObjectEndAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReadLinkObjectEndAction.end
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadLinkObjectEndAction.end
 	 */
 	def end_readLinkObjectEndAction: Option[UMLReadLinkObjectEndAction[Uml]]
 
@@ -172,8 +172,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for navigableOwnedEnd_association -->
    * <!-- End of user code doc for navigableOwnedEnd_association -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.navigableOwnedEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.navigableOwnedEnd
 	 */
 	def navigableOwnedEnd_association: Option[UMLAssociation[Uml]]
 
@@ -181,8 +181,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for opposite_property -->
    * <!-- End of user code doc for opposite_property -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.opposite
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.opposite
 	 */
 	def opposite_property: Option[UMLProperty[Uml]]
 
@@ -190,8 +190,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for partWithPort_connectorEnd -->
    * <!-- End of user code doc for partWithPort_connectorEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.partWithPort
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectorEnd.partWithPort
 	 */
 	def partWithPort_connectorEnd: Set[UMLConnectorEnd[Uml]]
 
@@ -199,8 +199,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for part_structuredClassifier -->
    * <!-- End of user code doc for part_structuredClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.part
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredClassifier.part
 	 */
 	def part_structuredClassifier: Option[UMLStructuredClassifier[Uml]]
 
@@ -208,8 +208,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for qualifier_qualifierValue -->
    * <!-- End of user code doc for qualifier_qualifierValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLQualifierValue.qualifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLQualifierValue.qualifier
 	 */
 	def qualifier_qualifierValue: Set[UMLQualifierValue[Uml]]
 
@@ -217,8 +217,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for qualifier_readLinkObjectEndQualifierAction -->
    * <!-- End of user code doc for qualifier_readLinkObjectEndQualifierAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReadLinkObjectEndQualifierAction.qualifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadLinkObjectEndQualifierAction.qualifier
 	 */
 	def qualifier_readLinkObjectEndQualifierAction: Option[UMLReadLinkObjectEndQualifierAction[Uml]]
 
@@ -226,8 +226,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for returnValueRecipient_interactionUse -->
    * <!-- End of user code doc for returnValueRecipient_interactionUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.returnValueRecipient
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.returnValueRecipient
 	 */
 	def returnValueRecipient_interactionUse: Set[UMLInteractionUse[Uml]]
 
@@ -235,8 +235,8 @@ trait UMLProperty[Uml <: UML]
 	 * <!-- Start of user code doc for subsettedProperty_property -->
    * <!-- End of user code doc for subsettedProperty_property -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.subsettedProperty
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.subsettedProperty
 	 */
 	def subsettedProperty_property: Set[UMLProperty[Uml]]
 

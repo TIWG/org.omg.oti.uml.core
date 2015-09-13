@@ -62,8 +62,8 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for interaction -->
    * <!-- End of user code doc for interaction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteraction.message
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.message
 	 */
 	def interaction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
@@ -73,8 +73,10 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for messageKind -->
    * <!-- End of user code doc for messageKind -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (messageKind)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (messageKind)
+	 * }}}
 	 */
 	def messageKind: UMLMessageKind.Value = {
 		// Start of user code for "messageKind"
@@ -88,8 +90,10 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for isDistinguishableFrom -->
    * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
@@ -116,13 +120,27 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_cannot_cross_boundaries -->
    * <!-- End of user code doc for validate_cannot_cross_boundaries -->
 	 *
-	 * @body sendEvent->notEmpty() and receiveEvent->notEmpty() implies
+	 * {{{
+	 * OCL Body sendEvent->notEmpty() and receiveEvent->notEmpty() implies
+	 * }}}
+	 * {{{
 	 * let sendEnclosingFrag : Set(InteractionFragment) = 
+	 * }}}
+	 * {{{
 	 * sendEvent->asOrderedSet()->first().enclosingFragment()
+	 * }}}
+	 * {{{
 	 * in 
+	 * }}}
+	 * {{{
 	 * let receiveEnclosingFrag : Set(InteractionFragment) = 
+	 * }}}
+	 * {{{
 	 * receiveEvent->asOrderedSet()->first().enclosingFragment()
+	 * }}}
+	 * {{{
 	 * in  sendEnclosingFrag = receiveEnclosingFrag
+	 * }}}
 	 */
 	def validate_cannot_cross_boundaries: Boolean = {
 		// Start of user code for "cannot_cross_boundaries"
@@ -149,12 +167,24 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_sending_receiving_message_event -->
    * <!-- End of user code doc for validate_sending_receiving_message_event -->
 	 *
-	 * @body receiveEvent.oclIsKindOf(MessageOccurrenceSpecification)
+	 * {{{
+	 * OCL Body receiveEvent.oclIsKindOf(MessageOccurrenceSpecification)
+	 * }}}
+	 * {{{
 	 * implies
+	 * }}}
+	 * {{{
 	 * let f :  Lifeline = sendEvent->select(oclIsKindOf(MessageOccurrenceSpecification)).oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first().covered in
+	 * }}}
+	 * {{{
 	 * f = receiveEvent->select(oclIsKindOf(MessageOccurrenceSpecification)).oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first().covered  implies
+	 * }}}
+	 * {{{
 	 * f.events->indexOf(sendEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() ) < 
+	 * }}}
+	 * {{{
 	 * f.events->indexOf(receiveEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() )
+	 * }}}
 	 */
 	def validate_sending_receiving_message_event: Boolean = {
 		// Start of user code for "sending_receiving_message_event"
@@ -168,15 +198,33 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_signature_is_operation_reply -->
    * <!-- End of user code doc for validate_signature_is_operation_reply -->
 	 *
-	 * @body (messageSort = MessageSort::reply) and signature.oclIsKindOf(Operation) implies 
+	 * {{{
+	 * OCL Body (messageSort = MessageSort::reply) and signature.oclIsKindOf(Operation) implies 
+	 * }}}
+	 * {{{
 	 *  let replyParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
+	 * }}}
+	 * {{{
 	 * select(direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::out or direction = ParameterDirectionKind::return)
+	 * }}}
+	 * {{{
 	 * in replyParms->size() = self.argument->size() and
+	 * }}}
+	 * {{{
 	 * self.argument->forAll( o: ValueSpecification | o.oclIsKindOf(Expression) and let e : Expression = o.oclAsType(Expression) in
+	 * }}}
+	 * {{{
 	 * e.operand->notEmpty()  implies 
+	 * }}}
+	 * {{{
 	 * let p : Parameter = replyParms->at(self.argument->indexOf(o)) in
+	 * }}}
+	 * {{{
 	 * e.operand->asSequence()->first().type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_signature_is_operation_reply: Boolean = {
 		// Start of user code for "signature_is_operation_reply"
@@ -190,15 +238,33 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_signature_is_operation_request -->
    * <!-- End of user code doc for validate_signature_is_operation_request -->
 	 *
-	 * @body (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall) and signature.oclIsKindOf(Operation)  implies 
+	 * {{{
+	 * OCL Body (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall) and signature.oclIsKindOf(Operation)  implies 
+	 * }}}
+	 * {{{
 	 *  let requestParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
+	 * }}}
+	 * {{{
 	 *  select(direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::_'in'  )
+	 * }}}
+	 * {{{
 	 * in requestParms->size() = self.argument->size() and
+	 * }}}
+	 * {{{
 	 * self.argument->forAll( o: ValueSpecification | 
+	 * }}}
+	 * {{{
 	 * not (o.oclIsKindOf(Expression) and o.oclAsType(Expression).symbol->size()=0 and o.oclAsType(Expression).operand->isEmpty() ) implies 
+	 * }}}
+	 * {{{
 	 * let p : Parameter = requestParms->at(self.argument->indexOf(o)) in
+	 * }}}
+	 * {{{
 	 * o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_signature_is_operation_request: Boolean = {
 		// Start of user code for "signature_is_operation_request"
@@ -212,16 +278,36 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_signature_is_signal -->
    * <!-- End of user code doc for validate_signature_is_signal -->
 	 *
-	 * @body (messageSort = MessageSort::asynchSignal ) and signature.oclIsKindOf(Signal) implies
+	 * {{{
+	 * OCL Body (messageSort = MessageSort::asynchSignal ) and signature.oclIsKindOf(Signal) implies
+	 * }}}
+	 * {{{
 	 *    let signalAttributes : OrderedSet(Property) = signature.oclAsType(Signal).inheritedMember()->
+	 * }}}
+	 * {{{
 	 *              select(n:NamedElement | n.oclIsTypeOf(Property))->collect(oclAsType(Property))->asOrderedSet()
+	 * }}}
+	 * {{{
 	 *    in signalAttributes->size() = self.argument->size()
+	 * }}}
+	 * {{{
 	 *    and self.argument->forAll( o: ValueSpecification |
+	 * }}}
+	 * {{{
 	 *           not (o.oclIsKindOf(Expression)
+	 * }}}
+	 * {{{
 	 *           and o.oclAsType(Expression).symbol->size()=0
+	 * }}}
+	 * {{{
 	 *           and o.oclAsType(Expression).operand->isEmpty() ) implies
+	 * }}}
+	 * {{{
 	 *               let p : Property = signalAttributes->at(self.argument->indexOf(o))
+	 * }}}
+	 * {{{
 	 *               in o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier)))
+	 * }}}
 	 */
 	def validate_signature_is_signal: Boolean = {
 		// Start of user code for "signature_is_signal"
@@ -235,11 +321,21 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_signature_refer_to -->
    * <!-- End of user code doc for validate_signature_refer_to -->
 	 *
-	 * @body signature->notEmpty() implies 
+	 * {{{
+	 * OCL Body signature->notEmpty() implies 
+	 * }}}
+	 * {{{
 	 * ((signature.oclIsKindOf(Operation) and 
+	 * }}}
+	 * {{{
 	 * (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall or messageSort = MessageSort::reply) 
+	 * }}}
+	 * {{{
 	 * ) or (signature.oclIsKindOf(Signal)  and messageSort = MessageSort::asynchSignal )
+	 * }}}
+	 * {{{
 	 *  ) and name = signature.name
+	 * }}}
 	 */
 	def validate_signature_refer_to: Boolean = {
 		// Start of user code for "signature_refer_to"

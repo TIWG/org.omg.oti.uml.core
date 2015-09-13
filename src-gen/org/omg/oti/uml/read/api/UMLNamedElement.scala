@@ -63,7 +63,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for name -->
    * <!-- End of user code doc for name -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def name: Option[String]
 
@@ -73,7 +73,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for visibility -->
    * <!-- End of user code doc for visibility -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def visibility: Option[UMLVisibilityKind.Value]
 
@@ -81,8 +81,8 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for event_durationObservation -->
    * <!-- End of user code doc for event_durationObservation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDurationObservation.event
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationObservation.event
 	 */
 	def event_durationObservation: Set[UMLDurationObservation[Uml]]
 
@@ -90,8 +90,8 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for event_timeObservation -->
    * <!-- End of user code doc for event_timeObservation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTimeObservation.event
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeObservation.event
 	 */
 	def event_timeObservation: Set[UMLTimeObservation[Uml]]
 
@@ -99,8 +99,8 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for member_memberNamespace -->
    * <!-- End of user code doc for member_memberNamespace -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.member
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.member
 	 */
 	def member_memberNamespace: Set[UMLNamespace[Uml]]
 
@@ -108,8 +108,8 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for message_considerIgnoreFragment -->
    * <!-- End of user code doc for message_considerIgnoreFragment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConsiderIgnoreFragment.message
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConsiderIgnoreFragment.message
 	 */
 	def message_considerIgnoreFragment: Set[UMLConsiderIgnoreFragment[Uml]]
 
@@ -117,8 +117,8 @@ trait UMLNamedElement[Uml <: UML]
 	 * <!-- Start of user code doc for signature_message -->
    * <!-- End of user code doc for signature_message -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.signature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.signature
 	 */
 	def signature_message: Set[UMLMessage[Uml]]
 

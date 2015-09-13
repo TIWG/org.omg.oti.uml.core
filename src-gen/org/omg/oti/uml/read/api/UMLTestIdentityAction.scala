@@ -63,8 +63,8 @@ trait UMLTestIdentityAction[Uml <: UML]
 	 * <!-- Start of user code doc for first -->
    * <!-- End of user code doc for first -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.first_testIdentityAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.first_testIdentityAction
 	 */
 	def first: Option[UMLInputPin[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTestIdentityAction[Uml <: UML]
 	 * <!-- Start of user code doc for second -->
    * <!-- End of user code doc for second -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.second_testIdentityAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.second_testIdentityAction
 	 */
 	def second: Option[UMLInputPin[Uml]]
 

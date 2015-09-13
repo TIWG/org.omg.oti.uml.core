@@ -62,8 +62,8 @@ trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecificati
 	 * <!-- Start of user code doc for deployment -->
    * <!-- End of user code doc for deployment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDeployment.configuration
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeployment.configuration
 	 */
 	def deployment: Option[UMLDeployment[Uml]] = owner.selectByKindOf { case x: UMLDeployment[Uml] => x }
 
@@ -73,7 +73,9 @@ trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecificati
 	 * <!-- Start of user code doc for validate_deployed_elements -->
    * <!-- End of user code doc for validate_deployed_elements -->
 	 *
-	 * @body deployment->forAll (location.deployedElement->forAll (oclIsKindOf(Component)))
+	 * {{{
+	 * OCL Body deployment->forAll (location.deployedElement->forAll (oclIsKindOf(Component)))
+	 * }}}
 	 */
 	def validate_deployed_elements: Boolean = {
 		// Start of user code for "deployed_elements"
@@ -87,7 +89,9 @@ trait UMLDeploymentSpecificationOps[Uml <: UML] { self: UMLDeploymentSpecificati
 	 * <!-- Start of user code doc for validate_deployment_target -->
    * <!-- End of user code doc for validate_deployment_target -->
 	 *
-	 * @body deployment->forAll (location.oclIsKindOf(ExecutionEnvironment))
+	 * {{{
+	 * OCL Body deployment->forAll (location.oclIsKindOf(ExecutionEnvironment))
+	 * }}}
 	 */
 	def validate_deployment_target: Boolean = {
 		// Start of user code for "deployment_target"

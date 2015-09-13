@@ -63,8 +63,8 @@ trait UMLTypedElement[Uml <: UML]
 	 * <!-- Start of user code doc for _type -->
    * <!-- End of user code doc for _type -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLType.type_typedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType.type_typedElement
 	 */
 	def _type: Option[UMLType[Uml]]
 

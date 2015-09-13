@@ -60,8 +60,8 @@ trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 	 * <!-- Start of user code doc for classifier_enumerationLiteral -->
    * <!-- End of user code doc for classifier_enumerationLiteral -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLEnumerationLiteral.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumerationLiteral.classifier
 	 */
 	def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]] = classifier_instanceSpecification.selectByKindOf { case x: UMLEnumerationLiteral[Uml] => x }
 
@@ -69,7 +69,9 @@ trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 	 * <!-- Start of user code doc for validate_immutable -->
    * <!-- End of user code doc for validate_immutable -->
 	 *
-	 * @body ownedAttribute->forAll(isReadOnly)
+	 * {{{
+	 * OCL Body ownedAttribute->forAll(isReadOnly)
+	 * }}}
 	 */
 	def validate_immutable: Boolean = {
 		// Start of user code for "immutable"

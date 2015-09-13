@@ -62,8 +62,8 @@ trait UMLSendObjectActionOps[Uml <: UML] { self: UMLSendObjectAction[Uml] =>
 	 * <!-- Start of user code doc for request -->
    * <!-- End of user code doc for request -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.request_sendObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.request_sendObjectAction
 	 */
 	def request: Option[UMLInputPin[Uml]] = argument headOption
 
@@ -73,7 +73,9 @@ trait UMLSendObjectActionOps[Uml <: UML] { self: UMLSendObjectAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_target_pin -->
    * <!-- End of user code doc for validate_type_target_pin -->
 	 *
-	 * @body onPort<>null implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
+	 * {{{
+	 * OCL Body onPort<>null implies target.type.oclAsType(Classifier).allFeatures()->includes(onPort)
+	 * }}}
 	 */
 	def validate_type_target_pin: Boolean = {
 		// Start of user code for "type_target_pin"

@@ -64,8 +64,8 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 	 * <!-- Start of user code doc for appliedProfile -->
    * <!-- End of user code doc for appliedProfile -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfile.appliedProfile_profileApplication
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfile.appliedProfile_profileApplication
 	 */
 	def appliedProfile: Option[UMLProfile[Uml]] = target.selectByKindOf { case x: UMLProfile[Uml] => x } headOption
 
@@ -75,8 +75,8 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 	 * <!-- Start of user code doc for applyingPackage -->
    * <!-- End of user code doc for applyingPackage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.profileApplication
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.profileApplication
 	 */
 	def applyingPackage: Option[UMLPackage[Uml]] = owner.selectByKindOf { case x: UMLPackage[Uml] => x }
 

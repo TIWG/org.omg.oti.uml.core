@@ -62,11 +62,13 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * <!-- Start of user code doc for extension -->
    * <!-- End of user code doc for extension -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtension.metaclass
-	 * @body result = (Extension.allInstances()->select(ext | 
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtension.metaclass
+	 * {{{
+	 * OCL Body result = (Extension.allInstances()->select(ext | 
 	 *   let endTypes : Sequence(Classifier) = ext.memberEnd->collect(type.oclAsType(Classifier)) in
 	 *   endTypes->includes(self) or endTypes.allParents()->includes(self) ))
+	 * }}}
 	 */
 	def extension: Set[UMLExtension[Uml]] = {
 		// Start of user code for "extension"
@@ -80,8 +82,8 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * <!-- Start of user code doc for ownedReception -->
    * <!-- End of user code doc for ownedReception -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReception.ownedReception_class
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReception.ownedReception_class
 	 */
 	def ownedReception: Set[UMLReception[Uml]] = feature.selectByKindOf { case x: UMLReception[Uml] => x }
 
@@ -91,9 +93,11 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * <!-- Start of user code doc for superClass -->
    * <!-- End of user code doc for superClass -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.superClass_class
-	 * @body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.superClass_class
+	 * {{{
+	 * OCL Body result = (self.general()->select(oclIsKindOf(Class))->collect(oclAsType(Class))->asSet())
+	 * }}}
 	 */
 	def superClass: Set[UMLClass[Uml]] = general.selectByKindOf { case x: UMLClass[Uml] => x }
 
@@ -101,8 +105,8 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * <!-- Start of user code doc for superClass_class -->
    * <!-- End of user code doc for superClass_class -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.superClass
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.superClass
 	 */
 	def superClass_class: Set[UMLClass[Uml]] = general_classifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
@@ -112,7 +116,9 @@ trait UMLClassOps[Uml <: UML] { self: UMLClass[Uml] =>
 	 * <!-- Start of user code doc for validate_passive_class -->
    * <!-- End of user code doc for validate_passive_class -->
 	 *
-	 * @body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
+	 * {{{
+	 * OCL Body not isActive implies (ownedReception->isEmpty() and classifierBehavior = null)
+	 * }}}
 	 */
 	def validate_passive_class: Boolean = {
 		// Start of user code for "passive_class"

@@ -64,8 +64,8 @@ trait UMLComment[Uml <: UML]
 	 * <!-- Start of user code doc for annotatedElement -->
    * <!-- End of user code doc for annotatedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.annotatedElement_comment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.annotatedElement_comment
 	 */
 	def annotatedElement: Set[UMLElement[Uml]]
 
@@ -75,7 +75,7 @@ trait UMLComment[Uml <: UML]
 	 * <!-- Start of user code doc for body -->
    * <!-- End of user code doc for body -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def body: Option[String]
 

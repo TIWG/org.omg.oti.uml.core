@@ -63,8 +63,8 @@ trait UMLExecutionSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for finish -->
    * <!-- End of user code doc for finish -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.finish_executionSpecification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.finish_executionSpecification
 	 */
 	def finish: Option[UMLOccurrenceSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLExecutionSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for start -->
    * <!-- End of user code doc for start -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.start_executionSpecification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.start_executionSpecification
 	 */
 	def start: Option[UMLOccurrenceSpecification[Uml]]
 
@@ -83,8 +83,8 @@ trait UMLExecutionSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for execution_executionOccurrenceSpecification -->
    * <!-- End of user code doc for execution_executionOccurrenceSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutionOccurrenceSpecification.execution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionOccurrenceSpecification.execution
 	 */
 	def execution_executionOccurrenceSpecification: Set[UMLExecutionOccurrenceSpecification[Uml]]
 

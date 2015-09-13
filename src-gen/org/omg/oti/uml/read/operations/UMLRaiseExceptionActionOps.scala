@@ -62,8 +62,8 @@ trait UMLRaiseExceptionActionOps[Uml <: UML] { self: UMLRaiseExceptionAction[Uml
 	 * <!-- Start of user code doc for exception -->
    * <!-- End of user code doc for exception -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.exception_raiseExceptionAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.exception_raiseExceptionAction
 	 */
 	def exception: Option[UMLInputPin[Uml]] = input headOption
 

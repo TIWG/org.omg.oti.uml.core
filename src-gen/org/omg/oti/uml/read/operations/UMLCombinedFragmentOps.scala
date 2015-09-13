@@ -62,8 +62,8 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * <!-- Start of user code doc for cfragmentGate -->
    * <!-- End of user code doc for cfragmentGate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGate.cfragmentGate_combinedFragment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGate.cfragmentGate_combinedFragment
 	 */
 	def cfragmentGate: Set[UMLGate[Uml]] = ownedElement.selectByKindOf { case x: UMLGate[Uml] => x }
 
@@ -73,9 +73,15 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * <!-- Start of user code doc for validate_break -->
    * <!-- End of user code doc for validate_break -->
 	 *
-	 * @body interactionOperator=InteractionOperatorKind::break  implies   
+	 * {{{
+	 * OCL Body interactionOperator=InteractionOperatorKind::break  implies   
+	 * }}}
+	 * {{{
 	 * enclosingInteraction.oclAsType(InteractionFragment)->asSet()->union(
+	 * }}}
+	 * {{{
 	 *    enclosingOperand.oclAsType(InteractionFragment)->asSet()).covered->asSet() = self.covered->asSet()
+	 * }}}
 	 */
 	def validate_break: Boolean = {
 		// Start of user code for "break"
@@ -89,7 +95,9 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * <!-- Start of user code doc for validate_consider_and_ignore -->
    * <!-- End of user code doc for validate_consider_and_ignore -->
 	 *
-	 * @body ((interactionOperator = InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)) implies oclIsKindOf(ConsiderIgnoreFragment)
+	 * {{{
+	 * OCL Body ((interactionOperator = InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)) implies oclIsKindOf(ConsiderIgnoreFragment)
+	 * }}}
 	 */
 	def validate_consider_and_ignore: Boolean = {
 		// Start of user code for "consider_and_ignore"
@@ -103,10 +111,18 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 * <!-- Start of user code doc for validate_opt_loop_break_neg -->
    * <!-- End of user code doc for validate_opt_loop_break_neg -->
 	 *
-	 * @body (interactionOperator =  InteractionOperatorKind::opt or interactionOperator = InteractionOperatorKind::loop or
+	 * {{{
+	 * OCL Body (interactionOperator =  InteractionOperatorKind::opt or interactionOperator = InteractionOperatorKind::loop or
+	 * }}}
+	 * {{{
 	 * interactionOperator = InteractionOperatorKind::break or interactionOperator = InteractionOperatorKind::assert or
+	 * }}}
+	 * {{{
 	 * interactionOperator = InteractionOperatorKind::neg)
+	 * }}}
+	 * {{{
 	 * implies operand->size()=1
+	 * }}}
 	 */
 	def validate_opt_loop_break_neg: Boolean = {
 		// Start of user code for "opt_loop_break_neg"

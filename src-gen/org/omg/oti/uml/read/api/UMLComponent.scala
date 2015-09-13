@@ -63,7 +63,7 @@ trait UMLComponent[Uml <: UML]
 	 * <!-- Start of user code doc for isIndirectlyInstantiated -->
    * <!-- End of user code doc for isIndirectlyInstantiated -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isIndirectlyInstantiated: Boolean
 
@@ -73,8 +73,8 @@ trait UMLComponent[Uml <: UML]
 	 * <!-- Start of user code doc for packagedElement -->
    * <!-- End of user code doc for packagedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageableElement.packagedElement_component
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.packagedElement_component
 	 */
 	def packagedElement: Set[UMLPackageableElement[Uml]]
 

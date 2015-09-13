@@ -63,8 +63,8 @@ trait UMLConnector[Uml <: UML]
 	 * <!-- Start of user code doc for _type -->
    * <!-- End of user code doc for _type -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.type_connector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.type_connector
 	 */
 	def _type: Option[UMLAssociation[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLConnector[Uml <: UML]
 	 * <!-- Start of user code doc for contract -->
    * <!-- End of user code doc for contract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.contract_connector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.contract_connector
 	 */
 	def contract: Set[UMLBehavior[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLConnector[Uml <: UML]
 	 * <!-- Start of user code doc for end -->
    * <!-- End of user code doc for end -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.end_connector
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="2..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectorEnd.end_connector
 	 */
 	def end: Seq[UMLConnectorEnd[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLConnector[Uml <: UML]
 	 * <!-- Start of user code doc for connector_message -->
    * <!-- End of user code doc for connector_message -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.connector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.connector
 	 */
 	def connector_message: Set[UMLMessage[Uml]]
 
@@ -103,8 +103,8 @@ trait UMLConnector[Uml <: UML]
 	 * <!-- Start of user code doc for realizingConnector_informationFlow -->
    * <!-- End of user code doc for realizingConnector_informationFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.realizingConnector
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realizingConnector
 	 */
 	def realizingConnector_informationFlow: Set[UMLInformationFlow[Uml]]
 

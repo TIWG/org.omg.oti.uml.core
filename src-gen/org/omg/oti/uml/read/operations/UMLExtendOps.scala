@@ -62,8 +62,8 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	 * <!-- Start of user code doc for condition -->
    * <!-- End of user code doc for condition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.condition_extend
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.condition_extend
 	 */
 	def condition: Option[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
 
@@ -73,8 +73,8 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	 * <!-- Start of user code doc for extendedCase -->
    * <!-- End of user code doc for extendedCase -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extendedCase_extend
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.extendedCase_extend
 	 */
 	def extendedCase: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
@@ -84,8 +84,8 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	 * <!-- Start of user code doc for extension -->
    * <!-- End of user code doc for extension -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.extend
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.extend
 	 */
 	def extension: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
@@ -95,7 +95,9 @@ trait UMLExtendOps[Uml <: UML] { self: UMLExtend[Uml] =>
 	 * <!-- Start of user code doc for validate_extension_points -->
    * <!-- End of user code doc for validate_extension_points -->
 	 *
-	 * @body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
+	 * {{{
+	 * OCL Body extensionLocation->forAll (xp | extendedCase.extensionPoint->includes(xp))
+	 * }}}
 	 */
 	def validate_extension_points: Boolean = {
 		// Start of user code for "extension_points"

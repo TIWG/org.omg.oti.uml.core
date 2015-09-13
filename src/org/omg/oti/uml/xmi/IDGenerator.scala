@@ -50,7 +50,12 @@ import scala.util.Success
 import scala.util.Try
 
 /**
- * @tparam Uml
+ * A generic API corresponding to OMG XMI 2.5.1, Section B.4 Identification
+ *
+ * Although the Identification algorithms are defined in a tool-neutral way,
+ * this generic API provides the flexibility for tool-specific adaptation.
+ *
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 trait IDGenerator[Uml <: UML] { 
   

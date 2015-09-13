@@ -62,8 +62,8 @@ trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 	 * <!-- Start of user code doc for general -->
    * <!-- End of user code doc for general -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.general_generalization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general_generalization
 	 */
 	def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
 
@@ -73,8 +73,8 @@ trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 	 * <!-- Start of user code doc for specific -->
    * <!-- End of user code doc for specific -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.generalization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.generalization
 	 */
 	def specific: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
 

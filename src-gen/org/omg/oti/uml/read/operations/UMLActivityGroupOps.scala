@@ -63,8 +63,8 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for inActivity -->
    * <!-- End of user code doc for inActivity -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivity.group
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.group
 	 */
 	def inActivity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for subgroup -->
    * <!-- End of user code doc for subgroup -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityGroup.superGroup
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.superGroup
 	 */
 	def subgroup: Set[UMLActivityGroup[Uml]] = ownedElement.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
@@ -85,8 +85,8 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for superGroup -->
    * <!-- End of user code doc for superGroup -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityGroup.subgroup
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.subgroup
 	 */
 	def superGroup: Option[UMLActivityGroup[Uml]] = owner.selectByKindOf { case x: UMLActivityGroup[Uml] => x }
 
@@ -96,10 +96,12 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for containingActivity -->
    * <!-- End of user code doc for containingActivity -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if superGroup<>null then superGroup.containingActivity()
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if superGroup<>null then superGroup.containingActivity()
 	 * else inActivity
 	 * endif)
+	 * }}}
 	 */
 	def containingActivity: Option[UMLActivity[Uml]] = {
 		// Start of user code for "containingActivity"
@@ -118,8 +120,12 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for validate_nodes_and_edges -->
    * <!-- End of user code doc for validate_nodes_and_edges -->
 	 *
-	 * @body containedNode->forAll(activity = self.containingActivity()) and 
+	 * {{{
+	 * OCL Body containedNode->forAll(activity = self.containingActivity()) and 
+	 * }}}
+	 * {{{
 	 * containedEdge->forAll(activity = self.containingActivity())
+	 * }}}
 	 */
 	def validate_nodes_and_edges: Boolean = {
 		// Start of user code for "nodes_and_edges"
@@ -134,10 +140,18 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 * <!-- Start of user code doc for validate_not_contained -->
    * <!-- End of user code doc for validate_not_contained -->
 	 *
-	 * @body subgroup->closure(subgroup).containedNode->excludesAll(containedNode) and
+	 * {{{
+	 * OCL Body subgroup->closure(subgroup).containedNode->excludesAll(containedNode) and
+	 * }}}
+	 * {{{
 	 * superGroup->closure(superGroup).containedNode->excludesAll(containedNode) and 
+	 * }}}
+	 * {{{
 	 * subgroup->closure(subgroup).containedEdge->excludesAll(containedEdge) and 
+	 * }}}
+	 * {{{
 	 * superGroup->closure(superGroup).containedEdge->excludesAll(containedEdge)
+	 * }}}
 	 */
 	def validate_not_contained: Boolean = {
 		// Start of user code for "not_contained"

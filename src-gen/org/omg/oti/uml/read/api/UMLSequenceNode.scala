@@ -63,8 +63,8 @@ trait UMLSequenceNode[Uml <: UML]
 	 * <!-- Start of user code doc for executableNode -->
    * <!-- End of user code doc for executableNode -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.executableNode_sequenceNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.executableNode_sequenceNode
 	 */
 	def executableNode: Seq[UMLExecutableNode[Uml]]
 

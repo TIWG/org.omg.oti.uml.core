@@ -62,12 +62,24 @@ trait UMLWriteLinkActionOps[Uml <: UML] { self: UMLWriteLinkAction[Uml] =>
 	 * <!-- Start of user code doc for validate_allow_access -->
    * <!-- End of user code doc for validate_allow_access -->
 	 *
-	 * @body endData.end->exists(end |
+	 * {{{
+	 * OCL Body endData.end->exists(end |
+	 * }}}
+	 * {{{
 	 *   end.type=_'context' or
+	 * }}}
+	 * {{{
 	 *   end.visibility=VisibilityKind::public or 
+	 * }}}
+	 * {{{
 	 *   end.visibility=VisibilityKind::protected and
+	 * }}}
+	 * {{{
 	 *   endData.end->exists(other | 
+	 * }}}
+	 * {{{
 	 *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
+	 * }}}
 	 */
 	def validate_allow_access: Boolean = {
 		// Start of user code for "allow_access"

@@ -61,8 +61,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for actualGate_interactionUse -->
    * <!-- End of user code doc for actualGate_interactionUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.actualGate
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.actualGate
 	 */
 	def actualGate_interactionUse: Option[UMLInteractionUse[Uml]] = owner.selectByKindOf { case x: UMLInteractionUse[Uml] => x }
 
@@ -70,8 +70,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for cfragmentGate_combinedFragment -->
    * <!-- End of user code doc for cfragmentGate_combinedFragment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLCombinedFragment.cfragmentGate
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCombinedFragment.cfragmentGate
 	 */
 	def cfragmentGate_combinedFragment: Option[UMLCombinedFragment[Uml]] = owner.selectByKindOf { case x: UMLCombinedFragment[Uml] => x }
 
@@ -79,8 +79,8 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for formalGate_interaction -->
    * <!-- End of user code doc for formalGate_interaction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteraction.formalGate
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.formalGate
 	 */
 	def formalGate_interaction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
@@ -90,8 +90,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for getName -->
    * <!-- End of user code doc for getName -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if name->notEmpty() then name->asOrderedSet()->first()
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if name->notEmpty() then name->asOrderedSet()->first()
 	 * else  if isActual() or isOutsideCF() 
 	 *   then if isSend() 
 	 *     then 'out_'.concat(self.message.name->asOrderedSet()->first())
@@ -103,6 +104,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *     endif
 	 *   endif
 	 * endif)
+	 * }}}
 	 */
 	def getName: Option[String] = {
 		// Start of user code for "getName"
@@ -116,8 +118,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for getOperand -->
    * <!-- End of user code doc for getOperand -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if isInsideCF() then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if isInsideCF() then
 	 *   let oppEnd : MessageEnd = self.oppositeEnd()->asOrderedSet()->first() in
 	 *     if oppEnd.oclIsKindOf(MessageOccurrenceSpecification)
 	 *     then let oppMOS : MessageOccurrenceSpecification = oppEnd.oclAsType(MessageOccurrenceSpecification)
@@ -127,6 +130,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *     endif
 	 *   else null
 	 * endif)
+	 * }}}
 	 */
 	def getOperand: Option[UMLInteractionOperand[Uml]] = {
 		// Start of user code for "getOperand"
@@ -140,8 +144,10 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for isActual -->
    * <!-- End of user code doc for isActual -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (interactionUse->notEmpty())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (interactionUse->notEmpty())
+	 * }}}
 	 */
 	def isActual: Boolean = {
 		// Start of user code for "isActual"
@@ -156,8 +162,10 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for isDistinguishableFrom -->
    * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
@@ -171,8 +179,10 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for isFormal -->
    * <!-- End of user code doc for isFormal -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (interaction->notEmpty())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (interaction->notEmpty())
+	 * }}}
 	 */
 	def isFormal: Boolean = {
 		// Start of user code for "isFormal"
@@ -186,8 +196,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for isInsideCF -->
    * <!-- End of user code doc for isInsideCF -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
 	 * let oppEnd : MessageEnd = self.oppositeEnd()->asOrderedSet()->first() in
 	 * if oppEnd.oclIsKindOf(MessageOccurrenceSpecification)
 	 * then let oppMOS : MessageOccurrenceSpecification
@@ -196,6 +207,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * else let oppGate : Gate = oppEnd.oclAsType(Gate)
 	 * in combinedFragment = oppGate.combinedFragment.enclosingOperand.combinedFragment
 	 * endif)
+	 * }}}
 	 */
 	def isInsideCF: Boolean = {
 		// Start of user code for "isInsideCF"
@@ -209,8 +221,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for isOutsideCF -->
    * <!-- End of user code doc for isOutsideCF -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.oppositeEnd()-> notEmpty() and combinedFragment->notEmpty() implies
 	 * let oppEnd : MessageEnd = self.oppositeEnd()->asOrderedSet()->first() in
 	 * if oppEnd.oclIsKindOf(MessageOccurrenceSpecification) 
 	 * then let oppMOS : MessageOccurrenceSpecification = oppEnd.oclAsType(MessageOccurrenceSpecification)
@@ -224,6 +237,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *      oppGate.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)->asSet()->
 	 *      union(oppGate.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)->asSet())
 	 * endif)
+	 * }}}
 	 */
 	def isOutsideCF: Boolean = {
 		// Start of user code for "isOutsideCF"
@@ -237,13 +251,15 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for matches -->
    * <!-- End of user code doc for matches -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.getName() = gateToMatch.getName() and 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.getName() = gateToMatch.getName() and 
 	 * self.message.messageSort = gateToMatch.message.messageSort and
 	 * self.message.name = gateToMatch.message.name and
 	 * self.message.sendEvent->includes(self) implies gateToMatch.message.receiveEvent->includes(gateToMatch)  and
 	 * self.message.receiveEvent->includes(self) implies gateToMatch.message.sendEvent->includes(gateToMatch) and
 	 * self.message.signature = gateToMatch.message.signature)
+	 * }}}
 	 */
 	def matches(gateToMatch: Option[UMLGate[Uml]]): Boolean = {
 		// Start of user code for "matches"
@@ -257,7 +273,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_actual_gate_distinguishable -->
    * <!-- End of user code doc for validate_actual_gate_distinguishable -->
 	 *
-	 * @body isActual() implies interactionUse.actualGate->select(getName() = self.getName())->size()=1
+	 * {{{
+	 * OCL Body isActual() implies interactionUse.actualGate->select(getName() = self.getName())->size()=1
+	 * }}}
 	 */
 	def validate_actual_gate_distinguishable: Boolean = {
 		// Start of user code for "actual_gate_distinguishable"
@@ -271,7 +289,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_actual_gate_matched -->
    * <!-- End of user code doc for validate_actual_gate_matched -->
 	 *
-	 * @body interactionUse->notEmpty() implies interactionUse.refersTo.formalGate->select(matches(self))->size()=1
+	 * {{{
+	 * OCL Body interactionUse->notEmpty() implies interactionUse.refersTo.formalGate->select(matches(self))->size()=1
+	 * }}}
 	 */
 	def validate_actual_gate_matched: Boolean = {
 		// Start of user code for "actual_gate_matched"
@@ -285,7 +305,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_formal_gate_distinguishable -->
    * <!-- End of user code doc for validate_formal_gate_distinguishable -->
 	 *
-	 * @body isFormal() implies interaction.formalGate->select(getName() = self.getName())->size()=1
+	 * {{{
+	 * OCL Body isFormal() implies interaction.formalGate->select(getName() = self.getName())->size()=1
+	 * }}}
 	 */
 	def validate_formal_gate_distinguishable: Boolean = {
 		// Start of user code for "formal_gate_distinguishable"
@@ -299,9 +321,15 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_inside_cf_gate_distinguishable -->
    * <!-- End of user code doc for validate_inside_cf_gate_distinguishable -->
 	 *
-	 * @body isInsideCF() implies
+	 * {{{
+	 * OCL Body isInsideCF() implies
+	 * }}}
+	 * {{{
 	 * let selfOperand : InteractionOperand = self.getOperand() in
+	 * }}}
+	 * {{{
 	 *   combinedFragment.cfragmentGate->select(isInsideCF() and getName() = self.getName())->select(getOperand() = selfOperand)->size()=1
+	 * }}}
 	 */
 	def validate_inside_cf_gate_distinguishable: Boolean = {
 		// Start of user code for "inside_cf_gate_distinguishable"
@@ -315,7 +343,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_inside_cf_matched -->
    * <!-- End of user code doc for validate_inside_cf_matched -->
 	 *
-	 * @body isInsideCF() implies combinedFragment.cfragmentGate->select(isOutsideCF() and matches(self))->size()=1
+	 * {{{
+	 * OCL Body isInsideCF() implies combinedFragment.cfragmentGate->select(isOutsideCF() and matches(self))->size()=1
+	 * }}}
 	 */
 	def validate_inside_cf_matched: Boolean = {
 		// Start of user code for "inside_cf_matched"
@@ -329,7 +359,9 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_outside_cf_gate_distinguishable -->
    * <!-- End of user code doc for validate_outside_cf_gate_distinguishable -->
 	 *
-	 * @body isOutsideCF() implies combinedFragment.cfragmentGate->select(getName() = self.getName())->size()=1
+	 * {{{
+	 * OCL Body isOutsideCF() implies combinedFragment.cfragmentGate->select(getName() = self.getName())->size()=1
+	 * }}}
 	 */
 	def validate_outside_cf_gate_distinguishable: Boolean = {
 		// Start of user code for "outside_cf_gate_distinguishable"
@@ -343,13 +375,27 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 * <!-- Start of user code doc for validate_outside_cf_matched -->
    * <!-- End of user code doc for validate_outside_cf_matched -->
 	 *
-	 * @body isOutsideCF() implies
+	 * {{{
+	 * OCL Body isOutsideCF() implies
+	 * }}}
+	 * {{{
 	 *  if self.combinedFragment.interactionOperator->asOrderedSet()->first() = InteractionOperatorKind::alt
+	 * }}}
+	 * {{{
 	 *  then self.combinedFragment.operand->forAll(op : InteractionOperand |
+	 * }}}
+	 * {{{
 	 *  self.combinedFragment.cfragmentGate->select(isInsideCF() and 
+	 * }}}
+	 * {{{
 	 *  oppositeEnd().enclosingFragment()->includes(self.combinedFragment) and matches(self))->size()=1)
+	 * }}}
+	 * {{{
 	 *  else  self.combinedFragment.cfragmentGate->select(isInsideCF() and matches(self))->size()=1
+	 * }}}
+	 * {{{
 	 *  endif
+	 * }}}
 	 */
 	def validate_outside_cf_matched: Boolean = {
 		// Start of user code for "outside_cf_matched"

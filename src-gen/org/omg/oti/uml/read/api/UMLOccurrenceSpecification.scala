@@ -63,8 +63,8 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for covered -->
    * <!-- End of user code doc for covered -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.covered_events
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.covered_events
 	 */
 	override def covered: Iterable[UMLLifeline[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for toAfter -->
    * <!-- End of user code doc for toAfter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralOrdering.before
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralOrdering.before
 	 */
 	def toAfter: Set[UMLGeneralOrdering[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for toBefore -->
    * <!-- End of user code doc for toBefore -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralOrdering.after
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralOrdering.after
 	 */
 	def toBefore: Set[UMLGeneralOrdering[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for finish_executionSpecification -->
    * <!-- End of user code doc for finish_executionSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutionSpecification.finish
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionSpecification.finish
 	 */
 	def finish_executionSpecification: Set[UMLExecutionSpecification[Uml]]
 
@@ -103,8 +103,8 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for start_executionSpecification -->
    * <!-- End of user code doc for start_executionSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutionSpecification.start
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionSpecification.start
 	 */
 	def start_executionSpecification: Set[UMLExecutionSpecification[Uml]]
 

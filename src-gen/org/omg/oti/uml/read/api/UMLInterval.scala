@@ -63,8 +63,8 @@ trait UMLInterval[Uml <: UML]
 	 * <!-- Start of user code doc for max -->
    * <!-- End of user code doc for max -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.max_interval
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.max_interval
 	 */
 	def max: Option[UMLValueSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInterval[Uml <: UML]
 	 * <!-- Start of user code doc for min -->
    * <!-- End of user code doc for min -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.min_interval
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.min_interval
 	 */
 	def min: Option[UMLValueSpecification[Uml]]
 

@@ -62,8 +62,8 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for conformance -->
    * <!-- End of user code doc for conformance -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolConformance.specificMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolConformance.specificMachine
 	 */
 	def conformance: Set[UMLProtocolConformance[Uml]] = ownedElement.selectByKindOf { case x: UMLProtocolConformance[Uml] => x }
 
@@ -71,8 +71,8 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for generalMachine_protocolConformance -->
    * <!-- End of user code doc for generalMachine_protocolConformance -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolConformance.generalMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolConformance.generalMachine
 	 */
 	def generalMachine_protocolConformance: Set[UMLProtocolConformance[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLProtocolConformance[Uml] => x }
 
@@ -82,8 +82,12 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for validate_deep_or_shallow_history -->
    * <!-- End of user code doc for validate_deep_or_shallow_history -->
 	 *
-	 * @body region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Pseudostate) implies
+	 * {{{
+	 * OCL Body region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Pseudostate) implies
+	 * }}}
+	 * {{{
 	 * ((v.oclAsType(Pseudostate).kind <>  PseudostateKind::deepHistory) and (v.oclAsType(Pseudostate).kind <> PseudostateKind::shallowHistory))))
+	 * }}}
 	 */
 	def validate_deep_or_shallow_history: Boolean = {
 		// Start of user code for "deep_or_shallow_history"
@@ -97,8 +101,12 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for validate_entry_exit_do -->
    * <!-- End of user code doc for validate_entry_exit_do -->
 	 *
-	 * @body region->forAll(r | r.subvertex->forAll(v | v.oclIsKindOf(State) implies
+	 * {{{
+	 * OCL Body region->forAll(r | r.subvertex->forAll(v | v.oclIsKindOf(State) implies
+	 * }}}
+	 * {{{
 	 * (v.oclAsType(State).entry->isEmpty() and v.oclAsType(State).exit->isEmpty() and v.oclAsType(State).doActivity->isEmpty())))
+	 * }}}
 	 */
 	def validate_entry_exit_do: Boolean = {
 		// Start of user code for "entry_exit_do"
@@ -112,7 +120,9 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for validate_protocol_state_machine_classifier_context -->
    * <!-- End of user code doc for validate_protocol_state_machine_classifier_context -->
 	 *
-	 * @body _'context' <> null and specification = null
+	 * {{{
+	 * OCL Body _'context' <> null and specification = null
+	 * }}}
 	 */
 	def validate_protocol_state_machine_classifier_context: Boolean = {
 		// Start of user code for "protocol_state_machine_classifier_context"
@@ -126,7 +136,9 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 * <!-- Start of user code doc for validate_protocol_transitions -->
    * <!-- End of user code doc for validate_protocol_transitions -->
 	 *
-	 * @body region->forAll(r | r.transition->forAll(t | t.oclIsTypeOf(ProtocolTransition)))
+	 * {{{
+	 * OCL Body region->forAll(r | r.transition->forAll(t | t.oclIsTypeOf(ProtocolTransition)))
+	 * }}}
 	 */
 	def validate_protocol_transitions: Boolean = {
 		// Start of user code for "protocol_transitions"

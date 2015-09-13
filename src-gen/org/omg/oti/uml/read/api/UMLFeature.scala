@@ -63,8 +63,8 @@ trait UMLFeature[Uml <: UML]
 	 * <!-- Start of user code doc for featuringClassifier -->
    * <!-- End of user code doc for featuringClassifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.feature
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.feature
 	 */
 	def featuringClassifier: Option[UMLClassifier[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLFeature[Uml <: UML]
 	 * <!-- Start of user code doc for isStatic -->
    * <!-- End of user code doc for isStatic -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isStatic: Boolean
 

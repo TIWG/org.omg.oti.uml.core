@@ -63,7 +63,7 @@ trait UMLJoinNode[Uml <: UML]
 	 * <!-- Start of user code doc for isCombineDuplicate -->
    * <!-- End of user code doc for isCombineDuplicate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isCombineDuplicate: Boolean
 
@@ -73,8 +73,8 @@ trait UMLJoinNode[Uml <: UML]
 	 * <!-- Start of user code doc for joinSpec -->
    * <!-- End of user code doc for joinSpec -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.joinSpec_joinNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.joinSpec_joinNode
 	 */
 	def joinSpec: Option[UMLValueSpecification[Uml]]
 

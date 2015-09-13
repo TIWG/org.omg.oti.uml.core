@@ -63,8 +63,8 @@ trait UMLLinkEndData[Uml <: UML]
 	 * <!-- Start of user code doc for end -->
    * <!-- End of user code doc for end -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.end_linkEndData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.end_linkEndData
 	 */
 	def end: Option[UMLProperty[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLLinkEndData[Uml <: UML]
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.value_linkEndData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.value_linkEndData
 	 */
 	def value: Option[UMLInputPin[Uml]]
 

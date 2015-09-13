@@ -63,8 +63,8 @@ trait UMLMessageEnd[Uml <: UML]
 	 * <!-- Start of user code doc for message -->
    * <!-- End of user code doc for message -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.message_messageEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.message_messageEnd
 	 */
 	def message: Option[UMLMessage[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLMessageEnd[Uml <: UML]
 	 * <!-- Start of user code doc for receiveEvent_endMessage -->
    * <!-- End of user code doc for receiveEvent_endMessage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.receiveEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.receiveEvent
 	 */
 	def receiveEvent_endMessage: Option[UMLMessage[Uml]]
 
@@ -81,8 +81,8 @@ trait UMLMessageEnd[Uml <: UML]
 	 * <!-- Start of user code doc for sendEvent_endMessage -->
    * <!-- End of user code doc for sendEvent_endMessage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.sendEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.sendEvent
 	 */
 	def sendEvent_endMessage: Option[UMLMessage[Uml]]
 

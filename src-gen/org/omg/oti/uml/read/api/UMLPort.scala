@@ -63,7 +63,7 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for isBehavior -->
    * <!-- End of user code doc for isBehavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isBehavior: Boolean
 
@@ -73,7 +73,7 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for isConjugated -->
    * <!-- End of user code doc for isConjugated -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isConjugated: Boolean
 
@@ -83,7 +83,7 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for isService -->
    * <!-- End of user code doc for isService -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isService: Boolean
 
@@ -93,8 +93,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for protocol -->
    * <!-- End of user code doc for protocol -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolStateMachine.protocol_port
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolStateMachine.protocol_port
 	 */
 	def protocol: Option[UMLProtocolStateMachine[Uml]]
 
@@ -104,8 +104,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedPort -->
    * <!-- End of user code doc for redefinedPort -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.redefinedPort_port
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.redefinedPort_port
 	 */
 	def redefinedPort: Set[UMLPort[Uml]]
 
@@ -113,8 +113,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for onPort_invocationAction -->
    * <!-- End of user code doc for onPort_invocationAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInvocationAction.onPort
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInvocationAction.onPort
 	 */
 	def onPort_invocationAction: Set[UMLInvocationAction[Uml]]
 
@@ -122,8 +122,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for ownedPort_encapsulatedClassifier -->
    * <!-- End of user code doc for ownedPort_encapsulatedClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLEncapsulatedClassifier.ownedPort
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEncapsulatedClassifier.ownedPort
 	 */
 	def ownedPort_encapsulatedClassifier: Option[UMLEncapsulatedClassifier[Uml]]
 
@@ -131,8 +131,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for port_trigger -->
    * <!-- End of user code doc for port_trigger -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.port
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.port
 	 */
 	def port_trigger: Set[UMLTrigger[Uml]]
 
@@ -140,8 +140,8 @@ trait UMLPort[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedPort_port -->
    * <!-- End of user code doc for redefinedPort_port -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.redefinedPort
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.redefinedPort
 	 */
 	def redefinedPort_port: Set[UMLPort[Uml]]
 

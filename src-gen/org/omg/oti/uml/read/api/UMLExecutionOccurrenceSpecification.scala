@@ -63,8 +63,8 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for execution -->
    * <!-- End of user code doc for execution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutionSpecification.execution_executionOccurrenceSpecification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionSpecification.execution_executionOccurrenceSpecification
 	 */
 	def execution: Option[UMLExecutionSpecification[Uml]]
 

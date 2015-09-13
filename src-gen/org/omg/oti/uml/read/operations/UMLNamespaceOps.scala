@@ -160,8 +160,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for elementImport -->
    * <!-- End of user code doc for elementImport -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElementImport.importingNamespace
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importingNamespace
 	 */
 	def elementImport: Set[UMLElementImport[Uml]] = ownedElement.selectByKindOf { case x: UMLElementImport[Uml] => x }
 
@@ -171,9 +171,11 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for importedMember -->
    * <!-- End of user code doc for importedMember -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageableElement.importedMember_namespace
-	 * @body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.importedMember_namespace
+	 * {{{
+	 * OCL Body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
+	 * }}}
 	 */
 	def importedMember: Set[UMLPackageableElement[Uml]] = {
 		// Start of user code for "importedMember"
@@ -200,8 +202,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for ownedRule -->
    * <!-- End of user code doc for ownedRule -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.context
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.context
 	 */
 	def ownedRule: Set[UMLConstraint[Uml]] = ownedMember.selectByKindOf { case x: UMLConstraint[Uml] => x }
 
@@ -211,8 +213,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for packageImport -->
    * <!-- End of user code doc for packageImport -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageImport.importingNamespace
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importingNamespace
 	 */
 	def packageImport: Set[UMLPackageImport[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageImport[Uml] => x }
 
@@ -222,8 +224,10 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for excludeCollisions -->
    * <!-- End of user code doc for excludeCollisions -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (imps->reject(imp1  | imps->exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (imps->reject(imp1  | imps->exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))
+	 * }}}
 	 */
 	def excludeCollisions(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
 		// Start of user code for "excludeCollisions"
@@ -238,8 +242,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for getNamesOfMember -->
    * <!-- End of user code doc for getNamesOfMember -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (if self.ownedMember ->includes(element)
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (if self.ownedMember ->includes(element)
 	 * then Set{element.name}
 	 * else let elementImports : Set(ElementImport) = self.elementImport->select(ei | ei.importedElement = element) in
 	 *   if elementImports->notEmpty()
@@ -249,6 +254,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 *      self.packageImport->select(pi | pi.importedPackage.visibleMembers().oclAsType(NamedElement)->includes(element))-> collect(pi | pi.importedPackage.getNamesOfMember(element))->asSet()
 	 *   endif
 	 * endif)
+	 * }}}
 	 */
 	def getNamesOfMember(element: Option[UMLNamedElement[Uml]]): Set[String] = {
 		// Start of user code for "getNamesOfMember"
@@ -280,8 +286,10 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for importMembers -->
    * <!-- End of user code doc for importMembers -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
+	 * }}}
 	 */
 	def importMembers(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
 		// Start of user code for "importMembers"
@@ -296,10 +304,12 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for makesVisible -->
    * <!-- End of user code doc for makesVisible -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (ownedMember->includes(el) or
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (ownedMember->includes(el) or
 	 * (elementImport->select(ei|ei.importedElement = VisibilityKind::public)->collect(importedElement.oclAsType(NamedElement))->includes(el)) or
 	 * (packageImport->select(visibility = VisibilityKind::public)->collect(importedPackage.member->includes(el))->notEmpty()))
+	 * }}}
 	 */
 	def makesVisible(el: Option[UMLNamedElement[Uml]]): Boolean = {
 		// Start of user code for "makesVisible"
@@ -340,10 +350,12 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for membersAreDistinguishable -->
    * <!-- End of user code doc for membersAreDistinguishable -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (member->forAll( memb |
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (member->forAll( memb |
 	 *    member->excluding(memb)->forAll(other |
 	 *        memb.isDistinguishableFrom(other, self))))
+	 * }}}
 	 */
 	def membersAreDistinguishable: Boolean = {
 		// Start of user code for "membersAreDistinguishable"
@@ -364,8 +376,10 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for visibleMembers -->
    * <!-- End of user code doc for visibleMembers -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))->collect(oclAsType(PackageableElement))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))->collect(oclAsType(PackageableElement))->asSet())
+	 * }}}
 	 */
 	def visibleMembers: Set[UMLPackageableElement[Uml]] = {
 		// Start of user code for "visibleMembers"
@@ -381,7 +395,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for validate_cannot_import_ownedMembers -->
    * <!-- End of user code doc for validate_cannot_import_ownedMembers -->
 	 *
-	 * @body elementImport.importedElement.oclAsType(Element)->excludesAll(ownedMember)
+	 * {{{
+	 * OCL Body elementImport.importedElement.oclAsType(Element)->excludesAll(ownedMember)
+	 * }}}
 	 */
 	def validate_cannot_import_ownedMembers: Boolean = {
 		// Start of user code for "cannot_import_ownedMembers"
@@ -396,7 +412,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for validate_cannot_import_self -->
    * <!-- End of user code doc for validate_cannot_import_self -->
 	 *
-	 * @body packageImport.importedPackage.oclAsType(Namespace)->excludes(self)
+	 * {{{
+	 * OCL Body packageImport.importedPackage.oclAsType(Namespace)->excludes(self)
+	 * }}}
 	 */
 	def validate_cannot_import_self: Boolean = {
 		// Start of user code for "cannot_import_self"
@@ -416,7 +434,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	 * <!-- Start of user code doc for validate_members_distinguishable -->
    * <!-- End of user code doc for validate_members_distinguishable -->
 	 *
-	 * @body membersAreDistinguishable()
+	 * {{{
+	 * OCL Body membersAreDistinguishable()
+	 * }}}
 	 */
 	def validate_members_distinguishable: Boolean = {
 		// Start of user code for "members_distinguishable"

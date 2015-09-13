@@ -63,8 +63,8 @@ trait UMLTimeExpression[Uml <: UML]
 	 * <!-- Start of user code doc for expr -->
    * <!-- End of user code doc for expr -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.expr_timeExpression
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.expr_timeExpression
 	 */
 	def expr: Option[UMLValueSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTimeExpression[Uml <: UML]
 	 * <!-- Start of user code doc for observation -->
    * <!-- End of user code doc for observation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLObservation.observation_timeExpression
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObservation.observation_timeExpression
 	 */
 	def observation: Set[UMLObservation[Uml]]
 

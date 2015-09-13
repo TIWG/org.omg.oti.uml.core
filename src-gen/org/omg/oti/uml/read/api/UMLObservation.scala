@@ -61,8 +61,8 @@ trait UMLObservation[Uml <: UML]
 	 * <!-- Start of user code doc for observation_duration -->
    * <!-- End of user code doc for observation_duration -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDuration.observation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDuration.observation
 	 */
 	def observation_duration: Option[UMLDuration[Uml]]
 
@@ -70,8 +70,8 @@ trait UMLObservation[Uml <: UML]
 	 * <!-- Start of user code doc for observation_timeExpression -->
    * <!-- End of user code doc for observation_timeExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTimeExpression.observation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeExpression.observation
 	 */
 	def observation_timeExpression: Option[UMLTimeExpression[Uml]]
 

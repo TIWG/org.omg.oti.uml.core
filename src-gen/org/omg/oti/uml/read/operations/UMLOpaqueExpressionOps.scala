@@ -62,13 +62,15 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameter.result_opaqueExpression
-	 * @body result = (if behavior = null then
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.result_opaqueExpression
+	 * {{{
+	 * OCL Body result = (if behavior = null then
 	 * 	null
 	 * else
 	 * 	behavior.ownedParameter->first()
 	 * endif)
+	 * }}}
 	 */
 	def result: Option[UMLParameter[Uml]] = {
 		// Start of user code for "result"
@@ -80,8 +82,8 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for mapping_abstraction -->
    * <!-- End of user code doc for mapping_abstraction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAbstraction.mapping
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAbstraction.mapping
 	 */
 	def mapping_abstraction: Option[UMLAbstraction[Uml]] = owner.selectByKindOf { case x: UMLAbstraction[Uml] => x }
 
@@ -91,8 +93,10 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for isIntegral -->
    * <!-- End of user code doc for isIntegral -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	def isIntegral: Boolean = {
 		// Start of user code for "isIntegral"
@@ -106,8 +110,10 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for isNonNegative -->
    * <!-- End of user code doc for isNonNegative -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	def isNonNegative: Boolean = {
 		// Start of user code for "isNonNegative"
@@ -121,8 +127,10 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for isPositive -->
    * <!-- End of user code doc for isPositive -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	def isPositive: Boolean = {
 		// Start of user code for "isPositive"
@@ -136,8 +144,10 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (0)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (0)
+	 * }}}
 	 */
 	def value: Integer = {
 		// Start of user code for "value"
@@ -151,7 +161,9 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for validate_language_body_size -->
    * <!-- End of user code doc for validate_language_body_size -->
 	 *
-	 * @body language->notEmpty() implies (_'body'->size() = language->size())
+	 * {{{
+	 * OCL Body language->notEmpty() implies (_'body'->size() = language->size())
+	 * }}}
 	 */
 	def validate_language_body_size: Boolean = {
 		// Start of user code for "language_body_size"
@@ -165,8 +177,12 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for validate_one_return_result_parameter -->
    * <!-- End of user code doc for validate_one_return_result_parameter -->
 	 *
-	 * @body behavior <> null implies
+	 * {{{
+	 * OCL Body behavior <> null implies
+	 * }}}
+	 * {{{
 	 *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
+	 * }}}
 	 */
 	def validate_one_return_result_parameter: Boolean = {
 		// Start of user code for "one_return_result_parameter"
@@ -180,7 +196,9 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 * <!-- Start of user code doc for validate_only_return_result_parameters -->
    * <!-- End of user code doc for validate_only_return_result_parameters -->
 	 *
-	 * @body behavior <> null implies behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
+	 * {{{
+	 * OCL Body behavior <> null implies behavior.ownedParameter->select(direction<>ParameterDirectionKind::return)->isEmpty()
+	 * }}}
 	 */
 	def validate_only_return_result_parameters: Boolean = {
 		// Start of user code for "only_return_result_parameters"

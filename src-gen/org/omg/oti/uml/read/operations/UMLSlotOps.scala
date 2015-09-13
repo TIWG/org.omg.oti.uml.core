@@ -64,8 +64,8 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
 	 * <!-- Start of user code doc for owningInstance -->
    * <!-- End of user code doc for owningInstance -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInstanceSpecification.slot
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.slot
 	 */
 	def owningInstance: Option[UMLInstanceSpecification[Uml]] = owner.selectByKindOf { case x: UMLInstanceSpecification[Uml] => x }
 

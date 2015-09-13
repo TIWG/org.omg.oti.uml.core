@@ -62,8 +62,8 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * <!-- Start of user code doc for action -->
    * <!-- End of user code doc for action -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.action_interaction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.action_interaction
 	 */
 	def action: Set[UMLAction[Uml]] = ownedElement.selectByKindOf { case x: UMLAction[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * <!-- Start of user code doc for formalGate -->
    * <!-- End of user code doc for formalGate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGate.formalGate_interaction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGate.formalGate_interaction
 	 */
 	def formalGate: Set[UMLGate[Uml]] = ownedMember.selectByKindOf { case x: UMLGate[Uml] => x }
 
@@ -84,8 +84,8 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * <!-- Start of user code doc for lifeline -->
    * <!-- End of user code doc for lifeline -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.interaction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.interaction
 	 */
 	def lifeline: Set[UMLLifeline[Uml]] = ownedMember.selectByKindOf { case x: UMLLifeline[Uml] => x }
 
@@ -95,8 +95,8 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * <!-- Start of user code doc for message -->
    * <!-- End of user code doc for message -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.interaction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.interaction
 	 */
 	def message: Set[UMLMessage[Uml]] = ownedMember.selectByKindOf { case x: UMLMessage[Uml] => x }
 
@@ -106,7 +106,9 @@ trait UMLInteractionOps[Uml <: UML] { self: UMLInteraction[Uml] =>
 	 * <!-- Start of user code doc for validate_not_contained -->
    * <!-- End of user code doc for validate_not_contained -->
 	 *
-	 * @body enclosingInteraction->isEmpty()
+	 * {{{
+	 * OCL Body enclosingInteraction->isEmpty()
+	 * }}}
 	 */
 	def validate_not_contained: Boolean = {
 		// Start of user code for "not_contained"

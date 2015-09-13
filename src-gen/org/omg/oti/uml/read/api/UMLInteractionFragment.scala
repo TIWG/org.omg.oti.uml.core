@@ -63,8 +63,8 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * <!-- Start of user code doc for covered -->
    * <!-- End of user code doc for covered -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.coveredBy
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.coveredBy
 	 */
 	def covered: Iterable[UMLLifeline[Uml]]
 

@@ -63,8 +63,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for guard -->
    * <!-- End of user code doc for guard -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.guard_activityEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.guard_activityEdge
 	 */
 	def guard: Option[UMLValueSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for inGroup -->
    * <!-- End of user code doc for inGroup -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityGroup.containedEdge
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.containedEdge
 	 */
 	def inGroup: Set[UMLActivityGroup[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for interrupts -->
    * <!-- End of user code doc for interrupts -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterruptibleActivityRegion.interruptingEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterruptibleActivityRegion.interruptingEdge
 	 */
 	def interrupts: Option[UMLInterruptibleActivityRegion[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for source -->
    * <!-- End of user code doc for source -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.outgoing
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.outgoing
 	 */
 	def source: Option[UMLActivityNode[Uml]]
 
@@ -107,8 +107,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.incoming
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.incoming
 	 */
 	def target: Option[UMLActivityNode[Uml]]
 
@@ -118,8 +118,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for weight -->
    * <!-- End of user code doc for weight -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.weight_activityEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.weight_activityEdge
 	 */
 	def weight: Option[UMLValueSpecification[Uml]]
 
@@ -127,8 +127,8 @@ trait UMLActivityEdge[Uml <: UML]
 	 * <!-- Start of user code doc for realizingActivityEdge_informationFlow -->
    * <!-- End of user code doc for realizingActivityEdge_informationFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.realizingActivityEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realizingActivityEdge
 	 */
 	def realizingActivityEdge_informationFlow: Set[UMLInformationFlow[Uml]]
 

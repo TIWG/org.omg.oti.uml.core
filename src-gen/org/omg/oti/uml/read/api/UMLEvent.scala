@@ -61,8 +61,8 @@ trait UMLEvent[Uml <: UML]
 	 * <!-- Start of user code doc for event_trigger -->
    * <!-- End of user code doc for event_trigger -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.event
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.event
 	 */
 	def event_trigger: Set[UMLTrigger[Uml]]
 

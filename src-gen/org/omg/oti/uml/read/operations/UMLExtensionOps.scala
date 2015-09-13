@@ -63,8 +63,10 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for isRequired -->
    * <!-- End of user code doc for isRequired -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (ownedEnd.lower() = 1)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (ownedEnd.lower() = 1)
+	 * }}}
 	 */
 	def isRequired: Boolean = {
 		// Start of user code for "isRequired"
@@ -83,9 +85,11 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for metaclass -->
    * <!-- End of user code doc for metaclass -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.extension
-	 * @body result = (metaclassEnd().type.oclAsType(Class))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.extension
+	 * {{{
+	 * OCL Body result = (metaclassEnd().type.oclAsType(Class))
+	 * }}}
 	 */
 	def metaclass: Option[UMLClass[Uml]] = {
 		// Start of user code for "metaclass"
@@ -102,8 +106,8 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for ownedEnd -->
    * <!-- End of user code doc for ownedEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtensionEnd.ownedEnd_extension
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtensionEnd.ownedEnd_extension
 	 */
 	override def ownedEnd: Iterable[UMLExtensionEnd[Uml]] = feature.selectByKindOf { case x: UMLExtensionEnd[Uml] => x } headOption
 
@@ -113,8 +117,10 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for metaclassEnd -->
    * <!-- End of user code doc for metaclassEnd -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (memberEnd->reject(p | ownedEnd->includes(p.oclAsType(ExtensionEnd)))->any(true))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (memberEnd->reject(p | ownedEnd->includes(p.oclAsType(ExtensionEnd)))->any(true))
+	 * }}}
 	 */
 	def metaclassEnd: Option[UMLProperty[Uml]] = {
 		// Start of user code for "metaclassEnd"
@@ -137,7 +143,9 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for validate_is_binary -->
    * <!-- End of user code doc for validate_is_binary -->
 	 *
-	 * @body memberEnd->size() = 2
+	 * {{{
+	 * OCL Body memberEnd->size() = 2
+	 * }}}
 	 */
 	def validate_is_binary: Boolean = {
 		// Start of user code for "is_binary"
@@ -151,7 +159,9 @@ trait UMLExtensionOps[Uml <: UML] { self: UMLExtension[Uml] =>
 	 * <!-- Start of user code doc for validate_non_owned_end -->
    * <!-- End of user code doc for validate_non_owned_end -->
 	 *
-	 * @body metaclassEnd()->notEmpty() and metaclassEnd().type.oclIsKindOf(Class)
+	 * {{{
+	 * OCL Body metaclassEnd()->notEmpty() and metaclassEnd().type.oclIsKindOf(Class)
+	 * }}}
 	 */
 	def validate_non_owned_end: Boolean = {
 		// Start of user code for "non_owned_end"

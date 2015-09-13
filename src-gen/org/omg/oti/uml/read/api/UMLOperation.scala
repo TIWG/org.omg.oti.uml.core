@@ -65,8 +65,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for bodyCondition -->
    * <!-- End of user code doc for bodyCondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.bodyCondition_bodyContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.bodyCondition_bodyContext
 	 */
 	def bodyCondition: Option[UMLConstraint[Uml]]
 
@@ -76,7 +76,7 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for isQuery -->
    * <!-- End of user code doc for isQuery -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isQuery: Boolean
 
@@ -86,8 +86,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for ownedParameter -->
    * <!-- End of user code doc for ownedParameter -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameter.operation
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.operation
 	 */
 	override def ownedParameter: Seq[UMLParameter[Uml]]
 
@@ -97,8 +97,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for postcondition -->
    * <!-- End of user code doc for postcondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.postcondition_postContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.postcondition_postContext
 	 */
 	def postcondition: Set[UMLConstraint[Uml]]
 
@@ -108,8 +108,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for precondition -->
    * <!-- End of user code doc for precondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.precondition_preContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.precondition_preContext
 	 */
 	def precondition: Set[UMLConstraint[Uml]]
 
@@ -119,8 +119,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for raisedException -->
    * <!-- End of user code doc for raisedException -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLType.raisedException_operation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType.raisedException_operation
 	 */
 	override def raisedException: Set[UMLType[Uml]]
 
@@ -130,8 +130,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for templateParameter -->
    * <!-- End of user code doc for templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperationTemplateParameter.parameteredElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperationTemplateParameter.parameteredElement
 	 */
 	override def templateParameter: Option[UMLOperationTemplateParameter[Uml]]
 
@@ -139,8 +139,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for operation_callEvent -->
    * <!-- End of user code doc for operation_callEvent -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCallEvent.operation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCallEvent.operation
 	 */
 	def operation_callEvent: Set[UMLCallEvent[Uml]]
 
@@ -148,8 +148,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for operation_callOperationAction -->
    * <!-- End of user code doc for operation_callOperationAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCallOperationAction.operation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCallOperationAction.operation
 	 */
 	def operation_callOperationAction: Set[UMLCallOperationAction[Uml]]
 
@@ -157,8 +157,8 @@ trait UMLOperation[Uml <: UML]
 	 * <!-- Start of user code doc for referred_protocolTransition -->
    * <!-- End of user code doc for referred_protocolTransition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolTransition.referred
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolTransition.referred
 	 */
 	def referred_protocolTransition: Set[UMLProtocolTransition[Uml]]
 

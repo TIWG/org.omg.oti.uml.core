@@ -62,8 +62,8 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_readLinkObjectEndQualifierAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_readLinkObjectEndQualifierAction
 	 */
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,8 +73,8 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readLinkObjectEndQualifierAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -84,7 +84,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_association_of_association -->
    * <!-- End of user code doc for validate_association_of_association -->
 	 *
-	 * @body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
+	 * {{{
+	 * OCL Body qualifier.associationEnd.association.oclIsKindOf(AssociationClass)
+	 * }}}
 	 */
 	def validate_association_of_association: Boolean = {
 		// Start of user code for "association_of_association"
@@ -98,7 +100,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_ends_of_association -->
    * <!-- End of user code doc for validate_ends_of_association -->
 	 *
-	 * @body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
+	 * {{{
+	 * OCL Body qualifier.associationEnd.association.memberEnd->forAll(e | not e.isStatic)
+	 * }}}
 	 */
 	def validate_ends_of_association: Boolean = {
 		// Start of user code for "ends_of_association"
@@ -112,7 +116,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
    * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
@@ -126,7 +132,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
    * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
 	 *
-	 * @body qualifier.is(1,1)
+	 * {{{
+	 * OCL Body qualifier.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_qualifier: Boolean = {
 		// Start of user code for "multiplicity_of_qualifier"
@@ -140,7 +148,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
@@ -154,7 +164,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_qualifier_attribute -->
    * <!-- End of user code doc for validate_qualifier_attribute -->
 	 *
-	 * @body qualifier.associationEnd <> null
+	 * {{{
+	 * OCL Body qualifier.associationEnd <> null
+	 * }}}
 	 */
 	def validate_qualifier_attribute: Boolean = {
 		// Start of user code for "qualifier_attribute"
@@ -168,7 +180,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
 	 *
-	 * @body result.type = qualifier.type
+	 * {{{
+	 * OCL Body result.type = qualifier.type
+	 * }}}
 	 */
 	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"
@@ -182,7 +196,9 @@ trait UMLReadLinkObjectEndQualifierActionOps[Uml <: UML] { self: UMLReadLinkObje
 	 * <!-- Start of user code doc for validate_type_of_object -->
    * <!-- End of user code doc for validate_type_of_object -->
 	 *
-	 * @body object.type = qualifier.associationEnd.association
+	 * {{{
+	 * OCL Body object.type = qualifier.associationEnd.association
+	 * }}}
 	 */
 	def validate_type_of_object: Boolean = {
 		// Start of user code for "type_of_object"

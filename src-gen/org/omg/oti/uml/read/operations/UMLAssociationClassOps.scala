@@ -62,7 +62,9 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 * <!-- Start of user code doc for validate_cannot_be_defined -->
    * <!-- End of user code doc for validate_cannot_be_defined -->
 	 *
-	 * @body self.endType()->excludes(self) and self.endType()->collect(et|et.oclAsType(Classifier).allParents())->flatten()->excludes(self)
+	 * {{{
+	 * OCL Body self.endType()->excludes(self) and self.endType()->collect(et|et.oclAsType(Classifier).allParents())->flatten()->excludes(self)
+	 * }}}
 	 */
 	def validate_cannot_be_defined: Boolean = {
 		// Start of user code for "cannot_be_defined"
@@ -77,7 +79,9 @@ trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 	 * <!-- Start of user code doc for validate_disjoint_attributes_ends -->
    * <!-- End of user code doc for validate_disjoint_attributes_ends -->
 	 *
-	 * @body ownedAttribute->intersection(ownedEnd)->isEmpty()
+	 * {{{
+	 * OCL Body ownedAttribute->intersection(ownedEnd)->isEmpty()
+	 * }}}
 	 */
 	def validate_disjoint_attributes_ends: Boolean = {
 		// Start of user code for "disjoint_attributes_ends"

@@ -62,9 +62,11 @@ trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier
 	 * <!-- Start of user code doc for ownedPort -->
    * <!-- End of user code doc for ownedPort -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.ownedPort_encapsulatedClassifier
-	 * @body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.ownedPort_encapsulatedClassifier
+	 * {{{
+	 * OCL Body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
+	 * }}}
 	 */
 	def ownedPort: Set[UMLPort[Uml]] = {
 		// Start of user code for "ownedPort"

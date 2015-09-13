@@ -137,6 +137,11 @@ object OTICore extends Build {
       ),
 
       scalacOptions ++= List("-target:jvm-1.7", "-feature"),
+      scalacOptions in (Compile,doc) ++= Seq(
+        "-diagrams",
+        "-doc-title", name.value,
+        "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
+      ),
 
       scalaSource in Compile := baseDirectory.value / "src",
       unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",

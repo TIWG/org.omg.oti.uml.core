@@ -63,7 +63,7 @@ trait UMLProfileApplication[Uml <: UML]
 	 * <!-- Start of user code doc for isStrict -->
    * <!-- End of user code doc for isStrict -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isStrict: Boolean
 

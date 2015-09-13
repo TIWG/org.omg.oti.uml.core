@@ -62,8 +62,8 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readExtentAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readExtentAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
-	 * @body result.is(0,*)
+	 * {{{
+	 * OCL Body result.is(0,*)
+	 * }}}
 	 */
 	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
@@ -87,7 +89,9 @@ trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_is_classifier -->
    * <!-- End of user code doc for validate_type_is_classifier -->
 	 *
-	 * @body result.type = classifier
+	 * {{{
+	 * OCL Body result.type = classifier
+	 * }}}
 	 */
 	def validate_type_is_classifier: Boolean = {
 		// Start of user code for "type_is_classifier"

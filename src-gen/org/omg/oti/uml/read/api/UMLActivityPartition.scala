@@ -63,7 +63,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * <!-- Start of user code doc for isDimension -->
    * <!-- End of user code doc for isDimension -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDimension: Boolean
 
@@ -73,7 +73,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * <!-- Start of user code doc for isExternal -->
    * <!-- End of user code doc for isExternal -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isExternal: Boolean
 
@@ -83,8 +83,8 @@ trait UMLActivityPartition[Uml <: UML]
 	 * <!-- Start of user code doc for represents -->
    * <!-- End of user code doc for represents -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.represents_activityPartition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.represents_activityPartition
 	 */
 	def represents: Option[UMLElement[Uml]]
 
@@ -92,8 +92,8 @@ trait UMLActivityPartition[Uml <: UML]
 	 * <!-- Start of user code doc for partition_activity -->
    * <!-- End of user code doc for partition_activity -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivity.partition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.partition
 	 */
 	def partition_activity: Option[UMLActivity[Uml]]
 

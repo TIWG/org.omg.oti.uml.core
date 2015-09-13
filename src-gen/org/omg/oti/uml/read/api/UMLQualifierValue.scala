@@ -63,8 +63,8 @@ trait UMLQualifierValue[Uml <: UML]
 	 * <!-- Start of user code doc for qualifier -->
    * <!-- End of user code doc for qualifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.qualifier_qualifierValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.qualifier_qualifierValue
 	 */
 	def qualifier: Option[UMLProperty[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLQualifierValue[Uml <: UML]
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.value_qualifierValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.value_qualifierValue
 	 */
 	def value: Option[UMLInputPin[Uml]]
 

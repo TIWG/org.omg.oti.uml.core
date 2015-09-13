@@ -63,7 +63,7 @@ trait UMLActivity[Uml <: UML]
 	 * <!-- Start of user code doc for isReadOnly -->
    * <!-- End of user code doc for isReadOnly -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReadOnly: Boolean
 
@@ -73,7 +73,7 @@ trait UMLActivity[Uml <: UML]
 	 * <!-- Start of user code doc for isSingleExecution -->
    * <!-- End of user code doc for isSingleExecution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isSingleExecution: Boolean
 
@@ -83,8 +83,8 @@ trait UMLActivity[Uml <: UML]
 	 * <!-- Start of user code doc for partition -->
    * <!-- End of user code doc for partition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityPartition.partition_activity
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.partition_activity
 	 */
 	def partition: Set[UMLActivityPartition[Uml]]
 

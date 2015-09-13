@@ -102,7 +102,7 @@ import org.omg.oti.uml.validation.DefaultValueValidationStatus._
 /**
  * The common superclass of the different categories of DefaultValue validation results.
  *
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
   val e: UMLElement[Uml]
@@ -133,7 +133,7 @@ sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
  * @param e a Parameter
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class ParameterDefaultValueValidationInfo[Uml <: UML]
 (override val e: UMLParameter[Uml],
@@ -147,7 +147,7 @@ case class ParameterDefaultValueValidationInfo[Uml <: UML]
  * @param e a kind of Property
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class PropertyDefaultValueValidationInfo[Uml <: UML]
 (override val e: UMLProperty[Uml],
@@ -161,7 +161,7 @@ case class PropertyDefaultValueValidationInfo[Uml <: UML]
  * @param e a kind of ValueSpecification
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class ValueSpecificationAsDefaultValueValidationInfo[Uml <: UML]
 (override val e: UMLValueSpecification[Uml],

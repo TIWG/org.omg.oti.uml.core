@@ -63,8 +63,8 @@ trait UMLProtocolTransition[Uml <: UML]
 	 * <!-- Start of user code doc for postCondition -->
    * <!-- End of user code doc for postCondition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.postCondition_owningTransition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.postCondition_owningTransition
 	 */
 	def postCondition: Option[UMLConstraint[Uml]]
 

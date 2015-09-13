@@ -62,8 +62,8 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readStructuralFeatureAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readStructuralFeatureAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
-	 * @body structuralFeature.compatibleWith(result)
+	 * {{{
+	 * OCL Body structuralFeature.compatibleWith(result)
+	 * }}}
 	 */
 	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
@@ -87,8 +89,12 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 * <!-- Start of user code doc for validate_type_and_ordering -->
    * <!-- End of user code doc for validate_type_and_ordering -->
 	 *
-	 * @body result.type =structuralFeature.type and 
+	 * {{{
+	 * OCL Body result.type =structuralFeature.type and 
+	 * }}}
+	 * {{{
 	 * result.isOrdered = structuralFeature.isOrdered
+	 * }}}
 	 */
 	def validate_type_and_ordering: Boolean = {
 		// Start of user code for "type_and_ordering"

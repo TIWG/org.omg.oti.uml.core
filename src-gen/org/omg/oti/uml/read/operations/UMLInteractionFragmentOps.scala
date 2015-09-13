@@ -62,8 +62,8 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	 * <!-- Start of user code doc for enclosingInteraction -->
    * <!-- End of user code doc for enclosingInteraction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteraction.fragment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.fragment
 	 */
 	def enclosingInteraction: Option[UMLInteraction[Uml]] = namespace.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	 * <!-- Start of user code doc for enclosingOperand -->
    * <!-- End of user code doc for enclosingOperand -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionOperand.fragment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionOperand.fragment
 	 */
 	def enclosingOperand: Option[UMLInteractionOperand[Uml]] = namespace.selectByKindOf { case x: UMLInteractionOperand[Uml] => x }
 
@@ -84,8 +84,8 @@ trait UMLInteractionFragmentOps[Uml <: UML] { self: UMLInteractionFragment[Uml] 
 	 * <!-- Start of user code doc for generalOrdering -->
    * <!-- End of user code doc for generalOrdering -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralOrdering.generalOrdering_interactionFragment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralOrdering.generalOrdering_interactionFragment
 	 */
 	def generalOrdering: Set[UMLGeneralOrdering[Uml]] = ownedElement.selectByKindOf { case x: UMLGeneralOrdering[Uml] => x }
 

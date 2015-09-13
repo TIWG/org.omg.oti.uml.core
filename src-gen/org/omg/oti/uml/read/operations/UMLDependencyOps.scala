@@ -63,8 +63,8 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * <!-- Start of user code doc for client -->
    * <!-- End of user code doc for client -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.clientDependency
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.clientDependency
 	 */
 	def client: Set[UMLNamedElement[Uml]] = source.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * <!-- Start of user code doc for supplier -->
    * <!-- End of user code doc for supplier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.supplier_supplierDependency
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.supplier_supplierDependency
 	 */
 	def supplier: Set[UMLNamedElement[Uml]] = target.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
@@ -83,8 +83,8 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 	 * <!-- Start of user code doc for roleBinding_collaborationUse -->
    * <!-- End of user code doc for roleBinding_collaborationUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLCollaborationUse.roleBinding
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse.roleBinding
 	 */
 	def roleBinding_collaborationUse: Option[UMLCollaborationUse[Uml]] = owner.selectByKindOf { case x: UMLCollaborationUse[Uml] => x }
 

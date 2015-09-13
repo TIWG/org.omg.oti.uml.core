@@ -63,8 +63,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for default -->
    * <!-- End of user code doc for default -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.default_templateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.default_templateParameter
 	 */
 	def default: Option[UMLParameterableElement[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for ownedParameteredElement -->
    * <!-- End of user code doc for ownedParameteredElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.owningTemplateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.owningTemplateParameter
 	 */
 	def ownedParameteredElement: Option[UMLParameterableElement[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameteredElement -->
    * <!-- End of user code doc for parameteredElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.templateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.templateParameter
 	 */
 	def parameteredElement: Option[UMLParameterableElement[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for formal_templateParameterSubstitution -->
    * <!-- End of user code doc for formal_templateParameterSubstitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.formal
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.formal
 	 */
 	def formal_templateParameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
 
@@ -103,8 +103,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for inheritedParameter_redefinableTemplateSignature -->
    * <!-- End of user code doc for inheritedParameter_redefinableTemplateSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.inheritedParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.inheritedParameter
 	 */
 	def inheritedParameter_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]]
 
@@ -112,8 +112,8 @@ trait UMLTemplateParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameter_templateSignature -->
    * <!-- End of user code doc for parameter_templateSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.parameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.parameter
 	 */
 	def parameter_templateSignature: Set[UMLTemplateSignature[Uml]]
 

@@ -60,8 +60,8 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * <!-- Start of user code doc for importedElement_import -->
    * <!-- End of user code doc for importedElement_import -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElementImport.importedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importedElement
 	 */
 	def importedElement_import: Set[UMLElementImport[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLElementImport[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * <!-- Start of user code doc for packagedElement_component -->
    * <!-- End of user code doc for packagedElement_component -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponent.packagedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.packagedElement
 	 */
 	def packagedElement_component: Option[UMLComponent[Uml]] = namespace.selectByKindOf { case x: UMLComponent[Uml] => x }
 
@@ -78,8 +78,8 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * <!-- Start of user code doc for packagedElement_owningPackage -->
    * <!-- End of user code doc for packagedElement_owningPackage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.packagedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.packagedElement
 	 */
 	def packagedElement_owningPackage: Option[UMLPackage[Uml]] = namespace.selectByKindOf { case x: UMLPackage[Uml] => x }
 
@@ -89,7 +89,9 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * <!-- Start of user code doc for validate_namespace_needs_visibility -->
    * <!-- End of user code doc for validate_namespace_needs_visibility -->
 	 *
-	 * @body visibility = null implies namespace = null
+	 * {{{
+	 * OCL Body visibility = null implies namespace = null
+	 * }}}
 	 */
 	def validate_namespace_needs_visibility: Boolean = {
 		// Start of user code for "namespace_needs_visibility"

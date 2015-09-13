@@ -63,8 +63,8 @@ trait UMLCallEvent[Uml <: UML]
 	 * <!-- Start of user code doc for operation -->
    * <!-- End of user code doc for operation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.operation_callEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.operation_callEvent
 	 */
 	def operation: Option[UMLOperation[Uml]]
 

@@ -62,9 +62,11 @@ trait UMLConnectableElementOps[Uml <: UML] { self: UMLConnectableElement[Uml] =>
 	 * <!-- Start of user code doc for end -->
    * <!-- End of user code doc for end -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectorEnd.role
-	 * @body result = (ConnectorEnd.allInstances()->select(role = self))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectorEnd.role
+	 * {{{
+	 * OCL Body result = (ConnectorEnd.allInstances()->select(role = self))
+	 * }}}
 	 */
 	def end: Set[UMLConnectorEnd[Uml]] = {
 		// Start of user code for "end"
@@ -76,8 +78,8 @@ trait UMLConnectableElementOps[Uml <: UML] { self: UMLConnectableElement[Uml] =>
 	 * <!-- Start of user code doc for collaborationRole_collaboration -->
    * <!-- End of user code doc for collaborationRole_collaboration -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCollaboration.collaborationRole
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCollaboration.collaborationRole
 	 */
 	def collaborationRole_collaboration: Set[UMLCollaboration[Uml]] = role_structuredClassifier.selectByKindOf { case x: UMLCollaboration[Uml] => x }
 
@@ -85,8 +87,8 @@ trait UMLConnectableElementOps[Uml <: UML] { self: UMLConnectableElement[Uml] =>
 	 * <!-- Start of user code doc for role_structuredClassifier -->
    * <!-- End of user code doc for role_structuredClassifier -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.role
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredClassifier.role
 	 */
 	def role_structuredClassifier: Set[UMLStructuredClassifier[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 

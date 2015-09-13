@@ -62,8 +62,8 @@ trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterval.specification_intervalConstraint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterval.specification_intervalConstraint
 	 */
 	override def specification: Option[UMLInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLInterval[Uml] => x } headOption
 

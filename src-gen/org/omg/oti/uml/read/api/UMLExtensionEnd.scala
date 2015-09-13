@@ -63,8 +63,8 @@ trait UMLExtensionEnd[Uml <: UML]
 	 * <!-- Start of user code doc for _type -->
    * <!-- End of user code doc for _type -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStereotype.type_extensionEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.type_extensionEnd
 	 */
 	override def _type: Option[UMLStereotype[Uml]]
 

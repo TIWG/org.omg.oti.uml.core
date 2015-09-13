@@ -63,8 +63,8 @@ trait UMLConnectionPointReference[Uml <: UML]
 	 * <!-- Start of user code doc for entry -->
    * <!-- End of user code doc for entry -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPseudostate.entry_connectionPointReference
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPseudostate.entry_connectionPointReference
 	 */
 	def entry: Set[UMLPseudostate[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLConnectionPointReference[Uml <: UML]
 	 * <!-- Start of user code doc for exit -->
    * <!-- End of user code doc for exit -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPseudostate.exit_connectionPointReference
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPseudostate.exit_connectionPointReference
 	 */
 	def exit: Set[UMLPseudostate[Uml]]
 

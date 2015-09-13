@@ -62,8 +62,8 @@ trait UMLDestroyLinkActionOps[Uml <: UML] { self: UMLDestroyLinkAction[Uml] =>
 	 * <!-- Start of user code doc for endData -->
    * <!-- End of user code doc for endData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndDestructionData.endData_destroyLinkAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndDestructionData.endData_destroyLinkAction
 	 */
 	override def endData: Iterable[UMLLinkEndDestructionData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndDestructionData[Uml] => x }
 

@@ -63,8 +63,8 @@ trait UMLExceptionHandler[Uml <: UML]
 	 * <!-- Start of user code doc for exceptionInput -->
    * <!-- End of user code doc for exceptionInput -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectNode.exceptionInput_exceptionHandler
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.exceptionInput_exceptionHandler
 	 */
 	def exceptionInput: Option[UMLObjectNode[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLExceptionHandler[Uml <: UML]
 	 * <!-- Start of user code doc for exceptionType -->
    * <!-- End of user code doc for exceptionType -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.exceptionType_exceptionHandler
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.exceptionType_exceptionHandler
 	 */
 	def exceptionType: Set[UMLClassifier[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLExceptionHandler[Uml <: UML]
 	 * <!-- Start of user code doc for handlerBody -->
    * <!-- End of user code doc for handlerBody -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.handlerBody_exceptionHandler
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.handlerBody_exceptionHandler
 	 */
 	def handlerBody: Option[UMLExecutableNode[Uml]]
 

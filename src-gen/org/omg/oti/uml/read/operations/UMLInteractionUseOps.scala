@@ -62,8 +62,8 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for actualGate -->
    * <!-- End of user code doc for actualGate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGate.actualGate_interactionUse
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGate.actualGate_interactionUse
 	 */
 	def actualGate: Set[UMLGate[Uml]] = ownedElement.selectByKindOf { case x: UMLGate[Uml] => x }
 
@@ -73,21 +73,51 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_all_lifelines -->
    * <!-- End of user code doc for validate_all_lifelines -->
 	 *
-	 * @body let parentInteraction : Set(Interaction) = enclosingInteraction->asSet()->
+	 * {{{
+	 * OCL Body let parentInteraction : Set(Interaction) = enclosingInteraction->asSet()->
+	 * }}}
+	 * {{{
 	 * union(enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
+	 * }}}
+	 * {{{
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()) in
+	 * }}}
+	 * {{{
 	 * parentInteraction->size()=1 and let refInteraction : Interaction = refersTo in
+	 * }}}
+	 * {{{
 	 * parentInteraction.covered-> forAll(intLifeline : Lifeline | refInteraction.covered->
+	 * }}}
+	 * {{{
 	 * forAll( refLifeline : Lifeline | refLifeline.represents = intLifeline.represents and 
+	 * }}}
+	 * {{{
 	 * (
+	 * }}}
+	 * {{{
 	 * ( refLifeline.selector.oclIsKindOf(LiteralString) implies
+	 * }}}
+	 * {{{
 	 *   intLifeline.selector.oclIsKindOf(LiteralString) and 
+	 * }}}
+	 * {{{
 	 *   refLifeline.selector.oclAsType(LiteralString).value = intLifeline.selector.oclAsType(LiteralString).value ) and
+	 * }}}
+	 * {{{
 	 * ( refLifeline.selector.oclIsKindOf(LiteralInteger) implies
+	 * }}}
+	 * {{{
 	 *   intLifeline.selector.oclIsKindOf(LiteralInteger) and 
+	 * }}}
+	 * {{{
 	 *   refLifeline.selector.oclAsType(LiteralInteger).value = intLifeline.selector.oclAsType(LiteralInteger).value )
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
+	 * {{{
 	 *  implies self.covered->asSet()->includes(intLifeline)))
+	 * }}}
 	 */
 	def validate_all_lifelines: Boolean = {
 		// Start of user code for "all_lifelines"
@@ -127,9 +157,15 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_gates_match -->
    * <!-- End of user code doc for validate_gates_match -->
 	 *
-	 * @body actualGate->notEmpty() implies 
+	 * {{{
+	 * OCL Body actualGate->notEmpty() implies 
+	 * }}}
+	 * {{{
 	 * refersTo.formalGate->forAll( fg : Gate | self.actualGate->select(matches(fg))->size()=1) and
+	 * }}}
+	 * {{{
 	 * self.actualGate->forAll(ag : Gate | refersTo.formalGate->select(matches(ag))->size()=1)
+	 * }}}
 	 */
 	def validate_gates_match: Boolean = {
 		// Start of user code for "gates_match"
@@ -143,11 +179,21 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_returnValueRecipient_coverage -->
    * <!-- End of user code doc for validate_returnValueRecipient_coverage -->
 	 *
-	 * @body returnValueRecipient->asSet()->notEmpty() implies
+	 * {{{
+	 * OCL Body returnValueRecipient->asSet()->notEmpty() implies
+	 * }}}
+	 * {{{
 	 * let covCE : Set(ConnectableElement) = covered.represents->asSet() in 
+	 * }}}
+	 * {{{
 	 * covCE->notEmpty() and let classes:Set(Classifier) = covCE.type.oclIsKindOf(Classifier).oclAsType(Classifier)->asSet() in 
+	 * }}}
+	 * {{{
 	 * let allProps : Set(Property) = classes.attribute->union(classes.allParents().attribute)->asSet() in 
+	 * }}}
+	 * {{{
 	 * allProps->includes(returnValueRecipient)
+	 * }}}
 	 */
 	def validate_returnValueRecipient_coverage: Boolean = {
 		// Start of user code for "returnValueRecipient_coverage"
@@ -161,7 +207,9 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_returnValue_type_recipient_correspondence -->
    * <!-- End of user code doc for validate_returnValue_type_recipient_correspondence -->
 	 *
-	 * @body returnValue.type->asSequence()->notEmpty() implies returnValue.type->asSequence()->first() = returnValueRecipient.type->asSequence()->first()
+	 * {{{
+	 * OCL Body returnValue.type->asSequence()->notEmpty() implies returnValue.type->asSequence()->first() = returnValueRecipient.type->asSequence()->first()
+	 * }}}
 	 */
 	def validate_returnValue_type_recipient_correspondence: Boolean = {
 		// Start of user code for "returnValue_type_recipient_correspondence"

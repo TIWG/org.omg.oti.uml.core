@@ -62,8 +62,9 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for behavior -->
    * <!-- End of user code doc for behavior -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if object.type.oclIsKindOf(Behavior) then
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if object.type.oclIsKindOf(Behavior) then
 	 *   object.type.oclAsType(Behavior)
 	 * else if object.type.oclIsKindOf(BehavioredClassifier) then
 	 *   object.type.oclAsType(BehavioredClassifier).classifierBehavior
@@ -71,6 +72,7 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 *   null
 	 * endif
 	 * endif)
+	 * }}}
 	 */
 	def behavior: Option[UMLBehavior[Uml]] = {
 		// Start of user code for "behavior"
@@ -84,8 +86,10 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (self.behavior().inputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.behavior().inputParameters())
+	 * }}}
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
@@ -99,8 +103,10 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (self.behavior().outputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.behavior().outputParameters())
+	 * }}}
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
@@ -114,7 +120,9 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
    * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
@@ -128,7 +136,9 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for validate_no_onport -->
    * <!-- End of user code doc for validate_no_onport -->
 	 *
-	 * @body onPort->isEmpty()
+	 * {{{
+	 * OCL Body onPort->isEmpty()
+	 * }}}
 	 */
 	def validate_no_onport: Boolean = {
 		// Start of user code for "no_onport"
@@ -142,7 +152,9 @@ trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehavior
 	 * <!-- Start of user code doc for validate_type_of_object -->
    * <!-- End of user code doc for validate_type_of_object -->
 	 *
-	 * @body self.behavior()<>null
+	 * {{{
+	 * OCL Body self.behavior()<>null
+	 * }}}
 	 */
 	def validate_type_of_object: Boolean = {
 		// Start of user code for "type_of_object"

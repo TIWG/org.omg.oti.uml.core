@@ -64,8 +64,8 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * <!-- Start of user code doc for importedElement -->
    * <!-- End of user code doc for importedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageableElement.importedElement_import
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.importedElement_import
 	 */
 	def importedElement: Option[UMLPackageableElement[Uml]] = target.selectByKindOf { case x: UMLPackageableElement[Uml] => x } headOption
 
@@ -75,8 +75,8 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * <!-- Start of user code doc for importingNamespace -->
    * <!-- End of user code doc for importingNamespace -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.elementImport
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.elementImport
 	 */
 	def importingNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
@@ -86,12 +86,14 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * <!-- Start of user code doc for getName -->
    * <!-- End of user code doc for getName -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if alias->notEmpty() then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if alias->notEmpty() then
 	 *   alias
 	 * else
 	 *   importedElement.name
 	 * endif)
+	 * }}}
 	 */
 	def getName: Option[String] = {
 		// Start of user code for "getName"
@@ -110,7 +112,9 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * <!-- Start of user code doc for validate_imported_element_is_public -->
    * <!-- End of user code doc for validate_imported_element_is_public -->
 	 *
-	 * @body importedElement.visibility <> null implies importedElement.visibility = VisibilityKind::public
+	 * {{{
+	 * OCL Body importedElement.visibility <> null implies importedElement.visibility = VisibilityKind::public
+	 * }}}
 	 */
 	def validate_imported_element_is_public: Boolean = {
 		// Start of user code for "imported_element_is_public"
@@ -130,7 +134,9 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 * <!-- Start of user code doc for validate_visibility_public_or_private -->
    * <!-- End of user code doc for validate_visibility_public_or_private -->
 	 *
-	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
+	 * {{{
+	 * OCL Body visibility = VisibilityKind::public or visibility = VisibilityKind::private
+	 * }}}
 	 */
 	def validate_visibility_public_or_private: Boolean = {
 		// Start of user code for "visibility_public_or_private"

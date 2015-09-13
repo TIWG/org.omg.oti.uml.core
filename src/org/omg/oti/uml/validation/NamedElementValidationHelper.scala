@@ -78,7 +78,7 @@ import NamedElementValidationStatus._
  * @param namedElement A NamedElement
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class NamedElementNameValidationInfo[Uml <: UML]
 (val namedElement: UMLNamedElement[Uml],

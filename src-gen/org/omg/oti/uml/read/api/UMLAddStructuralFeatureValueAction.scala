@@ -63,8 +63,8 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	 * <!-- Start of user code doc for insertAt -->
    * <!-- End of user code doc for insertAt -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.insertAt_addStructuralFeatureValueAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.insertAt_addStructuralFeatureValueAction
 	 */
 	def insertAt: Option[UMLInputPin[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	 * <!-- Start of user code doc for isReplaceAll -->
    * <!-- End of user code doc for isReplaceAll -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReplaceAll: Boolean
 

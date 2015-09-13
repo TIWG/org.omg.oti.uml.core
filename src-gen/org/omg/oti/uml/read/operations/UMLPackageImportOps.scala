@@ -64,8 +64,8 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	 * <!-- Start of user code doc for importedPackage -->
    * <!-- End of user code doc for importedPackage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.importedPackage_packageImport
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.importedPackage_packageImport
 	 */
 	def importedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
 
@@ -75,8 +75,8 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	 * <!-- Start of user code doc for importingNamespace -->
    * <!-- End of user code doc for importingNamespace -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.packageImport
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.packageImport
 	 */
 	def importingNamespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
@@ -86,7 +86,9 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	 * <!-- Start of user code doc for validate_public_or_private -->
    * <!-- End of user code doc for validate_public_or_private -->
 	 *
-	 * @body visibility = VisibilityKind::public or visibility = VisibilityKind::private
+	 * {{{
+	 * OCL Body visibility = VisibilityKind::public or visibility = VisibilityKind::private
+	 * }}}
 	 */
 	def validate_public_or_private: Boolean = {
 		// Start of user code for "public_or_private"

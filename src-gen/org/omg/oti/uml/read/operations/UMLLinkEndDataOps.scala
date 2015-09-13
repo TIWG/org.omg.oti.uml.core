@@ -62,8 +62,8 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for qualifier -->
    * <!-- End of user code doc for qualifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLQualifierValue.qualifier_linkEndData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLQualifierValue.qualifier_linkEndData
 	 */
 	def qualifier: Set[UMLQualifierValue[Uml]] = ownedElement.selectByKindOf { case x: UMLQualifierValue[Uml] => x }
 
@@ -71,8 +71,8 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for endData_linkAction -->
    * <!-- End of user code doc for endData_linkAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkAction.endData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkAction.endData
 	 */
 	def endData_linkAction: Option[UMLLinkAction[Uml]] = owner.selectByKindOf { case x: UMLLinkAction[Uml] => x }
 
@@ -82,8 +82,10 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for allPins -->
    * <!-- End of user code doc for allPins -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (value->asBag()->union(qualifier.value))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (value->asBag()->union(qualifier.value))
+	 * }}}
 	 */
 	def allPins: Set[UMLInputPin[Uml]] = {
 		// Start of user code for "allPins"
@@ -97,7 +99,9 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for validate_end_object_input_pin -->
    * <!-- End of user code doc for validate_end_object_input_pin -->
 	 *
-	 * @body value->excludesAll(qualifier.value)
+	 * {{{
+	 * OCL Body value->excludesAll(qualifier.value)
+	 * }}}
 	 */
 	def validate_end_object_input_pin: Boolean = {
 		// Start of user code for "end_object_input_pin"
@@ -111,7 +115,9 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body value<>null implies value.is(1,1)
+	 * {{{
+	 * OCL Body value<>null implies value.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -125,7 +131,9 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for validate_property_is_association_end -->
    * <!-- End of user code doc for validate_property_is_association_end -->
 	 *
-	 * @body end.association <> null
+	 * {{{
+	 * OCL Body end.association <> null
+	 * }}}
 	 */
 	def validate_property_is_association_end: Boolean = {
 		// Start of user code for "property_is_association_end"
@@ -139,7 +147,9 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for validate_qualifiers -->
    * <!-- End of user code doc for validate_qualifiers -->
 	 *
-	 * @body end.qualifier->includesAll(qualifier.qualifier)
+	 * {{{
+	 * OCL Body end.qualifier->includesAll(qualifier.qualifier)
+	 * }}}
 	 */
 	def validate_qualifiers: Boolean = {
 		// Start of user code for "qualifiers"
@@ -153,7 +163,9 @@ trait UMLLinkEndDataOps[Uml <: UML] { self: UMLLinkEndData[Uml] =>
 	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
 	 *
-	 * @body value<>null implies value.type.conformsTo(end.type)
+	 * {{{
+	 * OCL Body value<>null implies value.type.conformsTo(end.type)
+	 * }}}
 	 */
 	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"

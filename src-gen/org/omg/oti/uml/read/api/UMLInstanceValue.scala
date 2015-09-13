@@ -63,8 +63,8 @@ trait UMLInstanceValue[Uml <: UML]
 	 * <!-- Start of user code doc for instance -->
    * <!-- End of user code doc for instance -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInstanceSpecification.instance_instanceValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.instance_instanceValue
 	 */
 	def instance: Option[UMLInstanceSpecification[Uml]]
 

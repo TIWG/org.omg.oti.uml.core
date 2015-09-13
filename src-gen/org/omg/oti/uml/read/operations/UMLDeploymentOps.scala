@@ -62,8 +62,8 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 	 * <!-- Start of user code doc for configuration -->
    * <!-- End of user code doc for configuration -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDeploymentSpecification.deployment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentSpecification.deployment
 	 */
 	def configuration: Set[UMLDeploymentSpecification[Uml]] = ownedElement.selectByKindOf { case x: UMLDeploymentSpecification[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 	 * <!-- Start of user code doc for location -->
    * <!-- End of user code doc for location -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDeploymentTarget.deployment
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentTarget.deployment
 	 */
 	def location: Option[UMLDeploymentTarget[Uml]] = owner.selectByKindOf { case x: UMLDeploymentTarget[Uml] => x }
 

@@ -60,8 +60,8 @@ trait UMLManifestationOps[Uml <: UML] { self: UMLManifestation[Uml] =>
 	 * <!-- Start of user code doc for manifestation_artifact -->
    * <!-- End of user code doc for manifestation_artifact -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLArtifact.manifestation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.manifestation
 	 */
 	def manifestation_artifact: Option[UMLArtifact[Uml]] = owner.selectByKindOf { case x: UMLArtifact[Uml] => x }
 

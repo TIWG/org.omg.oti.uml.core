@@ -62,7 +62,9 @@ trait UMLInformationItemOps[Uml <: UML] { self: UMLInformationItem[Uml] =>
 	 * <!-- Start of user code doc for validate_has_no -->
    * <!-- End of user code doc for validate_has_no -->
 	 *
-	 * @body self.generalization->isEmpty() and self.feature->isEmpty()
+	 * {{{
+	 * OCL Body self.generalization->isEmpty() and self.feature->isEmpty()
+	 * }}}
 	 */
 	def validate_has_no: Boolean = {
 		// Start of user code for "has_no"
@@ -76,7 +78,9 @@ trait UMLInformationItemOps[Uml <: UML] { self: UMLInformationItem[Uml] =>
 	 * <!-- Start of user code doc for validate_not_instantiable -->
    * <!-- End of user code doc for validate_not_instantiable -->
 	 *
-	 * @body isAbstract
+	 * {{{
+	 * OCL Body isAbstract
+	 * }}}
 	 */
 	def validate_not_instantiable: Boolean = {
 		// Start of user code for "not_instantiable"
@@ -90,11 +94,21 @@ trait UMLInformationItemOps[Uml <: UML] { self: UMLInformationItem[Uml] =>
 	 * <!-- Start of user code doc for validate_sources_and_targets -->
    * <!-- End of user code doc for validate_sources_and_targets -->
 	 *
-	 * @body (self.represented->select(oclIsKindOf(InformationItem))->forAll(p |
+	 * {{{
+	 * OCL Body (self.represented->select(oclIsKindOf(InformationItem))->forAll(p |
+	 * }}}
+	 * {{{
 	 *   p.conveyingFlow.source->forAll(q | self.conveyingFlow.source->includes(q)) and
+	 * }}}
+	 * {{{
 	 *     p.conveyingFlow.target->forAll(q | self.conveyingFlow.target->includes(q)))) and
+	 * }}}
+	 * {{{
 	 *       (self.represented->forAll(oclIsKindOf(Class) or oclIsKindOf(Interface) or
+	 * }}}
+	 * {{{
 	 *         oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component)))
+	 * }}}
 	 */
 	def validate_sources_and_targets: Boolean = {
 		// Start of user code for "sources_and_targets"

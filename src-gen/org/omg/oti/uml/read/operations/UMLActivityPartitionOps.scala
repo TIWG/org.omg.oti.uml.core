@@ -63,8 +63,8 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for edge -->
    * <!-- End of user code doc for edge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.inPartition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.inPartition
 	 */
 	def edge: Set[UMLActivityEdge[Uml]] = containedEdge
 
@@ -74,8 +74,8 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for node -->
    * <!-- End of user code doc for node -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.inPartition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inPartition
 	 */
 	def node: Set[UMLActivityNode[Uml]] = containedNode
 
@@ -85,8 +85,8 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for subpartition -->
    * <!-- End of user code doc for subpartition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityPartition.superPartition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.superPartition
 	 */
 	def subpartition: Set[UMLActivityPartition[Uml]] = subgroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
@@ -96,8 +96,8 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for superPartition -->
    * <!-- End of user code doc for superPartition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityPartition.subpartition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.subpartition
 	 */
 	def superPartition: Option[UMLActivityPartition[Uml]] = superGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
@@ -107,7 +107,9 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for validate_dimension_not_contained -->
    * <!-- End of user code doc for validate_dimension_not_contained -->
 	 *
-	 * @body isDimension implies superPartition->isEmpty()
+	 * {{{
+	 * OCL Body isDimension implies superPartition->isEmpty()
+	 * }}}
 	 */
 	def validate_dimension_not_contained: Boolean = {
 		// Start of user code for "dimension_not_contained"
@@ -128,19 +130,45 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
    * [B2] be at the contained end of a composition Association with the Classifier represented by the superPartition.)
    * <!-- End of user code doc for validate_represents_classifier -->
 	 *
-	 * @body (not isExternal and represents.oclIsKindOf(Classifier) and superPartition->notEmpty()) implies
+	 * {{{
+	 * OCL Body (not isExternal and represents.oclIsKindOf(Classifier) and superPartition->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 * (
+	 * }}}
+	 * {{{
 	 *    let representedClassifier : Classifier = represents.oclAsType(Classifier) in
+	 * }}}
+	 * {{{
 	 *      superPartition.represents.oclIsKindOf(Classifier) and
+	 * }}}
+	 * {{{
 	 *       let representedSuperClassifier : Classifier = superPartition.represents.oclAsType(Classifier) in
+	 * }}}
+	 * {{{
 	 *        (representedSuperClassifier.oclIsKindOf(BehavioredClassifier) and representedClassifier.oclIsKindOf(Behavior) and 
+	 * }}}
+	 * {{{
 	 *         representedSuperClassifier.oclAsType(BehavioredClassifier).ownedBehavior->includes(representedClassifier.oclAsType(Behavior))) 
+	 * }}}
+	 * {{{
 	 *        or
+	 * }}}
+	 * {{{
 	 *        (representedSuperClassifier.oclIsKindOf(Class) and  representedSuperClassifier.oclAsType(Class).nestedClassifier->includes(representedClassifier))
+	 * }}}
+	 * {{{
 	 *        or
+	 * }}}
+	 * {{{
 	 *        (Association.allInstances()->exists(a | a.memberEnd->exists(end1 | end1.isComposite and end1.type = representedClassifier and 
+	 * }}}
+	 * {{{
 	 *                                                                       a.memberEnd->exists(end2 | end1<>end2 and end2.type = representedSuperClassifier))))
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_represents_classifier: Boolean = {
 		// Start of user code for "represents_classifier"
@@ -183,13 +211,27 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for validate_represents_property -->
    * <!-- End of user code doc for validate_represents_property -->
 	 *
-	 * @body (represents.oclIsKindOf(Property) and superPartition->notEmpty() and superPartition.represents.oclIsKindOf(Classifier)) implies
+	 * {{{
+	 * OCL Body (represents.oclIsKindOf(Property) and superPartition->notEmpty() and superPartition.represents.oclIsKindOf(Classifier)) implies
+	 * }}}
+	 * {{{
 	 * (
+	 * }}}
+	 * {{{
 	 *   let representedClassifier : Classifier = superPartition.represents.oclAsType(Classifier)
+	 * }}}
+	 * {{{
 	 *   in
+	 * }}}
+	 * {{{
 	 *     superPartition.subpartition->reject(isExternal)->forAll(p | 
+	 * }}}
+	 * {{{
 	 *        p.represents.oclIsKindOf(Property) and p.owner=representedClassifier)
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_represents_property: Boolean = {
 		// Start of user code for "represents_property"
@@ -220,11 +262,21 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 * <!-- Start of user code doc for validate_represents_property_and_is_contained -->
    * <!-- End of user code doc for validate_represents_property_and_is_contained -->
 	 *
-	 * @body (represents.oclIsKindOf(Property) and superPartition->notEmpty()) implies
+	 * {{{
+	 * OCL Body (represents.oclIsKindOf(Property) and superPartition->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 * (
+	 * }}}
+	 * {{{
 	 *   (superPartition.represents.oclIsKindOf(Classifier) and represents.owner = superPartition.represents) or 
+	 * }}}
+	 * {{{
 	 *   (superPartition.represents.oclIsKindOf(Property) and represents.owner = superPartition.represents.oclAsType(Property).type)
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_represents_property_and_is_contained: Boolean = {
 		// Start of user code for "represents_property_and_is_contained"

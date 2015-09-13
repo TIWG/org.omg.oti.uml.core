@@ -63,8 +63,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for bodyOutput -->
    * <!-- End of user code doc for bodyOutput -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.bodyOutput_loopNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.bodyOutput_loopNode
 	 */
 	def bodyOutput: Seq[UMLOutputPin[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for bodyPart -->
    * <!-- End of user code doc for bodyPart -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.bodyPart_loopNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.bodyPart_loopNode
 	 */
 	def bodyPart: Set[UMLExecutableNode[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for decider -->
    * <!-- End of user code doc for decider -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.decider_loopNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.decider_loopNode
 	 */
 	def decider: Option[UMLOutputPin[Uml]]
 
@@ -96,7 +96,7 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for isTestedFirst -->
    * <!-- End of user code doc for isTestedFirst -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isTestedFirst: Boolean
 
@@ -106,8 +106,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for loopVariable -->
    * <!-- End of user code doc for loopVariable -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.loopVariable_loopNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.loopVariable_loopNode
 	 */
 	def loopVariable: Seq[UMLOutputPin[Uml]]
 
@@ -117,8 +117,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for loopVariableInput -->
    * <!-- End of user code doc for loopVariableInput -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.loopVariableInput_loopNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.loopVariableInput_loopNode
 	 */
 	def loopVariableInput: Seq[UMLInputPin[Uml]]
 
@@ -128,8 +128,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_loopNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_loopNode
 	 */
 	def result: Seq[UMLOutputPin[Uml]]
 
@@ -139,8 +139,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for setupPart -->
    * <!-- End of user code doc for setupPart -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.setupPart_loopNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.setupPart_loopNode
 	 */
 	def setupPart: Set[UMLExecutableNode[Uml]]
 
@@ -150,8 +150,8 @@ trait UMLLoopNode[Uml <: UML]
 	 * <!-- Start of user code doc for test -->
    * <!-- End of user code doc for test -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.test_loopNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.test_loopNode
 	 */
 	def test: Set[UMLExecutableNode[Uml]]
 

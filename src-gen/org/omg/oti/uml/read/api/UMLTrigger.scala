@@ -63,8 +63,8 @@ trait UMLTrigger[Uml <: UML]
 	 * <!-- Start of user code doc for event -->
    * <!-- End of user code doc for event -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLEvent.event_trigger
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEvent.event_trigger
 	 */
 	def event: Option[UMLEvent[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTrigger[Uml <: UML]
 	 * <!-- Start of user code doc for port -->
    * <!-- End of user code doc for port -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.port_trigger
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.port_trigger
 	 */
 	def port: Set[UMLPort[Uml]]
 
@@ -83,8 +83,8 @@ trait UMLTrigger[Uml <: UML]
 	 * <!-- Start of user code doc for replyToCall_replyAction -->
    * <!-- End of user code doc for replyToCall_replyAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReplyAction.replyToCall
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReplyAction.replyToCall
 	 */
 	def replyToCall_replyAction: Option[UMLReplyAction[Uml]]
 

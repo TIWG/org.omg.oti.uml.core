@@ -63,8 +63,8 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for classifier -->
    * <!-- End of user code doc for classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.classifier_readIsClassifiedObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.classifier_readIsClassifiedObjectAction
 	 */
 	def classifier: Option[UMLClassifier[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for isDirect -->
    * <!-- End of user code doc for isDirect -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDirect: Boolean
 

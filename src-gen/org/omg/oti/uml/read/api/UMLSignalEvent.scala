@@ -63,8 +63,8 @@ trait UMLSignalEvent[Uml <: UML]
 	 * <!-- Start of user code doc for signal -->
    * <!-- End of user code doc for signal -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLSignal.signal_signalEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSignal.signal_signalEvent
 	 */
 	def signal: Option[UMLSignal[Uml]]
 

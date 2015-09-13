@@ -63,7 +63,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for isDestroyLinks -->
    * <!-- End of user code doc for isDestroyLinks -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDestroyLinks: Boolean
 
@@ -73,7 +73,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for isDestroyOwnedObjects -->
    * <!-- End of user code doc for isDestroyOwnedObjects -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDestroyOwnedObjects: Boolean
 

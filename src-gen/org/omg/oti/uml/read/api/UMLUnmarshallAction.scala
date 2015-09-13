@@ -63,8 +63,8 @@ trait UMLUnmarshallAction[Uml <: UML]
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_unmarshallAction
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_unmarshallAction
 	 */
 	def result: Seq[UMLOutputPin[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLUnmarshallAction[Uml <: UML]
 	 * <!-- Start of user code doc for unmarshallType -->
    * <!-- End of user code doc for unmarshallType -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.unmarshallType_unmarshallAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.unmarshallType_unmarshallAction
 	 */
 	def unmarshallType: Option[UMLClassifier[Uml]]
 

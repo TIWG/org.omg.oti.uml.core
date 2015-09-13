@@ -63,8 +63,8 @@ trait UMLLifeline[Uml <: UML]
 	 * <!-- Start of user code doc for coveredBy -->
    * <!-- End of user code doc for coveredBy -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionFragment.covered
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionFragment.covered
 	 */
 	def coveredBy: Set[UMLInteractionFragment[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLLifeline[Uml <: UML]
 	 * <!-- Start of user code doc for decomposedAs -->
    * <!-- End of user code doc for decomposedAs -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPartDecomposition.decomposedAs_lifeline
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPartDecomposition.decomposedAs_lifeline
 	 */
 	def decomposedAs: Option[UMLPartDecomposition[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLLifeline[Uml <: UML]
 	 * <!-- Start of user code doc for represents -->
    * <!-- End of user code doc for represents -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectableElement.represents_lifeline
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElement.represents_lifeline
 	 */
 	def represents: Option[UMLConnectableElement[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLLifeline[Uml <: UML]
 	 * <!-- Start of user code doc for selector -->
    * <!-- End of user code doc for selector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.selector_lifeline
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.selector_lifeline
 	 */
 	def selector: Option[UMLValueSpecification[Uml]]
 
@@ -105,8 +105,8 @@ trait UMLLifeline[Uml <: UML]
 	 * <!-- Start of user code doc for covered_events -->
    * <!-- End of user code doc for covered_events -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOccurrenceSpecification.covered
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.covered
 	 */
 	def covered_events: Seq[UMLOccurrenceSpecification[Uml]]
 

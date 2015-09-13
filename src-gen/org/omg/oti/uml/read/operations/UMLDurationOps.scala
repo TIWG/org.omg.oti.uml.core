@@ -60,8 +60,8 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	 * <!-- Start of user code doc for max_durationInterval -->
    * <!-- End of user code doc for max_durationInterval -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDurationInterval.max
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.max
 	 */
 	def max_durationInterval: Set[UMLDurationInterval[Uml]] = max_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	 * <!-- Start of user code doc for min_durationInterval -->
    * <!-- End of user code doc for min_durationInterval -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDurationInterval.min
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.min
 	 */
 	def min_durationInterval: Set[UMLDurationInterval[Uml]] = min_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
@@ -80,7 +80,9 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 	 * <!-- Start of user code doc for validate_no_expr_requires_observation -->
    * <!-- End of user code doc for validate_no_expr_requires_observation -->
 	 *
-	 * @body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
+	 * {{{
+	 * OCL Body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
+	 * }}}
 	 */
 	def validate_no_expr_requires_observation: Boolean = {
 		// Start of user code for "no_expr_requires_observation"

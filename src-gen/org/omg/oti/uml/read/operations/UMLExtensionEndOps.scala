@@ -62,8 +62,10 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- Start of user code doc for lower -->
    * <!-- End of user code doc for lower -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if lowerValue=null then 0 else lowerValue.integerValue() endif)
+	 * }}}
 	 */
 	override def lower: Integer = {
 		// Start of user code for "lower"
@@ -75,8 +77,8 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- Start of user code doc for ownedEnd_extension -->
    * <!-- End of user code doc for ownedEnd_extension -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtension.ownedEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtension.ownedEnd
 	 */
 	def ownedEnd_extension: Option[UMLExtension[Uml]] = owningAssociation.selectByKindOf { case x: UMLExtension[Uml] => x }
 
@@ -86,7 +88,9 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_aggregation -->
    * <!-- End of user code doc for validate_aggregation -->
 	 *
-	 * @body self.aggregation = AggregationKind::composite
+	 * {{{
+	 * OCL Body self.aggregation = AggregationKind::composite
+	 * }}}
 	 */
 	def validate_aggregation: Boolean = {
 		// Start of user code for "aggregation"
@@ -100,7 +104,9 @@ trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body (lower() = 0 or lower() = 1) and upper() = 1
+	 * {{{
+	 * OCL Body (lower() = 0 or lower() = 1) and upper() = 1
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"

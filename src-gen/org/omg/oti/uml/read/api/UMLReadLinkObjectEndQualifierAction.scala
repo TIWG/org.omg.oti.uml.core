@@ -63,8 +63,8 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * <!-- Start of user code doc for qualifier -->
    * <!-- End of user code doc for qualifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.qualifier_readLinkObjectEndQualifierAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.qualifier_readLinkObjectEndQualifierAction
 	 */
 	def qualifier: Option[UMLProperty[Uml]]
 

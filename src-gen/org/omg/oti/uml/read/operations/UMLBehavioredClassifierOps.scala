@@ -63,8 +63,8 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for classifierBehavior -->
    * <!-- End of user code doc for classifierBehavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.classifierBehavior_behavioredClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.classifierBehavior_behavioredClassifier
 	 */
 	def classifierBehavior: Option[UMLBehavior[Uml]] = ownedBehavior headOption
 
@@ -74,8 +74,8 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for interfaceRealization -->
    * <!-- End of user code doc for interfaceRealization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterfaceRealization.implementingClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterfaceRealization.implementingClassifier
 	 */
 	def interfaceRealization: Set[UMLInterfaceRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLInterfaceRealization[Uml] => x }
 
@@ -85,8 +85,8 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for ownedBehavior -->
    * <!-- End of user code doc for ownedBehavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.ownedBehavior_behavioredClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.ownedBehavior_behavioredClassifier
 	 */
 	def ownedBehavior: Set[UMLBehavior[Uml]] = ownedMember.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
@@ -94,8 +94,8 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for context_behavior -->
    * <!-- End of user code doc for context_behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.context
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.context
 	 */
 	def context_behavior: Set[UMLBehavior[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLBehavior[Uml] => x }
 
@@ -105,7 +105,9 @@ trait UMLBehavioredClassifierOps[Uml <: UML] { self: UMLBehavioredClassifier[Uml
 	 * <!-- Start of user code doc for validate_class_behavior -->
    * <!-- End of user code doc for validate_class_behavior -->
 	 *
-	 * @body classifierBehavior->notEmpty() implies classifierBehavior.specification->isEmpty()
+	 * {{{
+	 * OCL Body classifierBehavior->notEmpty() implies classifierBehavior.specification->isEmpty()
+	 * }}}
 	 */
 	def validate_class_behavior: Boolean = {
 		// Start of user code for "class_behavior"

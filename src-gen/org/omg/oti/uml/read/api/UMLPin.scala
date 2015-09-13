@@ -64,7 +64,7 @@ trait UMLPin[Uml <: UML]
 	 * <!-- Start of user code doc for isControl -->
    * <!-- End of user code doc for isControl -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isControl: Boolean
 

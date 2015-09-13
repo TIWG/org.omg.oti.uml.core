@@ -61,8 +61,8 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 * <!-- Start of user code doc for appliedProfile_profileApplication -->
    * <!-- End of user code doc for appliedProfile_profileApplication -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfileApplication.appliedProfile
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfileApplication.appliedProfile
 	 */
 	def appliedProfile_profileApplication: Set[UMLProfileApplication[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLProfileApplication[Uml] => x }
 
@@ -72,13 +72,27 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 * <!-- Start of user code doc for validate_metaclass_reference_not_specialized -->
    * <!-- End of user code doc for validate_metaclass_reference_not_specialized -->
 	 *
-	 * @body metaclassReference.importedElement->
+	 * {{{
+	 * OCL Body metaclassReference.importedElement->
+	 * }}}
+	 * {{{
 	 * 	select(c | c.oclIsKindOf(Classifier) and
+	 * }}}
+	 * {{{
 	 * 		(c.oclAsType(Classifier).allParents()->collect(namespace)->includes(self)))->isEmpty()
+	 * }}}
+	 * {{{
 	 * and 
+	 * }}}
+	 * {{{
 	 * packagedElement->
+	 * }}}
+	 * {{{
 	 *     select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier).allParents())->
+	 * }}}
+	 * {{{
 	 *        intersection(metaclassReference.importedElement->select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier)))->isEmpty()
+	 * }}}
 	 */
 	def validate_metaclass_reference_not_specialized: Boolean = {
 		// Start of user code for "metaclass_reference_not_specialized"
@@ -92,8 +106,12 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 * <!-- Start of user code doc for validate_references_same_metamodel -->
    * <!-- End of user code doc for validate_references_same_metamodel -->
 	 *
-	 * @body metamodelReference.importedPackage.elementImport.importedElement.allOwningPackages()->
+	 * {{{
+	 * OCL Body metamodelReference.importedPackage.elementImport.importedElement.allOwningPackages()->
+	 * }}}
+	 * {{{
 	 *   union(metaclassReference.importedElement.allOwningPackages() )->notEmpty()
+	 * }}}
 	 */
 	def validate_references_same_metamodel: Boolean = {
 		// Start of user code for "references_same_metamodel"

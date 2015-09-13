@@ -64,8 +64,8 @@ trait UMLInteraction[Uml <: UML]
 	 * <!-- Start of user code doc for fragment -->
    * <!-- End of user code doc for fragment -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionFragment.enclosingInteraction
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionFragment.enclosingInteraction
 	 */
 	def fragment: Seq[UMLInteractionFragment[Uml]]
 
@@ -73,8 +73,8 @@ trait UMLInteraction[Uml <: UML]
 	 * <!-- Start of user code doc for refersTo_interactionUse -->
    * <!-- End of user code doc for refersTo_interactionUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.refersTo
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.refersTo
 	 */
 	def refersTo_interactionUse: Set[UMLInteractionUse[Uml]]
 

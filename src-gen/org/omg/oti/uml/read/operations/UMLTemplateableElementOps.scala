@@ -62,8 +62,8 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * <!-- Start of user code doc for ownedTemplateSignature -->
    * <!-- End of user code doc for ownedTemplateSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.template
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.template
 	 */
 	def ownedTemplateSignature: Option[UMLTemplateSignature[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateSignature[Uml] => x } headOption
 
@@ -73,8 +73,8 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * <!-- Start of user code doc for templateBinding -->
    * <!-- End of user code doc for templateBinding -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateBinding.boundElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateBinding.boundElement
 	 */
 	def templateBinding: Set[UMLTemplateBinding[Uml]] = ownedElement.selectByKindOf { case x: UMLTemplateBinding[Uml] => x }
 
@@ -84,8 +84,10 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * <!-- Start of user code doc for isTemplate -->
    * <!-- End of user code doc for isTemplate -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (ownedTemplateSignature <> null)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (ownedTemplateSignature <> null)
+	 * }}}
 	 */
 	def isTemplate: Boolean = {
 		// Start of user code for "isTemplate"
@@ -99,8 +101,10 @@ trait UMLTemplateableElementOps[Uml <: UML] { self: UMLTemplateableElement[Uml] 
 	 * <!-- Start of user code doc for parameterableElements -->
    * <!-- End of user code doc for parameterableElements -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self.allOwnedElements()->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.allOwnedElements()->select(oclIsKindOf(ParameterableElement)).oclAsType(ParameterableElement)->asSet())
+	 * }}}
 	 */
 	def parameterableElements: Set[UMLParameterableElement[Uml]] = {
 		// Start of user code for "parameterableElements"

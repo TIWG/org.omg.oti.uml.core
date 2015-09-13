@@ -62,8 +62,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for _class -->
    * <!-- End of user code doc for _class -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.ownedOperation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.ownedOperation
 	 */
 	def _class: Option[UMLClass[Uml]] = featuringClassifier.selectByKindOf { case x: UMLClass[Uml] => x }
 
@@ -73,9 +73,11 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for _type -->
    * <!-- End of user code doc for _type -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLType.type_operation
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).type else null endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType.type_operation
+	 * {{{
+	 * OCL Body result = (if returnResult()->notEmpty() then returnResult()->any(true).type else null endif)
+	 * }}}
 	 */
 	def _type: Option[UMLType[Uml]] = {
 		// Start of user code for "type"
@@ -89,8 +91,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for datatype -->
    * <!-- End of user code doc for datatype -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDataType.ownedOperation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDataType.ownedOperation
 	 */
 	def datatype: Option[UMLDataType[Uml]] = featuringClassifier.selectByKindOf { case x: UMLDataType[Uml] => x }
 
@@ -100,8 +102,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for interface -->
    * <!-- End of user code doc for interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.ownedOperation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.ownedOperation
 	 */
 	def interface: Option[UMLInterface[Uml]] = featuringClassifier.selectByKindOf { case x: UMLInterface[Uml] => x }
 
@@ -111,8 +113,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for isOrdered -->
    * <!-- End of user code doc for isOrdered -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if returnResult()->notEmpty() then returnResult()-> exists(isOrdered) else false endif)
+	 * }}}
 	 */
 	def isOrdered: Boolean = {
 		// Start of user code for "isOrdered"
@@ -126,8 +130,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for isUnique -->
    * <!-- End of user code doc for isUnique -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if returnResult()->notEmpty() then returnResult()->exists(isUnique) else true endif)
+	 * }}}
 	 */
 	def isUnique: Boolean = {
 		// Start of user code for "isUnique"
@@ -141,8 +147,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for lower -->
    * <!-- End of user code doc for lower -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if returnResult()->notEmpty() then returnResult()->any(true).lower else null endif)
+	 * }}}
 	 */
 	def lower: Option[Integer] = {
 		// Start of user code for "lower"
@@ -156,8 +164,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for redefinedOperation -->
    * <!-- End of user code doc for redefinedOperation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.redefinedOperation_operation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.redefinedOperation_operation
 	 */
 	def redefinedOperation: Set[UMLOperation[Uml]] = redefinedElement.selectByKindOf { case x: UMLOperation[Uml] => x }
 
@@ -167,8 +175,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for upper -->
    * <!-- End of user code doc for upper -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if returnResult()->notEmpty() then returnResult()->any(true).upper else null endif)
+	 * }}}
 	 */
 	def upper: Option[Integer] = {
 		// Start of user code for "upper"
@@ -180,8 +190,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for ownedOperation_artifact -->
    * <!-- End of user code doc for ownedOperation_artifact -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLArtifact.ownedOperation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.ownedOperation
 	 */
 	def ownedOperation_artifact: Option[UMLArtifact[Uml]] = featuringClassifier.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
@@ -189,8 +199,8 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for redefinedOperation_operation -->
    * <!-- End of user code doc for redefinedOperation_operation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.redefinedOperation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.redefinedOperation
 	 */
 	def redefinedOperation_operation: Set[UMLOperation[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLOperation[Uml] => x }
 
@@ -204,8 +214,9 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(Operation) and
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (redefiningElement.oclIsKindOf(Operation) and
 	 * let op : Operation = redefiningElement.oclAsType(Operation) in
 	 * 	self.ownedParameter->size() = op.ownedParameter->size() and
 	 * 	Sequence{1..self.ownedParameter->size()}->
@@ -226,6 +237,7 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 *                       redefiningParam.direction = ParameterDirectionKind::return) implies
 	 *                          redefiningParam.compatibleWith(redefinedParam))
 	 * 		))
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -239,8 +251,10 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for returnResult -->
    * <!-- End of user code doc for returnResult -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (ownedParameter->select (direction = ParameterDirectionKind::return))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedParameter->select (direction = ParameterDirectionKind::return))
+	 * }}}
 	 */
 	def returnResult: Set[UMLParameter[Uml]] = {
 		// Start of user code for "returnResult"
@@ -254,7 +268,9 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for validate_at_most_one_return -->
    * <!-- End of user code doc for validate_at_most_one_return -->
 	 *
-	 * @body self.ownedParameter->select(direction = ParameterDirectionKind::return)->size() <= 1
+	 * {{{
+	 * OCL Body self.ownedParameter->select(direction = ParameterDirectionKind::return)->size() <= 1
+	 * }}}
 	 */
 	def validate_at_most_one_return: Boolean = {
 		// Start of user code for "at_most_one_return"
@@ -268,7 +284,9 @@ trait UMLOperationOps[Uml <: UML] { self: UMLOperation[Uml] =>
 	 * <!-- Start of user code doc for validate_only_body_for_query -->
    * <!-- End of user code doc for validate_only_body_for_query -->
 	 *
-	 * @body bodyCondition <> null implies isQuery
+	 * {{{
+	 * OCL Body bodyCondition <> null implies isQuery
+	 * }}}
 	 */
 	def validate_only_body_for_query: Boolean = {
 		// Start of user code for "only_body_for_query"

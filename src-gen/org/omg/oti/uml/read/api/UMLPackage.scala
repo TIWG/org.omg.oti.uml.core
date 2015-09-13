@@ -65,7 +65,7 @@ trait UMLPackage[Uml <: UML]
 	 * <!-- Start of user code doc for URI -->
    * <!-- End of user code doc for URI -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def URI: Option[String]
 
@@ -75,8 +75,8 @@ trait UMLPackage[Uml <: UML]
 	 * <!-- Start of user code doc for nestingPackage -->
    * <!-- End of user code doc for nestingPackage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.nestedPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.nestedPackage
 	 */
 	def nestingPackage: Option[UMLPackage[Uml]]
 
@@ -86,8 +86,8 @@ trait UMLPackage[Uml <: UML]
 	 * <!-- Start of user code doc for packagedElement -->
    * <!-- End of user code doc for packagedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageableElement.packagedElement_owningPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.packagedElement_owningPackage
 	 */
 	def packagedElement: Set[UMLPackageableElement[Uml]]
 

@@ -63,7 +63,7 @@ trait UMLContinuation[Uml <: UML]
 	 * <!-- Start of user code doc for setting -->
    * <!-- End of user code doc for setting -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def setting: Boolean
 

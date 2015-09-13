@@ -62,8 +62,8 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for protectedNode -->
    * <!-- End of user code doc for protectedNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLExecutableNode.handler
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutableNode.handler
 	 */
 	def protectedNode: Option[UMLExecutableNode[Uml]] = owner.selectByKindOf { case x: UMLExecutableNode[Uml] => x }
 
@@ -73,9 +73,15 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_edge_source_target -->
    * <!-- End of user code doc for validate_edge_source_target -->
 	 *
-	 * @body let nodes:Set(ActivityNode) = handlerBody.oclAsType(Action).allOwnedNodes() in
+	 * {{{
+	 * OCL Body let nodes:Set(ActivityNode) = handlerBody.oclAsType(Action).allOwnedNodes() in
+	 * }}}
+	 * {{{
 	 * nodes.outgoing->forAll(nodes->includes(target)) and
+	 * }}}
+	 * {{{
 	 * nodes.incoming->forAll(nodes->includes(source))
+	 * }}}
 	 */
 	def validate_edge_source_target: Boolean = {
 		// Start of user code for "edge_source_target"
@@ -89,8 +95,12 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_exception_input_type -->
    * <!-- End of user code doc for validate_exception_input_type -->
 	 *
-	 * @body exceptionInput.type=null or 
+	 * {{{
+	 * OCL Body exceptionInput.type=null or 
+	 * }}}
+	 * {{{
 	 * exceptionType->forAll(conformsTo(exceptionInput.type.oclAsType(Classifier)))
+	 * }}}
 	 */
 	def validate_exception_input_type: Boolean = {
 		// Start of user code for "exception_input_type"
@@ -104,7 +114,9 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_handler_body_edges -->
    * <!-- End of user code doc for validate_handler_body_edges -->
 	 *
-	 * @body handlerBody.incoming->isEmpty() and handlerBody.outgoing->isEmpty() and exceptionInput.incoming->isEmpty()
+	 * {{{
+	 * OCL Body handlerBody.incoming->isEmpty() and handlerBody.outgoing->isEmpty() and exceptionInput.incoming->isEmpty()
+	 * }}}
 	 */
 	def validate_handler_body_edges: Boolean = {
 		// Start of user code for "handler_body_edges"
@@ -118,7 +130,9 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_handler_body_owner -->
    * <!-- End of user code doc for validate_handler_body_owner -->
 	 *
-	 * @body handlerBody.owner=protectedNode.owner
+	 * {{{
+	 * OCL Body handlerBody.owner=protectedNode.owner
+	 * }}}
 	 */
 	def validate_handler_body_owner: Boolean = {
 		// Start of user code for "handler_body_owner"
@@ -132,9 +146,15 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_one_input -->
    * <!-- End of user code doc for validate_one_input -->
 	 *
-	 * @body handlerBody.oclIsKindOf(Action) and
+	 * {{{
+	 * OCL Body handlerBody.oclIsKindOf(Action) and
+	 * }}}
+	 * {{{
 	 * let inputs: OrderedSet(InputPin) = handlerBody.oclAsType(Action).input in
+	 * }}}
+	 * {{{
 	 * inputs->size()=1 and inputs->first()=exceptionInput
+	 * }}}
 	 */
 	def validate_one_input: Boolean = {
 		// Start of user code for "one_input"
@@ -148,17 +168,39 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 * <!-- Start of user code doc for validate_output_pins -->
    * <!-- End of user code doc for validate_output_pins -->
 	 *
-	 * @body (protectedNode.oclIsKindOf(Action) and protectedNode.oclAsType(Action).output->notEmpty()) implies
+	 * {{{
+	 * OCL Body (protectedNode.oclIsKindOf(Action) and protectedNode.oclAsType(Action).output->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 * (
+	 * }}}
+	 * {{{
 	 *   handlerBody.oclIsKindOf(Action) and 
+	 * }}}
+	 * {{{
 	 *   let protectedNodeOutput : OrderedSet(OutputPin) = protectedNode.oclAsType(Action).output,
+	 * }}}
+	 * {{{
 	 *         handlerBodyOutput : OrderedSet(OutputPin) =  handlerBody.oclAsType(Action).output in
+	 * }}}
+	 * {{{
 	 *     protectedNodeOutput->size() = handlerBodyOutput->size() and
+	 * }}}
+	 * {{{
 	 *     Sequence{1..protectedNodeOutput->size()}->forAll(i |
+	 * }}}
+	 * {{{
 	 *     	handlerBodyOutput->at(i).type.conformsTo(protectedNodeOutput->at(i).type) and
+	 * }}}
+	 * {{{
 	 *     	handlerBodyOutput->at(i).isOrdered=protectedNodeOutput->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 *     	handlerBodyOutput->at(i).compatibleWith(protectedNodeOutput->at(i)))
+	 * }}}
+	 * {{{
 	 * )
+	 * }}}
 	 */
 	def validate_output_pins: Boolean = {
 		// Start of user code for "output_pins"

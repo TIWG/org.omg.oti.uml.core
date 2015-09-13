@@ -63,8 +63,8 @@ trait UMLVariableAction[Uml <: UML]
 	 * <!-- Start of user code doc for variable -->
    * <!-- End of user code doc for variable -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLVariable.variable_variableAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVariable.variable_variableAction
 	 */
 	def variable: Option[UMLVariable[Uml]]
 

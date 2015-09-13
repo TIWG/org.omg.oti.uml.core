@@ -62,7 +62,9 @@ trait UMLFinalNodeOps[Uml <: UML] { self: UMLFinalNode[Uml] =>
 	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
    * <!-- End of user code doc for validate_no_outgoing_edges -->
 	 *
-	 * @body outgoing->isEmpty()
+	 * {{{
+	 * OCL Body outgoing->isEmpty()
+	 * }}}
 	 */
 	def validate_no_outgoing_edges: Boolean = {
 		// Start of user code for "no_outgoing_edges"

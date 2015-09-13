@@ -64,8 +64,8 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for inState -->
    * <!-- End of user code doc for inState -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.inState_objectNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.inState_objectNode
 	 */
 	def inState: Set[UMLState[Uml]]
 
@@ -75,7 +75,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for isControlType -->
    * <!-- End of user code doc for isControlType -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isControlType: Boolean
 
@@ -85,7 +85,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for ordering -->
    * <!-- End of user code doc for ordering -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def ordering: UMLObjectNodeOrderingKind.Value
 
@@ -95,8 +95,8 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for selection -->
    * <!-- End of user code doc for selection -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.selection_objectNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.selection_objectNode
 	 */
 	def selection: Option[UMLBehavior[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for upperBound -->
    * <!-- End of user code doc for upperBound -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.upperBound_objectNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.upperBound_objectNode
 	 */
 	def upperBound: Option[UMLValueSpecification[Uml]]
 
@@ -115,8 +115,8 @@ trait UMLObjectNode[Uml <: UML]
 	 * <!-- Start of user code doc for exceptionInput_exceptionHandler -->
    * <!-- End of user code doc for exceptionInput_exceptionHandler -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionInput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionInput
 	 */
 	def exceptionInput_exceptionHandler: Set[UMLExceptionHandler[Uml]]
 

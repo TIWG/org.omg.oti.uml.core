@@ -63,7 +63,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * <!-- Start of user code doc for interactionOperator -->
    * <!-- End of user code doc for interactionOperator -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def interactionOperator: UMLInteractionOperatorKind.Value
 
@@ -73,8 +73,8 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * <!-- Start of user code doc for operand -->
    * <!-- End of user code doc for operand -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionOperand.operand_combinedFragment
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionOperand.operand_combinedFragment
 	 */
 	def operand: Seq[UMLInteractionOperand[Uml]]
 

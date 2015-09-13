@@ -63,7 +63,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for isReplaceAll -->
    * <!-- End of user code doc for isReplaceAll -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReplaceAll: Boolean
 
@@ -73,8 +73,8 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for newClassifier -->
    * <!-- End of user code doc for newClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.newClassifier_reclassifyObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.newClassifier_reclassifyObjectAction
 	 */
 	def newClassifier: Set[UMLClassifier[Uml]]
 
@@ -84,8 +84,8 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * <!-- Start of user code doc for oldClassifier -->
    * <!-- End of user code doc for oldClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.oldClassifier_reclassifyObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.oldClassifier_reclassifyObjectAction
 	 */
 	def oldClassifier: Set[UMLClassifier[Uml]]
 

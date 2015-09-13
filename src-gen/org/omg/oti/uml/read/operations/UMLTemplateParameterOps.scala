@@ -62,8 +62,8 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * <!-- Start of user code doc for ownedDefault -->
    * <!-- End of user code doc for ownedDefault -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.ownedDefault_templateParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.ownedDefault_templateParameter
 	 */
 	def ownedDefault: Option[UMLParameterableElement[Uml]] = default
 
@@ -73,8 +73,8 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * <!-- Start of user code doc for signature -->
    * <!-- End of user code doc for signature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateSignature.ownedParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.ownedParameter
 	 */
 	def signature: Option[UMLTemplateSignature[Uml]] = owner.selectByKindOf { case x: UMLTemplateSignature[Uml] => x }
 
@@ -84,7 +84,9 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 * <!-- Start of user code doc for validate_must_be_compatible -->
    * <!-- End of user code doc for validate_must_be_compatible -->
 	 *
-	 * @body default <> null implies default.isCompatibleWith(parameteredElement)
+	 * {{{
+	 * OCL Body default <> null implies default.isCompatibleWith(parameteredElement)
+	 * }}}
 	 */
 	def validate_must_be_compatible: Boolean = {
 		// Start of user code for "must_be_compatible"

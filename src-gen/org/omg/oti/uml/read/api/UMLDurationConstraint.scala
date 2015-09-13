@@ -63,7 +63,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for firstEvent -->
    * <!-- End of user code doc for firstEvent -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
 	 */
 	def firstEvent: Set[Boolean]
 

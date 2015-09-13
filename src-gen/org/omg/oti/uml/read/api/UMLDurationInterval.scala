@@ -63,8 +63,8 @@ trait UMLDurationInterval[Uml <: UML]
 	 * <!-- Start of user code doc for max -->
    * <!-- End of user code doc for max -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDuration.max_durationInterval
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDuration.max_durationInterval
 	 */
 	override def max: Option[UMLDuration[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLDurationInterval[Uml <: UML]
 	 * <!-- Start of user code doc for min -->
    * <!-- End of user code doc for min -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDuration.min_durationInterval
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDuration.min_durationInterval
 	 */
 	override def min: Option[UMLDuration[Uml]]
 

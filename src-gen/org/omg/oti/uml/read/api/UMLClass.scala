@@ -64,7 +64,7 @@ trait UMLClass[Uml <: UML]
 	 * <!-- Start of user code doc for isAbstract -->
    * <!-- End of user code doc for isAbstract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	override def isAbstract: Boolean
 
@@ -74,7 +74,7 @@ trait UMLClass[Uml <: UML]
 	 * <!-- Start of user code doc for isActive -->
    * <!-- End of user code doc for isActive -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isActive: Boolean
 
@@ -84,8 +84,8 @@ trait UMLClass[Uml <: UML]
 	 * <!-- Start of user code doc for nestedClassifier -->
    * <!-- End of user code doc for nestedClassifier -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.nestedClassifier_nestingClass
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.nestedClassifier_nestingClass
 	 */
 	def nestedClassifier: Seq[UMLClassifier[Uml]]
 
@@ -95,8 +95,8 @@ trait UMLClass[Uml <: UML]
 	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty._class
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty._class
 	 */
 	override def ownedAttribute: Seq[UMLProperty[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLClass[Uml <: UML]
 	 * <!-- Start of user code doc for ownedOperation -->
    * <!-- End of user code doc for ownedOperation -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation._class
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation._class
 	 */
 	def ownedOperation: Seq[UMLOperation[Uml]]
 

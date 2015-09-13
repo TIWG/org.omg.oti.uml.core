@@ -63,8 +63,8 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * <!-- Start of user code doc for behavior -->
    * <!-- End of user code doc for behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.behavior_opaqueExpression
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.behavior_opaqueExpression
 	 */
 	def behavior: Option[UMLBehavior[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * <!-- Start of user code doc for body -->
    * <!-- End of user code doc for body -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
 	def body: Seq[String]
 
@@ -84,7 +84,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * <!-- Start of user code doc for language -->
    * <!-- End of user code doc for language -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
 	def language: Seq[String]
 

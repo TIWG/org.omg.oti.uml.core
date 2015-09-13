@@ -64,12 +64,24 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_result_pins -->
    * <!-- End of user code doc for validate_result_pins -->
 	 *
-	 * @body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
+	 * {{{
+	 * OCL Body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
+	 * }}}
+	 * {{{
 	 * result->size() = parameter->size() and
+	 * }}}
+	 * {{{
 	 * Sequence{1..result->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
+	 * }}}
 	 */
 	def validate_result_pins: Boolean = {
 		// Start of user code for "result_pins"
@@ -103,8 +115,12 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_trigger_call_event -->
    * <!-- End of user code doc for validate_trigger_call_event -->
 	 *
-	 * @body trigger->size()=1 and
+	 * {{{
+	 * OCL Body trigger->size()=1 and
+	 * }}}
+	 * {{{
 	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
+	 * }}}
 	 */
 	def validate_trigger_call_event: Boolean = {
 		// Start of user code for "trigger_call_event"
@@ -125,7 +141,9 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_unmarshall -->
    * <!-- End of user code doc for validate_unmarshall -->
 	 *
-	 * @body isUnmarshall = true
+	 * {{{
+	 * OCL Body isUnmarshall = true
+	 * }}}
 	 */
 	def validate_unmarshall: Boolean = {
 		// Start of user code for "unmarshall"

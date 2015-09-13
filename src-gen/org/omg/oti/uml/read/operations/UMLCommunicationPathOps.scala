@@ -62,7 +62,9 @@ trait UMLCommunicationPathOps[Uml <: UML] { self: UMLCommunicationPath[Uml] =>
 	 * <!-- Start of user code doc for validate_communication_path_ends -->
    * <!-- End of user code doc for validate_communication_path_ends -->
 	 *
-	 * @body endType->forAll (oclIsKindOf(DeploymentTarget))
+	 * {{{
+	 * OCL Body endType->forAll (oclIsKindOf(DeploymentTarget))
+	 * }}}
 	 */
 	def validate_communication_path_ends: Boolean = {
 		// Start of user code for "communication_path_ends"

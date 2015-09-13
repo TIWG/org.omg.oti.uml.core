@@ -64,8 +64,8 @@ trait UMLStringExpression[Uml <: UML]
 	 * <!-- Start of user code doc for subExpression -->
    * <!-- End of user code doc for subExpression -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStringExpression.owningExpression
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStringExpression.owningExpression
 	 */
 	def subExpression: Seq[UMLStringExpression[Uml]]
 
@@ -73,8 +73,8 @@ trait UMLStringExpression[Uml <: UML]
 	 * <!-- Start of user code doc for nameExpression_namedElement -->
    * <!-- End of user code doc for nameExpression_namedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.nameExpression
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.nameExpression
 	 */
 	def nameExpression_namedElement: Option[UMLNamedElement[Uml]]
 

@@ -62,8 +62,12 @@ trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_object_nodes -->
    * <!-- End of user code doc for validate_object_nodes -->
 	 *
-	 * @body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
+	 * {{{
+	 * OCL Body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
+	 * }}}
+	 * {{{
 	 * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
+	 * }}}
 	 */
 	def validate_object_nodes: Boolean = {
 		// Start of user code for "object_nodes"

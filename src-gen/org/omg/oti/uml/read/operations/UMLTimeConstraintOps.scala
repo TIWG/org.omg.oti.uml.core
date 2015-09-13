@@ -62,8 +62,8 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTimeInterval.specification_timeConstraint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeInterval.specification_timeConstraint
 	 */
 	override def specification: Option[UMLTimeInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeInterval[Uml] => x } headOption
 
@@ -73,7 +73,9 @@ trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 	 * <!-- Start of user code doc for validate_has_one_constrainedElement -->
    * <!-- End of user code doc for validate_has_one_constrainedElement -->
 	 *
-	 * @body constrainedElement->size() = 1
+	 * {{{
+	 * OCL Body constrainedElement->size() = 1
+	 * }}}
 	 */
 	def validate_has_one_constrainedElement: Boolean = {
 		// Start of user code for "has_one_constrainedElement"

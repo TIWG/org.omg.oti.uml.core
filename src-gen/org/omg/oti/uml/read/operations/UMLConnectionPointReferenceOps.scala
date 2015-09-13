@@ -62,8 +62,8 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	 * <!-- Start of user code doc for state -->
    * <!-- End of user code doc for state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.connection
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.connection
 	 */
 	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -73,7 +73,9 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	 * <!-- Start of user code doc for validate_entry_pseudostates -->
    * <!-- End of user code doc for validate_entry_pseudostates -->
 	 *
-	 * @body entry->forAll(kind = PseudostateKind::entryPoint)
+	 * {{{
+	 * OCL Body entry->forAll(kind = PseudostateKind::entryPoint)
+	 * }}}
 	 */
 	def validate_entry_pseudostates: Boolean = {
 		// Start of user code for "entry_pseudostates"
@@ -87,7 +89,9 @@ trait UMLConnectionPointReferenceOps[Uml <: UML] { self: UMLConnectionPointRefer
 	 * <!-- Start of user code doc for validate_exit_pseudostates -->
    * <!-- End of user code doc for validate_exit_pseudostates -->
 	 *
-	 * @body exit->forAll(kind = PseudostateKind::exitPoint)
+	 * {{{
+	 * OCL Body exit->forAll(kind = PseudostateKind::exitPoint)
+	 * }}}
 	 */
 	def validate_exit_pseudostates: Boolean = {
 		// Start of user code for "exit_pseudostates"

@@ -60,8 +60,8 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 * <!-- Start of user code doc for endData_destroyLinkAction -->
    * <!-- End of user code doc for endData_destroyLinkAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDestroyLinkAction.endData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDestroyLinkAction.endData
 	 */
 	def endData_destroyLinkAction: Option[UMLDestroyLinkAction[Uml]] = endData_linkAction.selectByKindOf { case x: UMLDestroyLinkAction[Uml] => x }
 
@@ -71,8 +71,10 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 * <!-- Start of user code doc for allPins -->
    * <!-- End of user code doc for allPins -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self.LinkEndData::allPins()->including(destroyAt))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.LinkEndData::allPins()->including(destroyAt))
+	 * }}}
 	 */
 	override def allPins: Set[UMLInputPin[Uml]] = {
 		// Start of user code for "allPins"
@@ -86,12 +88,24 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 * <!-- Start of user code doc for validate_destroyAt_pin -->
    * <!-- End of user code doc for validate_destroyAt_pin -->
 	 *
-	 * @body if  not end.isOrdered or end.isUnique or isDestroyDuplicates
+	 * {{{
+	 * OCL Body if  not end.isOrdered or end.isUnique or isDestroyDuplicates
+	 * }}}
+	 * {{{
 	 * then destroyAt = null
+	 * }}}
+	 * {{{
 	 * else
+	 * }}}
+	 * {{{
 	 * 	destroyAt <> null and 
+	 * }}}
+	 * {{{
 	 * 	destroyAt->forAll(type=UnlimitedNatural and is(1,1))
+	 * }}}
+	 * {{{
 	 * endif
+	 * }}}
 	 */
 	def validate_destroyAt_pin: Boolean = {
 		// Start of user code for "destroyAt_pin"

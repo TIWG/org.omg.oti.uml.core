@@ -62,15 +62,17 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * <!-- Start of user code doc for provided -->
    * <!-- End of user code doc for provided -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.provided_component
-	 * @body result = (let 	ris : Set(Interface) = allRealizedInterfaces(),
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.provided_component
+	 * {{{
+	 * OCL Body result = (let 	ris : Set(Interface) = allRealizedInterfaces(),
 	 *         realizingClassifiers : Set(Classifier) =  self.realization.realizingClassifier->union(self.allParents()->collect(realization.realizingClassifier))->asSet(),
 	 *         allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents())->asSet(),
 	 *         realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(c.allRealizedInterfaces())),
 	 *         ports : Set(Port) = self.ownedPort->union(allParents()->collect(ownedPort))->asSet(),
 	 *         providedByPorts : Set(Interface) = ports.provided->asSet()
 	 * in     ris->union(realizingClassifierInterfaces) ->union(providedByPorts)->asSet())
+	 * }}}
 	 */
 	def provided: Set[UMLInterface[Uml]] = {
 		// Start of user code for "provided"
@@ -84,8 +86,8 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * <!-- Start of user code doc for realization -->
    * <!-- End of user code doc for realization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponentRealization.abstraction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponentRealization.abstraction
 	 */
 	def realization: Set[UMLComponentRealization[Uml]] = ownedElement.selectByKindOf { case x: UMLComponentRealization[Uml] => x }
 
@@ -95,9 +97,10 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * <!-- Start of user code doc for required -->
    * <!-- End of user code doc for required -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.required_component
-	 * @body result = (let 	uis : Set(Interface) = allUsedInterfaces(),
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.required_component
+	 * {{{
+	 * OCL Body result = (let 	uis : Set(Interface) = allUsedInterfaces(),
 	 *         realizingClassifiers : Set(Classifier) = self.realization.realizingClassifier->union(self.allParents()->collect(realization.realizingClassifier))->asSet(),
 	 *         allRealizingClassifiers : Set(Classifier) = realizingClassifiers->union(realizingClassifiers.allParents())->asSet(),
 	 *         realizingClassifierInterfaces : Set(Interface) = allRealizingClassifiers->iterate(c; rci : Set(Interface) = Set{} | rci->union(c.allUsedInterfaces())),
@@ -105,6 +108,7 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 *         usedByPorts : Set(Interface) = ports.required->asSet()
 	 * in	    uis->union(realizingClassifierInterfaces)->union(usedByPorts)->asSet()
 	 * )
+	 * }}}
 	 */
 	def required: Set[UMLInterface[Uml]] = {
 		// Start of user code for "required"
@@ -118,7 +122,9 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * <!-- Start of user code doc for validate_no_nested_classifiers -->
    * <!-- End of user code doc for validate_no_nested_classifiers -->
 	 *
-	 * @body nestedClassifier->isEmpty()
+	 * {{{
+	 * OCL Body nestedClassifier->isEmpty()
+	 * }}}
 	 */
 	def validate_no_nested_classifiers: Boolean = {
 		// Start of user code for "no_nested_classifiers"
@@ -132,7 +138,9 @@ trait UMLComponentOps[Uml <: UML] { self: UMLComponent[Uml] =>
 	 * <!-- Start of user code doc for validate_no_packaged_elements -->
    * <!-- End of user code doc for validate_no_packaged_elements -->
 	 *
-	 * @body nestingClass <> null implies packagedElement->isEmpty()
+	 * {{{
+	 * OCL Body nestingClass <> null implies packagedElement->isEmpty()
+	 * }}}
 	 */
 	def validate_no_packaged_elements: Boolean = {
 		// Start of user code for "no_packaged_elements"

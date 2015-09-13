@@ -63,8 +63,8 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for _package -->
    * <!-- End of user code doc for _package -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.ownedType
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.ownedType
 	 */
 	def _package: Option[UMLPackage[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for raisedException_behavioralFeature -->
    * <!-- End of user code doc for raisedException_behavioralFeature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioralFeature.raisedException
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioralFeature.raisedException
 	 */
 	def raisedException_behavioralFeature: Set[UMLBehavioralFeature[Uml]]
 
@@ -81,8 +81,8 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for type_operation -->
    * <!-- End of user code doc for type_operation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation._type
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation._type
 	 */
 	def type_operation: Set[UMLOperation[Uml]]
 
@@ -90,8 +90,8 @@ trait UMLType[Uml <: UML]
 	 * <!-- Start of user code doc for type_typedElement -->
    * <!-- End of user code doc for type_typedElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTypedElement._type
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTypedElement._type
 	 */
 	def type_typedElement: Set[UMLTypedElement[Uml]]
 

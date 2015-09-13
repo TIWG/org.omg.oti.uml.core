@@ -62,8 +62,8 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 	 * <!-- Start of user code doc for ownedActual -->
    * <!-- End of user code doc for ownedActual -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.ownedActual_owningTemplateParameterSubstitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.ownedActual_owningTemplateParameterSubstitution
 	 */
 	def ownedActual: Option[UMLParameterableElement[Uml]] = actual
 
@@ -73,8 +73,8 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 	 * <!-- Start of user code doc for templateBinding -->
    * <!-- End of user code doc for templateBinding -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateBinding.parameterSubstitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateBinding.parameterSubstitution
 	 */
 	def templateBinding: Option[UMLTemplateBinding[Uml]] = owner.selectByKindOf { case x: UMLTemplateBinding[Uml] => x }
 
@@ -84,7 +84,9 @@ trait UMLTemplateParameterSubstitutionOps[Uml <: UML] { self: UMLTemplateParamet
 	 * <!-- Start of user code doc for validate_must_be_compatible -->
    * <!-- End of user code doc for validate_must_be_compatible -->
 	 *
-	 * @body actual->forAll(a | a.isCompatibleWith(formal.parameteredElement))
+	 * {{{
+	 * OCL Body actual->forAll(a | a.isCompatibleWith(formal.parameteredElement))
+	 * }}}
 	 */
 	def validate_must_be_compatible: Boolean = {
 		// Start of user code for "must_be_compatible"

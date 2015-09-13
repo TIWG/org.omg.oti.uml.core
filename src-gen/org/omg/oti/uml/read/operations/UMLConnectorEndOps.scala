@@ -63,15 +63,17 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for definingEnd -->
    * <!-- End of user code doc for definingEnd -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.definingEnd_connectorEnd
-	 * @body result = (if connector.type = null 
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.definingEnd_connectorEnd
+	 * {{{
+	 * OCL Body result = (if connector.type = null 
 	 * then
 	 *   null 
 	 * else
 	 *   let index : Integer = connector.end->indexOf(self) in
 	 *     connector.type.memberEnd->at(index)
 	 * endif)
+	 * }}}
 	 */
 	def definingEnd: Option[UMLProperty[Uml]] = {
 		// Start of user code for "definingEnd"
@@ -99,8 +101,8 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for end_connector -->
    * <!-- End of user code doc for end_connector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.end
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.end
 	 */
 	def end_connector: Option[UMLConnector[Uml]] = owner.selectByKindOf { case x: UMLConnector[Uml] => x }
 
@@ -110,7 +112,9 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body self.compatibleWith(definingEnd)
+	 * {{{
+	 * OCL Body self.compatibleWith(definingEnd)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -124,7 +128,9 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_part_with_port_empty -->
    * <!-- End of user code doc for validate_part_with_port_empty -->
 	 *
-	 * @body (role.oclIsKindOf(Port) and role.owner = connector.owner) implies partWithPort->isEmpty()
+	 * {{{
+	 * OCL Body (role.oclIsKindOf(Port) and role.owner = connector.owner) implies partWithPort->isEmpty()
+	 * }}}
 	 */
 	def validate_part_with_port_empty: Boolean = {
 		// Start of user code for "part_with_port_empty"
@@ -143,8 +149,12 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_role_and_part_with_port -->
    * <!-- End of user code doc for validate_role_and_part_with_port -->
 	 *
-	 * @body partWithPort->notEmpty() implies 
+	 * {{{
+	 * OCL Body partWithPort->notEmpty() implies 
+	 * }}}
+	 * {{{
 	 *   (role.oclIsKindOf(Port) and partWithPort.type.oclAsType(Namespace).member->includes(role))
+	 * }}}
 	 */
 	def validate_role_and_part_with_port: Boolean = {
 		// Start of user code for "role_and_part_with_port"
@@ -172,7 +182,9 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 * <!-- Start of user code doc for validate_self_part_with_port -->
    * <!-- End of user code doc for validate_self_part_with_port -->
 	 *
-	 * @body partWithPort->notEmpty() implies not partWithPort.oclIsKindOf(Port)
+	 * {{{
+	 * OCL Body partWithPort->notEmpty() implies not partWithPort.oclIsKindOf(Port)
+	 * }}}
 	 */
 	def validate_self_part_with_port: Boolean = {
 		// Start of user code for "self_part_with_port"

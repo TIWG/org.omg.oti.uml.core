@@ -62,8 +62,9 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * <!-- Start of user code doc for enclosingFragment -->
    * <!-- End of user code doc for enclosingFragment -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (if self->select(oclIsKindOf(Gate))->notEmpty() 
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (if self->select(oclIsKindOf(Gate))->notEmpty() 
 	 * then -- it is a Gate
 	 * let endGate : Gate = 
 	 *   self->select(oclIsKindOf(Gate)).oclAsType(Gate)->asOrderedSet()->first()
@@ -92,6 +93,7 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 *   else endMOS.enclosingOperand.oclAsType(InteractionFragment)->asSet()
 	 *   endif
 	 * endif)
+	 * }}}
 	 */
 	def enclosingFragment: Set[UMLInteractionFragment[Uml]] = {
 		// Start of user code for "enclosingFragment"
@@ -105,8 +107,10 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * <!-- Start of user code doc for isReceive -->
    * <!-- End of user code doc for isReceive -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (message.receiveEvent->asSet()->includes(self))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (message.receiveEvent->asSet()->includes(self))
+	 * }}}
 	 */
 	def isReceive: Boolean = {
 		// Start of user code for "isReceive"
@@ -120,8 +124,10 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * <!-- Start of user code doc for isSend -->
    * <!-- End of user code doc for isSend -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (message.sendEvent->asSet()->includes(self))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (message.sendEvent->asSet()->includes(self))
+	 * }}}
 	 */
 	def isSend: Boolean = {
 		// Start of user code for "isSend"
@@ -135,8 +141,10 @@ trait UMLMessageEndOps[Uml <: UML] { self: UMLMessageEnd[Uml] =>
 	 * <!-- Start of user code doc for oppositeEnd -->
    * <!-- End of user code doc for oppositeEnd -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (message->asSet().messageEnd->asSet()->excluding(self))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (message->asSet().messageEnd->asSet()->excluding(self))
+	 * }}}
 	 */
 	def oppositeEnd: Set[UMLMessageEnd[Uml]] = {
 		// Start of user code for "oppositeEnd"

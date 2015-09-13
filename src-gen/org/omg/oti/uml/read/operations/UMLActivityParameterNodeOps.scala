@@ -62,7 +62,9 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * <!-- Start of user code doc for validate_has_parameters -->
    * <!-- End of user code doc for validate_has_parameters -->
 	 *
-	 * @body activity.ownedParameter->includes(parameter)
+	 * {{{
+	 * OCL Body activity.ownedParameter->includes(parameter)
+	 * }}}
 	 */
 	def validate_has_parameters: Boolean = {
 		// Start of user code for "has_parameters"
@@ -79,7 +81,9 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * <!-- Start of user code doc for validate_no_edges -->
    * <!-- End of user code doc for validate_no_edges -->
 	 *
-	 * @body incoming->isEmpty() or outgoing->isEmpty()
+	 * {{{
+	 * OCL Body incoming->isEmpty() or outgoing->isEmpty()
+	 * }}}
 	 */
 	def validate_no_edges: Boolean = {
 		// Start of user code for "no_edges"
@@ -93,9 +97,15 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * <!-- Start of user code doc for validate_no_incoming_edges -->
    * <!-- End of user code doc for validate_no_incoming_edges -->
 	 *
-	 * @body (outgoing->notEmpty() and incoming->isEmpty()) implies 
+	 * {{{
+	 * OCL Body (outgoing->notEmpty() and incoming->isEmpty()) implies 
+	 * }}}
+	 * {{{
 	 * 	(parameter.direction = ParameterDirectionKind::_'in' or 
+	 * }}}
+	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::inout)
+	 * }}}
 	 */
 	def validate_no_incoming_edges: Boolean = {
 		// Start of user code for "no_incoming_edges"
@@ -114,10 +124,18 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
    * <!-- End of user code doc for validate_no_outgoing_edges -->
 	 *
-	 * @body (incoming->notEmpty() and outgoing->isEmpty()) implies 
+	 * {{{
+	 * OCL Body (incoming->notEmpty() and outgoing->isEmpty()) implies 
+	 * }}}
+	 * {{{
 	 * 	(parameter.direction = ParameterDirectionKind::out or 
+	 * }}}
+	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::inout or 
+	 * }}}
+	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::return)
+	 * }}}
 	 */
 	def validate_no_outgoing_edges: Boolean = {
 		// Start of user code for "no_outgoing_edges"
@@ -139,7 +157,9 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
 	 *
-	 * @body type = parameter.type
+	 * {{{
+	 * OCL Body type = parameter.type
+	 * }}}
 	 */
 	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"

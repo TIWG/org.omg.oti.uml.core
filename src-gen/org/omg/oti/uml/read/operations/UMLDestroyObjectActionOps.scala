@@ -62,8 +62,8 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.target_destroyObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.target_destroyObjectAction
 	 */
 	def target: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,7 +73,9 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body target.is(1,1)
+	 * {{{
+	 * OCL Body target.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -87,7 +89,9 @@ trait UMLDestroyObjectActionOps[Uml <: UML] { self: UMLDestroyObjectAction[Uml] 
 	 * <!-- Start of user code doc for validate_no_type -->
    * <!-- End of user code doc for validate_no_type -->
 	 *
-	 * @body target.type= null
+	 * {{{
+	 * OCL Body target.type= null
+	 * }}}
 	 */
 	def validate_no_type: Boolean = {
 		// Start of user code for "no_type"

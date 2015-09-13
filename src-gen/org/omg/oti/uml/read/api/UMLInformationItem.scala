@@ -63,8 +63,8 @@ trait UMLInformationItem[Uml <: UML]
 	 * <!-- Start of user code doc for represented -->
    * <!-- End of user code doc for represented -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.represented_representation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.represented_representation
 	 */
 	def represented: Set[UMLClassifier[Uml]]
 

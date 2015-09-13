@@ -63,8 +63,8 @@ trait UMLDirectedRelationship[Uml <: UML]
 	 * <!-- Start of user code doc for source -->
    * <!-- End of user code doc for source -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.source_directedRelationship
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.source_directedRelationship
 	 */
 	def source: Set[UMLElement[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLDirectedRelationship[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.target_directedRelationship
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.target_directedRelationship
 	 */
 	def target: Set[UMLElement[Uml]]
 

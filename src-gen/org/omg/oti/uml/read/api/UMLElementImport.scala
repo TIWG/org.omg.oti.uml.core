@@ -63,7 +63,7 @@ trait UMLElementImport[Uml <: UML]
 	 * <!-- Start of user code doc for alias -->
    * <!-- End of user code doc for alias -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def alias: Option[String]
 
@@ -73,7 +73,7 @@ trait UMLElementImport[Uml <: UML]
 	 * <!-- Start of user code doc for visibility -->
    * <!-- End of user code doc for visibility -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def visibility: UMLVisibilityKind.Value
 
@@ -81,8 +81,8 @@ trait UMLElementImport[Uml <: UML]
 	 * <!-- Start of user code doc for metaclassReference_profile -->
    * <!-- End of user code doc for metaclassReference_profile -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfile.metaclassReference
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfile.metaclassReference
 	 */
 	def metaclassReference_profile: Option[UMLProfile[Uml]]
 

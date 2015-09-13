@@ -63,7 +63,9 @@ trait UMLPinOps[Uml <: UML] { self: UMLPin[Uml] =>
 	 * <!-- Start of user code doc for validate_control_pins -->
    * <!-- End of user code doc for validate_control_pins -->
 	 *
-	 * @body isControl implies isControlType
+	 * {{{
+	 * OCL Body isControl implies isControlType
+	 * }}}
 	 */
 	def validate_control_pins: Boolean = {
 		// Start of user code for "control_pins"
@@ -77,7 +79,9 @@ trait UMLPinOps[Uml <: UML] { self: UMLPin[Uml] =>
 	 * <!-- Start of user code doc for validate_not_unique -->
    * <!-- End of user code doc for validate_not_unique -->
 	 *
-	 * @body not isUnique
+	 * {{{
+	 * OCL Body not isUnique
+	 * }}}
 	 */
 	def validate_not_unique: Boolean = {
 		// Start of user code for "not_unique"

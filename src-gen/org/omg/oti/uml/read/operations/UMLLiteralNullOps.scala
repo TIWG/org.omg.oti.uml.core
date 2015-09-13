@@ -65,8 +65,10 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 * <!-- Start of user code doc for isComputable -->
    * <!-- End of user code doc for isComputable -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
@@ -80,8 +82,10 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 	 * <!-- Start of user code doc for isNull -->
    * <!-- End of user code doc for isNull -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	override def isNull: Boolean = {
 		// Start of user code for "isNull"

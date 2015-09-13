@@ -62,8 +62,8 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * <!-- Start of user code doc for informationSource -->
    * <!-- End of user code doc for informationSource -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.informationSource_informationFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.informationSource_informationFlow
 	 */
 	def informationSource: Set[UMLNamedElement[Uml]] = source.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * <!-- Start of user code doc for informationTarget -->
    * <!-- End of user code doc for informationTarget -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.informationTarget_informationFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.informationTarget_informationFlow
 	 */
 	def informationTarget: Set[UMLNamedElement[Uml]] = target.selectByKindOf { case x: UMLNamedElement[Uml] => x }
 
@@ -84,8 +84,12 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_convey_classifiers -->
    * <!-- End of user code doc for validate_convey_classifiers -->
 	 *
-	 * @body self.conveyed->forAll(oclIsKindOf(Class) or oclIsKindOf(Interface)
+	 * {{{
+	 * OCL Body self.conveyed->forAll(oclIsKindOf(Class) or oclIsKindOf(Interface)
+	 * }}}
+	 * {{{
 	 *   or oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component))
+	 * }}}
 	 */
 	def validate_convey_classifiers: Boolean = {
 		// Start of user code for "convey_classifiers"
@@ -113,17 +117,39 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_sources_and_targets_kind -->
    * <!-- End of user code doc for validate_sources_and_targets_kind -->
 	 *
-	 * @body (self.informationSource->forAll( sis |
+	 * {{{
+	 * OCL Body (self.informationSource->forAll( sis |
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Actor) or oclIsKindOf(Node) or oclIsKindOf(UseCase) or oclIsKindOf(Artifact) or 
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Class) or oclIsKindOf(Component) or oclIsKindOf(Port) or oclIsKindOf(Property) or 
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Interface) or oclIsKindOf(Package) or oclIsKindOf(ActivityNode) or oclIsKindOf(ActivityPartition) or 
+	 * }}}
+	 * {{{
 	 *   (oclIsKindOf(InstanceSpecification) and not sis.oclAsType(InstanceSpecification).classifier->exists(oclIsKindOf(Relationship))))) 
+	 * }}}
+	 * {{{
 	 * and
+	 * }}}
+	 * {{{
 	 * (self.informationTarget->forAll( sit | 
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Actor) or oclIsKindOf(Node) or oclIsKindOf(UseCase) or oclIsKindOf(Artifact) or 
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Class) or oclIsKindOf(Component) or oclIsKindOf(Port) or oclIsKindOf(Property) or 
+	 * }}}
+	 * {{{
 	 *   oclIsKindOf(Interface) or oclIsKindOf(Package) or oclIsKindOf(ActivityNode) or oclIsKindOf(ActivityPartition) or 
+	 * }}}
+	 * {{{
 	 * (oclIsKindOf(InstanceSpecification) and not sit.oclAsType(InstanceSpecification).classifier->exists(oclIsKindOf(Relationship)))))
+	 * }}}
 	 */
 	def validate_sources_and_targets_kind: Boolean = {
 		// Start of user code for "sources_and_targets_kind"

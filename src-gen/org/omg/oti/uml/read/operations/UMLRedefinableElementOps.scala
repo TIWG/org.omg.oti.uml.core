@@ -62,8 +62,10 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -77,8 +79,10 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * <!-- Start of user code doc for isRedefinitionContextValid -->
    * <!-- End of user code doc for isRedefinitionContextValid -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefinitionContext->exists(c | c.allParents()->includesAll(redefinedElement.redefinitionContext)))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (redefinitionContext->exists(c | c.allParents()->includesAll(redefinedElement.redefinitionContext)))
+	 * }}}
 	 */
 	def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isRedefinitionContextValid"
@@ -92,7 +96,9 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * <!-- Start of user code doc for validate_non_leaf_redefinition -->
    * <!-- End of user code doc for validate_non_leaf_redefinition -->
 	 *
-	 * @body redefinedElement->forAll(re | not re.isLeaf)
+	 * {{{
+	 * OCL Body redefinedElement->forAll(re | not re.isLeaf)
+	 * }}}
 	 */
 	def validate_non_leaf_redefinition: Boolean = {
 		// Start of user code for "non_leaf_redefinition"
@@ -106,7 +112,9 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * <!-- Start of user code doc for validate_redefinition_consistent -->
    * <!-- End of user code doc for validate_redefinition_consistent -->
 	 *
-	 * @body redefinedElement->forAll(re | re.isConsistentWith(self))
+	 * {{{
+	 * OCL Body redefinedElement->forAll(re | re.isConsistentWith(self))
+	 * }}}
 	 */
 	def validate_redefinition_consistent: Boolean = {
 		// Start of user code for "redefinition_consistent"
@@ -120,7 +128,9 @@ trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 	 * <!-- Start of user code doc for validate_redefinition_context_valid -->
    * <!-- End of user code doc for validate_redefinition_context_valid -->
 	 *
-	 * @body redefinedElement->forAll(re | self.isRedefinitionContextValid(re))
+	 * {{{
+	 * OCL Body redefinedElement->forAll(re | self.isRedefinitionContextValid(re))
+	 * }}}
 	 */
 	def validate_redefinition_context_valid: Boolean = {
 		// Start of user code for "redefinition_context_valid"

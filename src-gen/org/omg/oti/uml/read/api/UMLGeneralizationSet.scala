@@ -63,8 +63,8 @@ trait UMLGeneralizationSet[Uml <: UML]
 	 * <!-- Start of user code doc for generalization -->
    * <!-- End of user code doc for generalization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralization.generalizationSet
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralization.generalizationSet
 	 */
 	def generalization: Set[UMLGeneralization[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLGeneralizationSet[Uml <: UML]
 	 * <!-- Start of user code doc for isCovering -->
    * <!-- End of user code doc for isCovering -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isCovering: Boolean
 
@@ -84,7 +84,7 @@ trait UMLGeneralizationSet[Uml <: UML]
 	 * <!-- Start of user code doc for isDisjoint -->
    * <!-- End of user code doc for isDisjoint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDisjoint: Boolean
 
@@ -94,8 +94,8 @@ trait UMLGeneralizationSet[Uml <: UML]
 	 * <!-- Start of user code doc for powertype -->
    * <!-- End of user code doc for powertype -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.powertypeExtent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.powertypeExtent
 	 */
 	def powertype: Option[UMLClassifier[Uml]]
 

@@ -66,8 +66,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for attribute -->
    * <!-- End of user code doc for attribute -->
 	 *
-	 * @property derived="true" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.attribute_classifier
+	 * UML Property derived="true" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.attribute_classifier
 	 */
 	def attribute: Seq[UMLProperty[Uml]]
 
@@ -77,7 +77,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for isAbstract -->
    * <!-- End of user code doc for isAbstract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isAbstract: Boolean
 
@@ -87,7 +87,7 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for isFinalSpecialization -->
    * <!-- End of user code doc for isFinalSpecialization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isFinalSpecialization: Boolean
 
@@ -97,8 +97,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for powertypeExtent -->
    * <!-- End of user code doc for powertypeExtent -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralizationSet.powertype
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralizationSet.powertype
 	 */
 	def powertypeExtent: Set[UMLGeneralizationSet[Uml]]
 
@@ -108,8 +108,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for templateParameter -->
    * <!-- End of user code doc for templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.parameteredElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.parameteredElement
 	 */
 	override def templateParameter: Option[UMLClassifierTemplateParameter[Uml]]
 
@@ -119,8 +119,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for useCase -->
    * <!-- End of user code doc for useCase -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.subject
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.subject
 	 */
 	def useCase: Set[UMLUseCase[Uml]]
 
@@ -128,8 +128,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for classifier_createObjectAction -->
    * <!-- End of user code doc for classifier_createObjectAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCreateObjectAction.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCreateObjectAction.classifier
 	 */
 	def classifier_createObjectAction: Set[UMLCreateObjectAction[Uml]]
 
@@ -137,8 +137,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for classifier_instanceSpecification -->
    * <!-- End of user code doc for classifier_instanceSpecification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInstanceSpecification.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.classifier
 	 */
 	def classifier_instanceSpecification: Set[UMLInstanceSpecification[Uml]]
 
@@ -146,8 +146,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for classifier_readExtentAction -->
    * <!-- End of user code doc for classifier_readExtentAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReadExtentAction.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadExtentAction.classifier
 	 */
 	def classifier_readExtentAction: Option[UMLReadExtentAction[Uml]]
 
@@ -155,8 +155,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for classifier_readIsClassifiedObjectAction -->
    * <!-- End of user code doc for classifier_readIsClassifiedObjectAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReadIsClassifiedObjectAction.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadIsClassifiedObjectAction.classifier
 	 */
 	def classifier_readIsClassifiedObjectAction: Set[UMLReadIsClassifiedObjectAction[Uml]]
 
@@ -164,8 +164,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for constrainingClassifier_classifierTemplateParameter -->
    * <!-- End of user code doc for constrainingClassifier_classifierTemplateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.constrainingClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.constrainingClassifier
 	 */
 	def constrainingClassifier_classifierTemplateParameter: Set[UMLClassifierTemplateParameter[Uml]]
 
@@ -173,8 +173,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for context_action -->
    * <!-- End of user code doc for context_action -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.context
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.context
 	 */
 	def context_action: Set[UMLAction[Uml]]
 
@@ -182,8 +182,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for contract_substitution -->
    * <!-- End of user code doc for contract_substitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSubstitution.contract
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSubstitution.contract
 	 */
 	def contract_substitution: Set[UMLSubstitution[Uml]]
 
@@ -191,8 +191,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for conveyed_conveyingFlow -->
    * <!-- End of user code doc for conveyed_conveyingFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.conveyed
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.conveyed
 	 */
 	def conveyed_conveyingFlow: Set[UMLInformationFlow[Uml]]
 
@@ -200,8 +200,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for exceptionType_exceptionHandler -->
    * <!-- End of user code doc for exceptionType_exceptionHandler -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionType
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionType
 	 */
 	def exceptionType_exceptionHandler: Set[UMLExceptionHandler[Uml]]
 
@@ -209,8 +209,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for general_classifier -->
    * <!-- End of user code doc for general_classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.general
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general
 	 */
 	def general_classifier: Set[UMLClassifier[Uml]]
 
@@ -218,8 +218,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for newClassifier_reclassifyObjectAction -->
    * <!-- End of user code doc for newClassifier_reclassifyObjectAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReclassifyObjectAction.newClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReclassifyObjectAction.newClassifier
 	 */
 	def newClassifier_reclassifyObjectAction: Set[UMLReclassifyObjectAction[Uml]]
 
@@ -227,8 +227,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for oldClassifier_reclassifyObjectAction -->
    * <!-- End of user code doc for oldClassifier_reclassifyObjectAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReclassifyObjectAction.oldClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReclassifyObjectAction.oldClassifier
 	 */
 	def oldClassifier_reclassifyObjectAction: Set[UMLReclassifyObjectAction[Uml]]
 
@@ -236,8 +236,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for realizingClassifier_componentRealization -->
    * <!-- End of user code doc for realizingClassifier_componentRealization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComponentRealization.realizingClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponentRealization.realizingClassifier
 	 */
 	def realizingClassifier_componentRealization: Set[UMLComponentRealization[Uml]]
 
@@ -245,8 +245,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for redefinitionContext_redefinableElement -->
    * <!-- End of user code doc for redefinitionContext_redefinableElement -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableElement.redefinitionContext
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinitionContext
 	 */
 	def redefinitionContext_redefinableElement: Set[UMLRedefinableElement[Uml]]
 
@@ -254,8 +254,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for represented_representation -->
    * <!-- End of user code doc for represented_representation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationItem.represented
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationItem.represented
 	 */
 	def represented_representation: Set[UMLInformationItem[Uml]]
 
@@ -263,8 +263,8 @@ trait UMLClassifier[Uml <: UML]
 	 * <!-- Start of user code doc for unmarshallType_unmarshallAction -->
    * <!-- End of user code doc for unmarshallType_unmarshallAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLUnmarshallAction.unmarshallType
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUnmarshallAction.unmarshallType
 	 */
 	def unmarshallType_unmarshallAction: Set[UMLUnmarshallAction[Uml]]
 

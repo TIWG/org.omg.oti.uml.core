@@ -63,8 +63,8 @@ trait UMLValuePin[Uml <: UML]
 	 * <!-- Start of user code doc for value -->
    * <!-- End of user code doc for value -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.value_valuePin
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.value_valuePin
 	 */
 	def value: Option[UMLValueSpecification[Uml]]
 

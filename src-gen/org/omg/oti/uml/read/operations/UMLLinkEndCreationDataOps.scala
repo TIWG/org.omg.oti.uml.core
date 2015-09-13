@@ -60,8 +60,8 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 * <!-- Start of user code doc for endData_createLinkAction -->
    * <!-- End of user code doc for endData_createLinkAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLCreateLinkAction.endData
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCreateLinkAction.endData
 	 */
 	def endData_createLinkAction: Option[UMLCreateLinkAction[Uml]] = endData_linkAction.selectByKindOf { case x: UMLCreateLinkAction[Uml] => x }
 
@@ -71,8 +71,10 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 * <!-- Start of user code doc for allPins -->
    * <!-- End of user code doc for allPins -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self.LinkEndData::allPins()->including(insertAt))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self.LinkEndData::allPins()->including(insertAt))
+	 * }}}
 	 */
 	override def allPins: Set[UMLInputPin[Uml]] = {
 		// Start of user code for "allPins"
@@ -86,12 +88,24 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 * <!-- Start of user code doc for validate_insertAt_pin -->
    * <!-- End of user code doc for validate_insertAt_pin -->
 	 *
-	 * @body if  not end.isOrdered
+	 * {{{
+	 * OCL Body if  not end.isOrdered
+	 * }}}
+	 * {{{
 	 * then insertAt = null
+	 * }}}
+	 * {{{
 	 * else
+	 * }}}
+	 * {{{
 	 * 	not isReplaceAll=false implies
+	 * }}}
+	 * {{{
 	 * 	insertAt <> null and insertAt->forAll(type=UnlimitedNatural and is(1,1))
+	 * }}}
+	 * {{{
 	 * endif
+	 * }}}
 	 */
 	def validate_insertAt_pin: Boolean = {
 		// Start of user code for "insertAt_pin"

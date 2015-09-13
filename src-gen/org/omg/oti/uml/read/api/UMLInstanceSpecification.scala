@@ -65,8 +65,8 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for classifier -->
    * <!-- End of user code doc for classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.classifier_instanceSpecification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.classifier_instanceSpecification
 	 */
 	def classifier: Iterable[UMLClassifier[Uml]]
 
@@ -76,8 +76,8 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningInstanceSpec
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningInstanceSpec
 	 */
 	def specification: Option[UMLValueSpecification[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for instance_instanceValue -->
    * <!-- End of user code doc for instance_instanceValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInstanceValue.instance
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceValue.instance
 	 */
 	def instance_instanceValue: Set[UMLInstanceValue[Uml]]
 

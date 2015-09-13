@@ -62,8 +62,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for argument_interactionUse -->
    * <!-- End of user code doc for argument_interactionUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.argument
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.argument
 	 */
 	def argument_interactionUse: Option[UMLInteractionUse[Uml]]
 
@@ -71,8 +71,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for guard_activityEdge -->
    * <!-- End of user code doc for guard_activityEdge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.guard
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.guard
 	 */
 	def guard_activityEdge: Option[UMLActivityEdge[Uml]]
 
@@ -80,8 +80,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for lowerValue_owningLower -->
    * <!-- End of user code doc for lowerValue_owningLower -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLMultiplicityElement.lowerValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMultiplicityElement.lowerValue
 	 */
 	def lowerValue_owningLower: Option[UMLMultiplicityElement[Uml]]
 
@@ -89,8 +89,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for max_interval -->
    * <!-- End of user code doc for max_interval -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterval.max
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterval.max
 	 */
 	def max_interval: Set[UMLInterval[Uml]]
 
@@ -98,8 +98,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for maxint_interactionConstraint -->
    * <!-- End of user code doc for maxint_interactionConstraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionConstraint.maxint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionConstraint.maxint
 	 */
 	def maxint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
@@ -107,8 +107,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for min_interval -->
    * <!-- End of user code doc for min_interval -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterval.min
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterval.min
 	 */
 	def min_interval: Set[UMLInterval[Uml]]
 
@@ -116,8 +116,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for minint_interactionConstraint -->
    * <!-- End of user code doc for minint_interactionConstraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionConstraint.minint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionConstraint.minint
 	 */
 	def minint_interactionConstraint: Option[UMLInteractionConstraint[Uml]]
 
@@ -125,8 +125,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for returnValue_interactionUse -->
    * <!-- End of user code doc for returnValue_interactionUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionUse.returnValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.returnValue
 	 */
 	def returnValue_interactionUse: Option[UMLInteractionUse[Uml]]
 
@@ -134,8 +134,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for specification_owningConstraint -->
    * <!-- End of user code doc for specification_owningConstraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.specification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.specification
 	 */
 	def specification_owningConstraint: Option[UMLConstraint[Uml]]
 
@@ -143,8 +143,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for upperBound_objectNode -->
    * <!-- End of user code doc for upperBound_objectNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectNode.upperBound
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.upperBound
 	 */
 	def upperBound_objectNode: Option[UMLObjectNode[Uml]]
 
@@ -152,8 +152,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for upperValue_owningUpper -->
    * <!-- End of user code doc for upperValue_owningUpper -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLMultiplicityElement.upperValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMultiplicityElement.upperValue
 	 */
 	def upperValue_owningUpper: Option[UMLMultiplicityElement[Uml]]
 
@@ -161,8 +161,8 @@ trait UMLValueSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for weight_activityEdge -->
    * <!-- End of user code doc for weight_activityEdge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.weight
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.weight
 	 */
 	def weight_activityEdge: Option[UMLActivityEdge[Uml]]
 

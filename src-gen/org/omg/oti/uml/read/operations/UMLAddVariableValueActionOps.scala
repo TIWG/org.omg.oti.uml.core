@@ -62,12 +62,24 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 * <!-- Start of user code doc for validate_insertAt_pin -->
    * <!-- End of user code doc for validate_insertAt_pin -->
 	 *
-	 * @body if not variable.isOrdered then insertAt = null
+	 * {{{
+	 * OCL Body if not variable.isOrdered then insertAt = null
+	 * }}}
+	 * {{{
 	 * else 
+	 * }}}
+	 * {{{
 	 *   not isReplaceAll implies
+	 * }}}
+	 * {{{
 	 *   	insertAt<>null and 
+	 * }}}
+	 * {{{
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
+	 * }}}
+	 * {{{
 	 * endif
+	 * }}}
 	 */
 	def validate_insertAt_pin: Boolean = {
 		// Start of user code for "insertAt_pin"
@@ -86,7 +98,9 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 * <!-- Start of user code doc for validate_required_value -->
    * <!-- End of user code doc for validate_required_value -->
 	 *
-	 * @body value <> null
+	 * {{{
+	 * OCL Body value <> null
+	 * }}}
 	 */
 	def validate_required_value: Boolean = {
 		// Start of user code for "required_value"

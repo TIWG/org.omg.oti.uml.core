@@ -63,8 +63,8 @@ trait UMLChangeEvent[Uml <: UML]
 	 * <!-- Start of user code doc for changeExpression -->
    * <!-- End of user code doc for changeExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.changeExpression_changeEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.changeExpression_changeEvent
 	 */
 	def changeExpression: Option[UMLValueSpecification[Uml]]
 

@@ -62,8 +62,8 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for connectionPoint -->
    * <!-- End of user code doc for connectionPoint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPseudostate.stateMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPseudostate.stateMachine
 	 */
 	def connectionPoint: Set[UMLPseudostate[Uml]] = ownedMember.selectByKindOf { case x: UMLPseudostate[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for extendedStateMachine -->
    * <!-- End of user code doc for extendedStateMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateMachine.extendedStateMachine_stateMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.extendedStateMachine_stateMachine
 	 */
 	def extendedStateMachine: Set[UMLStateMachine[Uml]] = redefinedBehavior.selectByKindOf { case x: UMLStateMachine[Uml] => x }
 
@@ -84,8 +84,8 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for region -->
    * <!-- End of user code doc for region -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.stateMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.stateMachine
 	 */
 	def region: Set[UMLRegion[Uml]] = ownedMember.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -93,8 +93,8 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for extendedStateMachine_stateMachine -->
    * <!-- End of user code doc for extendedStateMachine_stateMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateMachine.extendedStateMachine
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.extendedStateMachine
 	 */
 	def extendedStateMachine_stateMachine: Set[UMLStateMachine[Uml]] = redefinedBehavior_behavior.selectByKindOf { case x: UMLStateMachine[Uml] => x }
 
@@ -104,8 +104,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for LCA -->
    * <!-- End of user code doc for LCA -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if ancestor(s1, s2) then 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if ancestor(s1, s2) then 
 	 *     s2.container
 	 * else
 	 * 	if ancestor(s2, s1) then
@@ -114,6 +115,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * 	    LCA(s1.container.state, s2.container.state)
 	 * 	endif
 	 * endif)
+	 * }}}
 	 */
 	def LCA(s1: Option[UMLVertex[Uml]], s2: Option[UMLVertex[Uml]]): Option[UMLRegion[Uml]] = {
 		// Start of user code for "LCA"
@@ -127,8 +129,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for LCAState -->
    * <!-- End of user code doc for LCAState -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if v2.oclIsTypeOf(State) and ancestor(v1, v2) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if v2.oclIsTypeOf(State) and ancestor(v1, v2) then
 	 * 	v2.oclAsType(State)
 	 * else if v1.oclIsTypeOf(State) and ancestor(v2, v1) then
 	 * 	v1.oclAsType(State)
@@ -136,6 +139,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * 	null.oclAsType(State)
 	 * else LCAState(v1.container.state, v2.container.state)
 	 * endif endif endif)
+	 * }}}
 	 */
 	def LCAState(v1: Option[UMLVertex[Uml]], v2: Option[UMLVertex[Uml]]): Option[UMLState[Uml]] = {
 		// Start of user code for "LCAState"
@@ -149,8 +153,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for ancestor -->
    * <!-- End of user code doc for ancestor -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if (s2 = s1) then 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if (s2 = s1) then 
 	 * 	true 
 	 * else 
 	 * 	if s1.container.stateMachine->notEmpty() then 
@@ -163,6 +168,7 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * 	     endif
 	 * 	 endif
 	 * endif  )
+	 * }}}
 	 */
 	def ancestor(s1: Option[UMLVertex[Uml]], s2: Option[UMLVertex[Uml]]): Boolean = {
 		// Start of user code for "ancestor"
@@ -176,9 +182,11 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
 	 * true)
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -192,14 +200,16 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for isRedefinitionContextValid -->
    * <!-- End of user code doc for isRedefinitionContextValid -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if redefinedElement.oclIsKindOf(StateMachine) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if redefinedElement.oclIsKindOf(StateMachine) then
 	 *   let redefinedStateMachine : StateMachine = redefinedElement.oclAsType(StateMachine) in
 	 *     self._'context'().oclAsType(BehavioredClassifier).redefinedClassifier->
 	 *       includes(redefinedStateMachine._'context'())
 	 * else
 	 *   false
 	 * endif)
+	 * }}}
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isRedefinitionContextValid"
@@ -213,7 +223,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for validate_connection_points -->
    * <!-- End of user code doc for validate_connection_points -->
 	 *
-	 * @body connectionPoint->forAll (kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
+	 * {{{
+	 * OCL Body connectionPoint->forAll (kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
+	 * }}}
 	 */
 	def validate_connection_points: Boolean = {
 		// Start of user code for "connection_points"
@@ -227,7 +239,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for validate_context_classifier -->
    * <!-- End of user code doc for validate_context_classifier -->
 	 *
-	 * @body specification <> null implies ( _'context' <> null and specification.featuringClassifier->exists(c | c = _'context'))
+	 * {{{
+	 * OCL Body specification <> null implies ( _'context' <> null and specification.featuringClassifier->exists(c | c = _'context'))
+	 * }}}
 	 */
 	def validate_context_classifier: Boolean = {
 		// Start of user code for "context_classifier"
@@ -241,7 +255,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for validate_method -->
    * <!-- End of user code doc for validate_method -->
 	 *
-	 * @body specification <> null implies connectionPoint->isEmpty()
+	 * {{{
+	 * OCL Body specification <> null implies connectionPoint->isEmpty()
+	 * }}}
 	 */
 	def validate_method: Boolean = {
 		// Start of user code for "method"
@@ -255,7 +271,9 @@ trait UMLStateMachineOps[Uml <: UML] { self: UMLStateMachine[Uml] =>
 	 * <!-- Start of user code doc for validate_state_machine_classifier_context -->
    * <!-- End of user code doc for validate_state_machine_classifier_context -->
 	 *
-	 * @body _'context' <> null implies not _'context'.oclIsKindOf(Interface)
+	 * {{{
+	 * OCL Body _'context' <> null implies not _'context'.oclIsKindOf(Interface)
+	 * }}}
 	 */
 	def validate_state_machine_classifier_context: Boolean = {
 		// Start of user code for "state_machine_classifier_context"

@@ -62,14 +62,30 @@ trait UMLRemoveVariableValueActionOps[Uml <: UML] { self: UMLRemoveVariableValue
 	 * <!-- Start of user code doc for validate_removeAt_and_value -->
    * <!-- End of user code doc for validate_removeAt_and_value -->
 	 *
-	 * @body if  variable.isOrdered and not variable.isUnique and not isRemoveDuplicates then 
+	 * {{{
+	 * OCL Body if  variable.isOrdered and not variable.isUnique and not isRemoveDuplicates then 
+	 * }}}
+	 * {{{
 	 *   value = null and
+	 * }}}
+	 * {{{
 	 *   removeAt <> null and
+	 * }}}
+	 * {{{
 	 *   removeAt.type = UnlimitedNatural and
+	 * }}}
+	 * {{{
 	 *   removeAt.is(1,1)
+	 * }}}
+	 * {{{
 	 * else
+	 * }}}
+	 * {{{
 	 *   removeAt = null and value <> null
+	 * }}}
+	 * {{{
 	 * endif
+	 * }}}
 	 */
 	def validate_removeAt_and_value: Boolean = {
 		// Start of user code for "removeAt_and_value"

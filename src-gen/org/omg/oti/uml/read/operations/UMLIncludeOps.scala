@@ -62,8 +62,8 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 	 * <!-- Start of user code doc for addition -->
    * <!-- End of user code doc for addition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.addition_include
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.addition_include
 	 */
 	def addition: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
@@ -73,8 +73,8 @@ trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 	 * <!-- Start of user code doc for includingCase -->
    * <!-- End of user code doc for includingCase -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.include
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.include
 	 */
 	def includingCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 

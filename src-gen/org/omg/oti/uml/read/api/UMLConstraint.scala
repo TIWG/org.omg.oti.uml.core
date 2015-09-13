@@ -63,8 +63,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for constrainedElement -->
    * <!-- End of user code doc for constrainedElement -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.constrainedElement_constraint
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.constrainedElement_constraint
 	 */
 	def constrainedElement: Seq[UMLElement[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for context -->
    * <!-- End of user code doc for context -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.ownedRule
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.ownedRule
 	 */
 	def context: Option[UMLNamespace[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for specification -->
    * <!-- End of user code doc for specification -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningConstraint
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningConstraint
 	 */
 	def specification: Option[UMLValueSpecification[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for bodyCondition_bodyContext -->
    * <!-- End of user code doc for bodyCondition_bodyContext -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.bodyCondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.bodyCondition
 	 */
 	def bodyCondition_bodyContext: Option[UMLOperation[Uml]]
 
@@ -103,8 +103,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for guard_transition -->
    * <!-- End of user code doc for guard_transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.guard
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.guard
 	 */
 	def guard_transition: Option[UMLTransition[Uml]]
 
@@ -112,8 +112,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for localPostcondition_action -->
    * <!-- End of user code doc for localPostcondition_action -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.localPostcondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.localPostcondition
 	 */
 	def localPostcondition_action: Option[UMLAction[Uml]]
 
@@ -121,8 +121,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for localPrecondition_action -->
    * <!-- End of user code doc for localPrecondition_action -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.localPrecondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.localPrecondition
 	 */
 	def localPrecondition_action: Option[UMLAction[Uml]]
 
@@ -130,8 +130,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for postCondition_owningTransition -->
    * <!-- End of user code doc for postCondition_owningTransition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolTransition.postCondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolTransition.postCondition
 	 */
 	def postCondition_owningTransition: Option[UMLProtocolTransition[Uml]]
 
@@ -139,8 +139,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for postcondition_behavior -->
    * <!-- End of user code doc for postcondition_behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.postcondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.postcondition
 	 */
 	def postcondition_behavior: Option[UMLBehavior[Uml]]
 
@@ -148,8 +148,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for postcondition_postContext -->
    * <!-- End of user code doc for postcondition_postContext -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.postcondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.postcondition
 	 */
 	def postcondition_postContext: Option[UMLOperation[Uml]]
 
@@ -157,8 +157,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for precondition_behavior -->
    * <!-- End of user code doc for precondition_behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.precondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.precondition
 	 */
 	def precondition_behavior: Option[UMLBehavior[Uml]]
 
@@ -166,8 +166,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for precondition_preContext -->
    * <!-- End of user code doc for precondition_preContext -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.precondition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.precondition
 	 */
 	def precondition_preContext: Option[UMLOperation[Uml]]
 
@@ -175,8 +175,8 @@ trait UMLConstraint[Uml <: UML]
 	 * <!-- Start of user code doc for stateInvariant_owningState -->
    * <!-- End of user code doc for stateInvariant_owningState -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.stateInvariant
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.stateInvariant
 	 */
 	def stateInvariant_owningState: Option[UMLState[Uml]]
 

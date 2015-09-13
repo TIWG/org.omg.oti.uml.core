@@ -63,7 +63,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for deploymentLocation -->
    * <!-- End of user code doc for deploymentLocation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def deploymentLocation: Option[String]
 
@@ -73,7 +73,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for executionLocation -->
    * <!-- End of user code doc for executionLocation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def executionLocation: Option[String]
 

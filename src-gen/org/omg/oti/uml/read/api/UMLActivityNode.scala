@@ -63,8 +63,8 @@ trait UMLActivityNode[Uml <: UML]
 	 * <!-- Start of user code doc for inGroup -->
    * <!-- End of user code doc for inGroup -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityGroup.containedNode
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.containedNode
 	 */
 	def inGroup: Set[UMLActivityGroup[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLActivityNode[Uml <: UML]
 	 * <!-- Start of user code doc for incoming -->
    * <!-- End of user code doc for incoming -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.target
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.target
 	 */
 	def incoming: Set[UMLActivityEdge[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLActivityNode[Uml <: UML]
 	 * <!-- Start of user code doc for outgoing -->
    * <!-- End of user code doc for outgoing -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.source
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.source
 	 */
 	def outgoing: Set[UMLActivityEdge[Uml]]
 

@@ -64,7 +64,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for concurrency -->
    * <!-- End of user code doc for concurrency -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def concurrency: UMLCallConcurrencyKind.Value
 
@@ -74,7 +74,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for isAbstract -->
    * <!-- End of user code doc for isAbstract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isAbstract: Boolean
 
@@ -84,8 +84,8 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for method -->
    * <!-- End of user code doc for method -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.specification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.specification
 	 */
 	def method: Set[UMLBehavior[Uml]]
 
@@ -95,8 +95,8 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for ownedParameter -->
    * <!-- End of user code doc for ownedParameter -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameter.ownedParameter_ownerFormalParam
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.ownedParameter_ownerFormalParam
 	 */
 	def ownedParameter: Seq[UMLParameter[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for raisedException -->
    * <!-- End of user code doc for raisedException -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLType.raisedException_behavioralFeature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType.raisedException_behavioralFeature
 	 */
 	def raisedException: Set[UMLType[Uml]]
 

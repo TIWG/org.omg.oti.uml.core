@@ -62,8 +62,8 @@ trait UMLExecutableNodeOps[Uml <: UML] { self: UMLExecutableNode[Uml] =>
 	 * <!-- Start of user code doc for handler -->
    * <!-- End of user code doc for handler -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExceptionHandler.protectedNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.protectedNode
 	 */
 	def handler: Set[UMLExceptionHandler[Uml]] = ownedElement.selectByKindOf { case x: UMLExceptionHandler[Uml] => x }
 
@@ -71,8 +71,8 @@ trait UMLExecutableNodeOps[Uml <: UML] { self: UMLExecutableNode[Uml] =>
 	 * <!-- Start of user code doc for executableNode_sequenceNode -->
    * <!-- End of user code doc for executableNode_sequenceNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLSequenceNode.executableNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSequenceNode.executableNode
 	 */
 	def executableNode_sequenceNode: Option[UMLSequenceNode[Uml]] = inStructuredNode.selectByKindOf { case x: UMLSequenceNode[Uml] => x }
 

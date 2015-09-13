@@ -62,8 +62,8 @@ trait UMLProtocolConformanceOps[Uml <: UML] { self: UMLProtocolConformance[Uml] 
 	 * <!-- Start of user code doc for generalMachine -->
    * <!-- End of user code doc for generalMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolStateMachine.generalMachine_protocolConformance
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolStateMachine.generalMachine_protocolConformance
 	 */
 	def generalMachine: Option[UMLProtocolStateMachine[Uml]] = target.selectByKindOf { case x: UMLProtocolStateMachine[Uml] => x } headOption
 
@@ -73,8 +73,8 @@ trait UMLProtocolConformanceOps[Uml <: UML] { self: UMLProtocolConformance[Uml] 
 	 * <!-- Start of user code doc for specificMachine -->
    * <!-- End of user code doc for specificMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolStateMachine.conformance
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolStateMachine.conformance
 	 */
 	def specificMachine: Option[UMLProtocolStateMachine[Uml]] = owner.selectByKindOf { case x: UMLProtocolStateMachine[Uml] => x }
 

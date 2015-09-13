@@ -63,7 +63,7 @@ trait UMLCallAction[Uml <: UML]
 	 * <!-- Start of user code doc for isSynchronous -->
    * <!-- End of user code doc for isSynchronous -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isSynchronous: Boolean
 
@@ -73,8 +73,8 @@ trait UMLCallAction[Uml <: UML]
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_callAction
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_callAction
 	 */
 	def result: Seq[UMLOutputPin[Uml]]
 

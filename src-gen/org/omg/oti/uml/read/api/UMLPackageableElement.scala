@@ -64,7 +64,7 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for visibility -->
    * <!-- End of user code doc for visibility -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	override def visibility: Option[UMLVisibilityKind.Value]
 
@@ -72,8 +72,8 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for deployedElement_deploymentTarget -->
    * <!-- End of user code doc for deployedElement_deploymentTarget -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDeploymentTarget.deployedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentTarget.deployedElement
 	 */
 	def deployedElement_deploymentTarget: Set[UMLDeploymentTarget[Uml]]
 
@@ -81,8 +81,8 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for importedMember_namespace -->
    * <!-- End of user code doc for importedMember_namespace -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.importedMember
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.importedMember
 	 */
 	def importedMember_namespace: Set[UMLNamespace[Uml]]
 
@@ -90,8 +90,8 @@ trait UMLPackageableElement[Uml <: UML]
 	 * <!-- Start of user code doc for utilizedElement_manifestation -->
    * <!-- End of user code doc for utilizedElement_manifestation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLManifestation.utilizedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLManifestation.utilizedElement
 	 */
 	def utilizedElement_manifestation: Set[UMLManifestation[Uml]]
 

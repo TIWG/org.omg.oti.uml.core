@@ -63,8 +63,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for activity -->
    * <!-- End of user code doc for activity -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivity.edge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.edge
 	 */
 	def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for inPartition -->
    * <!-- End of user code doc for inPartition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityPartition.edge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.edge
 	 */
 	def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
@@ -85,8 +85,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for inStructuredNode -->
    * <!-- End of user code doc for inStructuredNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredActivityNode.edge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.edge
 	 */
 	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
 
@@ -96,8 +96,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for redefinedEdge -->
    * <!-- End of user code doc for redefinedEdge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge_activityEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge_activityEdge
 	 */
 	def redefinedEdge: Set[UMLActivityEdge[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
@@ -105,8 +105,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for redefinedEdge_activityEdge -->
    * <!-- End of user code doc for redefinedEdge_activityEdge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge
 	 */
 	def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
@@ -114,8 +114,10 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(ActivityEdge))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (redefiningElement.oclIsKindOf(ActivityEdge))
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -129,7 +131,9 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 	 * <!-- Start of user code doc for validate_source_and_target -->
    * <!-- End of user code doc for validate_source_and_target -->
 	 *
-	 * @body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
+	 * {{{
+	 * OCL Body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
+	 * }}}
 	 */
 	def validate_source_and_target: Boolean = {
 		// Start of user code for "source_and_target"

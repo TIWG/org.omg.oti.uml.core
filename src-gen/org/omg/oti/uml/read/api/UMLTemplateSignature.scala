@@ -63,8 +63,8 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * <!-- Start of user code doc for ownedParameter -->
    * <!-- End of user code doc for ownedParameter -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.signature
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.signature
 	 */
 	def ownedParameter: Seq[UMLTemplateParameter[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * <!-- Start of user code doc for parameter -->
    * <!-- End of user code doc for parameter -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.parameter_templateSignature
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.parameter_templateSignature
 	 */
 	def parameter: Seq[UMLTemplateParameter[Uml]]
 

@@ -62,7 +62,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_cannot_reference_submachine -->
    * <!-- End of user code doc for validate_cannot_reference_submachine -->
 	 *
-	 * @body submachine->isEmpty()
+	 * {{{
+	 * OCL Body submachine->isEmpty()
+	 * }}}
 	 */
 	def validate_cannot_reference_submachine: Boolean = {
 		// Start of user code for "cannot_reference_submachine"
@@ -76,7 +78,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_no_entry_behavior -->
    * <!-- End of user code doc for validate_no_entry_behavior -->
 	 *
-	 * @body entry->isEmpty()
+	 * {{{
+	 * OCL Body entry->isEmpty()
+	 * }}}
 	 */
 	def validate_no_entry_behavior: Boolean = {
 		// Start of user code for "no_entry_behavior"
@@ -90,7 +94,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_no_exit_behavior -->
    * <!-- End of user code doc for validate_no_exit_behavior -->
 	 *
-	 * @body exit->isEmpty()
+	 * {{{
+	 * OCL Body exit->isEmpty()
+	 * }}}
 	 */
 	def validate_no_exit_behavior: Boolean = {
 		// Start of user code for "no_exit_behavior"
@@ -104,7 +110,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_no_outgoing_transitions -->
    * <!-- End of user code doc for validate_no_outgoing_transitions -->
 	 *
-	 * @body outgoing->size() = 0
+	 * {{{
+	 * OCL Body outgoing->size() = 0
+	 * }}}
 	 */
 	def validate_no_outgoing_transitions: Boolean = {
 		// Start of user code for "no_outgoing_transitions"
@@ -118,7 +126,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_no_regions -->
    * <!-- End of user code doc for validate_no_regions -->
 	 *
-	 * @body region->size() = 0
+	 * {{{
+	 * OCL Body region->size() = 0
+	 * }}}
 	 */
 	def validate_no_regions: Boolean = {
 		// Start of user code for "no_regions"
@@ -132,7 +142,9 @@ trait UMLFinalStateOps[Uml <: UML] { self: UMLFinalState[Uml] =>
 	 * <!-- Start of user code doc for validate_no_state_behavior -->
    * <!-- End of user code doc for validate_no_state_behavior -->
 	 *
-	 * @body doActivity->isEmpty()
+	 * {{{
+	 * OCL Body doActivity->isEmpty()
+	 * }}}
 	 */
 	def validate_no_state_behavior: Boolean = {
 		// Start of user code for "no_state_behavior"

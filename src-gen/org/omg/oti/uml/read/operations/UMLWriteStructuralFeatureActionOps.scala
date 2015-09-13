@@ -62,8 +62,8 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_writeStructuralFeatureAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_writeStructuralFeatureAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
    * <!-- End of user code doc for validate_multiplicity_of_result -->
 	 *
-	 * @body result <> null implies result.is(1,1)
+	 * {{{
+	 * OCL Body result <> null implies result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_result: Boolean = {
 		// Start of user code for "multiplicity_of_result"
@@ -87,7 +89,9 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * <!-- Start of user code doc for validate_multiplicity_of_value -->
    * <!-- End of user code doc for validate_multiplicity_of_value -->
 	 *
-	 * @body value<>null implies value.is(1,1)
+	 * {{{
+	 * OCL Body value<>null implies value.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_value: Boolean = {
 		// Start of user code for "multiplicity_of_value"
@@ -101,7 +105,9 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * <!-- Start of user code doc for validate_type_of_result -->
    * <!-- End of user code doc for validate_type_of_result -->
 	 *
-	 * @body result <> null implies result.type = object.type
+	 * {{{
+	 * OCL Body result <> null implies result.type = object.type
+	 * }}}
 	 */
 	def validate_type_of_result: Boolean = {
 		// Start of user code for "type_of_result"
@@ -115,7 +121,9 @@ trait UMLWriteStructuralFeatureActionOps[Uml <: UML] { self: UMLWriteStructuralF
 	 * <!-- Start of user code doc for validate_type_of_value -->
    * <!-- End of user code doc for validate_type_of_value -->
 	 *
-	 * @body value <> null implies value.type.conformsTo(structuralFeature.type)
+	 * {{{
+	 * OCL Body value <> null implies value.type.conformsTo(structuralFeature.type)
+	 * }}}
 	 */
 	def validate_type_of_value: Boolean = {
 		// Start of user code for "type_of_value"

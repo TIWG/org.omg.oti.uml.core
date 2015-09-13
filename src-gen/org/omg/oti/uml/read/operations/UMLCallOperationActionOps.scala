@@ -63,8 +63,10 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (operation.inputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (operation.inputParameters())
+	 * }}}
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
@@ -81,8 +83,10 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (operation.outputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (operation.outputParameters())
+	 * }}}
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
@@ -99,9 +103,15 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 * <!-- Start of user code doc for validate_type_target_pin -->
    * <!-- End of user code doc for validate_type_target_pin -->
 	 *
-	 * @body if onPort=null then  target.type.oclAsType(Classifier).allFeatures()->includes(operation)
+	 * {{{
+	 * OCL Body if onPort=null then  target.type.oclAsType(Classifier).allFeatures()->includes(operation)
+	 * }}}
+	 * {{{
 	 * else target.type.oclAsType(Classifier).allFeatures()->includes(onPort) and onPort.provided->union(onPort.required).allFeatures()->includes(operation)
+	 * }}}
+	 * {{{
 	 * endif
+	 * }}}
 	 */
 	def validate_type_target_pin: Boolean = {
 		// Start of user code for "type_target_pin"

@@ -62,8 +62,8 @@ trait UMLValueSpecificationActionOps[Uml <: UML] { self: UMLValueSpecificationAc
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_valueSpecificationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_valueSpecificationAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLValueSpecificationActionOps[Uml <: UML] { self: UMLValueSpecificationAc
 	 * <!-- Start of user code doc for validate_compatible_type -->
    * <!-- End of user code doc for validate_compatible_type -->
 	 *
-	 * @body value.type.conformsTo(result.type)
+	 * {{{
+	 * OCL Body value.type.conformsTo(result.type)
+	 * }}}
 	 */
 	def validate_compatible_type: Boolean = {
 		// Start of user code for "compatible_type"
@@ -87,7 +89,9 @@ trait UMLValueSpecificationActionOps[Uml <: UML] { self: UMLValueSpecificationAc
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"

@@ -63,7 +63,7 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- Start of user code doc for isOrdered -->
    * <!-- End of user code doc for isOrdered -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isOrdered: Boolean
 
@@ -73,7 +73,7 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- Start of user code doc for isUnique -->
    * <!-- End of user code doc for isUnique -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isUnique: Boolean
 
@@ -83,8 +83,8 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- Start of user code doc for lowerValue -->
    * <!-- End of user code doc for lowerValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.lowerValue_owningLower
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.lowerValue_owningLower
 	 */
 	def lowerValue: Option[UMLValueSpecification[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLMultiplicityElement[Uml <: UML]
 	 * <!-- Start of user code doc for upperValue -->
    * <!-- End of user code doc for upperValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.upperValue_owningUpper
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.upperValue_owningUpper
 	 */
 	def upperValue: Option[UMLValueSpecification[Uml]]
 

@@ -63,8 +63,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for collaborationUse -->
    * <!-- End of user code doc for collaborationUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCollaborationUse.collaborationUse_classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse.collaborationUse_classifier
 	 */
 	def collaborationUse: Set[UMLCollaborationUse[Uml]] = ownedElement.selectByKindOf { case x: UMLCollaborationUse[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for feature -->
    * <!-- End of user code doc for feature -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLFeature.featuringClassifier
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLFeature.featuringClassifier
 	 */
 	def feature: Set[UMLFeature[Uml]] = member.selectByKindOf { case x: UMLFeature[Uml] => x }
 
@@ -85,9 +85,11 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for general -->
    * <!-- End of user code doc for general -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.general_classifier
-	 * @body result = (parents())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general_classifier
+	 * {{{
+	 * OCL Body result = (parents())
+	 * }}}
 	 */
 	def general: Set[UMLClassifier[Uml]] = {
 		// Start of user code for "general"
@@ -101,8 +103,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for generalization -->
    * <!-- End of user code doc for generalization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralization.specific
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralization.specific
 	 */
 	def generalization: Set[UMLGeneralization[Uml]] = ownedElement.selectByKindOf { case x: UMLGeneralization[Uml] => x }
 
@@ -112,9 +114,11 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for inheritedMember -->
    * <!-- End of user code doc for inheritedMember -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.inheritedMember_inheritingClassifier
-	 * @body result = (inherit(parents()->collect(inheritableMembers(self))->asSet()))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.inheritedMember_inheritingClassifier
+	 * {{{
+	 * OCL Body result = (inherit(parents()->collect(inheritableMembers(self))->asSet()))
+	 * }}}
 	 */
 	def inheritedMember: Set[UMLNamedElement[Uml]] = {
 		// Start of user code for "inheritedMember"
@@ -128,8 +132,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for ownedTemplateSignature -->
    * <!-- End of user code doc for ownedTemplateSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.classifier
 	 */
 	override def ownedTemplateSignature: Option[UMLRedefinableTemplateSignature[Uml]] = ownedElement.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x } headOption
 
@@ -139,8 +143,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for ownedUseCase -->
    * <!-- End of user code doc for ownedUseCase -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLUseCase.ownedUseCase_classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.ownedUseCase_classifier
 	 */
 	def ownedUseCase: Set[UMLUseCase[Uml]] = ownedMember.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
@@ -150,8 +154,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinedClassifier -->
    * <!-- End of user code doc for redefinedClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier_classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier_classifier
 	 */
 	def redefinedClassifier: Set[UMLClassifier[Uml]] = redefinedElement.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
@@ -161,8 +165,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for representation -->
    * <!-- End of user code doc for representation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLCollaborationUse.representation_classifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse.representation_classifier
 	 */
 	def representation: Option[UMLCollaborationUse[Uml]] = collaborationUse headOption
 
@@ -172,8 +176,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for substitution -->
    * <!-- End of user code doc for substitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSubstitution.substitutingClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSubstitution.substitutingClassifier
 	 */
 	def substitution: Set[UMLSubstitution[Uml]] = ownedElement.selectByKindOf { case x: UMLSubstitution[Uml] => x }
 
@@ -181,8 +185,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for general_generalization -->
    * <!-- End of user code doc for general_generalization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLGeneralization.general
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralization.general
 	 */
 	def general_generalization: Set[UMLGeneralization[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLGeneralization[Uml] => x }
 
@@ -190,8 +194,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for nestedClassifier_interface -->
    * <!-- End of user code doc for nestedClassifier_interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.nestedClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.nestedClassifier
 	 */
 	def nestedClassifier_interface: Option[UMLInterface[Uml]] = namespace.selectByKindOf { case x: UMLInterface[Uml] => x }
 
@@ -199,8 +203,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for nestedClassifier_nestingClass -->
    * <!-- End of user code doc for nestedClassifier_nestingClass -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.nestedClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.nestedClassifier
 	 */
 	def nestedClassifier_nestingClass: Option[UMLClass[Uml]] = redefinitionContext.selectByKindOf { case x: UMLClass[Uml] => x } headOption
 
@@ -208,8 +212,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinedClassifier_classifier -->
    * <!-- End of user code doc for redefinedClassifier_classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier
 	 */
 	def redefinedClassifier_classifier: Set[UMLClassifier[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
@@ -217,8 +221,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_region -->
    * <!-- End of user code doc for redefinitionContext_region -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.redefinitionContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.redefinitionContext
 	 */
 	def redefinitionContext_region: Set[UMLRegion[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -226,8 +230,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_state -->
    * <!-- End of user code doc for redefinitionContext_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.redefinitionContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.redefinitionContext
 	 */
 	def redefinitionContext_state: Set[UMLState[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -235,8 +239,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext_transition -->
    * <!-- End of user code doc for redefinitionContext_transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.redefinitionContext
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.redefinitionContext
 	 */
 	def redefinitionContext_transition: Set[UMLTransition[Uml]] = redefinitionContext_redefinableElement.selectByKindOf { case x: UMLTransition[Uml] => x }
 
@@ -246,8 +250,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allAttributes -->
    * <!-- End of user code doc for allAttributes -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (attribute->asSequence()->union(parents()->asSequence().allAttributes())->select(p | member->includes(p))->asOrderedSet())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (attribute->asSequence()->union(parents()->asSequence().allAttributes())->select(p | member->includes(p))->asOrderedSet())
+	 * }}}
 	 */
 	def allAttributes: Seq[UMLProperty[Uml]] = {
 		// Start of user code for "allAttributes"
@@ -261,8 +267,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allFeatures -->
    * <!-- End of user code doc for allFeatures -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (member->select(oclIsKindOf(Feature))->collect(oclAsType(Feature))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (member->select(oclIsKindOf(Feature))->collect(oclAsType(Feature))->asSet())
+	 * }}}
 	 */
 	def allFeatures: Set[UMLFeature[Uml]] = {
 		// Start of user code for "allFeatures"
@@ -277,8 +285,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allParents -->
    * <!-- End of user code doc for allParents -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (parents()->union(parents()->collect(allParents())->asSet()))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (parents()->union(parents()->collect(allParents())->asSet()))
+	 * }}}
 	 */
 	def allParents: Set[UMLClassifier[Uml]] = {
 		// Start of user code for "allParents"
@@ -292,8 +302,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allRealizedInterfaces -->
    * <!-- End of user code doc for allRealizedInterfaces -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (directlyRealizedInterfaces()->union(self.allParents()->collect(directlyRealizedInterfaces()))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (directlyRealizedInterfaces()->union(self.allParents()->collect(directlyRealizedInterfaces()))->asSet())
+	 * }}}
 	 */
 	def allRealizedInterfaces: Set[UMLInterface[Uml]] = {
 		// Start of user code for "allRealizedInterfaces"
@@ -307,11 +319,13 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allSlottableFeatures -->
    * <!-- End of user code doc for allSlottableFeatures -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (member->select(oclIsKindOf(StructuralFeature))->
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (member->select(oclIsKindOf(StructuralFeature))->
 	 *   collect(oclAsType(StructuralFeature))->
 	 *    union(self.inherit(self.allParents()->collect(p | p.attribute)->asSet())->
 	 *      collect(oclAsType(StructuralFeature)))->asSet())
+	 * }}}
 	 */
 	def allSlottableFeatures: Set[UMLStructuralFeature[Uml]] = {
 		// Start of user code for "allSlottableFeatures"
@@ -339,8 +353,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for allUsedInterfaces -->
    * <!-- End of user code doc for allUsedInterfaces -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (directlyUsedInterfaces()->union(self.allParents()->collect(directlyUsedInterfaces()))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (directlyUsedInterfaces()->union(self.allParents()->collect(directlyUsedInterfaces()))->asSet())
+	 * }}}
 	 */
 	def allUsedInterfaces: Set[UMLInterface[Uml]] = {
 		// Start of user code for "allUsedInterfaces"
@@ -354,13 +370,15 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for conformsTo -->
    * <!-- End of user code doc for conformsTo -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if other.oclIsKindOf(Classifier) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if other.oclIsKindOf(Classifier) then
 	 *   let otherClassifier : Classifier = other.oclAsType(Classifier) in
 	 *     self = otherClassifier or allParents()->includes(otherClassifier)
 	 * else
 	 *   false
 	 * endif)
+	 * }}}
 	 */
 	override def conformsTo(other: Option[UMLType[Uml]]): Boolean = {
 		// Start of user code for "conformsTo"
@@ -379,10 +397,12 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for directlyRealizedInterfaces -->
    * <!-- End of user code doc for directlyRealizedInterfaces -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = ((clientDependency->
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = ((clientDependency->
 	 *   select(oclIsKindOf(Realization) and supplier->forAll(oclIsKindOf(Interface))))->
 	 *       collect(supplier.oclAsType(Interface))->asSet())
+	 * }}}
 	 */
 	def directlyRealizedInterfaces: Set[UMLInterface[Uml]] = {
 		// Start of user code for "directlyRealizedInterfaces"
@@ -409,10 +429,12 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for directlyUsedInterfaces -->
    * <!-- End of user code doc for directlyUsedInterfaces -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = ((supplierDependency->
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = ((supplierDependency->
 	 *   select(oclIsKindOf(Usage) and client->forAll(oclIsKindOf(Interface))))->
 	 *     collect(client.oclAsType(Interface))->asSet())
+	 * }}}
 	 */
 	def directlyUsedInterfaces: Set[UMLInterface[Uml]] = {
 		// Start of user code for "directlyUsedInterfaces"
@@ -438,8 +460,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for hasVisibilityOf -->
    * <!-- End of user code doc for hasVisibilityOf -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (n.visibility <> VisibilityKind::private)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (n.visibility <> VisibilityKind::private)
+	 * }}}
 	 */
 	def hasVisibilityOf(n: Option[UMLNamedElement[Uml]]): Boolean = {
 		// Start of user code for "hasVisibilityOf"
@@ -456,12 +480,14 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for inherit -->
    * <!-- End of user code doc for inherit -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (inhs->reject(inh |
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (inhs->reject(inh |
 	 *   inh.oclIsKindOf(RedefinableElement) and
 	 *   ownedMember->select(oclIsKindOf(RedefinableElement))->
 	 *     select(redefinedElement->includes(inh.oclAsType(RedefinableElement)))
 	 *        ->notEmpty()))
+	 * }}}
 	 */
 	def inherit(inhs: Set[UMLNamedElement[Uml]]): Set[UMLNamedElement[Uml]] = {
 		// Start of user code for "inherit"
@@ -487,8 +513,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for inheritableMembers -->
    * <!-- End of user code doc for inheritableMembers -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (member->select(m | c.hasVisibilityOf(m)))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (member->select(m | c.hasVisibilityOf(m)))
+	 * }}}
 	 */
 	def inheritableMembers(c: Option[UMLClassifier[Uml]]): Set[UMLNamedElement[Uml]] = {
 		// Start of user code for "inheritableMembers"
@@ -503,8 +531,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for isSubstitutableFor -->
    * <!-- End of user code doc for isSubstitutableFor -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (substitution.contract->includes(contract))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (substitution.contract->includes(contract))
+	 * }}}
 	 */
 	def isSubstitutableFor(contract: Option[UMLClassifier[Uml]]): Boolean = {
 		// Start of user code for "isSubstitutableFor"
@@ -521,8 +551,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for isTemplate -->
    * <!-- End of user code doc for isTemplate -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (ownedTemplateSignature <> null or general->exists(g | g.isTemplate()))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (ownedTemplateSignature <> null or general->exists(g | g.isTemplate()))
+	 * }}}
 	 */
 	override def isTemplate: Boolean = {
 		// Start of user code for "isTemplate"
@@ -539,8 +571,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for maySpecializeType -->
    * <!-- End of user code doc for maySpecializeType -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.oclIsKindOf(c.oclType()))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.oclIsKindOf(c.oclType()))
+	 * }}}
 	 */
 	def maySpecializeType(c: Option[UMLClassifier[Uml]]): Boolean = {
 		// Start of user code for "maySpecializeType"
@@ -557,8 +591,10 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for parents -->
    * <!-- End of user code doc for parents -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (generalization.general->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (generalization.general->asSet())
+	 * }}}
 	 */
 	def parents: Set[UMLClassifier[Uml]] = {
 		// Start of user code for "parents"
@@ -572,10 +608,18 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for validate_maps_to_generalization_set -->
    * <!-- End of user code doc for validate_maps_to_generalization_set -->
 	 *
-	 * @body powertypeExtent->forAll( gs | 
+	 * {{{
+	 * OCL Body powertypeExtent->forAll( gs | 
+	 * }}}
+	 * {{{
 	 *   gs.generalization->forAll( gen | 
+	 * }}}
+	 * {{{
 	 *     not (gen.general = self) and not gen.general.allParents()->includes(self) and not (gen.specific = self) and not self.allParents()->includes(gen.specific) 
+	 * }}}
+	 * {{{
 	 *   ))
+	 * }}}
 	 */
 	def validate_maps_to_generalization_set: Boolean = {
 		// Start of user code for "maps_to_generalization_set"
@@ -608,7 +652,9 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for validate_no_cycles_in_generalization -->
    * <!-- End of user code doc for validate_no_cycles_in_generalization -->
 	 *
-	 * @body not allParents()->includes(self)
+	 * {{{
+	 * OCL Body not allParents()->includes(self)
+	 * }}}
 	 */
 	def validate_no_cycles_in_generalization: Boolean = {
 		// Start of user code for "no_cycles_in_generalization"
@@ -622,7 +668,9 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for validate_non_final_parents -->
    * <!-- End of user code doc for validate_non_final_parents -->
 	 *
-	 * @body parents()->forAll(not isFinalSpecialization)
+	 * {{{
+	 * OCL Body parents()->forAll(not isFinalSpecialization)
+	 * }}}
 	 */
 	def validate_non_final_parents: Boolean = {
 		// Start of user code for "non_final_parents"
@@ -636,7 +684,9 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 * <!-- Start of user code doc for validate_specialize_type -->
    * <!-- End of user code doc for validate_specialize_type -->
 	 *
-	 * @body parents()->forAll(c | self.maySpecializeType(c))
+	 * {{{
+	 * OCL Body parents()->forAll(c | self.maySpecializeType(c))
+	 * }}}
 	 */
 	def validate_specialize_type: Boolean = {
 		// Start of user code for "specialize_type"

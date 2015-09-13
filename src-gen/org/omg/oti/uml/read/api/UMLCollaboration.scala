@@ -64,8 +64,8 @@ trait UMLCollaboration[Uml <: UML]
 	 * <!-- Start of user code doc for collaborationRole -->
    * <!-- End of user code doc for collaborationRole -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectableElement.collaborationRole_collaboration
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElement.collaborationRole_collaboration
 	 */
 	def collaborationRole: Set[UMLConnectableElement[Uml]]
 
@@ -73,8 +73,8 @@ trait UMLCollaboration[Uml <: UML]
 	 * <!-- Start of user code doc for type_collaborationUse -->
    * <!-- End of user code doc for type_collaborationUse -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLCollaborationUse._type
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse._type
 	 */
 	def type_collaborationUse: Set[UMLCollaborationUse[Uml]]
 

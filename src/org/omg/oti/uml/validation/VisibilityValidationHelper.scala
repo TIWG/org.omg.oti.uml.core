@@ -93,7 +93,7 @@ import org.omg.oti.uml.validation.VisibilityValidationStatus._
 /**
  * The common superclass of the different categories of visibility validation results.
  *
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 sealed abstract class AbstractVisibilityValidationInfo[Uml <: UML] {
   val e: UMLElement[Uml]
@@ -126,7 +126,7 @@ sealed abstract class AbstractVisibilityValidationInfo[Uml <: UML] {
  * @param e NamedElement
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class NamedElementVisibilityValidationInfo[Uml <: UML]
 (override val e: UMLNamedElement[Uml],
@@ -140,7 +140,7 @@ case class NamedElementVisibilityValidationInfo[Uml <: UML]
  * @param e ElementImport
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class ElementImportVisibilityValidationInfo[Uml <: UML]
 (override val e: UMLElementImport[Uml],
@@ -154,7 +154,7 @@ case class ElementImportVisibilityValidationInfo[Uml <: UML]
  * @param e PackageImport
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class PackageImportVisibilityValidationInfo[Uml <: UML]
 (override val e: UMLPackageImport[Uml],

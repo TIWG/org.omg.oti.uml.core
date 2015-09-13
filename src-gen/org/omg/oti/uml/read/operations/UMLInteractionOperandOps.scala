@@ -62,8 +62,8 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 * <!-- Start of user code doc for guard -->
    * <!-- End of user code doc for guard -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionConstraint.guard_interactionOperand
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionConstraint.guard_interactionOperand
 	 */
 	def guard: Option[UMLInteractionConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLInteractionConstraint[Uml] => x } headOption
 
@@ -71,8 +71,8 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 * <!-- Start of user code doc for operand_combinedFragment -->
    * <!-- End of user code doc for operand_combinedFragment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLCombinedFragment.operand
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCombinedFragment.operand
 	 */
 	def operand_combinedFragment: Option[UMLCombinedFragment[Uml]] = owner.selectByKindOf { case x: UMLCombinedFragment[Uml] => x }
 

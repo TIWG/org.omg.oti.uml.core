@@ -63,8 +63,8 @@ trait UMLParameterableElement[Uml <: UML]
 	 * <!-- Start of user code doc for owningTemplateParameter -->
    * <!-- End of user code doc for owningTemplateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.ownedParameteredElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.ownedParameteredElement
 	 */
 	def owningTemplateParameter: Option[UMLTemplateParameter[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLParameterableElement[Uml <: UML]
 	 * <!-- Start of user code doc for templateParameter -->
    * <!-- End of user code doc for templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.parameteredElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.parameteredElement
 	 */
 	def templateParameter: Option[UMLTemplateParameter[Uml]]
 
@@ -83,8 +83,8 @@ trait UMLParameterableElement[Uml <: UML]
 	 * <!-- Start of user code doc for actual_templateParameterSubstitution -->
    * <!-- End of user code doc for actual_templateParameterSubstitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.actual
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.actual
 	 */
 	def actual_templateParameterSubstitution: Set[UMLTemplateParameterSubstitution[Uml]]
 
@@ -92,8 +92,8 @@ trait UMLParameterableElement[Uml <: UML]
 	 * <!-- Start of user code doc for default_templateParameter -->
    * <!-- End of user code doc for default_templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.default
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.default
 	 */
 	def default_templateParameter: Set[UMLTemplateParameter[Uml]]
 

@@ -63,8 +63,8 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * <!-- Start of user code doc for operation -->
    * <!-- End of user code doc for operation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.operation_callOperationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.operation_callOperationAction
 	 */
 	def operation: Option[UMLOperation[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.target_callOperationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.target_callOperationAction
 	 */
 	def target: Option[UMLInputPin[Uml]]
 

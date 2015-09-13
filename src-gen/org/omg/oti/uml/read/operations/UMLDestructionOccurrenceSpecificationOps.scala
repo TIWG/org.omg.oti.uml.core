@@ -62,9 +62,15 @@ trait UMLDestructionOccurrenceSpecificationOps[Uml <: UML] { self: UMLDestructio
 	 * <!-- Start of user code doc for validate_no_occurrence_specifications_below -->
    * <!-- End of user code doc for validate_no_occurrence_specifications_below -->
 	 *
-	 * @body let o : InteractionOperand = enclosingOperand in o->notEmpty() and 
+	 * {{{
+	 * OCL Body let o : InteractionOperand = enclosingOperand in o->notEmpty() and 
+	 * }}}
+	 * {{{
 	 * let peerEvents : OrderedSet(OccurrenceSpecification) = covered.events->select(enclosingOperand = o)
+	 * }}}
+	 * {{{
 	 * in peerEvents->last() = self
+	 * }}}
 	 */
 	def validate_no_occurrence_specifications_below: Boolean = {
 		// Start of user code for "no_occurrence_specifications_below"

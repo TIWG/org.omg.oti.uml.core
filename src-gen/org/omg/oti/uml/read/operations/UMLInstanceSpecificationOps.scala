@@ -62,8 +62,8 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * <!-- Start of user code doc for slot -->
    * <!-- End of user code doc for slot -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSlot.owningInstance
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSlot.owningInstance
 	 */
 	def slot: Set[UMLSlot[Uml]] = ownedElement.selectByKindOf { case x: UMLSlot[Uml] => x }
 
@@ -73,7 +73,9 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * <!-- Start of user code doc for validate_defining_feature -->
    * <!-- End of user code doc for validate_defining_feature -->
 	 *
-	 * @body slot->forAll(s | classifier->exists (c | c.allSlottableFeatures()->includes (s.definingFeature)))
+	 * {{{
+	 * OCL Body slot->forAll(s | classifier->exists (c | c.allSlottableFeatures()->includes (s.definingFeature)))
+	 * }}}
 	 */
 	def validate_defining_feature: Boolean = {
 		// Start of user code for "defining_feature"
@@ -87,7 +89,9 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * <!-- Start of user code doc for validate_deployment_artifact -->
    * <!-- End of user code doc for validate_deployment_artifact -->
 	 *
-	 * @body deploymentForArtifact->notEmpty() implies classifier->exists(oclIsKindOf(Artifact))
+	 * {{{
+	 * OCL Body deploymentForArtifact->notEmpty() implies classifier->exists(oclIsKindOf(Artifact))
+	 * }}}
 	 */
 	def validate_deployment_artifact: Boolean = {
 		// Start of user code for "deployment_artifact"
@@ -101,7 +105,9 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * <!-- Start of user code doc for validate_deployment_target -->
    * <!-- End of user code doc for validate_deployment_target -->
 	 *
-	 * @body deployment->notEmpty() implies classifier->exists(node | node.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p.type = node)))
+	 * {{{
+	 * OCL Body deployment->notEmpty() implies classifier->exists(node | node.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p.type = node)))
+	 * }}}
 	 */
 	def validate_deployment_target: Boolean = {
 		// Start of user code for "deployment_target"
@@ -115,7 +121,9 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
 	 * <!-- Start of user code doc for validate_structural_feature -->
    * <!-- End of user code doc for validate_structural_feature -->
 	 *
-	 * @body classifier->forAll(c | (c.allSlottableFeatures()->forAll(f | slot->select(s | s.definingFeature = f)->size() <= 1)))
+	 * {{{
+	 * OCL Body classifier->forAll(c | (c.allSlottableFeatures()->forAll(f | slot->select(s | s.definingFeature = f)->size() <= 1)))
+	 * }}}
 	 */
 	def validate_structural_feature: Boolean = {
 		// Start of user code for "structural_feature"

@@ -63,8 +63,8 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * <!-- Start of user code doc for ownedParameterSet -->
    * <!-- End of user code doc for ownedParameterSet -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterSet.ownedParameterSet_behavioralFeature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterSet.ownedParameterSet_behavioralFeature
 	 */
 	def ownedParameterSet: Set[UMLParameterSet[Uml]] = ownedMember.selectByKindOf { case x: UMLParameterSet[Uml] => x }
 
@@ -74,8 +74,10 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedParameter->select(direction=ParameterDirectionKind::_'in' or direction=ParameterDirectionKind::inout))
+	 * }}}
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
@@ -93,12 +95,14 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * <!-- Start of user code doc for isDistinguishableFrom -->
    * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((n.oclIsKindOf(BehavioralFeature) and ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->notEmpty()) implies
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ((n.oclIsKindOf(BehavioralFeature) and ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->notEmpty()) implies
 	 *   Set{self}->including(n.oclAsType(BehavioralFeature))->isUnique(ownedParameter->collect(p|
 	 *   Tuple { name=p.name, type=p.type,effect=p.effect,direction=p.direction,isException=p.isException,
 	 *               isStream=p.isStream,isOrdered=p.isOrdered,isUnique=p.isUnique,lower=p.lower, upper=p.upper }))
 	 *   )
+	 * }}}
 	 */
 	override def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
@@ -153,8 +157,10 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedParameter->select(direction=ParameterDirectionKind::out or direction=ParameterDirectionKind::inout or direction=ParameterDirectionKind::return))
+	 * }}}
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
@@ -172,7 +178,9 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
 	 * <!-- Start of user code doc for validate_abstract_no_method -->
    * <!-- End of user code doc for validate_abstract_no_method -->
 	 *
-	 * @body isAbstract implies method->isEmpty()
+	 * {{{
+	 * OCL Body isAbstract implies method->isEmpty()
+	 * }}}
 	 */
 	def validate_abstract_no_method: Boolean = {
 		// Start of user code for "abstract_no_method"

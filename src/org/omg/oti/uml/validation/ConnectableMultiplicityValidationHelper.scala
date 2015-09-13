@@ -119,7 +119,7 @@ import MultiplicityValueValidationStatus._
  * @param status: valid, redundant or invalid
  * @param explanation: description of the validatio result
  * @param valueRepair: if invalid, an integer value to repair the model
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  *
  * @see MOF 2.5, Section 12.4 EMOF Constraints
  * [32] The values of MultiplicityElement::lowerValue and upperValue must be

@@ -64,8 +64,8 @@ trait UMLInformationFlow[Uml <: UML]
 	 * <!-- Start of user code doc for conveyed -->
    * <!-- End of user code doc for conveyed -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.conveyed_conveyingFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.conveyed_conveyingFlow
 	 */
 	def conveyed: Set[UMLClassifier[Uml]]
 
@@ -75,8 +75,8 @@ trait UMLInformationFlow[Uml <: UML]
 	 * <!-- Start of user code doc for realization -->
    * <!-- End of user code doc for realization -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRelationship.realization_abstraction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRelationship.realization_abstraction
 	 */
 	def realization: Set[UMLRelationship[Uml]]
 
@@ -86,8 +86,8 @@ trait UMLInformationFlow[Uml <: UML]
 	 * <!-- Start of user code doc for realizingActivityEdge -->
    * <!-- End of user code doc for realizingActivityEdge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.realizingActivityEdge_informationFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.realizingActivityEdge_informationFlow
 	 */
 	def realizingActivityEdge: Set[UMLActivityEdge[Uml]]
 
@@ -97,8 +97,8 @@ trait UMLInformationFlow[Uml <: UML]
 	 * <!-- Start of user code doc for realizingConnector -->
    * <!-- End of user code doc for realizingConnector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.realizingConnector_informationFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.realizingConnector_informationFlow
 	 */
 	def realizingConnector: Set[UMLConnector[Uml]]
 
@@ -108,8 +108,8 @@ trait UMLInformationFlow[Uml <: UML]
 	 * <!-- Start of user code doc for realizingMessage -->
    * <!-- End of user code doc for realizingMessage -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLMessage.realizingMessage_informationFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.realizingMessage_informationFlow
 	 */
 	def realizingMessage: Set[UMLMessage[Uml]]
 

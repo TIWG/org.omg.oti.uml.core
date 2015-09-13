@@ -60,8 +60,8 @@ trait UMLTimeIntervalOps[Uml <: UML] { self: UMLTimeInterval[Uml] =>
 	 * <!-- Start of user code doc for specification_timeConstraint -->
    * <!-- End of user code doc for specification_timeConstraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTimeConstraint.specification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeConstraint.specification
 	 */
 	def specification_timeConstraint: Option[UMLTimeConstraint[Uml]] = specification_intervalConstraint.selectByKindOf { case x: UMLTimeConstraint[Uml] => x }
 

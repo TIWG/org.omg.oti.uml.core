@@ -62,8 +62,8 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_createObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_createObjectAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -73,7 +73,9 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
    * <!-- End of user code doc for validate_classifier_not_abstract -->
 	 *
-	 * @body not classifier.isAbstract 
+	 * {{{
+	 * OCL Body not classifier.isAbstract 
+	 * }}}
 	 */
 	def validate_classifier_not_abstract: Boolean = {
 		// Start of user code for "classifier_not_abstract"
@@ -87,7 +89,9 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * <!-- Start of user code doc for validate_classifier_not_association_class -->
    * <!-- End of user code doc for validate_classifier_not_association_class -->
 	 *
-	 * @body not classifier.oclIsKindOf(AssociationClass)
+	 * {{{
+	 * OCL Body not classifier.oclIsKindOf(AssociationClass)
+	 * }}}
 	 */
 	def validate_classifier_not_association_class: Boolean = {
 		// Start of user code for "classifier_not_association_class"
@@ -101,7 +105,9 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -115,7 +121,9 @@ trait UMLCreateObjectActionOps[Uml <: UML] { self: UMLCreateObjectAction[Uml] =>
 	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
 	 *
-	 * @body result.type = classifier
+	 * {{{
+	 * OCL Body result.type = classifier
+	 * }}}
 	 */
 	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"

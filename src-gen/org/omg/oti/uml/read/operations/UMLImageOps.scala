@@ -60,8 +60,8 @@ trait UMLImageOps[Uml <: UML] { self: UMLImage[Uml] =>
 	 * <!-- Start of user code doc for icon_stereotype -->
    * <!-- End of user code doc for icon_stereotype -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStereotype.icon
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.icon
 	 */
 	def icon_stereotype: Option[UMLStereotype[Uml]] = owner.selectByKindOf { case x: UMLStereotype[Uml] => x }
 

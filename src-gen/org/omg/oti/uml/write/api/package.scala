@@ -45,6 +45,14 @@ import scala.language.implicitConversions
 import scala.util.Try
 // End of user code
 
+/**
+ * <!-- Start of user code documentation -->
+ * <a href="../../../../../../index.html" target="_top">Top</a>
+ *
+ * = OCL/MOF-like update operations for OMG UML 2.5 metamodel properties and associations =
+ *
+ * <!-- End of user code documentation -->
+ */
 package object api {
 
   // Abstraction

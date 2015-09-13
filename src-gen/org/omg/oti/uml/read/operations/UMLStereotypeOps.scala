@@ -62,8 +62,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for icon -->
    * <!-- End of user code doc for icon -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLImage.icon_stereotype
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLImage.icon_stereotype
 	 */
 	def icon: Set[UMLImage[Uml]] = ownedElement.selectByKindOf { case x: UMLImage[Uml] => x }
 
@@ -73,9 +73,11 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for profile -->
    * <!-- End of user code doc for profile -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfile.profile_stereotype
-	 * @body result = (self.containingProfile())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfile.profile_stereotype
+	 * {{{
+	 * OCL Body result = (self.containingProfile())
+	 * }}}
 	 */
 	def profile: Option[UMLProfile[Uml]] = {
 		// Start of user code for "profile"
@@ -94,8 +96,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for type_extensionEnd -->
    * <!-- End of user code doc for type_extensionEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExtensionEnd._type
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExtensionEnd._type
 	 */
 	def type_extensionEnd: Set[UMLExtensionEnd[Uml]] = type_typedElement.selectByKindOf { case x: UMLExtensionEnd[Uml] => x }
 
@@ -105,8 +107,10 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for containingProfile -->
    * <!-- End of user code doc for containingProfile -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.namespace.oclAsType(Package).containingProfile())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.namespace.oclAsType(Package).containingProfile())
+	 * }}}
 	 */
 	def containingProfile: Option[UMLProfile[Uml]] = {
 		// Start of user code for "containingProfile"
@@ -120,9 +124,15 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_associationEndOwnership -->
    * <!-- End of user code doc for validate_associationEndOwnership -->
 	 *
-	 * @body ownedAttribute
+	 * {{{
+	 * OCL Body ownedAttribute
+	 * }}}
+	 * {{{
 	 * ->select(association->notEmpty() and not association.oclIsKindOf(Extension) and not type.oclIsKindOf(Stereotype))
+	 * }}}
+	 * {{{
 	 * ->forAll(opposite.owner = association)
+	 * }}}
 	 */
 	def validate_associationEndOwnership: Boolean = {
 		// Start of user code for "associationEndOwnership"
@@ -175,7 +185,9 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_binaryAssociationsOnly -->
    * <!-- End of user code doc for validate_binaryAssociationsOnly -->
 	 *
-	 * @body ownedAttribute.association->forAll(memberEnd->size()=2)
+	 * {{{
+	 * OCL Body ownedAttribute.association->forAll(memberEnd->size()=2)
+	 * }}}
 	 */
 	def validate_binaryAssociationsOnly: Boolean = {
 		// Start of user code for "binaryAssociationsOnly"
@@ -189,8 +201,12 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_generalize -->
    * <!-- End of user code doc for validate_generalize -->
 	 *
-	 * @body allParents()->forAll(oclIsKindOf(Stereotype)) 
+	 * {{{
+	 * OCL Body allParents()->forAll(oclIsKindOf(Stereotype)) 
+	 * }}}
+	 * {{{
 	 * and Classifier.allInstances()->forAll(c | c.allParents()->exists(oclIsKindOf(Stereotype)) implies c.oclIsKindOf(Stereotype))
+	 * }}}
 	 */
 	def validate_generalize: Boolean = {
 		// Start of user code for "generalize"

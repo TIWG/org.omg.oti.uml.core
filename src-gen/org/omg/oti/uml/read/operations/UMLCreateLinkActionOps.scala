@@ -62,8 +62,8 @@ trait UMLCreateLinkActionOps[Uml <: UML] { self: UMLCreateLinkAction[Uml] =>
 	 * <!-- Start of user code doc for endData -->
    * <!-- End of user code doc for endData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndCreationData.endData_createLinkAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndCreationData.endData_createLinkAction
 	 */
 	override def endData: Iterable[UMLLinkEndCreationData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndCreationData[Uml] => x }
 
@@ -73,7 +73,9 @@ trait UMLCreateLinkActionOps[Uml <: UML] { self: UMLCreateLinkAction[Uml] =>
 	 * <!-- Start of user code doc for validate_association_not_abstract -->
    * <!-- End of user code doc for validate_association_not_abstract -->
 	 *
-	 * @body not self.association().isAbstract
+	 * {{{
+	 * OCL Body not self.association().isAbstract
+	 * }}}
 	 */
 	def validate_association_not_abstract: Boolean = {
 		// Start of user code for "association_not_abstract"

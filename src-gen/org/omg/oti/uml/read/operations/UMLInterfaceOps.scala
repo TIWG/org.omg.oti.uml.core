@@ -62,8 +62,8 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * <!-- Start of user code doc for ownedReception -->
    * <!-- End of user code doc for ownedReception -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLReception.ownedReception_interface
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReception.ownedReception_interface
 	 */
 	def ownedReception: Set[UMLReception[Uml]] = feature.selectByKindOf { case x: UMLReception[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * <!-- Start of user code doc for protocol -->
    * <!-- End of user code doc for protocol -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProtocolStateMachine.protocol_interface
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolStateMachine.protocol_interface
 	 */
 	def protocol: Option[UMLProtocolStateMachine[Uml]] = ownedMember.selectByKindOf { case x: UMLProtocolStateMachine[Uml] => x } headOption
 
@@ -84,7 +84,9 @@ trait UMLInterfaceOps[Uml <: UML] { self: UMLInterface[Uml] =>
 	 * <!-- Start of user code doc for validate_visibility -->
    * <!-- End of user code doc for validate_visibility -->
 	 *
-	 * @body feature->forAll(visibility = VisibilityKind::public)
+	 * {{{
+	 * OCL Body feature->forAll(visibility = VisibilityKind::public)
+	 * }}}
 	 */
 	def validate_visibility: Boolean = {
 		// Start of user code for "visibility"

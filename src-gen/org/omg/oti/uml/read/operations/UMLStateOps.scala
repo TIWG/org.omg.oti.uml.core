@@ -62,8 +62,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for connection -->
    * <!-- End of user code doc for connection -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectionPointReference.state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectionPointReference.state
 	 */
 	def connection: Set[UMLConnectionPointReference[Uml]] = ownedMember.selectByKindOf { case x: UMLConnectionPointReference[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for connectionPoint -->
    * <!-- End of user code doc for connectionPoint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPseudostate.state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPseudostate.state
 	 */
 	def connectionPoint: Set[UMLPseudostate[Uml]] = ownedMember.selectByKindOf { case x: UMLPseudostate[Uml] => x }
 
@@ -84,8 +84,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for deferrableTrigger -->
    * <!-- End of user code doc for deferrableTrigger -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.deferrableTrigger_state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.deferrableTrigger_state
 	 */
 	def deferrableTrigger: Set[UMLTrigger[Uml]] = ownedElement.selectByKindOf { case x: UMLTrigger[Uml] => x }
 
@@ -95,8 +95,10 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isComposite -->
    * <!-- End of user code doc for isComposite -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (region->notEmpty())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (region->notEmpty())
+	 * }}}
 	 */
 	def isComposite: Boolean = {
 		// Start of user code for "isComposite"
@@ -110,8 +112,10 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isOrthogonal -->
    * <!-- End of user code doc for isOrthogonal -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (region->size () > 1)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (region->size () > 1)
+	 * }}}
 	 */
 	def isOrthogonal: Boolean = {
 		// Start of user code for "isOrthogonal"
@@ -125,8 +129,10 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isSimple -->
    * <!-- End of user code doc for isSimple -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = ((region->isEmpty()) and not isSubmachineState())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ((region->isEmpty()) and not isSubmachineState())
+	 * }}}
 	 */
 	def isSimple: Boolean = {
 		// Start of user code for "isSimple"
@@ -140,8 +146,10 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isSubmachineState -->
    * <!-- End of user code doc for isSubmachineState -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (submachine <> null)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (submachine <> null)
+	 * }}}
 	 */
 	def isSubmachineState: Boolean = {
 		// Start of user code for "isSubmachineState"
@@ -155,8 +163,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for redefinedState -->
    * <!-- End of user code doc for redefinedState -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.redefinedState_state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.redefinedState_state
 	 */
 	def redefinedState: Option[UMLState[Uml]] = redefinedElement.selectByKindOf { case x: UMLState[Uml] => x } headOption
 
@@ -166,14 +174,16 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext -->
    * <!-- End of user code doc for redefinitionContext -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_state
-	 * @body result = (let sm : StateMachine = containingStateMachine() in
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_state
+	 * {{{
+	 * OCL Body result = (let sm : StateMachine = containingStateMachine() in
 	 * if sm._'context' = null or sm.general->notEmpty() then
 	 *   sm
 	 * else
 	 *   sm._'context'
 	 * endif)
+	 * }}}
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
 		// Start of user code for "redefinitionContext"
@@ -187,8 +197,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for region -->
    * <!-- End of user code doc for region -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.state
 	 */
 	def region: Set[UMLRegion[Uml]] = ownedMember.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -196,8 +206,8 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for redefinedState_state -->
    * <!-- End of user code doc for redefinedState_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.redefinedState
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.redefinedState
 	 */
 	def redefinedState_state: Set[UMLState[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -207,8 +217,10 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for containingStateMachine -->
    * <!-- End of user code doc for containingStateMachine -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (container.containingStateMachine())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (container.containingStateMachine())
+	 * }}}
 	 */
 	override def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
@@ -222,9 +234,11 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
 	 * true)
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -238,14 +252,16 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for isRedefinitionContextValid -->
    * <!-- End of user code doc for isRedefinitionContextValid -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if redefinedElement.oclIsKindOf(State) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if redefinedElement.oclIsKindOf(State) then
 	 *   let redefinedState : State = redefinedElement.oclAsType(State) in
 	 *     container.redefinedElement.oclAsType(Region)->exists(r:Region |
 	 *       r.subvertex->includes(redefinedState))
 	 * else
 	 *   false
 	 * endif)
+	 * }}}
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isRedefinitionContextValid"
@@ -259,7 +275,9 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for validate_composite_states -->
    * <!-- End of user code doc for validate_composite_states -->
 	 *
-	 * @body connectionPoint->notEmpty() implies isComposite
+	 * {{{
+	 * OCL Body connectionPoint->notEmpty() implies isComposite
+	 * }}}
 	 */
 	def validate_composite_states: Boolean = {
 		// Start of user code for "composite_states"
@@ -273,9 +291,15 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for validate_destinations_or_sources_of_transitions -->
    * <!-- End of user code doc for validate_destinations_or_sources_of_transitions -->
 	 *
-	 * @body self.isSubmachineState implies (self.connection->forAll (cp |
+	 * {{{
+	 * OCL Body self.isSubmachineState implies (self.connection->forAll (cp |
+	 * }}}
+	 * {{{
 	 *   cp.entry->forAll (ps | ps.stateMachine = self.submachine) and
+	 * }}}
+	 * {{{
 	 *   cp.exit->forAll (ps | ps.stateMachine = self.submachine)))
+	 * }}}
 	 */
 	def validate_destinations_or_sources_of_transitions: Boolean = {
 		// Start of user code for "destinations_or_sources_of_transitions"
@@ -289,7 +313,9 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for validate_entry_or_exit -->
    * <!-- End of user code doc for validate_entry_or_exit -->
 	 *
-	 * @body connectionPoint->forAll(kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
+	 * {{{
+	 * OCL Body connectionPoint->forAll(kind = PseudostateKind::entryPoint or kind = PseudostateKind::exitPoint)
+	 * }}}
 	 */
 	def validate_entry_or_exit: Boolean = {
 		// Start of user code for "entry_or_exit"
@@ -303,7 +329,9 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for validate_submachine_or_regions -->
    * <!-- End of user code doc for validate_submachine_or_regions -->
 	 *
-	 * @body isComposite implies not isSubmachineState
+	 * {{{
+	 * OCL Body isComposite implies not isSubmachineState
+	 * }}}
 	 */
 	def validate_submachine_or_regions: Boolean = {
 		// Start of user code for "submachine_or_regions"
@@ -317,7 +345,9 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 * <!-- Start of user code doc for validate_submachine_states -->
    * <!-- End of user code doc for validate_submachine_states -->
 	 *
-	 * @body isSubmachineState implies connection->notEmpty( )
+	 * {{{
+	 * OCL Body isSubmachineState implies connection->notEmpty( )
+	 * }}}
 	 */
 	def validate_submachine_states: Boolean = {
 		// Start of user code for "submachine_states"

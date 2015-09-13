@@ -62,7 +62,9 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	 * <!-- Start of user code doc for validate_generalization_same_classifier -->
    * <!-- End of user code doc for validate_generalization_same_classifier -->
 	 *
-	 * @body generalization->collect(general)->asSet()->size() <= 1
+	 * {{{
+	 * OCL Body generalization->collect(general)->asSet()->size() <= 1
+	 * }}}
 	 */
 	def validate_generalization_same_classifier: Boolean = {
 		// Start of user code for "generalization_same_classifier"
@@ -76,9 +78,15 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	 * <!-- Start of user code doc for validate_maps_to_generalization_set -->
    * <!-- End of user code doc for validate_maps_to_generalization_set -->
 	 *
-	 * @body powertype <> null implies generalization->forAll( gen | 
+	 * {{{
+	 * OCL Body powertype <> null implies generalization->forAll( gen | 
+	 * }}}
+	 * {{{
 	 *     not (gen.general = powertype) and not gen.general.allParents()->includes(powertype) and not (gen.specific = powertype) and not powertype.allParents()->includes(gen.specific)
+	 * }}}
+	 * {{{
 	 *   )
+	 * }}}
 	 */
 	def validate_maps_to_generalization_set: Boolean = {
 		// Start of user code for "maps_to_generalization_set"

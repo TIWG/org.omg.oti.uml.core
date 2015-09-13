@@ -65,7 +65,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for isReadOnly -->
    * <!-- End of user code doc for isReadOnly -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isReadOnly: Boolean
 
@@ -73,8 +73,8 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for definingFeature_slot -->
    * <!-- End of user code doc for definingFeature_slot -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLSlot.definingFeature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSlot.definingFeature
 	 */
 	def definingFeature_slot: Set[UMLSlot[Uml]]
 
@@ -82,8 +82,8 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * <!-- Start of user code doc for structuralFeature_structuralFeatureAction -->
    * <!-- End of user code doc for structuralFeature_structuralFeatureAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuralFeatureAction.structuralFeature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeatureAction.structuralFeature
 	 */
 	def structuralFeature_structuralFeatureAction: Set[UMLStructuralFeatureAction[Uml]]
 

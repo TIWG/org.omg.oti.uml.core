@@ -63,8 +63,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for _class -->
    * <!-- End of user code doc for _class -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClass.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClass.ownedAttribute
 	 */
 	def _class: Option[UMLClass[Uml]] = namespace.selectByKindOf { case x: UMLClass[Uml] => x }
 
@@ -74,8 +74,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for association -->
    * <!-- End of user code doc for association -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.memberEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.memberEnd
 	 */
 	def association: Option[UMLAssociation[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLAssociation[Uml] => x } headOption
 
@@ -85,8 +85,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for associationEnd -->
    * <!-- End of user code doc for associationEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.qualifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.qualifier
 	 */
 	def associationEnd: Option[UMLProperty[Uml]] = owner.selectByKindOf { case x: UMLProperty[Uml] => x }
 
@@ -96,8 +96,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for datatype -->
    * <!-- End of user code doc for datatype -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDataType.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDataType.ownedAttribute
 	 */
 	def datatype: Option[UMLDataType[Uml]] = namespace.selectByKindOf { case x: UMLDataType[Uml] => x }
 
@@ -107,8 +107,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for interface -->
    * <!-- End of user code doc for interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.ownedAttribute
 	 */
 	def interface: Option[UMLInterface[Uml]] = namespace.selectByKindOf { case x: UMLInterface[Uml] => x }
 
@@ -118,8 +118,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for isComposite -->
    * <!-- End of user code doc for isComposite -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @body result = (aggregation = AggregationKind::composite)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (aggregation = AggregationKind::composite)
+	 * }}}
 	 */
 	def isComposite: Boolean = {
 		// Start of user code for "isComposite"
@@ -133,14 +135,16 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for opposite -->
    * <!-- End of user code doc for opposite -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.opposite_property
-	 * @body result = (if association <> null and association.memberEnd->size() = 2
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.opposite_property
+	 * {{{
+	 * OCL Body result = (if association <> null and association.memberEnd->size() = 2
 	 * then
 	 *     association.memberEnd->any(e | e <> self)
 	 * else
 	 *     null
 	 * endif)
+	 * }}}
 	 */
 	def opposite: Option[UMLProperty[Uml]] = {
 		// Start of user code for "opposite"
@@ -159,8 +163,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for owningAssociation -->
    * <!-- End of user code doc for owningAssociation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.ownedEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.ownedEnd
 	 */
 	def owningAssociation: Option[UMLAssociation[Uml]] = featuringClassifier.selectByKindOf { case x: UMLAssociation[Uml] => x }
 
@@ -170,8 +174,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for redefinedProperty -->
    * <!-- End of user code doc for redefinedProperty -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.redefinedProperty_property
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.redefinedProperty_property
 	 */
 	def redefinedProperty: Set[UMLProperty[Uml]] = redefinedElement.selectByKindOf { case x: UMLProperty[Uml] => x }
 
@@ -179,8 +183,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for ownedAttribute_artifact -->
    * <!-- End of user code doc for ownedAttribute_artifact -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLArtifact.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.ownedAttribute
 	 */
 	def ownedAttribute_artifact: Option[UMLArtifact[Uml]] = namespace.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
@@ -188,8 +192,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for ownedAttribute_owningSignal -->
    * <!-- End of user code doc for ownedAttribute_owningSignal -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLSignal.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSignal.ownedAttribute
 	 */
 	def ownedAttribute_owningSignal: Option[UMLSignal[Uml]] = namespace.selectByKindOf { case x: UMLSignal[Uml] => x }
 
@@ -197,8 +201,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for ownedAttribute_structuredClassifier -->
    * <!-- End of user code doc for ownedAttribute_structuredClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredClassifier.ownedAttribute
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredClassifier.ownedAttribute
 	 */
 	def ownedAttribute_structuredClassifier: Option[UMLStructuredClassifier[Uml]] = namespace.selectByKindOf { case x: UMLStructuredClassifier[Uml] => x }
 
@@ -206,8 +210,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for redefinedProperty_property -->
    * <!-- End of user code doc for redefinedProperty_property -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.redefinedProperty
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.redefinedProperty
 	 */
 	def redefinedProperty_property: Set[UMLProperty[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLProperty[Uml] => x }
 
@@ -217,8 +221,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for isAttribute -->
    * <!-- End of user code doc for isAttribute -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (not classifier->isEmpty())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (not classifier->isEmpty())
+	 * }}}
 	 */
 	def isAttribute: Boolean = {
 		// Start of user code for "isAttribute"
@@ -232,9 +238,11 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for isCompatibleWith -->
    * <!-- End of user code doc for isCompatibleWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.oclIsKindOf(p.oclType()) and (p.oclIsKindOf(TypeElement) implies
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.oclIsKindOf(p.oclType()) and (p.oclIsKindOf(TypeElement) implies
 	 * self.type.conformsTo(p.oclAsType(TypedElement).type)))
+	 * }}}
 	 */
 	override def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean = {
 		// Start of user code for "isCompatibleWith"
@@ -248,13 +256,15 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(Property) and 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (redefiningElement.oclIsKindOf(Property) and 
 	 *   let prop : Property = redefiningElement.oclAsType(Property) in 
 	 *   (prop.type.conformsTo(self.type) and 
 	 *   ((prop.lower()->notEmpty() and self.lower()->notEmpty()) implies prop.lower() >= self.lower()) and 
 	 *   ((prop.upper()->notEmpty() and self.upper()->notEmpty()) implies prop.lower() <= self.lower()) and 
 	 *   (self.isComposite implies prop.isComposite)))
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -281,8 +291,10 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for isNavigable -->
    * <!-- End of user code doc for isNavigable -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (not classifier->isEmpty() or association.navigableOwnedEnd->includes(self))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (not classifier->isEmpty() or association.navigableOwnedEnd->includes(self))
+	 * }}}
 	 */
 	def isNavigable: Boolean = {
 		// Start of user code for "isNavigable"
@@ -301,8 +313,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for subsettingContext -->
    * <!-- End of user code doc for subsettingContext -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (if association <> null
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (if association <> null
 	 * then association.memberEnd->excluding(self)->collect(type)->asSet()
 	 * else 
 	 *   if classifier<>null
@@ -310,6 +323,7 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *   else Set{} 
 	 *   endif
 	 * endif)
+	 * }}}
 	 */
 	def subsettingContext: Set[UMLType[Uml]] = {
 		// Start of user code for "subsettingContext"
@@ -332,11 +346,21 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_binding_to_attribute -->
    * <!-- End of user code doc for validate_binding_to_attribute -->
 	 *
-	 * @body (self.isAttribute()
+	 * {{{
+	 * OCL Body (self.isAttribute()
+	 * }}}
+	 * {{{
 	 * and (templateParameterSubstitution->notEmpty())
+	 * }}}
+	 * {{{
 	 * implies (templateParameterSubstitution->forAll(ts |
+	 * }}}
+	 * {{{
 	 *     ts.formal.oclIsKindOf(Property)
+	 * }}}
+	 * {{{
 	 *     and ts.formal.oclAsType(Property).isAttribute())))
+	 * }}}
 	 */
 	def validate_binding_to_attribute: Boolean = {
 		// Start of user code for "binding_to_attribute"
@@ -350,7 +374,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_deployment_target -->
    * <!-- End of user code doc for validate_deployment_target -->
 	 *
-	 * @body deployment->notEmpty() implies owner.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p = self))
+	 * {{{
+	 * OCL Body deployment->notEmpty() implies owner.oclIsKindOf(Node) and Node.allInstances()->exists(n | n.part->exists(p | p = self))
+	 * }}}
 	 */
 	def validate_deployment_target: Boolean = {
 		// Start of user code for "deployment_target"
@@ -364,7 +390,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_derived_union_is_derived -->
    * <!-- End of user code doc for validate_derived_union_is_derived -->
 	 *
-	 * @body isDerivedUnion implies isDerived
+	 * {{{
+	 * OCL Body isDerivedUnion implies isDerived
+	 * }}}
 	 */
 	def validate_derived_union_is_derived: Boolean = {
 		// Start of user code for "derived_union_is_derived"
@@ -378,7 +406,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_derived_union_is_read_only -->
    * <!-- End of user code doc for validate_derived_union_is_read_only -->
 	 *
-	 * @body isDerivedUnion implies isReadOnly
+	 * {{{
+	 * OCL Body isDerivedUnion implies isReadOnly
+	 * }}}
 	 */
 	def validate_derived_union_is_read_only: Boolean = {
 		// Start of user code for "derived_union_is_read_only"
@@ -392,7 +422,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity_of_composite -->
    * <!-- End of user code doc for validate_multiplicity_of_composite -->
 	 *
-	 * @body isComposite and association <> null implies opposite.upper() <= 1
+	 * {{{
+	 * OCL Body isComposite and association <> null implies opposite.upper() <= 1
+	 * }}}
 	 */
 	def validate_multiplicity_of_composite: Boolean = {
 		// Start of user code for "multiplicity_of_composite"
@@ -413,7 +445,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_qualified_is_association_end -->
    * <!-- End of user code doc for validate_qualified_is_association_end -->
 	 *
-	 * @body qualifier->notEmpty() implies association->notEmpty()
+	 * {{{
+	 * OCL Body qualifier->notEmpty() implies association->notEmpty()
+	 * }}}
 	 */
 	def validate_qualified_is_association_end: Boolean = {
 		// Start of user code for "qualified_is_association_end"
@@ -427,11 +461,21 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_redefined_property_inherited -->
    * <!-- End of user code doc for validate_redefined_property_inherited -->
 	 *
-	 * @body (redefinedProperty->notEmpty()) implies
+	 * {{{
+	 * OCL Body (redefinedProperty->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 *   (redefinitionContext->notEmpty() and
+	 * }}}
+	 * {{{
 	 *       redefinedProperty->forAll(rp|
+	 * }}}
+	 * {{{
 	 *         ((redefinitionContext->collect(fc|
+	 * }}}
+	 * {{{
 	 *           fc.allParents()))->asSet())->collect(c| c.allFeatures())->asSet()->includes(rp)))
+	 * }}}
 	 */
 	def validate_redefined_property_inherited: Boolean = {
 		// Start of user code for "redefined_property_inherited"
@@ -445,7 +489,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_subsetted_property_names -->
    * <!-- End of user code doc for validate_subsetted_property_names -->
 	 *
-	 * @body subsettedProperty->forAll(sp | sp.name <> name)
+	 * {{{
+	 * OCL Body subsettedProperty->forAll(sp | sp.name <> name)
+	 * }}}
 	 */
 	def validate_subsetted_property_names: Boolean = {
 		// Start of user code for "subsetted_property_names"
@@ -459,10 +505,18 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_subsetting_context_conforms -->
    * <!-- End of user code doc for validate_subsetting_context_conforms -->
 	 *
-	 * @body subsettedProperty->notEmpty() implies
+	 * {{{
+	 * OCL Body subsettedProperty->notEmpty() implies
+	 * }}}
+	 * {{{
 	 *   (subsettingContext()->notEmpty() and subsettingContext()->forAll (sc |
+	 * }}}
+	 * {{{
 	 *     subsettedProperty->forAll(sp |
+	 * }}}
+	 * {{{
 	 *       sp.subsettingContext()->exists(c | sc.conformsTo(c)))))
+	 * }}}
 	 */
 	def validate_subsetting_context_conforms: Boolean = {
 		// Start of user code for "subsetting_context_conforms"
@@ -476,10 +530,18 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_subsetting_rules -->
    * <!-- End of user code doc for validate_subsetting_rules -->
 	 *
-	 * @body subsettedProperty->forAll(sp |
+	 * {{{
+	 * OCL Body subsettedProperty->forAll(sp |
+	 * }}}
+	 * {{{
 	 *   self.type.conformsTo(sp.type) and
+	 * }}}
+	 * {{{
 	 *     ((self.upper()->notEmpty() and sp.upper()->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 *       self.upper() <= sp.upper() ))
+	 * }}}
 	 */
 	def validate_subsetting_rules: Boolean = {
 		// Start of user code for "subsetting_rules"
@@ -493,7 +555,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 * <!-- Start of user code doc for validate_type_of_opposite_end -->
    * <!-- End of user code doc for validate_type_of_opposite_end -->
 	 *
-	 * @body (opposite->notEmpty() and owningAssociation->isEmpty()) implies classifier = opposite.type
+	 * {{{
+	 * OCL Body (opposite->notEmpty() and owningAssociation->isEmpty()) implies classifier = opposite.type
+	 * }}}
 	 */
 	def validate_type_of_opposite_end: Boolean = {
 		// Start of user code for "type_of_opposite_end"

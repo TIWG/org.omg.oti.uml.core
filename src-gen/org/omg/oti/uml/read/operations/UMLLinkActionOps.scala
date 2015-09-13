@@ -62,8 +62,8 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for endData -->
    * <!-- End of user code doc for endData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndData.endData_linkAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndData.endData_linkAction
 	 */
 	def endData: Iterable[UMLLinkEndData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndData[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for inputValue -->
    * <!-- End of user code doc for inputValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.inputValue_linkAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.inputValue_linkAction
 	 */
 	def inputValue: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
 
@@ -84,8 +84,10 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for association -->
    * <!-- End of user code doc for association -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (endData->asSequence()->first().end.association)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (endData->asSequence()->first().end.association)
+	 * }}}
 	 */
 	def association: Option[UMLAssociation[Uml]] = {
 		// Start of user code for "association"
@@ -99,7 +101,9 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for validate_not_static -->
    * <!-- End of user code doc for validate_not_static -->
 	 *
-	 * @body endData->forAll(not end.isStatic)
+	 * {{{
+	 * OCL Body endData->forAll(not end.isStatic)
+	 * }}}
 	 */
 	def validate_not_static: Boolean = {
 		// Start of user code for "not_static"
@@ -113,7 +117,9 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for validate_same_association -->
    * <!-- End of user code doc for validate_same_association -->
 	 *
-	 * @body endData.end = self.association().memberEnd->asBag()
+	 * {{{
+	 * OCL Body endData.end = self.association().memberEnd->asBag()
+	 * }}}
 	 */
 	def validate_same_association: Boolean = {
 		// Start of user code for "same_association"
@@ -127,7 +133,9 @@ trait UMLLinkActionOps[Uml <: UML] { self: UMLLinkAction[Uml] =>
 	 * <!-- Start of user code doc for validate_same_pins -->
    * <!-- End of user code doc for validate_same_pins -->
 	 *
-	 * @body inputValue->asBag()=endData.allPins()
+	 * {{{
+	 * OCL Body inputValue->asBag()=endData.allPins()
+	 * }}}
 	 */
 	def validate_same_pins: Boolean = {
 		// Start of user code for "same_pins"

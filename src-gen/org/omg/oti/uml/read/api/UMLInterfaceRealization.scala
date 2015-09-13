@@ -63,8 +63,8 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * <!-- Start of user code doc for contract -->
    * <!-- End of user code doc for contract -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.contract_interfaceRealization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.contract_interfaceRealization
 	 */
 	def contract: Option[UMLInterface[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * <!-- Start of user code doc for implementingClassifier -->
    * <!-- End of user code doc for implementingClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavioredClassifier.interfaceRealization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.interfaceRealization
 	 */
 	def implementingClassifier: Option[UMLBehavioredClassifier[Uml]]
 

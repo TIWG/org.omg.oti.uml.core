@@ -62,10 +62,12 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 * <!-- Start of user code doc for hasAllDataTypeAttributes -->
    * <!-- End of user code doc for hasAllDataTypeAttributes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (d.ownedAttribute->forAll(a |
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (d.ownedAttribute->forAll(a |
 	 *     a.type.oclIsKindOf(DataType) and
 	 *       hasAllDataTypeAttributes(a.type.oclAsType(DataType))))
+	 * }}}
 	 */
 	def hasAllDataTypeAttributes(d: Option[UMLDataType[Uml]]): Boolean = {
 		// Start of user code for "hasAllDataTypeAttributes"
@@ -79,8 +81,12 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 * <!-- Start of user code doc for validate_one_output_parameter -->
    * <!-- End of user code doc for validate_one_output_parameter -->
 	 *
-	 * @body self.ownedParameter->
+	 * {{{
+	 * OCL Body self.ownedParameter->
+	 * }}}
+	 * {{{
 	 *   select(p | p.direction = ParameterDirectionKind::out or p.direction= ParameterDirectionKind::inout or p.direction= ParameterDirectionKind::return)->size() >= 1
+	 * }}}
 	 */
 	def validate_one_output_parameter: Boolean = {
 		// Start of user code for "one_output_parameter"
@@ -94,8 +100,12 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 * <!-- Start of user code doc for validate_types_of_parameters -->
    * <!-- End of user code doc for validate_types_of_parameters -->
 	 *
-	 * @body ownedParameter->forAll(p | p.type <> null and
+	 * {{{
+	 * OCL Body ownedParameter->forAll(p | p.type <> null and
+	 * }}}
+	 * {{{
 	 *   p.type.oclIsTypeOf(DataType) and hasAllDataTypeAttributes(p.type.oclAsType(DataType)))
+	 * }}}
 	 */
 	def validate_types_of_parameters: Boolean = {
 		// Start of user code for "types_of_parameters"

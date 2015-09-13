@@ -60,8 +60,8 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 	 * <!-- Start of user code doc for deferrableTrigger_state -->
    * <!-- End of user code doc for deferrableTrigger_state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.deferrableTrigger
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.deferrableTrigger
 	 */
 	def deferrableTrigger_state: Option[UMLState[Uml]] = owner.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 	 * <!-- Start of user code doc for trigger_acceptEventAction -->
    * <!-- End of user code doc for trigger_acceptEventAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAcceptEventAction.trigger
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAcceptEventAction.trigger
 	 */
 	def trigger_acceptEventAction: Option[UMLAcceptEventAction[Uml]] = owner.selectByKindOf { case x: UMLAcceptEventAction[Uml] => x }
 
@@ -78,8 +78,8 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 	 * <!-- Start of user code doc for trigger_transition -->
    * <!-- End of user code doc for trigger_transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.trigger
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.trigger
 	 */
 	def trigger_transition: Option[UMLTransition[Uml]] = owner.selectByKindOf { case x: UMLTransition[Uml] => x }
 
@@ -89,7 +89,9 @@ trait UMLTriggerOps[Uml <: UML] { self: UMLTrigger[Uml] =>
 	 * <!-- Start of user code doc for validate_trigger_with_ports -->
    * <!-- End of user code doc for validate_trigger_with_ports -->
 	 *
-	 * @body port->notEmpty() implies event.oclIsKindOf(MessageEvent)
+	 * {{{
+	 * OCL Body port->notEmpty() implies event.oclIsKindOf(MessageEvent)
+	 * }}}
 	 */
 	def validate_trigger_with_ports: Boolean = {
 		// Start of user code for "trigger_with_ports"

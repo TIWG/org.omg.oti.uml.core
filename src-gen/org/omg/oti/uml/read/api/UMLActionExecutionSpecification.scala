@@ -63,8 +63,8 @@ trait UMLActionExecutionSpecification[Uml <: UML]
 	 * <!-- Start of user code doc for action -->
    * <!-- End of user code doc for action -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.action_actionExecutionSpecification
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.action_actionExecutionSpecification
 	 */
 	def action: Option[UMLAction[Uml]]
 

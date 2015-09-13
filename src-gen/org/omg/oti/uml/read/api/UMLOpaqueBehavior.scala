@@ -63,7 +63,7 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for body -->
    * <!-- End of user code doc for body -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
 	def body: Seq[String]
 
@@ -73,7 +73,7 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	 * <!-- Start of user code doc for language -->
    * <!-- End of user code doc for language -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
 	def language: Seq[String]
 

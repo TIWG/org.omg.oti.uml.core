@@ -111,7 +111,7 @@ import scala.util.Try
  * The 2nd paragraph above implies that an instance of such a class or association could
  * be either in the model or part of the lifecycle of applying/unapplying a profile
  *
- * @tparam Uml A tool-specific implementation of OMG UML
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 trait UMLStereotypeTagValue[Uml <: UML] {
 
@@ -159,7 +159,7 @@ trait UMLStereotypeTagValue[Uml <: UML] {
  * The value of a stereotype property that has an opposite extension end property.
  * Its value is ``extendedElement``.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait UMLStereotypeTagExtendedMetaclassPropertyElementReference[Uml <: UML]
   extends UMLStereotypeTagValue[Uml] {
@@ -183,7 +183,7 @@ trait UMLStereotypeTagExtendedMetaclassPropertyElementReference[Uml <: UML]
  * This stereotype property is not the opposite of an extension end property.
  * Its value is the collection ``tagPropertyValueElementReferences``.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait UMLStereotypeTagPropertyMetaclassElementReference[Uml <: UML]
   extends UMLStereotypeTagValue[Uml] {
@@ -206,7 +206,7 @@ trait UMLStereotypeTagPropertyMetaclassElementReference[Uml <: UML]
  * The value refers to an applied stereotype instance extending an element;
  * tagPropertyValueElementReferences is a singleton collection of that element.
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait UMLStereotypeTagStereotypeInstanceValue[Uml <: UML]
   extends UMLStereotypeTagValue[Uml] {
@@ -223,7 +223,7 @@ trait UMLStereotypeTagStereotypeInstanceValue[Uml <: UML]
  * (not Stereotype, not Extension)
  * (maybe a PrimitiveType, Enumeration, DataType, Class, Association)
  *
- * @tparam Uml A tool-specific implementation of OMG UML.
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API.
  */
 trait UMLStereotypeTagPropertyClassifierValue[Uml <: UML]
   extends UMLStereotypeTagValue[Uml] {

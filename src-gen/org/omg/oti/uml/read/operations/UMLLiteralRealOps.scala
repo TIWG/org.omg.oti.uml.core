@@ -62,8 +62,10 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 * <!-- Start of user code doc for isComputable -->
    * <!-- End of user code doc for isComputable -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (true)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
 	 */
 	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
@@ -77,8 +79,10 @@ trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 	 * <!-- Start of user code doc for realValue -->
    * <!-- End of user code doc for realValue -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (value)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (value)
+	 * }}}
 	 */
 	override def realValue: Option[Double] = {
 		// Start of user code for "realValue"

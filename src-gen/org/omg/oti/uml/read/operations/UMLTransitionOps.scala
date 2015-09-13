@@ -62,8 +62,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for container -->
    * <!-- End of user code doc for container -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.transition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.transition
 	 */
 	def container: Option[UMLRegion[Uml]] = namespace.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for effect -->
    * <!-- End of user code doc for effect -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.effect_transition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.effect_transition
 	 */
 	def effect: Option[UMLBehavior[Uml]] = ownedElement.selectByKindOf { case x: UMLBehavior[Uml] => x } headOption
 
@@ -84,8 +84,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for redefinedTransition -->
    * <!-- End of user code doc for redefinedTransition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.redefinedTransition_transition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.redefinedTransition_transition
 	 */
 	def redefinedTransition: Option[UMLTransition[Uml]] = redefinedElement.selectByKindOf { case x: UMLTransition[Uml] => x } headOption
 
@@ -95,14 +95,16 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext -->
    * <!-- End of user code doc for redefinitionContext -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_transition
-	 * @body result = (let sm : StateMachine = containingStateMachine() in
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_transition
+	 * {{{
+	 * OCL Body result = (let sm : StateMachine = containingStateMachine() in
 	 * if sm._'context' = null or sm.general->notEmpty() then
 	 *   sm
 	 * else
 	 *   sm._'context'
 	 * endif)
+	 * }}}
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
 		// Start of user code for "redefinitionContext"
@@ -116,8 +118,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for trigger -->
    * <!-- End of user code doc for trigger -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.trigger_transition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.trigger_transition
 	 */
 	def trigger: Set[UMLTrigger[Uml]] = ownedElement.selectByKindOf { case x: UMLTrigger[Uml] => x }
 
@@ -125,8 +127,8 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for redefinedTransition_transition -->
    * <!-- End of user code doc for redefinedTransition_transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.redefinedTransition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.redefinedTransition
 	 */
 	def redefinedTransition_transition: Set[UMLTransition[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLTransition[Uml] => x }
 
@@ -136,8 +138,10 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for containingStateMachine -->
    * <!-- End of user code doc for containingStateMachine -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (container.containingStateMachine())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (container.containingStateMachine())
+	 * }}}
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
@@ -151,9 +155,11 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
 	 * true)
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -167,7 +173,9 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_fork_segment_guards -->
    * <!-- End of user code doc for validate_fork_segment_guards -->
 	 *
-	 * @body (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (guard = null and trigger->isEmpty())
+	 * {{{
+	 * OCL Body (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (guard = null and trigger->isEmpty())
+	 * }}}
 	 */
 	def validate_fork_segment_guards: Boolean = {
 		// Start of user code for "fork_segment_guards"
@@ -181,7 +189,9 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_fork_segment_state -->
    * <!-- End of user code doc for validate_fork_segment_state -->
 	 *
-	 * @body (source.oclIsKindOf(Pseudostate) and  source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (target.oclIsKindOf(State))
+	 * {{{
+	 * OCL Body (source.oclIsKindOf(Pseudostate) and  source.oclAsType(Pseudostate).kind = PseudostateKind::fork) implies (target.oclIsKindOf(State))
+	 * }}}
 	 */
 	def validate_fork_segment_state: Boolean = {
 		// Start of user code for "fork_segment_state"
@@ -195,8 +205,12 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_initial_transition -->
    * <!-- End of user code doc for validate_initial_transition -->
 	 *
-	 * @body (source.oclIsKindOf(Pseudostate) and container.stateMachine->notEmpty()) implies
+	 * {{{
+	 * OCL Body (source.oclIsKindOf(Pseudostate) and container.stateMachine->notEmpty()) implies
+	 * }}}
+	 * {{{
 	 * 	trigger->isEmpty()
+	 * }}}
 	 */
 	def validate_initial_transition: Boolean = {
 		// Start of user code for "initial_transition"
@@ -210,7 +224,9 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_join_segment_guards -->
    * <!-- End of user code doc for validate_join_segment_guards -->
 	 *
-	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (guard = null and trigger->isEmpty())
+	 * {{{
+	 * OCL Body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (guard = null and trigger->isEmpty())
+	 * }}}
 	 */
 	def validate_join_segment_guards: Boolean = {
 		// Start of user code for "join_segment_guards"
@@ -224,7 +240,9 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_join_segment_state -->
    * <!-- End of user code doc for validate_join_segment_state -->
 	 *
-	 * @body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (source.oclIsKindOf(State))
+	 * {{{
+	 * OCL Body (target.oclIsKindOf(Pseudostate) and target.oclAsType(Pseudostate).kind = PseudostateKind::join) implies (source.oclIsKindOf(State))
+	 * }}}
 	 */
 	def validate_join_segment_state: Boolean = {
 		// Start of user code for "join_segment_state"
@@ -238,7 +256,9 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_outgoing_pseudostates -->
    * <!-- End of user code doc for validate_outgoing_pseudostates -->
 	 *
-	 * @body source.oclIsKindOf(Pseudostate) and (source.oclAsType(Pseudostate).kind <> PseudostateKind::initial) implies trigger->isEmpty()
+	 * {{{
+	 * OCL Body source.oclIsKindOf(Pseudostate) and (source.oclAsType(Pseudostate).kind <> PseudostateKind::initial) implies trigger->isEmpty()
+	 * }}}
 	 */
 	def validate_outgoing_pseudostates: Boolean = {
 		// Start of user code for "outgoing_pseudostates"
@@ -252,8 +272,12 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_state_is_external -->
    * <!-- End of user code doc for validate_state_is_external -->
 	 *
-	 * @body (kind = TransitionKind::external) implies
+	 * {{{
+	 * OCL Body (kind = TransitionKind::external) implies
+	 * }}}
+	 * {{{
 	 * 	not (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint)
+	 * }}}
 	 */
 	def validate_state_is_external: Boolean = {
 		// Start of user code for "state_is_external"
@@ -267,8 +291,12 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_state_is_internal -->
    * <!-- End of user code doc for validate_state_is_internal -->
 	 *
-	 * @body (kind = TransitionKind::internal) implies
+	 * {{{
+	 * OCL Body (kind = TransitionKind::internal) implies
+	 * }}}
+	 * {{{
 	 * 		(source.oclIsKindOf (State) and source = target)
+	 * }}}
 	 */
 	def validate_state_is_internal: Boolean = {
 		// Start of user code for "state_is_internal"
@@ -282,9 +310,15 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 * <!-- Start of user code doc for validate_state_is_local -->
    * <!-- End of user code doc for validate_state_is_local -->
 	 *
-	 * @body (kind = TransitionKind::local) implies
+	 * {{{
+	 * OCL Body (kind = TransitionKind::local) implies
+	 * }}}
+	 * {{{
 	 * 		((source.oclIsKindOf (State) and source.oclAsType(State).isComposite) or
+	 * }}}
+	 * {{{
 	 * 		(source.oclIsKindOf (Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint))
+	 * }}}
 	 */
 	def validate_state_is_local: Boolean = {
 		// Start of user code for "state_is_local"

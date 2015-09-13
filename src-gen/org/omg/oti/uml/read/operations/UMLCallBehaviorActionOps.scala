@@ -63,8 +63,10 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (behavior.inputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (behavior.inputParameters())
+	 * }}}
 	 */
 	override def inputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "inputParameters"
@@ -83,8 +85,10 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (behavior.outputParameters())
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (behavior.outputParameters())
+	 * }}}
 	 */
 	override def outputParameters: Seq[UMLParameter[Uml]] = {
 		// Start of user code for "outputParameters"
@@ -103,7 +107,9 @@ trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 	 * <!-- Start of user code doc for validate_no_onport -->
    * <!-- End of user code doc for validate_no_onport -->
 	 *
-	 * @body onPort=null
+	 * {{{
+	 * OCL Body onPort=null
+	 * }}}
 	 */
 	def validate_no_onport: Boolean = {
 		// Start of user code for "no_onport"

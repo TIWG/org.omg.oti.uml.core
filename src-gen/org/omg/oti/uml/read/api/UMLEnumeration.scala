@@ -63,8 +63,8 @@ trait UMLEnumeration[Uml <: UML]
 	 * <!-- Start of user code doc for ownedLiteral -->
    * <!-- End of user code doc for ownedLiteral -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLEnumerationLiteral.enumeration
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumerationLiteral.enumeration
 	 */
 	def ownedLiteral: Seq[UMLEnumerationLiteral[Uml]]
 

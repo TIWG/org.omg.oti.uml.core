@@ -63,8 +63,8 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * <!-- Start of user code doc for behavior -->
    * <!-- End of user code doc for behavior -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.behavior_callBehaviorAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.behavior_callBehaviorAction
 	 */
 	def behavior: Option[UMLBehavior[Uml]]
 

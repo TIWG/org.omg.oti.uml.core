@@ -63,8 +63,8 @@ trait UMLActivityParameterNode[Uml <: UML]
 	 * <!-- Start of user code doc for parameter -->
    * <!-- End of user code doc for parameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameter.parameter_activityParameterNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.parameter_activityParameterNode
 	 */
 	def parameter: Option[UMLParameter[Uml]]
 

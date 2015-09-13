@@ -45,6 +45,37 @@ import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.language.postfixOps
 
+/**
+ * Corresponds to OMG XMI 2.5.1 Document combined with OMG MOF 2.5 Extent.
+ *
+ * The OMG XMI specification defines the mapping of MOF models to XMI Documents.
+ *
+ * Although the OMG XMI specification refers to several important characteristics of XMI Documents;
+ * there is surprisingly no abstract syntax specification for what an XMI Document is.
+ *
+ * Although the OMG XMI specification defines the mapping between MOF models and XMI Documents,
+ * the specification does not address the practical aspects of managing such mappings.
+ * In principle, the OMG XMI specification allows multiple mappings from the same MOF model to multiple XMI Documents.
+ * In practice, most implementations of OMG UML 2.5 assume a 1-1 mapping between a MOF model and an XMI Document.
+ *
+ * The OTI concept of XMI Document reflects a 1-1 mapping between a MOF model and an XMI Document.
+ * The MOF model associated to an XMI Document is specified in terms of the root element `scope`.
+ * To simplify matters of inter-document linking (see OMG XMI 2.5.1, section 7.10), an OTI XMI Document
+ * includes a `documentURL` to specify the external URI where the document is published and the `uri` of the root element.
+ *
+ * Notes:
+ *   - OMG XMI 2.5.1, formal/15-06-07 lacks a definition of XMI Document and of XMI Schema
+ *   - OMG XMI 2.5, ptc/14-09-21, Section 4 defines the following:
+ *
+ *      > [XMIDocument] A document produced by the XMI production rules defined in this International Standard.
+ *      > [XMISchema] A schema produced by the XMI production rules defined in this International Standard.
+ *
+ * @todo Consider restricting the type of `scope` from UMLElement to UMLPackage.
+ *       In principle, the OMG XMI specification allows an arbitrary element to be the root of an XMI Document.
+ *       However, it is unclear how this works... In practice, the OTI effectively requires the root to be a UMLPackage.
+ *
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ */
 sealed abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   val uri: URI
@@ -70,6 +101,14 @@ sealed abstract trait Document[Uml <: UML] {
   def extent: Set[UMLElement[Uml]]
 }
 
+/**
+ * A kind of Document corresponding to a tool-specific implementation of an OMG-published XMI Document
+ * and whose extent may be partially represented.
+ *
+ * (e.g., [[http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi OMG UML 2.5's PrimitiveTypes library]])
+ *
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ */
 trait BuiltInDocument[Uml <: UML] extends Document[Uml] {
   /**
    * The extent of a built-in document, which is a tool-specific representation of a published document.
@@ -79,5 +118,10 @@ trait BuiltInDocument[Uml <: UML] extends Document[Uml] {
 
   override def extent = builtInExtent
 }
-    
+
+/**
+ * A kind of Document whose extent is completely represented.
+ *
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ */
 trait SerializableDocument[Uml <: UML] extends Document[Uml] 

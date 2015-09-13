@@ -62,7 +62,9 @@ trait UMLExpansionNodeOps[Uml <: UML] { self: UMLExpansionNode[Uml] =>
 	 * <!-- Start of user code doc for validate_region_as_input_or_output -->
    * <!-- End of user code doc for validate_region_as_input_or_output -->
 	 *
-	 * @body regionAsInput->notEmpty() xor regionAsOutput->notEmpty()
+	 * {{{
+	 * OCL Body regionAsInput->notEmpty() xor regionAsOutput->notEmpty()
+	 * }}}
 	 */
 	def validate_region_as_input_or_output: Boolean = {
 		// Start of user code for "region_as_input_or_output"

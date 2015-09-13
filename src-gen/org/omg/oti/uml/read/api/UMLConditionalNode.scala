@@ -63,7 +63,7 @@ trait UMLConditionalNode[Uml <: UML]
 	 * <!-- Start of user code doc for isAssured -->
    * <!-- End of user code doc for isAssured -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isAssured: Boolean
 
@@ -73,7 +73,7 @@ trait UMLConditionalNode[Uml <: UML]
 	 * <!-- Start of user code doc for isDeterminate -->
    * <!-- End of user code doc for isDeterminate -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDeterminate: Boolean
 
@@ -83,8 +83,8 @@ trait UMLConditionalNode[Uml <: UML]
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_conditionalNode
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_conditionalNode
 	 */
 	def result: Seq[UMLOutputPin[Uml]]
 

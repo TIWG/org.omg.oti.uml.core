@@ -62,12 +62,24 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * <!-- Start of user code doc for validate_input_output_parameter -->
    * <!-- End of user code doc for validate_input_output_parameter -->
 	 *
-	 * @body selection<>null implies
+	 * {{{
+	 * OCL Body selection<>null implies
+	 * }}}
+	 * {{{
 	 * 	selection.inputParameters()->size()=1 and
+	 * }}}
+	 * {{{
 	 * 	selection.inputParameters()->forAll(p | not p.isUnique and p.is(0,*) and self.type.conformsTo(p.type)) and
+	 * }}}
+	 * {{{
 	 * 	selection.outputParameters()->size()=1 and
+	 * }}}
+	 * {{{
 	 * 		selection.inputParameters()->forAll(p | self.type.conformsTo(p.type))
+	 * }}}
+	 * {{{
 	 * 	
+	 * }}}
 	 */
 	def validate_input_output_parameter: Boolean = {
 		// Start of user code for "input_output_parameter"
@@ -81,7 +93,9 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * <!-- Start of user code doc for validate_object_flow_edges -->
    * <!-- End of user code doc for validate_object_flow_edges -->
 	 *
-	 * @body (not isControlType) implies incoming->union(outgoing)->forAll(oclIsKindOf(ObjectFlow))
+	 * {{{
+	 * OCL Body (not isControlType) implies incoming->union(outgoing)->forAll(oclIsKindOf(ObjectFlow))
+	 * }}}
 	 */
 	def validate_object_flow_edges: Boolean = {
 		// Start of user code for "object_flow_edges"
@@ -95,7 +109,9 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 * <!-- Start of user code doc for validate_selection_behavior -->
    * <!-- End of user code doc for validate_selection_behavior -->
 	 *
-	 * @body (selection<>null) = (ordering=ObjectNodeOrderingKind::ordered)
+	 * {{{
+	 * OCL Body (selection<>null) = (ordering=ObjectNodeOrderingKind::ordered)
+	 * }}}
 	 */
 	def validate_selection_behavior: Boolean = {
 		// Start of user code for "selection_behavior"

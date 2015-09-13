@@ -62,8 +62,8 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_clearAssociationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_clearAssociationAction
 	 */
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,7 +73,9 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	 * <!-- Start of user code doc for validate_multiplicity -->
    * <!-- End of user code doc for validate_multiplicity -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity: Boolean = {
 		// Start of user code for "multiplicity"
@@ -87,7 +89,9 @@ trait UMLClearAssociationActionOps[Uml <: UML] { self: UMLClearAssociationAction
 	 * <!-- Start of user code doc for validate_same_type -->
    * <!-- End of user code doc for validate_same_type -->
 	 *
-	 * @body association.memberEnd->exists(self.object.type.conformsTo(type))
+	 * {{{
+	 * OCL Body association.memberEnd->exists(self.object.type.conformsTo(type))
+	 * }}}
 	 */
 	def validate_same_type: Boolean = {
 		// Start of user code for "same_type"

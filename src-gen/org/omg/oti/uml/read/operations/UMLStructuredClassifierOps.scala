@@ -62,8 +62,8 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 * <!-- Start of user code doc for ownedConnector -->
    * <!-- End of user code doc for ownedConnector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector.ownedConnector_structuredClassifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.ownedConnector_structuredClassifier
 	 */
 	def ownedConnector: Set[UMLConnector[Uml]] = feature.selectByKindOf { case x: UMLConnector[Uml] => x }
 
@@ -73,9 +73,11 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 * <!-- Start of user code doc for part -->
    * <!-- End of user code doc for part -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.part_structuredClassifier
-	 * @body result = (ownedAttribute->select(isComposite))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.part_structuredClassifier
+	 * {{{
+	 * OCL Body result = (ownedAttribute->select(isComposite))
+	 * }}}
 	 */
 	def part: Set[UMLProperty[Uml]] = {
 		// Start of user code for "part"
@@ -89,8 +91,10 @@ trait UMLStructuredClassifierOps[Uml <: UML] { self: UMLStructuredClassifier[Uml
 	 * <!-- Start of user code doc for allRoles -->
    * <!-- End of user code doc for allRoles -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (allFeatures()->select(oclIsKindOf(ConnectableElement))->collect(oclAsType(ConnectableElement))->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (allFeatures()->select(oclIsKindOf(ConnectableElement))->collect(oclAsType(ConnectableElement))->asSet())
+	 * }}}
 	 */
 	def allRoles: Set[UMLConnectableElement[Uml]] = {
 		// Start of user code for "allRoles"

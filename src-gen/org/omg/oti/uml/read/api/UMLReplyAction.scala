@@ -63,8 +63,8 @@ trait UMLReplyAction[Uml <: UML]
 	 * <!-- Start of user code doc for replyToCall -->
    * <!-- End of user code doc for replyToCall -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTrigger.replyToCall_replyAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTrigger.replyToCall_replyAction
 	 */
 	def replyToCall: Option[UMLTrigger[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLReplyAction[Uml <: UML]
 	 * <!-- Start of user code doc for replyValue -->
    * <!-- End of user code doc for replyValue -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.replyValue_replyAction
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.replyValue_replyAction
 	 */
 	def replyValue: Seq[UMLInputPin[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLReplyAction[Uml <: UML]
 	 * <!-- Start of user code doc for returnInformation -->
    * <!-- End of user code doc for returnInformation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.returnInformation_replyAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.returnInformation_replyAction
 	 */
 	def returnInformation: Option[UMLInputPin[Uml]]
 

@@ -62,7 +62,9 @@ trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment
 	 * <!-- Start of user code doc for validate_consider_or_ignore -->
    * <!-- End of user code doc for validate_consider_or_ignore -->
 	 *
-	 * @body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
+	 * {{{
+	 * OCL Body (interactionOperator =  InteractionOperatorKind::consider) or (interactionOperator =  InteractionOperatorKind::ignore)
+	 * }}}
 	 */
 	def validate_consider_or_ignore: Boolean = {
 		// Start of user code for "consider_or_ignore"
@@ -76,7 +78,9 @@ trait UMLConsiderIgnoreFragmentOps[Uml <: UML] { self: UMLConsiderIgnoreFragment
 	 * <!-- Start of user code doc for validate__type -->
    * <!-- End of user code doc for validate__type -->
 	 *
-	 * @body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
+	 * {{{
+	 * OCL Body message->forAll(m | m.oclIsKindOf(Operation) or m.oclIsKindOf(Signal))
+	 * }}}
 	 */
 	def validate__type: Boolean = {
 		// Start of user code for "_type"

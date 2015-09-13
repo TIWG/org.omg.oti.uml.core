@@ -61,8 +61,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for bodyPart_loopNode -->
    * <!-- End of user code doc for bodyPart_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.bodyPart
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.bodyPart
 	 */
 	def bodyPart_loopNode: Option[UMLLoopNode[Uml]]
 
@@ -70,8 +70,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for body_clause -->
    * <!-- End of user code doc for body_clause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.body
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.body
 	 */
 	def body_clause: Option[UMLClause[Uml]]
 
@@ -79,8 +79,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for handlerBody_exceptionHandler -->
    * <!-- End of user code doc for handlerBody_exceptionHandler -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExceptionHandler.handlerBody
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.handlerBody
 	 */
 	def handlerBody_exceptionHandler: Set[UMLExceptionHandler[Uml]]
 
@@ -88,8 +88,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for setupPart_loopNode -->
    * <!-- End of user code doc for setupPart_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.setupPart
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.setupPart
 	 */
 	def setupPart_loopNode: Option[UMLLoopNode[Uml]]
 
@@ -97,8 +97,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for test_clause -->
    * <!-- End of user code doc for test_clause -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClause.test
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.test
 	 */
 	def test_clause: Option[UMLClause[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLExecutableNode[Uml <: UML]
 	 * <!-- Start of user code doc for test_loopNode -->
    * <!-- End of user code doc for test_loopNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLoopNode.test
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.test
 	 */
 	def test_loopNode: Option[UMLLoopNode[Uml]]
 

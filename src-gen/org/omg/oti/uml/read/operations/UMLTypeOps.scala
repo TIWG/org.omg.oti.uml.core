@@ -60,8 +60,8 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	 * <!-- Start of user code doc for endType_association -->
    * <!-- End of user code doc for endType_association -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.endType
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.endType
 	 */
 	def endType_association: Set[UMLAssociation[Uml]] = relatedElement_relationship.selectByKindOf { case x: UMLAssociation[Uml] => x }
 
@@ -69,8 +69,8 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	 * <!-- Start of user code doc for raisedException_operation -->
    * <!-- End of user code doc for raisedException_operation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.raisedException
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.raisedException
 	 */
 	def raisedException_operation: Set[UMLOperation[Uml]] = raisedException_behavioralFeature.selectByKindOf { case x: UMLOperation[Uml] => x }
 
@@ -80,8 +80,10 @@ trait UMLTypeOps[Uml <: UML] { self: UMLType[Uml] =>
 	 * <!-- Start of user code doc for conformsTo -->
    * <!-- End of user code doc for conformsTo -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	def conformsTo(other: Option[UMLType[Uml]]): Boolean = {
 		// Start of user code for "conformsTo"

@@ -63,8 +63,8 @@ trait UMLRelationship[Uml <: UML]
 	 * <!-- Start of user code doc for relatedElement -->
    * <!-- End of user code doc for relatedElement -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.relatedElement_relationship
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.relatedElement_relationship
 	 */
 	def relatedElement: Set[UMLElement[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLRelationship[Uml <: UML]
 	 * <!-- Start of user code doc for realization_abstraction -->
    * <!-- End of user code doc for realization_abstraction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.realization
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realization
 	 */
 	def realization_abstraction: Set[UMLInformationFlow[Uml]]
 

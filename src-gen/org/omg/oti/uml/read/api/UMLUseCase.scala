@@ -63,8 +63,8 @@ trait UMLUseCase[Uml <: UML]
 	 * <!-- Start of user code doc for subject -->
    * <!-- End of user code doc for subject -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.useCase
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.useCase
 	 */
 	def subject: Set[UMLClassifier[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLUseCase[Uml <: UML]
 	 * <!-- Start of user code doc for ownedUseCase_classifier -->
    * <!-- End of user code doc for ownedUseCase_classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.ownedUseCase
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.ownedUseCase
 	 */
 	def ownedUseCase_classifier: Option[UMLClassifier[Uml]]
 

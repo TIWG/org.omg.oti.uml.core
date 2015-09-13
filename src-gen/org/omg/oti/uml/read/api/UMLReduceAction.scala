@@ -63,7 +63,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * <!-- Start of user code doc for isOrdered -->
    * <!-- End of user code doc for isOrdered -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isOrdered: Boolean
 
@@ -73,8 +73,8 @@ trait UMLReduceAction[Uml <: UML]
 	 * <!-- Start of user code doc for reducer -->
    * <!-- End of user code doc for reducer -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.reducer_reduceAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.reducer_reduceAction
 	 */
 	def reducer: Option[UMLBehavior[Uml]]
 

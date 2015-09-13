@@ -63,8 +63,8 @@ trait UMLInteractionUse[Uml <: UML]
 	 * <!-- Start of user code doc for argument -->
    * <!-- End of user code doc for argument -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.argument_interactionUse
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.argument_interactionUse
 	 */
 	def argument: Seq[UMLValueSpecification[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInteractionUse[Uml <: UML]
 	 * <!-- Start of user code doc for refersTo -->
    * <!-- End of user code doc for refersTo -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteraction.refersTo_interactionUse
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.refersTo_interactionUse
 	 */
 	def refersTo: Option[UMLInteraction[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLInteractionUse[Uml <: UML]
 	 * <!-- Start of user code doc for returnValue -->
    * <!-- End of user code doc for returnValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.returnValue_interactionUse
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.returnValue_interactionUse
 	 */
 	def returnValue: Option[UMLValueSpecification[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLInteractionUse[Uml <: UML]
 	 * <!-- Start of user code doc for returnValueRecipient -->
    * <!-- End of user code doc for returnValueRecipient -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.returnValueRecipient_interactionUse
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.returnValueRecipient_interactionUse
 	 */
 	def returnValueRecipient: Option[UMLProperty[Uml]]
 

@@ -62,8 +62,12 @@ trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 	 * <!-- Start of user code doc for validate_edges -->
    * <!-- End of user code doc for validate_edges -->
 	 *
-	 * @body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * {{{
+	 * OCL Body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
+	 * }}}
+	 * {{{
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
+	 * }}}
 	 */
 	def validate_edges: Boolean = {
 		// Start of user code for "edges"
@@ -77,7 +81,9 @@ trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 	 * <!-- Start of user code doc for validate_one_outgoing_edge -->
    * <!-- End of user code doc for validate_one_outgoing_edge -->
 	 *
-	 * @body outgoing->size()=1
+	 * {{{
+	 * OCL Body outgoing->size()=1
+	 * }}}
 	 */
 	def validate_one_outgoing_edge: Boolean = {
 		// Start of user code for "one_outgoing_edge"

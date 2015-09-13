@@ -61,8 +61,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for argument_invocationAction -->
    * <!-- End of user code doc for argument_invocationAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInvocationAction.argument
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInvocationAction.argument
 	 */
 	def argument_invocationAction: Option[UMLInvocationAction[Uml]]
 
@@ -70,8 +70,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for destroyAt_linkEndDestructionData -->
    * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndDestructionData.destroyAt
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndDestructionData.destroyAt
 	 */
 	def destroyAt_linkEndDestructionData: Option[UMLLinkEndDestructionData[Uml]]
 
@@ -79,8 +79,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for first_testIdentityAction -->
    * <!-- End of user code doc for first_testIdentityAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTestIdentityAction.first
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTestIdentityAction.first
 	 */
 	def first_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
@@ -88,8 +88,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for input_action -->
    * <!-- End of user code doc for input_action -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAction.input
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.input
 	 */
 	def input_action: Option[UMLAction[Uml]]
 
@@ -97,8 +97,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for insertAt_linkEndCreationData -->
    * <!-- End of user code doc for insertAt_linkEndCreationData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndCreationData.insertAt
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndCreationData.insertAt
 	 */
 	def insertAt_linkEndCreationData: Option[UMLLinkEndCreationData[Uml]]
 
@@ -106,8 +106,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for object_structuralFeatureAction -->
    * <!-- End of user code doc for object_structuralFeatureAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuralFeatureAction._object
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeatureAction._object
 	 */
 	def object_structuralFeatureAction: Option[UMLStructuralFeatureAction[Uml]]
 
@@ -115,8 +115,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for replyValue_replyAction -->
    * <!-- End of user code doc for replyValue_replyAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReplyAction.replyValue
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReplyAction.replyValue
 	 */
 	def replyValue_replyAction: Option[UMLReplyAction[Uml]]
 
@@ -124,8 +124,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for returnInformation_replyAction -->
    * <!-- End of user code doc for returnInformation_replyAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLReplyAction.returnInformation
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReplyAction.returnInformation
 	 */
 	def returnInformation_replyAction: Option[UMLReplyAction[Uml]]
 
@@ -133,8 +133,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for second_testIdentityAction -->
    * <!-- End of user code doc for second_testIdentityAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTestIdentityAction.second
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTestIdentityAction.second
 	 */
 	def second_testIdentityAction: Option[UMLTestIdentityAction[Uml]]
 
@@ -142,8 +142,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for target_sendObjectAction -->
    * <!-- End of user code doc for target_sendObjectAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLSendObjectAction.target
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSendObjectAction.target
 	 */
 	def target_sendObjectAction: Option[UMLSendObjectAction[Uml]]
 
@@ -151,8 +151,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for value_linkEndData -->
    * <!-- End of user code doc for value_linkEndData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndData.value
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndData.value
 	 */
 	def value_linkEndData: Option[UMLLinkEndData[Uml]]
 
@@ -160,8 +160,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for value_qualifierValue -->
    * <!-- End of user code doc for value_qualifierValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLQualifierValue.value
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLQualifierValue.value
 	 */
 	def value_qualifierValue: Option[UMLQualifierValue[Uml]]
 
@@ -169,8 +169,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for value_writeStructuralFeatureAction -->
    * <!-- End of user code doc for value_writeStructuralFeatureAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLWriteStructuralFeatureAction.value
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLWriteStructuralFeatureAction.value
 	 */
 	def value_writeStructuralFeatureAction: Option[UMLWriteStructuralFeatureAction[Uml]]
 
@@ -178,8 +178,8 @@ trait UMLInputPin[Uml <: UML]
 	 * <!-- Start of user code doc for value_writeVariableAction -->
    * <!-- End of user code doc for value_writeVariableAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLWriteVariableAction.value
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLWriteVariableAction.value
 	 */
 	def value_writeVariableAction: Option[UMLWriteVariableAction[Uml]]
 

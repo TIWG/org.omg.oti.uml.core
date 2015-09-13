@@ -63,8 +63,8 @@ trait UMLConnectorEnd[Uml <: UML]
 	 * <!-- Start of user code doc for partWithPort -->
    * <!-- End of user code doc for partWithPort -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.partWithPort_connectorEnd
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.partWithPort_connectorEnd
 	 */
 	def partWithPort: Option[UMLProperty[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLConnectorEnd[Uml <: UML]
 	 * <!-- Start of user code doc for role -->
    * <!-- End of user code doc for role -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnectableElement.end
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElement.end
 	 */
 	def role: Option[UMLConnectableElement[Uml]]
 

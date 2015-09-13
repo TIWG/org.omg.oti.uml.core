@@ -63,8 +63,8 @@ trait UMLDurationObservation[Uml <: UML]
 	 * <!-- Start of user code doc for event -->
    * <!-- End of user code doc for event -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..2"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamedElement.event_durationObservation
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..2"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.event_durationObservation
 	 */
 	def event: Seq[UMLNamedElement[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLDurationObservation[Uml <: UML]
 	 * <!-- Start of user code doc for firstEvent -->
    * <!-- End of user code doc for firstEvent -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..2"
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..2"
 	 */
 	def firstEvent: Seq[Boolean]
 

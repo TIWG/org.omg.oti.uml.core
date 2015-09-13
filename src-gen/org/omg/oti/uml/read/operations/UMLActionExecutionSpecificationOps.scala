@@ -63,11 +63,21 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	 * <!-- Start of user code doc for validate_action_referenced -->
    * <!-- End of user code doc for validate_action_referenced -->
 	 *
-	 * @body (enclosingInteraction->notEmpty() or enclosingOperand.combinedFragment->notEmpty()) and
+	 * {{{
+	 * OCL Body (enclosingInteraction->notEmpty() or enclosingOperand.combinedFragment->notEmpty()) and
+	 * }}}
+	 * {{{
 	 * let parentInteraction : Set(Interaction) = enclosingInteraction.oclAsType(Interaction)->asSet()->union(
+	 * }}}
+	 * {{{
 	 * enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
+	 * }}}
+	 * {{{
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()) in
+	 * }}}
+	 * {{{
 	 * (parentInteraction->size() = 1) and self.action.interaction->asSet() = parentInteraction
+	 * }}}
 	 */
 	def validate_action_referenced: Boolean = {
 		// Start of user code for "action_referenced"

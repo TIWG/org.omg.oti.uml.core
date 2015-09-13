@@ -63,7 +63,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * <!-- Start of user code doc for inputParameters -->
    * <!-- End of user code doc for inputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
 	 */
 	def inputParameters: Seq[UMLParameter[Uml]]
 
@@ -73,7 +73,7 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * <!-- Start of user code doc for outputParameters -->
    * <!-- End of user code doc for outputParameters -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
 	 */
 	def outputParameters: Seq[UMLParameter[Uml]]
 
@@ -83,12 +83,24 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_argument_pins -->
    * <!-- End of user code doc for validate_argument_pins -->
 	 *
-	 * @body let parameter: OrderedSet(Parameter) = self.inputParameters() in
+	 * {{{
+	 * OCL Body let parameter: OrderedSet(Parameter) = self.inputParameters() in
+	 * }}}
+	 * {{{
 	 * argument->size() = parameter->size() and
+	 * }}}
+	 * {{{
 	 * Sequence{1..argument->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).type.conformsTo(parameter->at(i).type) and 
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).isOrdered = parameter->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	argument->at(i).compatibleWith(parameter->at(i)))
+	 * }}}
 	 */
 	def validate_argument_pins: Boolean = {
 		// Start of user code for "argument_pins"
@@ -113,12 +125,24 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_result_pins -->
    * <!-- End of user code doc for validate_result_pins -->
 	 *
-	 * @body let parameter: OrderedSet(Parameter) = self.outputParameters() in
+	 * {{{
+	 * OCL Body let parameter: OrderedSet(Parameter) = self.outputParameters() in
+	 * }}}
+	 * {{{
 	 * result->size() = parameter->size() and
+	 * }}}
+	 * {{{
 	 * Sequence{1..result->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
+	 * }}}
 	 */
 	def validate_result_pins: Boolean = {
 		// Start of user code for "result_pins"
@@ -143,7 +167,9 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_synchronous_call -->
    * <!-- End of user code doc for validate_synchronous_call -->
 	 *
-	 * @body result->notEmpty() implies isSynchronous
+	 * {{{
+	 * OCL Body result->notEmpty() implies isSynchronous
+	 * }}}
 	 */
 	def validate_synchronous_call: Boolean = {
 		// Start of user code for "synchronous_call"

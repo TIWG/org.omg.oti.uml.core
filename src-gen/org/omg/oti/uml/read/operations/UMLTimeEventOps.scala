@@ -62,8 +62,8 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 	 * <!-- Start of user code doc for when -->
    * <!-- End of user code doc for when -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTimeExpression.when_timeEvent
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeExpression.when_timeEvent
 	 */
 	def when: Option[UMLTimeExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeExpression[Uml] => x } headOption
 
@@ -73,7 +73,9 @@ trait UMLTimeEventOps[Uml <: UML] { self: UMLTimeEvent[Uml] =>
 	 * <!-- Start of user code doc for validate_when_non_negative -->
    * <!-- End of user code doc for validate_when_non_negative -->
 	 *
-	 * @body when.integerValue() >= 0
+	 * {{{
+	 * OCL Body when.integerValue() >= 0
+	 * }}}
 	 */
 	def validate_when_non_negative: Boolean = {
 		// Start of user code for "when_non_negative"

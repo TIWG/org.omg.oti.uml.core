@@ -61,8 +61,8 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * <!-- Start of user code doc for ownedActual_owningTemplateParameterSubstitution -->
    * <!-- End of user code doc for ownedActual_owningTemplateParameterSubstitution -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.ownedActual
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.ownedActual
 	 */
 	def ownedActual_owningTemplateParameterSubstitution: Option[UMLTemplateParameterSubstitution[Uml]] = owner.selectByKindOf { case x: UMLTemplateParameterSubstitution[Uml] => x }
 
@@ -70,8 +70,8 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * <!-- Start of user code doc for ownedDefault_templateParameter -->
    * <!-- End of user code doc for ownedDefault_templateParameter -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.ownedDefault
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.ownedDefault
 	 */
 	def ownedDefault_templateParameter: Option[UMLTemplateParameter[Uml]] = default_templateParameter headOption
 
@@ -81,8 +81,10 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * <!-- Start of user code doc for isCompatibleWith -->
    * <!-- End of user code doc for isCompatibleWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (self.oclIsKindOf(p.oclType()))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (self.oclIsKindOf(p.oclType()))
+	 * }}}
 	 */
 	def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean = {
 		// Start of user code for "isCompatibleWith"
@@ -96,8 +98,10 @@ trait UMLParameterableElementOps[Uml <: UML] { self: UMLParameterableElement[Uml
 	 * <!-- Start of user code doc for isTemplateParameter -->
    * <!-- End of user code doc for isTemplateParameter -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (templateParameter->notEmpty())
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (templateParameter->notEmpty())
+	 * }}}
 	 */
 	def isTemplateParameter: Boolean = {
 		// Start of user code for "isTemplateParameter"

@@ -60,8 +60,8 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 	 * <!-- Start of user code doc for generalOrdering_interactionFragment -->
    * <!-- End of user code doc for generalOrdering_interactionFragment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteractionFragment.generalOrdering
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionFragment.generalOrdering
 	 */
 	def generalOrdering_interactionFragment: Option[UMLInteractionFragment[Uml]] = owner.selectByKindOf { case x: UMLInteractionFragment[Uml] => x }
 
@@ -71,7 +71,9 @@ trait UMLGeneralOrderingOps[Uml <: UML] { self: UMLGeneralOrdering[Uml] =>
 	 * <!-- Start of user code doc for validate_irreflexive_transitive_closure -->
    * <!-- End of user code doc for validate_irreflexive_transitive_closure -->
 	 *
-	 * @body after->closure(toAfter.after)->excludes(before)
+	 * {{{
+	 * OCL Body after->closure(toAfter.after)->excludes(before)
+	 * }}}
 	 */
 	def validate_irreflexive_transitive_closure: Boolean = {
 		// Start of user code for "irreflexive_transitive_closure"

@@ -48,6 +48,24 @@ import scala.language.existentials
 import scala.reflect.runtime.universe._
 import scala.util.{Failure, Success, Try}
 
+/**
+ * <a href="../../../../index.html" target="_top">Top</a>
+ *
+ * = MOF-like Reflection about UML models =
+ *
+ * == Key abstractions: ==
+ *
+ *   - [[uml.MetaAttributeAbstractFunction]]: A functional abstraction for a UML or MOF attribute property
+ *   - [[uml.IllegalMetaPropertyEvaluation]]: An exception type for attribute property evaluation errors
+ *   - [[uml.MetaPropertyFunction]]: A functional abstraction for a UML property typed by a UML metaclass
+ *   - [[uml.RelationTriple]]: A functional abstraction for an instance of a UML metamodel association or stereotype property value
+ *
+ * == Generic functionality ==
+ *
+ *   - Queries about stereotypes
+ *   - Conversions for UML PrimitiveTypes
+ *   - ownership and path queries
+ */
 package object uml {
 
   case class IllegalMetaAttributeEvaluation[Uml <: UML]
@@ -55,6 +73,13 @@ package object uml {
    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _])
     extends IllegalArgumentException(s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
 
+  /**
+   * A functional wrapper for a UML Property typed by a PrimitiveType
+   *
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   * @tparam DT A value type corresponding to a UML PrimitiveType
+   */
   sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT] {
     implicit val UType: TypeTag[U]
     val attributePrefix: Option[String]
@@ -90,6 +115,15 @@ package object uml {
 
   }
 
+  /**
+   * A functional wrapper for a UML Property typed by a Boolean PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the attribute property
+   * @param attributeName the name of the attribute property
+   * @param f1 the query operation corresponding to the attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -116,6 +150,15 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  /**
+   * A functional wrapper for a UML or MOF Property typed by an Integer PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the UML or MOF attribute property
+   * @param attributeName the name of the UML or MOF attribute property
+   * @param f1 the query operation corresponding to the UML or MOF attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -142,6 +185,15 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  /**
+   * A functional wrapper for a UML Property typed by an UnlimitedNatural PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the UML attribute property
+   * @param attributeName the name of the UML attribute property
+   * @param f1 the query operation corresponding to the UML attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -168,6 +220,15 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  /**
+   * A functional wrapper for a UML Property typed by a String PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the UML attribute property
+   * @param attributeName the name of the UML attribute property
+   * @param f1 the query operation corresponding to the UML attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -194,6 +255,15 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  /**
+   * A functional wrapper for a UML Property typed by a Real PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the UML attribute property
+   * @param attributeName the name of the UML attribute property
+   * @param f1 the query operation corresponding to the UML attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -220,6 +290,15 @@ package object uml {
       41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
   }
 
+  /**
+   * A functional wrapper for a MOF attribute property typed by a String PrimitiveType
+   *
+   * @param attributePrefix optionally, a namespace prefix for the MOF attribute property
+   * @param attributeName the name of the MOF attribute property
+   * @param f1 the query operation corresponding to the MOF attribute property
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam U An OTI UML metaclass
+   */
   case class MetaDocumentAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
   (attributePrefix: Option[String] = None,
    attributeName: String,
@@ -285,7 +364,7 @@ package object uml {
    * See XMI2.5, ptc/14-09-21, 7.8.5 Class-typed Property Representation
    * See MOF5.2, ptc/14-09-18, 15.9 Additional Operations
    *
-   * @tparam Uml
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
    * @tparam U The metaclass on which the property is defined
    * @tparam V The metaclass that is the type of the property
    */
@@ -665,10 +744,6 @@ package object uml {
     if ( value == default ) Iterable()
     else if (value == -1) Iterable("*") else Iterable(value.toString)
 
-  /**
-   * @toto Fix the template instead of generating calls to this method.
-   * There shouldn't be a Real default value in UML
-   */
   def realToIterable( value: Double, default: Double ): Iterable[Double] =
     Iterable( value )
 

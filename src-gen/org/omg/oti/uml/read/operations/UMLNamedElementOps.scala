@@ -62,9 +62,11 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for clientDependency -->
    * <!-- End of user code doc for clientDependency -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDependency.client
-	 * @body result = (Dependency.allInstances()->select(d | d.client->includes(self)))
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDependency.client
+	 * {{{
+	 * OCL Body result = (Dependency.allInstances()->select(d | d.client->includes(self)))
+	 * }}}
 	 */
 	def clientDependency: Set[UMLDependency[Uml]] = source_directedRelationship.selectByKindOf { case x: UMLDependency[Uml] => x }
 
@@ -74,8 +76,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for nameExpression -->
    * <!-- End of user code doc for nameExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStringExpression.nameExpression_namedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStringExpression.nameExpression_namedElement
 	 */
 	def nameExpression: Option[UMLStringExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLStringExpression[Uml] => x } headOption
 
@@ -85,8 +87,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for namespace -->
    * <!-- End of user code doc for namespace -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLNamespace.ownedMember
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.ownedMember
 	 */
 	def namespace: Option[UMLNamespace[Uml]] = owner.selectByKindOf { case x: UMLNamespace[Uml] => x }
 
@@ -96,13 +98,15 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for qualifiedName -->
    * <!-- End of user code doc for qualifiedName -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @body result = (if self.name <> null and self.allNamespaces()->select( ns | ns.name=null )->isEmpty()
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if self.name <> null and self.allNamespaces()->select( ns | ns.name=null )->isEmpty()
 	 * then 
 	 *     self.allNamespaces()->iterate( ns : Namespace; agg: String = self.name | ns.name.concat(self.separator()).concat(agg))
 	 * else
 	 *    null
 	 * endif)
+	 * }}}
 	 */
 	def qualifiedName: Option[String] = {
 		// Start of user code for "qualifiedName"
@@ -121,8 +125,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for informationSource_informationFlow -->
    * <!-- End of user code doc for informationSource_informationFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.informationSource
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.informationSource
 	 */
 	def informationSource_informationFlow: Set[UMLInformationFlow[Uml]] = source_directedRelationship.selectByKindOf { case x: UMLInformationFlow[Uml] => x }
 
@@ -130,8 +134,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for informationTarget_informationFlow -->
    * <!-- End of user code doc for informationTarget_informationFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInformationFlow.informationTarget
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.informationTarget
 	 */
 	def informationTarget_informationFlow: Set[UMLInformationFlow[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLInformationFlow[Uml] => x }
 
@@ -139,8 +143,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for inheritedMember_inheritingClassifier -->
    * <!-- End of user code doc for inheritedMember_inheritingClassifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.inheritedMember
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.inheritedMember
 	 */
 	def inheritedMember_inheritingClassifier: Set[UMLClassifier[Uml]] = member_memberNamespace.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
@@ -150,8 +154,8 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for supplier_supplierDependency -->
    * <!-- End of user code doc for supplier_supplierDependency -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDependency.supplier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDependency.supplier
 	 */
 	def supplier_supplierDependency: Set[UMLDependency[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLDependency[Uml] => x }
 
@@ -161,8 +165,9 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for allNamespaces -->
    * <!-- End of user code doc for allNamespaces -->
 	 *
-	 * @operation ordered="true" unique="true" multiplicity="0..*"
-	 * @body result = (if owner.oclIsKindOf(TemplateParameter) and
+	 * UML Operation ordered="true" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (if owner.oclIsKindOf(TemplateParameter) and
 	 *   owner.oclAsType(TemplateParameter).signature.template.oclIsKindOf(Namespace) then
 	 *     let enclosingNamespace : Namespace =
 	 *       owner.oclAsType(TemplateParameter).signature.template.oclAsType(Namespace) in
@@ -174,6 +179,7 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 *     namespace.allNamespaces()->prepend(namespace)
 	 *   endif
 	 * endif)
+	 * }}}
 	 */
 	def allNamespaces: Seq[UMLNamespace[Uml]] = {
 		// Start of user code for "allNamespaces"
@@ -207,14 +213,16 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for allOwningPackages -->
    * <!-- End of user code doc for allOwningPackages -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (if namespace.oclIsKindOf(Package)
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (if namespace.oclIsKindOf(Package)
 	 * then
 	 *   let owningPackage : Package = namespace.oclAsType(Package) in
 	 *     owningPackage->union(owningPackage.allOwningPackages())
 	 * else
 	 *   null
 	 * endif)
+	 * }}}
 	 */
 	def allOwningPackages: Set[UMLPackage[Uml]] = {
 		// Start of user code for "allOwningPackages"
@@ -236,10 +244,12 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for isDistinguishableFrom -->
    * <!-- End of user code doc for isDistinguishableFrom -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ((self.oclIsKindOf(n.oclType()) or n.oclIsKindOf(self.oclType())) implies
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ((self.oclIsKindOf(n.oclType()) or n.oclIsKindOf(self.oclType())) implies
 	 *     ns.getNamesOfMember(self)->intersection(ns.getNamesOfMember(n))->isEmpty()
 	 * )
+	 * }}}
 	 */
 	def isDistinguishableFrom(n: Option[UMLNamedElement[Uml]], ns: Option[UMLNamespace[Uml]]): Boolean = {
 		// Start of user code for "isDistinguishableFrom"
@@ -253,8 +263,10 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for separator -->
    * <!-- End of user code doc for separator -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = ('::')
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = ('::')
+	 * }}}
 	 */
 	def separator: Option[String] = {
 		// Start of user code for "separator"
@@ -268,7 +280,9 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for validate_has_no_qualified_name -->
    * <!-- End of user code doc for validate_has_no_qualified_name -->
 	 *
-	 * @body name=null or allNamespaces()->select( ns | ns.name=null )->notEmpty() implies qualifiedName = null
+	 * {{{
+	 * OCL Body name=null or allNamespaces()->select( ns | ns.name=null )->notEmpty() implies qualifiedName = null
+	 * }}}
 	 */
 	def validate_has_no_qualified_name: Boolean = {
 		// Start of user code for "has_no_qualified_name"
@@ -284,8 +298,12 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for validate_has_qualified_name -->
    * <!-- End of user code doc for validate_has_qualified_name -->
 	 *
-	 * @body (name <> null and allNamespaces()->select(ns | ns.name = null)->isEmpty()) implies
+	 * {{{
+	 * OCL Body (name <> null and allNamespaces()->select(ns | ns.name = null)->isEmpty()) implies
+	 * }}}
+	 * {{{
 	 *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name | ns.name.concat(self.separator()).concat(agg))
+	 * }}}
 	 */
 	def validate_has_qualified_name: Boolean = {
 		// Start of user code for "has_qualified_name"
@@ -301,7 +319,9 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 * <!-- Start of user code doc for validate_visibility_needs_ownership -->
    * <!-- End of user code doc for validate_visibility_needs_ownership -->
 	 *
-	 * @body (namespace = null and owner <> null) implies visibility = null
+	 * {{{
+	 * OCL Body (namespace = null and owner <> null) implies visibility = null
+	 * }}}
 	 */
 	def validate_visibility_needs_ownership: Boolean = {
 		// Start of user code for "visibility_needs_ownership"

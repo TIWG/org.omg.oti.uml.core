@@ -60,8 +60,8 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * <!-- Start of user code doc for qualifier_linkEndData -->
    * <!-- End of user code doc for qualifier_linkEndData -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLinkEndData.qualifier
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndData.qualifier
 	 */
 	def qualifier_linkEndData: Option[UMLLinkEndData[Uml]] = owner.selectByKindOf { case x: UMLLinkEndData[Uml] => x }
 
@@ -71,7 +71,9 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity_of_qualifier -->
    * <!-- End of user code doc for validate_multiplicity_of_qualifier -->
 	 *
-	 * @body value.is(1,1)
+	 * {{{
+	 * OCL Body value.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_qualifier: Boolean = {
 		// Start of user code for "multiplicity_of_qualifier"
@@ -85,7 +87,9 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * <!-- Start of user code doc for validate_qualifier_attribute -->
    * <!-- End of user code doc for validate_qualifier_attribute -->
 	 *
-	 * @body linkEndData.end.qualifier->includes(qualifier)
+	 * {{{
+	 * OCL Body linkEndData.end.qualifier->includes(qualifier)
+	 * }}}
 	 */
 	def validate_qualifier_attribute: Boolean = {
 		// Start of user code for "qualifier_attribute"
@@ -99,7 +103,9 @@ trait UMLQualifierValueOps[Uml <: UML] { self: UMLQualifierValue[Uml] =>
 	 * <!-- Start of user code doc for validate_type_of_qualifier -->
    * <!-- End of user code doc for validate_type_of_qualifier -->
 	 *
-	 * @body value.type.conformsTo(qualifier.type)
+	 * {{{
+	 * OCL Body value.type.conformsTo(qualifier.type)
+	 * }}}
 	 */
 	def validate_type_of_qualifier: Boolean = {
 		// Start of user code for "type_of_qualifier"

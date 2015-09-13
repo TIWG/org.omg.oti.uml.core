@@ -63,8 +63,8 @@ trait UMLStateInvariant[Uml <: UML]
 	 * <!-- Start of user code doc for covered -->
    * <!-- End of user code doc for covered -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLLifeline.covered_stateInvariant
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.covered_stateInvariant
 	 */
 	override def covered: Iterable[UMLLifeline[Uml]]
 

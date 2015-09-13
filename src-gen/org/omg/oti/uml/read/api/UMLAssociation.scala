@@ -64,7 +64,7 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for isDerived -->
    * <!-- End of user code doc for isDerived -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isDerived: Boolean
 
@@ -74,8 +74,8 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for memberEnd -->
    * <!-- End of user code doc for memberEnd -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="2..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.association
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="2..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.association
 	 */
 	def memberEnd: Seq[UMLProperty[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for navigableOwnedEnd -->
    * <!-- End of user code doc for navigableOwnedEnd -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.navigableOwnedEnd_association
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.navigableOwnedEnd_association
 	 */
 	def navigableOwnedEnd: Set[UMLProperty[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for ownedEnd -->
    * <!-- End of user code doc for ownedEnd -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.owningAssociation
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.owningAssociation
 	 */
 	def ownedEnd: Iterable[UMLProperty[Uml]]
 
@@ -105,8 +105,8 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for association_clearAssociationAction -->
    * <!-- End of user code doc for association_clearAssociationAction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClearAssociationAction.association
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClearAssociationAction.association
 	 */
 	def association_clearAssociationAction: Option[UMLClearAssociationAction[Uml]]
 
@@ -114,8 +114,8 @@ trait UMLAssociation[Uml <: UML]
 	 * <!-- Start of user code doc for type_connector -->
    * <!-- End of user code doc for type_connector -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConnector._type
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector._type
 	 */
 	def type_connector: Set[UMLConnector[Uml]]
 

@@ -62,8 +62,8 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_unmarshallAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_unmarshallAction
 	 */
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,7 +73,9 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
    * <!-- End of user code doc for validate_multiplicity_of_object -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_object: Boolean = {
 		// Start of user code for "multiplicity_of_object"
@@ -87,7 +89,9 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_number_of_result -->
    * <!-- End of user code doc for validate_number_of_result -->
 	 *
-	 * @body unmarshallType.allAttributes()->size() = result->size()
+	 * {{{
+	 * OCL Body unmarshallType.allAttributes()->size() = result->size()
+	 * }}}
 	 */
 	def validate_number_of_result: Boolean = {
 		// Start of user code for "number_of_result"
@@ -101,7 +105,9 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_object_type -->
    * <!-- End of user code doc for validate_object_type -->
 	 *
-	 * @body object.type.conformsTo(unmarshallType)
+	 * {{{
+	 * OCL Body object.type.conformsTo(unmarshallType)
+	 * }}}
 	 */
 	def validate_object_type: Boolean = {
 		// Start of user code for "object_type"
@@ -115,7 +121,9 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_structural_feature -->
    * <!-- End of user code doc for validate_structural_feature -->
 	 *
-	 * @body unmarshallType.allAttributes()->size() >= 1
+	 * {{{
+	 * OCL Body unmarshallType.allAttributes()->size() >= 1
+	 * }}}
 	 */
 	def validate_structural_feature: Boolean = {
 		// Start of user code for "structural_feature"
@@ -129,11 +137,21 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 * <!-- Start of user code doc for validate_type_ordering_and_multiplicity -->
    * <!-- End of user code doc for validate_type_ordering_and_multiplicity -->
 	 *
-	 * @body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
+	 * {{{
+	 * OCL Body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
+	 * }}}
+	 * {{{
 	 * Sequence{1..result->size()}->forAll(i | 
+	 * }}}
+	 * {{{
 	 * 	attribute->at(i).type.conformsTo(result->at(i).type) and
+	 * }}}
+	 * {{{
 	 * 	attribute->at(i).isOrdered=result->at(i).isOrdered and
+	 * }}}
+	 * {{{
 	 * 	attribute->at(i).compatibleWith(result->at(i)))
+	 * }}}
 	 */
 	def validate_type_ordering_and_multiplicity: Boolean = {
 		// Start of user code for "type_ordering_and_multiplicity"

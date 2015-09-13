@@ -63,14 +63,16 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for context -->
    * <!-- End of user code doc for context -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.context_action
-	 * @body result = (let behavior: Behavior = self.containingBehavior() in
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.context_action
+	 * {{{
+	 * OCL Body result = (let behavior: Behavior = self.containingBehavior() in
 	 * if behavior=null then null
 	 * else if behavior._'context' = null then behavior
 	 * else behavior._'context'
 	 * endif
 	 * endif)
+	 * }}}
 	 */
 	def context: Option[UMLClassifier[Uml]] = {
 		// Start of user code for "context"
@@ -87,8 +89,8 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for action_interaction -->
    * <!-- End of user code doc for action_interaction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInteraction.action
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.action
 	 */
 	def action_interaction: Option[UMLInteraction[Uml]] = owner.selectByKindOf { case x: UMLInteraction[Uml] => x }
 
@@ -96,8 +98,8 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for fromAction_actionInputPin -->
    * <!-- End of user code doc for fromAction_actionInputPin -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActionInputPin.fromAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActionInputPin.fromAction
 	 */
 	def fromAction_actionInputPin: Option[UMLActionInputPin[Uml]] = owner.selectByKindOf { case x: UMLActionInputPin[Uml] => x }
 
@@ -107,8 +109,10 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for allActions -->
    * <!-- End of user code doc for allActions -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (self->asSet())
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (self->asSet())
+	 * }}}
 	 */
 	def allActions: Set[UMLAction[Uml]] = {
 		// Start of user code for "allActions"
@@ -122,8 +126,10 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for allOwnedNodes -->
    * <!-- End of user code doc for allOwnedNodes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (input.oclAsType(Pin)->asSet()->union(output->asSet()))
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (input.oclAsType(Pin)->asSet()->union(output->asSet()))
+	 * }}}
 	 */
 	def allOwnedNodes: Set[UMLActivityNode[Uml]] = {
 		// Start of user code for "allOwnedNodes"
@@ -136,13 +142,15 @@ trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 	 * <!-- Start of user code doc for containingBehavior -->
    * <!-- End of user code doc for containingBehavior -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if inStructuredNode<>null then inStructuredNode.containingBehavior() 
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if inStructuredNode<>null then inStructuredNode.containingBehavior() 
 	 * else if activity<>null then activity
 	 * else interaction 
 	 * endif
 	 * endif
 	 * )
+	 * }}}
 	 */
 	def containingBehavior: Option[UMLBehavior[Uml]] = {
 		// Start of user code for "containingBehavior"

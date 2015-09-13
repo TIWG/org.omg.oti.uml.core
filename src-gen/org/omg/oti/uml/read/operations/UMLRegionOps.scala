@@ -62,8 +62,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for extendedRegion -->
    * <!-- End of user code doc for extendedRegion -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.extendedRegion_region
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.extendedRegion_region
 	 */
 	def extendedRegion: Option[UMLRegion[Uml]] = redefinedElement.selectByKindOf { case x: UMLRegion[Uml] => x } headOption
 
@@ -73,14 +73,16 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for redefinitionContext -->
    * <!-- End of user code doc for redefinitionContext -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_region
-	 * @body result = (let sm : StateMachine = containingStateMachine() in
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_region
+	 * {{{
+	 * OCL Body result = (let sm : StateMachine = containingStateMachine() in
 	 * if sm._'context' = null or sm.general->notEmpty() then
 	 *   sm
 	 * else
 	 *   sm._'context'
 	 * endif)
+	 * }}}
 	 */
 	override def redefinitionContext: Iterable[UMLClassifier[Uml]] = {
 		// Start of user code for "redefinitionContext"
@@ -94,8 +96,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for state -->
    * <!-- End of user code doc for state -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLState.region
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.region
 	 */
 	def state: Option[UMLState[Uml]] = namespace.selectByKindOf { case x: UMLState[Uml] => x }
 
@@ -105,8 +107,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for stateMachine -->
    * <!-- End of user code doc for stateMachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateMachine.region
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.region
 	 */
 	def stateMachine: Option[UMLStateMachine[Uml]] = namespace.selectByKindOf { case x: UMLStateMachine[Uml] => x }
 
@@ -116,8 +118,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for subvertex -->
    * <!-- End of user code doc for subvertex -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLVertex.container
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVertex.container
 	 */
 	def subvertex: Set[UMLVertex[Uml]] = ownedMember.selectByKindOf { case x: UMLVertex[Uml] => x }
 
@@ -127,8 +129,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for transition -->
    * <!-- End of user code doc for transition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTransition.container
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.container
 	 */
 	def transition: Set[UMLTransition[Uml]] = ownedMember.selectByKindOf { case x: UMLTransition[Uml] => x }
 
@@ -136,8 +138,8 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for extendedRegion_region -->
    * <!-- End of user code doc for extendedRegion_region -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRegion.extendedRegion
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.extendedRegion
 	 */
 	def extendedRegion_region: Set[UMLRegion[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLRegion[Uml] => x }
 
@@ -147,13 +149,15 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for belongsToPSM -->
    * <!-- End of user code doc for belongsToPSM -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if  stateMachine <> null 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if  stateMachine <> null 
 	 * then
 	 *   stateMachine.oclIsKindOf(ProtocolStateMachine)
 	 * else 
 	 *   state <> null  implies  state.container.belongsToPSM()
 	 * endif )
+	 * }}}
 	 */
 	def belongsToPSM: Boolean = {
 		// Start of user code for "belongsToPSM"
@@ -167,13 +171,15 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for containingStateMachine -->
    * <!-- End of user code doc for containingStateMachine -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if stateMachine = null 
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if stateMachine = null 
 	 * then
 	 *   state.containingStateMachine()
 	 * else
 	 *   stateMachine
 	 * endif)
+	 * }}}
 	 */
 	def containingStateMachine: Option[UMLStateMachine[Uml]] = {
 		// Start of user code for "containingStateMachine"
@@ -187,9 +193,11 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (-- the following is merely a default body; it is expected that the specific form of this constraint will be specified by profiles
 	 * true)
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -203,8 +211,9 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for isRedefinitionContextValid -->
    * <!-- End of user code doc for isRedefinitionContextValid -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if redefinedElement.oclIsKindOf(Region) then
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if redefinedElement.oclIsKindOf(Region) then
 	 *   let redefinedRegion : Region = redefinedElement.oclAsType(Region) in
 	 *     if stateMachine->isEmpty() then
 	 *     -- the Region is owned by a State
@@ -217,6 +226,7 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * else
 	 *   false
 	 * endif)
+	 * }}}
 	 */
 	override def isRedefinitionContextValid(redefinedElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isRedefinitionContextValid"
@@ -230,8 +240,12 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for validate_deep_history_vertex -->
    * <!-- End of user code doc for validate_deep_history_vertex -->
 	 *
-	 * @body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * {{{
+	 * OCL Body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * }}}
+	 * {{{
 	 *    select(kind = PseudostateKind::deepHistory)->size() <= 1
+	 * }}}
 	 */
 	def validate_deep_history_vertex: Boolean = {
 		// Start of user code for "deep_history_vertex"
@@ -245,8 +259,12 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for validate_initial_vertex -->
    * <!-- End of user code doc for validate_initial_vertex -->
 	 *
-	 * @body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * {{{
+	 * OCL Body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * }}}
+	 * {{{
 	 *   select(kind = PseudostateKind::initial)->size() <= 1
+	 * }}}
 	 */
 	def validate_initial_vertex: Boolean = {
 		// Start of user code for "initial_vertex"
@@ -260,7 +278,9 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for validate_owned -->
    * <!-- End of user code doc for validate_owned -->
 	 *
-	 * @body (stateMachine <> null implies state = null) and (state <> null implies stateMachine = null)
+	 * {{{
+	 * OCL Body (stateMachine <> null implies state = null) and (state <> null implies stateMachine = null)
+	 * }}}
 	 */
 	def validate_owned: Boolean = {
 		// Start of user code for "owned"
@@ -274,8 +294,12 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 * <!-- Start of user code doc for validate_shallow_history_vertex -->
    * <!-- End of user code doc for validate_shallow_history_vertex -->
 	 *
-	 * @body subvertex->select(oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * {{{
+	 * OCL Body subvertex->select(oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
+	 * }}}
+	 * {{{
 	 *   select(kind = PseudostateKind::shallowHistory)->size() <= 1
+	 * }}}
 	 */
 	def validate_shallow_history_vertex: Boolean = {
 		// Start of user code for "shallow_history_vertex"

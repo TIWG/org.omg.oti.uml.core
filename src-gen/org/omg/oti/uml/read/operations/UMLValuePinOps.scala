@@ -62,7 +62,9 @@ trait UMLValuePinOps[Uml <: UML] { self: UMLValuePin[Uml] =>
 	 * <!-- Start of user code doc for validate_compatible_type -->
    * <!-- End of user code doc for validate_compatible_type -->
 	 *
-	 * @body value.type.conformsTo(type)
+	 * {{{
+	 * OCL Body value.type.conformsTo(type)
+	 * }}}
 	 */
 	def validate_compatible_type: Boolean = {
 		// Start of user code for "compatible_type"
@@ -76,7 +78,9 @@ trait UMLValuePinOps[Uml <: UML] { self: UMLValuePin[Uml] =>
 	 * <!-- Start of user code doc for validate_no_incoming_edges -->
    * <!-- End of user code doc for validate_no_incoming_edges -->
 	 *
-	 * @body incoming->isEmpty()
+	 * {{{
+	 * OCL Body incoming->isEmpty()
+	 * }}}
 	 */
 	def validate_no_incoming_edges: Boolean = {
 		// Start of user code for "no_incoming_edges"

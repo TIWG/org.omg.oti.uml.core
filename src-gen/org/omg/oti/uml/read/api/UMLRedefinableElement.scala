@@ -63,7 +63,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * <!-- Start of user code doc for isLeaf -->
    * <!-- End of user code doc for isLeaf -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isLeaf: Boolean
 
@@ -73,8 +73,8 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedElement -->
    * <!-- End of user code doc for redefinedElement -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement_redefinableElement
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement_redefinableElement
 	 */
 	def redefinedElement: Set[UMLRedefinableElement[Uml]]
 
@@ -84,8 +84,8 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * <!-- Start of user code doc for redefinitionContext -->
    * <!-- End of user code doc for redefinitionContext -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_redefinableElement
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_redefinableElement
 	 */
 	def redefinitionContext: Iterable[UMLClassifier[Uml]]
 
@@ -93,8 +93,8 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * <!-- Start of user code doc for redefinedElement_redefinableElement -->
    * <!-- End of user code doc for redefinedElement_redefinableElement -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement
 	 */
 	def redefinedElement_redefinableElement: Set[UMLRedefinableElement[Uml]]
 

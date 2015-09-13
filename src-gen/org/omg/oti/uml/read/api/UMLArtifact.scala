@@ -64,7 +64,7 @@ trait UMLArtifact[Uml <: UML]
 	 * <!-- Start of user code doc for fileName -->
    * <!-- End of user code doc for fileName -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def fileName: Option[String]
 
@@ -74,8 +74,8 @@ trait UMLArtifact[Uml <: UML]
 	 * <!-- Start of user code doc for ownedAttribute -->
    * <!-- End of user code doc for ownedAttribute -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_artifact
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_artifact
 	 */
 	def ownedAttribute: Seq[UMLProperty[Uml]]
 
@@ -85,8 +85,8 @@ trait UMLArtifact[Uml <: UML]
 	 * <!-- Start of user code doc for ownedOperation -->
    * <!-- End of user code doc for ownedOperation -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOperation.ownedOperation_artifact
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.ownedOperation_artifact
 	 */
 	def ownedOperation: Seq[UMLOperation[Uml]]
 

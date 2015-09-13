@@ -63,7 +63,7 @@ trait UMLImage[Uml <: UML]
 	 * <!-- Start of user code doc for content -->
    * <!-- End of user code doc for content -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def content: Option[String]
 
@@ -73,7 +73,7 @@ trait UMLImage[Uml <: UML]
 	 * <!-- Start of user code doc for format -->
    * <!-- End of user code doc for format -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def format: Option[String]
 
@@ -83,7 +83,7 @@ trait UMLImage[Uml <: UML]
 	 * <!-- Start of user code doc for location -->
    * <!-- End of user code doc for location -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def location: Option[String]
 

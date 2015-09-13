@@ -62,8 +62,8 @@ trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>
 	 * <!-- Start of user code doc for inputValue -->
    * <!-- End of user code doc for inputValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.inputValue_opaqueAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.inputValue_opaqueAction
 	 */
 	def inputValue: Set[UMLInputPin[Uml]] = input.toSet[UMLInputPin[Uml]]
 
@@ -73,8 +73,8 @@ trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>
 	 * <!-- Start of user code doc for outputValue -->
    * <!-- End of user code doc for outputValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.outputValue_opaqueAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.outputValue_opaqueAction
 	 */
 	def outputValue: Set[UMLOutputPin[Uml]] = output.toSet[UMLOutputPin[Uml]]
 
@@ -84,7 +84,9 @@ trait UMLOpaqueActionOps[Uml <: UML] { self: UMLOpaqueAction[Uml] =>
 	 * <!-- Start of user code doc for validate_language_body_size -->
    * <!-- End of user code doc for validate_language_body_size -->
 	 *
-	 * @body language->notEmpty() implies (_'body'->size() = language->size())
+	 * {{{
+	 * OCL Body language->notEmpty() implies (_'body'->size() = language->size())
+	 * }}}
 	 */
 	def validate_language_body_size: Boolean = {
 		// Start of user code for "language_body_size"

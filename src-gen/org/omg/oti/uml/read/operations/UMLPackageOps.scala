@@ -69,9 +69,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for nestedPackage -->
    * <!-- End of user code doc for nestedPackage -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackage.nestingPackage
-	 * @body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.nestingPackage
+	 * {{{
+	 * OCL Body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
+	 * }}}
 	 */
 	def nestedPackage: Set[UMLPackage[Uml]] = {
 		// Start of user code for "nestedPackage"
@@ -86,9 +88,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for ownedStereotype -->
    * <!-- End of user code doc for ownedStereotype -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLStereotype.ownedStereotype_owningPackage
-	 * @body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.ownedStereotype_owningPackage
+	 * {{{
+	 * OCL Body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
+	 * }}}
 	 */
 	def ownedStereotype: Set[UMLStereotype[Uml]] = packagedElement.selectByKindOf { case x: UMLStereotype[Uml] => x }
 
@@ -98,9 +102,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for ownedType -->
    * <!-- End of user code doc for ownedType -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLType._package
-	 * @body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType._package
+	 * {{{
+	 * OCL Body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
+	 * }}}
 	 */
 	def ownedType: Set[UMLType[Uml]] = {
 		// Start of user code for "ownedType"
@@ -115,8 +121,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for packageMerge -->
    * <!-- End of user code doc for packageMerge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageMerge.receivingPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.receivingPackage
 	 */
 	def packageMerge: Set[UMLPackageMerge[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageMerge[Uml] => x }
 
@@ -126,8 +132,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for profileApplication -->
    * <!-- End of user code doc for profileApplication -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLProfileApplication.applyingPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfileApplication.applyingPackage
 	 */
 	def profileApplication: Set[UMLProfileApplication[Uml]] = ownedElement.selectByKindOf { case x: UMLProfileApplication[Uml] => x }
 
@@ -135,8 +141,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for importedPackage_packageImport -->
    * <!-- End of user code doc for importedPackage_packageImport -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageImport.importedPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importedPackage
 	 */
 	def importedPackage_packageImport: Set[UMLPackageImport[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLPackageImport[Uml] => x }
 
@@ -144,8 +150,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for mergedPackage_packageMerge -->
    * <!-- End of user code doc for mergedPackage_packageMerge -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPackageMerge.mergedPackage
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.mergedPackage
 	 */
 	def mergedPackage_packageMerge: Set[UMLPackageMerge[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLPackageMerge[Uml] => x }
 
@@ -155,10 +161,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for allApplicableStereotypes -->
    * <!-- End of user code doc for allApplicableStereotypes -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..*"
-	 * @body result = (let ownedPackages : Bag(Package) = ownedMember->select(oclIsKindOf(Package))->collect(oclAsType(Package)) in
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (let ownedPackages : Bag(Package) = ownedMember->select(oclIsKindOf(Package))->collect(oclAsType(Package)) in
 	 *  ownedStereotype->union(ownedPackages.allApplicableStereotypes())->flatten()->asSet()
 	 * )
+	 * }}}
 	 */
 	def allApplicableStereotypes: Set[UMLStereotype[Uml]] = {
 		// Start of user code for "allApplicableStereotypes"
@@ -173,12 +181,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for containingProfile -->
    * <!-- End of user code doc for containingProfile -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="0..1"
-	 * @body result = (if self.oclIsKindOf(Profile) then 
+	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
+	 * {{{
+	 * OCL Body result = (if self.oclIsKindOf(Profile) then 
 	 * 	self.oclAsType(Profile)
 	 * else
 	 * 	self.namespace.oclAsType(Package).containingProfile()
 	 * endif)
+	 * }}}
 	 */
 	def containingProfile: Option[UMLProfile[Uml]] = {
 		// Start of user code for "containingProfile"
@@ -201,8 +211,10 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (false)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (false)
+	 * }}}
 	 */
 	override def mustBeOwned: Boolean = {
 		// Start of user code for "mustBeOwned"
@@ -216,7 +228,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	 * <!-- Start of user code doc for validate_elements_public_or_private -->
    * <!-- End of user code doc for validate_elements_public_or_private -->
 	 *
-	 * @body packagedElement->forAll(e | e.visibility<> null implies e.visibility = VisibilityKind::public or e.visibility = VisibilityKind::private)
+	 * {{{
+	 * OCL Body packagedElement->forAll(e | e.visibility<> null implies e.visibility = VisibilityKind::public or e.visibility = VisibilityKind::private)
+	 * }}}
 	 */
 	def validate_elements_public_or_private: Boolean = {
 		// Start of user code for "elements_public_or_private"
@@ -308,11 +322,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     else self.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption orElse URI
 
   /**
-   * @issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete:
-   * @clarification: Applying a profile PF to a package P implies applying
-   *                 PF to all nested packages of P. That is, for a given package P, the
-   *                 set of all profile applications is the union of the profile applications
-   *                 of P and of all of its nesting packages recursively.
+   * OMG Issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete.
+   * OTI uses the following semantics:
+   * Applying a profile PF to a package P implies applying PF to all nested packages of P. 
+   * For a given package P, the set of all profile applications is the union of the profile applications
+   * of P and of all of its nesting packages recursively.
    */
   def allDirectProfileApplicationsIncludingNestingPackagesTransitively
   : Set[UMLProfileApplication[Uml]] =

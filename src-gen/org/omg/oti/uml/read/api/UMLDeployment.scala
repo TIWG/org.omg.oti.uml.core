@@ -63,8 +63,8 @@ trait UMLDeployment[Uml <: UML]
 	 * <!-- Start of user code doc for deployedArtifact -->
    * <!-- End of user code doc for deployedArtifact -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDeployedArtifact.deployedArtifact_deploymentForArtifact
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeployedArtifact.deployedArtifact_deploymentForArtifact
 	 */
 	def deployedArtifact: Set[UMLDeployedArtifact[Uml]]
 

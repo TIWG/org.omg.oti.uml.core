@@ -63,8 +63,8 @@ trait UMLActivityGroup[Uml <: UML]
 	 * <!-- Start of user code doc for containedEdge -->
    * <!-- End of user code doc for containedEdge -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityEdge.inGroup
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.inGroup
 	 */
 	def containedEdge: Set[UMLActivityEdge[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLActivityGroup[Uml <: UML]
 	 * <!-- Start of user code doc for containedNode -->
    * <!-- End of user code doc for containedNode -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityNode.inGroup
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inGroup
 	 */
 	def containedNode: Set[UMLActivityNode[Uml]]
 

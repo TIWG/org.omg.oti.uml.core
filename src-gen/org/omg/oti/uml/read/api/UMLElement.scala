@@ -64,8 +64,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for ownedElement -->
    * <!-- End of user code doc for ownedElement -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.owner
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.owner
 	 */
 	def ownedElement: Set[UMLElement[Uml]]
 
@@ -75,8 +75,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for owner -->
    * <!-- End of user code doc for owner -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLElement.ownedElement
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.ownedElement
 	 */
 	def owner: Option[UMLElement[Uml]]
 
@@ -84,8 +84,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for annotatedElement_comment -->
    * <!-- End of user code doc for annotatedElement_comment -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLComment.annotatedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.annotatedElement
 	 */
 	def annotatedElement_comment: Set[UMLComment[Uml]]
 
@@ -93,8 +93,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for constrainedElement_constraint -->
    * <!-- End of user code doc for constrainedElement_constraint -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.constrainedElement
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.constrainedElement
 	 */
 	def constrainedElement_constraint: Set[UMLConstraint[Uml]]
 
@@ -102,8 +102,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for relatedElement_relationship -->
    * <!-- End of user code doc for relatedElement_relationship -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRelationship.relatedElement
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRelationship.relatedElement
 	 */
 	def relatedElement_relationship: Set[UMLRelationship[Uml]]
 
@@ -111,8 +111,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for represents_activityPartition -->
    * <!-- End of user code doc for represents_activityPartition -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityPartition.represents
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.represents
 	 */
 	def represents_activityPartition: Set[UMLActivityPartition[Uml]]
 
@@ -120,8 +120,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for source_directedRelationship -->
    * <!-- End of user code doc for source_directedRelationship -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDirectedRelationship.source
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.source
 	 */
 	def source_directedRelationship: Set[UMLDirectedRelationship[Uml]]
 
@@ -129,8 +129,8 @@ trait UMLElement[Uml <: UML]
 	 * <!-- Start of user code doc for target_directedRelationship -->
    * <!-- End of user code doc for target_directedRelationship -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLDirectedRelationship.target
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.target
 	 */
 	def target_directedRelationship: Set[UMLDirectedRelationship[Uml]]
 

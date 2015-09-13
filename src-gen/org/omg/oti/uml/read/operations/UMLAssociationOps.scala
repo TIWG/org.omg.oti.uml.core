@@ -63,9 +63,11 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for endType -->
    * <!-- End of user code doc for endType -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLType.endType_association
-	 * @body result = (memberEnd->collect(type)->asSet())
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType.endType_association
+	 * {{{
+	 * OCL Body result = (memberEnd->collect(type)->asSet())
+	 * }}}
 	 */
 	def endType: Set[UMLType[Uml]] = relatedElement.selectByKindOf { case x: UMLType[Uml] => x }
 
@@ -75,7 +77,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for validate_association_ends -->
    * <!-- End of user code doc for validate_association_ends -->
 	 *
-	 * @body memberEnd->size() > 2 implies ownedEnd->includesAll(memberEnd)
+	 * {{{
+	 * OCL Body memberEnd->size() > 2 implies ownedEnd->includesAll(memberEnd)
+	 * }}}
 	 */
 	def validate_association_ends: Boolean = {
 		// Start of user code for "association_ends"
@@ -92,7 +96,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for validate_binary_associations -->
    * <!-- End of user code doc for validate_binary_associations -->
 	 *
-	 * @body memberEnd->exists(aggregation <> AggregationKind::none) implies (memberEnd->size() = 2 and memberEnd->exists(aggregation = AggregationKind::none))
+	 * {{{
+	 * OCL Body memberEnd->exists(aggregation <> AggregationKind::none) implies (memberEnd->size() = 2 and memberEnd->exists(aggregation = AggregationKind::none))
+	 * }}}
 	 */
 	def validate_binary_associations: Boolean = {
 		// Start of user code for "binary_associations"
@@ -108,7 +114,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for validate_ends_must_be_typed -->
    * <!-- End of user code doc for validate_ends_must_be_typed -->
 	 *
-	 * @body memberEnd->forAll(type->notEmpty())
+	 * {{{
+	 * OCL Body memberEnd->forAll(type->notEmpty())
+	 * }}}
 	 */
 	def validate_ends_must_be_typed: Boolean = {
 		// Start of user code for "ends_must_be_typed"
@@ -122,7 +130,9 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for validate_specialized_end_number -->
    * <!-- End of user code doc for validate_specialized_end_number -->
 	 *
-	 * @body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
+	 * {{{
+	 * OCL Body parents()->select(oclIsKindOf(Association)).oclAsType(Association)->forAll(p | p.memberEnd->size() = self.memberEnd->size())
+	 * }}}
 	 */
 	def validate_specialized_end_number: Boolean = {
 		// Start of user code for "specialized_end_number"
@@ -138,9 +148,15 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 * <!-- Start of user code doc for validate_specialized_end_types -->
    * <!-- End of user code doc for validate_specialized_end_types -->
 	 *
-	 * @body Sequence{1..memberEnd->size()}->
+	 * {{{
+	 * OCL Body Sequence{1..memberEnd->size()}->
+	 * }}}
+	 * {{{
 	 * 	forAll(i | general->select(oclIsKindOf(Association)).oclAsType(Association)->
+	 * }}}
+	 * {{{
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
+	 * }}}
 	 */
 	def validate_specialized_end_types: Boolean = {
 		// Start of user code for "specialized_end_types"

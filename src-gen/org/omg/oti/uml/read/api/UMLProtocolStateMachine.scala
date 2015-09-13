@@ -63,8 +63,8 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	 * <!-- Start of user code doc for protocol_interface -->
    * <!-- End of user code doc for protocol_interface -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInterface.protocol
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.protocol
 	 */
 	def protocol_interface: Option[UMLInterface[Uml]]
 
@@ -72,8 +72,8 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	 * <!-- Start of user code doc for protocol_port -->
    * <!-- End of user code doc for protocol_port -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.protocol
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.protocol
 	 */
 	def protocol_port: Set[UMLPort[Uml]]
 

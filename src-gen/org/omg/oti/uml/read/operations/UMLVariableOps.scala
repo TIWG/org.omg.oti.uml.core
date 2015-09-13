@@ -62,8 +62,8 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
 	 * <!-- Start of user code doc for activityScope -->
    * <!-- End of user code doc for activityScope -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivity.variable
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.variable
 	 */
 	def activityScope: Option[UMLActivity[Uml]] = namespace.selectByKindOf { case x: UMLActivity[Uml] => x }
 
@@ -73,8 +73,8 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
 	 * <!-- Start of user code doc for scope -->
    * <!-- End of user code doc for scope -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStructuredActivityNode.variable
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.variable
 	 */
 	def scope: Option[UMLStructuredActivityNode[Uml]] = namespace.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x }
 
@@ -84,10 +84,12 @@ trait UMLVariableOps[Uml <: UML] { self: UMLVariable[Uml] =>
 	 * <!-- Start of user code doc for isAccessibleBy -->
    * <!-- End of user code doc for isAccessibleBy -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (if scope<>null then scope.allOwnedNodes()->includes(a)
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (if scope<>null then scope.allOwnedNodes()->includes(a)
 	 * else a.containingActivity()=activityScope
 	 * endif)
+	 * }}}
 	 */
 	def isAccessibleBy(a: Option[UMLAction[Uml]]): Boolean = {
 		// Start of user code for "isAccessibleBy"

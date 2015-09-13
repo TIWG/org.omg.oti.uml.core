@@ -62,8 +62,8 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for _object -->
    * <!-- End of user code doc for _object -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.object_readIsClassifiedObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_readIsClassifiedObjectAction
 	 */
 	def _object: Option[UMLInputPin[Uml]] = input headOption
 
@@ -73,8 +73,8 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for result -->
    * <!-- End of user code doc for result -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLOutputPin.result_readIsClassifiedObjectAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readIsClassifiedObjectAction
 	 */
 	def result: Option[UMLOutputPin[Uml]] = output headOption
 
@@ -84,7 +84,9 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for validate_boolean_result -->
    * <!-- End of user code doc for validate_boolean_result -->
 	 *
-	 * @body result.type = Boolean
+	 * {{{
+	 * OCL Body result.type = Boolean
+	 * }}}
 	 */
 	def validate_boolean_result: Boolean = {
 		// Start of user code for "boolean_result"
@@ -98,7 +100,9 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for validate_multiplicity_of_input -->
    * <!-- End of user code doc for validate_multiplicity_of_input -->
 	 *
-	 * @body object.is(1,1)
+	 * {{{
+	 * OCL Body object.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_input: Boolean = {
 		// Start of user code for "multiplicity_of_input"
@@ -112,7 +116,9 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for validate_multiplicity_of_output -->
    * <!-- End of user code doc for validate_multiplicity_of_output -->
 	 *
-	 * @body result.is(1,1)
+	 * {{{
+	 * OCL Body result.is(1,1)
+	 * }}}
 	 */
 	def validate_multiplicity_of_output: Boolean = {
 		// Start of user code for "multiplicity_of_output"
@@ -126,7 +132,9 @@ trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassified
 	 * <!-- Start of user code doc for validate_no_type -->
    * <!-- End of user code doc for validate_no_type -->
 	 *
-	 * @body object.type = null
+	 * {{{
+	 * OCL Body object.type = null
+	 * }}}
 	 */
 	def validate_no_type: Boolean = {
 		// Start of user code for "no_type"

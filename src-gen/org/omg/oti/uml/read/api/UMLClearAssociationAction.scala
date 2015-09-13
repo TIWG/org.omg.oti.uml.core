@@ -63,8 +63,8 @@ trait UMLClearAssociationAction[Uml <: UML]
 	 * <!-- Start of user code doc for association -->
    * <!-- End of user code doc for association -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLAssociation.association_clearAssociationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.association_clearAssociationAction
 	 */
 	def association: Option[UMLAssociation[Uml]]
 

@@ -64,8 +64,8 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for defaultValue -->
    * <!-- End of user code doc for defaultValue -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningParameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningParameter
 	 */
 	def defaultValue: Option[UMLValueSpecification[Uml]]
 
@@ -75,7 +75,7 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for direction -->
    * <!-- End of user code doc for direction -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def direction: UMLParameterDirectionKind.Value
 
@@ -85,7 +85,7 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for effect -->
    * <!-- End of user code doc for effect -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
 	def effect: Option[UMLParameterEffectKind.Value]
 
@@ -95,7 +95,7 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for isException -->
    * <!-- End of user code doc for isException -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isException: Boolean
 
@@ -105,7 +105,7 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for isStream -->
    * <!-- End of user code doc for isStream -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isStream: Boolean
 
@@ -115,8 +115,8 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameterSet -->
    * <!-- End of user code doc for parameterSet -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterSet.parameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterSet.parameter
 	 */
 	def parameterSet: Set[UMLParameterSet[Uml]]
 
@@ -124,8 +124,8 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for parameter_activityParameterNode -->
    * <!-- End of user code doc for parameter_activityParameterNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLActivityParameterNode.parameter
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityParameterNode.parameter
 	 */
 	def parameter_activityParameterNode: Set[UMLActivityParameterNode[Uml]]
 
@@ -133,8 +133,8 @@ trait UMLParameter[Uml <: UML]
 	 * <!-- Start of user code doc for result_opaqueExpression -->
    * <!-- End of user code doc for result_opaqueExpression -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLOpaqueExpression.result
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.result
 	 */
 	def result_opaqueExpression: Set[UMLOpaqueExpression[Uml]]
 

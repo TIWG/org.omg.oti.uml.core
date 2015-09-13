@@ -62,8 +62,8 @@ trait UMLStateInvariantOps[Uml <: UML] { self: UMLStateInvariant[Uml] =>
 	 * <!-- Start of user code doc for invariant -->
    * <!-- End of user code doc for invariant -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.invariant_stateInvariant
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.invariant_stateInvariant
 	 */
 	def invariant: Option[UMLConstraint[Uml]] = ownedElement.selectByKindOf { case x: UMLConstraint[Uml] => x } headOption
 

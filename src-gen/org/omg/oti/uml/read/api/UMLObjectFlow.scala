@@ -63,7 +63,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * <!-- Start of user code doc for isMulticast -->
    * <!-- End of user code doc for isMulticast -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isMulticast: Boolean
 
@@ -73,7 +73,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * <!-- Start of user code doc for isMultireceive -->
    * <!-- End of user code doc for isMultireceive -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isMultireceive: Boolean
 
@@ -83,8 +83,8 @@ trait UMLObjectFlow[Uml <: UML]
 	 * <!-- Start of user code doc for selection -->
    * <!-- End of user code doc for selection -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.selection_objectFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.selection_objectFlow
 	 */
 	def selection: Option[UMLBehavior[Uml]]
 
@@ -94,8 +94,8 @@ trait UMLObjectFlow[Uml <: UML]
 	 * <!-- Start of user code doc for transformation -->
    * <!-- End of user code doc for transformation -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.transformation_objectFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.transformation_objectFlow
 	 */
 	def transformation: Option[UMLBehavior[Uml]]
 
@@ -103,8 +103,8 @@ trait UMLObjectFlow[Uml <: UML]
 	 * <!-- Start of user code doc for decisionInputFlow_decisionNode -->
    * <!-- End of user code doc for decisionInputFlow_decisionNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLDecisionNode.decisionInputFlow
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDecisionNode.decisionInputFlow
 	 */
 	def decisionInputFlow_decisionNode: Option[UMLDecisionNode[Uml]]
 

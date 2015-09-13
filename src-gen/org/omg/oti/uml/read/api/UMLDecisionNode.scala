@@ -63,8 +63,8 @@ trait UMLDecisionNode[Uml <: UML]
 	 * <!-- Start of user code doc for decisionInput -->
    * <!-- End of user code doc for decisionInput -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.decisionInput_decisionNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.decisionInput_decisionNode
 	 */
 	def decisionInput: Option[UMLBehavior[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLDecisionNode[Uml <: UML]
 	 * <!-- Start of user code doc for decisionInputFlow -->
    * <!-- End of user code doc for decisionInputFlow -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectFlow.decisionInputFlow_decisionNode
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectFlow.decisionInputFlow_decisionNode
 	 */
 	def decisionInputFlow: Option[UMLObjectFlow[Uml]]
 

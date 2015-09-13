@@ -64,8 +64,8 @@ trait UMLTransition[Uml <: UML]
 	 * <!-- Start of user code doc for guard -->
    * <!-- End of user code doc for guard -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.guard_transition
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.guard_transition
 	 */
 	def guard: Option[UMLConstraint[Uml]]
 
@@ -75,7 +75,7 @@ trait UMLTransition[Uml <: UML]
 	 * <!-- Start of user code doc for kind -->
    * <!-- End of user code doc for kind -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def kind: UMLTransitionKind.Value
 
@@ -85,8 +85,8 @@ trait UMLTransition[Uml <: UML]
 	 * <!-- Start of user code doc for source -->
    * <!-- End of user code doc for source -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLVertex.outgoing
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVertex.outgoing
 	 */
 	def source: Option[UMLVertex[Uml]]
 
@@ -96,8 +96,8 @@ trait UMLTransition[Uml <: UML]
 	 * <!-- Start of user code doc for target -->
    * <!-- End of user code doc for target -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLVertex.incoming
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVertex.incoming
 	 */
 	def target: Option[UMLVertex[Uml]]
 

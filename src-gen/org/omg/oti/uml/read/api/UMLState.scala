@@ -65,8 +65,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for doActivity -->
    * <!-- End of user code doc for doActivity -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.doActivity_state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.doActivity_state
 	 */
 	def doActivity: Option[UMLBehavior[Uml]]
 
@@ -76,8 +76,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for entry -->
    * <!-- End of user code doc for entry -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.entry_state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.entry_state
 	 */
 	def entry: Option[UMLBehavior[Uml]]
 
@@ -87,8 +87,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for exit -->
    * <!-- End of user code doc for exit -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLBehavior.exit_state
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.exit_state
 	 */
 	def exit: Option[UMLBehavior[Uml]]
 
@@ -98,8 +98,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for stateInvariant -->
    * <!-- End of user code doc for stateInvariant -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLConstraint.stateInvariant_owningState
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.stateInvariant_owningState
 	 */
 	def stateInvariant: Option[UMLConstraint[Uml]]
 
@@ -109,8 +109,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for submachine -->
    * <!-- End of user code doc for submachine -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLStateMachine.submachineState
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.submachineState
 	 */
 	def submachine: Option[UMLStateMachine[Uml]]
 
@@ -118,8 +118,8 @@ trait UMLState[Uml <: UML]
 	 * <!-- Start of user code doc for inState_objectNode -->
    * <!-- End of user code doc for inState_objectNode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLObjectNode.inState
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.inState
 	 */
 	def inState_objectNode: Set[UMLObjectNode[Uml]]
 

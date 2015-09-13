@@ -63,8 +63,8 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	 * <!-- Start of user code doc for actual -->
    * <!-- End of user code doc for actual -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLParameterableElement.actual_templateParameterSubstitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.actual_templateParameterSubstitution
 	 */
 	def actual: Option[UMLParameterableElement[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	 * <!-- Start of user code doc for formal -->
    * <!-- End of user code doc for formal -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.formal_templateParameterSubstitution
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.formal_templateParameterSubstitution
 	 */
 	def formal: Option[UMLTemplateParameter[Uml]]
 

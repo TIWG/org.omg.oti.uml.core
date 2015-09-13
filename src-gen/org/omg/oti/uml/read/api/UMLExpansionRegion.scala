@@ -63,8 +63,8 @@ trait UMLExpansionRegion[Uml <: UML]
 	 * <!-- Start of user code doc for inputElement -->
    * <!-- End of user code doc for inputElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExpansionNode.regionAsInput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExpansionNode.regionAsInput
 	 */
 	def inputElement: Set[UMLExpansionNode[Uml]]
 
@@ -74,7 +74,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	 * <!-- Start of user code doc for mode -->
    * <!-- End of user code doc for mode -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def mode: UMLExpansionKind.Value
 
@@ -84,8 +84,8 @@ trait UMLExpansionRegion[Uml <: UML]
 	 * <!-- Start of user code doc for outputElement -->
    * <!-- End of user code doc for outputElement -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLExpansionNode.regionAsOutput
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExpansionNode.regionAsOutput
 	 */
 	def outputElement: Set[UMLExpansionNode[Uml]]
 

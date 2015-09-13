@@ -62,8 +62,8 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for classifier -->
    * <!-- End of user code doc for classifier -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLClassifier.ownedTemplateSignature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.ownedTemplateSignature
 	 */
 	def classifier: Option[UMLClassifier[Uml]] = redefinitionContext headOption
 
@@ -73,8 +73,8 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for extendedSignature -->
    * <!-- End of user code doc for extendedSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.extendedSignature_redefinableTemplateSignature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.extendedSignature_redefinableTemplateSignature
 	 */
 	def extendedSignature: Set[UMLRedefinableTemplateSignature[Uml]] = redefinedElement.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
 
@@ -84,9 +84,11 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for inheritedParameter -->
    * <!-- End of user code doc for inheritedParameter -->
 	 *
-	 * @property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLTemplateParameter.inheritedParameter_redefinableTemplateSignature
-	 * @body result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
+	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.inheritedParameter_redefinableTemplateSignature
+	 * {{{
+	 * OCL Body result = (if extendedSignature->isEmpty() then Set{} else extendedSignature.parameter->asSet() endif)
+	 * }}}
 	 */
 	def inheritedParameter: Set[UMLTemplateParameter[Uml]] = {
 		// Start of user code for "inheritedParameter"
@@ -98,8 +100,8 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for extendedSignature_redefinableTemplateSignature -->
    * <!-- End of user code doc for extendedSignature_redefinableTemplateSignature -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.extendedSignature
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.extendedSignature
 	 */
 	def extendedSignature_redefinableTemplateSignature: Set[UMLRedefinableTemplateSignature[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLRedefinableTemplateSignature[Uml] => x }
 
@@ -109,8 +111,10 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for isConsistentWith -->
    * <!-- End of user code doc for isConsistentWith -->
 	 *
-	 * @operation ordered="false" unique="true" multiplicity="1..1"
-	 * @body result = (redefiningElement.oclIsKindOf(RedefinableTemplateSignature))
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (redefiningElement.oclIsKindOf(RedefinableTemplateSignature))
+	 * }}}
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
@@ -124,7 +128,9 @@ trait UMLRedefinableTemplateSignatureOps[Uml <: UML] { self: UMLRedefinableTempl
 	 * <!-- Start of user code doc for validate_redefines_parents -->
    * <!-- End of user code doc for validate_redefines_parents -->
 	 *
-	 * @body classifier.allParents()->forAll(c | c.ownedTemplateSignature->notEmpty() implies self->closure(extendedSignature)->includes(c.ownedTemplateSignature))
+	 * {{{
+	 * OCL Body classifier.allParents()->forAll(c | c.ownedTemplateSignature->notEmpty() implies self->closure(extendedSignature)->includes(c.ownedTemplateSignature))
+	 * }}}
 	 */
 	def validate_redefines_parents: Boolean = {
 		// Start of user code for "redefines_parents"

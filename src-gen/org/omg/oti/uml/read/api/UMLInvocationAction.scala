@@ -63,8 +63,8 @@ trait UMLInvocationAction[Uml <: UML]
 	 * <!-- Start of user code doc for argument -->
    * <!-- End of user code doc for argument -->
 	 *
-	 * @property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.argument_invocationAction
+	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.argument_invocationAction
 	 */
 	def argument: Seq[UMLInputPin[Uml]]
 
@@ -74,8 +74,8 @@ trait UMLInvocationAction[Uml <: UML]
 	 * <!-- Start of user code doc for onPort -->
    * <!-- End of user code doc for onPort -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLPort.onPort_invocationAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.onPort_invocationAction
 	 */
 	def onPort: Option[UMLPort[Uml]]
 

@@ -63,7 +63,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	 * <!-- Start of user code doc for isRemoveDuplicates -->
    * <!-- End of user code doc for isRemoveDuplicates -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
 	def isRemoveDuplicates: Boolean
 
@@ -73,8 +73,8 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	 * <!-- Start of user code doc for removeAt -->
    * <!-- End of user code doc for removeAt -->
 	 *
-	 * @property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * @opposite org.omg.oti.uml.read.api.UMLInputPin.removeAt_removeStructuralFeatureValueAction
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.removeAt_removeStructuralFeatureValueAction
 	 */
 	def removeAt: Option[UMLInputPin[Uml]]
 
