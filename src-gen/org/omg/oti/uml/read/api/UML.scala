@@ -1259,5 +1259,18 @@ trait UML {
 	type WriteVariableAction <: VariableAction
 
 	// Start of user code for additional types
+	
+	/**
+	 * A type corresponding to the tool-specific mechanism used for managing an inter-related
+	 * set of UML model documents (serializable or built-in)
+	 */
+	type DocumentSetAggregate
+	
+   /**
+    * A type for specifying the "url" from where an OTI Canonical XMI document should be loaded. 
+    * This type is intentionally opaque so that a tool-specific OTI adaptation 
+    * can include additional information according to the need of the tool being adapted.
+    */
+   type LoadURL
     // End of user code
 }

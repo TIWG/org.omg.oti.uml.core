@@ -195,7 +195,7 @@ object `package` {
             .map{ indent }
             .mkString("\n")
       case x : TreeString =>
-        // @todo is there a way to do this without forcing inheritance from TreeString?
+        // @TODO is there a way to do this without forcing inheritance from TreeString?
         x.treeString
       case x : Product if x.productArity == 0 =>
         x.productPrefix
@@ -226,7 +226,7 @@ object `package` {
           .map(indent)
           .mkString("\n")
       case x : ValueTreeString =>
-        // @todo is there a way to do this without forcing inheritance from ValueTreeString?
+        // @TODO is there a way to do this without forcing inheritance from ValueTreeString?
         x.valueTreeString
       case a : Product =>
         val b

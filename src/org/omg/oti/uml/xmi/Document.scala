@@ -70,13 +70,13 @@ import scala.language.postfixOps
  *      > [XMIDocument] A document produced by the XMI production rules defined in this International Standard.
  *      > [XMISchema] A schema produced by the XMI production rules defined in this International Standard.
  *
- * @todo Consider restricting the type of `scope` from UMLElement to UMLPackage.
+ * @TODO Consider restricting the type of `scope` from UMLElement to UMLPackage.
  *       In principle, the OMG XMI specification allows an arbitrary element to be the root of an XMI Document.
  *       However, it is unclear how this works... In practice, the OTI effectively requires the root to be a UMLPackage.
  *
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
-sealed abstract trait Document[Uml <: UML] {
+abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
   val uri: URI
   val nsPrefix: String
@@ -124,4 +124,9 @@ trait BuiltInDocument[Uml <: UML] extends Document[Uml] {
  *
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
-trait SerializableDocument[Uml <: UML] extends Document[Uml] 
+trait SerializableDocument[Uml <: UML] extends Document[Uml] {
+   
+  override lazy val extent: Set[UMLElement[Uml]] = 
+    Set(scope) ++ scope.allOwnedElements
+
+ }
