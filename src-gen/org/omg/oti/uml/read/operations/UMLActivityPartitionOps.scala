@@ -280,11 +280,22 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 */
 	def validate_represents_property_and_is_contained: Boolean = {
 		// Start of user code for "represents_property_and_is_contained"
-    if (represents.isInstanceOf[UMLProperty[Uml]] && superPartition.nonEmpty)
-      (represents.isInstanceOf[UMLClassifier[Uml]] && represents.get.owner == superPartition.get.represents) ||
-        (represents.isInstanceOf[UMLProperty[Uml]] && represents.get.owner == superPartition.get.represents
-                                                                              .asInstanceOf[UMLProperty[Uml]]._type)
-    else true
+		represents.fold[Boolean](false) {
+		  case p: UMLProperty[Uml] => 
+		    superPartition.fold[Boolean](false) {
+		      case sup: UMLActivityPartition[Uml] =>
+		        sup.represents.fold[Boolean](false) {
+		          case supRepresentsClassifier: UMLClassifier[Uml] =>
+		            p.owner.contains(supRepresentsClassifier)
+		          case supRepresentsProperty: UMLProperty[Uml] =>
+		            (p.owner.toSet & supRepresentsProperty._type.toSet).nonEmpty
+		          case _ =>
+		            false
+		        }
+		    }
+		  case _ =>
+		    false
+		}
     // End of user code
 	}
 
