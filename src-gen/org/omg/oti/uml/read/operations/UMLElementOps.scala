@@ -62,91 +62,93 @@ import org.omg.oti.uml.xmi.IDGenerator
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
+trait UMLElementOps[Uml <: UML] {
+  self: UMLElement[Uml] =>
 
-	implicit val ops: UMLOps[Uml]
-	import self.ops._
+  implicit val ops: UMLOps[Uml]
 
-	/**
-	 * The Comments owned by this Element.
-	 *
-	 * <!-- Start of user code doc for ownedComment -->
+  import self.ops._
+
+  /**
+   * The Comments owned by this Element.
+   *
+   * <!-- Start of user code doc for ownedComment -->
    * <!-- End of user code doc for ownedComment -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
-	 */
-	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
+   *
+   * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
+   */
+  def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
-	/**
-	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
-	 *
-	 * <!-- Start of user code doc for allOwnedElements -->
+  /**
+   * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
+   *
+   * <!-- Start of user code doc for allOwnedElements -->
    * <!-- End of user code doc for allOwnedElements -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
-	 * }}}
-	 */
-	def allOwnedElements: Set[UMLElement[Uml]] = {
-		// Start of user code for "allOwnedElements"
+   *
+   * UML Operation ordered="false" unique="true" multiplicity="0..*"
+   * {{{
+   * OCL Body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+   * }}}
+   */
+  def allOwnedElements: Set[UMLElement[Uml]] = {
+    // Start of user code for "allOwnedElements"
     closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
     // End of user code
-	}
+  }
 
-	/**
-	 * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
-	 *
-	 * <!-- Start of user code doc for mustBeOwned -->
+  /**
+   * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
+   *
+   * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	def mustBeOwned: Boolean = {
-		// Start of user code for "mustBeOwned"
+   *
+   * UML Operation ordered="false" unique="true" multiplicity="1..1"
+   * {{{
+   * OCL Body result = (true)
+   * }}}
+   */
+  def mustBeOwned: Boolean = {
+    // Start of user code for "mustBeOwned"
     true
     // End of user code
-	}
+  }
 
-	/**
-	 * Elements that must be owned must have an owner.
-	 *
-	 * <!-- Start of user code doc for validate_has_owner -->
+  /**
+   * Elements that must be owned must have an owner.
+   *
+   * <!-- Start of user code doc for validate_has_owner -->
    * <!-- End of user code doc for validate_has_owner -->
-	 *
-	 * {{{
-	 * OCL Body mustBeOwned() implies owner->notEmpty()
-	 * }}}
-	 */
-	def validate_has_owner: Boolean = {
-		// Start of user code for "has_owner"
+   *
+   * {{{
+   * OCL Body mustBeOwned() implies owner->notEmpty()
+   * }}}
+   */
+  def validate_has_owner: Boolean = {
+    // Start of user code for "has_owner"
     if (mustBeOwned) {
       owner.isDefined
     } else true
     // End of user code
-	}
+  }
 
-	/**
-	 * An element may not directly or indirectly own itself.
-	 *
-	 * <!-- Start of user code doc for validate_not_own_self -->
+  /**
+   * An element may not directly or indirectly own itself.
+   *
+   * <!-- Start of user code doc for validate_not_own_self -->
    * <!-- End of user code doc for validate_not_own_self -->
-	 *
-	 * {{{
-	 * OCL Body not allOwnedElements()->includes(self)
-	 * }}}
-	 */
-	def validate_not_own_self: Boolean = {
-		// Start of user code for "not_own_self"
+   *
+   * {{{
+   * OCL Body not allOwnedElements()->includes(self)
+   * }}}
+   */
+  def validate_not_own_self: Boolean = {
+    // Start of user code for "not_own_self"
     !allOwnedElements.contains(self)
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   /**
    * The element or the first owner of the element that is a package with an effective URI;
@@ -155,9 +157,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   @annotation.tailrec final def getPackageOwnerWithEffectiveURI: Option[UMLPackage[Uml]] =
     self match {
       case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined => Some(p)
-      case _                                                 => owner match {
+      case _ => owner match {
         case Some(o) => o.getPackageOwnerWithEffectiveURI
-        case None    => None
+        case None => None
       }
     }
 
@@ -232,13 +234,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * This method is defined for every metaclass according to the figures from the UML spec.
    *
    * The override method includes up to 3 contributions:
-   *   - those of the metaclass itself
+   * - those of the metaclass itself
    *
-   *   - the concrete direct generalization parent metaclass (zero or one)
-   *     {{{super.forwardReferencesFromMetamodelAssociations}}}
+   * - the concrete direct generalization parent metaclass (zero or one)
+   * {{{super.forwardReferencesFromMetamodelAssociations}}}
    *
-   *   - each abstract direct generalization parent metaclass (zero or more)
-   *     {{{[metaclass name]_forwardReferencesFromMetamodelAssociations}}}
+   * - each abstract direct generalization parent metaclass (zero or more)
+   * {{{[metaclass name]_forwardReferencesFromMetamodelAssociations}}}
    */
   def forwardReferencesFromMetamodelAssociations: Set[UMLElement[Uml]]
 
@@ -248,8 +250,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   @annotation.tailrec final def owningNamespace: Option[UMLNamespace[Uml]] = self match {
     case ns: UMLNamespace[Uml] => Some(ns)
-    case e: UMLElement[Uml]    => e.owner match {
-      case None    => None
+    case e: UMLElement[Uml] => e.owner match {
+      case None => None
       case Some(o) => o.owningNamespace
     }
   }
@@ -309,26 +311,12 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     def addEvaluatedTriples
     (acc: Try[Set[RelationTriple[Uml]]],
      f: MetaPropertyEvaluator)
-    : Try[Set[RelationTriple[Uml]]] = acc match {
-      case Failure(t)       => Failure(t)
-      case Success(triples) => f match {
-        case rf: MetaReferenceEvaluator  =>
-          rf.evaluate(self) match {
-            case Failure(t)         => Failure(t)
-            case Success(None)      => Success(triples)
-            case Success(Some(ref)) =>
-              if (self.owner.get == ref) Success(triples)
-              else Success(triples + AssociationTriple(sub = self, relf = rf, obj = ref))
-          }
-        case cf: MetaCollectionEvaluator =>
-          cf.evaluate(self) match {
-            case Failure(t)    => Failure(t)
-            case Success(Nil)  => Success(triples)
-            case Success(refs) => Success(triples ++ (refs.toSet - self.owner.get)
-                                                     .map(AssociationTriple(sub = self, relf = cf, _)))
-          }
+    : Try[Set[RelationTriple[Uml]]] =
+      acc.flatMap { ts =>
+        f
+        .evaluateTriples(self)
+        .map( _ ++ ts )
       }
-    }
 
     val triples: Iterable[RelationTriple[Uml]] =
       for {
@@ -350,10 +338,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def appendUnique[F](ss: Seq[F]*): Seq[F] =
     ss.toList match {
-      case Nil               => Seq()
-      case (s :: Nil)        => s
+      case Nil => Seq()
+      case (s :: Nil) => s
       case (s1 :: s2 :: Nil) => appendUnique(s1, s2)
-      case (s :: sx)         => appendUnique(s, appendUnique(sx: _*))
+      case (s :: sx) => appendUnique(s, appendUnique(sx: _*))
     }
 
   /**
@@ -363,7 +351,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyBooleanValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[Boolean] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -372,10 +360,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyBooleanValue[Uml] => Some(s.value)
-                case _                               => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -387,7 +375,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyIntegerValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[Int] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -396,10 +384,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyIntegerValue[Uml] => Some(s.value)
-                case _                               => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -411,7 +399,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyUnlimitedNaturalValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[Int] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -420,10 +408,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyUnlimitedNaturalValue[Uml] => Some(s.value)
-                case _                                        => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -435,7 +423,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyRealValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[Double] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -444,10 +432,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyRealValue[Uml] => Some(s.value)
-                case _                            => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -459,7 +447,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyStringValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[String] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -468,10 +456,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyStringValue[Uml] => Some(s.value)
-                case _                              => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -483,7 +471,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyEnumValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[UMLEnumerationLiteral[Uml]] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -492,10 +480,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyEnumerationLiteralValue[Uml] => Some(s.value)
-                case _                                          => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -507,7 +495,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getStereotypeTagPropertyInstanceValues(tagProperty: Option[UMLProperty[Uml]])
   : Iterable[UMLInstanceSpecification[Uml]] =
     lookupTagValueByProperty(tagProperty) match {
-      case None    =>
+      case None =>
         None
       case Some(v) =>
         v match {
@@ -516,10 +504,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               tv <- vs.values
               v <- tv match {
                 case s: TagPropertyInstanceSpecificationValue[Uml] => Some(s.value)
-                case _                                             => None
+                case _ => None
               }
             } yield v
-          case _                                                =>
+          case _ =>
             None
         }
     }
@@ -543,55 +531,55 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   /**
    * @see OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, id
    *
-   * XML semantics require the values of this attribute to be unique within an XML document;
-   * however, the value is not required to be globally unique.
-   * This attribute may be used as the value of the idref attribute defined in the next sub clause.
-   * It may also be included as part of the value of the href attribute in XLinks.
-   * An example of the use of this attribute and the other attributes in this sub clause can be found in 7.10.3.
-   * If the metaclass has (or inherits) a Property with isId = ???true,??? then
-   * the value of that property may be used as the basis of the xmi:id and/or xmi:uuid attributes.
-   * This is not mandatory, and the exact algorithm to be used is not specified in this International Standard.
-   * However it is important, to be a valid XML document, that the value for xmi:id is unique
-   * across all elements within the file. The xmi:uuid is not so constrained,
-   * but if the same value is used in multiple XML elements, then
-   * they are all deemed to reference the same MOF element (e.g., they may represent different aspects).
+   *      XML semantics require the values of this attribute to be unique within an XML document;
+   *      however, the value is not required to be globally unique.
+   *      This attribute may be used as the value of the idref attribute defined in the next sub clause.
+   *      It may also be included as part of the value of the href attribute in XLinks.
+   *      An example of the use of this attribute and the other attributes in this sub clause can be found in 7.10.3.
+   *      If the metaclass has (or inherits) a Property with isId = ???true,??? then
+   *      the value of that property may be used as the basis of the xmi:id and/or xmi:uuid attributes.
+   *      This is not mandatory, and the exact algorithm to be used is not specified in this International Standard.
+   *      However it is important, to be a valid XML document, that the value for xmi:id is unique
+   *      across all elements within the file. The xmi:uuid is not so constrained,
+   *      but if the same value is used in multiple XML elements, then
+   *      they are all deemed to reference the same MOF element (e.g., they may represent different aspects).
    *
    * @param idg The OTI IDGenerator, used if it is necessary to compute the element's xmi:ID
    * @return The OTI xmi:id for the element, which is either:
    *         - the value of the OTI::Identity::xmiID tag property on the element, if specified, or
    *         - the generated OTI xmi:id
    *
-   * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
+   *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiID()(implicit idg: IDGenerator[Uml]): String =
     oti_xmiID match {
       case Some(oid) => oid
-      case None      => generatedOTI_id
+      case None => generatedOTI_id
     }
 
   /**
    * @see OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, uuid
    *
-   * The purpose of this attribute is to provide a globally unique identifier for an XML element.
-   * The values of this attribute should be globally unique strings prefixed by the type of identifier.
-   * If you have access to the UUID assigned in MOF, you may put the MOF UUID in the uuid XML attribute
-   * when encoding the MOF data in XMI. UUIDs should use URIs as the unique string.
-   * Refer to 6.4.1.1 of the MOF Facility and Object Lifecycle Specification for
-   * an example of a scheme for detailed URI production rules.
-   * An example URI for the metaclass UseCase in the UML2 metamodel looks like this:
-   * http://www.omg.org/spec/UML//20200901/uml.xml#UseCase
+   *      The purpose of this attribute is to provide a globally unique identifier for an XML element.
+   *      The values of this attribute should be globally unique strings prefixed by the type of identifier.
+   *      If you have access to the UUID assigned in MOF, you may put the MOF UUID in the uuid XML attribute
+   *      when encoding the MOF data in XMI. UUIDs should use URIs as the unique string.
+   *      Refer to 6.4.1.1 of the MOF Facility and Object Lifecycle Specification for
+   *      an example of a scheme for detailed URI production rules.
+   *      An example URI for the metaclass UseCase in the UML2 metamodel looks like this:
+   *      http://www.omg.org/spec/UML//20200901/uml.xml#UseCase
    *
    * @param idg The OTI IDGenerator, used if it is necessary to compute the element's xmi:ID to derive its xmi:uuid
    * @return The OTI xmi:uuid for the element, which is either:
    *         - the value of the OTI::Identity::xmiUUID tag property on the element, if specified, or
    *         - the generated OTI xmi:uuid
    *
-   * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
+   *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiUUID()(implicit idg: IDGenerator[Uml]): String =
     oti_xmiUUID match {
       case Some(ouuid) => ouuid
-      case None        => generatedOTI_uuid
+      case None => generatedOTI_uuid
     }
 
   def xmiElementLabel: String = mofMetaclassName
@@ -613,26 +601,26 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     def directlyOwnedElementFilter(owned: UMLElement[Uml]): Boolean =
       owned match {
-        case _: UMLPackage[Uml]       => false
+        case _: UMLPackage[Uml] => false
         case _: UMLElementImport[Uml] => false
         case _: UMLPackageImport[Uml] => false
-        case _: UMLPackageMerge[Uml]  => false
-        case _                        => true
+        case _: UMLPackageMerge[Uml] => false
+        case _ => true
       }
 
     @annotation.tailrec def allOwnedElementsWithinPackageScopeAggregator(
                                                                           acc: Set[UMLElement[Uml]],
                                                                           es: List[UMLElement[Uml]]): Set[UMLElement[Uml]] = es match {
-      case Nil     => acc
+      case Nil => acc
       case x :: xs =>
         x match {
-          case p: UMLPackage[Uml]                 =>
+          case p: UMLPackage[Uml] =>
             val pOwned = p.ownedElement.filter(directlyOwnedElementFilter).toList
             allOwnedElementsWithinPackageScopeAggregator(acc, pOwned ::: xs)
           case e if directlyOwnedElementFilter(e) =>
             val eOwned = e.ownedElement.filter(directlyOwnedElementFilter).toList
             allOwnedElementsWithinPackageScopeAggregator(acc + e, eOwned ::: xs)
-          case _                                  =>
+          case _ =>
             allOwnedElementsWithinPackageScopeAggregator(acc, xs)
         }
     }
@@ -697,7 +685,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def lookupTagValueByProperty(tagProperty: Option[UMLProperty[Uml]]): Option[UMLStereotypeTagValue[Uml]] =
     tagProperty match {
-      case None      =>
+      case None =>
         None
       case Some(tag) =>
         tagValues.find(p => p.stereotypeTagProperty == tag)
@@ -710,11 +698,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *      [6] This returns the single Property with a slot that represents
    *      the current owner of the Object based on current instance values;
    *      may be null for top level objects.
-   * {{{
-   *      (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
-   *      result = self.classifier.allSlottableProperties()
-   *      ->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
-   * }}}
+   *      {{{
+   *            (M1)Object::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+   *            result = self.classifier.allSlottableProperties()
+   *            ->any(p |p.opposite <> null and p.opposite.isComposite and self.get(p)<> null)
+   *      }}}
    *
    * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
    */
@@ -723,18 +711,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   (implicit idg: IDGenerator[Uml])
   : Try[Option[MetaPropertyEvaluator]] =
     owner match {
-      case None    => Success(None)
+      case None => Success(None)
       case Some(o) =>
         val props: Seq[MetaPropertyEvaluator] = o.compositeMetaProperties.reverse.flatMap {
-          case mp: MetaReferenceEvaluator  => mp.evaluate(o) match {
-            case Failure(f)                    => return Failure(f)
+          case mp: MetaReferenceEvaluator => mp.evaluate(o) match {
+            case Failure(f) => return Failure(f)
             case Success(Some(e)) if e == self => Some[MetaPropertyEvaluator](mp)
-            case _                             => None
+            case _ => None
           }
           case mp: MetaCollectionEvaluator => mp.evaluate(o) match {
-            case Failure(f)                       => return Failure(f)
+            case Failure(f) => return Failure(f)
             case Success(es) if es.contains(self) => Some[MetaPropertyEvaluator](mp)
-            case _                                => None
+            case _ => None
           }
         }
         Success(props.headOption)
@@ -743,18 +731,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   /**
    * See MOF 2.5
    *
-   *   - Section 9.4:
+   * - Section 9.4:
    *
-   *      get(property: Property) : Object
-   *      Gets the value of the given property.
-   *      If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
-   *      If Property has multiplicity upper bound >1, get() returns a ReflectiveCollection containing
-   *      the values of the Property.
-   *      If there are no values, the ReflectiveCollection returned is empty.
-   *      Exception: throws IllegalArgumentException if Property is not a member of the Class from class().
+   * get(property: Property) : Object
+   * Gets the value of the given property.
+   * If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
+   * If Property has multiplicity upper bound >1, get() returns a ReflectiveCollection containing
+   * the values of the Property.
+   * If there are no values, the ReflectiveCollection returned is empty.
+   * Exception: throws IllegalArgumentException if Property is not a member of the Class from class().
    *
-   *   - Section 15.5
-   *      {{{
+   * - Section 15.5
+   * {{{
    *      Object::get(Property p): Element
    *      modeled as ObjectInstance::get(Property p): ElementInstance
    *      -- If a foreign association end, then navigate link, else access slot or derive the value
@@ -763,7 +751,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *      (self.propertySlot(p).value <> null and result = self.propertySlot(p).value) or result = p.default) or
    *      (p.isDerivedUnion and result = unionedProperties(p)->union(s| s = self.get(s)) or
    *      (p.isDerived and result = self.extInvoke('get', p))
-   *      }}}
+   * }}}
    *
    * @param f (M2)Property
    * @return A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.
@@ -773,7 +761,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   (implicit idg: IDGenerator[Uml])
   : Try[Iterable[UMLElement[Uml]]] =
     f match {
-      case rf: MetaReferenceEvaluator  => for {v <- rf.evaluate(self)} yield v
+      case rf: MetaReferenceEvaluator => for {v <- rf.evaluate(self)} yield v
       case cf: MetaCollectionEvaluator => cf.evaluate(self)
     }
 
@@ -782,9 +770,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   def generatedOTI_id()(implicit idg: IDGenerator[Uml]): String =
     idg.computeID(self) match {
-     case Success(id) => id
-     case Failure(t) => throw t
-   }
+      case Success(id) => id
+      case Failure(t) => throw t
+    }
 
   /**
    * The computed OTI xmi:uuid for the element
@@ -857,8 +845,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   // it is true if the <<SpecificationRoot>> stereotype is applied, and false otherwise
   def isSpecificationRoot: Boolean = OTI_SPECIFICATION_ROOT_S match {
     case Some(s) => hasStereotype(s)
-    case None    => false
+    case None => false
   }
 
   // End of user code
-} //UMLElementOps
+}
+
+//UMLElementOps

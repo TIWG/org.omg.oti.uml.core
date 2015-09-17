@@ -433,6 +433,8 @@ package object uml {
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]]
 
     def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
+
+    def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]]
   }
 
 
@@ -455,6 +457,19 @@ package object uml {
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = Some(this)
 
     def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
+
+    override def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]] =
+      e match {
+        case u: U =>
+          evaluate(u).map { ov =>
+            ov.fold[Set[RelationTriple[Uml]]](Set()) { v =>
+              if (u.owner.contains(v))
+                Set()
+              else
+                Set(AssociationTriple(sub=u, relf=this, obj=v))
+            }
+          }
+      }
 
     def evaluate(e: UMLElement[Uml]): Try[Option[UMLElement[Uml]]] =
       e match {
@@ -500,6 +515,14 @@ package object uml {
     def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]] = None
 
     def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
+
+    override def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]] =
+      e match {
+        case u: U =>
+          evaluate(u).map { vs =>
+            (vs.toSet -- u.owner.toSet).map { v => AssociationTriple(sub=u, relf=this, obj=v) }
+          }
+      }
 
     def evaluate(e: UMLElement[Uml]): Try[List[UMLElement[Uml]]] = {
       require(e != null)
