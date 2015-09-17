@@ -2998,10 +2998,11 @@ trait UMLUpdate[Uml <: UML] {
       }
 
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
-      for {
-        composed <- links_query.evaluate(owner)
-        updated = if (composed.contains(owned)) composed else composed :+ owned
-      } yield linksComposes(owner, updated)
+      links_query.evaluate(owner)
+      .map { composed =>
+        val updated = if (composed.contains(owned)) composed else composed :+ owned
+        linksComposes(owner, updated)
+      }
 
   }
 
@@ -3025,10 +3026,12 @@ trait UMLUpdate[Uml <: UML] {
       }
 
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
-      for {
-        composed <- links_query.evaluate(owner)
-        updated = if (composed.contains(owned)) composed else composed :+ owned
-      } yield linksComposes(owner, updated)
+      links_query
+      .evaluate(owner)
+      .map { composed =>
+        val updated = if (composed.contains(owned)) composed else composed :+ owned
+        linksComposes(owner, updated)
+      }
 
   }
 
@@ -3045,17 +3048,19 @@ trait UMLUpdate[Uml <: UML] {
 
     override def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
       (owner, owned) match {
-        case (u: U, v: Set[V]) =>
-          links_composes(u, v)
+        case (u: U, v: Iterable[V]) =>
+          links_composes(u, v.toSet)
         case _ =>
           Failure(new IllegalArgumentException())
       }
 
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
-      for {
-        composed <- links_query.evaluate(owner)
-        updated = if (composed.contains(owned)) composed else composed :+ owned
-      } yield linksComposes(owner, updated)
+      links_query
+      .evaluate(owner)
+      .map { composed =>     
+        val updated = if (composed.contains(owned)) composed else composed :+ owned
+        linksComposes(owner, updated)
+    }
 
   }
 
