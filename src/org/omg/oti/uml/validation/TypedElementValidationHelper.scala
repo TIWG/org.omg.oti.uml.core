@@ -159,6 +159,16 @@ object TypedElementValidationHelper {
   val INVALID_ASSOCIATION_MEMBER_END_PROPERTY_NON_CLASS_TYPE =
     "Each Association memberEnd Property must be typed by a Class instead of a "
 
+  /**
+   * EMOF/CMOF TypedElement validation for all TypedElements in the scope of set of UML Packages
+   *
+   * @param pkgs A set of UML Packages to analyze the contents for EMOF/CMOF TypedElement validation constraints
+   * @param umlOps A tool-specific OTI UML operations adapter object
+   * @param idg A tool-specific OTI IDGenerator
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam UmlOps The tool-specific OTI UML operations adapter type
+   * @return Where applicable, `TypedElementValidationInfo` results
+   */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps, idg: IDGenerator[Uml])
@@ -167,11 +177,16 @@ object TypedElementValidationHelper {
     import umlOps._
 
     /**
+     * EMOF/CMOF validation for Operation::raisedException
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [1] The type of Operation::raisedException is limited to be Class rather than Type.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [2] The type of Operation::raisedException is limited to be Class rather than Type.
+     *
+     * @param te A UML TypedElement to validate if it is a kind of UML Operation
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkOperationRaisedException(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
@@ -193,16 +208,28 @@ object TypedElementValidationHelper {
       }
 
     /**
+     * EMOF/CMOF validation for an Association as the type of a TypedElement
+     *
+     * Note that this rule is interpreted with respect to the scope of EMOF/CMOF incl. Profiles.
+     * That is, the rule applies if and only if the type is exactly a UML Association or UML Extension.
+     * The rule is not applied if the type is another kind of metaclass outside the scope of EMOF/CMOF
+     * (e.g., AssociationClass or CommunicationPath)
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [22] A TypedElement cannot be typed by an Association.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [22] A TypedElement cannot be typed by an Association.
+     *
+     * @param te A UML TypedElement to validate w.r.t. its type being a kind of UML Association
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkTypedElementWithAssociationType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       for {
         t <- te._type
         v <- t match {
+          case _: UMLAssociationClass[Uml] =>
+            None
           case a: UMLAssociation[Uml] =>
             Some(TypedElementValidationInfo(
               te, InvalidTypedElementWithAssociationTypeStatus,
@@ -213,11 +240,16 @@ object TypedElementValidationHelper {
       } yield v
 
     /**
+     * EMOF/CMOF validation for a TypedElement that must be explicitly typed
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
+     *
+     * @param te A UML TypedElement to validate w.r.t. having a type
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkTypedElementIsTyped(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
@@ -235,11 +267,16 @@ object TypedElementValidationHelper {
       }
 
     /**
+     * EMOF/CMOF validation for TypedElements typed by a kind of DataType
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [28] A Property typed by a kind of DataType must have aggregation = none.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [28] A Property typed by a kind of DataType must have aggregation = none.
+     *
+     * @param te A UML TypedElement to validate w.r.t. DataType constraints
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkAggregationForPropertyTypeByDataType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
@@ -263,11 +300,16 @@ object TypedElementValidationHelper {
       }
 
     /**
+     * EMOF/CMOF validation for TypedElements that are DataType properties
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [29] A Property owned by a DataType can only be typed by a DataType.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [29] A Property owned by a DataType can only be typed by a DataType.
+     *
+     * @param te A UML TypedELement to validate w.r.t. DataType property constraints
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkDataTypePropertyHasDataTypeType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
@@ -286,11 +328,16 @@ object TypedElementValidationHelper {
       }
 
     /**
+     * EMOF/CMOF validation for TypedElements that are Association memberEnds
+     *
      * @see MOF 2.5, Section 12.4 EMOF Constraints
      *      [30] Each Association memberEnd Property must be typed by a Class.
      *
      * @see MOF 2.5, Section 14.4 CMOF Constraints
      *      [30] Each Association memberEnd Property must be typed by a Class.
+     *
+     * @param te A UML TypedElement to validate w.r.t. Association memberEnd constraints
+     * @return If applicable, a `TypedElementValidationInfo` result
      */
     def checkAssociationMemberEndHasClassType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
