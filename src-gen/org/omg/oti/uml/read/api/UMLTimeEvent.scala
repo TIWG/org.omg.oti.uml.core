@@ -90,7 +90,7 @@ trait UMLTimeEvent[Uml <: UML]
 	def timeEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			event_metaAttributes,
-			Seq (TimeEvent_isRelative))
+			Seq[MetaAttributeFunction](TimeEvent_isRelative))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLTimeEvent[Uml <: UML]
 	def timeEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			event_compositeMetaProperties,
-			Seq (TimeEvent_when))
+			Seq[MetaPropertyEvaluator](TimeEvent_when))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLTimeEvent[Uml <: UML]
 	def timeEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			event_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

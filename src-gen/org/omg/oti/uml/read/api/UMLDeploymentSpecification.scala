@@ -101,7 +101,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			artifact_metaAttributes,
-			Seq (DeploymentSpecification_deploymentLocation,
+			Seq[MetaAttributeFunction](DeploymentSpecification_deploymentLocation,
 				DeploymentSpecification_executionLocation))
 
 	/**
@@ -122,7 +122,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			artifact_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	def deploymentSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			artifact_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

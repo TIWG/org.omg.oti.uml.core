@@ -90,7 +90,7 @@ trait UMLEnumeration[Uml <: UML]
 	def enumeration_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			dataType_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLEnumeration[Uml <: UML]
 	def enumeration_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_compositeMetaProperties,
-			Seq (Enumeration_ownedLiteral))
+			Seq[MetaPropertyEvaluator](Enumeration_ownedLiteral))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLEnumeration[Uml <: UML]
 	def enumeration_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -109,11 +109,7 @@ trait UMLActionInputPinOps[Uml <: UML] { self: UMLActionInputPin[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body fromAction.incoming->union(outgoing)->isEmpty() and
-	 * }}}
-	 * {{{
 	 * fromAction.input.incoming->isEmpty() and
-	 * }}}
-	 * {{{
 	 * fromAction.output.outgoing->isEmpty()
 	 * }}}
 	 */

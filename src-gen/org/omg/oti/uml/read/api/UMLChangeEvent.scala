@@ -91,7 +91,7 @@ trait UMLChangeEvent[Uml <: UML]
 	def changeEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			event_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLChangeEvent[Uml <: UML]
 	def changeEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			event_compositeMetaProperties,
-			Seq (ChangeEvent_changeExpression))
+			Seq[MetaPropertyEvaluator](ChangeEvent_changeExpression))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLChangeEvent[Uml <: UML]
 	def changeEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			event_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

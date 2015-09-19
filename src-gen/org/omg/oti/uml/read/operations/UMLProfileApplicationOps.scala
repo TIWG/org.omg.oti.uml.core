@@ -92,10 +92,11 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
-    element_xmiOrderingKey + (appliedProfile match {
-      case None     => "_"
-      case Some(ap) => "_" + ap.xmiOrderingKey
-    })
+    element_xmiOrderingKey +
+    appliedProfile.fold[String]("_") {
+      ap =>
+        "_" + ap.xmiOrderingKey
+    }
 
   // End of user code
 } //UMLProfileApplicationOps

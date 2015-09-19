@@ -90,7 +90,7 @@ trait UMLInterruptibleActivityRegion[Uml <: UML]
 	def interruptibleActivityRegion_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityGroup_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLInterruptibleActivityRegion[Uml <: UML]
 	def interruptibleActivityRegion_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityGroup_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLInterruptibleActivityRegion[Uml <: UML]
 	def interruptibleActivityRegion_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityGroup_referenceMetaProperties,
-			Seq (InterruptibleActivityRegion_interruptingEdge,
+			Seq[MetaPropertyEvaluator](InterruptibleActivityRegion_interruptingEdge,
 				InterruptibleActivityRegion_node))
 
 	/**

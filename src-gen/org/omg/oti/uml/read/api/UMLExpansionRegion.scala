@@ -111,7 +111,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	def expansionRegion_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	def expansionRegion_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -151,7 +151,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	def expansionRegion_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq (ExpansionRegion_inputElement,
+			Seq[MetaPropertyEvaluator](ExpansionRegion_inputElement,
 				ExpansionRegion_outputElement))
 
 	/**

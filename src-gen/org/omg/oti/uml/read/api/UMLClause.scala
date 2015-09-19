@@ -148,7 +148,7 @@ trait UMLClause[Uml <: UML]
 	def clause_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -168,7 +168,7 @@ trait UMLClause[Uml <: UML]
 	def clause_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -188,7 +188,7 @@ trait UMLClause[Uml <: UML]
 	def clause_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (Clause_body,
+			Seq[MetaPropertyEvaluator](Clause_body,
 				Clause_bodyOutput,
 				Clause_decider,
 				Clause_predecessorClause,

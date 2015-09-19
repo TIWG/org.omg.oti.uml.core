@@ -101,7 +101,7 @@ trait UMLComponent[Uml <: UML]
 	def component_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			class_metaAttributes,
-			Seq (Component_isIndirectlyInstantiated))
+			Seq[MetaAttributeFunction](Component_isIndirectlyInstantiated))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLComponent[Uml <: UML]
 	def component_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (Component_packagedElement,
+			Seq[MetaPropertyEvaluator](Component_packagedElement,
 				Component_realization))
 
 	/**
@@ -142,7 +142,7 @@ trait UMLComponent[Uml <: UML]
 	def component_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

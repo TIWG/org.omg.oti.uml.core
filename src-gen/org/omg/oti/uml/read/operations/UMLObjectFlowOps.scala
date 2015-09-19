@@ -63,6 +63,8 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_compatible_types -->
    * <!-- End of user code doc for validate_compatible_types -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_compatible_types: Boolean = {
 		// Start of user code for "compatible_types"
@@ -78,14 +80,8 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body selection<>null implies
-	 * }}}
-	 * {{{
 	 * 	selection.inputParameters()->size()=1 and
-	 * }}}
-	 * {{{
 	 * 	selection.inputParameters()->forAll(not isUnique and is(0,*)) and
-	 * }}}
-	 * {{{
 	 * 	selection.outputParameters()->size()=1
 	 * }}}
 	 */
@@ -133,6 +129,8 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_same_upper_bounds -->
    * <!-- End of user code doc for validate_same_upper_bounds -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_same_upper_bounds: Boolean = {
 		// Start of user code for "same_upper_bounds"
@@ -162,6 +160,8 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_target -->
    * <!-- End of user code doc for validate_target -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_target: Boolean = {
 		// Start of user code for "target"
@@ -177,11 +177,7 @@ trait UMLObjectFlowOps[Uml <: UML] { self: UMLObjectFlow[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body transformation<>null implies
-	 * }}}
-	 * {{{
 	 * 	transformation.inputParameters()->size()=1 and
-	 * }}}
-	 * {{{
 	 * 	transformation.outputParameters()->size()=1
 	 * }}}
 	 */

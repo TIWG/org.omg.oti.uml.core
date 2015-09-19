@@ -93,7 +93,7 @@ trait UMLManifestation[Uml <: UML]
 	def manifestation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			abstraction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLManifestation[Uml <: UML]
 	def manifestation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			abstraction_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLManifestation[Uml <: UML]
 	def manifestation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			abstraction_referenceMetaProperties,
-			Seq (Manifestation_utilizedElement))
+			Seq[MetaPropertyEvaluator](Manifestation_utilizedElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

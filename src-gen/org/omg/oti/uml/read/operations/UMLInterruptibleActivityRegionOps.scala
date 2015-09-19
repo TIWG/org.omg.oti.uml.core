@@ -77,8 +77,6 @@ trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActi
 	 *
 	 * {{{
 	 * OCL Body interruptingEdge->forAll(edge | 
-	 * }}}
-	 * {{{
 	 *   node->includes(edge.source) and node->excludes(edge.target) and edge.target.containingActivity() = inActivity)
 	 * }}}
 	 */

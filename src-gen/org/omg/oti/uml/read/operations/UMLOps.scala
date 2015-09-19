@@ -70,9 +70,9 @@ class EarlyInit[T: TypeTag] {
   .members
   .filter(_.isModule)
   .foreach(m => {
-    System.out.println("EarlyInit: " + m.name)
-    reflection.reflectModule(m.asModule).instance
-  })
+    System.out.println("EarlyInit: " + m.name); ()
+    reflection.reflectModule(m.asModule).instance; ()
+  }); ()
 
   System.out.println("EarlyInit (done)")
 
@@ -1745,7 +1745,7 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Artifact_fileName =
 		MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
-		(x) => x.fileName)
+		_.fileName)
 
 	val Artifact_manifestation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]](

@@ -107,16 +107,15 @@ trait UMLTemplateBindingOps[Uml <: UML] { self: UMLTemplateBinding[Uml] =>
 	 */
 	def validate_one_parameter_substitution: Boolean = {
 		// Start of user code for "one_parameter_substitution"
-    signature match {
-      case Some(s) => s.parameter.forall { 
+    signature.fold[Boolean](false) {
+      s => s.parameter.forall {
         p => parameterSubstitution.filter { 
-          b => b.formal match {
-            case Some(f) => f == p 
-            case None => false
+          b => b.formal.fold[Boolean](false) {
+            f =>
+              f == p
           } 
         }.size <= 1 
       }
-      case None => false
     }
     // End of user code
 	}

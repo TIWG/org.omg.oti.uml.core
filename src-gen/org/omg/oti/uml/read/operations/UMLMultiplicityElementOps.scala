@@ -252,6 +252,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_value_specification_constant -->
    * <!-- End of user code doc for validate_value_specification_constant -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_value_specification_constant: Boolean = {
 		// Start of user code for "value_specification_constant"
@@ -265,6 +267,8 @@ trait UMLMultiplicityElementOps[Uml <: UML] { self: UMLMultiplicityElement[Uml] 
 	 * <!-- Start of user code doc for validate_value_specification_no_side_effects -->
    * <!-- End of user code doc for validate_value_specification_no_side_effects -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_value_specification_no_side_effects: Boolean = {
 		// Start of user code for "value_specification_no_side_effects"

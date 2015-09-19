@@ -93,7 +93,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	def callBehaviorAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			callAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	def callBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			callAction_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	def callBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			callAction_referenceMetaProperties,
-			Seq (CallBehaviorAction_behavior))
+			Seq[MetaPropertyEvaluator](CallBehaviorAction_behavior))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

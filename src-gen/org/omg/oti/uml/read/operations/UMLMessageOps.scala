@@ -114,6 +114,8 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_arguments -->
    * <!-- End of user code doc for validate_arguments -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_arguments: Boolean = {
 		// Start of user code for "arguments"
@@ -129,23 +131,11 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body sendEvent->notEmpty() and receiveEvent->notEmpty() implies
-	 * }}}
-	 * {{{
 	 * let sendEnclosingFrag : Set(InteractionFragment) = 
-	 * }}}
-	 * {{{
 	 * sendEvent->asOrderedSet()->first().enclosingFragment()
-	 * }}}
-	 * {{{
 	 * in 
-	 * }}}
-	 * {{{
 	 * let receiveEnclosingFrag : Set(InteractionFragment) = 
-	 * }}}
-	 * {{{
 	 * receiveEvent->asOrderedSet()->first().enclosingFragment()
-	 * }}}
-	 * {{{
 	 * in  sendEnclosingFrag = receiveEnclosingFrag
 	 * }}}
 	 */
@@ -161,6 +151,8 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * <!-- Start of user code doc for validate_occurrence_specifications -->
    * <!-- End of user code doc for validate_occurrence_specifications -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_occurrence_specifications: Boolean = {
 		// Start of user code for "occurrence_specifications"
@@ -176,20 +168,10 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body receiveEvent.oclIsKindOf(MessageOccurrenceSpecification)
-	 * }}}
-	 * {{{
 	 * implies
-	 * }}}
-	 * {{{
 	 * let f :  Lifeline = sendEvent->select(oclIsKindOf(MessageOccurrenceSpecification)).oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first().covered in
-	 * }}}
-	 * {{{
 	 * f = receiveEvent->select(oclIsKindOf(MessageOccurrenceSpecification)).oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first().covered  implies
-	 * }}}
-	 * {{{
 	 * f.events->indexOf(sendEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() ) < 
-	 * }}}
-	 * {{{
 	 * f.events->indexOf(receiveEvent.oclAsType(MessageOccurrenceSpecification)->asOrderedSet()->first() )
 	 * }}}
 	 */
@@ -207,29 +189,13 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (messageSort = MessageSort::reply) and signature.oclIsKindOf(Operation) implies 
-	 * }}}
-	 * {{{
 	 *  let replyParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
-	 * }}}
-	 * {{{
 	 * select(direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::out or direction = ParameterDirectionKind::return)
-	 * }}}
-	 * {{{
 	 * in replyParms->size() = self.argument->size() and
-	 * }}}
-	 * {{{
 	 * self.argument->forAll( o: ValueSpecification | o.oclIsKindOf(Expression) and let e : Expression = o.oclAsType(Expression) in
-	 * }}}
-	 * {{{
 	 * e.operand->notEmpty()  implies 
-	 * }}}
-	 * {{{
 	 * let p : Parameter = replyParms->at(self.argument->indexOf(o)) in
-	 * }}}
-	 * {{{
 	 * e.operand->asSequence()->first().type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -247,29 +213,13 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall) and signature.oclIsKindOf(Operation)  implies 
-	 * }}}
-	 * {{{
 	 *  let requestParms : OrderedSet(Parameter) = signature.oclAsType(Operation).ownedParameter->
-	 * }}}
-	 * {{{
 	 *  select(direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::_'in'  )
-	 * }}}
-	 * {{{
 	 * in requestParms->size() = self.argument->size() and
-	 * }}}
-	 * {{{
 	 * self.argument->forAll( o: ValueSpecification | 
-	 * }}}
-	 * {{{
 	 * not (o.oclIsKindOf(Expression) and o.oclAsType(Expression).symbol->size()=0 and o.oclAsType(Expression).operand->isEmpty() ) implies 
-	 * }}}
-	 * {{{
 	 * let p : Parameter = requestParms->at(self.argument->indexOf(o)) in
-	 * }}}
-	 * {{{
 	 * o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier))
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -287,32 +237,14 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (messageSort = MessageSort::asynchSignal ) and signature.oclIsKindOf(Signal) implies
-	 * }}}
-	 * {{{
 	 *    let signalAttributes : OrderedSet(Property) = signature.oclAsType(Signal).inheritedMember()->
-	 * }}}
-	 * {{{
 	 *              select(n:NamedElement | n.oclIsTypeOf(Property))->collect(oclAsType(Property))->asOrderedSet()
-	 * }}}
-	 * {{{
 	 *    in signalAttributes->size() = self.argument->size()
-	 * }}}
-	 * {{{
 	 *    and self.argument->forAll( o: ValueSpecification |
-	 * }}}
-	 * {{{
 	 *           not (o.oclIsKindOf(Expression)
-	 * }}}
-	 * {{{
 	 *           and o.oclAsType(Expression).symbol->size()=0
-	 * }}}
-	 * {{{
 	 *           and o.oclAsType(Expression).operand->isEmpty() ) implies
-	 * }}}
-	 * {{{
 	 *               let p : Property = signalAttributes->at(self.argument->indexOf(o))
-	 * }}}
-	 * {{{
 	 *               in o.type.oclAsType(Classifier).conformsTo(p.type.oclAsType(Classifier)))
 	 * }}}
 	 */
@@ -330,17 +262,9 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body signature->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 * ((signature.oclIsKindOf(Operation) and 
-	 * }}}
-	 * {{{
 	 * (messageSort = MessageSort::asynchCall or messageSort = MessageSort::synchCall or messageSort = MessageSort::reply) 
-	 * }}}
-	 * {{{
 	 * ) or (signature.oclIsKindOf(Signal)  and messageSort = MessageSort::asynchSignal )
-	 * }}}
-	 * {{{
 	 *  ) and name = signature.name
 	 * }}}
 	 */

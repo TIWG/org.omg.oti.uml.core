@@ -104,7 +104,7 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def generalOrdering_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def generalOrdering_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLGeneralOrdering[Uml <: UML]
 	def generalOrdering_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (GeneralOrdering_after,
+			Seq[MetaPropertyEvaluator](GeneralOrdering_after,
 				GeneralOrdering_before))
 
 	/**

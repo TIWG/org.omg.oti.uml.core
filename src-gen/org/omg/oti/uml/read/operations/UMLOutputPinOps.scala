@@ -269,14 +269,8 @@ trait UMLOutputPinOps[Uml <: UML] { self: UMLOutputPin[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body incoming->notEmpty() implies
-	 * }}}
-	 * {{{
 	 * 	action<>null and
-	 * }}}
-	 * {{{
 	 * 	action.oclIsKindOf(StructuredActivityNode) and
-	 * }}}
-	 * {{{
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(incoming.source)
 	 * }}}
 	 */

@@ -82,11 +82,7 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body interactionOperator=InteractionOperatorKind::break  implies   
-	 * }}}
-	 * {{{
 	 * enclosingInteraction.oclAsType(InteractionFragment)->asSet()->union(
-	 * }}}
-	 * {{{
 	 *    enclosingOperand.oclAsType(InteractionFragment)->asSet()).covered->asSet() = self.covered->asSet()
 	 * }}}
 	 */
@@ -120,14 +116,8 @@ trait UMLCombinedFragmentOps[Uml <: UML] { self: UMLCombinedFragment[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (interactionOperator =  InteractionOperatorKind::opt or interactionOperator = InteractionOperatorKind::loop or
-	 * }}}
-	 * {{{
 	 * interactionOperator = InteractionOperatorKind::break or interactionOperator = InteractionOperatorKind::assert or
-	 * }}}
-	 * {{{
 	 * interactionOperator = InteractionOperatorKind::neg)
-	 * }}}
-	 * {{{
 	 * implies operand->size()=1
 	 * }}}
 	 */

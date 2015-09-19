@@ -102,7 +102,7 @@ trait UMLTimeExpression[Uml <: UML]
 	def timeExpression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			valueSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLTimeExpression[Uml <: UML]
 	def timeExpression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq (TimeExpression_expr))
+			Seq[MetaPropertyEvaluator](TimeExpression_expr))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLTimeExpression[Uml <: UML]
 	def timeExpression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_referenceMetaProperties,
-			Seq (TimeExpression_observation))
+			Seq[MetaPropertyEvaluator](TimeExpression_observation))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

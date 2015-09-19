@@ -112,7 +112,7 @@ trait UMLStructuralFeature[Uml <: UML]
 			feature_metaAttributes,
 			multiplicityElement_metaAttributes,
 			typedElement_metaAttributes,
-			Seq (StructuralFeature_isReadOnly))
+			Seq[MetaAttributeFunction](StructuralFeature_isReadOnly))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -134,7 +134,7 @@ trait UMLStructuralFeature[Uml <: UML]
 			feature_compositeMetaProperties,
 			multiplicityElement_compositeMetaProperties,
 			typedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -156,7 +156,7 @@ trait UMLStructuralFeature[Uml <: UML]
 			feature_referenceMetaProperties,
 			multiplicityElement_referenceMetaProperties,
 			typedElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

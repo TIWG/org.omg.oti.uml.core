@@ -93,7 +93,7 @@ trait UMLInstanceValue[Uml <: UML]
 	def instanceValue_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			valueSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLInstanceValue[Uml <: UML]
 	def instanceValue_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLInstanceValue[Uml <: UML]
 	def instanceValue_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_referenceMetaProperties,
-			Seq (InstanceValue_instance))
+			Seq[MetaPropertyEvaluator](InstanceValue_instance))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

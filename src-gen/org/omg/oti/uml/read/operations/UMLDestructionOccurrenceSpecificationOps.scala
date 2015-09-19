@@ -65,11 +65,7 @@ trait UMLDestructionOccurrenceSpecificationOps[Uml <: UML] { self: UMLDestructio
 	 *
 	 * {{{
 	 * OCL Body let o : InteractionOperand = enclosingOperand in o->notEmpty() and 
-	 * }}}
-	 * {{{
 	 * let peerEvents : OrderedSet(OccurrenceSpecification) = covered.events->select(enclosingOperand = o)
-	 * }}}
-	 * {{{
 	 * in peerEvents->last() = self
 	 * }}}
 	 */

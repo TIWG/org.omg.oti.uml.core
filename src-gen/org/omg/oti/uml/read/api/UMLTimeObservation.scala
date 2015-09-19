@@ -103,7 +103,7 @@ trait UMLTimeObservation[Uml <: UML]
 	def timeObservation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			observation_metaAttributes,
-			Seq (TimeObservation_firstEvent))
+			Seq[MetaAttributeFunction](TimeObservation_firstEvent))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -123,7 +123,7 @@ trait UMLTimeObservation[Uml <: UML]
 	def timeObservation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			observation_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -143,7 +143,7 @@ trait UMLTimeObservation[Uml <: UML]
 	def timeObservation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			observation_referenceMetaProperties,
-			Seq (TimeObservation_event))
+			Seq[MetaPropertyEvaluator](TimeObservation_event))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

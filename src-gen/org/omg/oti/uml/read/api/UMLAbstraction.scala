@@ -79,7 +79,7 @@ trait UMLAbstraction[Uml <: UML]
 	def abstraction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			dependency_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLAbstraction[Uml <: UML]
 	def abstraction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_compositeMetaProperties,
-			Seq (Abstraction_mapping))
+			Seq[MetaPropertyEvaluator](Abstraction_mapping))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLAbstraction[Uml <: UML]
 	def abstraction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

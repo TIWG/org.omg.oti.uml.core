@@ -116,7 +116,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 			deployedArtifact_metaAttributes,
 			deploymentTarget_metaAttributes,
 			packageableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -138,7 +138,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 			deployedArtifact_compositeMetaProperties,
 			deploymentTarget_compositeMetaProperties,
 			packageableElement_compositeMetaProperties,
-			Seq (InstanceSpecification_slot,
+			Seq[MetaPropertyEvaluator](InstanceSpecification_slot,
 				InstanceSpecification_specification))
 
 	/**
@@ -161,7 +161,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 			deployedArtifact_referenceMetaProperties,
 			deploymentTarget_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
-			Seq (InstanceSpecification_classifier))
+			Seq[MetaPropertyEvaluator](InstanceSpecification_classifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

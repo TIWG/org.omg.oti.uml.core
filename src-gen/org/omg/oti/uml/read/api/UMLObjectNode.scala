@@ -146,7 +146,7 @@ trait UMLObjectNode[Uml <: UML]
 		appendUnique(
 			activityNode_metaAttributes,
 			typedElement_metaAttributes,
-			Seq (ObjectNode_isControlType))
+			Seq[MetaAttributeFunction](ObjectNode_isControlType))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -167,7 +167,7 @@ trait UMLObjectNode[Uml <: UML]
 		appendUnique(
 			activityNode_compositeMetaProperties,
 			typedElement_compositeMetaProperties,
-			Seq (ObjectNode_upperBound))
+			Seq[MetaPropertyEvaluator](ObjectNode_upperBound))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -188,7 +188,7 @@ trait UMLObjectNode[Uml <: UML]
 		appendUnique(
 			activityNode_referenceMetaProperties,
 			typedElement_referenceMetaProperties,
-			Seq (ObjectNode_inState,
+			Seq[MetaPropertyEvaluator](ObjectNode_inState,
 				ObjectNode_selection))
 
 	/**

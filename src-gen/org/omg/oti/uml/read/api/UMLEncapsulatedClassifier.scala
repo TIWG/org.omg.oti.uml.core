@@ -78,7 +78,7 @@ trait UMLEncapsulatedClassifier[Uml <: UML]
 	def encapsulatedClassifier_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredClassifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLEncapsulatedClassifier[Uml <: UML]
 	def encapsulatedClassifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredClassifier_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLEncapsulatedClassifier[Uml <: UML]
 	def encapsulatedClassifier_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredClassifier_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

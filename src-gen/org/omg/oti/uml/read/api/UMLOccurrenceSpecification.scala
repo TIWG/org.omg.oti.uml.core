@@ -131,7 +131,7 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	def occurrenceSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -151,7 +151,7 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	def occurrenceSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -171,7 +171,7 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	def occurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (OccurrenceSpecification_covered,
+			Seq[MetaPropertyEvaluator](OccurrenceSpecification_covered,
 				OccurrenceSpecification_toAfter,
 				OccurrenceSpecification_toBefore))
 

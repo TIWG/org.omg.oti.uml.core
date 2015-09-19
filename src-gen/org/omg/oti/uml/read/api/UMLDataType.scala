@@ -101,7 +101,7 @@ trait UMLDataType[Uml <: UML]
 	def dataType_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			classifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLDataType[Uml <: UML]
 	def dataType_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (DataType_ownedAttribute,
+			Seq[MetaPropertyEvaluator](DataType_ownedAttribute,
 				DataType_ownedOperation))
 
 	/**
@@ -142,7 +142,7 @@ trait UMLDataType[Uml <: UML]
 	def dataType_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -104,7 +104,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	def interfaceRealization_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			realization_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	def interfaceRealization_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	def interfaceRealization_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_referenceMetaProperties,
-			Seq (InterfaceRealization_contract))
+			Seq[MetaPropertyEvaluator](InterfaceRealization_contract))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -78,7 +78,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	def writeLinkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			linkAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	def writeLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			linkAction_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	def writeLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			linkAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

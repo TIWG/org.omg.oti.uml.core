@@ -81,11 +81,7 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let allEdges: Set(ActivityEdge) = incoming->union(outgoing) in
-	 * }}}
-	 * {{{
 	 * let allRelevantEdges: Set(ActivityEdge) = if decisionInputFlow->notEmpty() then allEdges->excluding(decisionInputFlow) else allEdges endif in
-	 * }}}
-	 * {{{
 	 * allRelevantEdges->forAll(oclIsKindOf(ControlFlow)) or allRelevantEdges->forAll(oclIsKindOf(ObjectFlow))
 	 * }}}
 	 */
@@ -103,8 +99,6 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (decisionInput<>null and decisionInputFlow<>null and incoming->exists(oclIsKindOf(ControlFlow))) implies
-	 * }}}
-	 * {{{
 	 * 	decisionInput.inputParameters()->size()=1
 	 * }}}
 	 */
@@ -122,8 +116,6 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (decisionInput<>null and decisionInputFlow=null and incoming->forAll(oclIsKindOf(ObjectFlow))) implies
-	 * }}}
-	 * {{{
 	 * 	decisionInput.inputParameters()->size()=1
 	 * }}}
 	 */
@@ -157,23 +149,11 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body decisionInput<>null implies 
-	 * }}}
-	 * {{{
 	 *   (decisionInput.ownedParameter->forAll(par | 
-	 * }}}
-	 * {{{
 	 *      par.direction <> ParameterDirectionKind::out and 
-	 * }}}
-	 * {{{
 	 *      par.direction <> ParameterDirectionKind::inout ) and
-	 * }}}
-	 * {{{
 	 *    decisionInput.ownedParameter->one(par | 
-	 * }}}
-	 * {{{
 	 *      par.direction <> ParameterDirectionKind::return))
-	 * }}}
-	 * {{{
 	 *      
 	 * }}}
 	 */
@@ -191,8 +171,6 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (decisionInput<>null and decisionInputFlow<>null and incoming->forAll(oclIsKindOf(ObjectFlow))) implies
-	 * }}}
-	 * {{{
 	 * 	decisionInput.inputParameters()->size()=2
 	 * }}}
 	 */
@@ -210,8 +188,6 @@ trait UMLDecisionNodeOps[Uml <: UML] { self: UMLDecisionNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (decisionInput<>null and decisionInputFlow=null and incoming->exists(oclIsKindOf(ControlFlow))) implies
-	 * }}}
-	 * {{{
 	 *    decisionInput.inputParameters()->isEmpty()
 	 * }}}
 	 */

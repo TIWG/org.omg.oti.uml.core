@@ -85,23 +85,11 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 *
 	 * {{{
 	 * OCL Body templateParameterSubstitution.actual->forAll( a |
-	 * }}}
-	 * {{{
 	 *   let arg : Classifier = a.oclAsType(Classifier) in
-	 * }}}
-	 * {{{
 	 *     constrainingClassifier->forAll(
-	 * }}}
-	 * {{{
 	 *       cc |  
-	 * }}}
-	 * {{{
 	 *          arg = cc or arg.conformsTo(cc) or (allowSubstitutable and arg.isSubstitutableFor(cc))
-	 * }}}
-	 * {{{
 	 *       )
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -129,11 +117,7 @@ trait UMLClassifierTemplateParameterOps[Uml <: UML] { self: UMLClassifierTemplat
 	 *
 	 * {{{
 	 * OCL Body constrainingClassifier->forAll(
-	 * }}}
-	 * {{{
 	 *      cc |  parameteredElement = cc or parameteredElement.conformsTo(cc) or (allowSubstitutable and parameteredElement.isSubstitutableFor(cc))
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

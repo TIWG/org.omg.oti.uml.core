@@ -90,7 +90,7 @@ trait UMLStateMachine[Uml <: UML]
 	def stateMachine_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavior_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLStateMachine[Uml <: UML]
 	def stateMachine_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_compositeMetaProperties,
-			Seq (StateMachine_connectionPoint,
+			Seq[MetaPropertyEvaluator](StateMachine_connectionPoint,
 				StateMachine_region))
 
 	/**
@@ -131,7 +131,7 @@ trait UMLStateMachine[Uml <: UML]
 	def stateMachine_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq (StateMachine_extendedStateMachine,
+			Seq[MetaPropertyEvaluator](StateMachine_extendedStateMachine,
 				StateMachine_submachineState))
 
 	/**

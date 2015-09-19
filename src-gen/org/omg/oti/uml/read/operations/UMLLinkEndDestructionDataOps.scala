@@ -97,20 +97,10 @@ trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData
 	 *
 	 * {{{
 	 * OCL Body if  not end.isOrdered or end.isUnique or isDestroyDuplicates
-	 * }}}
-	 * {{{
 	 * then destroyAt = null
-	 * }}}
-	 * {{{
 	 * else
-	 * }}}
-	 * {{{
 	 * 	destroyAt <> null and 
-	 * }}}
-	 * {{{
 	 * 	destroyAt->forAll(type=UnlimitedNatural and is(1,1))
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

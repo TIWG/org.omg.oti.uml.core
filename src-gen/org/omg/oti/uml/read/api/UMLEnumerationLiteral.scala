@@ -78,7 +78,7 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	def enumerationLiteral_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			instanceSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	def enumerationLiteral_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			instanceSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLEnumerationLiteral[Uml <: UML]
 	def enumerationLiteral_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			instanceSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

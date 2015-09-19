@@ -136,7 +136,7 @@ trait UMLInformationFlow[Uml <: UML]
 		appendUnique(
 			directedRelationship_metaAttributes,
 			packageableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -157,7 +157,7 @@ trait UMLInformationFlow[Uml <: UML]
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
 			packageableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -178,7 +178,7 @@ trait UMLInformationFlow[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
-			Seq (InformationFlow_conveyed,
+			Seq[MetaPropertyEvaluator](InformationFlow_conveyed,
 				InformationFlow_informationSource,
 				InformationFlow_informationTarget,
 				InformationFlow_realization,

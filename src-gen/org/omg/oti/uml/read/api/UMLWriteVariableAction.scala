@@ -79,7 +79,7 @@ trait UMLWriteVariableAction[Uml <: UML]
 	def writeVariableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			variableAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLWriteVariableAction[Uml <: UML]
 	def writeVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			variableAction_compositeMetaProperties,
-			Seq (WriteVariableAction_value))
+			Seq[MetaPropertyEvaluator](WriteVariableAction_value))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLWriteVariableAction[Uml <: UML]
 	def writeVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			variableAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

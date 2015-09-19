@@ -79,7 +79,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	def clearStructuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuralFeatureAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	def clearStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuralFeatureAction_compositeMetaProperties,
-			Seq (ClearStructuralFeatureAction_result))
+			Seq[MetaPropertyEvaluator](ClearStructuralFeatureAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	def clearStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuralFeatureAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

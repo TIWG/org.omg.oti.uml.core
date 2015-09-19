@@ -78,7 +78,7 @@ trait UMLControlNode[Uml <: UML]
 	def controlNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLControlNode[Uml <: UML]
 	def controlNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLControlNode[Uml <: UML]
 	def controlNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

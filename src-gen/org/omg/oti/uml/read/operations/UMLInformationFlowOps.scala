@@ -93,8 +93,6 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.conveyed->forAll(oclIsKindOf(Class) or oclIsKindOf(Interface)
-	 * }}}
-	 * {{{
 	 *   or oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component))
 	 * }}}
 	 */
@@ -110,6 +108,8 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 * <!-- Start of user code doc for validate_must_conform -->
    * <!-- End of user code doc for validate_must_conform -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_must_conform: Boolean = {
 		// Start of user code for "must_conform"
@@ -126,35 +126,15 @@ trait UMLInformationFlowOps[Uml <: UML] { self: UMLInformationFlow[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (self.informationSource->forAll( sis |
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Actor) or oclIsKindOf(Node) or oclIsKindOf(UseCase) or oclIsKindOf(Artifact) or 
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Class) or oclIsKindOf(Component) or oclIsKindOf(Port) or oclIsKindOf(Property) or 
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Interface) or oclIsKindOf(Package) or oclIsKindOf(ActivityNode) or oclIsKindOf(ActivityPartition) or 
-	 * }}}
-	 * {{{
 	 *   (oclIsKindOf(InstanceSpecification) and not sis.oclAsType(InstanceSpecification).classifier->exists(oclIsKindOf(Relationship))))) 
-	 * }}}
-	 * {{{
 	 * and
-	 * }}}
-	 * {{{
 	 * (self.informationTarget->forAll( sit | 
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Actor) or oclIsKindOf(Node) or oclIsKindOf(UseCase) or oclIsKindOf(Artifact) or 
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Class) or oclIsKindOf(Component) or oclIsKindOf(Port) or oclIsKindOf(Property) or 
-	 * }}}
-	 * {{{
 	 *   oclIsKindOf(Interface) or oclIsKindOf(Package) or oclIsKindOf(ActivityNode) or oclIsKindOf(ActivityPartition) or 
-	 * }}}
-	 * {{{
 	 * (oclIsKindOf(InstanceSpecification) and not sit.oclAsType(InstanceSpecification).classifier->exists(oclIsKindOf(Relationship)))))
 	 * }}}
 	 */

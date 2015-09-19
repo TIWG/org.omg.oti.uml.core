@@ -82,7 +82,7 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def behavioredClassifier_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			classifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -102,7 +102,7 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def behavioredClassifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (BehavioredClassifier_interfaceRealization,
+			Seq[MetaPropertyEvaluator](BehavioredClassifier_interfaceRealization,
 				BehavioredClassifier_ownedBehavior))
 
 	/**
@@ -123,7 +123,7 @@ trait UMLBehavioredClassifier[Uml <: UML]
 	def behavioredClassifier_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq (BehavioredClassifier_classifierBehavior))
+			Seq[MetaPropertyEvaluator](BehavioredClassifier_classifierBehavior))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

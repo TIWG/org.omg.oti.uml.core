@@ -101,7 +101,7 @@ trait UMLStructuredClassifier[Uml <: UML]
 	def structuredClassifier_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			classifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLStructuredClassifier[Uml <: UML]
 	def structuredClassifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (StructuredClassifier_ownedAttribute,
+			Seq[MetaPropertyEvaluator](StructuredClassifier_ownedAttribute,
 				StructuredClassifier_ownedConnector))
 
 	/**
@@ -142,7 +142,7 @@ trait UMLStructuredClassifier[Uml <: UML]
 	def structuredClassifier_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

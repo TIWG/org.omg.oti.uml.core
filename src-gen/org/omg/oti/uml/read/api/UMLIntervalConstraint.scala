@@ -79,7 +79,7 @@ trait UMLIntervalConstraint[Uml <: UML]
 	def intervalConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			constraint_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLIntervalConstraint[Uml <: UML]
 	def intervalConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			constraint_compositeMetaProperties,
-			Seq (IntervalConstraint_specification))
+			Seq[MetaPropertyEvaluator](IntervalConstraint_specification))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLIntervalConstraint[Uml <: UML]
 	def intervalConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			constraint_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

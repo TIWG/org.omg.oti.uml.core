@@ -92,7 +92,7 @@ trait UMLInteractionOperand[Uml <: UML]
 		appendUnique(
 			interactionFragment_metaAttributes,
 			namespace_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLInteractionOperand[Uml <: UML]
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (InteractionOperand_fragment,
+			Seq[MetaPropertyEvaluator](InteractionOperand_fragment,
 				InteractionOperand_guard))
 
 	/**
@@ -135,7 +135,7 @@ trait UMLInteractionOperand[Uml <: UML]
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
 			namespace_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

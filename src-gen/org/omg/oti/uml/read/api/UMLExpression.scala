@@ -102,7 +102,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			valueSpecification_metaAttributes,
-			Seq (Expression_symbol))
+			Seq[MetaAttributeFunction](Expression_symbol))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_compositeMetaProperties,
-			Seq (Expression_operand))
+			Seq[MetaPropertyEvaluator](Expression_operand))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLExpression[Uml <: UML]
 	def expression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			valueSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -78,7 +78,7 @@ trait UMLCentralBufferNode[Uml <: UML]
 	def centralBufferNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			objectNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLCentralBufferNode[Uml <: UML]
 	def centralBufferNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLCentralBufferNode[Uml <: UML]
 	def centralBufferNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -65,20 +65,10 @@ trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body selection<>null implies
-	 * }}}
-	 * {{{
 	 * 	selection.inputParameters()->size()=1 and
-	 * }}}
-	 * {{{
 	 * 	selection.inputParameters()->forAll(p | not p.isUnique and p.is(0,*) and self.type.conformsTo(p.type)) and
-	 * }}}
-	 * {{{
 	 * 	selection.outputParameters()->size()=1 and
-	 * }}}
-	 * {{{
 	 * 		selection.inputParameters()->forAll(p | self.type.conformsTo(p.type))
-	 * }}}
-	 * {{{
 	 * 	
 	 * }}}
 	 */

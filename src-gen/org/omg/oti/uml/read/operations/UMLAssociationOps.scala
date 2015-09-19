@@ -158,11 +158,7 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body Sequence{1..memberEnd->size()}->
-	 * }}}
-	 * {{{
 	 * 	forAll(i | general->select(oclIsKindOf(Association)).oclAsType(Association)->
-	 * }}}
-	 * {{{
 	 * 		forAll(ga | self.memberEnd->at(i).type.conformsTo(ga.memberEnd->at(i).type)))
 	 * }}}
 	 */
@@ -177,9 +173,8 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
                   .zipped
                   .forall {
                             (sup, sub) =>
-                              sub._type match {
-                                case None       => true
-                                case Some(subT) => subT.conformsTo(sup._type)
+                              sub._type.fold[Boolean](true) {
+                                subT => subT.conformsTo(sup._type)
                               }
                           }
             }

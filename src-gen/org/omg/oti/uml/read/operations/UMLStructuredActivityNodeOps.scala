@@ -224,8 +224,6 @@ trait UMLStructuredActivityNodeOps[Uml <: UML] { self: UMLStructuredActivityNode
 	 *
 	 * {{{
 	 * OCL Body edge=self.sourceNodes().outgoing->intersection(self.allOwnedNodes().incoming)->
-	 * }}}
-	 * {{{
 	 * 	union(self.targetNodes().incoming->intersection(self.allOwnedNodes().outgoing))->asSet()
 	 * }}}
 	 */

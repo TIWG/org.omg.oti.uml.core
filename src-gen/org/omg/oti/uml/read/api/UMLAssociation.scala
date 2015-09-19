@@ -145,7 +145,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_metaAttributes,
 			relationship_metaAttributes,
-			Seq (Association_isDerived))
+			Seq[MetaAttributeFunction](Association_isDerived))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -166,7 +166,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_compositeMetaProperties,
 			relationship_compositeMetaProperties,
-			Seq (Association_ownedEnd))
+			Seq[MetaPropertyEvaluator](Association_ownedEnd))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -187,7 +187,7 @@ trait UMLAssociation[Uml <: UML]
 		appendUnique(
 			classifier_referenceMetaProperties,
 			relationship_referenceMetaProperties,
-			Seq (Association_memberEnd,
+			Seq[MetaPropertyEvaluator](Association_memberEnd,
 				Association_navigableOwnedEnd))
 
 	/**

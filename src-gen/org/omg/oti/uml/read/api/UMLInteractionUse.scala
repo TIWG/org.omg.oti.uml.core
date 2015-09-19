@@ -126,7 +126,7 @@ trait UMLInteractionUse[Uml <: UML]
 	def interactionUse_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -146,7 +146,7 @@ trait UMLInteractionUse[Uml <: UML]
 	def interactionUse_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq (InteractionUse_actualGate,
+			Seq[MetaPropertyEvaluator](InteractionUse_actualGate,
 				InteractionUse_argument,
 				InteractionUse_returnValue))
 
@@ -168,7 +168,7 @@ trait UMLInteractionUse[Uml <: UML]
 	def interactionUse_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (InteractionUse_refersTo,
+			Seq[MetaPropertyEvaluator](InteractionUse_refersTo,
 				InteractionUse_returnValueRecipient))
 
 	/**

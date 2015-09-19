@@ -170,7 +170,7 @@ trait UMLPort[Uml <: UML]
 	def port_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			property_metaAttributes,
-			Seq (Port_isBehavior,
+			Seq[MetaAttributeFunction](Port_isBehavior,
 				Port_isConjugated,
 				Port_isService))
 
@@ -192,7 +192,7 @@ trait UMLPort[Uml <: UML]
 	def port_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			property_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -212,7 +212,7 @@ trait UMLPort[Uml <: UML]
 	def port_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			property_referenceMetaProperties,
-			Seq (Port_protocol,
+			Seq[MetaPropertyEvaluator](Port_protocol,
 				Port_redefinedPort))
 
 	/**

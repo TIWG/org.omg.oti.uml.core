@@ -102,7 +102,7 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def interactionConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			constraint_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def interactionConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			constraint_compositeMetaProperties,
-			Seq (InteractionConstraint_maxint,
+			Seq[MetaPropertyEvaluator](InteractionConstraint_maxint,
 				InteractionConstraint_minint))
 
 	/**
@@ -143,7 +143,7 @@ trait UMLInteractionConstraint[Uml <: UML]
 	def interactionConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			constraint_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

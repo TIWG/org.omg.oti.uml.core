@@ -93,7 +93,7 @@ trait UMLClearAssociationAction[Uml <: UML]
 	def clearAssociationAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLClearAssociationAction[Uml <: UML]
 	def clearAssociationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ClearAssociationAction_object))
+			Seq[MetaPropertyEvaluator](ClearAssociationAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLClearAssociationAction[Uml <: UML]
 	def clearAssociationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (ClearAssociationAction_association))
+			Seq[MetaPropertyEvaluator](ClearAssociationAction_association))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

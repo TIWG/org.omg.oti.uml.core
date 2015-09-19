@@ -65,11 +65,7 @@ trait UMLJoinNodeOps[Uml <: UML] { self: UMLJoinNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body if incoming->exists(oclIsKindOf(ObjectFlow)) then outgoing->forAll(oclIsKindOf(ObjectFlow))
-	 * }}}
-	 * {{{
 	 * else outgoing->forAll(oclIsKindOf(ControlFlow))
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

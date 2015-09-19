@@ -88,7 +88,7 @@ trait UMLPartDecomposition[Uml <: UML]
 	def partDecomposition_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionUse_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -108,7 +108,7 @@ trait UMLPartDecomposition[Uml <: UML]
 	def partDecomposition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionUse_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -128,7 +128,7 @@ trait UMLPartDecomposition[Uml <: UML]
 	def partDecomposition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionUse_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

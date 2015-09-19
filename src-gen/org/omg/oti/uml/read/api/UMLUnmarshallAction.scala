@@ -104,7 +104,7 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def unmarshallAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def unmarshallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (UnmarshallAction_object,
+			Seq[MetaPropertyEvaluator](UnmarshallAction_object,
 				UnmarshallAction_result))
 
 	/**
@@ -145,7 +145,7 @@ trait UMLUnmarshallAction[Uml <: UML]
 	def unmarshallAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (UnmarshallAction_unmarshallType))
+			Seq[MetaPropertyEvaluator](UnmarshallAction_unmarshallType))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

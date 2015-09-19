@@ -159,8 +159,6 @@ trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body partWithPort->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 *   (role.oclIsKindOf(Port) and partWithPort.type.oclAsType(Namespace).member->includes(role))
 	 * }}}
 	 */

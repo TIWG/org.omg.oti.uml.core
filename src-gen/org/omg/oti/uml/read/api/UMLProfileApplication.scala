@@ -92,7 +92,7 @@ trait UMLProfileApplication[Uml <: UML]
 	def profileApplication_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq (ProfileApplication_isStrict))
+			Seq[MetaAttributeFunction](ProfileApplication_isStrict))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -112,7 +112,7 @@ trait UMLProfileApplication[Uml <: UML]
 	def profileApplication_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -132,7 +132,7 @@ trait UMLProfileApplication[Uml <: UML]
 	def profileApplication_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (ProfileApplication_appliedProfile))
+			Seq[MetaPropertyEvaluator](ProfileApplication_appliedProfile))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

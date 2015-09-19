@@ -81,7 +81,7 @@ trait UMLNode[Uml <: UML]
 		appendUnique(
 			class_metaAttributes,
 			deploymentTarget_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -102,7 +102,7 @@ trait UMLNode[Uml <: UML]
 		appendUnique(
 			class_compositeMetaProperties,
 			deploymentTarget_compositeMetaProperties,
-			Seq (Node_nestedNode))
+			Seq[MetaPropertyEvaluator](Node_nestedNode))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -123,7 +123,7 @@ trait UMLNode[Uml <: UML]
 		appendUnique(
 			class_referenceMetaProperties,
 			deploymentTarget_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

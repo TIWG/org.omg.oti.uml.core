@@ -78,6 +78,8 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_dynamic_variables -->
    * <!-- End of user code doc for validate_dynamic_variables -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_dynamic_variables: Boolean = {
 		// Start of user code for "dynamic_variables"
@@ -91,6 +93,8 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 * <!-- Start of user code doc for validate_global_data -->
    * <!-- End of user code doc for validate_global_data -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_global_data: Boolean = {
 		// Start of user code for "global_data"
@@ -106,11 +110,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 * {{{
 	 * OCL Body maxint->notEmpty() implies (minint->notEmpty() and 
-	 * }}}
-	 * {{{
 	 * maxint->asSequence()->first().integerValue() >=
-	 * }}}
-	 * {{{
 	 * minint->asSequence()->first().integerValue() )
 	 * }}}
 	 */
@@ -128,8 +128,6 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 * {{{
 	 * OCL Body maxint->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 * maxint->asSequence()->first().integerValue() > 0
 	 * }}}
 	 */
@@ -147,11 +145,7 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 * {{{
 	 * OCL Body maxint->notEmpty() or minint->notEmpty() implies
-	 * }}}
-	 * {{{
 	 * interactionOperand.combinedFragment.interactionOperator =
-	 * }}}
-	 * {{{
 	 * InteractionOperatorKind::loop
 	 * }}}
 	 */
@@ -169,8 +163,6 @@ trait UMLInteractionConstraintOps[Uml <: UML] { self: UMLInteractionConstraint[U
 	 *
 	 * {{{
 	 * OCL Body minint->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 * minint->asSequence()->first().integerValue() >= 0
 	 * }}}
 	 */

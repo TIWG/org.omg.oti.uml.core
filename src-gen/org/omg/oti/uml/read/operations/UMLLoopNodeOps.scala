@@ -164,17 +164,9 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body loopVariableInput->size()=loopVariable->size() and
-	 * }}}
-	 * {{{
 	 * loopVariableInput.type=loopVariable.type and
-	 * }}}
-	 * {{{
 	 * loopVariableInput.isUnique=loopVariable.isUnique and
-	 * }}}
-	 * {{{
 	 * loopVariableInput.lower=loopVariable.lower and
-	 * }}}
-	 * {{{
 	 * loopVariableInput.upper=loopVariable.upper
 	 * }}}
 	 */
@@ -192,20 +184,10 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body bodyOutput->size()=loopVariable->size() and
-	 * }}}
-	 * {{{
 	 * Sequence{1..loopVariable->size()}->forAll(i |
-	 * }}}
-	 * {{{
 	 * 	bodyOutput->at(i).type.conformsTo(loopVariable->at(i).type) and
-	 * }}}
-	 * {{{
 	 * 	bodyOutput->at(i).isOrdered = loopVariable->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	bodyOutput->at(i).isUnique = loopVariable->at(i).isUnique and
-	 * }}}
-	 * {{{
 	 * 	loopVariable->at(i).includesMultiplicity(bodyOutput->at(i)))
 	 * }}}
 	 */
@@ -223,17 +205,9 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body result->size()=loopVariable->size() and
-	 * }}}
-	 * {{{
 	 * result.type=loopVariable.type and
-	 * }}}
-	 * {{{
 	 * result.isUnique=loopVariable.isUnique and
-	 * }}}
-	 * {{{
 	 * result.lower=loopVariable.lower and
-	 * }}}
-	 * {{{
 	 * result.upper=loopVariable.upper
 	 * }}}
 	 */
@@ -267,11 +241,7 @@ trait UMLLoopNodeOps[Uml <: UML] { self: UMLLoopNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body setupPart->intersection(test)->isEmpty() and
-	 * }}}
-	 * {{{
 	 * setupPart->intersection(bodyPart)->isEmpty() and
-	 * }}}
-	 * {{{
 	 * test->intersection(bodyPart)->isEmpty()
 	 * }}}
 	 */

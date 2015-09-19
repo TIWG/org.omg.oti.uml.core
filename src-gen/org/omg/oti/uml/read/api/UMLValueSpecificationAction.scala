@@ -91,7 +91,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	def valueSpecificationAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	def valueSpecificationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ValueSpecificationAction_result,
+			Seq[MetaPropertyEvaluator](ValueSpecificationAction_result,
 				ValueSpecificationAction_value))
 
 	/**
@@ -132,7 +132,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	def valueSpecificationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

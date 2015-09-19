@@ -104,7 +104,7 @@ trait UMLDecisionNode[Uml <: UML]
 	def decisionNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			controlNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLDecisionNode[Uml <: UML]
 	def decisionNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLDecisionNode[Uml <: UML]
 	def decisionNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_referenceMetaProperties,
-			Seq (DecisionNode_decisionInput,
+			Seq[MetaPropertyEvaluator](DecisionNode_decisionInput,
 				DecisionNode_decisionInputFlow))
 
 	/**

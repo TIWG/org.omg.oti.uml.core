@@ -105,6 +105,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for validate_boolean_value -->
    * <!-- End of user code doc for validate_boolean_value -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_boolean_value: Boolean = {
 		// Start of user code for "boolean_value"
@@ -118,6 +120,8 @@ trait UMLConstraintOps[Uml <: UML] { self: UMLConstraint[Uml] =>
 	 * <!-- Start of user code doc for validate_no_side_effects -->
    * <!-- End of user code doc for validate_no_side_effects -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_no_side_effects: Boolean = {
 		// Start of user code for "no_side_effects"

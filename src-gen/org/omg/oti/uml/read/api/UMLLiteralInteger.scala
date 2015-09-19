@@ -90,7 +90,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	def literalInteger_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq (LiteralInteger_value))
+			Seq[MetaAttributeFunction](LiteralInteger_value))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	def literalInteger_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	def literalInteger_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

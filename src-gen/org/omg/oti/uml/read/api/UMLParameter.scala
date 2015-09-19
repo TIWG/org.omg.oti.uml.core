@@ -163,7 +163,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_metaAttributes,
 			multiplicityElement_metaAttributes,
-			Seq (Parameter_isException,
+			Seq[MetaAttributeFunction](Parameter_isException,
 				Parameter_isStream))
 
 	/**
@@ -185,7 +185,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_compositeMetaProperties,
 			multiplicityElement_compositeMetaProperties,
-			Seq (Parameter_defaultValue))
+			Seq[MetaPropertyEvaluator](Parameter_defaultValue))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -206,7 +206,7 @@ trait UMLParameter[Uml <: UML]
 		appendUnique(
 			connectableElement_referenceMetaProperties,
 			multiplicityElement_referenceMetaProperties,
-			Seq (Parameter_parameterSet))
+			Seq[MetaPropertyEvaluator](Parameter_parameterSet))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

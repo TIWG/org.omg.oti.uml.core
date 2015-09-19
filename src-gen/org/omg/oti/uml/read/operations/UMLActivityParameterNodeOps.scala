@@ -100,11 +100,7 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 *
 	 * {{{
 	 * OCL Body (outgoing->notEmpty() and incoming->isEmpty()) implies 
-	 * }}}
-	 * {{{
 	 * 	(parameter.direction = ParameterDirectionKind::_'in' or 
-	 * }}}
-	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::inout)
 	 * }}}
 	 */
@@ -127,14 +123,8 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
 	 *
 	 * {{{
 	 * OCL Body (incoming->notEmpty() and outgoing->isEmpty()) implies 
-	 * }}}
-	 * {{{
 	 * 	(parameter.direction = ParameterDirectionKind::out or 
-	 * }}}
-	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::inout or 
-	 * }}}
-	 * {{{
 	 * 	 parameter.direction = ParameterDirectionKind::return)
 	 * }}}
 	 */

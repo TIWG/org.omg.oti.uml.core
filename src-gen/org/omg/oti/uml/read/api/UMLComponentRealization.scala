@@ -102,7 +102,7 @@ trait UMLComponentRealization[Uml <: UML]
 	def componentRealization_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			realization_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLComponentRealization[Uml <: UML]
 	def componentRealization_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLComponentRealization[Uml <: UML]
 	def componentRealization_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			realization_referenceMetaProperties,
-			Seq (ComponentRealization_realizingClassifier))
+			Seq[MetaPropertyEvaluator](ComponentRealization_realizingClassifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

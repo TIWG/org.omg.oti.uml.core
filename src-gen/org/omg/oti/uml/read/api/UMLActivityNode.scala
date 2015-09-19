@@ -112,7 +112,7 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			redefinableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -132,7 +132,7 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -152,7 +152,7 @@ trait UMLActivityNode[Uml <: UML]
 	def activityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (ActivityNode_inInterruptibleRegion,
+			Seq[MetaPropertyEvaluator](ActivityNode_inInterruptibleRegion,
 				ActivityNode_inPartition,
 				ActivityNode_incoming,
 				ActivityNode_outgoing,

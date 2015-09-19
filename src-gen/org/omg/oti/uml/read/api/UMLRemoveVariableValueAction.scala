@@ -102,7 +102,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	def removeVariableValueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			writeVariableAction_metaAttributes,
-			Seq (RemoveVariableValueAction_isRemoveDuplicates))
+			Seq[MetaAttributeFunction](RemoveVariableValueAction_isRemoveDuplicates))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	def removeVariableValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeVariableAction_compositeMetaProperties,
-			Seq (RemoveVariableValueAction_removeAt))
+			Seq[MetaPropertyEvaluator](RemoveVariableValueAction_removeAt))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	def removeVariableValueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeVariableAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

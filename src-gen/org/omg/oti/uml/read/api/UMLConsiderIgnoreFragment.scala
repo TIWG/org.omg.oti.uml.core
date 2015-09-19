@@ -90,7 +90,7 @@ trait UMLConsiderIgnoreFragment[Uml <: UML]
 	def considerIgnoreFragment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			combinedFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLConsiderIgnoreFragment[Uml <: UML]
 	def considerIgnoreFragment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			combinedFragment_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLConsiderIgnoreFragment[Uml <: UML]
 	def considerIgnoreFragment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			combinedFragment_referenceMetaProperties,
-			Seq (ConsiderIgnoreFragment_message))
+			Seq[MetaPropertyEvaluator](ConsiderIgnoreFragment_message))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

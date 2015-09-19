@@ -275,18 +275,16 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 */
 	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
 		// Start of user code for "isConsistentWith"
-    redefiningElement match {
-      case Some(p: UMLProperty[Uml]) =>
-        (p._type match {
-          case Some(pt) =>
+    redefiningElement.fold[Boolean](false) {
+      case p: UMLProperty[Uml] =>
+        p._type.fold[Boolean](false) {
+          pt =>
             pt.conformsTo(self._type)
-          case _        =>
-            false
-        }) &&
+        } &&
           (p.lowerValue.isEmpty || self.lowerValue.isEmpty || p.lower >= self.lower) &&
           (p.upperValue.isEmpty || self.upperValue.isEmpty || p.upper >= self.upper) &&
           !self.isComposite || p.isComposite
-      case _                         =>
+      case _ =>
         false
     }
     // End of user code
@@ -355,17 +353,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (self.isAttribute()
-	 * }}}
-	 * {{{
 	 * and (templateParameterSubstitution->notEmpty())
-	 * }}}
-	 * {{{
 	 * implies (templateParameterSubstitution->forAll(ts |
-	 * }}}
-	 * {{{
 	 *     ts.formal.oclIsKindOf(Property)
-	 * }}}
-	 * {{{
 	 *     and ts.formal.oclAsType(Property).isAttribute())))
 	 * }}}
 	 */
@@ -470,17 +460,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (redefinedProperty->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 *   (redefinitionContext->notEmpty() and
-	 * }}}
-	 * {{{
 	 *       redefinedProperty->forAll(rp|
-	 * }}}
-	 * {{{
 	 *         ((redefinitionContext->collect(fc|
-	 * }}}
-	 * {{{
 	 *           fc.allParents()))->asSet())->collect(c| c.allFeatures())->asSet()->includes(rp)))
 	 * }}}
 	 */
@@ -514,14 +496,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body subsettedProperty->notEmpty() implies
-	 * }}}
-	 * {{{
 	 *   (subsettingContext()->notEmpty() and subsettingContext()->forAll (sc |
-	 * }}}
-	 * {{{
 	 *     subsettedProperty->forAll(sp |
-	 * }}}
-	 * {{{
 	 *       sp.subsettingContext()->exists(c | sc.conformsTo(c)))))
 	 * }}}
 	 */
@@ -539,14 +515,8 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body subsettedProperty->forAll(sp |
-	 * }}}
-	 * {{{
 	 *   self.type.conformsTo(sp.type) and
-	 * }}}
-	 * {{{
 	 *     ((self.upper()->notEmpty() and sp.upper()->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 *       self.upper() <= sp.upper() ))
 	 * }}}
 	 */

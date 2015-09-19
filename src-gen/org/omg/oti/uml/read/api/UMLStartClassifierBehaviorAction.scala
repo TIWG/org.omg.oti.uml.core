@@ -79,7 +79,7 @@ trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	def startClassifierBehaviorAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	def startClassifierBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (StartClassifierBehaviorAction_object))
+			Seq[MetaPropertyEvaluator](StartClassifierBehaviorAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLStartClassifierBehaviorAction[Uml <: UML]
 	def startClassifierBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

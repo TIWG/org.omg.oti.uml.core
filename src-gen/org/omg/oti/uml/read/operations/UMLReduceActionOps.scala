@@ -90,6 +90,8 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 * <!-- Start of user code doc for validate_input_type_is_collection -->
    * <!-- End of user code doc for validate_input_type_is_collection -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_input_type_is_collection: Boolean = {
 		// Start of user code for "input_type_is_collection"
@@ -121,23 +123,11 @@ trait UMLReduceActionOps[Uml <: UML] { self: UMLReduceAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let inputs: OrderedSet(Parameter) = reducer.inputParameters() in
-	 * }}}
-	 * {{{
 	 * let outputs: OrderedSet(Parameter) = reducer.outputParameters() in
-	 * }}}
-	 * {{{
 	 * inputs->size()=2 and outputs->size()=1 and
-	 * }}}
-	 * {{{
 	 * inputs.type->forAll(t | 
-	 * }}}
-	 * {{{
 	 * 	outputs.type->forAll(conformsTo(t)) and 
-	 * }}}
-	 * {{{
 	 * 	-- Note that the following only checks the case when the collection is via multiple tokens.
-	 * }}}
-	 * {{{
 	 * 	collection.upper()>1 implies collection.type.conformsTo(t))
 	 * }}}
 	 */

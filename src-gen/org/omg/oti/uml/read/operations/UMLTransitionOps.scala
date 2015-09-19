@@ -214,8 +214,6 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (source.oclIsKindOf(Pseudostate) and container.stateMachine->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 * 	trigger->isEmpty()
 	 * }}}
 	 */
@@ -281,8 +279,6 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (kind = TransitionKind::external) implies
-	 * }}}
-	 * {{{
 	 * 	not (source.oclIsKindOf(Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint)
 	 * }}}
 	 */
@@ -300,8 +296,6 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (kind = TransitionKind::internal) implies
-	 * }}}
-	 * {{{
 	 * 		(source.oclIsKindOf (State) and source = target)
 	 * }}}
 	 */
@@ -319,11 +313,7 @@ trait UMLTransitionOps[Uml <: UML] { self: UMLTransition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (kind = TransitionKind::local) implies
-	 * }}}
-	 * {{{
 	 * 		((source.oclIsKindOf (State) and source.oclAsType(State).isComposite) or
-	 * }}}
-	 * {{{
 	 * 		(source.oclIsKindOf (Pseudostate) and source.oclAsType(Pseudostate).kind = PseudostateKind::entryPoint))
 	 * }}}
 	 */

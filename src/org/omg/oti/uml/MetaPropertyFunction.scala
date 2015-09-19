@@ -182,7 +182,7 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
   override def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
-        evaluate(u).map { ov =>
+        val result: Try[Set[RelationTriple[Uml]]]  = evaluate(u).map { ov =>
           ov.fold[Set[RelationTriple[Uml]]](Set()) { v =>
               if (u.owner.contains(v))
                 Set()
@@ -190,6 +190,10 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
                 Set(AssociationTriple(sub=u, relf=this, obj=v))
             }
         }
+        result
+      case x =>
+        Failure(new IllegalArgumentException(s"Type mismatch for evaluating $this on $x " +
+                                             s"(should have been ${domainType.runtimeClass.getName})"))
     }
 
   def evaluate(e: UMLElement[Uml]): Try[Option[UMLElement[Uml]]] =

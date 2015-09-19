@@ -40,13 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
-import scala.{Option,None,Some}
+import scala.{Option, None, Some}
 import scala.Predef._
 import scala.collection.immutable.::
 import scala.collection.immutable.Nil
+
 // End of user code
 
 /**
@@ -55,105 +57,96 @@ import scala.collection.immutable.Nil
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
+trait UMLAcceptCallActionOps[Uml <: UML] {
+  self: UMLAcceptCallAction[Uml] =>
 
-// Start of user code for class imports
-// End of user code
+  // Start of user code for class imports
+  // End of user code
 
 
-	/**
-	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
-	 *
-	 * <!-- Start of user code doc for validate_result_pins -->
+  /**
+   * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
+   *
+   * <!-- Start of user code doc for validate_result_pins -->
    * <!-- End of user code doc for validate_result_pins -->
-	 *
-	 * {{{
-	 * OCL Body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
-	 * }}}
-	 * {{{
-	 * result->size() = parameter->size() and
-	 * }}}
-	 * {{{
-	 * Sequence{1..result->size()}->forAll(i | 
-	 * }}}
-	 * {{{
-	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
-	 * }}}
-	 * {{{
-	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
-	 * }}}
-	 * {{{
-	 * 	parameter->at(i).compatibleWith(result->at(i)))
-	 * }}}
-	 */
-	def validate_result_pins: Boolean = {
-		// Start of user code for "result_pins"
+   *
+   * {{{
+   * OCL Body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
+   * result->size() = parameter->size() and
+   * Sequence{1..result->size()}->forAll(i |
+   * 	parameter->at(i).type.conformsTo(result->at(i).type) and
+   * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
+   * 	parameter->at(i).compatibleWith(result->at(i)))
+   * }}}
+   */
+  def validate_result_pins: Boolean = {
+    // Start of user code for "result_pins"
     1 != trigger.size ||
-      (trigger.head.event match {
-        case Some(ce: UMLCallEvent[Uml]) =>
-          ce.operation match {
-            case Some(op) =>
+    (trigger.head.event.fold[Boolean](true) {
+        case ce: UMLCallEvent[Uml] =>
+          ce
+          .operation
+          .fold[Boolean](false) {
+            op =>
               result.size != op.inputParameters.size ||
                 (op.inputParameters, result)
                 .zipped
                 .forall {
                           (p, r) =>
                             p.isOrdered == r.isOrdered &&
-                              (p._type match {
-                                case Some(pt) => pt.conformsTo(r._type)
-                                case None     => true
-                              }) &&
+                              p._type.fold[Boolean](true) {
+                                pt => pt.conformsTo(r._type)
+                              } &&
                               p.compatibleWith(Some(r))
                         }
-            case None     => false
           }
-        case _                           => true
+        case _ => true
       })
     // End of user code
-	}
+  }
 
-	/**
-	 * The action must have exactly one trigger, which must be for a CallEvent.
-	 *
-	 * <!-- Start of user code doc for validate_trigger_call_event -->
+  /**
+   * The action must have exactly one trigger, which must be for a CallEvent.
+   *
+   * <!-- Start of user code doc for validate_trigger_call_event -->
    * <!-- End of user code doc for validate_trigger_call_event -->
-	 *
-	 * {{{
-	 * OCL Body trigger->size()=1 and
-	 * }}}
-	 * {{{
-	 * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
-	 * }}}
-	 */
-	def validate_trigger_call_event: Boolean = {
-		// Start of user code for "trigger_call_event"
+   *
+   * {{{
+   * OCL Body trigger->size()=1 and
+   * trigger->asSequence()->first().event.oclIsKindOf(CallEvent)
+   * }}}
+   */
+  def validate_trigger_call_event: Boolean = {
+    // Start of user code for "trigger_call_event"
     trigger.toList match {
       case (t: UMLTrigger[Uml]) :: Nil =>
-        t.event match {
-          case Some(_: UMLCallEvent[Uml]) => true
-          case _                          => false
+        t.event.fold[Boolean](false) {
+          case _: UMLCallEvent[Uml] => true
+          case _ => false
         }
-      case _                           => false
+      case _ => false
     }
     // End of user code
-	}
+  }
 
-	/**
-	 * isUnmrashall must be true for an AcceptCallAction.
-	 *
-	 * <!-- Start of user code doc for validate_unmarshall -->
+  /**
+   * isUnmrashall must be true for an AcceptCallAction.
+   *
+   * <!-- Start of user code doc for validate_unmarshall -->
    * <!-- End of user code doc for validate_unmarshall -->
-	 *
-	 * {{{
-	 * OCL Body isUnmarshall = true
-	 * }}}
-	 */
-	def validate_unmarshall: Boolean = {
-		// Start of user code for "unmarshall"
+   *
+   * {{{
+   * OCL Body isUnmarshall = true
+   * }}}
+   */
+  def validate_unmarshall: Boolean = {
+    // Start of user code for "unmarshall"
     isUnmarshall
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
-} //UMLAcceptCallActionOps
+}
+
+//UMLAcceptCallActionOps

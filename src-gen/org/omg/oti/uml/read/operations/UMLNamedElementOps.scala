@@ -308,8 +308,6 @@ trait UMLNamedElementOps[Uml <: UML] { self: UMLNamedElement[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (name <> null and allNamespaces()->select(ns | ns.name = null)->isEmpty()) implies
-	 * }}}
-	 * {{{
 	 *   qualifiedName = allNamespaces()->iterate( ns : Namespace; agg: String = name | ns.name.concat(self.separator()).concat(agg))
 	 * }}}
 	 */

@@ -96,11 +96,7 @@ trait UMLClauseOps[Uml <: UML] { self: UMLClause[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body test.oclAsType(Action).allActions().output->includes(decider) and
-	 * }}}
-	 * {{{
 	 * decider.type = Boolean and
-	 * }}}
-	 * {{{
 	 * decider.is(1,1)
 	 * }}}
 	 */

@@ -93,7 +93,7 @@ trait UMLReception[Uml <: UML]
 	def reception_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavioralFeature_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLReception[Uml <: UML]
 	def reception_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioralFeature_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLReception[Uml <: UML]
 	def reception_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioralFeature_referenceMetaProperties,
-			Seq (Reception_signal))
+			Seq[MetaPropertyEvaluator](Reception_signal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

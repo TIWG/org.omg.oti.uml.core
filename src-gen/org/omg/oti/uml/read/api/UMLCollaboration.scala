@@ -101,7 +101,7 @@ trait UMLCollaboration[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_metaAttributes,
 			structuredClassifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLCollaboration[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
 			structuredClassifier_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -143,7 +143,7 @@ trait UMLCollaboration[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_referenceMetaProperties,
 			structuredClassifier_referenceMetaProperties,
-			Seq (Collaboration_collaborationRole))
+			Seq[MetaPropertyEvaluator](Collaboration_collaborationRole))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -215,13 +215,12 @@ object ConnectableMultiplicityValidationHelper {
     def checkLowerValue
     ( pop: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] )
     : ConnectableMultiplicityValidationInfo[Uml] =
-      pop.lowerValue match {
-        case None =>
-          ConnectableMultiplicityValidationInfo[Uml](
+      pop.lowerValue.fold[ConnectableMultiplicityValidationInfo[Uml]](
+        ConnectableMultiplicityValidationInfo[Uml](
             pop, MultiplicityElement_lowerValue,
-            None, ValidValueStatus)
+            None, ValidValueStatus)) {
 
-        case Some(l: UMLLiteralUnlimitedNatural[Uml]) =>
+        case l: UMLLiteralUnlimitedNatural[Uml] =>
           if (1 == l.value)
             ConnectableMultiplicityValidationInfo[Uml](
               pop, MultiplicityElement_lowerValue,
@@ -243,7 +242,7 @@ object ConnectableMultiplicityValidationHelper {
               pop.lowerValue, InvalidValueAsUnlimitedNaturalStatus,
               INVALID_UNLIMITED_NATURAL_VALUE)
 
-        case Some(l: UMLLiteralInteger[Uml]) =>
+        case l: UMLLiteralInteger[Uml] =>
           if (1 == l.value)
             ConnectableMultiplicityValidationInfo[Uml](
               pop, MultiplicityElement_lowerValue,
@@ -259,7 +258,7 @@ object ConnectableMultiplicityValidationHelper {
               pop.lowerValue, InvalidValueAsIntegerStatus,
               INVALID_INTEGER_VALUE)
 
-        case Some(l: UMLLiteralString[Uml]) =>
+        case l: UMLLiteralString[Uml] =>
           l.value match {
             case None =>
               ConnectableMultiplicityValidationInfo[Uml](
@@ -298,7 +297,7 @@ object ConnectableMultiplicityValidationHelper {
                 }
           }
 
-        case Some(v) =>
+        case v =>
           ConnectableMultiplicityValidationInfo[Uml](
             pop, MultiplicityElement_lowerValue,
             pop.lowerValue, InvalidValueKindStatus,

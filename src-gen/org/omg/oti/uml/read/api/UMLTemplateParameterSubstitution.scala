@@ -104,7 +104,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (TemplateParameterSubstitution_ownedActual))
+			Seq[MetaPropertyEvaluator](TemplateParameterSubstitution_ownedActual))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	def templateParameterSubstitution_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (TemplateParameterSubstitution_actual,
+			Seq[MetaPropertyEvaluator](TemplateParameterSubstitution_actual,
 				TemplateParameterSubstitution_formal))
 
 	/**

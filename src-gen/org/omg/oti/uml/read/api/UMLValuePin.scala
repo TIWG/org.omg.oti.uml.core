@@ -91,7 +91,7 @@ trait UMLValuePin[Uml <: UML]
 	def valuePin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			inputPin_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLValuePin[Uml <: UML]
 	def valuePin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			inputPin_compositeMetaProperties,
-			Seq (ValuePin_value))
+			Seq[MetaPropertyEvaluator](ValuePin_value))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLValuePin[Uml <: UML]
 	def valuePin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			inputPin_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

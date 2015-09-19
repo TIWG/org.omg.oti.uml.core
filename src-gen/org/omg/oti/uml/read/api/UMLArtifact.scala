@@ -115,7 +115,7 @@ trait UMLArtifact[Uml <: UML]
 		appendUnique(
 			classifier_metaAttributes,
 			deployedArtifact_metaAttributes,
-			Seq (Artifact_fileName))
+			Seq[MetaAttributeFunction](Artifact_fileName))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -136,7 +136,7 @@ trait UMLArtifact[Uml <: UML]
 		appendUnique(
 			classifier_compositeMetaProperties,
 			deployedArtifact_compositeMetaProperties,
-			Seq (Artifact_manifestation,
+			Seq[MetaPropertyEvaluator](Artifact_manifestation,
 				Artifact_nestedArtifact,
 				Artifact_ownedAttribute,
 				Artifact_ownedOperation))
@@ -160,7 +160,7 @@ trait UMLArtifact[Uml <: UML]
 		appendUnique(
 			classifier_referenceMetaProperties,
 			deployedArtifact_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -104,7 +104,7 @@ trait UMLSlot[Uml <: UML]
 	def slot_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLSlot[Uml <: UML]
 	def slot_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (Slot_value))
+			Seq[MetaPropertyEvaluator](Slot_value))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLSlot[Uml <: UML]
 	def slot_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (Slot_definingFeature))
+			Seq[MetaPropertyEvaluator](Slot_definingFeature))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

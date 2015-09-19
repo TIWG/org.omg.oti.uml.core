@@ -79,7 +79,7 @@ trait UMLCreateLinkObjectAction[Uml <: UML]
 	def createLinkObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			createLinkAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLCreateLinkObjectAction[Uml <: UML]
 	def createLinkObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			createLinkAction_compositeMetaProperties,
-			Seq (CreateLinkObjectAction_result))
+			Seq[MetaPropertyEvaluator](CreateLinkObjectAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLCreateLinkObjectAction[Uml <: UML]
 	def createLinkObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			createLinkAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

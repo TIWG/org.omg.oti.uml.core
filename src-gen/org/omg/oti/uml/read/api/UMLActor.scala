@@ -78,7 +78,7 @@ trait UMLActor[Uml <: UML]
 	def actor_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavioredClassifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLActor[Uml <: UML]
 	def actor_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLActor[Uml <: UML]
 	def actor_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavioredClassifier_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

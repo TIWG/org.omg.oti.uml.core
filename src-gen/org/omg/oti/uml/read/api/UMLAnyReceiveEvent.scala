@@ -78,7 +78,7 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 	def anyReceiveEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			messageEvent_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 	def anyReceiveEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageEvent_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLAnyReceiveEvent[Uml <: UML]
 	def anyReceiveEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageEvent_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

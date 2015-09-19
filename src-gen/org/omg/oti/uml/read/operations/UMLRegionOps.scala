@@ -249,8 +249,6 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
-	 * }}}
-	 * {{{
 	 *    select(kind = PseudostateKind::deepHistory)->size() <= 1
 	 * }}}
 	 */
@@ -268,8 +266,6 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.subvertex->select (oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
-	 * }}}
-	 * {{{
 	 *   select(kind = PseudostateKind::initial)->size() <= 1
 	 * }}}
 	 */
@@ -303,8 +299,6 @@ trait UMLRegionOps[Uml <: UML] { self: UMLRegion[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body subvertex->select(oclIsKindOf(Pseudostate))->collect(oclAsType(Pseudostate))->
-	 * }}}
-	 * {{{
 	 *   select(kind = PseudostateKind::shallowHistory)->size() <= 1
 	 * }}}
 	 */

@@ -187,8 +187,6 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body behavior <> null implies
-	 * }}}
-	 * {{{
 	 *    behavior.ownedParameter->select(direction=ParameterDirectionKind::return)->size() = 1
 	 * }}}
 	 */

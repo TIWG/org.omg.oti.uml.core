@@ -135,7 +135,7 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_metaAttributes,
 			encapsulatedClassifier_metaAttributes,
-			Seq (Class_isAbstract,
+			Seq[MetaAttributeFunction](Class_isAbstract,
 				Class_isActive))
 
 	/**
@@ -157,7 +157,7 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_compositeMetaProperties,
 			encapsulatedClassifier_compositeMetaProperties,
-			Seq (Class_nestedClassifier,
+			Seq[MetaPropertyEvaluator](Class_nestedClassifier,
 				Class_ownedAttribute,
 				Class_ownedOperation,
 				Class_ownedReception))
@@ -181,7 +181,7 @@ trait UMLClass[Uml <: UML]
 		appendUnique(
 			behavioredClassifier_referenceMetaProperties,
 			encapsulatedClassifier_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

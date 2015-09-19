@@ -81,10 +81,10 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
    * TIWG: see UMLUtil, Rule #4
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
-    element_xmiOrderingKey + (definingFeature match {
-      case None     => "_"
-      case Some(sf) => "_" + sf.xmiOrderingKey
-    })
+    element_xmiOrderingKey +
+    definingFeature.fold[String]("_") {
+      sf => "_" + sf.xmiOrderingKey
+    }
 
   // End of user code
 } //UMLSlotOps

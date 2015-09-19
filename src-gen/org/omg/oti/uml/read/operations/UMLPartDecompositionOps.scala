@@ -63,6 +63,8 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 * <!-- Start of user code doc for validate_assume -->
    * <!-- End of user code doc for validate_assume -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_assume: Boolean = {
 		// Start of user code for "assume"
@@ -76,6 +78,8 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 * <!-- Start of user code doc for validate_commutativity_of_decomposition -->
    * <!-- End of user code doc for validate_commutativity_of_decomposition -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_commutativity_of_decomposition: Boolean = {
 		// Start of user code for "commutativity_of_decomposition"
@@ -89,6 +93,8 @@ trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 	 * <!-- Start of user code doc for validate_parts_of_internal_structures -->
    * <!-- End of user code doc for validate_parts_of_internal_structures -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_parts_of_internal_structures: Boolean = {
 		// Start of user code for "parts_of_internal_structures"

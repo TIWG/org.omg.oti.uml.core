@@ -95,7 +95,7 @@ trait UMLExtend[Uml <: UML]
 		appendUnique(
 			directedRelationship_metaAttributes,
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -116,7 +116,7 @@ trait UMLExtend[Uml <: UML]
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
 			namedElement_compositeMetaProperties,
-			Seq (Extend_condition))
+			Seq[MetaPropertyEvaluator](Extend_condition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -137,7 +137,7 @@ trait UMLExtend[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			namedElement_referenceMetaProperties,
-			Seq (Extend_extendedCase,
+			Seq[MetaPropertyEvaluator](Extend_extendedCase,
 				Extend_extensionLocation))
 
 	/**

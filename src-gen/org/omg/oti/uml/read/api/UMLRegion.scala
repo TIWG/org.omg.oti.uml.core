@@ -84,7 +84,7 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_metaAttributes,
 			redefinableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -105,7 +105,7 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
-			Seq (Region_subvertex,
+			Seq[MetaPropertyEvaluator](Region_subvertex,
 				Region_transition))
 
 	/**
@@ -127,7 +127,7 @@ trait UMLRegion[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (Region_extendedRegion))
+			Seq[MetaPropertyEvaluator](Region_extendedRegion))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -65,26 +65,12 @@ trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStru
 	 *
 	 * {{{
 	 * OCL Body if structuralFeature.isOrdered and not structuralFeature.isUnique and  not isRemoveDuplicates then
-	 * }}}
-	 * {{{
 	 *   value = null and
-	 * }}}
-	 * {{{
 	 *   removeAt <> null and
-	 * }}}
-	 * {{{
 	 *   removeAt.type = UnlimitedNatural and
-	 * }}}
-	 * {{{
 	 *   removeAt.is(1,1)
-	 * }}}
-	 * {{{
 	 * else
-	 * }}}
-	 * {{{
 	 *   removeAt = null and value <> null
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

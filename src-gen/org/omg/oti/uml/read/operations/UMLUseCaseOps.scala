@@ -187,20 +187,10 @@ trait UMLUseCaseOps[Uml <: UML] { self: UMLUseCase[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body Association.allInstances()->forAll(a | a.memberEnd.type->includes(self) implies 
-	 * }}}
-	 * {{{
 	 *    (
-	 * }}}
-	 * {{{
 	 *    let usecases: Set(UseCase) = a.memberEnd.type->select(oclIsKindOf(UseCase))->collect(oclAsType(UseCase))->asSet() in
-	 * }}}
-	 * {{{
 	 *    usecases->size() > 1 implies usecases->collect(subject)->size() > 1
-	 * }}}
-	 * {{{
 	 *    )
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

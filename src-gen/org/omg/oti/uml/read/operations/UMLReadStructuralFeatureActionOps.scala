@@ -97,8 +97,6 @@ trait UMLReadStructuralFeatureActionOps[Uml <: UML] { self: UMLReadStructuralFea
 	 *
 	 * {{{
 	 * OCL Body result.type =structuralFeature.type and 
-	 * }}}
-	 * {{{
 	 * result.isOrdered = structuralFeature.isOrdered
 	 * }}}
 	 */

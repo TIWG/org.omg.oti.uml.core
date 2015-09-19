@@ -90,20 +90,10 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let parameter: OrderedSet(Parameter) = self.inputParameters() in
-	 * }}}
-	 * {{{
 	 * argument->size() = parameter->size() and
-	 * }}}
-	 * {{{
 	 * Sequence{1..argument->size()}->forAll(i | 
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).type.conformsTo(parameter->at(i).type) and 
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).isOrdered = parameter->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).compatibleWith(parameter->at(i)))
 	 * }}}
 	 */
@@ -132,20 +122,10 @@ trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let parameter: OrderedSet(Parameter) = self.outputParameters() in
-	 * }}}
-	 * {{{
 	 * result->size() = parameter->size() and
-	 * }}}
-	 * {{{
 	 * Sequence{1..result->size()}->forAll(i | 
-	 * }}}
-	 * {{{
 	 * 	parameter->at(i).type.conformsTo(result->at(i).type) and 
-	 * }}}
-	 * {{{
 	 * 	parameter->at(i).isOrdered = result->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	parameter->at(i).compatibleWith(result->at(i)))
 	 * }}}
 	 */

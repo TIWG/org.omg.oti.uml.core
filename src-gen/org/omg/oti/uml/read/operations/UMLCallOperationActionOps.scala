@@ -106,11 +106,7 @@ trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] 
 	 *
 	 * {{{
 	 * OCL Body if onPort=null then  target.type.oclAsType(Classifier).allFeatures()->includes(operation)
-	 * }}}
-	 * {{{
 	 * else target.type.oclAsType(Classifier).allFeatures()->includes(onPort) and onPort.provided->union(onPort.required).allFeatures()->includes(operation)
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

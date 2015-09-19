@@ -80,23 +80,11 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body metaclassReference.importedElement->
-	 * }}}
-	 * {{{
 	 * 	select(c | c.oclIsKindOf(Classifier) and
-	 * }}}
-	 * {{{
 	 * 		(c.oclAsType(Classifier).allParents()->collect(namespace)->includes(self)))->isEmpty()
-	 * }}}
-	 * {{{
 	 * and 
-	 * }}}
-	 * {{{
 	 * packagedElement->
-	 * }}}
-	 * {{{
 	 *     select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier).allParents())->
-	 * }}}
-	 * {{{
 	 *        intersection(metaclassReference.importedElement->select(oclIsKindOf(Classifier))->collect(oclAsType(Classifier)))->isEmpty()
 	 * }}}
 	 */
@@ -114,8 +102,6 @@ trait UMLProfileOps[Uml <: UML] { self: UMLProfile[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body metamodelReference.importedPackage.elementImport.importedElement.allOwningPackages()->
-	 * }}}
-	 * {{{
 	 *   union(metaclassReference.importedElement.allOwningPackages() )->notEmpty()
 	 * }}}
 	 */

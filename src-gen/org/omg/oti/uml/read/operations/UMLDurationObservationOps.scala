@@ -65,11 +65,7 @@ trait UMLDurationObservationOps[Uml <: UML] { self: UMLDurationObservation[Uml] 
 	 *
 	 * {{{
 	 * OCL Body if (event->size() = 2)
-	 * }}}
-	 * {{{
 	 *   then (firstEvent->size() = 2) else (firstEvent->size() = 0)
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

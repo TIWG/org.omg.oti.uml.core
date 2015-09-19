@@ -104,7 +104,7 @@ trait UMLExpansionNode[Uml <: UML]
 	def expansionNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			objectNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLExpansionNode[Uml <: UML]
 	def expansionNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLExpansionNode[Uml <: UML]
 	def expansionNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_referenceMetaProperties,
-			Seq (ExpansionNode_regionAsInput,
+			Seq[MetaPropertyEvaluator](ExpansionNode_regionAsInput,
 				ExpansionNode_regionAsOutput))
 
 	/**

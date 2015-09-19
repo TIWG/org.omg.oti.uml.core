@@ -79,7 +79,7 @@ trait UMLActionInputPin[Uml <: UML]
 	def actionInputPin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			inputPin_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLActionInputPin[Uml <: UML]
 	def actionInputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			inputPin_compositeMetaProperties,
-			Seq (ActionInputPin_fromAction))
+			Seq[MetaPropertyEvaluator](ActionInputPin_fromAction))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLActionInputPin[Uml <: UML]
 	def actionInputPin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			inputPin_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

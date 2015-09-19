@@ -125,11 +125,7 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body ownedParameter->forAll(p | 
-	 * }}}
-	 * {{{
 	 *    p.direction <> ParameterDirectionKind::inout implies node->select(
-	 * }}}
-	 * {{{
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p)->size()= 1)
 	 * }}}
 	 */
@@ -156,26 +152,12 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body ownedParameter->forAll(p | 
-	 * }}}
-	 * {{{
 	 * p.direction = ParameterDirectionKind::inout implies
-	 * }}}
-	 * {{{
 	 * let associatedNodes : Set(ActivityNode) = node->select(
-	 * }}}
-	 * {{{
 	 *        oclIsKindOf(ActivityParameterNode) and oclAsType(ActivityParameterNode).parameter = p) in 
-	 * }}}
-	 * {{{
 	 *   associatedNodes->size()=2 and
-	 * }}}
-	 * {{{
 	 *   associatedNodes->select(incoming->notEmpty())->size()<=1 and
-	 * }}}
-	 * {{{
 	 *   associatedNodes->select(outgoing->notEmpty())->size()<=1
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

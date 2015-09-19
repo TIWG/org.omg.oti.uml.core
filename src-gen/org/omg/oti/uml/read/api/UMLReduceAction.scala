@@ -103,7 +103,7 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (ReduceAction_isOrdered))
+			Seq[MetaAttributeFunction](ReduceAction_isOrdered))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -123,7 +123,7 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReduceAction_collection,
+			Seq[MetaPropertyEvaluator](ReduceAction_collection,
 				ReduceAction_result))
 
 	/**
@@ -144,7 +144,7 @@ trait UMLReduceAction[Uml <: UML]
 	def reduceAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (ReduceAction_reducer))
+			Seq[MetaPropertyEvaluator](ReduceAction_reducer))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

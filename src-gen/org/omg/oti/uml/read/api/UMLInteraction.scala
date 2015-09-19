@@ -101,7 +101,7 @@ trait UMLInteraction[Uml <: UML]
 		appendUnique(
 			behavior_metaAttributes,
 			interactionFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLInteraction[Uml <: UML]
 		appendUnique(
 			behavior_compositeMetaProperties,
 			interactionFragment_compositeMetaProperties,
-			Seq (Interaction_action,
+			Seq[MetaPropertyEvaluator](Interaction_action,
 				Interaction_formalGate,
 				Interaction_fragment,
 				Interaction_lifeline,
@@ -147,7 +147,7 @@ trait UMLInteraction[Uml <: UML]
 		appendUnique(
 			behavior_referenceMetaProperties,
 			interactionFragment_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

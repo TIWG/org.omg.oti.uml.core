@@ -89,11 +89,10 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 */
 	def profile: Option[UMLProfile[Uml]] = {
 		// Start of user code for "profile"
-    @annotation.tailrec
-    def getOwningProfile( pkg: Option[UMLPackage[Uml]] ): Option[UMLProfile[Uml]] = pkg match {
-      case None => None
-      case Some( pf: UMLProfile[Uml] ) => Some( pf )
-      case Some( p ) => getOwningProfile( p.packagedElement_owningPackage )
+    def getOwningProfile( pkg: Option[UMLPackage[Uml]] ): Option[UMLProfile[Uml]] =
+      pkg.fold[Option[UMLProfile[Uml]]](None) {
+      case pf: UMLProfile[Uml] => Some( pf )
+      case p => getOwningProfile( p.packagedElement_owningPackage )
     }
     
     getOwningProfile( packagedElement_owningPackage )
@@ -134,11 +133,7 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body ownedAttribute
-	 * }}}
-	 * {{{
 	 * ->select(association->notEmpty() and not association.oclIsKindOf(Extension) and not type.oclIsKindOf(Stereotype))
-	 * }}}
-	 * {{{
 	 * ->forAll(opposite.owner = association)
 	 * }}}
 	 */
@@ -154,6 +149,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_base_property_multiplicity_multiple_extension -->
    * <!-- End of user code doc for validate_base_property_multiplicity_multiple_extension -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_base_property_multiplicity_multiple_extension: Boolean = {
 		// Start of user code for "base_property_multiplicity_multiple_extension"
@@ -167,6 +164,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_base_property_multiplicity_single_extension -->
    * <!-- End of user code doc for validate_base_property_multiplicity_single_extension -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_base_property_multiplicity_single_extension: Boolean = {
 		// Start of user code for "base_property_multiplicity_single_extension"
@@ -180,6 +179,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_base_property_upper_bound -->
    * <!-- End of user code doc for validate_base_property_upper_bound -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_base_property_upper_bound: Boolean = {
 		// Start of user code for "base_property_upper_bound"
@@ -211,8 +212,6 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body allParents()->forAll(oclIsKindOf(Stereotype)) 
-	 * }}}
-	 * {{{
 	 * and Classifier.allInstances()->forAll(c | c.allParents()->exists(oclIsKindOf(Stereotype)) implies c.oclIsKindOf(Stereotype))
 	 * }}}
 	 */
@@ -228,6 +227,8 @@ trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 	 * <!-- Start of user code doc for validate_name_not_clash -->
    * <!-- End of user code doc for validate_name_not_clash -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_name_not_clash: Boolean = {
 		// Start of user code for "name_not_clash"

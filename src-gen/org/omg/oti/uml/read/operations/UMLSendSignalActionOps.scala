@@ -81,17 +81,9 @@ trait UMLSendSignalActionOps[Uml <: UML] { self: UMLSendSignalAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let attribute: OrderedSet(Property) = signal.allAttributes() in
-	 * }}}
-	 * {{{
 	 * Sequence{1..argument->size()}->forAll(i | 
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).type.conformsTo(attribute->at(i).type) and 
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).isOrdered = attribute->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	argument->at(i).compatibleWith(attribute->at(i)))
 	 * }}}
 	 */

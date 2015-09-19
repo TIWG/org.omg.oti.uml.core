@@ -82,7 +82,7 @@ trait UMLPackageMerge[Uml <: UML]
 	def packageMerge_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -102,7 +102,7 @@ trait UMLPackageMerge[Uml <: UML]
 	def packageMerge_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLPackageMerge[Uml <: UML]
 	def packageMerge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (PackageMerge_mergedPackage))
+			Seq[MetaPropertyEvaluator](PackageMerge_mergedPackage))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

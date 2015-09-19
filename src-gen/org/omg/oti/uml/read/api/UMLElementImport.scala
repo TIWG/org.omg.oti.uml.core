@@ -112,7 +112,7 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq (ElementImport_alias))
+			Seq[MetaAttributeFunction](ElementImport_alias))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -132,7 +132,7 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -152,7 +152,7 @@ trait UMLElementImport[Uml <: UML]
 	def elementImport_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (ElementImport_importedElement))
+			Seq[MetaPropertyEvaluator](ElementImport_importedElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -70,17 +70,9 @@ trait UMLActionExecutionSpecificationOps[Uml <: UML] { self: UMLActionExecutionS
 	 *
 	 * {{{
 	 * OCL Body (enclosingInteraction->notEmpty() or enclosingOperand.combinedFragment->notEmpty()) and
-	 * }}}
-	 * {{{
 	 * let parentInteraction : Set(Interaction) = enclosingInteraction.oclAsType(Interaction)->asSet()->union(
-	 * }}}
-	 * {{{
 	 * enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
-	 * }}}
-	 * {{{
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()) in
-	 * }}}
-	 * {{{
 	 * (parentInteraction->size() = 1) and self.action.interaction->asSet() = parentInteraction
 	 * }}}
 	 */

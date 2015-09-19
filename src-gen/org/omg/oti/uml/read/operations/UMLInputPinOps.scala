@@ -269,14 +269,8 @@ trait UMLInputPinOps[Uml <: UML] { self: UMLInputPin[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body outgoing->notEmpty() implies
-	 * }}}
-	 * {{{
 	 * 	action<>null and
-	 * }}}
-	 * {{{
 	 * 	action.oclIsKindOf(StructuredActivityNode) and
-	 * }}}
-	 * {{{
 	 * 	action.oclAsType(StructuredActivityNode).allOwnedNodes()->includesAll(outgoing.target)
 	 * }}}
 	 */

@@ -117,7 +117,7 @@ trait UMLPackage[Uml <: UML]
 			namespace_metaAttributes,
 			packageableElement_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq (Package_URI))
+			Seq[MetaAttributeFunction](Package_URI))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -139,7 +139,7 @@ trait UMLPackage[Uml <: UML]
 			namespace_compositeMetaProperties,
 			packageableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (Package_packageMerge,
+			Seq[MetaPropertyEvaluator](Package_packageMerge,
 				Package_packagedElement,
 				Package_profileApplication))
 
@@ -163,7 +163,7 @@ trait UMLPackage[Uml <: UML]
 			namespace_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

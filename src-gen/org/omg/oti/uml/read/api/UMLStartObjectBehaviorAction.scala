@@ -91,7 +91,7 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	def startObjectBehaviorAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			callAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	def startObjectBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			callAction_compositeMetaProperties,
-			Seq (StartObjectBehaviorAction_object))
+			Seq[MetaPropertyEvaluator](StartObjectBehaviorAction_object))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLStartObjectBehaviorAction[Uml <: UML]
 	def startObjectBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			callAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

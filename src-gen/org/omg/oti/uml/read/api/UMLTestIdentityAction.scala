@@ -102,7 +102,7 @@ trait UMLTestIdentityAction[Uml <: UML]
 	def testIdentityAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLTestIdentityAction[Uml <: UML]
 	def testIdentityAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (TestIdentityAction_first,
+			Seq[MetaPropertyEvaluator](TestIdentityAction_first,
 				TestIdentityAction_result,
 				TestIdentityAction_second))
 
@@ -144,7 +144,7 @@ trait UMLTestIdentityAction[Uml <: UML]
 	def testIdentityAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

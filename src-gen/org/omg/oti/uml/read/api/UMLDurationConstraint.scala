@@ -90,7 +90,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			intervalConstraint_metaAttributes,
-			Seq (DurationConstraint_firstEvent))
+			Seq[MetaAttributeFunction](DurationConstraint_firstEvent))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			intervalConstraint_compositeMetaProperties,
-			Seq (DurationConstraint_specification))
+			Seq[MetaPropertyEvaluator](DurationConstraint_specification))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	def durationConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			intervalConstraint_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

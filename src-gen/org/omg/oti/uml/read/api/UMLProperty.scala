@@ -267,7 +267,7 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_metaAttributes,
 			deploymentTarget_metaAttributes,
 			structuralFeature_metaAttributes,
-			Seq (Property_isDerived,
+			Seq[MetaAttributeFunction](Property_isDerived,
 				Property_isDerivedUnion,
 				Property_isID))
 
@@ -291,7 +291,7 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_compositeMetaProperties,
 			deploymentTarget_compositeMetaProperties,
 			structuralFeature_compositeMetaProperties,
-			Seq (Property_defaultValue,
+			Seq[MetaPropertyEvaluator](Property_defaultValue,
 				Property_qualifier))
 
 	/**
@@ -314,7 +314,7 @@ trait UMLProperty[Uml <: UML]
 			connectableElement_referenceMetaProperties,
 			deploymentTarget_referenceMetaProperties,
 			structuralFeature_referenceMetaProperties,
-			Seq (Property_association,
+			Seq[MetaPropertyEvaluator](Property_association,
 				Property_redefinedProperty,
 				Property_subsettedProperty))
 

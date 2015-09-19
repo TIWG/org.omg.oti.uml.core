@@ -143,7 +143,7 @@ trait UMLAction[Uml <: UML]
 	def action_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			executableNode_metaAttributes,
-			Seq (Action_isLocallyReentrant))
+			Seq[MetaAttributeFunction](Action_isLocallyReentrant))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -163,7 +163,7 @@ trait UMLAction[Uml <: UML]
 	def action_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			executableNode_compositeMetaProperties,
-			Seq (Action_localPostcondition,
+			Seq[MetaPropertyEvaluator](Action_localPostcondition,
 				Action_localPrecondition))
 
 	/**
@@ -184,7 +184,7 @@ trait UMLAction[Uml <: UML]
 	def action_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			executableNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

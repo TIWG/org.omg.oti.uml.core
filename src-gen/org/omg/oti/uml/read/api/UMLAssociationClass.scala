@@ -80,7 +80,7 @@ trait UMLAssociationClass[Uml <: UML]
 		appendUnique(
 			association_metaAttributes,
 			class_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -101,7 +101,7 @@ trait UMLAssociationClass[Uml <: UML]
 		appendUnique(
 			association_compositeMetaProperties,
 			class_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLAssociationClass[Uml <: UML]
 		appendUnique(
 			association_referenceMetaProperties,
 			class_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

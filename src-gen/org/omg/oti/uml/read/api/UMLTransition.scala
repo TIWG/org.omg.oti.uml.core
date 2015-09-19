@@ -127,7 +127,7 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_metaAttributes,
 			redefinableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -148,7 +148,7 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
-			Seq (Transition_effect,
+			Seq[MetaPropertyEvaluator](Transition_effect,
 				Transition_guard,
 				Transition_trigger))
 
@@ -171,7 +171,7 @@ trait UMLTransition[Uml <: UML]
 		appendUnique(
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
-			Seq (Transition_redefinedTransition,
+			Seq[MetaPropertyEvaluator](Transition_redefinedTransition,
 				Transition_source,
 				Transition_target))
 

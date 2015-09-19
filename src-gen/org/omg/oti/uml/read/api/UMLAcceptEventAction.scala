@@ -101,7 +101,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (AcceptEventAction_isUnmarshall))
+			Seq[MetaAttributeFunction](AcceptEventAction_isUnmarshall))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (AcceptEventAction_result,
+			Seq[MetaPropertyEvaluator](AcceptEventAction_result,
 				AcceptEventAction_trigger))
 
 	/**
@@ -142,7 +142,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	def acceptEventAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

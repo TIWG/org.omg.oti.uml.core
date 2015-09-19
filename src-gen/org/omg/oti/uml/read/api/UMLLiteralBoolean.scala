@@ -90,7 +90,7 @@ trait UMLLiteralBoolean[Uml <: UML]
 	def literalBoolean_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq (LiteralBoolean_value))
+			Seq[MetaAttributeFunction](LiteralBoolean_value))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLLiteralBoolean[Uml <: UML]
 	def literalBoolean_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLLiteralBoolean[Uml <: UML]
 	def literalBoolean_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

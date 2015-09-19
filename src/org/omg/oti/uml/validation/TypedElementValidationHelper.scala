@@ -44,7 +44,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
 
-import scala.{Boolean,Enumeration,Option,None,Some}
+import scala.{Boolean, Enumeration, Option, None, Some}
 import scala.Predef.String
 import scala.collection.immutable._
 import scala.language.postfixOps
@@ -187,7 +187,7 @@ object TypedElementValidationHelper {
                 o, InvalidOperationRaisedExceptionNonClassTypeStatus,
                 Some(
                   INVALID_OPERATION_RAISED_EXCEPTION_NON_CLASS_TYPE +
-                    nonClassTypes.map(_.xmiOrderingKey).mkString("\nNon-class Exception types:", "\n", ""))))
+                  nonClassTypes.map(_.xmiOrderingKey).mkString("\nNon-class Exception types:", "\n", ""))))
         case _ =>
           None
       }
@@ -224,14 +224,13 @@ object TypedElementValidationHelper {
         case _@(_: UMLLiteralSpecification[Uml] | _: UMLOpaqueExpression[Uml]) =>
           None
         case _ =>
-          te._type match {
-            case Some(_) =>
-              None
-            case None =>
+          te._type.fold[Option[TypedElementValidationInfo[Uml]]] {
               Some(
                 TypedElementValidationInfo(
                   te, InvalidUntypedTypedElementStatus,
                   Some(INVALID_UNTYPED_TYPED_ELEMENT)))
+          }{ _ =>
+            None
           }
       }
 
@@ -245,8 +244,8 @@ object TypedElementValidationHelper {
     def checkAggregationForPropertyTypeByDataType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
       te match {
         case p: UMLProperty[Uml] =>
-          p._type match {
-            case Some(_: UMLDataType[Uml]) =>
+          p._type.fold[Option[TypedElementValidationInfo[Uml]]](None) {
+            case _: UMLDataType[Uml] =>
               p.aggregation match {
                 case UMLAggregationKind.none =>
                   None
@@ -271,19 +270,17 @@ object TypedElementValidationHelper {
      *      [29] A Property owned by a DataType can only be typed by a DataType.
      */
     def checkDataTypePropertyHasDataTypeType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      (te.owner, te) match {
-        case (Some(_: UMLDataType[Uml]), p: UMLProperty[Uml]) =>
-          p._type match {
-            case Some(_: UMLDataType[Uml]) =>
+      te match {
+        case p: UMLProperty[Uml] =>
+          te.owner.fold[Option[TypedElementValidationInfo[Uml]]](None) {
+            case _: UMLDataType[Uml] =>
               None
-            case Some(t) =>
+            case t =>
               Some(
                 TypedElementValidationInfo(
                   te, InvalidDataTypePropertyWithNonDataTypeTypeStatus,
                   Some(INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE + t.metaclass_name)))
-            case None =>
-              None
-          }
+           }
         case _ =>
           None
       }
@@ -320,11 +317,11 @@ object TypedElementValidationHelper {
       }
       te <- tes
       vs = checkOperationRaisedException(te) ++
-        checkTypedElementWithAssociationType(te) ++
-        checkTypedElementIsTyped(te) ++
-        checkAggregationForPropertyTypeByDataType(te) ++
-        checkDataTypePropertyHasDataTypeType(te) ++
-        checkAssociationMemberEndHasClassType(te)
+           checkTypedElementWithAssociationType(te) ++
+           checkTypedElementIsTyped(te) ++
+           checkAggregationForPropertyTypeByDataType(te) ++
+           checkDataTypePropertyHasDataTypeType(te) ++
+           checkAssociationMemberEndHasClassType(te)
       v <- if (vs.nonEmpty) vs else Iterable(TypedElementValidationInfo(te, ValidTypedElementStatus))
     } yield v
 

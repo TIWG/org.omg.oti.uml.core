@@ -78,7 +78,7 @@ trait UMLDestructionOccurrenceSpecification[Uml <: UML]
 	def destructionOccurrenceSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			messageOccurrenceSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLDestructionOccurrenceSpecification[Uml <: UML]
 	def destructionOccurrenceSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageOccurrenceSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLDestructionOccurrenceSpecification[Uml <: UML]
 	def destructionOccurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageOccurrenceSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

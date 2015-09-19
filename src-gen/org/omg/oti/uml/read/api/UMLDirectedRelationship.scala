@@ -100,7 +100,7 @@ trait UMLDirectedRelationship[Uml <: UML]
 	def directedRelationship_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			relationship_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -120,7 +120,7 @@ trait UMLDirectedRelationship[Uml <: UML]
 	def directedRelationship_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			relationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -140,7 +140,7 @@ trait UMLDirectedRelationship[Uml <: UML]
 	def directedRelationship_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			relationship_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

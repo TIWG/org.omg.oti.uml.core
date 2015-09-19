@@ -65,14 +65,8 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body  enclosingOperand->notEmpty() and 
-	 * }}}
-	 * {{{
 	 *  let peerFragments : OrderedSet(InteractionFragment) =  enclosingOperand.fragment in 
-	 * }}}
-	 * {{{
 	 *    ( peerFragments->notEmpty() and 
-	 * }}}
-	 * {{{
 	 *    ((peerFragments->first() = self) or  (peerFragments->last() = self)))
 	 * }}}
 	 */
@@ -90,14 +84,8 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body enclosingOperand->notEmpty() and
-	 * }}}
-	 * {{{
 	 *   let operandLifelines : Set(Lifeline) =  enclosingOperand.covered in 
-	 * }}}
-	 * {{{
 	 *     (operandLifelines->notEmpty() and 
-	 * }}}
-	 * {{{
 	 *     operandLifelines->forAll(ol :Lifeline |self.covered->includes(ol)))
 	 * }}}
 	 */
@@ -115,74 +103,28 @@ trait UMLContinuationOps[Uml <: UML] { self: UMLContinuation[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body enclosingOperand.combinedFragment->notEmpty() and
-	 * }}}
-	 * {{{
 	 * let parentInteraction : Set(Interaction) = 
-	 * }}}
-	 * {{{
 	 * enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
-	 * }}}
-	 * {{{
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()
-	 * }}}
-	 * {{{
 	 * in 
-	 * }}}
-	 * {{{
 	 * (parentInteraction->size() = 1) 
-	 * }}}
-	 * {{{
 	 * and let peerInteractions : Set(Interaction) =
-	 * }}}
-	 * {{{
 	 *  (parentInteraction->union(parentInteraction->collect(_'context')->collect(behavior)->
-	 * }}}
-	 * {{{
 	 *  select(oclIsKindOf(Interaction)).oclAsType(Interaction)->asSet())->asSet()) in
-	 * }}}
-	 * {{{
 	 *  (peerInteractions->notEmpty()) and 
-	 * }}}
-	 * {{{
 	 *   let combinedFragments1 : Set(CombinedFragment) = peerInteractions.fragment->
-	 * }}}
-	 * {{{
 	 *  select(oclIsKindOf(CombinedFragment)).oclAsType(CombinedFragment)->asSet() in
-	 * }}}
-	 * {{{
 	 *    combinedFragments1->notEmpty() and  combinedFragments1->closure(operand.fragment->
-	 * }}}
-	 * {{{
 	 *    select(oclIsKindOf(CombinedFragment)).oclAsType(CombinedFragment))->asSet().operand.fragment->
-	 * }}}
-	 * {{{
 	 *    select(oclIsKindOf(Continuation)).oclAsType(Continuation)->asSet()->
-	 * }}}
-	 * {{{
 	 *    forAll(c : Continuation |  (c.name = self.name) implies 
-	 * }}}
-	 * {{{
 	 *   (c.covered->asSet()->forAll(cl : Lifeline | --  cl must be common to one lifeline covered by self
-	 * }}}
-	 * {{{
 	 *   self.covered->asSet()->
-	 * }}}
-	 * {{{
 	 *   select(represents = cl.represents and selector = cl.selector)->asSet()->size()=1))
-	 * }}}
-	 * {{{
 	 *    and
-	 * }}}
-	 * {{{
 	 *  (self.covered->asSet()->forAll(cl : Lifeline | --  cl must be common to one lifeline covered by c
-	 * }}}
-	 * {{{
 	 *  c.covered->asSet()->
-	 * }}}
-	 * {{{
 	 *   select(represents = cl.represents and selector = cl.selector)->asSet()->size()=1))
-	 * }}}
-	 * {{{
 	 *   )
 	 * }}}
 	 */

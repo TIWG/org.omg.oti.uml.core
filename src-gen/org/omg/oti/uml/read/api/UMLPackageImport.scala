@@ -101,7 +101,7 @@ trait UMLPackageImport[Uml <: UML]
 	def packageImport_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLPackageImport[Uml <: UML]
 	def packageImport_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -141,7 +141,7 @@ trait UMLPackageImport[Uml <: UML]
 	def packageImport_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (PackageImport_importedPackage))
+			Seq[MetaPropertyEvaluator](PackageImport_importedPackage))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

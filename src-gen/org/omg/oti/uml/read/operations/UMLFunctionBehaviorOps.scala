@@ -85,8 +85,6 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.ownedParameter->
-	 * }}}
-	 * {{{
 	 *   select(p | p.direction = ParameterDirectionKind::out or p.direction= ParameterDirectionKind::inout or p.direction= ParameterDirectionKind::return)->size() >= 1
 	 * }}}
 	 */
@@ -104,8 +102,6 @@ trait UMLFunctionBehaviorOps[Uml <: UML] { self: UMLFunctionBehavior[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body ownedParameter->forAll(p | p.type <> null and
-	 * }}}
-	 * {{{
 	 *   p.type.oclIsTypeOf(DataType) and hasAllDataTypeAttributes(p.type.oclAsType(DataType)))
 	 * }}}
 	 */

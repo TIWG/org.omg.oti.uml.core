@@ -128,11 +128,7 @@ trait UMLProtocolTransitionOps[Uml <: UML] { self: UMLProtocolTransition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body if (referred()->notEmpty() and containingStateMachine()._'context'->notEmpty()) then 
-	 * }}}
-	 * {{{
 	 *     containingStateMachine()._'context'.oclAsType(BehavioredClassifier).allFeatures()->includesAll(referred())
-	 * }}}
-	 * {{{
 	 * else true endif
 	 * }}}
 	 */

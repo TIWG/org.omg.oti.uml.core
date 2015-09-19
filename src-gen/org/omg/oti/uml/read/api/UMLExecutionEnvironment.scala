@@ -78,7 +78,7 @@ trait UMLExecutionEnvironment[Uml <: UML]
 	def executionEnvironment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			node_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLExecutionEnvironment[Uml <: UML]
 	def executionEnvironment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			node_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLExecutionEnvironment[Uml <: UML]
 	def executionEnvironment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			node_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

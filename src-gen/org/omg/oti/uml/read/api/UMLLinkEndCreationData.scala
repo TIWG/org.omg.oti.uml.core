@@ -103,7 +103,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def linkEndCreationData_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			linkEndData_metaAttributes,
-			Seq (LinkEndCreationData_isReplaceAll))
+			Seq[MetaAttributeFunction](LinkEndCreationData_isReplaceAll))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -123,7 +123,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def linkEndCreationData_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			linkEndData_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -143,7 +143,7 @@ trait UMLLinkEndCreationData[Uml <: UML]
 	def linkEndCreationData_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			linkEndData_referenceMetaProperties,
-			Seq (LinkEndCreationData_insertAt))
+			Seq[MetaPropertyEvaluator](LinkEndCreationData_insertAt))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

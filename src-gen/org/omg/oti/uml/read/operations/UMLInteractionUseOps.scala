@@ -82,47 +82,19 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let parentInteraction : Set(Interaction) = enclosingInteraction->asSet()->
-	 * }}}
-	 * {{{
 	 * union(enclosingOperand.combinedFragment->closure(enclosingOperand.combinedFragment)->
-	 * }}}
-	 * {{{
 	 * collect(enclosingInteraction).oclAsType(Interaction)->asSet()) in
-	 * }}}
-	 * {{{
 	 * parentInteraction->size()=1 and let refInteraction : Interaction = refersTo in
-	 * }}}
-	 * {{{
 	 * parentInteraction.covered-> forAll(intLifeline : Lifeline | refInteraction.covered->
-	 * }}}
-	 * {{{
 	 * forAll( refLifeline : Lifeline | refLifeline.represents = intLifeline.represents and 
-	 * }}}
-	 * {{{
 	 * (
-	 * }}}
-	 * {{{
 	 * ( refLifeline.selector.oclIsKindOf(LiteralString) implies
-	 * }}}
-	 * {{{
 	 *   intLifeline.selector.oclIsKindOf(LiteralString) and 
-	 * }}}
-	 * {{{
 	 *   refLifeline.selector.oclAsType(LiteralString).value = intLifeline.selector.oclAsType(LiteralString).value ) and
-	 * }}}
-	 * {{{
 	 * ( refLifeline.selector.oclIsKindOf(LiteralInteger) implies
-	 * }}}
-	 * {{{
 	 *   intLifeline.selector.oclIsKindOf(LiteralInteger) and 
-	 * }}}
-	 * {{{
 	 *   refLifeline.selector.oclAsType(LiteralInteger).value = intLifeline.selector.oclAsType(LiteralInteger).value )
-	 * }}}
-	 * {{{
 	 * )
-	 * }}}
-	 * {{{
 	 *  implies self.covered->asSet()->includes(intLifeline)))
 	 * }}}
 	 */
@@ -138,6 +110,8 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_arguments_are_constants -->
    * <!-- End of user code doc for validate_arguments_are_constants -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_arguments_are_constants: Boolean = {
 		// Start of user code for "arguments_are_constants"
@@ -151,6 +125,8 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 * <!-- Start of user code doc for validate_arguments_correspond_to_parameters -->
    * <!-- End of user code doc for validate_arguments_correspond_to_parameters -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_arguments_correspond_to_parameters: Boolean = {
 		// Start of user code for "arguments_correspond_to_parameters"
@@ -166,11 +142,7 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body actualGate->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 * refersTo.formalGate->forAll( fg : Gate | self.actualGate->select(matches(fg))->size()=1) and
-	 * }}}
-	 * {{{
 	 * self.actualGate->forAll(ag : Gate | refersTo.formalGate->select(matches(ag))->size()=1)
 	 * }}}
 	 */
@@ -188,17 +160,9 @@ trait UMLInteractionUseOps[Uml <: UML] { self: UMLInteractionUse[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body returnValueRecipient->asSet()->notEmpty() implies
-	 * }}}
-	 * {{{
 	 * let covCE : Set(ConnectableElement) = covered.represents->asSet() in 
-	 * }}}
-	 * {{{
 	 * covCE->notEmpty() and let classes:Set(Classifier) = covCE.type.oclIsKindOf(Classifier).oclAsType(Classifier)->asSet() in 
-	 * }}}
-	 * {{{
 	 * let allProps : Set(Property) = classes.attribute->union(classes.allParents().attribute)->asSet() in 
-	 * }}}
-	 * {{{
 	 * allProps->includes(returnValueRecipient)
 	 * }}}
 	 */

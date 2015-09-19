@@ -122,7 +122,7 @@ trait UMLParameterableElement[Uml <: UML]
 	def parameterableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLParameterableElement[Uml <: UML]
 	def parameterableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -162,7 +162,7 @@ trait UMLParameterableElement[Uml <: UML]
 	def parameterableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (ParameterableElement_templateParameter))
+			Seq[MetaPropertyEvaluator](ParameterableElement_templateParameter))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

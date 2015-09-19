@@ -93,7 +93,7 @@ trait UMLActivityParameterNode[Uml <: UML]
 	def activityParameterNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			objectNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLActivityParameterNode[Uml <: UML]
 	def activityParameterNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLActivityParameterNode[Uml <: UML]
 	def activityParameterNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			objectNode_referenceMetaProperties,
-			Seq (ActivityParameterNode_parameter))
+			Seq[MetaPropertyEvaluator](ActivityParameterNode_parameter))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

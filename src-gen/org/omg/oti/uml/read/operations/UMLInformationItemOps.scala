@@ -97,17 +97,9 @@ trait UMLInformationItemOps[Uml <: UML] { self: UMLInformationItem[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (self.represented->select(oclIsKindOf(InformationItem))->forAll(p |
-	 * }}}
-	 * {{{
 	 *   p.conveyingFlow.source->forAll(q | self.conveyingFlow.source->includes(q)) and
-	 * }}}
-	 * {{{
 	 *     p.conveyingFlow.target->forAll(q | self.conveyingFlow.target->includes(q)))) and
-	 * }}}
-	 * {{{
 	 *       (self.represented->forAll(oclIsKindOf(Class) or oclIsKindOf(Interface) or
-	 * }}}
-	 * {{{
 	 *         oclIsKindOf(InformationItem) or oclIsKindOf(Signal) or oclIsKindOf(Component)))
 	 * }}}
 	 */

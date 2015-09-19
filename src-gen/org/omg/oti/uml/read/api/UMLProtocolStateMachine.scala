@@ -100,7 +100,7 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def protocolStateMachine_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			stateMachine_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -120,7 +120,7 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def protocolStateMachine_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			stateMachine_compositeMetaProperties,
-			Seq (ProtocolStateMachine_conformance))
+			Seq[MetaPropertyEvaluator](ProtocolStateMachine_conformance))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -140,7 +140,7 @@ trait UMLProtocolStateMachine[Uml <: UML]
 	def protocolStateMachine_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			stateMachine_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

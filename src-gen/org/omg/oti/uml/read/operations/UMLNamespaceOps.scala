@@ -547,7 +547,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
             if (visited.contains(th.obj))
               followReferencesUntilNamespaceScopeBoundary(acc, Success(tr))
             else {
-              visited += th.sub
+              visited += th.sub; ()
               if (scope.contains(th.obj))
                 th.obj.forwardRelationTriples match {
                   case Failure(t)                                     =>

@@ -102,7 +102,7 @@ trait UMLJoinNode[Uml <: UML]
 	def joinNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			controlNode_metaAttributes,
-			Seq (JoinNode_isCombineDuplicate))
+			Seq[MetaAttributeFunction](JoinNode_isCombineDuplicate))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLJoinNode[Uml <: UML]
 	def joinNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_compositeMetaProperties,
-			Seq (JoinNode_joinSpec))
+			Seq[MetaPropertyEvaluator](JoinNode_joinSpec))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLJoinNode[Uml <: UML]
 	def joinNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

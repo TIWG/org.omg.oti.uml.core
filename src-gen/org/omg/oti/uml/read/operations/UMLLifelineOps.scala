@@ -91,116 +91,42 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let intUses : Set(InteractionUse) = interaction.interactionUse  in 
-	 * }}}
-	 * {{{
 	 * intUses->forAll
-	 * }}}
-	 * {{{
 	 * ( iuse : InteractionUse | 
-	 * }}}
-	 * {{{
 	 * let usingInteraction : Set(Interaction)  = iuse.enclosingInteraction->asSet()
-	 * }}}
-	 * {{{
 	 * ->union(
-	 * }}}
-	 * {{{
 	 * iuse.enclosingOperand.combinedFragment->asSet()->closure(enclosingOperand.combinedFragment).enclosingInteraction->asSet()
-	 * }}}
-	 * {{{
 	 *                ) 
-	 * }}}
-	 * {{{
 	 * in
-	 * }}}
-	 * {{{
 	 * let peerUses : Set(InteractionUse) = usingInteraction.fragment->select(oclIsKindOf(InteractionUse)).oclAsType(InteractionUse)->asSet()
-	 * }}}
-	 * {{{
 	 * ->union(
-	 * }}}
-	 * {{{
 	 * usingInteraction.fragment->select(oclIsKindOf(CombinedFragment)).oclAsType(CombinedFragment)->asSet()
-	 * }}}
-	 * {{{
 	 * ->closure(operand.fragment->select(oclIsKindOf(CombinedFragment)).oclAsType(CombinedFragment)).operand.fragment->
-	 * }}}
-	 * {{{
 	 * select(oclIsKindOf(InteractionUse)).oclAsType(InteractionUse)->asSet()
-	 * }}}
-	 * {{{
 	 *                )->excluding(iuse)
-	 * }}}
-	 * {{{
 	 *  in
-	 * }}}
-	 * {{{
 	 * peerUses->forAll( peerUse : InteractionUse |
-	 * }}}
-	 * {{{
 	 *  peerUse.refersTo.lifeline->forAll( l : Lifeline | (l.represents = self.represents and 
-	 * }}}
-	 * {{{
 	 *  ( self.selector.oclIsKindOf(LiteralString) implies
-	 * }}}
-	 * {{{
 	 *   l.selector.oclIsKindOf(LiteralString) and 
-	 * }}}
-	 * {{{
 	 *   self.selector.oclAsType(LiteralString).value = l.selector.oclAsType(LiteralString).value )
-	 * }}}
-	 * {{{
 	 *   and 
-	 * }}}
-	 * {{{
 	 * ( self.selector.oclIsKindOf(LiteralInteger) implies
-	 * }}}
-	 * {{{
 	 *   l.selector.oclIsKindOf(LiteralInteger) and 
-	 * }}}
-	 * {{{
 	 *   self.selector.oclAsType(LiteralInteger).value = l.selector.oclAsType(LiteralInteger).value )
-	 * }}}
-	 * {{{
 	 * )  
-	 * }}}
-	 * {{{
 	 * implies
-	 * }}}
-	 * {{{
 	 *  usingInteraction.lifeline->select(represents = self.represents and
-	 * }}}
-	 * {{{
 	 *  ( self.selector.oclIsKindOf(LiteralString) implies
-	 * }}}
-	 * {{{
 	 *   l.selector.oclIsKindOf(LiteralString) and 
-	 * }}}
-	 * {{{
 	 *   self.selector.oclAsType(LiteralString).value = l.selector.oclAsType(LiteralString).value )
-	 * }}}
-	 * {{{
 	 * and 
-	 * }}}
-	 * {{{
 	 * ( self.selector.oclIsKindOf(LiteralInteger) implies
-	 * }}}
-	 * {{{
 	 *   l.selector.oclIsKindOf(LiteralInteger) and 
-	 * }}}
-	 * {{{
 	 *   self.selector.oclAsType(LiteralInteger).value = l.selector.oclAsType(LiteralInteger).value )
-	 * }}}
-	 * {{{
 	 * )
-	 * }}}
-	 * {{{
 	 *                                                 )
-	 * }}}
-	 * {{{
 	 *                     )
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -234,11 +160,7 @@ trait UMLLifelineOps[Uml <: UML] { self: UMLLifeline[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.selector->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 * self.selector.oclIsKindOf(LiteralInteger) or 
-	 * }}}
-	 * {{{
 	 * self.selector.oclIsKindOf(LiteralString)
 	 * }}}
 	 */

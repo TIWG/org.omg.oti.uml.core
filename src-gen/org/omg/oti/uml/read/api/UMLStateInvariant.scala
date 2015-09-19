@@ -90,7 +90,7 @@ trait UMLStateInvariant[Uml <: UML]
 	def stateInvariant_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLStateInvariant[Uml <: UML]
 	def stateInvariant_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq (StateInvariant_invariant))
+			Seq[MetaPropertyEvaluator](StateInvariant_invariant))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLStateInvariant[Uml <: UML]
 	def stateInvariant_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (StateInvariant_covered))
+			Seq[MetaPropertyEvaluator](StateInvariant_covered))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

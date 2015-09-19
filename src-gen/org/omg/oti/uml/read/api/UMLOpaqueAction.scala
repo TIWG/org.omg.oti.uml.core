@@ -100,7 +100,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	def opaqueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (OpaqueAction_body,
+			Seq[MetaAttributeFunction](OpaqueAction_body,
 				OpaqueAction_language))
 
 	/**
@@ -121,7 +121,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	def opaqueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (OpaqueAction_inputValue,
+			Seq[MetaPropertyEvaluator](OpaqueAction_inputValue,
 				OpaqueAction_outputValue))
 
 	/**
@@ -142,7 +142,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	def opaqueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

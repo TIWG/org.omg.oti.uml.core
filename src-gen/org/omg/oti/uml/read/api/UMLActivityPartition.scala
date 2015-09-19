@@ -122,7 +122,7 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityGroup_metaAttributes,
-			Seq (ActivityPartition_isDimension,
+			Seq[MetaAttributeFunction](ActivityPartition_isDimension,
 				ActivityPartition_isExternal))
 
 	/**
@@ -143,7 +143,7 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityGroup_compositeMetaProperties,
-			Seq (ActivityPartition_subpartition))
+			Seq[MetaPropertyEvaluator](ActivityPartition_subpartition))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -163,7 +163,7 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityGroup_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator] (ActivityPartition_edge,
+			Seq[MetaPropertyEvaluator](ActivityPartition_edge,
 				ActivityPartition_node,
 				ActivityPartition_represents))
 

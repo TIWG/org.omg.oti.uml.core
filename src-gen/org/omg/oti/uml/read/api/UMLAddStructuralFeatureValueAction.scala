@@ -102,7 +102,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def addStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_metaAttributes,
-			Seq (AddStructuralFeatureValueAction_isReplaceAll))
+			Seq[MetaAttributeFunction](AddStructuralFeatureValueAction_isReplaceAll))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def addStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_compositeMetaProperties,
-			Seq (AddStructuralFeatureValueAction_insertAt))
+			Seq[MetaPropertyEvaluator](AddStructuralFeatureValueAction_insertAt))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLAddStructuralFeatureValueAction[Uml <: UML]
 	def addStructuralFeatureValueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

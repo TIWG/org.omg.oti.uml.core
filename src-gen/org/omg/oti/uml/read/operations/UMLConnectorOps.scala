@@ -126,17 +126,9 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body structuredClassifier <> null
-	 * }}}
-	 * {{{
 	 * and
-	 * }}}
-	 * {{{
 	 *   end->forAll( e | structuredClassifier.allRoles()->includes(e.role)
-	 * }}}
-	 * {{{
 	 * or
-	 * }}}
-	 * {{{
 	 *   e.role.oclIsKindOf(Port) and structuredClassifier.allRoles()->includes(e.partWithPort))
 	 * }}}
 	 */
@@ -154,11 +146,7 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body type<>null implies 
-	 * }}}
-	 * {{{
 	 *   let noOfEnds : Integer = end->size() in 
-	 * }}}
-	 * {{{
 	 *   (type.memberEnd->size() = noOfEnds) and Sequence{1..noOfEnds}->forAll(i | end->at(i).role.type.conformsTo(type.memberEnd->at(i).type))
 	 * }}}
 	 */

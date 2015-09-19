@@ -82,11 +82,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let nodes:Set(ActivityNode) = handlerBody.oclAsType(Action).allOwnedNodes() in
-	 * }}}
-	 * {{{
 	 * nodes.outgoing->forAll(nodes->includes(target)) and
-	 * }}}
-	 * {{{
 	 * nodes.incoming->forAll(nodes->includes(source))
 	 * }}}
 	 */
@@ -104,8 +100,6 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body exceptionInput.type=null or 
-	 * }}}
-	 * {{{
 	 * exceptionType->forAll(conformsTo(exceptionInput.type.oclAsType(Classifier)))
 	 * }}}
 	 */
@@ -155,11 +149,7 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body handlerBody.oclIsKindOf(Action) and
-	 * }}}
-	 * {{{
 	 * let inputs: OrderedSet(InputPin) = handlerBody.oclAsType(Action).input in
-	 * }}}
-	 * {{{
 	 * inputs->size()=1 and inputs->first()=exceptionInput
 	 * }}}
 	 */
@@ -177,35 +167,15 @@ trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (protectedNode.oclIsKindOf(Action) and protectedNode.oclAsType(Action).output->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 * (
-	 * }}}
-	 * {{{
 	 *   handlerBody.oclIsKindOf(Action) and 
-	 * }}}
-	 * {{{
 	 *   let protectedNodeOutput : OrderedSet(OutputPin) = protectedNode.oclAsType(Action).output,
-	 * }}}
-	 * {{{
 	 *         handlerBodyOutput : OrderedSet(OutputPin) =  handlerBody.oclAsType(Action).output in
-	 * }}}
-	 * {{{
 	 *     protectedNodeOutput->size() = handlerBodyOutput->size() and
-	 * }}}
-	 * {{{
 	 *     Sequence{1..protectedNodeOutput->size()}->forAll(i |
-	 * }}}
-	 * {{{
 	 *     	handlerBodyOutput->at(i).type.conformsTo(protectedNodeOutput->at(i).type) and
-	 * }}}
-	 * {{{
 	 *     	handlerBodyOutput->at(i).isOrdered=protectedNodeOutput->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 *     	handlerBodyOutput->at(i).compatibleWith(protectedNodeOutput->at(i)))
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

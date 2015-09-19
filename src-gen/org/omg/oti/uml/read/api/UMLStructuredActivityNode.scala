@@ -94,7 +94,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 			action_metaAttributes,
 			activityGroup_metaAttributes,
 			namespace_metaAttributes,
-			Seq (StructuredActivityNode_mustIsolate))
+			Seq[MetaAttributeFunction](StructuredActivityNode_mustIsolate))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -116,7 +116,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 			action_compositeMetaProperties,
 			activityGroup_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (StructuredActivityNode_edge,
+			Seq[MetaPropertyEvaluator](StructuredActivityNode_edge,
 				StructuredActivityNode_node,
 				StructuredActivityNode_structuredNodeInput,
 				StructuredActivityNode_structuredNodeOutput,
@@ -142,7 +142,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 			action_referenceMetaProperties,
 			activityGroup_referenceMetaProperties,
 			namespace_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

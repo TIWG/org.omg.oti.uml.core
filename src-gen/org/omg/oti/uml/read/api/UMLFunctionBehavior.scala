@@ -78,7 +78,7 @@ trait UMLFunctionBehavior[Uml <: UML]
 	def functionBehavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			opaqueBehavior_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLFunctionBehavior[Uml <: UML]
 	def functionBehavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			opaqueBehavior_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLFunctionBehavior[Uml <: UML]
 	def functionBehavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			opaqueBehavior_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

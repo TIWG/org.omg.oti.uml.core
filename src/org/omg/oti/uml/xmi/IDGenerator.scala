@@ -837,32 +837,32 @@ object IDGenerator {
         "_u" + charCode
     }
 
-    if ( null == name || "" == name )
-      validNCName.insert( 0, '_' )
-    else {
+    if ( null == name || "" == name ) {
+      validNCName.insert(0, '_'); ()
+    } else {
       for {
         i <- name.length - 1 until 0 by -1
-        char_i = name.charAt( i )
+        char_i = name.charAt(i)
       } {
-        if ( char_i == ' ')
-          validNCName.insert( 0, '_' )
-        else if ( isNCNamePart( char_i ) )
-          validNCName.insert( 0, char_i )
+        if (char_i == ' ')
+          validNCName.insert(0, '_')
+        else if (isNCNamePart(char_i))
+          validNCName.insert(0, char_i)
         else
-          validNCName.insert( 0, escapeChar( char_i ) )
+          validNCName.insert(0, escapeChar(char_i))
       }
-      val char_0 = name.charAt( 0 )
-      if ( isNCNameStart( char_0 ) )
-        validNCName.insert( 0, char_0 )
-      else {
-        if ( isNCNamePart( char_0 ) )
-          validNCName.insert( 0, char_0 )
-        else
-          validNCName.insert( 0, escapeChar( char_0 ) )
-        validNCName.insert( 0, '_' )
+      val char_0 = name.charAt(0)
+      if (isNCNameStart(char_0)) {
+        validNCName.insert(0, char_0); ()
+      } else {
+        if (isNCNamePart(char_0)) {
+          validNCName.insert(0, char_0); ()
+        } else {
+          validNCName.insert(0, escapeChar(char_0)); ()
+        }
+        validNCName.insert(0, '_'); ()
       }
     }
-    ()
   }
   
   def computeStereotypeApplicationID (eID: String, stID: String) =

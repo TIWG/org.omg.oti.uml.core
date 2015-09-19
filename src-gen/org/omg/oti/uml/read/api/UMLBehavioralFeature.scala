@@ -135,7 +135,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_metaAttributes,
 			namespace_metaAttributes,
-			Seq (BehavioralFeature_isAbstract))
+			Seq[MetaAttributeFunction](BehavioralFeature_isAbstract))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -156,7 +156,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_compositeMetaProperties,
 			namespace_compositeMetaProperties,
-			Seq (BehavioralFeature_ownedParameter,
+			Seq[MetaPropertyEvaluator](BehavioralFeature_ownedParameter,
 				BehavioralFeature_ownedParameterSet))
 
 	/**
@@ -178,7 +178,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 		appendUnique(
 			feature_referenceMetaProperties,
 			namespace_referenceMetaProperties,
-			Seq (BehavioralFeature_method,
+			Seq[MetaPropertyEvaluator](BehavioralFeature_method,
 				BehavioralFeature_raisedException))
 
 	/**

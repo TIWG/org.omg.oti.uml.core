@@ -93,7 +93,7 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	def executionOccurrenceSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			occurrenceSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	def executionOccurrenceSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			occurrenceSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	def executionOccurrenceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			occurrenceSpecification_referenceMetaProperties,
-			Seq (ExecutionOccurrenceSpecification_execution))
+			Seq[MetaPropertyEvaluator](ExecutionOccurrenceSpecification_execution))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

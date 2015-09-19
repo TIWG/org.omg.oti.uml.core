@@ -205,20 +205,10 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (kind = PseudostateKind::join) implies
-	 * }}}
-	 * {{{
 	 * -- for any pair of incoming transitions there exists an orthogonal state which contains the source vetices of these transitions 
-	 * }}}
-	 * {{{
 	 * -- such that these source vertices belong to different regions of that orthogonal state 
-	 * }}}
-	 * {{{
 	 * incoming->forAll(t1:Transition, t2:Transition | let contState:State = containingStateMachine().LCAState(t1.source, t2.source) in
-	 * }}}
-	 * {{{
 	 * 	((contState <> null) and (contState.region
-	 * }}}
-	 * {{{
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.source.isContainedInRegion(r1) and t2.source.isContainedInRegion(r2)))))
 	 * }}}
 	 */
@@ -236,23 +226,11 @@ trait UMLPseudostateOps[Uml <: UML] { self: UMLPseudostate[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (kind = PseudostateKind::fork) implies
-	 * }}}
-	 * {{{
 	 * -- for any pair of outgoing transitions there exists an orthogonal state which contains the targets of these transitions 
-	 * }}}
-	 * {{{
 	 * -- such that these targets belong to different regions of that orthogonal state 
-	 * }}}
-	 * {{{
 	 * outgoing->forAll(t1:Transition, t2:Transition | let contState:State = containingStateMachine().LCAState(t1.target, t2.target) in
-	 * }}}
-	 * {{{
 	 * 	((contState <> null) and (contState.region
-	 * }}}
-	 * {{{
 	 * 		->exists(r1:Region, r2: Region | (r1 <> r2) and t1.target.isContainedInRegion(r1) and t2.target.isContainedInRegion(r2)))))
-	 * }}}
-	 * {{{
 	 * 	
 	 * }}}
 	 */

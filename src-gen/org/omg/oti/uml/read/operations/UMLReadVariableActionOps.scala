@@ -97,8 +97,6 @@ trait UMLReadVariableActionOps[Uml <: UML] { self: UMLReadVariableAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body result.type =variable.type and 
-	 * }}}
-	 * {{{
 	 * result.isOrdered = variable.isOrdered
 	 * }}}
 	 */

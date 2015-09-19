@@ -134,7 +134,7 @@ trait UMLExecutableNode[Uml <: UML]
 	def executableNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -154,7 +154,7 @@ trait UMLExecutableNode[Uml <: UML]
 	def executableNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityNode_compositeMetaProperties,
-			Seq (ExecutableNode_handler))
+			Seq[MetaPropertyEvaluator](ExecutableNode_handler))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -174,7 +174,7 @@ trait UMLExecutableNode[Uml <: UML]
 	def executableNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

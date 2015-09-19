@@ -78,7 +78,7 @@ trait UMLFinalState[Uml <: UML]
 	def finalState_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			state_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLFinalState[Uml <: UML]
 	def finalState_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			state_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLFinalState[Uml <: UML]
 	def finalState_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			state_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

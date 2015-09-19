@@ -80,7 +80,7 @@ trait UMLDependency[Uml <: UML]
 		appendUnique(
 			directedRelationship_metaAttributes,
 			packageableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -101,7 +101,7 @@ trait UMLDependency[Uml <: UML]
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
 			packageableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLDependency[Uml <: UML]
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
 			packageableElement_referenceMetaProperties,
-			Seq (Dependency_client,
+			Seq[MetaPropertyEvaluator](Dependency_client,
 				Dependency_supplier))
 
 	/**

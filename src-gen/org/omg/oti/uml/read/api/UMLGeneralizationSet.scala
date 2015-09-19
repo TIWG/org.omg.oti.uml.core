@@ -124,7 +124,7 @@ trait UMLGeneralizationSet[Uml <: UML]
 	def generalizationSet_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			packageableElement_metaAttributes,
-			Seq (GeneralizationSet_isCovering,
+			Seq[MetaAttributeFunction](GeneralizationSet_isCovering,
 				GeneralizationSet_isDisjoint))
 
 	/**
@@ -145,7 +145,7 @@ trait UMLGeneralizationSet[Uml <: UML]
 	def generalizationSet_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -165,7 +165,7 @@ trait UMLGeneralizationSet[Uml <: UML]
 	def generalizationSet_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			packageableElement_referenceMetaProperties,
-			Seq (GeneralizationSet_generalization,
+			Seq[MetaPropertyEvaluator](GeneralizationSet_generalization,
 				GeneralizationSet_powertype))
 
 	/**

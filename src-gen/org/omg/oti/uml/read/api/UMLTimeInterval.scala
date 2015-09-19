@@ -104,7 +104,7 @@ trait UMLTimeInterval[Uml <: UML]
 	def timeInterval_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interval_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLTimeInterval[Uml <: UML]
 	def timeInterval_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interval_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLTimeInterval[Uml <: UML]
 	def timeInterval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interval_referenceMetaProperties,
-			Seq (TimeInterval_max,
+			Seq[MetaPropertyEvaluator](TimeInterval_max,
 				TimeInterval_min))
 
 	/**

@@ -78,7 +78,7 @@ trait UMLPrimitiveType[Uml <: UML]
 	def primitiveType_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			dataType_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLPrimitiveType[Uml <: UML]
 	def primitiveType_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLPrimitiveType[Uml <: UML]
 	def primitiveType_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dataType_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

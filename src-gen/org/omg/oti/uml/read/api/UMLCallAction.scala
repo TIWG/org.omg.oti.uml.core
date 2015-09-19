@@ -101,7 +101,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			invocationAction_metaAttributes,
-			Seq (CallAction_isSynchronous))
+			Seq[MetaAttributeFunction](CallAction_isSynchronous))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (CallAction_result))
+			Seq[MetaPropertyEvaluator](CallAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -141,7 +141,7 @@ trait UMLCallAction[Uml <: UML]
 	def callAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

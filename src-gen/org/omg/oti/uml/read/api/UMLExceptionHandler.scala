@@ -115,7 +115,7 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionHandler_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -135,7 +135,7 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionHandler_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -155,7 +155,7 @@ trait UMLExceptionHandler[Uml <: UML]
 	def exceptionHandler_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (ExceptionHandler_exceptionInput,
+			Seq[MetaPropertyEvaluator](ExceptionHandler_exceptionInput,
 				ExceptionHandler_exceptionType,
 				ExceptionHandler_handlerBody))
 

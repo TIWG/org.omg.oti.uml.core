@@ -68,20 +68,10 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
 	 *
 	 * {{{
 	 * OCL Body if not variable.isOrdered then insertAt = null
-	 * }}}
-	 * {{{
 	 * else 
-	 * }}}
-	 * {{{
 	 *   not isReplaceAll implies
-	 * }}}
-	 * {{{
 	 *   	insertAt<>null and 
-	 * }}}
-	 * {{{
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

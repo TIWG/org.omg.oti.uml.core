@@ -89,7 +89,7 @@ trait UMLStereotype[Uml <: UML]
 	def stereotype_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			class_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -109,7 +109,7 @@ trait UMLStereotype[Uml <: UML]
 	def stereotype_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_compositeMetaProperties,
-			Seq (Stereotype_icon))
+			Seq[MetaPropertyEvaluator](Stereotype_icon))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -129,7 +129,7 @@ trait UMLStereotype[Uml <: UML]
 	def stereotype_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			class_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

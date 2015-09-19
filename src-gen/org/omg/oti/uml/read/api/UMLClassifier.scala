@@ -296,7 +296,7 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_metaAttributes,
 			templateableElement_metaAttributes,
 			type_metaAttributes,
-			Seq (Classifier_isAbstract,
+			Seq[MetaAttributeFunction](Classifier_isAbstract,
 				Classifier_isFinalSpecialization))
 
 	/**
@@ -320,7 +320,7 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
 			type_compositeMetaProperties,
-			Seq (Classifier_collaborationUse,
+			Seq[MetaPropertyEvaluator](Classifier_collaborationUse,
 				Classifier_generalization,
 				Classifier_ownedTemplateSignature,
 				Classifier_ownedUseCase,
@@ -347,7 +347,7 @@ trait UMLClassifier[Uml <: UML]
 			redefinableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
 			type_referenceMetaProperties,
-			Seq (Classifier_powertypeExtent,
+			Seq[MetaPropertyEvaluator](Classifier_powertypeExtent,
 				Classifier_redefinedClassifier,
 				Classifier_representation,
 				Classifier_templateParameter,

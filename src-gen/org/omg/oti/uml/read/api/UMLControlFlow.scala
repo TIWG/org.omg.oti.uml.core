@@ -78,7 +78,7 @@ trait UMLControlFlow[Uml <: UML]
 	def controlFlow_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityEdge_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLControlFlow[Uml <: UML]
 	def controlFlow_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityEdge_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLControlFlow[Uml <: UML]
 	def controlFlow_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityEdge_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

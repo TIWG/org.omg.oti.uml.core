@@ -93,7 +93,7 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	def readLinkObjectEndAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	def readLinkObjectEndAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReadLinkObjectEndAction_object,
+			Seq[MetaPropertyEvaluator](ReadLinkObjectEndAction_object,
 				ReadLinkObjectEndAction_result))
 
 	/**
@@ -134,7 +134,7 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	def readLinkObjectEndAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (ReadLinkObjectEndAction_end))
+			Seq[MetaPropertyEvaluator](ReadLinkObjectEndAction_end))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

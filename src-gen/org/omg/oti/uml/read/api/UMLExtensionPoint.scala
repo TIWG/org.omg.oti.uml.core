@@ -87,7 +87,7 @@ trait UMLExtensionPoint[Uml <: UML]
 	def extensionPoint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			redefinableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -107,7 +107,7 @@ trait UMLExtensionPoint[Uml <: UML]
 	def extensionPoint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -127,7 +127,7 @@ trait UMLExtensionPoint[Uml <: UML]
 	def extensionPoint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

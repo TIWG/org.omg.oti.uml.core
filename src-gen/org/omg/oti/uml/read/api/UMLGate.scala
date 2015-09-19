@@ -78,7 +78,7 @@ trait UMLGate[Uml <: UML]
 	def gate_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			messageEnd_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLGate[Uml <: UML]
 	def gate_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageEnd_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLGate[Uml <: UML]
 	def gate_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			messageEnd_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

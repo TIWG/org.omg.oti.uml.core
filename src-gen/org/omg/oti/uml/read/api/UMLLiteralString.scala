@@ -91,7 +91,7 @@ trait UMLLiteralString[Uml <: UML]
 	def literalString_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq (LiteralString_value))
+			Seq[MetaAttributeFunction](LiteralString_value))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLLiteralString[Uml <: UML]
 	def literalString_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLLiteralString[Uml <: UML]
 	def literalString_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

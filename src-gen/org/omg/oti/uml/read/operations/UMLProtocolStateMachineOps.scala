@@ -91,8 +91,6 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 *
 	 * {{{
 	 * OCL Body region->forAll (r | r.subvertex->forAll (v | v.oclIsKindOf(Pseudostate) implies
-	 * }}}
-	 * {{{
 	 * ((v.oclAsType(Pseudostate).kind <>  PseudostateKind::deepHistory) and (v.oclAsType(Pseudostate).kind <> PseudostateKind::shallowHistory))))
 	 * }}}
 	 */
@@ -110,8 +108,6 @@ trait UMLProtocolStateMachineOps[Uml <: UML] { self: UMLProtocolStateMachine[Uml
 	 *
 	 * {{{
 	 * OCL Body region->forAll(r | r.subvertex->forAll(v | v.oclIsKindOf(State) implies
-	 * }}}
-	 * {{{
 	 * (v.oclAsType(State).entry->isEmpty() and v.oclAsType(State).exit->isEmpty() and v.oclAsType(State).doActivity->isEmpty())))
 	 * }}}
 	 */

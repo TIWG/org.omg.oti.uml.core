@@ -90,7 +90,7 @@ trait UMLSequenceNode[Uml <: UML]
 	def sequenceNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLSequenceNode[Uml <: UML]
 	def sequenceNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (SequenceNode_executableNode))
+			Seq[MetaPropertyEvaluator](SequenceNode_executableNode))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLSequenceNode[Uml <: UML]
 	def sequenceNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

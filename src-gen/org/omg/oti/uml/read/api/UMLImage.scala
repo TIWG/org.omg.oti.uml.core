@@ -111,7 +111,7 @@ trait UMLImage[Uml <: UML]
 	def image_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq (Image_content,
+			Seq[MetaAttributeFunction](Image_content,
 				Image_format,
 				Image_location))
 
@@ -133,7 +133,7 @@ trait UMLImage[Uml <: UML]
 	def image_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -153,7 +153,7 @@ trait UMLImage[Uml <: UML]
 	def image_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

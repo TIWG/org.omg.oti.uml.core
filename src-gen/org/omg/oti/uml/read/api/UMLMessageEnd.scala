@@ -111,7 +111,7 @@ trait UMLMessageEnd[Uml <: UML]
 	def messageEnd_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLMessageEnd[Uml <: UML]
 	def messageEnd_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -151,7 +151,7 @@ trait UMLMessageEnd[Uml <: UML]
 	def messageEnd_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (MessageEnd_message))
+			Seq[MetaPropertyEvaluator](MessageEnd_message))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

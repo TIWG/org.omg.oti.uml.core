@@ -65,8 +65,6 @@ trait UMLMergeNodeOps[Uml <: UML] { self: UMLMergeNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let allEdges : Set(ActivityEdge) = incoming->union(outgoing) in
-	 * }}}
-	 * {{{
 	 * allEdges->forAll(oclIsKindOf(ControlFlow)) or allEdges->forAll(oclIsKindOf(ObjectFlow))
 	 * }}}
 	 */

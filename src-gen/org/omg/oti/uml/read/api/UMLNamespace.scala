@@ -101,7 +101,7 @@ trait UMLNamespace[Uml <: UML]
 	def namespace_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLNamespace[Uml <: UML]
 	def namespace_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (Namespace_elementImport,
+			Seq[MetaPropertyEvaluator](Namespace_elementImport,
 				Namespace_ownedRule,
 				Namespace_packageImport))
 
@@ -143,7 +143,7 @@ trait UMLNamespace[Uml <: UML]
 	def namespace_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

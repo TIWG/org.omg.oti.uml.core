@@ -94,8 +94,6 @@ trait UMLStartClassifierBehaviorActionOps[Uml <: UML] { self: UMLStartClassifier
 	 *
 	 * {{{
 	 * OCL Body object.type->notEmpty() implies 
-	 * }}}
-	 * {{{
 	 *    (object.type.oclIsKindOf(BehavioredClassifier) and object.type.oclAsType(BehavioredClassifier).classifierBehavior<>null)
 	 * }}}
 	 */

@@ -91,7 +91,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	def acceptCallAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			acceptEventAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	def acceptCallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			acceptEventAction_compositeMetaProperties,
-			Seq (AcceptCallAction_returnInformation))
+			Seq[MetaPropertyEvaluator](AcceptCallAction_returnInformation))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	def acceptCallAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			acceptEventAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

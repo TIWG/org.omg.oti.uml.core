@@ -79,7 +79,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	def readStructuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuralFeatureAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	def readStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuralFeatureAction_compositeMetaProperties,
-			Seq (ReadStructuralFeatureAction_result))
+			Seq[MetaPropertyEvaluator](ReadStructuralFeatureAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	def readStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuralFeatureAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

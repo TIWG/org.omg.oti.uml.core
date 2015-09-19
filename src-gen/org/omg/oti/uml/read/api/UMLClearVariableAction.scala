@@ -78,7 +78,7 @@ trait UMLClearVariableAction[Uml <: UML]
 	def clearVariableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			variableAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLClearVariableAction[Uml <: UML]
 	def clearVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			variableAction_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLClearVariableAction[Uml <: UML]
 	def clearVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			variableAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

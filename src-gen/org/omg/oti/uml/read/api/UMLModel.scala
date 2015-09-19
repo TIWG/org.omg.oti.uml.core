@@ -91,7 +91,7 @@ trait UMLModel[Uml <: UML]
 	def model_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			package_metaAttributes,
-			Seq (Model_viewpoint))
+			Seq[MetaAttributeFunction](Model_viewpoint))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -111,7 +111,7 @@ trait UMLModel[Uml <: UML]
 	def model_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -131,7 +131,7 @@ trait UMLModel[Uml <: UML]
 	def model_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

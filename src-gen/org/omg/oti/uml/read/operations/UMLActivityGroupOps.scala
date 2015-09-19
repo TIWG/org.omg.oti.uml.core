@@ -127,8 +127,6 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body containedNode->forAll(activity = self.containingActivity()) and 
-	 * }}}
-	 * {{{
 	 * containedEdge->forAll(activity = self.containingActivity())
 	 * }}}
 	 */
@@ -147,14 +145,8 @@ trait UMLActivityGroupOps[Uml <: UML] { self: UMLActivityGroup[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body subgroup->closure(subgroup).containedNode->excludesAll(containedNode) and
-	 * }}}
-	 * {{{
 	 * superGroup->closure(superGroup).containedNode->excludesAll(containedNode) and 
-	 * }}}
-	 * {{{
 	 * subgroup->closure(subgroup).containedEdge->excludesAll(containedEdge) and 
-	 * }}}
-	 * {{{
 	 * superGroup->closure(superGroup).containedEdge->excludesAll(containedEdge)
 	 * }}}
 	 */

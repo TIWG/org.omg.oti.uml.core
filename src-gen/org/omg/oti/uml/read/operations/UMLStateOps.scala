@@ -300,11 +300,7 @@ trait UMLStateOps[Uml <: UML] { self: UMLState[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body self.isSubmachineState implies (self.connection->forAll (cp |
-	 * }}}
-	 * {{{
 	 *   cp.entry->forAll (ps | ps.stateMachine = self.submachine) and
-	 * }}}
-	 * {{{
 	 *   cp.exit->forAll (ps | ps.stateMachine = self.submachine)))
 	 * }}}
 	 */

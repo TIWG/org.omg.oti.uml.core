@@ -113,8 +113,6 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 *
 	 * {{{
 	 * OCL Body object.type.oclAsType(Classifier).allFeatures()->includes(structuralFeature) or
-	 * }}}
-	 * {{{
 	 * 	object.type.conformsTo(structuralFeature.oclAsType(Property).opposite.type)
 	 * }}}
 	 */
@@ -148,14 +146,8 @@ trait UMLStructuralFeatureActionOps[Uml <: UML] { self: UMLStructuralFeatureActi
 	 *
 	 * {{{
 	 * OCL Body structuralFeature.visibility = VisibilityKind::public or
-	 * }}}
-	 * {{{
 	 * _'context'.allFeatures()->includes(structuralFeature) or
-	 * }}}
-	 * {{{
 	 * structuralFeature.visibility=VisibilityKind::protected and
-	 * }}}
-	 * {{{
 	 * _'context'.conformsTo(structuralFeature.oclAsType(Property).opposite.type.oclAsType(Classifier))
 	 * }}}
 	 */

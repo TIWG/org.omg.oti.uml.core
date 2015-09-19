@@ -78,7 +78,7 @@ trait UMLLiteralNull[Uml <: UML]
 	def literalNull_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			literalSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLLiteralNull[Uml <: UML]
 	def literalNull_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLLiteralNull[Uml <: UML]
 	def literalNull_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			literalSpecification_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

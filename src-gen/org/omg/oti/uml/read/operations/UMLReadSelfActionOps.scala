@@ -113,8 +113,6 @@ trait UMLReadSelfActionOps[Uml <: UML] { self: UMLReadSelfAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let behavior: Behavior = self.containingBehavior() in
-	 * }}}
-	 * {{{
 	 * behavior.specification<>null implies not behavior.specification.isStatic
 	 * }}}
 	 */

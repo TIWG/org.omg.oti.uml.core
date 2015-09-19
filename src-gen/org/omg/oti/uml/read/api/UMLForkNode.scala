@@ -78,7 +78,7 @@ trait UMLForkNode[Uml <: UML]
 	def forkNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			controlNode_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLForkNode[Uml <: UML]
 	def forkNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLForkNode[Uml <: UML]
 	def forkNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			controlNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -79,7 +79,7 @@ trait UMLDestroyLinkAction[Uml <: UML]
 	def destroyLinkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			writeLinkAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -99,7 +99,7 @@ trait UMLDestroyLinkAction[Uml <: UML]
 	def destroyLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeLinkAction_compositeMetaProperties,
-			Seq (DestroyLinkAction_endData))
+			Seq[MetaPropertyEvaluator](DestroyLinkAction_endData))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -119,7 +119,7 @@ trait UMLDestroyLinkAction[Uml <: UML]
 	def destroyLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeLinkAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

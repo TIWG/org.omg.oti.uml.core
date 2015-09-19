@@ -157,7 +157,7 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			redefinableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -177,7 +177,7 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
-			Seq (ActivityEdge_guard,
+			Seq[MetaPropertyEvaluator](ActivityEdge_guard,
 				ActivityEdge_weight))
 
 	/**
@@ -198,7 +198,7 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator] (ActivityEdge_inPartition,
+			Seq[MetaPropertyEvaluator](ActivityEdge_inPartition,
 				ActivityEdge_interrupts,
 				ActivityEdge_redefinedEdge,
 				ActivityEdge_source,

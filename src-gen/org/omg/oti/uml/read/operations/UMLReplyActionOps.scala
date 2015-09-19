@@ -81,20 +81,10 @@ trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let parameter:OrderedSet(Parameter) = replyToCall.event.oclAsType(CallEvent).operation.outputParameters() in
-	 * }}}
-	 * {{{
 	 * replyValue->size()=parameter->size() and
-	 * }}}
-	 * {{{
 	 * Sequence{1..replyValue->size()}->forAll(i |
-	 * }}}
-	 * {{{
 	 * 	replyValue->at(i).type.conformsTo(parameter->at(i).type) and
-	 * }}}
-	 * {{{
 	 * 	replyValue->at(i).isOrdered=parameter->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	replyValue->at(i).compatibleWith(parameter->at(i)))
 	 * }}}
 	 */

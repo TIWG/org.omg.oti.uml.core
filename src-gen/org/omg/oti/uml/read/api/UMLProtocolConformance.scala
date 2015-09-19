@@ -82,7 +82,7 @@ trait UMLProtocolConformance[Uml <: UML]
 	def protocolConformance_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -102,7 +102,7 @@ trait UMLProtocolConformance[Uml <: UML]
 	def protocolConformance_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLProtocolConformance[Uml <: UML]
 	def protocolConformance_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (ProtocolConformance_generalMachine))
+			Seq[MetaPropertyEvaluator](ProtocolConformance_generalMachine))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

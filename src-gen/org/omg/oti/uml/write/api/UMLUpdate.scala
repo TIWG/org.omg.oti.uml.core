@@ -2968,11 +2968,16 @@ trait UMLUpdate[Uml <: UML] {
     extends CompositeReferenceUpdater {
 
     override def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit] =
-      (owner, owned) match {
-        case (u: U, None) =>
-          links_composes(u, None)
-        case (u: U, Some(v: V)) =>
-          links_composes(u, Some(v))
+      owner match {
+        case u: U =>
+          owned.fold[Try[Unit]]{
+            links_composes(u, None)
+          }{
+            case v: V =>
+              links_composes(u, Some(v))
+            case _ =>
+              Failure(new IllegalArgumentException())
+          }
         case _ =>
           Failure(new IllegalArgumentException())
       }

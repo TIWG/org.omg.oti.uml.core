@@ -89,6 +89,8 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 * <!-- Start of user code doc for validate_guard_contain_references -->
    * <!-- End of user code doc for validate_guard_contain_references -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_guard_contain_references: Boolean = {
 		// Start of user code for "guard_contain_references"
@@ -102,6 +104,8 @@ trait UMLInteractionOperandOps[Uml <: UML] { self: UMLInteractionOperand[Uml] =>
 	 * <!-- Start of user code doc for validate_guard_directly_prior -->
    * <!-- End of user code doc for validate_guard_directly_prior -->
 	 *
+	 * {{{
+	 * }}}
 	 */
 	def validate_guard_directly_prior: Boolean = {
 		// Start of user code for "guard_directly_prior"

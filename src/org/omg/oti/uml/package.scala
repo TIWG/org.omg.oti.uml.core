@@ -94,10 +94,9 @@ package object uml {
    */
   def getPackageOrProfileOwner[Uml <: UML](e: UMLElement[Uml]):
   Option[UMLPackage[Uml]] =
-    e.owningNamespace match {
-      case None => None
-      case Some(pf: UMLProfile[Uml]) => Some(pf)
-      case Some(ns) =>
+    e.owningNamespace.fold[Option[UMLPackage[Uml]]](None) {
+      case pf: UMLProfile[Uml] => Some(pf)
+      case ns =>
         (
           ns.allNamespaces.collectFirst({ case pf: UMLProfile[Uml] => pf }),
           ns.allNamespaces.collectFirst({ case p: UMLPackage[Uml] => p })) match {

@@ -85,20 +85,10 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body not isUnmarshall implies 
-	 * }}}
-	 * {{{
 	 * 	result->isEmpty() or
-	 * }}}
-	 * {{{
 	 * 	let type: Type = result->first().type in
-	 * }}}
-	 * {{{
 	 * 	type=null or 
-	 * }}}
-	 * {{{
 	 * 		(trigger->forAll(event.oclIsKindOf(SignalEvent)) and 
-	 * }}}
-	 * {{{
 	 * 		 trigger.event.oclAsType(SignalEvent).signal->forAll(s | s.conformsTo(type)))
 	 * }}}
 	 */
@@ -149,14 +139,8 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (self.oclIsTypeOf(AcceptEventAction) and
-	 * }}}
-	 * {{{
 	 *    (trigger->forAll(event.oclIsKindOf(ChangeEvent) or  
-	 * }}}
-	 * {{{
 	 *                              event.oclIsKindOf(CallEvent))))
-	 * }}}
-	 * {{{
 	 * implies output->size() = 0
 	 * }}}
 	 */
@@ -184,8 +168,6 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body not isUnmarshall and trigger->exists(event.oclIsKindOf(SignalEvent) or event.oclIsKindOf(TimeEvent)) implies 
-	 * }}}
-	 * {{{
 	 * 	output->size() = 1 and output->first().is(1,1)
 	 * }}}
 	 */
@@ -208,29 +190,13 @@ trait UMLAcceptEventActionOps[Uml <: UML] { self: UMLAcceptEventAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body isUnmarshall and self.oclIsTypeOf(AcceptEventAction) implies
-	 * }}}
-	 * {{{
 	 * 	trigger->size()=1 and
-	 * }}}
-	 * {{{
 	 * 	trigger->asSequence()->first().event.oclIsKindOf(SignalEvent) and
-	 * }}}
-	 * {{{
 	 * 	let attribute: OrderedSet(Property) = trigger->asSequence()->first().event.oclAsType(SignalEvent).signal.allAttributes() in
-	 * }}}
-	 * {{{
 	 * 	attribute->size()>0 and result->size() = attribute->size() and
-	 * }}}
-	 * {{{
 	 * 	Sequence{1..result->size()}->forAll(i | 
-	 * }}}
-	 * {{{
 	 * 		result->at(i).type = attribute->at(i).type and 
-	 * }}}
-	 * {{{
 	 * 		result->at(i).isOrdered = attribute->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 		result->at(i).includesMultiplicity(attribute->at(i)))
 	 * }}}
 	 */

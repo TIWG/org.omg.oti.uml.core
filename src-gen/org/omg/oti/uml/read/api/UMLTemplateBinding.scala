@@ -82,7 +82,7 @@ trait UMLTemplateBinding[Uml <: UML]
 	def templateBinding_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			directedRelationship_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -102,7 +102,7 @@ trait UMLTemplateBinding[Uml <: UML]
 	def templateBinding_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_compositeMetaProperties,
-			Seq (TemplateBinding_parameterSubstitution))
+			Seq[MetaPropertyEvaluator](TemplateBinding_parameterSubstitution))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLTemplateBinding[Uml <: UML]
 	def templateBinding_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			directedRelationship_referenceMetaProperties,
-			Seq (TemplateBinding_signature))
+			Seq[MetaPropertyEvaluator](TemplateBinding_signature))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

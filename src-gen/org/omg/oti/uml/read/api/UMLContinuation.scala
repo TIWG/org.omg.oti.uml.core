@@ -90,7 +90,7 @@ trait UMLContinuation[Uml <: UML]
 	def continuation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq (Continuation_setting))
+			Seq[MetaAttributeFunction](Continuation_setting))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLContinuation[Uml <: UML]
 	def continuation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLContinuation[Uml <: UML]
 	def continuation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

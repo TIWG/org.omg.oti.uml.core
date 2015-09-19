@@ -65,32 +65,14 @@ trait UMLActorOps[Uml <: UML] { self: UMLActor[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body Association.allInstances()->forAll( a |
-	 * }}}
-	 * {{{
 	 *   a.memberEnd->collect(type)->includes(self) implies
-	 * }}}
-	 * {{{
 	 *   (
-	 * }}}
-	 * {{{
 	 *     a.memberEnd->size() = 2 and
-	 * }}}
-	 * {{{
 	 *     let actorEnd : Property = a.memberEnd->any(type = self) in
-	 * }}}
-	 * {{{
 	 *       actorEnd.opposite.class.oclIsKindOf(UseCase) or
-	 * }}}
-	 * {{{
 	 *       ( actorEnd.opposite.class.oclIsKindOf(Class) and not
-	 * }}}
-	 * {{{
 	 *          actorEnd.opposite.class.oclIsKindOf(Behavior))
-	 * }}}
-	 * {{{
 	 *       )
-	 * }}}
-	 * {{{
 	 *   )
 	 * }}}
 	 */

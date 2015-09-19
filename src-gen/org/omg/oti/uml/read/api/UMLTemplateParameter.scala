@@ -142,7 +142,7 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -162,7 +162,7 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq (TemplateParameter_ownedDefault,
+			Seq[MetaPropertyEvaluator](TemplateParameter_ownedDefault,
 				TemplateParameter_ownedParameteredElement))
 
 	/**
@@ -183,7 +183,7 @@ trait UMLTemplateParameter[Uml <: UML]
 	def templateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (TemplateParameter_default,
+			Seq[MetaPropertyEvaluator](TemplateParameter_default,
 				TemplateParameter_parameteredElement))
 
 	/**

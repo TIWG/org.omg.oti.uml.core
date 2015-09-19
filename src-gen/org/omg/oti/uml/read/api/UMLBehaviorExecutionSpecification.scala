@@ -93,7 +93,7 @@ trait UMLBehaviorExecutionSpecification[Uml <: UML]
 	def behaviorExecutionSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			executionSpecification_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLBehaviorExecutionSpecification[Uml <: UML]
 	def behaviorExecutionSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			executionSpecification_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLBehaviorExecutionSpecification[Uml <: UML]
 	def behaviorExecutionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			executionSpecification_referenceMetaProperties,
-			Seq (BehaviorExecutionSpecification_behavior))
+			Seq[MetaPropertyEvaluator](BehaviorExecutionSpecification_behavior))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

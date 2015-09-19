@@ -165,7 +165,7 @@ trait UMLMessage[Uml <: UML]
 	def message_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -185,7 +185,7 @@ trait UMLMessage[Uml <: UML]
 	def message_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (Message_argument))
+			Seq[MetaPropertyEvaluator](Message_argument))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -205,7 +205,7 @@ trait UMLMessage[Uml <: UML]
 	def message_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (Message_connector,
+			Seq[MetaPropertyEvaluator](Message_connector,
 				Message_receiveEvent,
 				Message_sendEvent,
 				Message_signature))

@@ -100,29 +100,13 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body roleBinding->collect(client)->forAll(ne1, ne2 |
-	 * }}}
-	 * {{{
 	 *   ne1.oclIsKindOf(ConnectableElement) and ne2.oclIsKindOf(ConnectableElement) and
-	 * }}}
-	 * {{{
 	 *     let ce1 : ConnectableElement = ne1.oclAsType(ConnectableElement), ce2 : ConnectableElement = ne2.oclAsType(ConnectableElement) in
-	 * }}}
-	 * {{{
 	 *       ce1.structuredClassifier = ce2.structuredClassifier)
-	 * }}}
-	 * {{{
 	 * and
-	 * }}}
-	 * {{{
 	 *   roleBinding->collect(supplier)->forAll(ne1, ne2 |
-	 * }}}
-	 * {{{
 	 *   ne1.oclIsKindOf(ConnectableElement) and ne2.oclIsKindOf(ConnectableElement) and
-	 * }}}
-	 * {{{
 	 *     let ce1 : ConnectableElement = ne1.oclAsType(ConnectableElement), ce2 : ConnectableElement = ne2.oclAsType(ConnectableElement) in
-	 * }}}
-	 * {{{
 	 *       ce1.collaboration = ce2.collaboration)
 	 * }}}
 	 */
@@ -140,29 +124,13 @@ trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body type.ownedConnector->forAll(connector |
-	 * }}}
-	 * {{{
 	 *   let rolesConnectedInCollab : Set(ConnectableElement) = connector.end.role->asSet(),
-	 * }}}
-	 * {{{
 	 *         relevantBindings : Set(Dependency) = roleBinding->select(rb | rb.supplier->intersection(rolesConnectedInCollab)->notEmpty()),
-	 * }}}
-	 * {{{
 	 *         boundRoles : Set(ConnectableElement) = relevantBindings->collect(client.oclAsType(ConnectableElement))->asSet(),
-	 * }}}
-	 * {{{
 	 *         contextClassifier : StructuredClassifier = boundRoles->any(true).structuredClassifier->any(true) in
-	 * }}}
-	 * {{{
 	 *           contextClassifier.ownedConnector->exists( correspondingConnector | 
-	 * }}}
-	 * {{{
 	 *               correspondingConnector.end.role->forAll( role | boundRoles->includes(role) )
-	 * }}}
-	 * {{{
 	 *               and (connector.type->notEmpty() and correspondingConnector.type->notEmpty()) implies connector.type->forAll(conformsTo(correspondingConnector.type)) )
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

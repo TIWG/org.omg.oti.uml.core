@@ -110,7 +110,7 @@ trait UMLProfile[Uml <: UML]
 	def profile_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			package_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLProfile[Uml <: UML]
 	def profile_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_compositeMetaProperties,
-			Seq (Profile_metaclassReference,
+			Seq[MetaPropertyEvaluator](Profile_metaclassReference,
 				Profile_metamodelReference))
 
 	/**
@@ -151,7 +151,7 @@ trait UMLProfile[Uml <: UML]
 	def profile_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			package_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

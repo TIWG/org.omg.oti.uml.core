@@ -93,7 +93,7 @@ trait UMLTypedElement[Uml <: UML]
 	def typedElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLTypedElement[Uml <: UML]
 	def typedElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLTypedElement[Uml <: UML]
 	def typedElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (TypedElement_type))
+			Seq[MetaPropertyEvaluator](TypedElement_type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

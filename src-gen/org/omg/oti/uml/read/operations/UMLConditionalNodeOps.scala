@@ -131,23 +131,11 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body clause->forAll(
-	 * }}}
-	 * {{{
 	 * 	bodyOutput->size()=self.result->size() and
-	 * }}}
-	 * {{{
 	 * 	Sequence{1..self.result->size()}->forAll(i |
-	 * }}}
-	 * {{{
 	 * 		bodyOutput->at(i).type.conformsTo(result->at(i).type) and
-	 * }}}
-	 * {{{
 	 * 		bodyOutput->at(i).isOrdered = result->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 		bodyOutput->at(i).isUnique = result->at(i).isUnique and
-	 * }}}
-	 * {{{
 	 * 		bodyOutput->at(i).compatibleWith(result->at(i))))
 	 * }}}
 	 */
@@ -181,8 +169,6 @@ trait UMLConditionalNodeOps[Uml <: UML] { self: UMLConditionalNode[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body node->select(oclIsKindOf(ExecutableNode)).oclAsType(ExecutableNode)->forAll(n | 
-	 * }}}
-	 * {{{
 	 * 	self.clause->select(test->union(_'body')->includes(n))->size()=1)
 	 * }}}
 	 */

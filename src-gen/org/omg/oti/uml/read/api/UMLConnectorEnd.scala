@@ -104,7 +104,7 @@ trait UMLConnectorEnd[Uml <: UML]
 	def connectorEnd_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			multiplicityElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLConnectorEnd[Uml <: UML]
 	def connectorEnd_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			multiplicityElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLConnectorEnd[Uml <: UML]
 	def connectorEnd_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			multiplicityElement_referenceMetaProperties,
-			Seq (ConnectorEnd_partWithPort,
+			Seq[MetaPropertyEvaluator](ConnectorEnd_partWithPort,
 				ConnectorEnd_role))
 
 	/**

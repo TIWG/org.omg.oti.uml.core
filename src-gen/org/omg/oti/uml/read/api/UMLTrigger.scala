@@ -113,7 +113,7 @@ trait UMLTrigger[Uml <: UML]
 	def trigger_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLTrigger[Uml <: UML]
 	def trigger_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -153,7 +153,7 @@ trait UMLTrigger[Uml <: UML]
 	def trigger_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (Trigger_event,
+			Seq[MetaPropertyEvaluator](Trigger_event,
 				Trigger_port))
 
 	/**

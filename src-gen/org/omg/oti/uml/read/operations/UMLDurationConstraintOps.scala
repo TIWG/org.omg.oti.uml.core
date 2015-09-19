@@ -82,11 +82,7 @@ trait UMLDurationConstraintOps[Uml <: UML] { self: UMLDurationConstraint[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body if (constrainedElement->size() = 2)
-	 * }}}
-	 * {{{
 	 *   then (firstEvent->size() = 2) else (firstEvent->size() = 0) 
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

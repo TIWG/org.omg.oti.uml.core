@@ -102,7 +102,7 @@ trait UMLFeature[Uml <: UML]
 	def feature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			redefinableElement_metaAttributes,
-			Seq (Feature_isStatic))
+			Seq[MetaAttributeFunction](Feature_isStatic))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLFeature[Uml <: UML]
 	def feature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLFeature[Uml <: UML]
 	def feature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

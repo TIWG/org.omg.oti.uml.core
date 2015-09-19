@@ -133,7 +133,7 @@ trait UMLConnector[Uml <: UML]
 	def connector_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			feature_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -153,7 +153,7 @@ trait UMLConnector[Uml <: UML]
 	def connector_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			feature_compositeMetaProperties,
-			Seq (Connector_end))
+			Seq[MetaPropertyEvaluator](Connector_end))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -173,7 +173,7 @@ trait UMLConnector[Uml <: UML]
 	def connector_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			feature_referenceMetaProperties,
-			Seq (Connector_contract,
+			Seq[MetaPropertyEvaluator](Connector_contract,
 				Connector_redefinedConnector,
 				Connector_type))
 

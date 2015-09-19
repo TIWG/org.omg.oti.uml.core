@@ -203,8 +203,17 @@ object VisibilityValidationHelper {
     def checkNamedElementVisibility
     (ne: UMLNamedElement[Uml])
     : Iterable[AbstractVisibilityValidationInfo[Uml]] =
-      ne.visibility match {
-        case Some(v) =>
+      ne.visibility.fold[Iterable[AbstractVisibilityValidationInfo[Uml]]] {
+        ne match {
+            case _: UMLPackageableElement[Uml] =>
+              Iterable(NamedElementVisibilityValidationInfo(
+                ne, ValidVisibilityStatus))
+            case _ =>
+              Iterable(NamedElementVisibilityValidationInfo(
+                ne, MissingPublicVisibilityStatus,
+                Some(MISSING_PUBLIC_VISIBILITY)))
+          }
+      } { v =>
           v match {
             case UMLVisibilityKind.public =>
               Iterable(NamedElementVisibilityValidationInfo(
@@ -224,46 +233,40 @@ object VisibilityValidationHelper {
                 NamedElementVisibilityValidationInfo(
                   ne, InvalidNonPublicVisibilityStatus,
                   Some(INVALID_NON_PUBLIC_VISIBILITY + "'protected'")))
-          }
-        case None =>
-          ne match {
-            case _: UMLPackageableElement[Uml] =>
-              Iterable(NamedElementVisibilityValidationInfo(
-                ne, ValidVisibilityStatus))
             case _ =>
-              Iterable(NamedElementVisibilityValidationInfo(
-                ne, MissingPublicVisibilityStatus,
-                Some(MISSING_PUBLIC_VISIBILITY)))
+              Iterable()
           }
       }
 
     def checkElementImportVisibilityAndAlias
     (ei: UMLElementImport[Uml])
     : Iterable[AbstractVisibilityValidationInfo[Uml]] = {
-      val v1 = ei.visibility match {
+      val v1: Iterable[AbstractVisibilityValidationInfo[Uml]] =
+        ei.visibility match {
         case UMLVisibilityKind.public =>
-          None
+          Iterable()
         case UMLVisibilityKind._package =>
-          Some(
+          Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'package'")))
         case UMLVisibilityKind._private =>
-          Some(
+          Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'private'")))
         case UMLVisibilityKind._protected =>
-          Some(
+          Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'protected'")))
+        case _ =>
+          Iterable()
       }
-      val v2 = ei.alias match {
-        case None =>
-          None
-        case Some(a) =>
-          Some(
+      val v2: Iterable[AbstractVisibilityValidationInfo[Uml]] =
+        ei.alias.fold[Iterable[AbstractVisibilityValidationInfo[Uml]]](Iterable()) {
+          a =>
+          Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidAliasedElementImportStatus,
               Some(INVALID_ALIASED_ELEMENT_IMPORT + "'" + a + "'")))
@@ -294,6 +297,8 @@ object VisibilityValidationHelper {
             PackageImportVisibilityValidationInfo(
               pi, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'protected'")))
+        case _ =>
+          Iterable()
       }
 
     def checkNamespace

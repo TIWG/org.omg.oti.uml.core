@@ -104,7 +104,7 @@ trait UMLSendSignalAction[Uml <: UML]
 	def sendSignalAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			invocationAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLSendSignalAction[Uml <: UML]
 	def sendSignalAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq (SendSignalAction_target))
+			Seq[MetaPropertyEvaluator](SendSignalAction_target))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLSendSignalAction[Uml <: UML]
 	def sendSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_referenceMetaProperties,
-			Seq (SendSignalAction_signal))
+			Seq[MetaPropertyEvaluator](SendSignalAction_signal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

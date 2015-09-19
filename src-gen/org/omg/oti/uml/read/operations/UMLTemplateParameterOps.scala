@@ -96,9 +96,8 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 	 */
 	def validate_must_be_compatible: Boolean = {
 		// Start of user code for "must_be_compatible"
-    default match {
-      case Some(d) => d.isCompatibleWith(parameteredElement)
-      case None => true
+    default.fold[Boolean](true) {
+      d => d.isCompatibleWith(parameteredElement)
     }
     // End of user code
 	}
@@ -112,9 +111,8 @@ trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
     signature match {
     case None => None
     case Some( sig ) =>
-      sig.template match {
-        case None => None
-        case Some( t ) =>
+      sig.template.fold[Option[UMLNamespace[Uml]]](None) {
+        t =>
           t match {
             case tns: UMLNamespace[Uml] => Some( tns )
             case _ => None

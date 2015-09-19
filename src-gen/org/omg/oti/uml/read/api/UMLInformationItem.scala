@@ -90,7 +90,7 @@ trait UMLInformationItem[Uml <: UML]
 	def informationItem_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			classifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLInformationItem[Uml <: UML]
 	def informationItem_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLInformationItem[Uml <: UML]
 	def informationItem_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq (InformationItem_represented))
+			Seq[MetaPropertyEvaluator](InformationItem_represented))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

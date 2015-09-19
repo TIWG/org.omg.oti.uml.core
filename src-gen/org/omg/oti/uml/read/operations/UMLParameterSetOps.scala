@@ -100,17 +100,9 @@ trait UMLParameterSetOps[Uml <: UML] { self: UMLParameterSet[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body ((parameter->exists(direction = ParameterDirectionKind::_'in')) implies 
-	 * }}}
-	 * {{{
 	 *     behavioralFeature.ownedParameter->select(p | p.direction = ParameterDirectionKind::_'in' and p.parameterSet->isEmpty())->forAll(isStream))
-	 * }}}
-	 * {{{
 	 *     and
-	 * }}}
-	 * {{{
 	 * ((parameter->exists(direction = ParameterDirectionKind::out)) implies 
-	 * }}}
-	 * {{{
 	 *     behavioralFeature.ownedParameter->select(p | p.direction = ParameterDirectionKind::out and p.parameterSet->isEmpty())->forAll(isStream))  
 	 * }}}
 	 */

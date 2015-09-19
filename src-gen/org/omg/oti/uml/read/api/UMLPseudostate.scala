@@ -107,7 +107,7 @@ trait UMLPseudostate[Uml <: UML]
 	def pseudostate_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			vertex_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -127,7 +127,7 @@ trait UMLPseudostate[Uml <: UML]
 	def pseudostate_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -147,7 +147,7 @@ trait UMLPseudostate[Uml <: UML]
 	def pseudostate_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -150,7 +150,7 @@ trait UMLState[Uml <: UML]
 			namespace_metaAttributes,
 			redefinableElement_metaAttributes,
 			vertex_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -172,7 +172,7 @@ trait UMLState[Uml <: UML]
 			namespace_compositeMetaProperties,
 			redefinableElement_compositeMetaProperties,
 			vertex_compositeMetaProperties,
-			Seq (State_connection,
+			Seq[MetaPropertyEvaluator](State_connection,
 				State_connectionPoint,
 				State_deferrableTrigger,
 				State_doActivity,
@@ -201,7 +201,7 @@ trait UMLState[Uml <: UML]
 			namespace_referenceMetaProperties,
 			redefinableElement_referenceMetaProperties,
 			vertex_referenceMetaProperties,
-			Seq (State_redefinedState,
+			Seq[MetaPropertyEvaluator](State_redefinedState,
 				State_submachine))
 
 	/**

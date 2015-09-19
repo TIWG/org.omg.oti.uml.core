@@ -102,7 +102,7 @@ trait UMLComment[Uml <: UML]
 	def comment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq (Comment_body))
+			Seq[MetaAttributeFunction](Comment_body))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLComment[Uml <: UML]
 	def comment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLComment[Uml <: UML]
 	def comment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (Comment_annotatedElement))
+			Seq[MetaPropertyEvaluator](Comment_annotatedElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

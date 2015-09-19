@@ -93,7 +93,7 @@ trait UMLBroadcastSignalAction[Uml <: UML]
 	def broadcastSignalAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			invocationAction_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLBroadcastSignalAction[Uml <: UML]
 	def broadcastSignalAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLBroadcastSignalAction[Uml <: UML]
 	def broadcastSignalAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			invocationAction_referenceMetaProperties,
-			Seq (BroadcastSignalAction_signal))
+			Seq[MetaPropertyEvaluator](BroadcastSignalAction_signal))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

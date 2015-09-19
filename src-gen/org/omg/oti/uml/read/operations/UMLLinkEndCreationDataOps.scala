@@ -97,20 +97,10 @@ trait UMLLinkEndCreationDataOps[Uml <: UML] { self: UMLLinkEndCreationData[Uml] 
 	 *
 	 * {{{
 	 * OCL Body if  not end.isOrdered
-	 * }}}
-	 * {{{
 	 * then insertAt = null
-	 * }}}
-	 * {{{
 	 * else
-	 * }}}
-	 * {{{
 	 * 	not isReplaceAll=false implies
-	 * }}}
-	 * {{{
 	 * 	insertAt <> null and insertAt->forAll(type=UnlimitedNatural and is(1,1))
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

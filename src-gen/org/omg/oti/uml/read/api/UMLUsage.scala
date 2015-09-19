@@ -78,7 +78,7 @@ trait UMLUsage[Uml <: UML]
 	def usage_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			dependency_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -98,7 +98,7 @@ trait UMLUsage[Uml <: UML]
 	def usage_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -118,7 +118,7 @@ trait UMLUsage[Uml <: UML]
 	def usage_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -113,7 +113,7 @@ trait UMLExecutionSpecification[Uml <: UML]
 	def executionSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			interactionFragment_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLExecutionSpecification[Uml <: UML]
 	def executionSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -153,7 +153,7 @@ trait UMLExecutionSpecification[Uml <: UML]
 	def executionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			interactionFragment_referenceMetaProperties,
-			Seq (ExecutionSpecification_finish,
+			Seq[MetaPropertyEvaluator](ExecutionSpecification_finish,
 				ExecutionSpecification_start))
 
 	/**

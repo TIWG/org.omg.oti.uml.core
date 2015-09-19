@@ -122,7 +122,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	def redefinableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq (RedefinableElement_isLeaf))
+			Seq[MetaAttributeFunction](RedefinableElement_isLeaf))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	def redefinableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -162,7 +162,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	def redefinableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

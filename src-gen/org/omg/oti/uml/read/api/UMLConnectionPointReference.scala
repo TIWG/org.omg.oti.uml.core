@@ -101,7 +101,7 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			vertex_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -121,7 +121,7 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -141,7 +141,7 @@ trait UMLConnectionPointReference[Uml <: UML]
 	def connectionPointReference_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			vertex_referenceMetaProperties,
-			Seq (ConnectionPointReference_entry,
+			Seq[MetaPropertyEvaluator](ConnectionPointReference_entry,
 				ConnectionPointReference_exit))
 
 	/**

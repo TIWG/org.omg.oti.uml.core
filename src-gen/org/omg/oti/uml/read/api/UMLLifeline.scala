@@ -135,7 +135,7 @@ trait UMLLifeline[Uml <: UML]
 	def lifeline_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			namedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -155,7 +155,7 @@ trait UMLLifeline[Uml <: UML]
 	def lifeline_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_compositeMetaProperties,
-			Seq (Lifeline_selector))
+			Seq[MetaPropertyEvaluator](Lifeline_selector))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -175,7 +175,7 @@ trait UMLLifeline[Uml <: UML]
 	def lifeline_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			namedElement_referenceMetaProperties,
-			Seq (Lifeline_coveredBy,
+			Seq[MetaPropertyEvaluator](Lifeline_coveredBy,
 				Lifeline_decomposedAs,
 				Lifeline_represents))
 

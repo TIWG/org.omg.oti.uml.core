@@ -330,11 +330,7 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body isInsideCF() implies
-	 * }}}
-	 * {{{
 	 * let selfOperand : InteractionOperand = self.getOperand() in
-	 * }}}
-	 * {{{
 	 *   combinedFragment.cfragmentGate->select(isInsideCF() and getName() = self.getName())->select(getOperand() = selfOperand)->size()=1
 	 * }}}
 	 */
@@ -384,23 +380,11 @@ trait UMLGateOps[Uml <: UML] { self: UMLGate[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body isOutsideCF() implies
-	 * }}}
-	 * {{{
 	 *  if self.combinedFragment.interactionOperator->asOrderedSet()->first() = InteractionOperatorKind::alt
-	 * }}}
-	 * {{{
 	 *  then self.combinedFragment.operand->forAll(op : InteractionOperand |
-	 * }}}
-	 * {{{
 	 *  self.combinedFragment.cfragmentGate->select(isInsideCF() and 
-	 * }}}
-	 * {{{
 	 *  oppositeEnd().enclosingFragment()->includes(self.combinedFragment) and matches(self))->size()=1)
-	 * }}}
-	 * {{{
 	 *  else  self.combinedFragment.cfragmentGate->select(isInsideCF() and matches(self))->size()=1
-	 * }}}
-	 * {{{
 	 *  endif
 	 * }}}
 	 */

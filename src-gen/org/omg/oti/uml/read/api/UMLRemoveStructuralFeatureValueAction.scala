@@ -102,7 +102,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	def removeStructuralFeatureValueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_metaAttributes,
-			Seq (RemoveStructuralFeatureValueAction_isRemoveDuplicates))
+			Seq[MetaAttributeFunction](RemoveStructuralFeatureValueAction_isRemoveDuplicates))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	def removeStructuralFeatureValueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_compositeMetaProperties,
-			Seq (RemoveStructuralFeatureValueAction_removeAt))
+			Seq[MetaPropertyEvaluator](RemoveStructuralFeatureValueAction_removeAt))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -142,7 +142,7 @@ trait UMLRemoveStructuralFeatureValueAction[Uml <: UML]
 	def removeStructuralFeatureValueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			writeStructuralFeatureAction_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

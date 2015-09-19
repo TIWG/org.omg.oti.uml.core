@@ -102,7 +102,7 @@ trait UMLStringExpression[Uml <: UML]
 		appendUnique(
 			expression_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -123,7 +123,7 @@ trait UMLStringExpression[Uml <: UML]
 		appendUnique(
 			expression_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (StringExpression_subExpression))
+			Seq[MetaPropertyEvaluator](StringExpression_subExpression))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLStringExpression[Uml <: UML]
 		appendUnique(
 			expression_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

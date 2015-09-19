@@ -111,7 +111,7 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq (ConditionalNode_isAssured,
+			Seq[MetaAttributeFunction](ConditionalNode_isAssured,
 				ConditionalNode_isDeterminate))
 
 	/**
@@ -132,7 +132,7 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (ConditionalNode_clause,
+			Seq[MetaPropertyEvaluator](ConditionalNode_clause,
 				ConditionalNode_result))
 
 	/**
@@ -153,7 +153,7 @@ trait UMLConditionalNode[Uml <: UML]
 	def conditionalNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

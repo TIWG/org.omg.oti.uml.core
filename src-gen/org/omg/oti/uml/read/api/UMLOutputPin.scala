@@ -142,7 +142,7 @@ trait UMLOutputPin[Uml <: UML]
 	def outputPin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			pin_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -162,7 +162,7 @@ trait UMLOutputPin[Uml <: UML]
 	def outputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			pin_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -182,7 +182,7 @@ trait UMLOutputPin[Uml <: UML]
 	def outputPin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			pin_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

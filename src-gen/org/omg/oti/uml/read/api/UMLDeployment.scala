@@ -90,7 +90,7 @@ trait UMLDeployment[Uml <: UML]
 	def deployment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			dependency_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -110,7 +110,7 @@ trait UMLDeployment[Uml <: UML]
 	def deployment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_compositeMetaProperties,
-			Seq (Deployment_configuration))
+			Seq[MetaPropertyEvaluator](Deployment_configuration))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -130,7 +130,7 @@ trait UMLDeployment[Uml <: UML]
 	def deployment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			dependency_referenceMetaProperties,
-			Seq (Deployment_deployedArtifact))
+			Seq[MetaPropertyEvaluator](Deployment_deployedArtifact))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

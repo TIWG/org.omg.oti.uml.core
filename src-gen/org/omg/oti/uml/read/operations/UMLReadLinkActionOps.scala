@@ -162,23 +162,11 @@ trait UMLReadLinkActionOps[Uml <: UML] { self: UMLReadLinkAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let openEnd : Property = self.openEnd()->first() in
-	 * }}}
-	 * {{{
 	 *   openEnd.visibility = VisibilityKind::public or 
-	 * }}}
-	 * {{{
 	 *   endData->exists(oed | 
-	 * }}}
-	 * {{{
 	 *     oed.end<>openEnd and 
-	 * }}}
-	 * {{{
 	 *     (_'context' = oed.end.type or 
-	 * }}}
-	 * {{{
 	 *       (openEnd.visibility = VisibilityKind::protected and 
-	 * }}}
-	 * {{{
 	 *         _'context'.conformsTo(oed.end.type.oclAsType(Classifier)))))
 	 * }}}
 	 */

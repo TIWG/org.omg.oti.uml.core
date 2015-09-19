@@ -145,17 +145,9 @@ trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
-	 * }}}
-	 * {{{
 	 * Sequence{1..result->size()}->forAll(i | 
-	 * }}}
-	 * {{{
 	 * 	attribute->at(i).type.conformsTo(result->at(i).type) and
-	 * }}}
-	 * {{{
 	 * 	attribute->at(i).isOrdered=result->at(i).isOrdered and
-	 * }}}
-	 * {{{
 	 * 	attribute->at(i).compatibleWith(result->at(i)))
 	 * }}}
 	 */

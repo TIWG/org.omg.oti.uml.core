@@ -65,26 +65,12 @@ trait UMLRemoveVariableValueActionOps[Uml <: UML] { self: UMLRemoveVariableValue
 	 *
 	 * {{{
 	 * OCL Body if  variable.isOrdered and not variable.isUnique and not isRemoveDuplicates then 
-	 * }}}
-	 * {{{
 	 *   value = null and
-	 * }}}
-	 * {{{
 	 *   removeAt <> null and
-	 * }}}
-	 * {{{
 	 *   removeAt.type = UnlimitedNatural and
-	 * }}}
-	 * {{{
 	 *   removeAt.is(1,1)
-	 * }}}
-	 * {{{
 	 * else
-	 * }}}
-	 * {{{
 	 *   removeAt = null and value <> null
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

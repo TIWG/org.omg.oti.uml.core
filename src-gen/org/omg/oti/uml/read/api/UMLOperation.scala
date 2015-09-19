@@ -189,7 +189,7 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_metaAttributes,
 			parameterableElement_metaAttributes,
 			templateableElement_metaAttributes,
-			Seq (Operation_isQuery))
+			Seq[MetaAttributeFunction](Operation_isQuery))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -211,7 +211,7 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_compositeMetaProperties,
 			parameterableElement_compositeMetaProperties,
 			templateableElement_compositeMetaProperties,
-			Seq (Operation_bodyCondition,
+			Seq[MetaPropertyEvaluator](Operation_bodyCondition,
 				Operation_ownedParameter,
 				Operation_postcondition,
 				Operation_precondition))
@@ -236,7 +236,7 @@ trait UMLOperation[Uml <: UML]
 			behavioralFeature_referenceMetaProperties,
 			parameterableElement_referenceMetaProperties,
 			templateableElement_referenceMetaProperties,
-			Seq (Operation_raisedException,
+			Seq[MetaPropertyEvaluator](Operation_raisedException,
 				Operation_redefinedOperation,
 				Operation_templateParameter))
 

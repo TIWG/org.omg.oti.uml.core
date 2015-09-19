@@ -81,11 +81,7 @@ trait UMLGeneralizationSetOps[Uml <: UML] { self: UMLGeneralizationSet[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body powertype <> null implies generalization->forAll( gen | 
-	 * }}}
-	 * {{{
 	 *     not (gen.general = powertype) and not gen.general.allParents()->includes(powertype) and not (gen.specific = powertype) and not powertype.allParents()->includes(gen.specific)
-	 * }}}
-	 * {{{
 	 *   )
 	 * }}}
 	 */

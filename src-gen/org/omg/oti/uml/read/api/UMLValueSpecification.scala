@@ -189,7 +189,7 @@ trait UMLValueSpecification[Uml <: UML]
 		appendUnique(
 			packageableElement_metaAttributes,
 			typedElement_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -210,7 +210,7 @@ trait UMLValueSpecification[Uml <: UML]
 		appendUnique(
 			packageableElement_compositeMetaProperties,
 			typedElement_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -231,7 +231,7 @@ trait UMLValueSpecification[Uml <: UML]
 		appendUnique(
 			packageableElement_referenceMetaProperties,
 			typedElement_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

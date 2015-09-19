@@ -93,7 +93,7 @@ trait UMLReadExtentAction[Uml <: UML]
 	def readExtentAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLReadExtentAction[Uml <: UML]
 	def readExtentAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReadExtentAction_result))
+			Seq[MetaPropertyEvaluator](ReadExtentAction_result))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLReadExtentAction[Uml <: UML]
 	def readExtentAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (ReadExtentAction_classifier))
+			Seq[MetaPropertyEvaluator](ReadExtentAction_classifier))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

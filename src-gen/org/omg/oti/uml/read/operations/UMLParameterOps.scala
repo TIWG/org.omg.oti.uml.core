@@ -133,11 +133,7 @@ trait UMLParameterOps[Uml <: UML] { self: UMLParameter[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (effect = ParameterEffectKind::delete implies (direction = ParameterDirectionKind::_'in' or direction = ParameterDirectionKind::inout))
-	 * }}}
-	 * {{{
 	 * and
-	 * }}}
-	 * {{{
 	 * (effect = ParameterEffectKind::create implies (direction = ParameterDirectionKind::out or direction = ParameterDirectionKind::inout or direction = ParameterDirectionKind::return))
 	 * }}}
 	 */

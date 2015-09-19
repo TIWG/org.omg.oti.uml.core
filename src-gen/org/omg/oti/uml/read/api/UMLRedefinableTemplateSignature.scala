@@ -80,7 +80,7 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 		appendUnique(
 			redefinableElement_metaAttributes,
 			templateSignature_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -101,7 +101,7 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 		appendUnique(
 			redefinableElement_compositeMetaProperties,
 			templateSignature_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -122,7 +122,7 @@ trait UMLRedefinableTemplateSignature[Uml <: UML]
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
 			templateSignature_referenceMetaProperties,
-			Seq (RedefinableTemplateSignature_extendedSignature))
+			Seq[MetaPropertyEvaluator](RedefinableTemplateSignature_extendedSignature))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

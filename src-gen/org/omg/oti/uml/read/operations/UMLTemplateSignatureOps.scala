@@ -107,8 +107,6 @@ trait UMLTemplateSignatureOps[Uml <: UML] { self: UMLTemplateSignature[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body parameter->forAll( p1, p2 | (p1 <> p2 and p1.parameteredElement.oclIsKindOf(NamedElement) and p2.parameteredElement.oclIsKindOf(NamedElement) ) implies
-	 * }}}
-	 * {{{
 	 *    p1.parameteredElement.oclAsType(NamedElement).name <> p2.parameteredElement.oclAsType(NamedElement).name)
 	 * }}}
 	 */

@@ -65,8 +65,6 @@ trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
-	 * }}}
-	 * {{{
 	 * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
 	 * }}}
 	 */

@@ -104,7 +104,7 @@ trait UMLQualifierValue[Uml <: UML]
 	def qualifierValue_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			element_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -124,7 +124,7 @@ trait UMLQualifierValue[Uml <: UML]
 	def qualifierValue_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -144,7 +144,7 @@ trait UMLQualifierValue[Uml <: UML]
 	def qualifierValue_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			element_referenceMetaProperties,
-			Seq (QualifierValue_qualifier,
+			Seq[MetaPropertyEvaluator](QualifierValue_qualifier,
 				QualifierValue_value))
 
 	/**

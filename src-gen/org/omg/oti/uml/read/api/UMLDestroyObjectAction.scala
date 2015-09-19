@@ -100,7 +100,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def destroyObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq (DestroyObjectAction_isDestroyLinks,
+			Seq[MetaAttributeFunction](DestroyObjectAction_isDestroyLinks,
 				DestroyObjectAction_isDestroyOwnedObjects))
 
 	/**
@@ -121,7 +121,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def destroyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (DestroyObjectAction_target))
+			Seq[MetaPropertyEvaluator](DestroyObjectAction_target))
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -141,7 +141,7 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	def destroyObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

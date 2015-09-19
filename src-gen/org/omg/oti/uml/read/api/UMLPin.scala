@@ -92,7 +92,7 @@ trait UMLPin[Uml <: UML]
 		appendUnique(
 			multiplicityElement_metaAttributes,
 			objectNode_metaAttributes,
-			Seq (Pin_isControl))
+			Seq[MetaAttributeFunction](Pin_isControl))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLPin[Uml <: UML]
 		appendUnique(
 			multiplicityElement_compositeMetaProperties,
 			objectNode_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -134,7 +134,7 @@ trait UMLPin[Uml <: UML]
 		appendUnique(
 			multiplicityElement_referenceMetaProperties,
 			objectNode_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

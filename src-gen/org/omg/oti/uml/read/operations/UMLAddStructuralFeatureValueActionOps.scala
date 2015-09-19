@@ -69,20 +69,10 @@ trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructural
 	 *
 	 * {{{
 	 * OCL Body if not structuralFeature.isOrdered then insertAt = null
-	 * }}}
-	 * {{{
 	 * else 
-	 * }}}
-	 * {{{
 	 *   not isReplaceAll implies
-	 * }}}
-	 * {{{
 	 *   	insertAt<>null and 
-	 * }}}
-	 * {{{
 	 *   	insertAt->forAll(type=UnlimitedNatural and is(1,1.oclAsType(UnlimitedNatural)))
-	 * }}}
-	 * {{{
 	 * endif
 	 * }}}
 	 */

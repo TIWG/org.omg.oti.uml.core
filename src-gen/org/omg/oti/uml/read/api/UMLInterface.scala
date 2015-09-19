@@ -177,7 +177,7 @@ trait UMLInterface[Uml <: UML]
 	def interface_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			classifier_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -197,7 +197,7 @@ trait UMLInterface[Uml <: UML]
 	def interface_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_compositeMetaProperties,
-			Seq (Interface_nestedClassifier,
+			Seq[MetaPropertyEvaluator](Interface_nestedClassifier,
 				Interface_ownedAttribute,
 				Interface_ownedOperation,
 				Interface_ownedReception,
@@ -221,7 +221,7 @@ trait UMLInterface[Uml <: UML]
 	def interface_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			classifier_referenceMetaProperties,
-			Seq (Interface_redefinedInterface))
+			Seq[MetaPropertyEvaluator](Interface_redefinedInterface))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -115,7 +115,7 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			action_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -135,7 +135,7 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_compositeMetaProperties,
-			Seq (ReplyAction_replyValue,
+			Seq[MetaPropertyEvaluator](ReplyAction_replyValue,
 				ReplyAction_returnInformation))
 
 	/**
@@ -156,7 +156,7 @@ trait UMLReplyAction[Uml <: UML]
 	def replyAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			action_referenceMetaProperties,
-			Seq (ReplyAction_replyToCall))
+			Seq[MetaPropertyEvaluator](ReplyAction_replyToCall))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

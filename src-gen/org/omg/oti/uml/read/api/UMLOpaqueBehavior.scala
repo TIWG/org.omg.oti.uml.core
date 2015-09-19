@@ -100,7 +100,7 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	def opaqueBehavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			behavior_metaAttributes,
-			Seq (OpaqueBehavior_body,
+			Seq[MetaAttributeFunction](OpaqueBehavior_body,
 				OpaqueBehavior_language))
 
 	/**
@@ -121,7 +121,7 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	def opaqueBehavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -141,7 +141,7 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	def opaqueBehavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			behavior_referenceMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

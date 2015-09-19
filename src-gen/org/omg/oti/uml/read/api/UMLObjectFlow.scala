@@ -133,7 +133,7 @@ trait UMLObjectFlow[Uml <: UML]
 	def objectFlow_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			activityEdge_metaAttributes,
-			Seq (ObjectFlow_isMulticast,
+			Seq[MetaAttributeFunction](ObjectFlow_isMulticast,
 				ObjectFlow_isMultireceive))
 
 	/**
@@ -154,7 +154,7 @@ trait UMLObjectFlow[Uml <: UML]
 	def objectFlow_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityEdge_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -174,7 +174,7 @@ trait UMLObjectFlow[Uml <: UML]
 	def objectFlow_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityEdge_referenceMetaProperties,
-			Seq (ObjectFlow_selection,
+			Seq[MetaPropertyEvaluator](ObjectFlow_selection,
 				ObjectFlow_transformation))
 
 	/**

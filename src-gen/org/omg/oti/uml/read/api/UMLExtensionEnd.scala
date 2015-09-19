@@ -93,7 +93,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	def extensionEnd_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			property_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	def extensionEnd_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			property_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLExtensionEnd[Uml <: UML]
 	def extensionEnd_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			property_referenceMetaProperties,
-			Seq (ExtensionEnd_type))
+			Seq[MetaPropertyEvaluator](ExtensionEnd_type))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

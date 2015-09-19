@@ -615,14 +615,8 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body powertypeExtent->forAll( gs | 
-	 * }}}
-	 * {{{
 	 *   gs.generalization->forAll( gen | 
-	 * }}}
-	 * {{{
 	 *     not (gen.general = self) and not gen.general.allParents()->includes(self) and not (gen.specific = self) and not self.allParents()->includes(gen.specific) 
-	 * }}}
-	 * {{{
 	 *   ))
 	 * }}}
 	 */

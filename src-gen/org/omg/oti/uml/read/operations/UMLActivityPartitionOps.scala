@@ -139,41 +139,17 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (not isExternal and represents.oclIsKindOf(Classifier) and superPartition->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 * (
-	 * }}}
-	 * {{{
 	 *    let representedClassifier : Classifier = represents.oclAsType(Classifier) in
-	 * }}}
-	 * {{{
 	 *      superPartition.represents.oclIsKindOf(Classifier) and
-	 * }}}
-	 * {{{
 	 *       let representedSuperClassifier : Classifier = superPartition.represents.oclAsType(Classifier) in
-	 * }}}
-	 * {{{
 	 *        (representedSuperClassifier.oclIsKindOf(BehavioredClassifier) and representedClassifier.oclIsKindOf(Behavior) and 
-	 * }}}
-	 * {{{
 	 *         representedSuperClassifier.oclAsType(BehavioredClassifier).ownedBehavior->includes(representedClassifier.oclAsType(Behavior))) 
-	 * }}}
-	 * {{{
 	 *        or
-	 * }}}
-	 * {{{
 	 *        (representedSuperClassifier.oclIsKindOf(Class) and  representedSuperClassifier.oclAsType(Class).nestedClassifier->includes(representedClassifier))
-	 * }}}
-	 * {{{
 	 *        or
-	 * }}}
-	 * {{{
 	 *        (Association.allInstances()->exists(a | a.memberEnd->exists(end1 | end1.isComposite and end1.type = representedClassifier and 
-	 * }}}
-	 * {{{
 	 *                                                                       a.memberEnd->exists(end2 | end1<>end2 and end2.type = representedSuperClassifier))))
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -220,23 +196,11 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (represents.oclIsKindOf(Property) and superPartition->notEmpty() and superPartition.represents.oclIsKindOf(Classifier)) implies
-	 * }}}
-	 * {{{
 	 * (
-	 * }}}
-	 * {{{
 	 *   let representedClassifier : Classifier = superPartition.represents.oclAsType(Classifier)
-	 * }}}
-	 * {{{
 	 *   in
-	 * }}}
-	 * {{{
 	 *     superPartition.subpartition->reject(isExternal)->forAll(p | 
-	 * }}}
-	 * {{{
 	 *        p.represents.oclIsKindOf(Property) and p.owner=representedClassifier)
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */
@@ -271,17 +235,9 @@ trait UMLActivityPartitionOps[Uml <: UML] { self: UMLActivityPartition[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body (represents.oclIsKindOf(Property) and superPartition->notEmpty()) implies
-	 * }}}
-	 * {{{
 	 * (
-	 * }}}
-	 * {{{
 	 *   (superPartition.represents.oclIsKindOf(Classifier) and represents.owner = superPartition.represents) or 
-	 * }}}
-	 * {{{
 	 *   (superPartition.represents.oclIsKindOf(Property) and represents.owner = superPartition.represents.oclAsType(Property).type)
-	 * }}}
-	 * {{{
 	 * )
 	 * }}}
 	 */

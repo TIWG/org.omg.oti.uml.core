@@ -65,20 +65,10 @@ trait UMLWriteLinkActionOps[Uml <: UML] { self: UMLWriteLinkAction[Uml] =>
 	 *
 	 * {{{
 	 * OCL Body endData.end->exists(end |
-	 * }}}
-	 * {{{
 	 *   end.type=_'context' or
-	 * }}}
-	 * {{{
 	 *   end.visibility=VisibilityKind::public or 
-	 * }}}
-	 * {{{
 	 *   end.visibility=VisibilityKind::protected and
-	 * }}}
-	 * {{{
 	 *   endData.end->exists(other | 
-	 * }}}
-	 * {{{
 	 *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
 	 * }}}
 	 */

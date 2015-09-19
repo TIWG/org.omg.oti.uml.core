@@ -93,7 +93,7 @@ trait UMLConnectableElementTemplateParameter[Uml <: UML]
 	def connectableElementTemplateParameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			templateParameter_metaAttributes,
-			Seq ())
+			Seq[MetaAttributeFunction]())
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -113,7 +113,7 @@ trait UMLConnectableElementTemplateParameter[Uml <: UML]
 	def connectableElementTemplateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			templateParameter_compositeMetaProperties,
-			Seq ())
+			Seq[MetaPropertyEvaluator]())
 
 	/**
 	 * The XMI reference meta-properties relevant to this object
@@ -133,7 +133,7 @@ trait UMLConnectableElementTemplateParameter[Uml <: UML]
 	def connectableElementTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			templateParameter_referenceMetaProperties,
-			Seq (ConnectableElementTemplateParameter_parameteredElement))
+			Seq[MetaPropertyEvaluator](ConnectableElementTemplateParameter_parameteredElement))
 
 	/**
 	 * The XMI forward references from metamodel associations relevant to this object

@@ -180,7 +180,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
 			structuredActivityNode_metaAttributes,
-			Seq (LoopNode_isTestedFirst))
+			Seq[MetaAttributeFunction](LoopNode_isTestedFirst))
 
 	/**
 	 * The XMI composite meta-properties relevant to this object
@@ -200,7 +200,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_compositeMetaProperties,
-			Seq (LoopNode_loopVariable,
+			Seq[MetaPropertyEvaluator](LoopNode_loopVariable,
 				LoopNode_loopVariableInput,
 				LoopNode_result))
 
@@ -222,7 +222,7 @@ trait UMLLoopNode[Uml <: UML]
 	def loopNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			structuredActivityNode_referenceMetaProperties,
-			Seq (LoopNode_bodyOutput,
+			Seq[MetaPropertyEvaluator](LoopNode_bodyOutput,
 				LoopNode_bodyPart,
 				LoopNode_decider,
 				LoopNode_setupPart,

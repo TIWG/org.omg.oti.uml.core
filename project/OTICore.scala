@@ -160,7 +160,8 @@ object OTICore extends Build {
       ),
 
       // https://github.com/puffnfresh/wartremover
-      wartremoverErrors ++= Warts.unsafe,
+      //wartremoverErrors ++= Warts.unsafe,
+      //wartremoverWarnings ++= Warts.all,
 
       scalacOptions in(Compile, doc) ++= Seq(
         "-diagrams",
