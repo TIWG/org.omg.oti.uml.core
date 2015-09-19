@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLSubstitutionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A substitution is a relationship between two classifiers signifying that the substituting classifier complies with the contract specified by the contract classifier. This implies that instances of the substituting classifier are runtime substitutable where instances of the contract classifier are expected.
@@ -55,7 +60,9 @@ trait UMLSubstitution[Uml <: UML]
 	extends UMLRealization[Uml]
 	with UMLSubstitutionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The contract with which the substituting classifier complies.

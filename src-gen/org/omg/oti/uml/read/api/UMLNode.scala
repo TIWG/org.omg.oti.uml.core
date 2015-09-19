@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLNodeOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Node is computational resource upon which artifacts may be deployed for execution. Nodes can be interconnected through communication paths to define network structures.
@@ -56,7 +58,9 @@ trait UMLNode[Uml <: UML]
 	with UMLDeploymentTarget[Uml]
 	with UMLNodeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

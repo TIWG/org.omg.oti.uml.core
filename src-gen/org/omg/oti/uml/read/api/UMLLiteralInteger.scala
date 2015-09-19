@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLLiteralIntegerOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+import java.lang.Integer
 // End of user code
+
 
 /**
  * A LiteralInteger is a specification of an Integer value.
@@ -55,7 +58,9 @@ trait UMLLiteralInteger[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]
 	with UMLLiteralIntegerOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The specified Integer value.

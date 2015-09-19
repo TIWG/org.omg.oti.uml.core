@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLExceptionHandlerOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ExceptionHandler is an Element that specifies a handlerBody ExecutableNode to execute in case the specified exception occurs during the execution of the protected ExecutableNode.
@@ -55,7 +60,9 @@ trait UMLExceptionHandler[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLExceptionHandlerOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * An ObjectNode within the handlerBody. When the ExceptionHandler catches an exception, the exception token is placed on this ObjectNode, causing the handlerBody to execute.

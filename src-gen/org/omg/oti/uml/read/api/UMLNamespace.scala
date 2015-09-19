@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLNamespaceOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
@@ -55,7 +57,9 @@ trait UMLNamespace[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLNamespaceOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.

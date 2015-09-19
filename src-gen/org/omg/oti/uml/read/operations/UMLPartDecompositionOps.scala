@@ -40,10 +40,9 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLPartDecomposition, UML}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +53,9 @@ import scala.language.postfixOps
  */
 trait UMLPartDecompositionOps[Uml <: UML] { self: UMLPartDecomposition[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * Assume that within Interaction X, Lifeline L is of class C and decomposed to D. Within X there is a sequence of constructs along L (such constructs are CombinedFragments, InteractionUse and (plain) OccurrenceSpecifications). Then a corresponding sequence of constructs must appear within D, matched one-to-one in the same order. i) CombinedFragment covering L are matched with an extra-global CombinedFragment in D. ii) An InteractionUse covering L is matched with a global (i.e., covering all Lifelines) InteractionUse in D. iii) A plain OccurrenceSpecification on L is considered an actualGate that must be matched by a formalGate of D.

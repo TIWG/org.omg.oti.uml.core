@@ -41,6 +41,10 @@ package org.omg.oti.uml.read
 
 import org.omg.oti.uml.read.api._
 
+import scala.{Boolean,Int,Double}
+import scala.Predef.{require,String}
+import scala.collection.immutable.{Iterable,Seq}
+
 /**
  * A TagPropertyClassifierValue is an abstraction for an individual value in a collection of values
  * for a stereotype tag property or a Profile-defined Classifier attribute property.

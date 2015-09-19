@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLOpaqueActionOps
 
+import scala.Predef.String
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An OpaqueAction is an Action whose functionality is not specified within UML.
@@ -55,7 +58,9 @@ trait UMLOpaqueAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLOpaqueActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Provides a textual specification of the functionality of the Action, in one or more languages other than UML.

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLStructuralFeatureOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A StructuralFeature is a typed feature of a Classifier that specifies the structure of instances of the Classifier.
@@ -57,7 +60,9 @@ trait UMLStructuralFeature[Uml <: UML]
 	with UMLTypedElement[Uml]
 	with UMLStructuralFeatureOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * If isReadOnly is true, the StructuralFeature may not be written to after initialization.

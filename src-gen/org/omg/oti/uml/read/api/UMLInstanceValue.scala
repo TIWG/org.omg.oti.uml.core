@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLInstanceValueOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An InstanceValue is a ValueSpecification that identifies an instance.
@@ -55,7 +60,9 @@ trait UMLInstanceValue[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLInstanceValueOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The InstanceSpecification that represents the specified value.

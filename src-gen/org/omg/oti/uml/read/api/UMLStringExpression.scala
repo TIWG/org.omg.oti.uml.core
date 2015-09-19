@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLStringExpressionOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A StringExpression is an Expression that specifies a String value that is derived by concatenating a sequence of operands with String values or a sequence of subExpressions, some of which might be template parameters.
@@ -56,7 +59,9 @@ trait UMLStringExpression[Uml <: UML]
 	with UMLTemplateableElement[Uml]
 	with UMLStringExpressionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The StringExpressions that constitute this StringExpression.

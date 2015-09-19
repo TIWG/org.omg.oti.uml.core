@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLEventOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An Event is the specification of some occurrence that may potentially trigger effects by an object.
@@ -55,7 +57,8 @@ trait UMLEvent[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLEventOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * <!-- Start of user code doc for event_trigger -->

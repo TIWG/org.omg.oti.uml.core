@@ -40,11 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import scala.reflect.runtime.universe._
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLCommentOps
 
+import scala.Option
+import scala.Predef.String
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Comment is a textual annotation that can be attached to a set of Elements.
@@ -56,7 +59,9 @@ trait UMLComment[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLCommentOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * References the Element(s) being commented.

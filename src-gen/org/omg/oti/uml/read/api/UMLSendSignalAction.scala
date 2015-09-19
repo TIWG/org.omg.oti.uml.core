@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLSendSignalActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A SendSignalAction is an InvocationAction that creates a Signal instance and transmits it to the target object. Values from the argument InputPins are used to provide values for the attributes of the Signal. The requestor continues execution immediately after the Signal instance is sent out and cannot receive reply values.
@@ -55,7 +60,9 @@ trait UMLSendSignalAction[Uml <: UML]
 	extends UMLInvocationAction[Uml]
 	with UMLSendSignalActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Signal whose instance is transmitted to the target.

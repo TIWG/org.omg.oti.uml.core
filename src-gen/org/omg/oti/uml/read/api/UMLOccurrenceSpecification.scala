@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLOccurrenceSpecificationOps
 
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An OccurrenceSpecification is the basic semantic unit of Interactions. The sequences of occurrences specified by them are the meanings of Interactions.
@@ -55,7 +58,9 @@ trait UMLOccurrenceSpecification[Uml <: UML]
 	extends UMLInteractionFragment[Uml]
 	with UMLOccurrenceSpecificationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * References the Lifeline on which the OccurrenceSpecification appears.

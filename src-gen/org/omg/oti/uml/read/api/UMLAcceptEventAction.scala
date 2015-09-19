@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLAcceptEventActionOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An AcceptEventAction is an Action that waits for the occurrence of one or more specific Events.
@@ -55,7 +58,9 @@ trait UMLAcceptEventAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLAcceptEventActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Indicates whether there is a single OutputPin for a SignalEvent occurrence, or multiple OutputPins for attribute values of the instance of the Signal associated with a SignalEvent occurrence.

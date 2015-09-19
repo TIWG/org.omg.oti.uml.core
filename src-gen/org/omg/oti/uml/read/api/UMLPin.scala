@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLPinOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Pin is an ObjectNode and MultiplicityElement that provides input values to an Action or accepts output values from an Action.
@@ -56,7 +59,9 @@ trait UMLPin[Uml <: UML]
 	with UMLObjectNode[Uml]
 	with UMLPinOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Indicates whether the Pin provides data to the Action or just controls how the Action executes.

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLInteractionConstraintOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An InteractionConstraint is a Boolean expression that guards an operand in a CombinedFragment.
@@ -55,7 +58,9 @@ trait UMLInteractionConstraint[Uml <: UML]
 	extends UMLConstraint[Uml]
 	with UMLInteractionConstraintOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The maximum number of iterations of a loop

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLOpaqueBehaviorOps
 
+import scala.Predef.String
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
@@ -55,7 +58,9 @@ trait UMLOpaqueBehavior[Uml <: UML]
 	extends UMLBehavior[Uml]
 	with UMLOpaqueBehaviorOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies the behavior in one or more languages.

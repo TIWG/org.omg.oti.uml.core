@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDirectedRelationshipOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DirectedRelationship represents a relationship between a collection of source model Elements and a collection of target model Elements.
@@ -55,7 +57,8 @@ trait UMLDirectedRelationship[Uml <: UML]
 	extends UMLRelationship[Uml]
 	with UMLDirectedRelationshipOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * Specifies the source Element(s) of the DirectedRelationship.

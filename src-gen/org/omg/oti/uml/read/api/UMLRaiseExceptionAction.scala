@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLRaiseExceptionActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A RaiseExceptionAction is an Action that causes an exception to occur. The input value becomes the exception object.
@@ -55,7 +57,9 @@ trait UMLRaiseExceptionAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLRaiseExceptionActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

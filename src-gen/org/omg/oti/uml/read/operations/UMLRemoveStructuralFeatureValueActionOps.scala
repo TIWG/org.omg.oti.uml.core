@@ -40,10 +40,9 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLRemoveStructuralFeatureValueAction}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +53,9 @@ import scala.language.postfixOps
  */
 trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStructuralFeatureValueAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * RemoveStructuralFeatureValueActions removing a value from ordered, non-unique StructuralFeatures must have a single removeAt InputPin and no value InputPin, if isRemoveDuplicates is false. The removeAt InputPin must be of type Unlimited Natural with multiplicity 1..1. Otherwise, the Action has a value InputPin and no removeAt InputPin.

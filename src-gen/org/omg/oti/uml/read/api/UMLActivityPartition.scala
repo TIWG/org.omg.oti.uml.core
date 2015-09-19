@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLActivityPartitionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ActivityPartition is a kind of ActivityGroup for identifying ActivityNodes that have some characteristic in common.
@@ -55,7 +60,9 @@ trait UMLActivityPartition[Uml <: UML]
 	extends UMLActivityGroup[Uml]
 	with UMLActivityPartitionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Indicates whether the ActivityPartition groups other ActivityPartitions along a dimension.
@@ -156,7 +163,7 @@ trait UMLActivityPartition[Uml <: UML]
 	def activityPartition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			activityGroup_referenceMetaProperties,
-			Seq (ActivityPartition_edge,
+			Seq[MetaPropertyEvaluator] (ActivityPartition_edge,
 				ActivityPartition_node,
 				ActivityPartition_represents))
 

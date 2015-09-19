@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLInputPinOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An InputPin is a Pin that holds input values to be consumed by an Action.
@@ -55,7 +58,8 @@ trait UMLInputPin[Uml <: UML]
 	extends UMLPin[Uml]
 	with UMLInputPinOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * <!-- Start of user code doc for argument_invocationAction -->

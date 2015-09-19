@@ -40,10 +40,9 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLParameterDirectionKind, UMLActivityParameterNode}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.{None,Some}
 // End of user code
 
 /**
@@ -54,7 +53,9 @@ import scala.language.postfixOps
  */
 trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The parameter of an ActivityParameterNode must be from the containing Activity.

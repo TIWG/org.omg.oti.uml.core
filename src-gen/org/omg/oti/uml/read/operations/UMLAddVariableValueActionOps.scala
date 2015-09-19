@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Int
+import scala.Predef._
+import java.lang.Integer
 
-import org.omg.oti.uml.read.api.{UML, UMLAddVariableValueAction}
-
-import scala.language.postfixOps
 // End of user code
 
 /**
@@ -54,7 +56,9 @@ import scala.language.postfixOps
  */
 trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * AddVariableValueActions for ordered Variables must have a single InputPin for the insertion point with type UnlimtedNatural and multiplicity of 1..1 if isReplaceAll=false, otherwise the Action has no InputPin for the insertion point.

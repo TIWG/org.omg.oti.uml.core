@@ -40,10 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLFinalNode}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
 // End of user code
 
 /**
@@ -54,7 +52,9 @@ import scala.language.postfixOps
  */
 trait UMLFinalNodeOps[Uml <: UML] { self: UMLFinalNode[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * A FinalNode has no outgoing ActivityEdges.

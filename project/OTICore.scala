@@ -2,6 +2,7 @@ import java.io.File
 
 import com.banno.license.Plugin.LicenseKeys._
 import net.virtualvoid.sbt.graph.Plugin.graphSettings
+import wartremover._
 import sbt.Keys._
 import sbt._
 import com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._
@@ -17,7 +18,7 @@ object OTICore extends Build {
       case Elem(pf, "classpathentry", attrs, scope, child@_*) if attrs("kind") == Text("lib") =>
         val meta: MetaData = Attribute("exported", Text("true"), attrs)
         Elem(pf, "classpathentry", meta, scope, minimizeEmpty = true, child: _*)
-      case n                                                                                  => n
+      case n => n
     }
 
   lazy val otiSettings = Seq(
@@ -40,7 +41,7 @@ object OTICore extends Build {
     publishMavenStyle := true
   ) ++ ((Option.apply(System.getProperty("OTI_LOCAL_REPOSITORY")),
     Option.apply(System.getProperty("OTI_REMOTE_REPOSITORY"))) match {
-    case (Some(dir), _)    =>
+    case (Some(dir), _) =>
       if (new File(dir) / "settings.xml" exists) {
         val cache = new MavenCache("JPL-OMG", new File(dir))
         Seq(
@@ -56,10 +57,10 @@ object OTICore extends Build {
         publishTo := Some(repo),
         resolvers += repo)
     }
-    case _                 => sys
-                              .error("Set either -DOTI_LOCAL_REPOSITORY=<dir> or -DOTI_REMOTE_REPOSITORY=<url> " +
-                                     "where <dir> is a local Maven repository directory or " +
-                                     "<url> is a remote Maven repository URL")
+    case _ => sys
+              .error("Set either -DOTI_LOCAL_REPOSITORY=<dir> or -DOTI_REMOTE_REPOSITORY=<url> " +
+                     "where <dir> is a local Maven repository directory or " +
+                     "<url> is a remote Maven repository URL")
   })
 
   lazy val commonSettings =
@@ -136,8 +137,32 @@ object OTICore extends Build {
         % Versions.graph_dot % "compile" withSources() withJavadoc()
       ),
 
-      scalacOptions ++= List("-target:jvm-1.7", "-feature"),
-      scalacOptions in (Compile,doc) ++= Seq(
+      scalacOptions ++= List("-target:jvm-1.7"),
+
+      // https://tpolecat.github.io/2014/04/11/scalac-flags.html
+      scalacOptions ++= Seq(
+        "-deprecation",
+        "-encoding", "UTF-8", // yes, this is 2 args
+        "-feature",
+        "-language:existentials",
+        "-language:higherKinds",
+        "-language:implicitConversions",
+        "-unchecked",
+        "-Xfatal-warnings",
+        "-Xlint",
+        "-Yno-adapted-args",
+        "-Ywarn-dead-code", // N.B. doesn't work well with the ??? hole
+        "-Ywarn-numeric-widen",
+        "-Ywarn-value-discard",
+        "-Xfuture",
+        "-Ywarn-unused-import", // 2.11 only
+        "-Yno-imports" // no automatic imports at all; all symbols must be imported explicitly
+      ),
+
+      // https://github.com/puffnfresh/wartremover
+      wartremoverErrors ++= Warts.unsafe,
+
+      scalacOptions in(Compile, doc) ++= Seq(
         "-diagrams",
         "-doc-title", name.value,
         "-doc-root-content", baseDirectory.value + "/rootdoc.txt"

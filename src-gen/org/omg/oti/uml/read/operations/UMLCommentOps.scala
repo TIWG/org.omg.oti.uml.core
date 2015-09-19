@@ -40,10 +40,9 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLElement, UMLComment}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Int
+import scala.Option
 // End of user code
 
 /**
@@ -54,7 +53,9 @@ import scala.language.postfixOps
  */
 trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * <!-- Start of user code doc for ownedComment_owningElement -->

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLUseCaseOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A UseCase specifies a set of actions performed by its subjects, which yields an observable result that is of value for one or more Actors or other stakeholders of each subject.
@@ -55,7 +58,9 @@ trait UMLUseCase[Uml <: UML]
 	extends UMLBehavioredClassifier[Uml]
 	with UMLUseCaseOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The subjects to which this UseCase applies. Each subject or its parts realize all the UseCases that apply to it.

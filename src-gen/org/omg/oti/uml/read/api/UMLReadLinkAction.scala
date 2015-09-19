@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReadLinkActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ReadLinkAction is a LinkAction that navigates across an Association to retrieve the objects on one end.
@@ -55,7 +57,9 @@ trait UMLReadLinkAction[Uml <: UML]
 	extends UMLLinkAction[Uml]
 	with UMLReadLinkActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

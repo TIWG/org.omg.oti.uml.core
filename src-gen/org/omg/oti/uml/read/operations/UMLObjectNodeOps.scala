@@ -40,10 +40,9 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLObjectNode}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +53,9 @@ import scala.language.postfixOps
  */
 trait UMLObjectNodeOps[Uml <: UML] { self: UMLObjectNode[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * A selection Behavior has one input Parameter and one output Parameter. The input Parameter must have the same type as  or a supertype of the type of ObjectNode, be non-unique, and have multiplicity 0..*. The output Parameter must be the same or a subtype of the type of ObjectNode. The Behavior cannot have side effects.

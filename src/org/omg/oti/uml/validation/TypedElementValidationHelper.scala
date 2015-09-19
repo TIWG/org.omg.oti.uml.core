@@ -44,6 +44,9 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
 
+import scala.{Boolean,Enumeration,Option,None,Some}
+import scala.Predef.String
+import scala.collection.immutable._
 import scala.language.postfixOps
 
 /**

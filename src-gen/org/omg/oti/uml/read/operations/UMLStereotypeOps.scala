@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
+import scala.annotation
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.Predef.???
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +59,10 @@ import scala.language.postfixOps
  */
 trait UMLStereotypeOps[Uml <: UML] { self: UMLStereotype[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * Stereotype can change the graphical appearance of the extended model element by using attached icons. When this association is not null, it references the location of the icon content to be displayed within diagrams presenting the extended model elements.

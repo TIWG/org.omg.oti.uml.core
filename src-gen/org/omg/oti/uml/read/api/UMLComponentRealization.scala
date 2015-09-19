@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLComponentRealizationOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * Realization is specialized to (optionally) define the Classifiers that realize the contract offered by a Component in terms of its provided and required Interfaces. The Component forms an abstraction from these various Classifiers.
@@ -55,7 +58,9 @@ trait UMLComponentRealization[Uml <: UML]
 	extends UMLRealization[Uml]
 	with UMLComponentRealizationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Component that owns this ComponentRealization and which is implemented by its realizing Classifiers.

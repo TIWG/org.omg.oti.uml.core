@@ -40,11 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
-
+import scala.Boolean
+import scala.Int
+import scala.{Option,None,Some}
+import scala.Predef._
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +59,10 @@ import scala.language.postfixOps
  */
 trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The Class that owns this Property, if any.

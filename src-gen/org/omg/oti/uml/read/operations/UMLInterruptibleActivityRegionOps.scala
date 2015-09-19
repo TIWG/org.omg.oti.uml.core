@@ -40,10 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLActivityNode, UMLInterruptibleActivityRegion}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Predef.???
+import scala.collection.immutable.Set
 // End of user code
 
 /**
@@ -54,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLInterruptibleActivityRegionOps[Uml <: UML] { self: UMLInterruptibleActivityRegion[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * ActivityNodes immediately contained in the InterruptibleActivityRegion.

@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLExpansionRegionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ExpansionRegion is a StructuredActivityNode that executes its content multiple times corresponding to elements of input collection(s).
@@ -55,7 +57,9 @@ trait UMLExpansionRegion[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]
 	with UMLExpansionRegionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ExpansionNodes that hold the input collections for the ExpansionRegion.

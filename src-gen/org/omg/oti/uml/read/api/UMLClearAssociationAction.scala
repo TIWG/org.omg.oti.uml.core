@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLClearAssociationActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ClearAssociationAction is an Action that destroys all links of an Association in which a particular object participates.
@@ -55,7 +60,9 @@ trait UMLClearAssociationAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLClearAssociationActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Association to be cleared.

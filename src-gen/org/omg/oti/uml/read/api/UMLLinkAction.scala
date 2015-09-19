@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLLinkActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * LinkAction is an abstract class for all Actions that identify the links to be acted on using LinkEndData.
@@ -55,7 +57,9 @@ trait UMLLinkAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLLinkActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

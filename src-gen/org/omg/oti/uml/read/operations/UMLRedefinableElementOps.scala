@@ -40,10 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLRedefinableElement}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLRedefinableElementOps[Uml <: UML] { self: UMLRedefinableElement[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The query isConsistentWith() specifies, for any two RedefinableElements in a context in which redefinition is possible, whether redefinition would be logically consistent. By default, this is false; this operation must be overridden for subclasses of RedefinableElement to define the consistency conditions.

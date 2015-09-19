@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLJoinNodeOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A JoinNode is a ControlNode that synchronizes multiple flows.
@@ -55,7 +59,9 @@ trait UMLJoinNode[Uml <: UML]
 	extends UMLControlNode[Uml]
 	with UMLJoinNodeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Indicates whether incoming tokens having objects with the same identity are combined into one by the JoinNode.

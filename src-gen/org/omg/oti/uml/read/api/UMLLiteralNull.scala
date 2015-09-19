@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLLiteralNullOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A LiteralNull specifies the lack of a value.
@@ -55,7 +57,8 @@ trait UMLLiteralNull[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]
 	with UMLLiteralNullOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

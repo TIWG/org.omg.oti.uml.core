@@ -40,10 +40,17 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.Predef.{???,require,String}
+import scala.collection.Iterable
+import scala.collection.immutable.::
+import scala.collection.immutable.List
+import scala.collection.immutable.Nil
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +61,10 @@ import scala.language.postfixOps
  */
 trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * A Slot giving the value or values of a StructuralFeature of the instance. An InstanceSpecification can have one Slot per StructuralFeature of its Classifiers, including inherited features. It is not necessary to model a Slot for every StructuralFeature, in which case the InstanceSpecification is a partial description.

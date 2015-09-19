@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLStructuralFeatureActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * StructuralFeatureAction is an abstract class for all Actions that operate on StructuralFeatures.
@@ -55,7 +60,9 @@ trait UMLStructuralFeatureAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLStructuralFeatureActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The StructuralFeature to be read or written.

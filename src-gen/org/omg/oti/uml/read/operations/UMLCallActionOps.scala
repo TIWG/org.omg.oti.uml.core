@@ -40,11 +40,14 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLParameter, UMLCallAction}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
-
+import scala.Boolean
+import scala.{Option,Some}
+import scala.Predef.{Set => _, _}
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +58,9 @@ import scala.language.postfixOps
  */
 trait UMLCallActionOps[Uml <: UML] { self: UMLCallAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * Return the in and inout ownedParameters of the Behavior or Operation being called. (This operation is abstract and should be overridden by subclasses of CallAction.)

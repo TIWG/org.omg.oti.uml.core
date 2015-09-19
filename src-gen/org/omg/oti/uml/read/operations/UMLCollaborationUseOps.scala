@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLClassifier, UML, UMLDependency, UMLCollaborationUse}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +58,10 @@ import scala.language.postfixOps
  */
 trait UMLCollaborationUseOps[Uml <: UML] { self: UMLCollaborationUse[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * A mapping between features of the Collaboration and features of the owning Classifier. This mapping indicates which ConnectableElement of the Classifier plays which role(s) in the Collaboration. A ConnectableElement may be bound to multiple roles in the same CollaborationUse (that is, it may play multiple roles).

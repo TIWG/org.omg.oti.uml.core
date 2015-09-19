@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTemplateParameterSubstitutionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A TemplateParameterSubstitution relates the actual parameter to a formal TemplateParameter as part of a template binding.
@@ -55,7 +60,9 @@ trait UMLTemplateParameterSubstitution[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateParameterSubstitutionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ParameterableElement that is the actual parameter for this TemplateParameterSubstitution.

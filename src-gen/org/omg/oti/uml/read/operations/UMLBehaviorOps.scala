@@ -40,12 +40,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
-import javax.lang.model.element.NestingKind
-
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -56,7 +57,10 @@ import javax.lang.model.element.NestingKind
  */
 trait UMLBehaviorOps[Uml <: UML] { self: UMLBehavior[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The BehavioredClassifier that is the context for the execution of the Behavior. A Behavior that is directly owned as a nestedClassifier does not have a context. Otherwise, to determine the context of a Behavior, find the first BehavioredClassifier reached by following the chain of owner relationships from the Behavior, if any. If there is such a BehavioredClassifier, then it is the context, unless it is itself a Behavior with a non-empty context, in which case that is also the context for the original Behavior. For example, following this algorithm, the context of an entry Behavior in a StateMachine is the BehavioredClassifier that owns the StateMachine. The features of the context BehavioredClassifier as well as the Elements visible to the context Classifier are visible to the Behavior.

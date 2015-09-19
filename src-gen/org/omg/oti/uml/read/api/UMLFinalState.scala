@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLFinalStateOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A special kind of State, which, when entered, signifies that the enclosing Region has completed. If the enclosing Region is directly contained in a StateMachine and all other Regions in that StateMachine also are completed, then it means that the entire StateMachine behavior is completed.
@@ -55,7 +57,8 @@ trait UMLFinalState[Uml <: UML]
 	extends UMLState[Uml]
 	with UMLFinalStateOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

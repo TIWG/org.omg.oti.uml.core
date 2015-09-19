@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLFinalNodeOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A FinalNode is an abstract ControlNode at which a flow in an Activity stops.
@@ -55,7 +57,8 @@ trait UMLFinalNode[Uml <: UML]
 	extends UMLControlNode[Uml]
 	with UMLFinalNodeOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

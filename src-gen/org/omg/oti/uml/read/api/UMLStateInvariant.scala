@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLStateInvariantOps
 
+import scala.collection.Iterable
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
@@ -55,7 +57,9 @@ trait UMLStateInvariant[Uml <: UML]
 	extends UMLInteractionFragment[Uml]
 	with UMLStateInvariantOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * References the Lifeline on which the StateInvariant appears.

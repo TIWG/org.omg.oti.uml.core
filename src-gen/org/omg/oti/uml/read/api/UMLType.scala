@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTypeOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Type constrains the values represented by a TypedElement.
@@ -55,7 +58,8 @@ trait UMLType[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLTypeOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * Specifies the owning Package of this Type, if any.

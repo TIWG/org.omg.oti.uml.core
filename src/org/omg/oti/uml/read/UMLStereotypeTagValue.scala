@@ -42,10 +42,10 @@ package org.omg.oti.uml.read
 import org.omg.oti.uml.xmi.IDGenerator
 import org.omg.oti.uml.read.api.UML
 import org.omg.oti.uml.read.api.UMLElement
-import org.omg.oti.uml.read.api.UMLEnumerationLiteral
 import org.omg.oti.uml.read.api.UMLProperty
 import org.omg.oti.uml.read.api._
 
+import scala.collection.Iterable
 import scala.collection.immutable.StringOps
 import scala.util.Try
 

@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * InteractionOperatorKind is an enumeration designating the different kinds of operators of CombinedFragments. The InteractionOperand defines the type of operator of a CombinedFragment.
  *

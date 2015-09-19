@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDurationOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
@@ -55,7 +58,9 @@ trait UMLDuration[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLDurationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A ValueSpecification that evaluates to the value of the Duration.

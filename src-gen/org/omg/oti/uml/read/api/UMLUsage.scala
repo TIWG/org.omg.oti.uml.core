@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLUsageOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Usage is a Dependency in which the client Element requires the supplier Element (or set of Elements) for its full implementation or operation.
@@ -55,7 +57,8 @@ trait UMLUsage[Uml <: UML]
 	extends UMLDependency[Uml]
 	with UMLUsageOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

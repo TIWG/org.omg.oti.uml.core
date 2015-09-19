@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLExceptionHandler, UMLExecutableNode}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +58,10 @@ import scala.language.postfixOps
  */
 trait UMLExceptionHandlerOps[Uml <: UML] { self: UMLExceptionHandler[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The ExecutableNode protected by the ExceptionHandler. If an exception propagates out of the protectedNode and has a type matching one of the exceptionTypes, then it is caught by this ExceptionHandler.

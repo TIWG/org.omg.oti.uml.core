@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReadLinkObjectEndActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ReadLinkObjectEndAction is an Action that retrieves an end object from a link object.
@@ -55,7 +60,9 @@ trait UMLReadLinkObjectEndAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReadLinkObjectEndActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Association end to be read.

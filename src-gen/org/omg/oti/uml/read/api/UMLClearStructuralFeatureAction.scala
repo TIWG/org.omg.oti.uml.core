@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLClearStructuralFeatureActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ClearStructuralFeatureAction is a StructuralFeatureAction that removes all values of a StructuralFeature.
@@ -55,7 +57,9 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	extends UMLStructuralFeatureAction[Uml]
 	with UMLClearStructuralFeatureActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

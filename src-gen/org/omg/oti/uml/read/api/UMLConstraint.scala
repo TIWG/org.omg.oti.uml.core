@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLConstraintOps
 
+import scala.Option
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
@@ -55,7 +57,9 @@ trait UMLConstraint[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLConstraintOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ordered set of Elements referenced by this Constraint.

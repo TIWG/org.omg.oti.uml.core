@@ -41,6 +41,10 @@ package org.omg.oti.uml
 
 import org.omg.oti.uml.read.api.{UML, UMLElement}
 
+import scala.Predef.String
+import scala.collection.Iterable
+import java.lang.Exception
+
 trait UMLException[Uml <: UML] extends Exception
 
 case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]

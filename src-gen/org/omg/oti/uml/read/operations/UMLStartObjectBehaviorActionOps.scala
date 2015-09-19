@@ -40,10 +40,11 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLBehavior, UML, UMLParameter, UMLStartObjectBehaviorAction}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +55,9 @@ import scala.language.postfixOps
  */
 trait UMLStartObjectBehaviorActionOps[Uml <: UML] { self: UMLStartObjectBehaviorAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * If the type of the object InputPin is a Behavior, then that Behavior. Otherwise, if the type of the object InputPin is a BehavioredClassifier, then the classifierBehavior of that BehavioredClassifier.

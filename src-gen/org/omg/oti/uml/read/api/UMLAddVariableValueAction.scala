@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLAddVariableValueActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An AddVariableValueAction is a WriteVariableAction for adding values to a Variable.
@@ -55,7 +59,9 @@ trait UMLAddVariableValueAction[Uml <: UML]
 	extends UMLWriteVariableAction[Uml]
 	with UMLAddVariableValueActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The InputPin that gives the position at which to insert a new value or move an existing value in ordered Variables. The type of the insertAt InputPin is UnlimitedNatural, but the value cannot be zero. It is omitted for unordered Variables.

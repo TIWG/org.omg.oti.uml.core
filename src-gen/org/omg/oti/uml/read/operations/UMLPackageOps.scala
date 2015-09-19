@@ -42,14 +42,18 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml._
-import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
-
 import scala.language.postfixOps
-import scala.util.Try
-import scala.util.Success
+import scala.annotation
+import scala.Boolean
+import scala.{Option, None, Some}
+import scala.Predef.{Set => _, Map => _,_}
+import scala.collection.immutable._
+import scala.collection.Iterable
 import scala.util.Failure
+import scala.util.Success
+import scala.util.Try
 
 // End of user code
 
@@ -59,139 +63,151 @@ import scala.util.Failure
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
+trait UMLPackageOps[Uml <: UML] {
+  self: UMLPackage[Uml] =>
 
-	import self.ops._
+  // Start of user code for class imports
 
-	/**
-	 * References the packaged elements that are Packages.
-	 *
-	 * <!-- Start of user code doc for nestedPackage -->
+  import self.ops._
+  import Option._
+  import Iterable._
+  import Traversable._
+
+  // End of user code
+
+
+  /**
+   * References the packaged elements that are Packages.
+   *
+   * <!-- Start of user code doc for nestedPackage -->
    * <!-- End of user code doc for nestedPackage -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.nestingPackage
-	 * {{{
-	 * OCL Body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
-	 * }}}
-	 */
-	def nestedPackage: Set[UMLPackage[Uml]] = {
-		// Start of user code for "nestedPackage"
+   *
+   * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.nestingPackage
+   * {{{
+   * OCL Body result = (packagedElement->select(oclIsKindOf(Package))->collect(oclAsType(Package))->asSet())
+   * }}}
+   */
+  def nestedPackage: Set[UMLPackage[Uml]] = {
+    // Start of user code for "nestedPackage"
     packagedElement
     .selectByKindOf { case x: UMLPackage[Uml] => x }
     // End of user code
-	}
+  }
 
-	/**
-	 * References the Stereotypes that are owned by the Package.
-	 *
-	 * <!-- Start of user code doc for ownedStereotype -->
+  /**
+   * References the Stereotypes that are owned by the Package.
+   *
+   * <!-- Start of user code doc for ownedStereotype -->
    * <!-- End of user code doc for ownedStereotype -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.ownedStereotype_owningPackage
-	 * {{{
-	 * OCL Body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
-	 * }}}
-	 */
-	def ownedStereotype: Set[UMLStereotype[Uml]] = packagedElement.selectByKindOf { case x: UMLStereotype[Uml] => x }
+   *
+   * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLStereotype.ownedStereotype_owningPackage
+   * {{{
+   * OCL Body result = (packagedElement->select(oclIsKindOf(Stereotype))->collect(oclAsType(Stereotype))->asSet())
+   * }}}
+   */
+  def ownedStereotype: Set[UMLStereotype[Uml]] = packagedElement.selectByKindOf { case x: UMLStereotype[Uml] => x }
 
-	/**
-	 * References the packaged elements that are Types.
-	 *
-	 * <!-- Start of user code doc for ownedType -->
+  /**
+   * References the packaged elements that are Types.
+   *
+   * <!-- Start of user code doc for ownedType -->
    * <!-- End of user code doc for ownedType -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLType._package
-	 * {{{
-	 * OCL Body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
-	 * }}}
-	 */
-	def ownedType: Set[UMLType[Uml]] = {
-		// Start of user code for "ownedType"
+   *
+   * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLType._package
+   * {{{
+   * OCL Body result = (packagedElement->select(oclIsKindOf(Type))->collect(oclAsType(Type))->asSet())
+   * }}}
+   */
+  def ownedType: Set[UMLType[Uml]] = {
+    // Start of user code for "ownedType"
     packagedElement
     .selectByKindOf { case x: UMLType[Uml] => x }
     // End of user code
-	}
+  }
 
-	/**
-	 * References the PackageMerges that are owned by this Package.
-	 *
-	 * <!-- Start of user code doc for packageMerge -->
+  /**
+   * References the PackageMerges that are owned by this Package.
+   *
+   * <!-- Start of user code doc for packageMerge -->
    * <!-- End of user code doc for packageMerge -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.receivingPackage
-	 */
-	def packageMerge: Set[UMLPackageMerge[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageMerge[Uml] => x }
+   *
+   * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.receivingPackage
+   */
+  def packageMerge: Set[UMLPackageMerge[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageMerge[Uml] => x }
 
-	/**
-	 * References the ProfileApplications that indicate which profiles have been applied to the Package.
-	 *
-	 * <!-- Start of user code doc for profileApplication -->
+  /**
+   * References the ProfileApplications that indicate which profiles have been applied to the Package.
+   *
+   * <!-- Start of user code doc for profileApplication -->
    * <!-- End of user code doc for profileApplication -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProfileApplication.applyingPackage
-	 */
-	def profileApplication: Set[UMLProfileApplication[Uml]] = ownedElement.selectByKindOf { case x: UMLProfileApplication[Uml] => x }
+   *
+   * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLProfileApplication.applyingPackage
+   */
+  def profileApplication: Set[UMLProfileApplication[Uml]] = ownedElement
+                                                            .selectByKindOf { case x: UMLProfileApplication[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for importedPackage_packageImport -->
+  /**
+   * <!-- Start of user code doc for importedPackage_packageImport -->
    * <!-- End of user code doc for importedPackage_packageImport -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importedPackage
-	 */
-	def importedPackage_packageImport: Set[UMLPackageImport[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLPackageImport[Uml] => x }
+   *
+   * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importedPackage
+   */
+  def importedPackage_packageImport: Set[UMLPackageImport[Uml]] = target_directedRelationship
+                                                                  .selectByKindOf { case x: UMLPackageImport[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for mergedPackage_packageMerge -->
+  /**
+   * <!-- Start of user code doc for mergedPackage_packageMerge -->
    * <!-- End of user code doc for mergedPackage_packageMerge -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.mergedPackage
-	 */
-	def mergedPackage_packageMerge: Set[UMLPackageMerge[Uml]] = target_directedRelationship.selectByKindOf { case x: UMLPackageMerge[Uml] => x }
+   *
+   * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+   * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageMerge.mergedPackage
+   */
+  def mergedPackage_packageMerge: Set[UMLPackageMerge[Uml]] = target_directedRelationship
+                                                              .selectByKindOf { case x: UMLPackageMerge[Uml] => x }
 
-	/**
-	 * The query allApplicableStereotypes() returns all the directly or indirectly owned stereotypes, including stereotypes contained in sub-profiles.
-	 *
-	 * <!-- Start of user code doc for allApplicableStereotypes -->
+  /**
+   * The query allApplicableStereotypes() returns all the directly or indirectly owned stereotypes, including stereotypes contained in sub-profiles.
+   *
+   * <!-- Start of user code doc for allApplicableStereotypes -->
    * <!-- End of user code doc for allApplicableStereotypes -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (let ownedPackages : Bag(Package) = ownedMember->select(oclIsKindOf(Package))->collect(oclAsType(Package)) in
-	 *  ownedStereotype->union(ownedPackages.allApplicableStereotypes())->flatten()->asSet()
-	 * )
-	 * }}}
-	 */
-	def allApplicableStereotypes: Set[UMLStereotype[Uml]] = {
-		// Start of user code for "allApplicableStereotypes"
+   *
+   * UML Operation ordered="false" unique="true" multiplicity="0..*"
+   * {{{
+   * OCL Body result = (let ownedPackages : Bag(Package) = ownedMember->select(oclIsKindOf(Package))->collect(oclAsType(Package)) in
+   *  ownedStereotype->union(ownedPackages.allApplicableStereotypes())->flatten()->asSet()
+   * )
+   * }}}
+   */
+  def allApplicableStereotypes: Set[UMLStereotype[Uml]] = {
+    // Start of user code for "allApplicableStereotypes"
     allOwnedElements
     .selectByKindOf { case s: UMLStereotype[Uml] => s } toSet
     // End of user code
-	}
+  }
 
-	/**
-	 * The query containingProfile() returns the closest profile directly or indirectly containing this package (or this package itself, if it is a profile).
-	 *
-	 * <!-- Start of user code doc for containingProfile -->
+  /**
+   * The query containingProfile() returns the closest profile directly or indirectly containing this package (or this package itself, if it is a profile).
+   *
+   * <!-- Start of user code doc for containingProfile -->
    * <!-- End of user code doc for containingProfile -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
-	 * {{{
-	 * OCL Body result = (if self.oclIsKindOf(Profile) then 
-	 * 	self.oclAsType(Profile)
-	 * else
-	 * 	self.namespace.oclAsType(Package).containingProfile()
-	 * endif)
-	 * }}}
-	 */
-	def containingProfile: Option[UMLProfile[Uml]] = {
-		// Start of user code for "containingProfile"
+   *
+   * UML Operation ordered="false" unique="true" multiplicity="0..1"
+   * {{{
+   * OCL Body result = (if self.oclIsKindOf(Profile) then
+   * 	self.oclAsType(Profile)
+   * else
+   * 	self.namespace.oclAsType(Package).containingProfile()
+   * endif)
+   * }}}
+   */
+  def containingProfile: Option[UMLProfile[Uml]] = {
+    // Start of user code for "containingProfile"
     self match {
       case pf: UMLProfile[Uml] =>
         Some(pf)
@@ -203,52 +219,52 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         } yield pf
     }
     // End of user code
-	}
+  }
 
-	/**
-	 * The query mustBeOwned() indicates whether elements of this type must have an owner.
-	 *
-	 * <!-- Start of user code doc for mustBeOwned -->
+  /**
+   * The query mustBeOwned() indicates whether elements of this type must have an owner.
+   *
+   * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (false)
-	 * }}}
-	 */
-	override def mustBeOwned: Boolean = {
-		// Start of user code for "mustBeOwned"
+   *
+   * UML Operation ordered="false" unique="true" multiplicity="1..1"
+   * {{{
+   * OCL Body result = (false)
+   * }}}
+   */
+  override def mustBeOwned: Boolean = {
+    // Start of user code for "mustBeOwned"
     false
     // End of user code
-	}
+  }
 
-	/**
-	 * If an element that is owned by a package has visibility, it is public or private.
-	 *
-	 * <!-- Start of user code doc for validate_elements_public_or_private -->
+  /**
+   * If an element that is owned by a package has visibility, it is public or private.
+   *
+   * <!-- Start of user code doc for validate_elements_public_or_private -->
    * <!-- End of user code doc for validate_elements_public_or_private -->
-	 *
-	 * {{{
-	 * OCL Body packagedElement->forAll(e | e.visibility<> null implies e.visibility = VisibilityKind::public or e.visibility = VisibilityKind::private)
-	 * }}}
-	 */
-	def validate_elements_public_or_private: Boolean = {
-		// Start of user code for "elements_public_or_private"
+   *
+   * {{{
+   * OCL Body packagedElement->forAll(e | e.visibility<> null implies e.visibility = VisibilityKind::public or e.visibility = VisibilityKind::private)
+   * }}}
+   */
+  def validate_elements_public_or_private: Boolean = {
+    // Start of user code for "elements_public_or_private"
     packagedElement
     .forall {
-              pe =>
-                pe.visibility match {
-                  case None                             => true
-                  case Some(UMLVisibilityKind.public)   => true
-                  case Some(UMLVisibilityKind._private) => true
-                  case _                                => false
-                }
+      pe =>
+        pe.visibility match {
+          case None => true
+          case Some(UMLVisibilityKind.public) => true
+          case Some(UMLVisibilityKind._private) => true
+          case _ => false
+        }
 
-            }
+    }
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   def oti_packageURI: Option[String] =
     getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption
@@ -298,12 +314,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     oti_documentURL match {
       case Some(url) =>
         Some(url)
-      case None      =>
+      case None =>
         getEffectiveURI match {
           case Some(uri) =>
             if (uri.endsWith(".xmi")) Some(uri)
             else Some(uri + ".xmi")
-          case None      =>
+          case None =>
             None
         }
     }
@@ -343,7 +359,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def allDirectlyVisibleMembersTransitivelyAccessibleExceptNestingPackagesAndAppliedProfiles
   : Set[UMLPackageableElement[Uml]] =
     allVisibleMembersAccessibleTransitively ++
-      allDirectlyAppliedProfilesExceptNestingPackages.flatMap(_.allVisibleMembersTransitively)
+    allDirectlyAppliedProfilesExceptNestingPackages.flatMap(_.allVisibleMembersTransitively)
 
   /**
    * Calculates the set of all profiles directly or indirectly applied to the package.
@@ -359,7 +375,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively
   : Set[UMLProfile[Uml]] =
     allDirectlyAppliedProfilesIncludingNestingPackagesTransitively ++
-      allDirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleProfilesTransitively)
+    allDirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleProfilesTransitively)
 
   /**
    * For a Package, allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles is
@@ -368,7 +384,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles
   : Set[UMLPackageableElement[Uml]] =
     allVisibleMembersAccessibleTransitively ++
-      allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleMembersTransitively)
+    allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleMembersTransitively)
 
   /**
    * For the package and owned elements, calculates the map of
@@ -388,18 +404,21 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       pf2spMap flatMap { case (pf, sps) => sps map { case (s, p) => (pf, s, p, e) } }
     }
 
-    val appliedStereotypesByProfile = tuples.groupBy(_._1).map {
-                                                                 case (pf, v) =>
-                                                                   val speTuples = v
-                                                                                   .map { case (_, s, p, e) => ((s, p), e) }
-                                                                   val sp2speMap = speTuples.groupBy(_._1)
-                                                                   val sp2es = sp2speMap
-                                                                               .map { case (sp, speSet) => (sp, speSet
-                                                                                                                .map(_
-                                                                                                                     ._2))
-                                                                                    }
-                                                                   (pf -> sp2es)
-                                                               }
+    val appliedStereotypesByProfile =
+      tuples.groupBy(_._1).map {
+        case (pf, v) =>
+          val speTuples = v.map {
+            case (_, s, p, e) =>
+              ((s, p), e)
+          }
+          val sp2speMap = speTuples.groupBy(_._1)
+          val sp2es =
+            sp2speMap.map {
+              case (sp, speSet) =>
+                (sp, speSet.map(_._2))
+            }
+          (pf -> sp2es)
+      }
 
     appliedStereotypesByProfile
   }
@@ -407,9 +426,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
   : Set[UMLPackageableElement[Uml]] =
     (Stream(this) ++ allOwnedElements) flatMap
-      ((e) => Set(e) ++ e.allForwardReferencesFromStereotypeTagProperties) flatMap
-      ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
-      (_.allForwardReferencesToImportablePackageableElements) filter (!this.isAncestorOf(_)) toSet
+    ((e) => Set(e) ++ e.allForwardReferencesFromStereotypeTagProperties) flatMap
+    ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
+    (_.allForwardReferencesToImportablePackageableElements) filter (!this.isAncestorOf(_)) toSet
 
   /**
    * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
@@ -420,11 +439,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   (implicit idg: IDGenerator[Uml])
   : Try[Set[UMLPackage[Uml]]] =
     forwardReferencesBeyondPackageScope match {
-      case Failure(t)       => Failure(t)
+      case Failure(t) => Failure(t)
       case Success(triples) =>
         val ps = triples map
-          (_.obj) flatMap
-          (getPackageOrProfileOwner(_))
+                 (_.obj) flatMap
+                 (getPackageOrProfileOwner(_))
         Success(ps)
     }
 
@@ -447,29 +466,29 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
                                                                        acc: Set[RelationTriple[Uml]],
                                                                        triples: Try[Set[RelationTriple[Uml]]]): Try[Set[RelationTriple[Uml]]] =
       triples match {
-        case Failure(t)  => Failure(t)
+        case Failure(t) => Failure(t)
         case Success(ts) =>
           if (ts.isEmpty) Success(acc)
           else {
             val (th, tr: Set[RelationTriple[Uml]]) = (ts.head, ts.tail)
             if (visited.contains(th.obj))
               followReferencesUntilPackageScopeBoundary(
-                                                         acc,
-                                                         Success(tr))
+                acc,
+                Success(tr))
             else {
               visited += th.sub
               if (scope.contains(th.obj))
                 th.obj.forwardRelationTriples match {
-                  case Failure(t)                                     => Failure(t)
+                  case Failure(t) => Failure(t)
                   case Success(nextTriples: Set[RelationTriple[Uml]]) =>
                     followReferencesUntilPackageScopeBoundary(
-                                                               acc,
-                                                               Success(nextTriples ++ tr))
+                      acc,
+                      Success(nextTriples ++ tr))
                 }
               else
                 followReferencesUntilPackageScopeBoundary(
-                                                           acc + th,
-                                                           Success(tr))
+                  acc + th,
+                  Success(tr))
             }
           }
       }
@@ -483,4 +502,6 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   }
 
   // End of user code
-} //UMLPackageOps
+}
+
+//UMLPackageOps

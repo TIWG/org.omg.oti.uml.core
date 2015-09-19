@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * CallConcurrencyKind is an Enumeration used to specify the semantics of concurrent calls to a BehavioralFeature.
  *

@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLLiteralStringOps
 
+import scala.Predef.String
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A LiteralString is a specification of a String value.
@@ -55,7 +59,9 @@ trait UMLLiteralString[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]
 	with UMLLiteralStringOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The specified String value.

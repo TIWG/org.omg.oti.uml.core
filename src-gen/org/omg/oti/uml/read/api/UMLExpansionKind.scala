@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * ExpansionKind is an enumeration type used to specify how an ExpansionRegion executes its contents.
  *

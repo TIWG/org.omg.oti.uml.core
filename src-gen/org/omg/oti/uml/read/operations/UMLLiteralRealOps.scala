@@ -40,10 +40,11 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLLiteralReal}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Double
+import scala.Option
+import scala.Predef.String
 // End of user code
 
 /**
@@ -54,7 +55,9 @@ import scala.language.postfixOps
  */
 trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The query isComputable() is redefined to be true.

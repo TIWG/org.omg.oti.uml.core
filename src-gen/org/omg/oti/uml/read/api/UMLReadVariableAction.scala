@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReadVariableActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ReadVariableAction is a VariableAction that retrieves the values of a Variable.
@@ -55,7 +57,9 @@ trait UMLReadVariableAction[Uml <: UML]
 	extends UMLVariableAction[Uml]
 	with UMLReadVariableActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

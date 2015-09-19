@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLPackageableElementOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A PackageableElement is a NamedElement that may be owned directly by a Package. A PackageableElement is also able to serve as the parameteredElement of a TemplateParameter.
@@ -56,7 +59,8 @@ trait UMLPackageableElement[Uml <: UML]
 	with UMLParameterableElement[Uml]
 	with UMLPackageableElementOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * A PackageableElement must have a visibility specified if it is owned by a Namespace. The default visibility is public.

@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDecisionNodeOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DecisionNode is a ControlNode that chooses between outgoing ActivityEdges for the routing of tokens.
@@ -55,7 +60,9 @@ trait UMLDecisionNode[Uml <: UML]
 	extends UMLControlNode[Uml]
 	with UMLDecisionNodeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A Behavior that is executed to provide an input to guard ValueSpecifications on ActivityEdges outgoing from the DecisionNode.

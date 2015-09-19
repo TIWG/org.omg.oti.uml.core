@@ -42,6 +42,11 @@ package org.omg.oti.uml.validation
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.{Boolean,Enumeration,Option,None,Some}
+import scala.Predef.{Integer2int,String,_}
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+
 /** The different categories of validation for default values
   *
   * @see MOF 2.5, Section 12.4 EMOF Constraints

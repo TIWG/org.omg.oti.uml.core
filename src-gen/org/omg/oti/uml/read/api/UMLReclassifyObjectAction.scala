@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReclassifyObjectActionOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
@@ -55,7 +58,9 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReclassifyObjectActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies whether existing Classifiers should be removed before adding the new Classifiers.

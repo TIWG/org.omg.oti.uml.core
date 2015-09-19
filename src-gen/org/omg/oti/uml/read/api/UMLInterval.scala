@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLIntervalOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An Interval defines the range between two ValueSpecifications.
@@ -55,7 +60,9 @@ trait UMLInterval[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLIntervalOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Refers to the ValueSpecification denoting the maximum value of the range.

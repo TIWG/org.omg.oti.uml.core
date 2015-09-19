@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLSlotOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.
@@ -55,7 +60,9 @@ trait UMLSlot[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLSlotOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The StructuralFeature that specifies the values that may be held by the Slot.

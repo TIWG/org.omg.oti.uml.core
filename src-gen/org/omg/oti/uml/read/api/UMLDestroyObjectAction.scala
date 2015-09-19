@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDestroyObjectActionOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DestroyObjectAction is an Action that destroys objects.
@@ -55,7 +58,9 @@ trait UMLDestroyObjectAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLDestroyObjectActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies whether links in which the object participates are destroyed along with the object.

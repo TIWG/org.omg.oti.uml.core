@@ -39,11 +39,12 @@
  */
 package org.omg.oti.uml.validation
 
-import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.util._
+import scala.{Boolean,Enumeration,Option,None,Some}
+import scala.Predef.String
+import scala.collection.immutable._
 
 /**
  * The different categories of validation for the name of named elements.

@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDestroyLinkActionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DestroyLinkAction is a WriteLinkAction that destroys links (including link objects).
@@ -55,7 +57,9 @@ trait UMLDestroyLinkAction[Uml <: UML]
 	extends UMLWriteLinkAction[Uml]
 	with UMLDestroyLinkActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

@@ -40,11 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLParameter, UMLCallBehaviorAction}
-
-import scala.language.postfixOps
-
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.{None,Some}
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLCallBehaviorActionOps[Uml <: UML] { self: UMLCallBehaviorAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * Return the in and inout ownedParameters of the Behavior being called.

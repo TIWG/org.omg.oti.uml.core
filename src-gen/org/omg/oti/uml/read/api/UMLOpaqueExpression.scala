@@ -40,10 +40,16 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLOpaqueExpressionOps
 
+import scala.Boolean
+import scala.Option
+import scala.Predef.String
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
@@ -55,7 +61,9 @@ trait UMLOpaqueExpression[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLOpaqueExpressionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies the behavior of the OpaqueExpression as a UML Behavior.

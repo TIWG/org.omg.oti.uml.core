@@ -40,13 +40,11 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLLiteralNull}
-
-import scala.language.postfixOps
-import scala.util.Try
-import scala.util.Failure
-import scala.util.Success
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Option
+import scala.Some
+import scala.Predef.String
 // End of user code
 
 /**
@@ -57,7 +55,9 @@ import scala.util.Success
  */
 trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The query isComputable() is redefined to be true.

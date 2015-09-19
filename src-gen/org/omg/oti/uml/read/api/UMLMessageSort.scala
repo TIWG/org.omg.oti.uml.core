@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * This is an enumerated type that identifies the type of communication action that was used to generate the Message.
  *

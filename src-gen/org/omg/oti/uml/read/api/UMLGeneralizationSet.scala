@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLGeneralizationSetOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A GeneralizationSet is a PackageableElement whose instances represent sets of Generalization relationships.
@@ -55,7 +60,9 @@ trait UMLGeneralizationSet[Uml <: UML]
 	extends UMLPackageableElement[Uml]
 	with UMLGeneralizationSetOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Designates the instances of Generalization that are members of this GeneralizationSet.

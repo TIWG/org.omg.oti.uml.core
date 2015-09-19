@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDeployedArtifactOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A deployed artifact is an artifact or artifact instance that has been deployed to a deployment target.
@@ -55,7 +57,8 @@ trait UMLDeployedArtifact[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLDeployedArtifactOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * <!-- Start of user code doc for deployedArtifact_deploymentForArtifact -->

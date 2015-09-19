@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTimeEventOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A TimeEvent is an Event that occurs at a specific point in time.
@@ -55,7 +58,9 @@ trait UMLTimeEvent[Uml <: UML]
 	extends UMLEvent[Uml]
 	with UMLTimeEventOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies whether the TimeEvent is specified as an absolute or relative time.

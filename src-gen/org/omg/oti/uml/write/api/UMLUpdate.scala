@@ -45,10 +45,16 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.{Boolean,Double,Option,None,Some,Unit}
+import scala.Predef.String
+import scala.collection.immutable._
+import scala.collection.Iterable
 import scala.language.implicitConversions
 import scala.language.existentials
 import scala.reflect._
 import scala.util.{Failure, Try}
+import java.lang.IllegalArgumentException
+import java.lang.Integer
 // End of user code
 
 /**
@@ -2999,7 +3005,7 @@ trait UMLUpdate[Uml <: UML] {
 
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query.evaluate(owner)
-      .map { composed =>
+      .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         linksComposes(owner, updated)
       }
@@ -3028,7 +3034,7 @@ trait UMLUpdate[Uml <: UML] {
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query
       .evaluate(owner)
-      .map { composed =>
+      .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         linksComposes(owner, updated)
       }
@@ -3057,7 +3063,7 @@ trait UMLUpdate[Uml <: UML] {
     override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query
       .evaluate(owner)
-      .map { composed =>     
+      .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         linksComposes(owner, updated)
     }

@@ -40,10 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLLiteralUnlimitedNatural, UML}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Option
+import java.lang.Integer
 // End of user code
 
 /**
@@ -54,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatural[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The query isComputable() is redefined to be true.
@@ -69,7 +71,7 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 	 */
 	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
-      ???
+      true
       // End of user code
 	}
 
@@ -86,7 +88,7 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
 	 */
 	override def unlimitedValue: Option[Integer] = {
 		// Start of user code for "unlimitedValue"
-      ???
+      Option.apply(value)
       // End of user code
 	}
 

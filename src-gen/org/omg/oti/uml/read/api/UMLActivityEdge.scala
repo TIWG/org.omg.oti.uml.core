@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLActivityEdgeOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
@@ -55,7 +60,9 @@ trait UMLActivityEdge[Uml <: UML]
 	extends UMLRedefinableElement[Uml]
 	with UMLActivityEdgeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A ValueSpecification that is evaluated to determine if a token can traverse the ActivityEdge. If an ActivityEdge has no guard, then there is no restriction on tokens traversing the edge.
@@ -191,7 +198,7 @@ trait UMLActivityEdge[Uml <: UML]
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
 			redefinableElement_referenceMetaProperties,
-			Seq (ActivityEdge_inPartition,
+			Seq[MetaPropertyEvaluator] (ActivityEdge_inPartition,
 				ActivityEdge_interrupts,
 				ActivityEdge_redefinedEdge,
 				ActivityEdge_source,

@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLConnectorEndOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ConnectorEnd is an endpoint of a Connector, which attaches the Connector to a ConnectableElement.
@@ -55,7 +60,9 @@ trait UMLConnectorEnd[Uml <: UML]
 	extends UMLMultiplicityElement[Uml]
 	with UMLConnectorEndOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Indicates the role of the internal structure of a Classifier with the Port to which the ConnectorEnd is attached.

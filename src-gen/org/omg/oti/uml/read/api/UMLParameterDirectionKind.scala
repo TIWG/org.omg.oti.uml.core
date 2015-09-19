@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * ParameterDirectionKind is an Enumeration that defines literals used to specify direction of parameters.
  *

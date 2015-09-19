@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLWriteVariableAction, UMLInputPin}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+import scala.Predef.???
+
 // End of user code
 
 /**
@@ -54,7 +59,9 @@ import scala.language.postfixOps
  */
 trait UMLWriteVariableActionOps[Uml <: UML] { self: UMLWriteVariableAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The InputPin that gives the value to be added or removed from the Variable.

@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * VisibilityKind is an enumeration type that defines literals to determine the visibility of Elements in a model.
  *

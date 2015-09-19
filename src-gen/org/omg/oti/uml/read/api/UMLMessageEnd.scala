@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLMessageEndOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * MessageEnd is an abstract specialization of NamedElement that represents what can occur at the end of a Message.
@@ -55,7 +60,9 @@ trait UMLMessageEnd[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLMessageEndOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * References a Message.

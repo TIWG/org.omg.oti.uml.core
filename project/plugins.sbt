@@ -35,3 +35,9 @@ addSbtPlugin("no.arktekk.sbt" % "aether-deploy" % "0.14")
 
 // https://github.com/sbt/sbt-native-packager
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.2")
+
+// https://github.com/puffnfresh/wartremover
+addSbtPlugin("org.brianmckenna" % "sbt-wartremover" % "0.14")
+
+// https://github.com/sksamuel/sbt-scapegoat
+addSbtPlugin("com.sksamuel.scapegoat" %% "sbt-scapegoat" % "1.0.0")

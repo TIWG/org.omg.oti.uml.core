@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLLiteralUnlimitedNaturalOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+
+import java.lang.Integer
 // End of user code
+
 
 /**
  * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
@@ -55,7 +59,9 @@ trait UMLLiteralUnlimitedNatural[Uml <: UML]
 	extends UMLLiteralSpecification[Uml]
 	with UMLLiteralUnlimitedNaturalOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The specified UnlimitedNatural value.

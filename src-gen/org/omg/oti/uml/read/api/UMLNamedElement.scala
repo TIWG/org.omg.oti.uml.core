@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLNamedElementOps
 
+import scala.Predef.String
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A NamedElement is an Element in a model that may have a name. The name may be given directly and/or via the use of a StringExpression.
@@ -55,7 +59,9 @@ trait UMLNamedElement[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLNamedElementOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The name of the NamedElement.

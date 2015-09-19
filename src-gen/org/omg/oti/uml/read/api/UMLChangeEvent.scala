@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLChangeEventOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ChangeEvent models a change in the system configuration that makes a condition true.
@@ -55,7 +58,9 @@ trait UMLChangeEvent[Uml <: UML]
 	extends UMLEvent[Uml]
 	with UMLChangeEventOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A Boolean-valued ValueSpecification that will result in a ChangeEvent whenever its value changes from false to true.

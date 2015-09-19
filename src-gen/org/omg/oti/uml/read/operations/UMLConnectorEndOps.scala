@@ -40,11 +40,16 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
-
+import scala.Boolean
+import scala.Predef.Integer2int
+import scala.{Option,None,Some}
+import scala.Predef._
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+import java.lang.Integer
 // End of user code
 
 /**
@@ -55,7 +60,10 @@ import scala.language.postfixOps
  */
 trait UMLConnectorEndOps[Uml <: UML] { self: UMLConnectorEnd[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * A derived property referencing the corresponding end on the Association which types the Connector owing this ConnectorEnd, if any. It is derived by selecting the end at the same place in the ordering of Association ends as this ConnectorEnd.

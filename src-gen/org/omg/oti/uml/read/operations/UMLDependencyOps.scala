@@ -40,11 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLDependency, UMLCollaborationUse, UMLNamedElement}
+import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
-
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.String
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +59,10 @@ import scala.language.postfixOps
  */
 trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The Element(s) dependent on the supplier Element(s). In some cases (such as a trace Abstraction) the assignment of direction (that is, the designation of the client Element) is at the discretion of the modeler and is a stipulation.

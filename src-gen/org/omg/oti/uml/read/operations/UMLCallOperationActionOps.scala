@@ -40,11 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
-import scala.language.postfixOps
-
+import scala.Boolean
+import scala.{None,Some}
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLCallOperationActionOps[Uml <: UML] { self: UMLCallOperationAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * Return the in and inout ownedParameters of the Operation being called.

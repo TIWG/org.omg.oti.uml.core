@@ -40,11 +40,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
-
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -55,7 +57,10 @@ import scala.language.postfixOps
  */
 trait UMLActionOps[Uml <: UML] { self: UMLAction[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The context Classifier of the Behavior that contains this Action, or the Behavior itself if it has no context.

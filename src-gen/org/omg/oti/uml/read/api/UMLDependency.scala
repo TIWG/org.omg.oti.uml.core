@@ -40,10 +40,11 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDependencyOps
 
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Dependency is a Relationship that signifies that a single model Element or a set of model Elements requires other model Elements for their specification or implementation. This means that the complete semantics of the client Element(s) are either semantically or structurally dependent on the definition of the supplier Element(s).
@@ -56,7 +57,9 @@ trait UMLDependency[Uml <: UML]
 	with UMLPackageableElement[Uml]
 	with UMLDependencyOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

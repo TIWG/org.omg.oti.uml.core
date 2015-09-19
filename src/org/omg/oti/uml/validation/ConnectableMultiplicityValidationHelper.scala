@@ -43,7 +43,14 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.{Boolean,Enumeration,Int,Option,None,Some,StringContext}
+import scala.Predef._
+import scala.collection.Iterable
+import scala.collection.immutable.::
+import scala.collection.immutable.Nil
 import scala.util._
+
+import java.lang.Integer
 
 /**
  * The different categories of validation for the lower or upper value of a multiplicity element

@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLRemoveVariableValueActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A RemoveVariableValueAction is a WriteVariableAction that removes values from a Variables.
@@ -55,7 +59,9 @@ trait UMLRemoveVariableValueAction[Uml <: UML]
 	extends UMLWriteVariableAction[Uml]
 	with UMLRemoveVariableValueActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Specifies whether to remove duplicates of the value in nonunique Variables.

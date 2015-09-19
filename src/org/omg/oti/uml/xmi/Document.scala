@@ -43,7 +43,8 @@ import java.net.URI
 import org.omg.oti.uml.read.api.{UML, UMLElement}
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.language.postfixOps
+import scala.Predef.String
+import scala.collection.immutable.Set
 
 /**
  * Corresponds to OMG XMI 2.5.1 Document combined with OMG MOF 2.5 Extent.

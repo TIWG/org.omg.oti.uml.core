@@ -40,10 +40,11 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTemplateSignatureOps
 
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Template Signature bundles the set of formal TemplateParameters for a template.
@@ -55,7 +56,9 @@ trait UMLTemplateSignature[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateSignatureOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The formal parameters that are owned by this TemplateSignature.

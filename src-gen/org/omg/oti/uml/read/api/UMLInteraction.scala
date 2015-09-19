@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLInteractionOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An Interaction is a unit of Behavior that focuses on the observable exchange of information between connectable elements.
@@ -56,7 +58,9 @@ trait UMLInteraction[Uml <: UML]
 	with UMLInteractionFragment[Uml]
 	with UMLInteractionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ordered set of fragments in the Interaction.

@@ -40,11 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import scala.reflect.runtime.universe._
-import org.omg.oti._
-import org.omg.oti.uml.read.operations.{UMLElementOps, UMLOps}
+import org.omg.oti.uml.read.operations.{UMLElementOps,UMLOps}
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An Element is a constituent of a model. As such, it has the capability of owning other Elements.
@@ -56,7 +58,9 @@ trait UMLElement[Uml <: UML]
 	extends UMLElementOps[Uml] {
 	
 	implicit val ops: UMLOps[Uml]
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Elements owned by this Element.

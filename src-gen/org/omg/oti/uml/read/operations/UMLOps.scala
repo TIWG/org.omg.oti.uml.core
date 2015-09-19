@@ -45,9 +45,16 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
-import org.omg.oti._
 import scala.reflect.{classTag}
 import scala.util.Try
+import scala.{annotation,Boolean,Double,Int,Option,None,PartialFunction,Some,Tuple3}
+import scala.Option
+import scala.Predef.{Set => _,_}
+import scala.collection.immutable._
+import scala.collection.{Iterable,Iterator}
+
+import java.lang.Integer
+import java.lang.System
 
 // End of user code
 
@@ -80,6 +87,11 @@ class EarlyInit[T: TypeTag] {
  * <!-- End of user code documentation -->
  */
 trait UMLOps[Uml <: UML] { self =>
+
+// Start of user code for ops imports
+  import Option._
+// End of user code
+
 	implicit val ABSTRACTION: TypeTag[Uml#Abstraction]
 	implicit val ACCEPT_CALL_ACTION: TypeTag[Uml#AcceptCallAction]
 	implicit val ACCEPT_EVENT_ACTION: TypeTag[Uml#AcceptEventAction]
@@ -1733,7 +1745,7 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Artifact_fileName =
 		MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
-		_.fileName)
+		(x) => x.fileName)
 
 	val Artifact_manifestation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]](
@@ -3910,7 +3922,7 @@ trait UMLOps[Uml <: UML] { self =>
                            val argType = arg.info
                            if (argType.typeArgs.isEmpty &&
                              mcTyp.typeSymbol.name == argType.typeSymbol.name)
-                             Some(m, mcTyp, m.returnType)
+                             Some((m, mcTyp, m.returnType))
                            else None
                          case _          =>
                            None
@@ -3985,15 +3997,6 @@ trait UMLOps[Uml <: UML] { self =>
   }
 
   implicit def filterable[U](o: Option[U]): FilterableUMLOption[U] = new FilterableUMLOption(o)
-
-  class FilterableUMLIterator[U](it: Iterator[U]) {
-
-    def selectByKindOf[V <: UMLElement[Uml]](pf: PartialFunction[U, V]): Iterable[V] =
-      (it.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }).toIterable
-
-  }
-
-  implicit def filterable[U](it: Iterator[U]): FilterableUMLIterator[U] = new FilterableUMLIterator(it)
 
   class FilterableUMLIterable[U](it: Iterable[U]) {
 

@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLReadIsClassifiedObjectAction, UMLOutputPin, UMLInputPin}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +58,9 @@ import scala.language.postfixOps
  */
 trait UMLReadIsClassifiedObjectActionOps[Uml <: UML] { self: UMLReadIsClassifiedObjectAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The InputPin that holds the object whose classification is to be tested.

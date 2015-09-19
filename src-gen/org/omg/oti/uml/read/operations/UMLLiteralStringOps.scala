@@ -40,10 +40,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLLiteralString}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Option
+import scala.Predef.String
 // End of user code
 
 /**
@@ -54,7 +54,9 @@ import scala.language.postfixOps
  */
 trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The query isComputable() is redefined to be true.
@@ -69,7 +71,7 @@ trait UMLLiteralStringOps[Uml <: UML] { self: UMLLiteralString[Uml] =>
 	 */
 	override def isComputable: Boolean = {
 		// Start of user code for "isComputable"
-      ???
+      true
       // End of user code
 	}
 

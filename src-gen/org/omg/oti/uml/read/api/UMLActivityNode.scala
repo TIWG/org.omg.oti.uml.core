@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLActivityNodeOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
@@ -55,7 +57,9 @@ trait UMLActivityNode[Uml <: UML]
 	extends UMLRedefinableElement[Uml]
 	with UMLActivityNodeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * ActivityGroups containing the ActivityNode.

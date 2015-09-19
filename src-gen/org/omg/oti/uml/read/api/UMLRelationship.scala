@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLRelationshipOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * Relationship is an abstract concept that specifies some kind of relationship between Elements.
@@ -55,7 +57,8 @@ trait UMLRelationship[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLRelationshipOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * Specifies the elements related by the Relationship.

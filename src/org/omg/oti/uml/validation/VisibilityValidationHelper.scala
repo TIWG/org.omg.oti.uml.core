@@ -42,6 +42,11 @@ package org.omg.oti.uml.validation
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.{Boolean,Enumeration,Option,None,Some}
+import scala.Predef.String
+import scala.collection.immutable._
+import scala.collection.Iterable
+
 /**
  * The different categories of validation for the visibility & aliasing (where applicable)
  * of a NamedElement, ELementImport or PackageImport.
@@ -263,7 +268,7 @@ object VisibilityValidationHelper {
               ei, InvalidAliasedElementImportStatus,
               Some(INVALID_ALIASED_ELEMENT_IMPORT + "'" + a + "'")))
       }
-      val v12 = v1 ++ v2
+      val v12: Iterable[AbstractVisibilityValidationInfo[Uml]] = v1 ++ v2
       if (v12.nonEmpty) v12
       else Iterable(ElementImportVisibilityValidationInfo(ei, ValidVisibilityStatus))
     }

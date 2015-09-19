@@ -44,10 +44,22 @@ import java.net.MalformedURLException
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.Predef.String
+import scala.Array
+import scala.Byte
+import scala.Boolean
+import scala.Char
+import scala.Int
+import scala.Option
+import scala.Unit
+import scala.Predef.{Map => _,_}
+import scala.collection.immutable._
 import scala.language.postfixOps
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
+
+import java.lang.StringBuffer
 
 /**
  * A generic API corresponding to OMG XMI 2.5.1, Section B.4 Identification
@@ -148,10 +160,10 @@ object IDGenerator {
   }
 
   /** NCName start character mask. */
-  val MASK_NCNAME_START: Char = 0x40
+  val MASK_NCNAME_START: Byte = 0x40.toByte
 
   /** NCName character mask. */
-  val MASK_NCNAME: Char = 0x80
+  val MASK_NCNAME: Byte = 0x80.toByte
 
   val CHARS: Array[Byte] = new Array[Byte](1 << 16)
 
@@ -783,7 +795,9 @@ object IDGenerator {
    * character as defined by production [4] in Namespaces in XML
    * recommendation.
    */
-  def isNCNameStart( c: Char ): Boolean = c < 0x10000 && (CHARS(c) & MASK_NCNAME_START) != 0
+  def isNCNameStart( c: Char ): Boolean =
+    c.toInt < 0x10000 &&
+    (CHARS(c.toInt) & MASK_NCNAME_START) != 0.toByte
 
   /**
    * @see org.eclipse.uml2.common.util.UML2Util.isNCNamePart(char)
@@ -791,7 +805,9 @@ object IDGenerator {
    * character as defined by production [5] in Namespaces in XML
    * recommendation.
    */
-  def isNCNamePart( c: Char ): Boolean = c < 0x10000 && (CHARS(c) & MASK_NCNAME) != 0
+  def isNCNamePart( c: Char ): Boolean =
+    c.toInt < 0x10000 &&
+    (CHARS(c.toInt) & MASK_NCNAME) != 0.toByte
 
   /**
    * @see org.eclipse.uml2.common.util.UML2Util.getValidNCName(String)
@@ -846,6 +862,7 @@ object IDGenerator {
         validNCName.insert( 0, '_' )
       }
     }
+    ()
   }
   
   def computeStereotypeApplicationID (eID: String, stID: String) =

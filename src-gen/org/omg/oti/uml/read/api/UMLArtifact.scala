@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLArtifactOps
 
+import scala.Option
+import scala.Predef.String
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An artifact is the specification of a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.An artifact is the source of a deployment to a node.
@@ -56,7 +60,9 @@ trait UMLArtifact[Uml <: UML]
 	with UMLDeployedArtifact[Uml]
 	with UMLArtifactOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A concrete name that is used to refer to the Artifact in a physical context. Example: file system name, universal resource locator.

@@ -40,11 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLObjectFlow, UMLControlFlow, UML, UMLForkNode}
-
-import scala.language.postfixOps
-
+import org.omg.oti.uml.read.api._
+import scala.Boolean
 // End of user code
 
 /**
@@ -55,7 +52,9 @@ import scala.language.postfixOps
  */
 trait UMLForkNodeOps[Uml <: UML] { self: UMLForkNode[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The ActivityEdges incoming to and outgoing from a ForkNode must be either all ObjectFlows or all ControlFlows.

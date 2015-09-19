@@ -41,6 +41,9 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
+
+import scala.Predef._
+import scala.collection.immutable.Map
 import scala.util.Try
 // End of user code
 

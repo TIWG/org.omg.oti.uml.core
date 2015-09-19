@@ -42,6 +42,9 @@ package org.omg.oti.uml.validation
 import org.omg.oti.uml.read.api.{UMLPackage, UML, UMLPackageableElement}
 import org.omg.oti.uml.read.operations.UMLOps
 
+import scala.{Function2,Option,None,Some}
+import scala.collection.Iterable
+
 /**
  * Non-standard well-formedness rules for the accessibility of and references to packageable elements.
  *
@@ -81,7 +84,6 @@ import org.omg.oti.uml.read.operations.UMLOps
  */
 trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   implicit val umlOps: UmlOps
-  import umlOps._
 
   trait AccessibilityViolation {
     val context: UMLPackage[Uml]

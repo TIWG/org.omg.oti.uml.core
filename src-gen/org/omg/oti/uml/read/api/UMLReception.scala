@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReceptionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Reception is a declaration stating that a Classifier is prepared to react to the receipt of a Signal.
@@ -55,7 +60,9 @@ trait UMLReception[Uml <: UML]
 	extends UMLBehavioralFeature[Uml]
 	with UMLReceptionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Signal that this Reception handles.

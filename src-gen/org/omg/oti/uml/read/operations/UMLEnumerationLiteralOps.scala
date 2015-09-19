@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLEnumerationLiteral, UMLEnumeration}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable._
 // End of user code
 
 /**
@@ -54,7 +56,10 @@ import scala.language.postfixOps
  */
 trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * The classifier of this EnumerationLiteral derived to be equal to its Enumeration.

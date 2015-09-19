@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDeploymentSpecificationOps
 
+import scala.Option
+import scala.Predef.String
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A deployment specification specifies a set of properties that determine execution parameters of a component artifact that is deployed on a node. A deployment specification can be aimed at a specific type of container. An artifact that reifies or implements deployment specification properties is a deployment descriptor.
@@ -55,7 +59,9 @@ trait UMLDeploymentSpecification[Uml <: UML]
 	extends UMLArtifact[Uml]
 	with UMLDeploymentSpecificationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The location where an Artifact is deployed onto a Node. This is typically a 'directory' or 'memory address.'

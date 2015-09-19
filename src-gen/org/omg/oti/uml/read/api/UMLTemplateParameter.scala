@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTemplateParameterOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
@@ -55,7 +60,9 @@ trait UMLTemplateParameter[Uml <: UML]
 	extends UMLElement[Uml]
 	with UMLTemplateParameterOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ParameterableElement that is the default for this formal TemplateParameter.

@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
-
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +58,10 @@ import scala.language.postfixOps
  */
 trait UMLVertexOps[Uml <: UML] { self: UMLVertex[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+  import self.ops._
+// End of user code
+
 
 	/**
 	 * The Region that contains this Vertex.

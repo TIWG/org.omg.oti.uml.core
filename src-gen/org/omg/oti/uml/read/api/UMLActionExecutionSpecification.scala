@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLActionExecutionSpecificationOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ActionExecutionSpecification is a kind of ExecutionSpecification representing the execution of an Action.
@@ -55,7 +60,9 @@ trait UMLActionExecutionSpecification[Uml <: UML]
 	extends UMLExecutionSpecification[Uml]
 	with UMLActionExecutionSpecificationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * Action whose execution is occurring.

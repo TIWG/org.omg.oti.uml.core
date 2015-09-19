@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLCommunicationPathOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
@@ -55,7 +57,8 @@ trait UMLCommunicationPath[Uml <: UML]
 	extends UMLAssociation[Uml]
 	with UMLCommunicationPathOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

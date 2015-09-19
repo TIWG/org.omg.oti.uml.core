@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLExecutionOccurrenceSpecificationOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An ExecutionOccurrenceSpecification represents moments in time at which Actions or Behaviors start or finish.
@@ -55,7 +60,9 @@ trait UMLExecutionOccurrenceSpecification[Uml <: UML]
 	extends UMLOccurrenceSpecification[Uml]
 	with UMLExecutionOccurrenceSpecificationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * References the execution specification describing the execution that is started or finished at this execution event.

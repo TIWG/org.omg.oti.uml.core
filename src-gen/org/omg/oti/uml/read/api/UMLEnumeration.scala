@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLEnumerationOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
@@ -55,7 +57,9 @@ trait UMLEnumeration[Uml <: UML]
 	extends UMLDataType[Uml]
 	with UMLEnumerationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ordered set of literals owned by this Enumeration.

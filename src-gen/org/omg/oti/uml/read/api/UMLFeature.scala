@@ -40,10 +40,14 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLFeatureOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A Feature declares a behavioral or structural characteristic of Classifiers.
@@ -55,7 +59,9 @@ trait UMLFeature[Uml <: UML]
 	extends UMLRedefinableElement[Uml]
 	with UMLFeatureOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Classifiers that have this Feature as a feature.

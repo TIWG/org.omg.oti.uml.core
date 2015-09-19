@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLWriteStructuralFeatureActionOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * WriteStructuralFeatureAction is an abstract class for StructuralFeatureActions that change StructuralFeature values.
@@ -55,7 +58,9 @@ trait UMLWriteStructuralFeatureAction[Uml <: UML]
 	extends UMLStructuralFeatureAction[Uml]
 	with UMLWriteStructuralFeatureActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The InputPin that provides the value to be added or removed from the StructuralFeature.

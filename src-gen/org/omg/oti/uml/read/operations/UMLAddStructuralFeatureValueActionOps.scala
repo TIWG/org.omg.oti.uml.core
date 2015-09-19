@@ -40,11 +40,12 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLAddStructuralFeatureValueAction}
-
-import scala.language.postfixOps
-
+import org.omg.oti.uml.read.api._
+import scala.Boolean
+import scala.Int
+import scala.{Option,None,Some}
+import scala.Predef._
+import java.lang.Integer
 // End of user code
 
 /**
@@ -55,7 +56,10 @@ import scala.language.postfixOps
  */
 trait UMLAddStructuralFeatureValueActionOps[Uml <: UML] { self: UMLAddStructuralFeatureValueAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+  import self.ops._
+// End of user code
+
 
 	/**
 	 * AddStructuralFeatureActions adding a value to ordered StructuralFeatures must have a single InputPin for the insertion point with type UnlimitedNatural and multiplicity of 1..1 if isReplaceAll=false, and must have no Input Pin for the insertion point when the StructuralFeature is unordered.

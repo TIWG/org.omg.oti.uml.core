@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLConditionalNodeOps
 
+import scala.Boolean
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ConditionalNode is a StructuredActivityNode that chooses one among some number of alternative collections of ExecutableNodes to execute.
@@ -55,7 +58,9 @@ trait UMLConditionalNode[Uml <: UML]
 	extends UMLStructuredActivityNode[Uml]
 	with UMLConditionalNodeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * If true, the modeler asserts that the test for at least one Clause of the ConditionalNode will succeed.

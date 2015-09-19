@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDurationObservationOps
 
+import scala.Boolean
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DurationObservation is a reference to a duration during an execution. It points out the NamedElement(s) in the model to observe and whether the observations are when this NamedElement is entered or when it is exited.
@@ -55,7 +57,9 @@ trait UMLDurationObservation[Uml <: UML]
 	extends UMLObservation[Uml]
 	with UMLDurationObservationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The DurationObservation is determined as the duration between the entering or exiting of a single event Element during execution, or the entering/exiting of one event Element and the entering/exiting of a second.

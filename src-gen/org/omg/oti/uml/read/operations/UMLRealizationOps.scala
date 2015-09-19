@@ -40,10 +40,7 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLRealization, UML}
-
-import scala.language.postfixOps
+import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
@@ -54,7 +51,9 @@ import scala.language.postfixOps
  */
 trait UMLRealizationOps[Uml <: UML] { self: UMLRealization[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	// Start of user code for additional features
   // End of user code

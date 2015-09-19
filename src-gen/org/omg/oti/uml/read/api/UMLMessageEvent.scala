@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLMessageEventOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A MessageEvent specifies the receipt by an object of either an Operation call or a Signal instance.
@@ -55,7 +57,8 @@ trait UMLMessageEvent[Uml <: UML]
 	extends UMLEvent[Uml]
 	with UMLMessageEventOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

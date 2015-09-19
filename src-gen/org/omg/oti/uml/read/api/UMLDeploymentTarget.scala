@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDeploymentTargetOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A deployment target is the location for a deployed artifact.
@@ -55,7 +57,9 @@ trait UMLDeploymentTarget[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLDeploymentTargetOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The XMI meta-attributes relevant to this object

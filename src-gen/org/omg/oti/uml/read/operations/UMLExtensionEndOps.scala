@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UML, UMLExtension, UMLExtensionEnd}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
+import java.lang.Integer
 // End of user code
 
 /**
@@ -54,7 +59,10 @@ import scala.language.postfixOps
  */
 trait UMLExtensionEndOps[Uml <: UML] { self: UMLExtensionEnd[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * This redefinition changes the default multiplicity of association ends, since model elements are usually extended by 0 or 1 instance of the extension stereotype.

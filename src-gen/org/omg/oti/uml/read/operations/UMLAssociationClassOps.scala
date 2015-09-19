@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLClassifier, UML, UMLAssociationClass}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.{Set => _, _}
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
 
 /**
@@ -54,7 +57,9 @@ import scala.language.postfixOps
  */
 trait UMLAssociationClassOps[Uml <: UML] { self: UMLAssociationClass[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * An AssociationClass cannot be defined between itself and something else.

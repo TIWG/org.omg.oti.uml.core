@@ -83,8 +83,7 @@ Export-Package: com.thoughtworks.paranamer,
  scalaz.syntax,
  scalaz.syntax.std,
  scoverage,
- scoverage.report,
- sext;
+ scoverage.report;
   uses:="scala,
    scala.collection,
    scala.collection.generic,

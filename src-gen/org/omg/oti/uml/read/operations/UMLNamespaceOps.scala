@@ -40,16 +40,20 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
-
 import scala.language.postfixOps
-import scala.util.Try
-import scala.util.Success
+import scala.annotation
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.Predef.String
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 import scala.util.Failure
-
+import scala.util.Success
+import scala.util.Try
 // End of user code
 
 /**
@@ -152,7 +156,10 @@ import scala.util.Failure
  */
 trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
+// Start of user code for class imports
 	import self.ops._
+// End of user code
+
 
 	/**
 	 * References the ElementImports owned by the Namespace.

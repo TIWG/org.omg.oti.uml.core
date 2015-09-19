@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLValuePinOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ValuePin is an InputPin that provides a value by evaluating a ValueSpecification.
@@ -55,7 +58,9 @@ trait UMLValuePin[Uml <: UML]
 	extends UMLInputPin[Uml]
 	with UMLValuePinOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The ValueSpecification that is evaluated to obtain the value that the ValuePin will provide.

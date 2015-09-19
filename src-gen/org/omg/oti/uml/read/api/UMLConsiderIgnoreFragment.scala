@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLConsiderIgnoreFragmentOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ConsiderIgnoreFragment is a kind of CombinedFragment that is used for the consider and ignore cases, which require lists of pertinent Messages to be specified.
@@ -55,7 +57,9 @@ trait UMLConsiderIgnoreFragment[Uml <: UML]
 	extends UMLCombinedFragment[Uml]
 	with UMLConsiderIgnoreFragmentOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The set of messages that apply to this fragment.

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTestIdentityActionOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A TestIdentityAction is an Action that tests if two values are identical objects.
@@ -55,7 +58,9 @@ trait UMLTestIdentityAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLTestIdentityActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The InputPin on which the first input object is placed.

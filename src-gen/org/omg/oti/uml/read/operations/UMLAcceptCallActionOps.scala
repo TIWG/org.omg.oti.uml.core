@@ -40,12 +40,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml._
-import org.omg.oti.uml.read.api.{UML, UMLTrigger, UMLCallEvent, UMLAcceptCallAction}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
-
+import scala.Boolean
+import scala.{Option,None,Some}
+import scala.Predef._
+import scala.collection.immutable.::
+import scala.collection.immutable.Nil
 // End of user code
 
 /**
@@ -56,7 +57,9 @@ import scala.language.postfixOps
  */
 trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.

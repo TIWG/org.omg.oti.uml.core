@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * TransitionKind is an Enumeration type used to differentiate the various kinds of Transitions.
  *

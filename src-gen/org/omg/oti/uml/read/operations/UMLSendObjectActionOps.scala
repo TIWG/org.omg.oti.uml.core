@@ -40,10 +40,11 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.read.api.{UMLSendObjectAction, UML, UMLInputPin}
-
+import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
+import scala.Boolean
+import scala.Option
+import scala.Predef.???
 // End of user code
 
 /**
@@ -54,7 +55,9 @@ import scala.language.postfixOps
  */
 trait UMLSendObjectActionOps[Uml <: UML] { self: UMLSendObjectAction[Uml] =>
 
-	import self.ops._
+// Start of user code for class imports
+// End of user code
+
 
 	/**
 	 * The request object, which is transmitted to the target object. The object may be copied in transmission, so identity might not be preserved.

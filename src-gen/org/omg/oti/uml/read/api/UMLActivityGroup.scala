@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLActivityGroupOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * ActivityGroup is an abstract class for defining sets of ActivityNodes and ActivityEdges in an Activity.
@@ -55,7 +57,8 @@ trait UMLActivityGroup[Uml <: UML]
 	extends UMLNamedElement[Uml]
 	with UMLActivityGroupOps[Uml] {
 	
-	import ops._
+  // Start of user code for class imports
+  // End of user code
 
 	/**
 	 * ActivityEdges immediately contained in the ActivityGroup.

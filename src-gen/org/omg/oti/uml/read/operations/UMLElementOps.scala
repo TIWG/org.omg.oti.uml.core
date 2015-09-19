@@ -40,20 +40,21 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml._
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
-import scala.collection.immutable.StringOps
-import scala.language.postfixOps
-import scala.language.existentials
-import scala.reflect.runtime.universe._
-import scala.reflect._
-import scala.util.Try
-import scala.util.Success
-import scala.util.Failure
 import org.omg.oti.uml.xmi.IDGenerator
-
+import scala.language.postfixOps
+import scala.annotation
+import scala.{Boolean,Int,Double,StringBuilder,StringContext}
+import scala.{Option,None,Some}
+import scala.Predef.{Set => _, Map => _,_}
+import scala.collection.immutable._
+import scala.collection.Iterable
+import scala.util.Failure
+import scala.util.Success
+import scala.util.Try
+import java.lang.IllegalArgumentException
 // End of user code
 
 /**
@@ -62,93 +63,96 @@ import org.omg.oti.uml.xmi.IDGenerator
  * <!-- Start of user code documentation --> 
  * <!-- End of user code documentation -->
  */
-trait UMLElementOps[Uml <: UML] {
-  self: UMLElement[Uml] =>
+trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
-  implicit val ops: UMLOps[Uml]
+	implicit val ops: UMLOps[Uml]
+// Start of user code for class imports
+	import self.ops._
+	import Option._
+	import Iterable._
+// End of user code
 
-  import self.ops._
 
-  /**
-   * The Comments owned by this Element.
-   *
-   * <!-- Start of user code doc for ownedComment -->
+	/**
+	 * The Comments owned by this Element.
+	 *
+	 * <!-- Start of user code doc for ownedComment -->
    * <!-- End of user code doc for ownedComment -->
-   *
-   * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-   * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
-   */
-  def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
+	 *
+	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
+	 */
+	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
-  /**
-   * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
-   *
-   * <!-- Start of user code doc for allOwnedElements -->
+	/**
+	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.
+	 *
+	 * <!-- Start of user code doc for allOwnedElements -->
    * <!-- End of user code doc for allOwnedElements -->
-   *
-   * UML Operation ordered="false" unique="true" multiplicity="0..*"
-   * {{{
-   * OCL Body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
-   * }}}
-   */
-  def allOwnedElements: Set[UMLElement[Uml]] = {
-    // Start of user code for "allOwnedElements"
+	 *
+	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
+	 * {{{
+	 * OCL Body result = (ownedElement->union(ownedElement->collect(e | e.allOwnedElements()))->asSet())
+	 * }}}
+	 */
+	def allOwnedElements: Set[UMLElement[Uml]] = {
+		// Start of user code for "allOwnedElements"
     closure[UMLElement[Uml], UMLElement[Uml]](self, _.ownedElement)
     // End of user code
-  }
+	}
 
-  /**
-   * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
-   *
-   * <!-- Start of user code doc for mustBeOwned -->
+	/**
+	 * The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.
+	 *
+	 * <!-- Start of user code doc for mustBeOwned -->
    * <!-- End of user code doc for mustBeOwned -->
-   *
-   * UML Operation ordered="false" unique="true" multiplicity="1..1"
-   * {{{
-   * OCL Body result = (true)
-   * }}}
-   */
-  def mustBeOwned: Boolean = {
-    // Start of user code for "mustBeOwned"
+	 *
+	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
+	 * {{{
+	 * OCL Body result = (true)
+	 * }}}
+	 */
+	def mustBeOwned: Boolean = {
+		// Start of user code for "mustBeOwned"
     true
     // End of user code
-  }
+	}
 
-  /**
-   * Elements that must be owned must have an owner.
-   *
-   * <!-- Start of user code doc for validate_has_owner -->
+	/**
+	 * Elements that must be owned must have an owner.
+	 *
+	 * <!-- Start of user code doc for validate_has_owner -->
    * <!-- End of user code doc for validate_has_owner -->
-   *
-   * {{{
-   * OCL Body mustBeOwned() implies owner->notEmpty()
-   * }}}
-   */
-  def validate_has_owner: Boolean = {
-    // Start of user code for "has_owner"
+	 *
+	 * {{{
+	 * OCL Body mustBeOwned() implies owner->notEmpty()
+	 * }}}
+	 */
+	def validate_has_owner: Boolean = {
+		// Start of user code for "has_owner"
     if (mustBeOwned) {
       owner.isDefined
     } else true
     // End of user code
-  }
+	}
 
-  /**
-   * An element may not directly or indirectly own itself.
-   *
-   * <!-- Start of user code doc for validate_not_own_self -->
+	/**
+	 * An element may not directly or indirectly own itself.
+	 *
+	 * <!-- Start of user code doc for validate_not_own_self -->
    * <!-- End of user code doc for validate_not_own_self -->
-   *
-   * {{{
-   * OCL Body not allOwnedElements()->includes(self)
-   * }}}
-   */
-  def validate_not_own_self: Boolean = {
-    // Start of user code for "not_own_self"
+	 *
+	 * {{{
+	 * OCL Body not allOwnedElements()->includes(self)
+	 * }}}
+	 */
+	def validate_not_own_self: Boolean = {
+		// Start of user code for "not_own_self"
     !allOwnedElements.contains(self)
     // End of user code
-  }
+	}
 
-  // Start of user code for additional features
+	// Start of user code for additional features
 
   /**
    * The element or the first owner of the element that is a package with an effective URI;
@@ -352,7 +356,7 @@ trait UMLElementOps[Uml <: UML] {
   : Iterable[Boolean] =
     lookupTagValueByProperty(tagProperty) match {
       case None =>
-        None
+        Iterable()
       case Some(v) =>
         v match {
           case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
@@ -828,11 +832,11 @@ trait UMLElementOps[Uml <: UML] {
           def prefixStream(prefix: String): Stream[String] = prefix #:: prefixStream(prefix + "  ")
           val prefixes: List[String] = prefixStream("").take(path.length).toList
 
-          val pair = ((new StringBuffer(""), prefixes) /: path.reverse) {
-            case ((result: StringBuffer, ps: List[String]), segment: String) =>
-              (result.append("\n" + ps.head + segment), ps.tail)
-          }
-          pair._1.toString
+          val result = new StringBuilder(500)
+          for {
+            (prefix, segment) <- prefixes.zip(path.reverse)
+          } result.append("\n" + prefix + segment)
+          result.result()
 
         case Some(e) =>
           describe(e.owner, path :+ (e.xmiType.head + " {tool id=" + e.toolSpecific_id.get + "}"))
@@ -849,6 +853,4 @@ trait UMLElementOps[Uml <: UML] {
   }
 
   // End of user code
-}
-
-//UMLElementOps
+} //UMLElementOps

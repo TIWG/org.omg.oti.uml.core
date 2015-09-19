@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * ConnectorKind is an enumeration that defines whether a Connector is an assembly or a delegation.
  *

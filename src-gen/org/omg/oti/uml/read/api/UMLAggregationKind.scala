@@ -39,6 +39,8 @@
  */
 package org.omg.oti.uml.read.api
 
+import scala.Enumeration
+
 /**
  * AggregationKind is an Enumeration for specifying the kind of aggregation of a Property.
  *

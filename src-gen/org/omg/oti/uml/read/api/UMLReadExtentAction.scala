@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLReadExtentActionOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
@@ -55,7 +60,9 @@ trait UMLReadExtentAction[Uml <: UML]
 	extends UMLAction[Uml]
 	with UMLReadExtentActionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The Classifier whose instances are to be retrieved.

@@ -40,10 +40,13 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLTimeExpressionOps
 
+import scala.Option
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A TimeExpression is a ValueSpecification that represents a time value.
@@ -55,7 +58,9 @@ trait UMLTimeExpression[Uml <: UML]
 	extends UMLValueSpecification[Uml]
 	with UMLTimeExpressionOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * A ValueSpecification that evaluates to the value of the TimeExpression.

@@ -40,10 +40,15 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLManifestationOps
 
+import scala.Boolean
+import scala.Option
+import scala.collection.Iterable
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A manifestation is the concrete physical rendering of one or more model elements by an artifact.
@@ -55,7 +60,9 @@ trait UMLManifestation[Uml <: UML]
 	extends UMLAbstraction[Uml]
 	with UMLManifestationOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The model element that is utilized in the manifestation in an Artifact.

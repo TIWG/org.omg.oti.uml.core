@@ -40,10 +40,12 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti._
 import org.omg.oti.uml.read.operations.UMLDataTypeOps
 
+import scala.collection.immutable.Set
+import scala.collection.immutable.Seq
 // End of user code
+
 
 /**
  * A DataType is a type whose instances are identified only by their value.
@@ -55,7 +57,9 @@ trait UMLDataType[Uml <: UML]
 	extends UMLClassifier[Uml]
 	with UMLDataTypeOps[Uml] {
 	
+  // Start of user code for class imports
 	import ops._
+  // End of user code
 
 	/**
 	 * The attributes owned by the DataType.
