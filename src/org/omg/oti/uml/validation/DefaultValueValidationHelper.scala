@@ -50,23 +50,56 @@ import scala.collection.immutable.Set
 /** The different categories of validation for default values
   *
   * @see MOF 2.5, Section 12.4 EMOF Constraints
-  *      [24] A TypedElement that is a kind of Parameter or Property typed by a Class cannot have a default value.
-  *      [25] For a TypedElement that is a kind of Parameter or Property typed by an Enumeration, the defaultValue,
-  *           if any, must be a kind of InstanceValue.
-  *      [26] For a TypedElement that is a kind of Parameter or Property typed by a PrimitiveType, the defaultValue,
-  *           if any, must be a kind of LiteralSpecification.
-  *      [31] A multi-valued Property or Parameter cannot have a default value.
+  *
+  *      [24] A [[org.omg.oti.uml.read.api.UMLTypedElement TypedElement]] that is a kind of
+  *      [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or [[org.omg.oti.uml.read.api.UMLProperty Property]]
+  *      typed by a [[org.omg.oti.uml.read.api.UMLClass Class]] cannot have a default value.
+  *
+  *      [25] For a [[org.omg.oti.uml.read.api.UMLTypedElement TypedElement]] that is a kind of
+  *      [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or [[org.omg.oti.uml.read.api.UMLProperty Property]]
+  *      typed by an [[org.omg.oti.uml.read.api.UMLEnumeration Enumeration]], the defaultValue,
+  *      if any, must be a kind of [[org.omg.oti.uml.read.api.UMLInstanceValue InstanceValue]].
+  *
+  *      [26] A [[org.omg.oti.uml.read.api.UMLTypedElement TypedElement]] that is a kind of
+  *      [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or [[org.omg.oti.uml.read.api.UMLProperty Property]]
+  *      typed by a [[org.omg.oti.uml.read.api.UMLPrimitiveType PrimitiveType]], the defaultValue,
+  *      if any, must be a kind of [[org.omg.oti.uml.read.api.UMLLiteralSpecification LiteralSpecification]].
+  *
+  *      [31] A multi-valued [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] cannot have a default value.
   *
   * @see MOF 2.5, Section 14.4 CMOF Constraints
-  *      [13] A multi-valued Property or Parameter cannot have a default value.
-  *           The default value of a Property or Parameter typed by a PrimitiveType must be a kind of LiteralSpecification.
-  *           The default value of a Property or Parameter typed by an Enumeration must be a kind of InstanceValue.
-  *           A Property or Parameter typed by a Class cannot have a default value.
-  *      [24] A TypedElement that is a kind of Parameter or Property typed by a Class cannot have a default value.
-  *      [25] For a TypedElement that is a kind of Parameter or Property typed by an Enumeration,
-  *           the defaultValue, if any, must be a kind of InstanceValue.
-  *      [26] For a TypedElement that is a kind of Parameter or Property typed by an PrimitiveType,
-  *           the defaultValue, if any, must be a kind of LiteralSpecification.
+  *
+  *      [13] A multi-valued [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] cannot have a default value.
+  *
+  *        - The default value of a [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by a
+  *      [[org.omg.oti.uml.read.api.UMLPrimitiveType PrimitiveType]] must be a kind of
+  *      [[org.omg.oti.uml.read.api.UMLLiteralSpecification LiteralSpecification]].
+  *
+  *        - The default value of a [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by an
+  *      [[org.omg.oti.uml.read.api.UMLEnumeration Enumeration]] must be a kind of
+  *      [[org.omg.oti.uml.read.api.UMLInstanceValue InstanceValue]].
+  *
+  *        - A [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by a
+  *      [[org.omg.oti.uml.read.api.UMLClass Class]] cannot have a default value.
+  *
+  *      [24] A TypedElement that is a kind of [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by a
+  *      [[org.omg.oti.uml.read.api.UMLClass Class]]  cannot have a default value.
+  *
+  *      [25] For a TypedElement that is a kind of [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by an
+  *      [[org.omg.oti.uml.read.api.UMLEnumeration Enumeration]], the defaultValue, if any,
+  *      must be a kind of [[org.omg.oti.uml.read.api.UMLInstanceValue InstanceValue]].
+  *
+  *      [26] For a TypedElement that is a kind of [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+  *      or [[org.omg.oti.uml.read.api.UMLProperty Property]] typed by an
+  *      [[org.omg.oti.uml.read.api.UMLPrimitiveType PrimitiveType]], the defaultValue, if any,
+  *      must be a kind of [[org.omg.oti.uml.read.api.UMLLiteralSpecification LiteralSpecification]].
   */
 object DefaultValueValidationStatus extends Enumeration {
   type DefaultValueValidationStatus = Value
@@ -114,7 +147,7 @@ sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
   val status: DefaultValueValidationStatus
   val explanation: Option[String] = None
 
-  import DefaultValueValidationStatus._
+  import org.omg.oti.uml.validation.DefaultValueValidationStatus._
 
   def isInvalid: Boolean =
     status != ValidDefaultValueStatus
@@ -122,8 +155,10 @@ sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
   /**
    * If invalid, is there a repair strategy? Unfortunately no.
    *
-   * All violations involve a Parameter or Property that either have a default value when it there should be none
-   * or that have a default value of the wrong kind. There is no generic way to fix these problems without
+   * All violations involve a [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty Property]]  that either have a default value
+   * when it there should be none or that have a default value of the wrong kind.
+   * There is no generic way to fix these problems without
    * potentially loosing important information.
    *
    * @return false
@@ -133,9 +168,9 @@ sealed abstract class AbstractDefaultValueValidationInfo[Uml <: UML] {
 }
 
 /**
- * Validation result for the DefaultValue of a Parameter
+ * Validation result for the DefaultValue of a [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
  *
- * @param e a Parameter
+ * @param e a [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
@@ -147,9 +182,9 @@ case class ParameterDefaultValueValidationInfo[Uml <: UML]
   extends AbstractDefaultValueValidationInfo[Uml]
 
 /**
- * Validation result for the DefaultValue of a kind of Property
+ * Validation result for the DefaultValue of a kind of [[org.omg.oti.uml.read.api.UMLProperty Property]]
  *
- * @param e a kind of Property
+ * @param e a kind of [[org.omg.oti.uml.read.api.UMLProperty Property]]
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
@@ -161,9 +196,11 @@ case class PropertyDefaultValueValidationInfo[Uml <: UML]
   extends AbstractDefaultValueValidationInfo[Uml]
 
 /**
- * Validation result for a ValueSpecification as a DefaultValue for a Parameter or a kind of Property
+ * Validation result for a ValueSpecification as a DefaultValue for a
+ * [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty Property]]
  *
- * @param e a kind of ValueSpecification
+ * @param e a kind of [[org.omg.oti.uml.read.api.UMLValueSpecification ValueSpecification]]
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
@@ -200,134 +237,26 @@ object DefaultValueValidationHelper {
   val INVALID_DEFAULT_VALUE_FOR_MULTI_VALUED_PROPERTY =
     Some("A multi-valued kind of Property cannot have a default value")
 
-
+  /**
+   * EMOF/CMOF default value validation for all
+   * [[org.omg.oti.uml.read.api.UMLParameter Parameters]] and
+   * [[org.omg.oti.uml.read.api.UMLProperty Properties]] in the scope of a set of
+   *  [[org.omg.oti.uml.read.api.UMLPackage UML Packages]]
+   *
+   * @param pkgs A set of UML Packages to analyze the contents for EMOF/CMOF default value validation constraints
+   * @param umlOps A tool-specific OTI UML operations adapter object
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam UmlOps The tool-specific OTI UML operations adapter type
+   * @return Where applicable, [[AbstractDefaultValueValidationInfo]] results
+   */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps): Iterable[AbstractDefaultValueValidationInfo[Uml]] = {
 
+    val scope = pkgs.toSet
+    val validationHelper = DefaultValueValidationHelper(scope)
     import umlOps._
-
-    def makeValidDefaultValueStatusForParameter
-    (p: UMLParameter[Uml])
-    ()
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      Some(ParameterDefaultValueValidationInfo(
-        p, ValidDefaultValueStatus))
-
-    def makeValidDefaultValueStatusForProperty
-    (p: UMLProperty[Uml])
-    ()
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      Some(PropertyDefaultValueValidationInfo(
-        p, ValidDefaultValueStatus))
-
-    def makeInvalidDefaultValueForMultiValuedParameter
-    (p: UMLParameter[Uml])
-    ()
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      Some(ParameterDefaultValueValidationInfo(
-        p, InvalidDefaultValueForMultiValuedParameterOrPropertyStatus,
-        INVALID_DEFAULT_VALUE_FOR_MULTI_VALUED_PARAMETER))
-
-    def makeInvalidDefaultValueForMultiValuedProperty
-    (p: UMLProperty[Uml])
-    ()
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      Some(PropertyDefaultValueValidationInfo(
-        p, InvalidDefaultValueForMultiValuedParameterOrPropertyStatus,
-        INVALID_DEFAULT_VALUE_FOR_MULTI_VALUED_PROPERTY))
-
-    def makeInvalidDefaultValueForParameterOrProperty
-    (v: UMLValueSpecification[Uml], status: DefaultValueValidationStatus, message: Option[String])
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      Some(ValueSpecificationAsDefaultValueValidationInfo(v, status, message))
-
-    def checkDefaultValue
-    (isMultiValued: Boolean,
-     validParameterOrPropertyFunction: () => Option[AbstractDefaultValueValidationInfo[Uml]],
-     invalidDefaultValueForMultiValuedTypedElementFunction: () => Option[AbstractDefaultValueValidationInfo[Uml]],
-     invalidDefaultValueForTypedElementMessage: Option[String],
-     invalidDefaultValueForEnumerationTypeMessage: Option[String],
-     invalidDefaultValueForPrimitiveTypeMessage: Option[String],
-     t: Option[UMLType[Uml]],
-     defaultValue: Option[UMLValueSpecification[Uml]])
-    : Option[AbstractDefaultValueValidationInfo[Uml]] =
-      if (isMultiValued)
-        defaultValue match {
-          case Some(_) =>
-            invalidDefaultValueForMultiValuedTypedElementFunction()
-          case None =>
-            validParameterOrPropertyFunction()
-        }
-      else t match {
-        case None =>
-          None
-        case Some(t) =>
-          t match {
-            case _: UMLClass[Uml] =>
-              defaultValue match {
-                case None =>
-                  validParameterOrPropertyFunction()
-                case Some(v) =>
-                  Some(ValueSpecificationAsDefaultValueValidationInfo(
-                    v, InvalidDefaultValueForClassTypedParameterOrPropertyStatus,
-                    invalidDefaultValueForTypedElementMessage))
-              }
-            case t_enum: UMLEnumeration[Uml] =>
-              defaultValue match {
-                case None =>
-                  validParameterOrPropertyFunction()
-                case Some(v) =>
-                  v match {
-                    case iv: UMLInstanceValue[Uml] =>
-                      iv.instance match {
-                        case None =>
-                          Some(ValueSpecificationAsDefaultValueValidationInfo(
-                            v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
-                            invalidDefaultValueForEnumerationTypeMessage))
-                        case Some(is) =>
-                          is match {
-                            case lit: UMLEnumerationLiteral[Uml] =>
-                              lit.enumeration match {
-                                case Some(lit_enum) if t_enum == lit_enum =>
-                                  Some(ValueSpecificationAsDefaultValueValidationInfo(
-                                    v, ValidDefaultValueStatus))
-                                case _ =>
-                                  Some(ValueSpecificationAsDefaultValueValidationInfo(
-                                    v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
-                                    invalidDefaultValueForEnumerationTypeMessage))
-                              }
-                            case _ =>
-                              Some(ValueSpecificationAsDefaultValueValidationInfo(
-                                v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
-                                invalidDefaultValueForEnumerationTypeMessage))
-                          }
-                      }
-                    case _ =>
-                      Some(ValueSpecificationAsDefaultValueValidationInfo(
-                        v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
-                        invalidDefaultValueForEnumerationTypeMessage))
-                  }
-              }
-            case _: UMLPrimitiveType[Uml] =>
-              defaultValue match {
-                case None =>
-                  validParameterOrPropertyFunction()
-                case Some(v) =>
-                  v match {
-                    case _: UMLLiteralSpecification[Uml] =>
-                      Some(ValueSpecificationAsDefaultValueValidationInfo(
-                        v, ValidDefaultValueStatus))
-                    case _ =>
-                      Some(ValueSpecificationAsDefaultValueValidationInfo(
-                        v, InvalidDefaultValueForPrimitiveTypeTypedParameterOrPropertyStatus,
-                        invalidDefaultValueForPrimitiveTypeMessage))
-                  }
-              }
-            case _ =>
-              None
-          }
-      }
+    import validationHelper._
 
     val validationResults = for {
       pkg <- pkgs
@@ -365,4 +294,204 @@ object DefaultValueValidationHelper {
 
     validationResults
   }
+}
+
+/**
+ * Helper for EMOF/CMOF default value validation
+ *
+ * @param scope set of UML Packages to analyze the contents for EMOF/CMOF default value validation constraints
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ */
+case class DefaultValueValidationHelper[Uml <: UML]
+(scope: Set[UMLPackage[Uml]]) {
+
+  import org.omg.oti.uml.validation.DefaultValueValidationHelper._
+
+  /**
+   * Produce a valid result for a UML Parameter default value per EMOF/CMOF rules
+   * @param p the valid UML Parameter
+   * @return A valid [[AbstractDefaultValueValidationInfo]] result
+   */
+  def makeValidDefaultValueStatusForParameter
+  (p: UMLParameter[Uml])
+  ()
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    Some(ParameterDefaultValueValidationInfo(
+      p, ValidDefaultValueStatus))
+
+  /**
+   * Produce a valid result for a [[org.omg.oti.uml.read.api.UMLProperty Property]] default value per EMOF/CMOF rules
+   * @param p the valid [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * @return A valid [[AbstractDefaultValueValidationInfo]] result
+   */
+  def makeValidDefaultValueStatusForProperty
+  (p: UMLProperty[Uml])
+  ()
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    Some(PropertyDefaultValueValidationInfo(
+      p, ValidDefaultValueStatus))
+
+  /**
+   * Produce an invalid result for a multi-valued UML Parameter default value per EMOF/CMOF rules
+   * @param p the invalid UML Parameter
+   * @return An invalid [[AbstractDefaultValueValidationInfo]] result
+   */
+  def makeInvalidDefaultValueForMultiValuedParameter
+  (p: UMLParameter[Uml])
+  ()
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    Some(ParameterDefaultValueValidationInfo(
+      p, InvalidDefaultValueForMultiValuedParameterOrPropertyStatus,
+      INVALID_DEFAULT_VALUE_FOR_MULTI_VALUED_PARAMETER))
+
+  /**
+   * Produce an invalid result for a multi-valued [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * default value per EMOF/CMOF rules
+   * @param p the invalid [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * @return An invalid [[AbstractDefaultValueValidationInfo]] result
+   */
+  def makeInvalidDefaultValueForMultiValuedProperty
+  (p: UMLProperty[Uml])
+  ()
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    Some(PropertyDefaultValueValidationInfo(
+      p, InvalidDefaultValueForMultiValuedParameterOrPropertyStatus,
+      INVALID_DEFAULT_VALUE_FOR_MULTI_VALUED_PROPERTY))
+
+  /**
+   * Produce an invalid result for a [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty Property]] with an invalid
+   * default value per EMOF/CMOF rules
+   * @param v the UML ValueSpecification that is the invalid default value
+   *          for its owning [[org.omg.oti.uml.read.api.UMLParameter Parameter]]
+   *          or [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * @param status Indication of which EMOF/CMOF default validation rule are violated
+   * @param message Human explanation about the invalid status
+   * @return An invalid [[AbstractDefaultValueValidationInfo]] result
+   */
+  def makeInvalidDefaultValueForParameterOrProperty
+  (v: UMLValueSpecification[Uml], status: DefaultValueValidationStatus, message: Option[String])
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    Some(ValueSpecificationAsDefaultValueValidationInfo(v, status, message))
+
+  /**
+   * Analyze a [[org.omg.oti.uml.read.api.UMLParameter UML Parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty UML Property]] for EMOF/CMOF default validation rules
+   *
+   * Since UML does not have an abstract metaclass for the common characteristics
+   * of [[org.omg.oti.uml.read.api.UMLParameter Parameters]] and
+   * [[org.omg.oti.uml.read.api.UMLProperty Properties]] as
+   * kinds of [[org.omg.oti.uml.read.api.UMLConnectableElement UML ConnectableEements]] and
+   * [[org.omg.oti.uml.read.api.UMLMultiplicityElement UML MultiplicityElements]],
+   * the common characteristics are abstracted through variables: `isMultiValued`, and
+   * validation message constructor functions: `validParameterOrPropertyFunction`,
+   * `invalidDefaultValueForMultiValuedTypedElementFunction`, `invalidDefaultValueForTypedElementMessage`,
+   * `invalidDefaultValueForEnumerationTypeMessage`, `invalidDefaultValueForPrimitiveTypeMessage`
+   *
+   * The validation of [[org.omg.oti.uml.read.api.UMLParameter UML Parameters]] and
+   * of [[org.omg.oti.uml.read.api.UMLProperty UML Properties]] is very similar;
+   * the differences are abstracted through validation constructor functions.
+   *
+   * @param isMultiValued Whether the parameter or property is a collection of multiple values
+   * @param validParameterOrPropertyFunction Valid result constructor
+   * @param invalidDefaultValueForMultiValuedTypedElementFunction Invalid result constructor
+   *                                                              for a multi-valued
+   *                                                              [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   *                                                              [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * @param invalidDefaultValueForTypedElementMessage Invalid result constructor for a
+   *                                                  [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   *                                                  [[org.omg.oti.uml.read.api.UMLProperty Property]] typed
+   *                                                  by a kind of [[org.omg.oti.uml.read.api.UMLClass Class]]
+   * @param invalidDefaultValueForEnumerationTypeMessage Invalid result constructor for a
+   *                                                     [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   *                                                     [[org.omg.oti.uml.read.api.UMLProperty Property]] typed
+   *                                                     by a kind of
+   *                                                     [[org.omg.oti.uml.read.api.UMLEnumeration Enumeration]]
+   * @param invalidDefaultValueForPrimitiveTypeMessage Invalid result constructor for a
+   *                                                   [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   *                                                   [[org.omg.oti.uml.read.api.UMLProperty Property]] typed
+   *                                                   by a kind of
+   *                                                   [[org.omg.oti.uml.read.api.UMLPrimitiveType PrimitiveType]]
+   * @param t The type, if any, of the validated [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+   *          [[org.omg.oti.uml.read.api.UMLProperty Property]]
+   * @param defaultValue The default value, if any
+   * @return If applicable, a [[AbstractDefaultValueValidationInfo]] result
+   */
+  def checkDefaultValue
+  (isMultiValued: Boolean,
+   validParameterOrPropertyFunction: () => Option[AbstractDefaultValueValidationInfo[Uml]],
+   invalidDefaultValueForMultiValuedTypedElementFunction: () => Option[AbstractDefaultValueValidationInfo[Uml]],
+   invalidDefaultValueForTypedElementMessage: Option[String],
+   invalidDefaultValueForEnumerationTypeMessage: Option[String],
+   invalidDefaultValueForPrimitiveTypeMessage: Option[String],
+   t: Option[UMLType[Uml]],
+   defaultValue: Option[UMLValueSpecification[Uml]])
+  : Option[AbstractDefaultValueValidationInfo[Uml]] =
+    if (isMultiValued)
+      defaultValue
+      .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](ifEmpty = validParameterOrPropertyFunction()) {
+        _ => invalidDefaultValueForMultiValuedTypedElementFunction()
+      }
+    else
+      t.fold[Option[AbstractDefaultValueValidationInfo[Uml]]](None) {
+          case _: UMLClass[Uml] =>
+            defaultValue
+            .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](ifEmpty = validParameterOrPropertyFunction()) {
+              v =>
+                Some(ValueSpecificationAsDefaultValueValidationInfo(
+                  v, InvalidDefaultValueForClassTypedParameterOrPropertyStatus,
+                  invalidDefaultValueForTypedElementMessage))
+            }
+          case t_enum: UMLEnumeration[Uml] =>
+            defaultValue
+            .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](ifEmpty = validParameterOrPropertyFunction()) {
+              case v: UMLInstanceValue[Uml] =>
+                v
+                .instance
+                .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](
+                  ifEmpty = Some(ValueSpecificationAsDefaultValueValidationInfo(
+                      v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
+                      invalidDefaultValueForEnumerationTypeMessage))
+                ) {
+                    case lit: UMLEnumerationLiteral[Uml] =>
+                      lit
+                      .enumeration
+                      .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](
+                        ifEmpty = Some(ValueSpecificationAsDefaultValueValidationInfo(
+                              v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
+                              invalidDefaultValueForEnumerationTypeMessage))
+                      ){
+                        case lit_enum if t_enum == lit_enum =>
+                          Some(ValueSpecificationAsDefaultValueValidationInfo(
+                            v, ValidDefaultValueStatus))
+                        case _ =>
+                          Some(ValueSpecificationAsDefaultValueValidationInfo(
+                              v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
+                              invalidDefaultValueForEnumerationTypeMessage))
+                      }
+                    case _ =>
+                      Some(ValueSpecificationAsDefaultValueValidationInfo(
+                        v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
+                        invalidDefaultValueForEnumerationTypeMessage))
+                  }
+              case v =>
+                Some(ValueSpecificationAsDefaultValueValidationInfo(
+                  v, InvalidDefaultValueForEnumerationTypedParameterOrPropertyStatus,
+                  invalidDefaultValueForEnumerationTypeMessage))
+            }
+          case _: UMLPrimitiveType[Uml] =>
+            defaultValue
+            .fold[Option[AbstractDefaultValueValidationInfo[Uml]]](ifEmpty = validParameterOrPropertyFunction()) {
+              case v: UMLLiteralSpecification[Uml] =>
+                Some(ValueSpecificationAsDefaultValueValidationInfo(
+                  v, ValidDefaultValueStatus))
+              case v =>
+                Some(ValueSpecificationAsDefaultValueValidationInfo(
+                  v, InvalidDefaultValueForPrimitiveTypeTypedParameterOrPropertyStatus,
+                  invalidDefaultValueForPrimitiveTypeMessage))
+            }
+          case _ =>
+            None
+        }
+
 }

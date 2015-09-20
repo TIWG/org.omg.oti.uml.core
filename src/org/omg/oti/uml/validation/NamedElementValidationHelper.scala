@@ -47,13 +47,17 @@ import scala.Predef.String
 import scala.collection.immutable._
 
 /**
- * The different categories of validation for the name of named elements.
+ * The different categories of validation for the name of [[org.omg.oti.uml.read.api.UMLNamedElement named elements]].
  *
  * @see MOF 2.5, Section 12.4 EMOF Constraints
- * [3] Names are required for all NamedElements except for ValueSpecifications.
+ *
+ * [3] Names are required for all [[org.omg.oti.uml.read.api.UMLNamedElement NamedElements]]
+ *     except for [[org.omg.oti.uml.read.api.UMLValueSpecification ValueSpecifications]].
  *
  * @see MOF 2.5, Section 14.4 CMOF Constraints
- * [6] Names are required for all NamedElements except for ValueSpecifications.
+ *
+ * [6] Names are required for all [[org.omg.oti.uml.read.api.UMLNamedElement NamedElements]]
+ *     except for [[org.omg.oti.uml.read.api.UMLValueSpecification ValueSpecifications]].
  */
 object NamedElementValidationStatus extends Enumeration {
   type NamedElementValidationStatus = Value
@@ -71,22 +75,22 @@ object NamedElementValidationStatus extends Enumeration {
 
 }
 
-import NamedElementValidationStatus._
+import org.omg.oti.uml.validation.NamedElementValidationStatus._
 
 /**
  * NamedElement name validation result
  *
- * @param namedElement A NamedElement
+ * @param namedElement A [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]]
  * @param status validation status
  * @param explanation if invalid, an explanation for humans
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class NamedElementNameValidationInfo[Uml <: UML]
-(val namedElement: UMLNamedElement[Uml],
- val status: NamedElementValidationStatus,
- val explanation: Option[String] = None) {
+(namedElement: UMLNamedElement[Uml],
+ status: NamedElementValidationStatus,
+ explanation: Option[String] = None) {
 
-  import NamedElementValidationStatus._
+  import org.omg.oti.uml.validation.NamedElementValidationStatus._
 
   val isInvalid: Boolean =
     status != ValidNamedElementNameStatus
@@ -102,22 +106,24 @@ object NamedElementValidationHelper {
     Some("A name is required for all kinds of NamedElements except for ValueSpecifications")
 
 
+  /**
+   * EMOF/CMOF [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]] validation
+   * for the scope of a set of [[org.omg.oti.uml.read.api.UMLPackage UML Packages]]
+   *
+   * @param pkgs A set of UML Packages to analyze the contents for EMOF/CMOF NamedElement validation constraints
+   * @param umlOps A tool-specific OTI UML operations adapter object
+   * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+   * @tparam UmlOps The tool-specific OTI UML operations adapter type
+   * @return Where applicable, [[NamedElementNameValidationInfo]] results
+   */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps): Iterable[NamedElementNameValidationInfo[Uml]] = {
 
+    val scope = pkgs.toSet
+    val validationHelper = NamedElementValidationHelper(scope)
     import umlOps._
-
-    def checkNamedElementName(ne: UMLNamedElement[Uml]): Option[NamedElementNameValidationInfo[Uml]] =
-      ne match {
-        case _: UMLValueSpecification[Uml] =>
-          None
-        case _ =>
-          if (ne.name.nonEmpty)
-            Some(NamedElementNameValidationInfo(ne, ValidNamedElementNameStatus))
-          else
-            Some(NamedElementNameValidationInfo(ne, InvalidUnnamedNamedElementStatus, INVALID_UNNAMED_NAMED_ELEMENT))
-      }
+    import validationHelper._
 
     val validationResults = for {
       pkg <- pkgs
@@ -130,4 +136,39 @@ object NamedElementValidationHelper {
 
     validationResults
   }
+}
+
+/**
+ * Helper for EMOF/CMOF [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]] validation
+ *
+ * @param scope set of [[org.omg.oti.uml.read.api.UMLPackage UML Packages]] to analyze the contents for EMOF/CMOF
+ *              [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]] validation constraints
+ * @param umlOps A tool-specific OTI UML operations adapter object
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ * @tparam UmlOps The tool-specific OTI UML operations adapter type
+ */
+case class NamedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
+(scope: Set[UMLPackage[Uml]])
+(implicit umlOps: UmlOps) {
+
+  import org.omg.oti.uml.validation.NamedElementValidationHelper._
+
+  /**
+   * EMOF/CMOF [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]] validation
+   *
+   * @param ne A [[org.omg.oti.uml.read.api.UMLNamedElement UML NamedElement]] to validate
+   * @return If applicable, a [[NamedElementNameValidationInfo]] result
+   */
+  def checkNamedElementName(ne: UMLNamedElement[Uml]): Option[NamedElementNameValidationInfo[Uml]] =
+    ne match {
+      case _: UMLValueSpecification[Uml] =>
+        None
+      case _ =>
+        if (ne.name.nonEmpty)
+          Some(NamedElementNameValidationInfo(ne, ValidNamedElementNameStatus))
+        else
+          Some(NamedElementNameValidationInfo(ne, InvalidUnnamedNamedElementStatus, INVALID_UNNAMED_NAMED_ELEMENT))
+    }
+
+
 }

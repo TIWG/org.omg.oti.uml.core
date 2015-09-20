@@ -125,11 +125,11 @@ import org.omg.oti.uml.validation.TypedElementValidationStatus._
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
  */
 case class TypedElementValidationInfo[Uml <: UML]
-(val typedElement: UMLTypedElement[Uml],
- val status: TypedElementValidationStatus,
- val explanation: Option[String] = None) {
+(typedElement: UMLTypedElement[Uml],
+ status: TypedElementValidationStatus,
+ explanation: Option[String] = None) {
 
-  import TypedElementValidationStatus._
+  import org.omg.oti.uml.validation.TypedElementValidationStatus._
 
   val isInvalid: Boolean =
     status != ValidTypedElementStatus
@@ -160,203 +160,27 @@ object TypedElementValidationHelper {
     "Each Association memberEnd Property must be typed by a Class instead of a "
 
   /**
-   * EMOF/CMOF TypedElement validation for all TypedElements in the scope of set of UML Packages
+   * EMOF/CMOF TypedElement validation for all TypedElements in the scope of a set of UML Packages
    *
    * @param pkgs A set of UML Packages to analyze the contents for EMOF/CMOF TypedElement validation constraints
    * @param umlOps A tool-specific OTI UML operations adapter object
    * @param idg A tool-specific OTI IDGenerator
    * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
    * @tparam UmlOps The tool-specific OTI UML operations adapter type
-   * @return Where applicable, `TypedElementValidationInfo` results
+   * @return Where applicable, [[TypedElementValidationInfo]] results
    */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps, idg: IDGenerator[Uml])
   : Iterable[TypedElementValidationInfo[Uml]] = {
 
+    val scope = pkgs.toSet
+    val validationHelper = TypedElementValidationHelper(scope)
     import umlOps._
-
-    /**
-     * EMOF/CMOF validation for Operation::raisedException
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [1] The type of Operation::raisedException is limited to be Class rather than Type.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [2] The type of Operation::raisedException is limited to be Class rather than Type.
-     *
-     * @param te A UML TypedElement to validate if it is a kind of UML Operation
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkOperationRaisedException(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      te match {
-        case o: UMLOperation[Uml] =>
-          val nonClassTypes = (o.raisedException selectByKindOf {
-            case t: UMLType[Uml] if !oclIsTypeOfClass(t) => t
-          }).toList.sortBy(_.xmiOrderingKey)
-          if (nonClassTypes.isEmpty)
-            None
-          else
-            Some(
-              TypedElementValidationInfo(
-                o, InvalidOperationRaisedExceptionNonClassTypeStatus,
-                Some(
-                  INVALID_OPERATION_RAISED_EXCEPTION_NON_CLASS_TYPE +
-                  nonClassTypes.map(_.xmiOrderingKey).mkString("\nNon-class Exception types:", "\n", ""))))
-        case _ =>
-          None
-      }
-
-    /**
-     * EMOF/CMOF validation for an Association as the type of a TypedElement
-     *
-     * Note that this rule is interpreted with respect to the scope of EMOF/CMOF incl. Profiles.
-     * That is, the rule applies if and only if the type is exactly a UML Association or UML Extension.
-     * The rule is not applied if the type is another kind of metaclass outside the scope of EMOF/CMOF
-     * (e.g., AssociationClass or CommunicationPath)
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [22] A TypedElement cannot be typed by an Association.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [22] A TypedElement cannot be typed by an Association.
-     *
-     * @param te A UML TypedElement to validate w.r.t. its type being a kind of UML Association
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkTypedElementWithAssociationType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      for {
-        t <- te._type
-        v <- t match {
-          case _: UMLAssociationClass[Uml] =>
-            None
-          case a: UMLAssociation[Uml] =>
-            Some(TypedElementValidationInfo(
-              te, InvalidTypedElementWithAssociationTypeStatus,
-              Some(INVALID_TYPED_ELEMENT_WITH_ASSOCIATION_TYPE)))
-          case _ =>
-            None
-        }
-      } yield v
-
-    /**
-     * EMOF/CMOF validation for a TypedElement that must be explicitly typed
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
-     *
-     * @param te A UML TypedElement to validate w.r.t. having a type
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkTypedElementIsTyped(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      te match {
-        case _@(_: UMLLiteralSpecification[Uml] | _: UMLOpaqueExpression[Uml]) =>
-          None
-        case _ =>
-          te._type.fold[Option[TypedElementValidationInfo[Uml]]] {
-              Some(
-                TypedElementValidationInfo(
-                  te, InvalidUntypedTypedElementStatus,
-                  Some(INVALID_UNTYPED_TYPED_ELEMENT)))
-          }{ _ =>
-            None
-          }
-      }
-
-    /**
-     * EMOF/CMOF validation for TypedElements typed by a kind of DataType
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [28] A Property typed by a kind of DataType must have aggregation = none.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [28] A Property typed by a kind of DataType must have aggregation = none.
-     *
-     * @param te A UML TypedElement to validate w.r.t. DataType constraints
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkAggregationForPropertyTypeByDataType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      te match {
-        case p: UMLProperty[Uml] =>
-          p._type.fold[Option[TypedElementValidationInfo[Uml]]](None) {
-            case _: UMLDataType[Uml] =>
-              p.aggregation match {
-                case UMLAggregationKind.none =>
-                  None
-                case k =>
-                  Some(
-                    TypedElementValidationInfo(
-                      te, InvalidDataTypePropertyAggregationStatus,
-                      Some(INVALID_DATATYPE_PROPERTY_AGGREGATION + k.toString)))
-              }
-            case _ =>
-              None
-          }
-        case _ =>
-          None
-      }
-
-    /**
-     * EMOF/CMOF validation for TypedElements that are DataType properties
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [29] A Property owned by a DataType can only be typed by a DataType.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [29] A Property owned by a DataType can only be typed by a DataType.
-     *
-     * @param te A UML TypedELement to validate w.r.t. DataType property constraints
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkDataTypePropertyHasDataTypeType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      te match {
-        case p: UMLProperty[Uml] =>
-          te.owner.fold[Option[TypedElementValidationInfo[Uml]]](None) {
-            case _: UMLDataType[Uml] =>
-              None
-            case t =>
-              Some(
-                TypedElementValidationInfo(
-                  te, InvalidDataTypePropertyWithNonDataTypeTypeStatus,
-                  Some(INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE + t.metaclass_name)))
-           }
-        case _ =>
-          None
-      }
-
-    /**
-     * EMOF/CMOF validation for TypedElements that are Association memberEnds
-     *
-     * @see MOF 2.5, Section 12.4 EMOF Constraints
-     *      [30] Each Association memberEnd Property must be typed by a Class.
-     *
-     * @see MOF 2.5, Section 14.4 CMOF Constraints
-     *      [30] Each Association memberEnd Property must be typed by a Class.
-     *
-     * @param te A UML TypedElement to validate w.r.t. Association memberEnd constraints
-     * @return If applicable, a `TypedElementValidationInfo` result
-     */
-    def checkAssociationMemberEndHasClassType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
-      te match {
-        case p: UMLProperty[Uml] =>
-          (p.association, p._type) match {
-            case (Some(_), Some(t)) if !oclIsTypeOfClass(t) =>
-              Some(
-                TypedElementValidationInfo(
-                  te, InvalidAssociationMemberEndPropertyNonClassTypeStatus,
-                  Some(INVALID_ASSOCIATION_MEMBER_END_PROPERTY_NON_CLASS_TYPE + t.metaclass_name)))
-            case _ =>
-              None
-          }
-        case _ =>
-          None
-      }
+    import validationHelper._
 
     val validationResults = for {
-      pkg <- pkgs
+      pkg <- scope
       tes: Set[UMLTypedElement[Uml]] =
       closure[UMLNamedElement[Uml], UMLNamedElement[Uml]](
         pkg, _.ownedElement selectByKindOf { case ne: UMLNamedElement[Uml] => ne }) selectByKindOf {
@@ -375,4 +199,202 @@ object TypedElementValidationHelper {
     validationResults
 
   }
+}
+
+/**
+ * Helper for EMOF/CMOF TypedElement validation
+ *
+ * @param scope A set of UML Packages to analyze the contents for EMOF/CMOF NamedElement validation constraints
+ * @param umlOps A tool-specific OTI UML operations adapter object
+ * @param idg A tool-specific OTI IDGenerator
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ * @tparam UmlOps The tool-specific OTI UML operations adapter type
+ */
+case class TypedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
+(scope: Set[UMLPackage[Uml]])
+(implicit umlOps: UmlOps, idg: IDGenerator[Uml]) {
+
+  import umlOps._
+  import org.omg.oti.uml.validation.TypedElementValidationHelper._
+
+  /**
+   * EMOF/CMOF validation for Operation::raisedException
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [1] The type of Operation::raisedException is limited to be Class rather than Type.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [2] The type of Operation::raisedException is limited to be Class rather than Type.
+   *
+   * @param te A UML TypedElement to validate if it is a kind of UML Operation
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkOperationRaisedException(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    te match {
+      case o: UMLOperation[Uml] =>
+        val nonClassTypes = (o.raisedException selectByKindOf {
+          case t: UMLType[Uml] if !oclIsTypeOfClass(t) => t
+        }).toList.sortBy(_.xmiOrderingKey)
+        if (nonClassTypes.isEmpty)
+          None
+        else
+          Some(
+            TypedElementValidationInfo(
+              o, InvalidOperationRaisedExceptionNonClassTypeStatus,
+              Some(
+                INVALID_OPERATION_RAISED_EXCEPTION_NON_CLASS_TYPE +
+                nonClassTypes.map(_.xmiOrderingKey).mkString("\nNon-class Exception types:", "\n", ""))))
+      case _ =>
+        None
+    }
+
+  /**
+   * EMOF/CMOF validation for an Association as the type of a TypedElement
+   *
+   * Note that this rule is interpreted with respect to the scope of EMOF/CMOF incl. Profiles.
+   * That is, the rule applies if and only if the type is exactly a UML Association or UML Extension.
+   * The rule is not applied if the type is another kind of metaclass outside the scope of EMOF/CMOF
+   * (e.g., AssociationClass or CommunicationPath)
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [22] A TypedElement cannot be typed by an Association.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [22] A TypedElement cannot be typed by an Association.
+   *
+   * @param te A UML TypedElement to validate w.r.t. its type being a kind of UML Association
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkTypedElementWithAssociationType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    for {
+      t <- te._type
+      v <- t match {
+        case _: UMLAssociationClass[Uml] =>
+          None
+        case a: UMLAssociation[Uml] =>
+          Some(TypedElementValidationInfo(
+            te, InvalidTypedElementWithAssociationTypeStatus,
+            Some(INVALID_TYPED_ELEMENT_WITH_ASSOCIATION_TYPE)))
+        case _ =>
+          None
+      }
+    } yield v
+
+  /**
+   * EMOF/CMOF validation for a TypedElement that must be explicitly typed
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
+   *
+   * @param te A UML TypedElement to validate w.r.t. having a type
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkTypedElementIsTyped(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    te match {
+      case _@(_: UMLLiteralSpecification[Uml] | _: UMLOpaqueExpression[Uml]) =>
+        None
+      case _ =>
+        te._type.fold[Option[TypedElementValidationInfo[Uml]]] {
+              Some(
+                TypedElementValidationInfo(
+                  te, InvalidUntypedTypedElementStatus,
+                  Some(INVALID_UNTYPED_TYPED_ELEMENT)))
+          }{ _ =>
+            None
+          }
+    }
+
+  /**
+   * EMOF/CMOF validation for TypedElements typed by a kind of DataType
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [28] A Property typed by a kind of DataType must have aggregation = none.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [28] A Property typed by a kind of DataType must have aggregation = none.
+   *
+   * @param te A UML TypedElement to validate w.r.t. DataType constraints
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkAggregationForPropertyTypeByDataType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    te match {
+      case p: UMLProperty[Uml] =>
+        p._type.fold[Option[TypedElementValidationInfo[Uml]]](None) {
+            case _: UMLDataType[Uml] =>
+              p.aggregation match {
+                case UMLAggregationKind.none =>
+                  None
+                case k =>
+                  Some(
+                    TypedElementValidationInfo(
+                      te, InvalidDataTypePropertyAggregationStatus,
+                      Some(INVALID_DATATYPE_PROPERTY_AGGREGATION + k.toString)))
+              }
+            case _ =>
+              None
+          }
+      case _ =>
+        None
+    }
+
+  /**
+   * EMOF/CMOF validation for TypedElements that are DataType properties
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [29] A Property owned by a DataType can only be typed by a DataType.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [29] A Property owned by a DataType can only be typed by a DataType.
+   *
+   * @param te A UML TypedELement to validate w.r.t. DataType property constraints
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkDataTypePropertyHasDataTypeType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    te match {
+      case p: UMLProperty[Uml] =>
+        te.owner.fold[Option[TypedElementValidationInfo[Uml]]](None) {
+            case _: UMLDataType[Uml] =>
+              None
+            case t =>
+              Some(
+                TypedElementValidationInfo(
+                  te, InvalidDataTypePropertyWithNonDataTypeTypeStatus,
+                  Some(INVALID_DATATYPE_PROPERTY_WITH_NON_DATATYPE_TYPE + t.metaclass_name)))
+           }
+      case _ =>
+        None
+    }
+
+  /**
+   * EMOF/CMOF validation for TypedElements that are Association memberEnds
+   *
+   * @see MOF 2.5, Section 12.4 EMOF Constraints
+   *      [30] Each Association memberEnd Property must be typed by a Class.
+   *
+   * @see MOF 2.5, Section 14.4 CMOF Constraints
+   *      [30] Each Association memberEnd Property must be typed by a Class.
+   *
+   * @param te A UML TypedElement to validate w.r.t. Association memberEnd constraints
+   * @return If applicable, a [[TypedElementValidationInfo]] result
+   */
+  def checkAssociationMemberEndHasClassType(te: UMLTypedElement[Uml]): Option[TypedElementValidationInfo[Uml]] =
+    te match {
+      case p: UMLProperty[Uml] =>
+        (p.association, p._type) match {
+          case (Some(_), Some(t)) if !oclIsTypeOfClass(t) =>
+            Some(
+              TypedElementValidationInfo(
+                te, InvalidAssociationMemberEndPropertyNonClassTypeStatus,
+                Some(INVALID_ASSOCIATION_MEMBER_END_PROPERTY_NON_CLASS_TYPE + t.metaclass_name)))
+          case _ =>
+            None
+        }
+      case _ =>
+        None
+    }
+
+
 }

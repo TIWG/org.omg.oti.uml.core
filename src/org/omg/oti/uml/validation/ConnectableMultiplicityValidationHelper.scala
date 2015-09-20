@@ -53,16 +53,25 @@ import scala.util._
 import java.lang.Integer
 
 /**
- * The different categories of validation for the lower or upper value of a multiplicity element
- * that is a kind of parameter or property.
+ * The different categories of validation for the lower or upper value of a
+ * [[org.omg.oti.uml.read.api.UMLMultiplicityElement multiplicity element]]
+ * that is a kind of
+ * [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty Property]]
  *
  * @see MOF 2.5, Section 12.4 EMOF Constraints
- * [32] The values of MultiplicityElement::lowerValue and upperValue must be
- * of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ *
+ * [32] The values of [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue
+ * and upperValue must be of kind
+ * [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]] and
+ * [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]] respectively.
  *
  * @see MOF 2.5, Section 14.4 CMOF Constraints
- * [14] The values of MultiplicityElement::lowerValue and upperValue must
- * be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ *
+ * [14] The values of [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue
+ * and upperValue must be of kind
+ * [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]] and
+ * [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]] respectively.
  */
 object MultiplicityValueValidationStatus extends Enumeration {
   type MultiplicityValueValidationStatus = Value
@@ -79,72 +88,78 @@ object MultiplicityValueValidationStatus extends Enumeration {
   val RedundantValueStatus = Value
 
   /**
-   * Invalid MultiplicityElement::lowerValue is a LiteralUnlimitedNatural
-   * (repair strategy: convert the value to an equivalent LiteralInteger)
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue
+   * is a [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]]
+   * (repair strategy: convert the value to an equivalent [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]])
    * 
    * or
    * 
-   * Invalid MultiplicityElement::upperValue is a LiteralUnlimitedNatural 
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::upperValue
+   * is a [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]]
    * whose integer value is not a valid UnlimitedNatural
    * (no repair strategy)
    */
   val InvalidValueAsUnlimitedNaturalStatus = Value
 
   /**
-   * Invalid MultiplicityElement::lowerValue is a LiteralInteger whose integer value is non positive
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue
+   * is a [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]] whose integer value is non positive
    * (no repair strategy)
    * 
    * or
    * 
-   * Invalid MultiplicityElement::upperValue is a LiteralInteger
-   * (repair strategy: convert the value to an equivalent LiteralUnlimitedNatural)
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::upperValue is a
+   * [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]]
+   * (repair strategy: convert the value to an equivalent
+   * [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]])
    */
   val InvalidValueAsIntegerStatus = Value
 
   /**
-   * Invalid MultiplicityElement::lowerValue or MultiplicityElement::upperValue is a LiteralString
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue
+   * or [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::upperValue is a
+   * [[org.omg.oti.uml.read.api.UMLLiteralString LiteralString]]
    * (repair strategy: if and only if the value can be converted to an equivalent, suitable value 
-   *  for the role: a LiteralInteger for a lowerValue or a LiteralUnlimitedNatural for an upperValue)
+   *  for the role: a [[org.omg.oti.uml.read.api.UMLLiteralInteger LiteralInteger]]
+   *  for a lowerValue or a
+   *  [[org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural LiteralUnlimitedNatural]] for an upperValue)
    */
   val InvalidValueAsStringStatus = Value
   
   /**
-   * Invalid MultiplicityElement::lowerValue or MultiplicityElement::upperValue 
-   * is not a recognized ValueSpecification
+   * Invalid [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::lowerValue or
+   * [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]::upperValue
+   * is not a recognized [[org.omg.oti.uml.read.api.UMLValueSpecification ValueSpecification]]
    * (no repair strategy)
    */
   val InvalidValueKindStatus = Value
 }
 
-import MultiplicityValueValidationStatus._
+import org.omg.oti.uml.validation.MultiplicityValueValidationStatus._
 
 /**
- * Multiplicity range validation result for a connectable element (parameter or property)
+ * Multiplicity range validation result for a [[org.omg.oti.uml.read.api.UMLConnectableElement connectable element]]
+ * ([[org.omg.oti.uml.read.api.UMLParameter parameter]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty property]])
  *
- * @param parameter_or_property: A Parameter or Property
- * @param role: MultiplicityElement_lowerValue or MultiplicityElement_upperValue
- * @param status: valid, redundant or invalid
- * @param explanation: description of the validatio result
- * @param valueRepair: if invalid, an integer value to repair the model
+ * @param parameter_or_property A [[org.omg.oti.uml.read.api.UMLParameter Parameter]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty Property]]
+ * @param role [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]_lowerValue or
+ *             [[org.omg.oti.uml.read.api.UMLMultiplicityElement MultiplicityElement]]_upperValue
+ * @param status valid, redundant or invalid
+ * @param explanation description of the validation result
+ * @param valueRepair if invalid, an integer value to repair the model
  * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
- *
- * @see MOF 2.5, Section 12.4 EMOF Constraints
- * [32] The values of MultiplicityElement::lowerValue and upperValue must be
- * of kind LiteralInteger and LiteralUnlimitedNatural respectively.
- *
- * @see MOF 2.5, Section 14.4 CMOF Constraints
- * [14] The values of MultiplicityElement::lowerValue and upperValue must
- * be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
  */
 case class ConnectableMultiplicityValidationInfo[Uml <: UML]
-(val parameter_or_property: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml],
- val role: MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]],
- val value: Option[UMLValueSpecification[Uml]],
- val status: MultiplicityValueValidationStatus,
- val explanation: Option[String] = None,
- val valueRepair: Option[Integer] = None) {
+(parameter_or_property: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml],
+ role: MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]],
+ value: Option[UMLValueSpecification[Uml]],
+ status: MultiplicityValueValidationStatus,
+ explanation: Option[String] = None,
+ valueRepair: Option[Integer] = None) {
 
-  import MultiplicityValueValidationStatus._
+  import org.omg.oti.uml.validation.MultiplicityValueValidationStatus._
 
   val isInvalid: Boolean =
     status match {
@@ -163,15 +178,8 @@ case class ConnectableMultiplicityValidationInfo[Uml <: UML]
 }
 
 /**
- * Multiplicity range validation support for parameter or property connectable elements
- *
- * @see MOF 2.5, Section 12.4 EMOF Constraints
- * [32] The values of MultiplicityElement::lowerValue and upperValue must be
- *      of kind LiteralInteger and LiteralUnlimitedNatural respectively.
- *
- * @see MOF 2.5, Section 14.4 CMOF Constraints
- * [14] The values of MultiplicityElement::lowerValue and upperValue must
- *      be of kind LiteralInteger and LiteralUnlimitedNatural respectively.
+ * Multiplicity range validation support for [[org.omg.oti.uml.read.api.UMLParameter parameter]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty property]] connectable elements
  */
 object ConnectableMultiplicityValidationHelper {
 
@@ -200,26 +208,80 @@ object ConnectableMultiplicityValidationHelper {
     Some("Invalid string value")
 
   /**
-   * Check the multiplicity range validity of all parameter or property
-   * connectable elements found in the packages.
+   * Check the multiplicity range validity of all [[org.omg.oti.uml.read.api.UMLParameter parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty property]]
+   * connectable elements found in the scope of [[org.omg.oti.uml.read.api.UMLPackage packages]].
    *
-   * @param pkgs: the scope of the packages to analyze
+   * @param pkgs the scope of the [[org.omg.oti.uml.read.api.UMLPackage packages]] to analyze
    * @return ConnectableMultiplicityValidationInfo for each connectable multiplicity element found in `pkgs`
    */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
   (implicit umlOps: UmlOps): Iterable[ConnectableMultiplicityValidationInfo[Uml]] = {
 
+    val scope = pkgs.toSet
+    val validationHelper = ConnectableMultiplicityValidationHelper(scope)
+    import validationHelper._
     import umlOps._
 
-    def checkLowerValue
-    ( pop: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] )
-    : ConnectableMultiplicityValidationInfo[Uml] =
-      pop.lowerValue.fold[ConnectableMultiplicityValidationInfo[Uml]](
-        ConnectableMultiplicityValidationInfo[Uml](
-            pop, MultiplicityElement_lowerValue,
-            None, ValidValueStatus)) {
+    val validationResults = for {
+      pkg <- scope
+      nes: Set[UMLNamedElement[Uml]] = closure[UMLNamedElement[Uml], UMLNamedElement[Uml]](
+        pkg,
+        _.ownedElement selectByKindOf { case ne: UMLNamedElement[Uml] => ne })
+      ne <- nes
+      v <- ne match {
+        case p: UMLParameter[Uml] =>
+          checkLowerValue(p) :: checkUpperValue(p) :: Nil
+        case p: UMLProperty[Uml] =>
+          checkLowerValue(p) :: checkUpperValue(p) :: Nil
+        case _ =>
+          Nil
+      }
+    } yield v
 
+    validationResults
+  }
+
+}
+
+/**
+ * Helper for EMOF/CMOF Multiplicity range validation for
+ * [[org.omg.oti.uml.read.api.UMLConnectableElement connectable elements]]
+ * ([[org.omg.oti.uml.read.api.UMLParameter parameters]] or
+ * [[org.omg.oti.uml.read.api.UMLProperty properties]])
+ *
+ * @param pkgs set of [[org.omg.oti.uml.read.api.UMLPackage UML Packages]] to analyze the contents for EMOF/CMOF
+ *             multiplicity rance validation
+ * @param umlOps A tool-specific OTI UML operations adapter object
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ * @tparam UmlOps The tool-specific OTI UML operations adapter type
+ */
+case class ConnectableMultiplicityValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
+(pkgs: Set[UMLPackage[Uml]])
+(implicit umlOps: UmlOps) {
+
+  import org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper._
+
+  import umlOps._
+
+  /**
+   * EMOF/CMOF lower value validation
+   *
+   * @param pop a [[org.omg.oti.uml.read.api.UMLParameter parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty property]]
+   * @return A [[ConnectableMultiplicityValidationInfo]] result
+   */
+  def checkLowerValue
+  ( pop: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] )
+  : ConnectableMultiplicityValidationInfo[Uml] =
+    pop
+    .lowerValue
+    .fold[ConnectableMultiplicityValidationInfo[Uml]](
+        ifEmpty = ConnectableMultiplicityValidationInfo[Uml](
+                    pop, MultiplicityElement_lowerValue,
+                    None, ValidValueStatus)
+    ) {
         case l: UMLLiteralUnlimitedNatural[Uml] =>
           if (1 == l.value)
             ConnectableMultiplicityValidationInfo[Uml](
@@ -259,13 +321,15 @@ object ConnectableMultiplicityValidationHelper {
               INVALID_INTEGER_VALUE)
 
         case l: UMLLiteralString[Uml] =>
-          l.value match {
-            case None =>
+          l
+          .value
+          .fold[ConnectableMultiplicityValidationInfo[Uml]](
+            ifEmpty =
               ConnectableMultiplicityValidationInfo[Uml](
                 pop, MultiplicityElement_lowerValue,
                 pop.lowerValue, InvalidValueAsStringStatus,
                 INVALID_STRING_VALUE)
-            case Some(s) =>
+          ) { s =>
               if ("*" == s)
                 ConnectableMultiplicityValidationInfo[Uml](
                   pop, MultiplicityElement_lowerValue,
@@ -304,111 +368,101 @@ object ConnectableMultiplicityValidationHelper {
             Some(s"${v.xmiType.head} is an invalid lower value"))
       }
 
-    def checkUpperValue
-    ( pop: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] )
-    : ConnectableMultiplicityValidationInfo[Uml] =
-      pop.upperValue match {
-        case None =>
-          ConnectableMultiplicityValidationInfo[Uml](
-            pop, MultiplicityElement_upperValue,
-            None, ValidValueStatus)
-
-        case Some(l: UMLLiteralUnlimitedNatural[Uml]) =>
+  /**
+   * EMOF/CMOF upper value validation
+   *
+   * @param pop a [[org.omg.oti.uml.read.api.UMLParameter parameter]] or
+   * [[org.omg.oti.uml.read.api.UMLProperty property]]
+   * @return A [[ConnectableMultiplicityValidationInfo]] result
+   */
+  def checkUpperValue
+  ( pop: UMLConnectableElement[Uml] with UMLMultiplicityElement[Uml] )
+  : ConnectableMultiplicityValidationInfo[Uml] =
+    pop
+    .upperValue
+    .fold[ConnectableMultiplicityValidationInfo[Uml]](
+        ifEmpty = ConnectableMultiplicityValidationInfo[Uml](
+                    pop, MultiplicityElement_upperValue,
+                    None, ValidValueStatus)
+    ) {
+        case l: UMLLiteralUnlimitedNatural[Uml] =>
           if (1 == l.value)
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, RedundantValueStatus,
-              DELETE_REDUNDANT_DEFAULT_VALUE)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, RedundantValueStatus,
+                DELETE_REDUNDANT_DEFAULT_VALUE)
           else if (-1 <= l.value)
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, ValidValueStatus)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, ValidValueStatus)
           else
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, InvalidValueAsUnlimitedNaturalStatus,
-              INVALID_UNLIMITED_NATURAL_VALUE)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, InvalidValueAsUnlimitedNaturalStatus,
+                INVALID_UNLIMITED_NATURAL_VALUE)
 
-        case Some(l: UMLLiteralInteger[Uml]) =>
+        case l: UMLLiteralInteger[Uml] =>
           if (1 == l.value)
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, RedundantValueStatus,
-              DELETE_REDUNDANT_DEFAULT_VALUE)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, RedundantValueStatus,
+                DELETE_REDUNDANT_DEFAULT_VALUE)
           else if (0 <= l.value)
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, InvalidValueAsIntegerStatus,
-              REPAIR_INTEGER_VALUE_TO_EQUIVALENT_UNLIMITED_NATURAL_VALUE)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, InvalidValueAsIntegerStatus,
+                REPAIR_INTEGER_VALUE_TO_EQUIVALENT_UNLIMITED_NATURAL_VALUE)
           else
             ConnectableMultiplicityValidationInfo[Uml](
-              pop, MultiplicityElement_upperValue,
-              pop.upperValue, InvalidValueAsIntegerStatus,
-              INVALID_INTEGER_VALUE)
+                pop, MultiplicityElement_upperValue,
+                pop.upperValue, InvalidValueAsIntegerStatus,
+                INVALID_INTEGER_VALUE)
 
-        case Some(l: UMLLiteralString[Uml]) =>
-          l.value match {
-            case None =>
+        case l: UMLLiteralString[Uml] =>
+          l
+          .value
+          .fold[ConnectableMultiplicityValidationInfo[Uml]](
+            ifEmpty =
               ConnectableMultiplicityValidationInfo[Uml](
                 pop, MultiplicityElement_upperValue,
                 pop.upperValue, InvalidValueAsStringStatus,
                 INVALID_STRING_VALUE)
-            case Some(s) =>
+          ) { s =>
               if ("*" == s)
                 ConnectableMultiplicityValidationInfo[Uml](
-                  pop, MultiplicityElement_upperValue,
-                  pop.upperValue, InvalidValueAsStringStatus,
-                  REPAIR_STRING_VALUE_TO_EQUIVALENT_UNLIMITED_NATURAL_VALUE, Some(-1))
+                    pop, MultiplicityElement_upperValue,
+                    pop.upperValue, InvalidValueAsStringStatus,
+                    REPAIR_STRING_VALUE_TO_EQUIVALENT_UNLIMITED_NATURAL_VALUE, Some(-1))
               else
                 Try(Integer.parseInt(s)) match {
                   case Success(x) =>
                     if (1 == x)
                       ConnectableMultiplicityValidationInfo[Uml](
-                        pop, MultiplicityElement_upperValue,
-                        pop.upperValue, RedundantValueStatus,
-                        DELETE_REDUNDANT_DEFAULT_VALUE)
+                          pop, MultiplicityElement_upperValue,
+                          pop.upperValue, RedundantValueStatus,
+                          DELETE_REDUNDANT_DEFAULT_VALUE)
                     else if (-1 <= x)
                       ConnectableMultiplicityValidationInfo[Uml](
-                        pop, MultiplicityElement_upperValue,
-                        pop.upperValue, InvalidValueAsStringStatus,
-                        REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(x))
+                          pop, MultiplicityElement_upperValue,
+                          pop.upperValue, InvalidValueAsStringStatus,
+                          REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(x))
                     else
                       ConnectableMultiplicityValidationInfo[Uml](
+                          pop, MultiplicityElement_upperValue,
+                          pop.upperValue, InvalidValueAsStringStatus,
+                          INVALID_STRING_VALUE)
+                  case _: Failure[_] =>
+                    ConnectableMultiplicityValidationInfo[Uml](
                         pop, MultiplicityElement_upperValue,
                         pop.upperValue, InvalidValueAsStringStatus,
                         INVALID_STRING_VALUE)
-                  case _: Failure[_] =>
-                    ConnectableMultiplicityValidationInfo[Uml](
-                      pop, MultiplicityElement_upperValue,
-                      pop.upperValue, InvalidValueAsStringStatus,
-                      INVALID_STRING_VALUE)
                 }
           }
 
-        case Some(v) =>
+        case v =>
           ConnectableMultiplicityValidationInfo[Uml](
-            pop, MultiplicityElement_upperValue,
-            pop.upperValue, InvalidValueKindStatus,
-            Some(s"${v.xmiType.head} is an invalid upper value"))
-      }
-
-    val validationResults = for {
-      pkg <- pkgs
-      nes: Set[UMLNamedElement[Uml]] = closure[UMLNamedElement[Uml], UMLNamedElement[Uml]](
-        pkg,
-        _.ownedElement selectByKindOf { case ne: UMLNamedElement[Uml] => ne })
-      ne <- nes
-      v <- ne match {
-        case p: UMLParameter[Uml] =>
-          checkLowerValue(p) :: checkUpperValue(p) :: Nil
-        case p: UMLProperty[Uml] =>
-          checkLowerValue(p) :: checkUpperValue(p) :: Nil
-        case _ =>
-          Nil
-      }
-    } yield v
-
-    validationResults
-  }
-
+              pop, MultiplicityElement_upperValue,
+              pop.upperValue, InvalidValueKindStatus,
+              Some(s"${v.xmiType.head} is an invalid upper value"))
+    }
 }
