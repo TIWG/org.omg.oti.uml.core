@@ -95,6 +95,10 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   val propertyName: String
 
+  val isComposite: Boolean
+
+  val isUnique: Boolean
+
   /**
    * Ordering matters for serialization per Canonical XMI ptc/2013-08-31:
    *
@@ -163,7 +167,9 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
 (propertyName: String,
  f: U => Option[V],
- isOrdered: Boolean = false,
+ isComposite: Boolean,
+ isUnique: Boolean,
+ isOrdered: Boolean,
  redefinedMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
@@ -225,7 +231,9 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
 case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
 (propertyName: String,
  f: U => Iterable[V],
- isOrdered: Boolean = false,
+ isComposite: Boolean,
+ isUnique: Boolean,
+ isOrdered: Boolean,
  redefinedMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
