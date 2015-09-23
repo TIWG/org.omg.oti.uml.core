@@ -3314,13 +3314,13 @@ trait UMLUpdate[Uml <: UML] {
   // was: CompositeReferenceSingleUpdate
   trait AssociationMetaPropertyUpdater {
 
-    def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit]
+    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit]
   }
 
   // was: CompositeReferenceUpdater
   trait AssociationMetaPropertyOptionUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyReferenceQuery
-    def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit]
+    def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit]
   }
 
   // was: CompositeReferenceUpdate
@@ -3330,7 +3330,7 @@ trait UMLUpdate[Uml <: UML] {
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyOptionUpdater {
 
-    override def linksComposes(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit] =
+    override def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Try[Unit] =
       owner match {
         case u: U =>
           owned.fold[Try[Unit]]{
@@ -3345,8 +3345,8 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
-    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
-      linksComposes(owner, Some(owned))
+    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+      setLinks(owner, Some(owned))
   }
 
   // was: MetaPropertyCompositeCollectionQuery
@@ -3356,7 +3356,7 @@ trait UMLUpdate[Uml <: UML] {
   // was: CompositeIterableUpdater
   trait AssociationMetaPropertyIterableUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
-    def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
+    def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
   }
 
   // was: CompositeIterableUpdate
@@ -3366,7 +3366,7 @@ trait UMLUpdate[Uml <: UML] {
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyIterableUpdater {
 
-    override def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
+    override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v)
@@ -3374,11 +3374,11 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
-    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query.evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
-        linksComposes(owner, updated)
+        setLinks(owner, updated)
       }
 
   }
@@ -3386,7 +3386,7 @@ trait UMLUpdate[Uml <: UML] {
   // was: CompositeSequenceUpdater
   trait AssociationMetaPropertySequenceUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
-    def linksComposes(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit]
+    def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit]
   }
 
   // was: CompositeSequenceUpdate
@@ -3396,7 +3396,7 @@ trait UMLUpdate[Uml <: UML] {
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySequenceUpdater {
 
-    override def linksComposes(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit] =
+    override def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]]): Try[Unit] =
       (owner, owned) match {
         case (u: U, v: Seq[V]) =>
           links_composes(u, v)
@@ -3404,12 +3404,12 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
-    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query
       .evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
-        linksComposes(owner, updated)
+        setLinks(owner, updated)
       }
 
   }
@@ -3417,7 +3417,7 @@ trait UMLUpdate[Uml <: UML] {
   // was: CompositeSetUpdater
   trait AssociationMetaPropertySetUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
-    def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
+    def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit]
   }
 
   // was: CompositeSetUpdate
@@ -3427,7 +3427,7 @@ trait UMLUpdate[Uml <: UML] {
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySetUpdater {
 
-    override def linksComposes(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
+    override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]]): Try[Unit] =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v.toSet)
@@ -3435,12 +3435,12 @@ trait UMLUpdate[Uml <: UML] {
           Failure(new IllegalArgumentException())
       }
 
-    override def linksCompose1(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
+    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Try[Unit] =
       links_query
       .evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
-        linksComposes(owner, updated)
+        setLinks(owner, updated)
     }
 
   }

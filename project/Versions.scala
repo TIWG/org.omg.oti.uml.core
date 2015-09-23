@@ -24,7 +24,7 @@ object Versions {
 
   // otherLibs
 
-  val config = "1.2.1"
+  val config = "1.3.0"
   val scalaCheck = "1.12.2"
   val scalaTest = "2.2.4"
   val specs2 = "3.6"
