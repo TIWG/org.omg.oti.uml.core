@@ -84,7 +84,7 @@ class PropertyUpdater[Uml <: UML](val domain: UMLProperty[Uml]) extends AnyVal {
     umlU.links_Property_property_reference_subsettedProperty_Property(domain, range)
 
   def setAggregation
-  (aggregation: UMLAggregationKind.Value)
+  (aggregation: Option[UMLAggregationKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_Property_aggregation(domain, aggregation)

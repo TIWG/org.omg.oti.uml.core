@@ -1825,6 +1825,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"behavior", _.behavior, false,
 		Set())
 
+	val BehavioralFeature_concurrency =
+		MetaAttributeEnumerationFunction[Uml, UMLBehavioralFeature[Uml], UMLCallConcurrencyKind.Value, UMLCallConcurrencyKind.ValueSet](None, "concurrency", (x: UMLBehavioralFeature[Uml]) => x.concurrency, UMLCallConcurrencyKind.values)
 
 	val BehavioralFeature_isAbstract =
 		MetaAttributeBooleanFunction[Uml, UMLBehavioralFeature[Uml]](None, "isAbstract",
@@ -2069,6 +2071,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"cfragmentGate", _.cfragmentGate, false,
 		Set())
 
+	val CombinedFragment_interactionOperator =
+		MetaAttributeEnumerationFunction[Uml, UMLCombinedFragment[Uml], UMLInteractionOperatorKind.Value, UMLInteractionOperatorKind.ValueSet](None, "interactionOperator", (x: UMLCombinedFragment[Uml]) => x.interactionOperator, UMLInteractionOperatorKind.values)
 
 	val CombinedFragment_operand =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]](
@@ -2333,6 +2337,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"importedElement", _.importedElement, false,
 		Set())
 
+	val ElementImport_visibility =
+		MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLElementImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Enumeration_ownedLiteral =
 		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
@@ -2390,6 +2396,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"inputElement", _.inputElement, false,
 		Set())
 
+	val ExpansionRegion_mode =
+		MetaAttributeEnumerationFunction[Uml, UMLExpansionRegion[Uml], UMLExpansionKind.Value, UMLExpansionKind.ValueSet](None, "mode", (x: UMLExpansionRegion[Uml]) => x.mode, UMLExpansionKind.values)
 
 	val ExpansionRegion_outputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
@@ -2855,6 +2863,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"connector", _.connector, false,
 		Set())
 
+	val Message_messageSort =
+		MetaAttributeEnumerationFunction[Uml, UMLMessage[Uml], UMLMessageSort.Value, UMLMessageSort.ValueSet](None, "messageSort", (x: UMLMessage[Uml]) => x.messageSort, UMLMessageSort.values)
 
 	val Message_receiveEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
@@ -2907,6 +2917,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"nameExpression", _.nameExpression, false,
 		Set())
 
+	val NamedElement_visibility =
+		MetaAttributeEnumerationFunction[Uml, UMLNamedElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLNamedElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Namespace_elementImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]](
@@ -2955,6 +2967,8 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeBooleanFunction[Uml, UMLObjectNode[Uml]](None, "isControlType",
 		(x) => booleanToIterable(x.isControlType, false))
 
+	val ObjectNode_ordering =
+		MetaAttributeEnumerationFunction[Uml, UMLObjectNode[Uml], UMLObjectNodeOrderingKind.Value, UMLObjectNodeOrderingKind.ValueSet](None, "ordering", (x: UMLObjectNode[Uml]) => x.ordering, UMLObjectNodeOrderingKind.values)
 
 	val ObjectNode_selection =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]](
@@ -3088,19 +3102,27 @@ trait UMLOps[Uml <: UML] { self =>
 		"importedPackage", _.importedPackage, false,
 		Set())
 
+	val PackageImport_visibility =
+		MetaAttributeEnumerationFunction[Uml, UMLPackageImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val PackageMerge_mergedPackage =
 		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
 		"mergedPackage", _.mergedPackage, false,
 		Set())
 
+	val PackageableElement_visibility =
+		MetaAttributeEnumerationFunction[Uml, UMLPackageableElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageableElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Parameter_defaultValue =
 		MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]](
 		"defaultValue", _.defaultValue, false,
 		Set())
 
+	val Parameter_direction =
+		MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterDirectionKind.Value, UMLParameterDirectionKind.ValueSet](None, "direction", (x: UMLParameter[Uml]) => x.direction, UMLParameterDirectionKind.values)
 
+	val Parameter_effect =
+		MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterEffectKind.Value, UMLParameterEffectKind.ValueSet](None, "effect", (x: UMLParameter[Uml]) => x.effect, UMLParameterEffectKind.values)
 
 	val Parameter_isException =
 		MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException",
@@ -3175,6 +3197,8 @@ trait UMLOps[Uml <: UML] { self =>
 		MetaAttributeBooleanFunction[Uml, UMLProfileApplication[Uml]](None, "isStrict",
 		(x) => booleanToIterable(x.isStrict, false))
 
+	val Property_aggregation =
+		MetaAttributeEnumerationFunction[Uml, UMLProperty[Uml], UMLAggregationKind.Value, UMLAggregationKind.ValueSet](None, "aggregation", (x: UMLProperty[Uml]) => x.aggregation, UMLAggregationKind.values)
 
 	val Property_association =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
@@ -3233,6 +3257,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"preCondition", _.preCondition, false,
 		Set())
 
+	val Pseudostate_kind =
+		MetaAttributeEnumerationFunction[Uml, UMLPseudostate[Uml], UMLPseudostateKind.Value, UMLPseudostateKind.ValueSet](None, "kind", (x: UMLPseudostate[Uml]) => x.kind, UMLPseudostateKind.values)
 
 	val QualifierValue_qualifier =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]](
@@ -3768,6 +3794,8 @@ trait UMLOps[Uml <: UML] { self =>
 		"guard", _.guard, false,
 		Set())
 
+	val Transition_kind =
+		MetaAttributeEnumerationFunction[Uml, UMLTransition[Uml], UMLTransitionKind.Value, UMLTransitionKind.ValueSet](None, "kind", (x: UMLTransition[Uml]) => x.kind, UMLTransitionKind.values)
 
 	val Transition_redefinedTransition =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]](

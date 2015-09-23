@@ -43,8 +43,8 @@ package org.omg.oti.uml.write.api
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
+import scala.Predef.String
 import scala.util.Try
-import java.lang.Integer
 // End of user code
 
 /**
@@ -55,7 +55,7 @@ class LiteralUnlimitedNaturalUpdater[Uml <: UML](val domain: UMLLiteralUnlimited
 
 
   def setValue
-  (value: Integer)
+  (value: String)
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_LiteralUnlimitedNatural_value(domain, value)

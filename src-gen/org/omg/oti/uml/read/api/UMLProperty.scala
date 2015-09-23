@@ -74,7 +74,7 @@ trait UMLProperty[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def aggregation: UMLAggregationKind.Value
+	def aggregation: Option[UMLAggregationKind.Value]
 
 	/**
 	 * A ValueSpecification that is evaluated to give a default value for the Property when an instance of the owning Classifier is instantiated.

@@ -42,7 +42,7 @@ package org.omg.oti.uml.write.api
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 
-import scala.{AnyVal,Boolean,Unit}
+import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.{Seq,Set}
 import scala.util.Try
 // End of user code
@@ -78,7 +78,7 @@ class BehavioralFeatureUpdater[Uml <: UML](val domain: UMLBehavioralFeature[Uml]
     umlU.links_BehavioralFeature_behavioralFeature_reference_raisedException_Type(domain, range)
 
   def setConcurrency
-  (concurrency: UMLCallConcurrencyKind.Value)
+  (concurrency: Option[UMLCallConcurrencyKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_BehavioralFeature_concurrency(domain, concurrency)

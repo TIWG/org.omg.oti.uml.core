@@ -83,7 +83,7 @@ trait UMLElementImport[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def visibility: UMLVisibilityKind.Value
+	def visibility: Option[UMLVisibilityKind.Value]
 
 	/**
 	 * <!-- Start of user code doc for metaclassReference_profile -->

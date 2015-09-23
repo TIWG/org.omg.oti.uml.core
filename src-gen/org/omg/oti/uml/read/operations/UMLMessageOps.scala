@@ -85,7 +85,7 @@ trait UMLMessageOps[Uml <: UML] { self: UMLMessage[Uml] =>
 	 * OCL Body result = (messageKind)
 	 * }}}
 	 */
-	def messageKind: UMLMessageKind.Value = {
+	def messageKind: Option[UMLMessageKind.Value] = {
 		// Start of user code for "messageKind"
       ???
       // End of user code

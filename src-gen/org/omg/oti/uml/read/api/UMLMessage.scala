@@ -94,7 +94,7 @@ trait UMLMessage[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def messageSort: UMLMessageSort.Value
+	def messageSort: Option[UMLMessageSort.Value]
 
 	/**
 	 * References the Receiving of the Message.

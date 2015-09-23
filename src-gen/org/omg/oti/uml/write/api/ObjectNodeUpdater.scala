@@ -78,7 +78,7 @@ class ObjectNodeUpdater[Uml <: UML](val domain: UMLObjectNode[Uml]) extends AnyV
     umlU.set_ObjectNode_isControlType(domain, isControlType)
 
   def setOrdering
-  (ordering: UMLObjectNodeOrderingKind.Value)
+  (ordering: Option[UMLObjectNodeOrderingKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_ObjectNode_ordering(domain, ordering)

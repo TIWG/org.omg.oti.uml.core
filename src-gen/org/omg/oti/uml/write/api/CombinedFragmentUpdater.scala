@@ -42,7 +42,7 @@ package org.omg.oti.uml.write.api
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 
-import scala.{AnyVal,Unit}
+import scala.{AnyVal,Option,Unit}
 import scala.collection.immutable._
 import scala.util.Try
 // End of user code
@@ -66,7 +66,7 @@ class CombinedFragmentUpdater[Uml <: UML](val domain: UMLCombinedFragment[Uml]) 
     umlU.links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand(domain, range)
 
   def setInteractionOperator
-  (interactionOperator: UMLInteractionOperatorKind.Value)
+  (interactionOperator: Option[UMLInteractionOperatorKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_CombinedFragment_interactionOperator(domain, interactionOperator)

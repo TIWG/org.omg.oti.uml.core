@@ -83,7 +83,7 @@ trait UMLParameter[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def direction: UMLParameterDirectionKind.Value
+	def direction: Option[UMLParameterDirectionKind.Value]
 
 	/**
 	 * Specifies the effect that executions of the owner of the Parameter have on objects passed in or out of the parameter.

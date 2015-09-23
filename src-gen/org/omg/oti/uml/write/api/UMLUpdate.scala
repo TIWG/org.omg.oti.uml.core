@@ -45,7 +45,7 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.{Boolean,Double,Option,None,Some,Unit}
+import scala.{Boolean,Double,Enumeration,Option,None,Some,Unit}
 import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
@@ -316,7 +316,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLBehavioralFeature[Uml],
    to: Set[UMLType[Uml]]): Try[Unit]
   def set_BehavioralFeature_concurrency
-  (e: UMLBehavioralFeature[Uml], concurrency: UMLCallConcurrencyKind.Value): Try[Unit]
+  (e: UMLBehavioralFeature[Uml], concurrency: Option[UMLCallConcurrencyKind.Value]): Try[Unit]
 
   def set_BehavioralFeature_isAbstract
   (e: UMLBehavioralFeature[Uml], isAbstract: Boolean): Try[Unit]
@@ -473,7 +473,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLCombinedFragment[Uml],
    to: Seq[UMLInteractionOperand[Uml]]): Try[Unit]
   def set_CombinedFragment_interactionOperator
-  (e: UMLCombinedFragment[Uml], interactionOperator: UMLInteractionOperatorKind.Value): Try[Unit]
+  (e: UMLCombinedFragment[Uml], interactionOperator: Option[UMLInteractionOperatorKind.Value]): Try[Unit]
 
   def links_Comment_comment_reference_annotatedElement_Element
   (from: UMLComment[Uml],
@@ -660,7 +660,7 @@ trait UMLUpdate[Uml <: UML] {
   (e: UMLElementImport[Uml], alias: Option[String]): Try[Unit]
 
   def set_ElementImport_visibility
-  (e: UMLElementImport[Uml], visibility: UMLVisibilityKind.Value): Try[Unit]
+  (e: UMLElementImport[Uml], visibility: Option[UMLVisibilityKind.Value]): Try[Unit]
 
 
   def links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral
@@ -709,7 +709,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLExpansionRegion[Uml],
    to: Set[UMLExpansionNode[Uml]]): Try[Unit]
   def set_ExpansionRegion_mode
-  (e: UMLExpansionRegion[Uml], mode: UMLExpansionKind.Value): Try[Unit]
+  (e: UMLExpansionRegion[Uml], mode: Option[UMLExpansionKind.Value]): Try[Unit]
 
   def links_Expression_expression_compose_operand_ValueSpecification
   (from: UMLExpression[Uml],
@@ -992,7 +992,7 @@ trait UMLUpdate[Uml <: UML] {
   (e: UMLLiteralString[Uml], value: Option[String]): Try[Unit]
 
   def set_LiteralUnlimitedNatural_value
-  (e: UMLLiteralUnlimitedNatural[Uml], value: Integer): Try[Unit]
+  (e: UMLLiteralUnlimitedNatural[Uml], value: String): Try[Unit]
 
   def links_LoopNode_loopNode_reference_bodyOutput_OutputPin
   (from: UMLLoopNode[Uml],
@@ -1042,7 +1042,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLMessage[Uml],
    to: Option[UMLNamedElement[Uml]]): Try[Unit]
   def set_Message_messageSort
-  (e: UMLMessage[Uml], messageSort: UMLMessageSort.Value): Try[Unit]
+  (e: UMLMessage[Uml], messageSort: Option[UMLMessageSort.Value]): Try[Unit]
 
   def links_MessageEnd_messageEnd_reference_message_Message
   (from: UMLMessageEnd[Uml],
@@ -1113,7 +1113,7 @@ trait UMLUpdate[Uml <: UML] {
   (e: UMLObjectNode[Uml], isControlType: Boolean): Try[Unit]
 
   def set_ObjectNode_ordering
-  (e: UMLObjectNode[Uml], ordering: UMLObjectNodeOrderingKind.Value): Try[Unit]
+  (e: UMLObjectNode[Uml], ordering: Option[UMLObjectNodeOrderingKind.Value]): Try[Unit]
 
 
   def links_OccurrenceSpecification_events_reference_covered_Lifeline
@@ -1198,7 +1198,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLPackageImport[Uml],
    to: Option[UMLPackage[Uml]]): Try[Unit]
   def set_PackageImport_visibility
-  (e: UMLPackageImport[Uml], visibility: UMLVisibilityKind.Value): Try[Unit]
+  (e: UMLPackageImport[Uml], visibility: Option[UMLVisibilityKind.Value]): Try[Unit]
 
   def links_PackageMerge_packageMerge_reference_mergedPackage_Package
   (from: UMLPackageMerge[Uml],
@@ -1214,7 +1214,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLParameter[Uml],
    to: Set[UMLParameterSet[Uml]]): Try[Unit]
   def set_Parameter_direction
-  (e: UMLParameter[Uml], direction: UMLParameterDirectionKind.Value): Try[Unit]
+  (e: UMLParameter[Uml], direction: Option[UMLParameterDirectionKind.Value]): Try[Unit]
 
   def set_Parameter_effect
   (e: UMLParameter[Uml], effect: Option[UMLParameterEffectKind.Value]): Try[Unit]
@@ -1285,7 +1285,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLProperty[Uml],
    to: Set[UMLProperty[Uml]]): Try[Unit]
   def set_Property_aggregation
-  (e: UMLProperty[Uml], aggregation: UMLAggregationKind.Value): Try[Unit]
+  (e: UMLProperty[Uml], aggregation: Option[UMLAggregationKind.Value]): Try[Unit]
 
   def set_Property_isDerived
   (e: UMLProperty[Uml], isDerived: Boolean): Try[Unit]
@@ -1312,7 +1312,7 @@ trait UMLUpdate[Uml <: UML] {
    to: Option[UMLConstraint[Uml]]): Try[Unit]
 
   def set_Pseudostate_kind
-  (e: UMLPseudostate[Uml], kind: UMLPseudostateKind.Value): Try[Unit]
+  (e: UMLPseudostate[Uml], kind: Option[UMLPseudostateKind.Value]): Try[Unit]
 
   def links_QualifierValue_qualifierValue_reference_qualifier_Property
   (from: UMLQualifierValue[Uml],
@@ -1687,7 +1687,7 @@ trait UMLUpdate[Uml <: UML] {
   (from: UMLTransition[Uml],
    to: Set[UMLTrigger[Uml]]): Try[Unit]
   def set_Transition_kind
-  (e: UMLTransition[Uml], kind: UMLTransitionKind.Value): Try[Unit]
+  (e: UMLTransition[Uml], kind: Option[UMLTransitionKind.Value]): Try[Unit]
 
   def links_Trigger_trigger_reference_event_Event
   (from: UMLTrigger[Uml],
@@ -2943,8 +2943,363 @@ trait UMLUpdate[Uml <: UML] {
       CompositeSetUpdate(
         links_UseCase_useCase_reference_subject_Classifier _,
         ops.UseCase_subject)
+  val MetaPropertyScalarAttributeUpdate
+  : Seq[MetaScalarAttributeUpdate]
+  = Seq() :+
+      MetaScalarAttributeUpdater(
+        set_AcceptEventAction_isUnmarshall _,
+        ops.AcceptEventAction_isUnmarshall) :+
+      MetaScalarAttributeUpdater(
+        set_Action_isLocallyReentrant _,
+        ops.Action_isLocallyReentrant) :+
+      MetaScalarAttributeUpdater(
+        set_Activity_isReadOnly _,
+        ops.Activity_isReadOnly) :+
+      MetaScalarAttributeUpdater(
+        set_Activity_isSingleExecution _,
+        ops.Activity_isSingleExecution) :+
+      MetaScalarAttributeUpdater(
+        set_ActivityPartition_isDimension _,
+        ops.ActivityPartition_isDimension) :+
+      MetaScalarAttributeUpdater(
+        set_ActivityPartition_isExternal _,
+        ops.ActivityPartition_isExternal) :+
+      MetaScalarAttributeUpdater(
+        set_AddStructuralFeatureValueAction_isReplaceAll _,
+        ops.AddStructuralFeatureValueAction_isReplaceAll) :+
+      MetaScalarAttributeUpdater(
+        set_AddVariableValueAction_isReplaceAll _,
+        ops.AddVariableValueAction_isReplaceAll) :+
+      MetaScalarAttributeUpdater(
+        set_Association_isDerived _,
+        ops.Association_isDerived) :+
+      MetaScalarAttributeUpdater(
+        set_Behavior_isReentrant _,
+        ops.Behavior_isReentrant) :+
+      MetaScalarAttributeUpdater(
+        set_BehavioralFeature_isAbstract _,
+        ops.BehavioralFeature_isAbstract) :+
+      MetaScalarAttributeUpdater(
+        set_CallAction_isSynchronous _,
+        ops.CallAction_isSynchronous) :+
+      MetaScalarAttributeUpdater(
+        set_Class_isAbstract _,
+        ops.Class_isAbstract) :+
+      MetaScalarAttributeUpdater(
+        set_Class_isActive _,
+        ops.Class_isActive) :+
+      MetaScalarAttributeUpdater(
+        set_Classifier_isAbstract _,
+        ops.Classifier_isAbstract) :+
+      MetaScalarAttributeUpdater(
+        set_Classifier_isFinalSpecialization _,
+        ops.Classifier_isFinalSpecialization) :+
+      MetaScalarAttributeUpdater(
+        set_ClassifierTemplateParameter_allowSubstitutable _,
+        ops.ClassifierTemplateParameter_allowSubstitutable) :+
+      MetaScalarAttributeUpdater(
+        set_Component_isIndirectlyInstantiated _,
+        ops.Component_isIndirectlyInstantiated) :+
+      MetaScalarAttributeUpdater(
+        set_ConditionalNode_isAssured _,
+        ops.ConditionalNode_isAssured) :+
+      MetaScalarAttributeUpdater(
+        set_ConditionalNode_isDeterminate _,
+        ops.ConditionalNode_isDeterminate) :+
+      MetaScalarAttributeUpdater(
+        set_Continuation_setting _,
+        ops.Continuation_setting) :+
+      MetaScalarAttributeUpdater(
+        set_DestroyObjectAction_isDestroyLinks _,
+        ops.DestroyObjectAction_isDestroyLinks) :+
+      MetaScalarAttributeUpdater(
+        set_DestroyObjectAction_isDestroyOwnedObjects _,
+        ops.DestroyObjectAction_isDestroyOwnedObjects) :+
+      MetaScalarAttributeUpdater(
+        set_Feature_isStatic _,
+        ops.Feature_isStatic) :+
+      MetaScalarAttributeUpdater(
+        set_GeneralizationSet_isCovering _,
+        ops.GeneralizationSet_isCovering) :+
+      MetaScalarAttributeUpdater(
+        set_GeneralizationSet_isDisjoint _,
+        ops.GeneralizationSet_isDisjoint) :+
+      MetaScalarAttributeUpdater(
+        set_JoinNode_isCombineDuplicate _,
+        ops.JoinNode_isCombineDuplicate) :+
+      MetaScalarAttributeUpdater(
+        set_LinkEndCreationData_isReplaceAll _,
+        ops.LinkEndCreationData_isReplaceAll) :+
+      MetaScalarAttributeUpdater(
+        set_LinkEndDestructionData_isDestroyDuplicates _,
+        ops.LinkEndDestructionData_isDestroyDuplicates) :+
+      MetaScalarAttributeUpdater(
+        set_LiteralBoolean_value _,
+        ops.LiteralBoolean_value) :+
+      MetaScalarAttributeUpdater(
+        set_LiteralInteger_value _,
+        ops.LiteralInteger_value) :+
+      MetaScalarAttributeUpdater(
+        set_LiteralReal_value _,
+        ops.LiteralReal_value) :+
+      MetaScalarAttributeUpdater(
+        set_LiteralUnlimitedNatural_value _,
+        ops.LiteralUnlimitedNatural_value) :+
+      MetaScalarAttributeUpdater(
+        set_LoopNode_isTestedFirst _,
+        ops.LoopNode_isTestedFirst) :+
+      MetaScalarAttributeUpdater(
+        set_MultiplicityElement_isOrdered _,
+        ops.MultiplicityElement_isOrdered) :+
+      MetaScalarAttributeUpdater(
+        set_MultiplicityElement_isUnique _,
+        ops.MultiplicityElement_isUnique) :+
+      MetaScalarAttributeUpdater(
+        set_ObjectFlow_isMulticast _,
+        ops.ObjectFlow_isMulticast) :+
+      MetaScalarAttributeUpdater(
+        set_ObjectFlow_isMultireceive _,
+        ops.ObjectFlow_isMultireceive) :+
+      MetaScalarAttributeUpdater(
+        set_ObjectNode_isControlType _,
+        ops.ObjectNode_isControlType) :+
+      MetaScalarAttributeUpdater(
+        set_Operation_isQuery _,
+        ops.Operation_isQuery) :+
+      MetaScalarAttributeUpdater(
+        set_Parameter_isException _,
+        ops.Parameter_isException) :+
+      MetaScalarAttributeUpdater(
+        set_Parameter_isStream _,
+        ops.Parameter_isStream) :+
+      MetaScalarAttributeUpdater(
+        set_Pin_isControl _,
+        ops.Pin_isControl) :+
+      MetaScalarAttributeUpdater(
+        set_Port_isBehavior _,
+        ops.Port_isBehavior) :+
+      MetaScalarAttributeUpdater(
+        set_Port_isConjugated _,
+        ops.Port_isConjugated) :+
+      MetaScalarAttributeUpdater(
+        set_Port_isService _,
+        ops.Port_isService) :+
+      MetaScalarAttributeUpdater(
+        set_ProfileApplication_isStrict _,
+        ops.ProfileApplication_isStrict) :+
+      MetaScalarAttributeUpdater(
+        set_Property_isDerived _,
+        ops.Property_isDerived) :+
+      MetaScalarAttributeUpdater(
+        set_Property_isDerivedUnion _,
+        ops.Property_isDerivedUnion) :+
+      MetaScalarAttributeUpdater(
+        set_Property_isID _,
+        ops.Property_isID) :+
+      MetaScalarAttributeUpdater(
+        set_ReadIsClassifiedObjectAction_isDirect _,
+        ops.ReadIsClassifiedObjectAction_isDirect) :+
+      MetaScalarAttributeUpdater(
+        set_ReclassifyObjectAction_isReplaceAll _,
+        ops.ReclassifyObjectAction_isReplaceAll) :+
+      MetaScalarAttributeUpdater(
+        set_RedefinableElement_isLeaf _,
+        ops.RedefinableElement_isLeaf) :+
+      MetaScalarAttributeUpdater(
+        set_ReduceAction_isOrdered _,
+        ops.ReduceAction_isOrdered) :+
+      MetaScalarAttributeUpdater(
+        set_RemoveStructuralFeatureValueAction_isRemoveDuplicates _,
+        ops.RemoveStructuralFeatureValueAction_isRemoveDuplicates) :+
+      MetaScalarAttributeUpdater(
+        set_RemoveVariableValueAction_isRemoveDuplicates _,
+        ops.RemoveVariableValueAction_isRemoveDuplicates) :+
+      MetaScalarAttributeUpdater(
+        set_StructuralFeature_isReadOnly _,
+        ops.StructuralFeature_isReadOnly) :+
+      MetaScalarAttributeUpdater(
+        set_StructuredActivityNode_mustIsolate _,
+        ops.StructuredActivityNode_mustIsolate) :+
+      MetaScalarAttributeUpdater(
+        set_TimeEvent_isRelative _,
+        ops.TimeEvent_isRelative) :+
+      MetaScalarAttributeUpdater(
+        set_TimeObservation_firstEvent _,
+        ops.TimeObservation_firstEvent)
+  val MetaPropertyOptionAttributeUpdate
+  : Seq[MetaOptionAttributeUpdate]
+  = Seq() :+
+      MetaOptionAttributeUpdater(
+        set_Artifact_fileName _,
+        ops.Artifact_fileName) :+
+      MetaOptionAttributeUpdater(
+        set_BehavioralFeature_concurrency _,
+        ops.BehavioralFeature_concurrency) :+
+      MetaOptionAttributeUpdater(
+        set_CombinedFragment_interactionOperator _,
+        ops.CombinedFragment_interactionOperator) :+
+      MetaOptionAttributeUpdater(
+        set_Comment_body _,
+        ops.Comment_body) :+
+      MetaOptionAttributeUpdater(
+        set_DeploymentSpecification_deploymentLocation _,
+        ops.DeploymentSpecification_deploymentLocation) :+
+      MetaOptionAttributeUpdater(
+        set_DeploymentSpecification_executionLocation _,
+        ops.DeploymentSpecification_executionLocation) :+
+      MetaOptionAttributeUpdater(
+        set_ElementImport_alias _,
+        ops.ElementImport_alias) :+
+      MetaOptionAttributeUpdater(
+        set_ElementImport_visibility _,
+        ops.ElementImport_visibility) :+
+      MetaOptionAttributeUpdater(
+        set_ExpansionRegion_mode _,
+        ops.ExpansionRegion_mode) :+
+      MetaOptionAttributeUpdater(
+        set_Expression_symbol _,
+        ops.Expression_symbol) :+
+      MetaOptionAttributeUpdater(
+        set_Generalization_isSubstitutable _,
+        ops.Generalization_isSubstitutable) :+
+      MetaOptionAttributeUpdater(
+        set_Image_content _,
+        ops.Image_content) :+
+      MetaOptionAttributeUpdater(
+        set_Image_format _,
+        ops.Image_format) :+
+      MetaOptionAttributeUpdater(
+        set_Image_location _,
+        ops.Image_location) :+
+      MetaOptionAttributeUpdater(
+        set_LiteralString_value _,
+        ops.LiteralString_value) :+
+      MetaOptionAttributeUpdater(
+        set_Message_messageSort _,
+        ops.Message_messageSort) :+
+      MetaOptionAttributeUpdater(
+        set_Model_viewpoint _,
+        ops.Model_viewpoint) :+
+      MetaOptionAttributeUpdater(
+        set_NamedElement_name _,
+        ops.NamedElement_name) :+
+      MetaOptionAttributeUpdater(
+        set_NamedElement_visibility _,
+        ops.NamedElement_visibility) :+
+      MetaOptionAttributeUpdater(
+        set_ObjectNode_ordering _,
+        ops.ObjectNode_ordering) :+
+      MetaOptionAttributeUpdater(
+        set_Package_URI _,
+        ops.Package_URI) :+
+      MetaOptionAttributeUpdater(
+        set_PackageImport_visibility _,
+        ops.PackageImport_visibility) :+
+      MetaOptionAttributeUpdater(
+        set_PackageableElement_visibility _,
+        ops.PackageableElement_visibility) :+
+      MetaOptionAttributeUpdater(
+        set_Parameter_direction _,
+        ops.Parameter_direction) :+
+      MetaOptionAttributeUpdater(
+        set_Parameter_effect _,
+        ops.Parameter_effect) :+
+      MetaOptionAttributeUpdater(
+        set_Property_aggregation _,
+        ops.Property_aggregation) :+
+      MetaOptionAttributeUpdater(
+        set_Pseudostate_kind _,
+        ops.Pseudostate_kind) :+
+      MetaOptionAttributeUpdater(
+        set_TimeConstraint_firstEvent _,
+        ops.TimeConstraint_firstEvent) :+
+      MetaOptionAttributeUpdater(
+        set_Transition_kind _,
+        ops.Transition_kind)
+  val MetaPropertyIterableAttributeUpdate
+  : Seq[MetaIterableAttributeUpdate]
+  = Seq()
+  val MetaPropertySeqAttributeUpdate
+  : Seq[MetaSeqAttributeUpdate]
+  = Seq() :+
+      MetaSeqAttributeUpdater(
+        set_DurationObservation_firstEvent _,
+        ops.DurationObservation_firstEvent) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueAction_body _,
+        ops.OpaqueAction_body) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueAction_language _,
+        ops.OpaqueAction_language) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueBehavior_body _,
+        ops.OpaqueBehavior_body) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueBehavior_language _,
+        ops.OpaqueBehavior_language) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueExpression_body _,
+        ops.OpaqueExpression_body) :+
+      MetaSeqAttributeUpdater(
+        set_OpaqueExpression_language _,
+        ops.OpaqueExpression_language)
+  val MetaPropertySetAttributeUpdate
+  : Seq[MetaSetAttributeUpdate]
+  = Seq() :+
+      MetaSetAttributeUpdater(
+        set_DurationConstraint_firstEvent _,
+        ops.DurationConstraint_firstEvent)
 	// Start of user code for additional features
 
+  case class MetaScalarAttributeUpdater[U <: UMLElement[Uml], DT]
+  ( attributeUpdate: (U, DT) => Try[Unit],
+    attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaScalarAttributeUpdate =
+  MetaScalarAttributeUpdater[_ <: UMLElement[Uml], _]
+
+  case class MetaEnumerationAttributeUpdater[U <: UMLElement[Uml], DT <: Enumeration#Value, DTSet <: Enumeration#ValueSet]
+  ( attributeUpdate: (U, Option[DT]) => Try[Unit],
+    attributeQuery: MetaAttributeEnumerationFunction[Uml, U, DT, DTSet] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaEnumerationAttributeUpdate =
+  MetaEnumerationAttributeUpdater[_ <: UMLElement[Uml], _, _]
+
+  case class MetaOptionAttributeUpdater[U <: UMLElement[Uml], DT]
+  ( attributeUpdate: (U, Option[DT]) => Try[Unit],
+    attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaOptionAttributeUpdate =
+  MetaOptionAttributeUpdater[_ <: UMLElement[Uml], _]
+  
+  case class MetaIterableAttributeUpdater[U <: UMLElement[Uml], DT]
+  ( attributeUpdate: (U, Iterable[DT]) => Try[Unit],
+    attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaIterableAttributeUpdate =
+  MetaIterableAttributeUpdater[_ <: UMLElement[Uml], _]
+  
+  case class MetaSetAttributeUpdater[U <: UMLElement[Uml], DT]
+  ( attributeUpdate: (U, Set[DT]) => Try[Unit],
+    attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaSetAttributeUpdate =
+  MetaSetAttributeUpdater[_ <: UMLElement[Uml], _]
+  
+  case class MetaSeqAttributeUpdater[U <: UMLElement[Uml], DT]
+  ( attributeUpdate: (U, Seq[DT]) => Try[Unit],
+    attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+
+  type MetaSeqAttributeUpdate =
+  MetaSeqAttributeUpdater[_ <: UMLElement[Uml], _]
+  
+  
   type MetaPropertyCompositeFunctionQuery =
   MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]
 

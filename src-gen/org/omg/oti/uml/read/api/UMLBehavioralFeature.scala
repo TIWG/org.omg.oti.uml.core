@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.api
 // Start of user code for imports
 import org.omg.oti.uml.read.operations.UMLBehavioralFeatureOps
 
-import scala.Boolean
+import scala.{Boolean,Option}
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
 // End of user code
@@ -71,7 +71,7 @@ trait UMLBehavioralFeature[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def concurrency: UMLCallConcurrencyKind.Value
+	def concurrency: Option[UMLCallConcurrencyKind.Value]
 
 	/**
 	 * If true, then the BehavioralFeature does not have an implementation, and one must be supplied by a more specific Classifier. If false, the BehavioralFeature must have an implementation in the Classifier or one must be inherited.

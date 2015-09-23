@@ -59,7 +59,7 @@ class PackageImportUpdater[Uml <: UML](val domain: UMLPackageImport[Uml]) extend
     umlU.links_PackageImport_packageImport_reference_importedPackage_Package(domain, range)
 
   def setVisibility
-  (visibility: UMLVisibilityKind.Value)
+  (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_PackageImport_visibility(domain, visibility)

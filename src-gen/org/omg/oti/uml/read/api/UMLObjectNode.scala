@@ -94,7 +94,7 @@ trait UMLObjectNode[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def ordering: UMLObjectNodeOrderingKind.Value
+	def ordering: Option[UMLObjectNodeOrderingKind.Value]
 
 	/**
 	 * A Behavior used to select tokens to be offered on outgoing ActivityEdges.

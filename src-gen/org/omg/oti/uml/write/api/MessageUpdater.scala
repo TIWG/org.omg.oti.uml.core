@@ -84,7 +84,7 @@ class MessageUpdater[Uml <: UML](val domain: UMLMessage[Uml]) extends AnyVal {
     umlU.links_Message_message_reference_signature_NamedElement(domain, range)
 
   def setMessageSort
-  (messageSort: UMLMessageSort.Value)
+  (messageSort: Option[UMLMessageSort.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_Message_messageSort(domain, messageSort)

@@ -78,7 +78,7 @@ class TransitionUpdater[Uml <: UML](val domain: UMLTransition[Uml]) extends AnyV
     umlU.links_Transition_transition_compose_trigger_Trigger(domain, range)
 
   def setKind
-  (kind: UMLTransitionKind.Value)
+  (kind: Option[UMLTransitionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_Transition_kind(domain, kind)

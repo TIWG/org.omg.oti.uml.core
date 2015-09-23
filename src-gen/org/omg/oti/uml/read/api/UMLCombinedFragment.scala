@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.api
 // Start of user code for imports
 import org.omg.oti.uml.read.operations.UMLCombinedFragmentOps
 
+import scala.Option
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
 // End of user code
@@ -69,7 +70,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def interactionOperator: UMLInteractionOperatorKind.Value
+	def interactionOperator: Option[UMLInteractionOperatorKind.Value]
 
 	/**
 	 * The set of operands of the combined fragment.

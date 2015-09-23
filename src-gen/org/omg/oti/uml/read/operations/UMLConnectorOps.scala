@@ -83,7 +83,7 @@ trait UMLConnectorOps[Uml <: UML] { self: UMLConnector[Uml] =>
 	 * endif)
 	 * }}}
 	 */
-	def kind: UMLConnectorKind.Value = {
+	def kind: Option[UMLConnectorKind.Value] = {
 		// Start of user code for "kind"
       ???
       // End of user code

@@ -43,7 +43,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 
 import java.lang.Integer
-import scala.{Any,Boolean,Double,Function1,Function2,Int,Option,None,Some,StringContext}
+import scala.{Any,Boolean,Double,Enumeration,Function1,Function2,Int,Option,None,Some,StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 import scala.reflect._
@@ -93,6 +93,42 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
 
 }
 
+
+/**
+ * A functional wrapper for a UML Property typed by an Enumeration
+ *
+ * @param attributePrefix optionally, a namespace prefix for the attribute property
+ * @param attributeName the name of the attribute property
+ * @param f1 the query operation corresponding to the attribute property
+ * @tparam Uml The type signature for a tool-specific adaptation of the OTI UML API
+ * @tparam U An OTI UML metaclass
+ */
+case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EValue <: Enumeration#Value, EValueSet <: Enumeration#ValueSet]
+(attributePrefix: Option[String] = None,
+ attributeName: String,
+ f1: Function1[U, Option[EValue]],
+ orderedEnumerationValues: EValueSet)
+  extends MetaAttributeAbstractFunction[Uml, U, EValue] {
+  implicit val UType: TypeTag[U] = typeTag[U]
+  override val f = Some((x: U) => f1(x).toIterable)
+  override val df = None
+
+  override def equals(other: Any): Boolean =
+    other match {
+      case that: MetaAttributeEnumerationFunction[Uml, _, _, _] =>
+        (that canEqual this) &&
+        attributePrefix == that.attributePrefix &&
+        attributeName == that.attributeName
+      case _ =>
+        false
+    }
+
+  def canEqual(other: Any): Boolean =
+    other.isInstanceOf[MetaAttributeEnumerationFunction[Uml, _, _, _]]
+
+  override def hashCode: Int =
+    41 * (41 + attributePrefix.hashCode())+attributeName.hashCode()
+}
 
 /**
  * A functional wrapper for a UML Property typed by a Boolean PrimitiveType

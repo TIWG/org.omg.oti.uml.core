@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.api
 // Start of user code for imports
 import org.omg.oti.uml.read.operations.UMLExpansionRegionOps
 
+import scala.Option
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
 // End of user code
@@ -80,7 +81,7 @@ trait UMLExpansionRegion[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def mode: UMLExpansionKind.Value
+	def mode: Option[UMLExpansionKind.Value]
 
 	/**
 	 * The ExpansionNodes that form the output collections of the ExpansionRegion.

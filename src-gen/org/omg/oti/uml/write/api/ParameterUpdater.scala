@@ -66,7 +66,7 @@ class ParameterUpdater[Uml <: UML](val domain: UMLParameter[Uml]) extends AnyVal
     umlU.links_Parameter_parameter_reference_parameterSet_ParameterSet(domain, range)
 
   def setDirection
-  (direction: UMLParameterDirectionKind.Value)
+  (direction: Option[UMLParameterDirectionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
   : Try[Unit] =
     umlU.set_Parameter_direction(domain, direction)

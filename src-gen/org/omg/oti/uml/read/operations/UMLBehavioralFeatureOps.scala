@@ -122,7 +122,7 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
           ( Option[String],
             Option[UMLType[Uml]],
             Option[UMLParameterEffectKind.Value],
-            UMLParameterDirectionKind.Value,
+            Option[UMLParameterDirectionKind.Value],
             Boolean,
             Boolean,
             Boolean,

@@ -84,7 +84,7 @@ trait UMLTransition[Uml <: UML]
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
-	def kind: UMLTransitionKind.Value
+	def kind: Option[UMLTransitionKind.Value]
 
 	/**
 	 * Designates the originating Vertex (State or Pseudostate) of the Transition.
