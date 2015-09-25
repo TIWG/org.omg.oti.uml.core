@@ -84,10 +84,16 @@ abstract trait Document[Uml <: UML] {
   val uuidPrefix: String
 
   /**
-   * The official URI where this document is published as a resource that can be referenced by other documents
+   * The location where this document is published as
+   * a loadable resource that can be referenced by other documents
    * and whose contents can be referenced starting from this URI
+   *
+   * This location also includes support for specifying
+   * the tool-specific location of the document
+   * after it has been imported via the tool-specific
+   * OTI load adater.
    */
-  val documentURL: URI
+  val documentURL: Uml#LoadURL
 
   /**
    * The root element defining the containment scope of this document
