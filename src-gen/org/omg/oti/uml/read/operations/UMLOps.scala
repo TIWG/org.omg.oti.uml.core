@@ -4102,6 +4102,14 @@ trait UMLOps[Uml <: UML] { self =>
   val OTI_SPECIFICATION_ROOT_documentURL: Option[UMLProperty[Uml]]
 
   /**
+   * OTI::SpecificationRoot::nsPrefix property
+   *
+   * The namespace prefix used for the serialization of an OTI::SpecificationRoot-stereotyped
+   * package
+   */
+  val OTI_SPECIFICATION_ROOT_nsPrefix: Option[UMLProperty[Uml]]
+
+  /**
    * OTI::SpecificationRoot::uuidPrefix property
    *
    * The prefix added to the xmi:id to produce the xmi:uuid
@@ -4118,6 +4126,61 @@ trait UMLOps[Uml <: UML] { self =>
    * - Metamodel, Profile, Model Library
    */
   val OTI_SPECIFICATION_ROOT_artifactKind: Option[UMLProperty[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization stereotype
+   *
+   * An OTI::SpecificationRootCharacterization-stereotyped comment annotating a single package
+   * indicates that the annotated package corresponds to a published artifact from a specification.
+   * The kind of artifact is specified via the `artifactKind` tag property.
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S: Option[UMLStereotype[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization::packageURI property
+   *
+   * If specified, overrides the Package::URI on the annotated package.
+   * When serializing an the annotated package by an OTI::SpecificationRootCharacterization-stereotyped comment,
+   * the Package::URI of the serialized annotated package will be the value
+   * of the OTI::SpecificationRootCharacterization::packageURI, if specified,
+   * or that of Package::URI. It is an error if both are unspecified.
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI: Option[UMLProperty[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization::documentURL property
+   *
+   * When serializing a package annotated by an OTI::SpecificationRootCharacterization-stereotyped comment,
+   * the annotated package will be serialized as a document at the
+   * OTI::SpecificationRootCharacterization::documentURL
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL: Option[UMLProperty[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization::nsPrefix property
+   *
+   * The namespace prefix used for the serialization of a package annotated
+   * by an OTI::SpecificationRootCharacterization-stereotyped comment
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix: Option[UMLProperty[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization::uuidPrefix property
+   *
+   * The prefix added to the xmi:id to produce the xmi:uuid
+   * of every element in the scope of a package annotated
+   * by an OTI::SpecificationRootCharacterization-stereotyped comment
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix: Option[UMLProperty[Uml]]
+
+  /**
+   * OTI::SpecificationRootCharacterization::artifactKind property
+   * a 2x2 matrix describing what the annotated package of an
+   * OTI::SpecificationRootCharacterization-stereotyped comment is a model of:
+   * - Specified vs. Implemented
+   * - Metamodel, Profile, Model Library
+   */
+  val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind: Option[UMLProperty[Uml]]
 
   /**
    *

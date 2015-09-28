@@ -68,8 +68,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	implicit val ops: UMLOps[Uml]
 // Start of user code for class imports
 	import self.ops._
-	import Option._
-	import Iterable._
+	//import Option._
+	//import Iterable._
 // End of user code
 
 
@@ -845,11 +845,15 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     describe(Some(this), Seq())
   }
 
-  // isSpecicationRoot allows knowing whether this element is a root of an OMG specification
-  // it is true if the <<SpecificationRoot>> stereotype is applied, and false otherwise
-  def isSpecificationRoot: Boolean = OTI_SPECIFICATION_ROOT_S match {
-    case Some(s) => hasStereotype(s)
-    case None => false
+  /**
+   * is this element representing the root of a specification publishable artifact?
+   *
+   * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
+   */
+  def isSpecificationRoot: Boolean =
+    OTI_SPECIFICATION_ROOT_S
+    .fold[Boolean](false) { s =>
+    hasStereotype(s)
   }
 
   // End of user code

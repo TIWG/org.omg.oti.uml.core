@@ -42,7 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.Int
-import scala.Option
+import scala.{Option,None,Some}
 // End of user code
 
 /**
@@ -54,6 +54,7 @@ import scala.Option
 trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 
 // Start of user code for class imports
+  import self.ops._
 // End of user code
 
 
@@ -69,6 +70,29 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 	// Start of user code for additional features
 
   def getCommentOwnerIndex: Int
+
+  /**
+   * is this comment representing the characteristics for a single annotated package
+   * as the root of a specification publishable artifact?
+   *
+   * @return True iff the <<OTI::SpecificationRootCharacterization>> stereotype is applied and
+   *         the set of annotated elements is a singleton kind of Package
+   */
+  def getSpecificationRootCharacterizedPackage: Option[UMLPackage[Uml]] =
+    OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
+    .fold[Option[UMLPackage[Uml]]](None) { s =>
+    if (!hasStereotype(s) || 1 != annotatedElement.size)
+      None
+    else
+     annotatedElement
+     .headOption
+     .fold[Option[UMLPackage[Uml]]](None) {
+      case annotatedP: UMLPackage[Uml] =>
+        Some(annotatedP)
+      case _ =>
+        None
+    }
+  }
 
   // End of user code
 } //UMLCommentOps

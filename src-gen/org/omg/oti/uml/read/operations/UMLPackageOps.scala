@@ -262,17 +262,110 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
 	// Start of user code for additional features
 
-  def oti_packageURI: Option[String] =
-    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption
+  /**
+   * Find the unique OTI::SpecificationRootCharacterizedPackage-stereotype Comment that annotates this package
+   *
+   * @return If unique, the OTI::SpecificationRootCharacterizedPackage-stereotype Comment that annotates this package
+   */
+  def getSpecificationRootAnnotatingComment: Option[UMLComment[Uml]] = {
+    val characterizations =
+      annotatedElement_comment
+      .filter { c => c.getSpecificationRootCharacterizedPackage.contains(self) }
+    if (1 == characterizations.size)
+      characterizations.headOption
+    else
+      None
+  }
 
-  def oti_documentURL: Option[String] =
-    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption
+  /**
+   * Get the value of an OTI SpecificationRoot or SpecificationRootCharacterization
+   * attribute property for this package
+   *
+   * An OTI SpecificationRoot attribute property can be specified as a tag value on
+   * the OTI::SpecificationRoot stereotype applied to the package or as a tag value
+   * on an OTI::SpecificationRootCharacterization stereotype applied to a comment
+   * that annotates this package
+   *
+   * @param pf A function to retrieve the value of the OTI SpecificationRoot stereotype property
+   *           when the OTI::SpecificationRoot stereotype is applied to the package
+   * @param cf A function to retrieve the value of the OTI SpecificationRootCharacterization stereotype property
+   *           when the OTI::SpecificationRootCharacterization stereotype is applied to a comment
+   *           that uniquely annotates this package
+   * @param otiCharacterizations If provided, a map of OTI::SpecificationRootCharacterization stereotyped
+   *                             comment annotations for specific packages to bypass a global lookup
+   *                             for unique comment annotations of the package
+   * @tparam V The type of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
+   * @return The value of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
+   *         if available
+   */
+  def oti_attributeValue[V]
+  (pf: UMLPackage[Uml] => Option[V],
+   cf: UMLComment[Uml] => Option[V])
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  : Option[V] =
+  pf(self)
+  .orElse {
+    otiCharacterizations
+    .fold[Option[V]] {
+      self
+      .getSpecificationRootAnnotatingComment
+      .flatMap { c =>
+        cf(c)
+      }
+    }{ p2c =>
+      p2c
+      .get(self)
+      .flatMap { c =>
+        cf(c)
+      }
+    }
+  }
 
-  def oti_uuidPrefix: Option[String] =
-    getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption
+  def oti_packageURI
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  : Option[String] =
+    oti_attributeValue[String](
+    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption,
+    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI).headOption
+    )
 
-  def oti_artifactKind: Option[UMLEnumerationLiteral[Uml]] =
-    getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption
+  def oti_documentURL
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  : Option[String] =
+    oti_attributeValue[String](
+    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption,
+    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL).headOption
+    )
+
+  def oti_nsPrefix
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  : Option[String] =
+    oti_attributeValue[String](
+    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
+    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix).headOption
+    )
+
+  def oti_uuidPrefix
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  : Option[String] =
+    oti_attributeValue[String](
+    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
+    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix).headOption
+    )
+
+  def oti_artifactKind
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  : Option[UMLEnumerationLiteral[Uml]] =
+    oti_attributeValue[UMLEnumerationLiteral[Uml]](
+    pf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption,
+    cf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind).headOption
+    )
+
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
 
