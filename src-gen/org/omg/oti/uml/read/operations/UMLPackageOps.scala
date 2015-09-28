@@ -344,8 +344,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
   : Option[String] =
     oti_attributeValue[String](
-    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
-    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix).headOption
+    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_nsPrefix).headOption,
+    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix).headOption
     )
 
   def oti_uuidPrefix
