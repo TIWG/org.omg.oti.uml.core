@@ -78,6 +78,13 @@ class EarlyInit[T: TypeTag] {
 
 }
 
+/**
+ *
+  	val Package_URI =
+		MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
+		_.getEffectiveURI()(None))
+ */
+
 // End of user code
 
 /**
@@ -3080,7 +3087,7 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Package_URI =
 		MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
-		_.getEffectiveURI)
+		_.getEffectiveURI()(None))
 
 	val Package_packageMerge =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](

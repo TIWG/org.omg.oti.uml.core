@@ -158,12 +158,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The element or the first owner of the element that is a package with an effective URI;
    * none if no such owner package exists.
    */
-  @annotation.tailrec final def getPackageOwnerWithEffectiveURI: Option[UMLPackage[Uml]] =
+  @annotation.tailrec final def getPackageOwnerWithEffectiveURI
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  : Option[UMLPackage[Uml]] =
     self match {
-      case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined => Some(p)
+      case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined =>
+        Some(p)
       case _ => owner match {
-        case Some(o) => o.getPackageOwnerWithEffectiveURI
-        case None => None
+        case Some(o) =>
+          o.getPackageOwnerWithEffectiveURI
+        case None =>
+          None
       }
     }
 
@@ -252,11 +258,15 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The element itself (if it is a kind of namespace)
    * or the first owner of the element that is a kind of namespace.
    */
-  @annotation.tailrec final def owningNamespace: Option[UMLNamespace[Uml]] = self match {
-    case ns: UMLNamespace[Uml] => Some(ns)
+  @annotation.tailrec final def owningNamespace: Option[UMLNamespace[Uml]] =
+    self match {
+    case ns: UMLNamespace[Uml] =>
+      Some(ns)
     case e: UMLElement[Uml] => e.owner match {
-      case None => None
-      case Some(o) => o.owningNamespace
+      case None =>
+        None
+      case Some(o) =>
+        o.owningNamespace
     }
   }
 

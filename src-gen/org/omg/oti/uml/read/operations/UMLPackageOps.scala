@@ -323,7 +323,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def oti_packageURI
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : Option[String] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption,
@@ -332,7 +332,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def oti_documentURL
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : Option[String] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption,
@@ -341,7 +341,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def oti_nsPrefix
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : Option[String] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_nsPrefix).headOption,
@@ -350,7 +350,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def oti_uuidPrefix
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : Option[String] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
@@ -359,7 +359,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def oti_artifactKind
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]] = None)
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : Option[UMLEnumerationLiteral[Uml]] =
     oti_attributeValue[UMLEnumerationLiteral[Uml]](
     pf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption,
@@ -369,7 +369,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
 
-  def allNestedPackages: Set[UMLPackage[Uml]] = closure(self, ((p: UMLPackage[Uml]) => p.nestedPackage))
+  def allNestedPackages: Set[UMLPackage[Uml]] = closure(self, (p: UMLPackage[Uml]) => p.nestedPackage)
 
   /**
    * All packages that are owned within the reflexive transitive closure of ownership from this package
@@ -386,7 +386,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * The reflexive transitive closure of the owning package of a package.
    */
   def allNestingPackagesTransitively: Set[UMLPackage[Uml]] =
-    Set(self) ++ closure[UMLPackage[Uml], UMLPackage[Uml]]( self, ( _.packagedElement_owningPackage ) )
+    Set(self) ++ closure[UMLPackage[Uml], UMLPackage[Uml]]( self, _.packagedElement_owningPackage )
 
   /**
    * The direclty imported packages from the reflexive transitive closure of the owning package of a package.
@@ -399,7 +399,10 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * otherwise, ".xmi" appended to the effective URI, if any;
    * otherwise, none
    */
-  def getDocumentURL: Option[String] =
+  def getDocumentURL
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  : Option[String] =
     oti_documentURL.fold[Option[String]]{
       getEffectiveURI.fold[Option[String]](None) {
           uri =>
@@ -419,9 +422,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    *         - the value of the Package::URI, if any
    *         - none, otherwise
    */
-  def getEffectiveURI: Option[String] =
-    if (!OTI_SPECIFICATION_ROOT_S.isDefined && OTI_SPECIFICATION_ROOT_packageURI.isDefined) URI
-    else self.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption orElse URI
+  def getEffectiveURI
+  ()
+  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  : Option[String] =
+    oti_packageURI
+    .orElse {
+      self.URI
+    }
 
   /**
    * OMG Issue UML 2.5, 12.3.3 ProfileApplication, Semantics is incomplete.
