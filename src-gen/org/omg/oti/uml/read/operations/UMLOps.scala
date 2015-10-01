@@ -4079,6 +4079,12 @@ trait UMLOps[Uml <: UML] { self =>
   def illegalElementException[E <: UMLElement[Uml]](message: String, e: Iterable[E]) =
     IllegalElementException[Uml, E]( message, e )
 
+	/**
+	 * The OMG Tool-neutral Interchange API for OMG UML 2.5 compliant modeling tools.
+	 * The tool-specific OTI adapter must provide the corresponding tool-specific OTI profile.
+	 */
+	val OTI_PROFILE: Option[UMLProfile[Uml]]
+
   /**
    * OTI::SpecificationRoot stereotype
    *
