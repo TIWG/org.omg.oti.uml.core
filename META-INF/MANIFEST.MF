@@ -88,7 +88,8 @@ Export-Package: com.thoughtworks.paranamer,
    scala.collection,
    scala.collection.generic,
    scala.collection.immutable,
-   scala.reflect.api"
+   scala.reflect.api",
+   sext
 Require-Bundle: org.scala-lang.modules.scala-parser-combinators;bundle-version="1.0.3";visibility:=reexport,
  org.scala-lang.modules.scala-xml;bundle-version="1.0.3";visibility:=reexport,
  org.scala-lang.scala-compiler;bundle-version="2.11.7";visibility:=reexport,

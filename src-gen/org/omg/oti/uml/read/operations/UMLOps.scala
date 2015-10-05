@@ -2472,7 +2472,7 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Generalization_isSubstitutable =
 		MetaAttributeBooleanFunction[Uml, UMLGeneralization[Uml]](None, "isSubstitutable",
-		_.isSubstitutable)
+		(x) => booleanToIterable(x.isSubstitutable.getOrElse(true), true))
 
 	val GeneralizationSet_generalization =
 		MetaPropertyCollection[Uml, UMLGeneralizationSet[Uml], UMLGeneralization[Uml]](
@@ -3746,7 +3746,7 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val TimeConstraint_firstEvent =
 		MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent",
-		_.firstEvent)
+		(x) => booleanToIterable(x.firstEvent.getOrElse(true), true))
 
 	val TimeConstraint_specification =
 		MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
