@@ -47,7 +47,12 @@ import java.lang.Exception
 
 trait UMLException[Uml <: UML] extends Exception
 
+trait UMLElementException[Uml <: UML, E <: UMLElement[Uml]] extends UMLException[Uml] {
+  val element: Iterable[E]
+}
+
 case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
-( message: String, val element: Iterable[E] )
-  extends Exception(message) with UMLException[Uml]
+( message: String, override val element: Iterable[E] )
+  extends Exception(message)
+  with UMLElementException[Uml, E]
 

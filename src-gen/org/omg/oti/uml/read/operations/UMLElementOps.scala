@@ -795,8 +795,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     idg.element2mappedDocument(self) match {
       case Some(d) => d.uuidPrefix + xmiID()
       case None =>
-        throw new IllegalArgumentException(s"Cannot generate the OTI uuid for $self " +
-                                           s"because it does not belong to a document")
+        throw illegalElementException(
+          s"Cannot generate the OTI uuid for $self " +
+            s"because it does not belong to a document",
+          self)
     }
 
   /* 

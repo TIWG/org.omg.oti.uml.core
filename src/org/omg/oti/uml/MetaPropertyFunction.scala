@@ -52,7 +52,7 @@ import scala.collection.immutable.{List,Nil,Seq,Set,Stream}
 import scala.collection.Iterable
 import scala.StringContext
 
-import java.lang.IllegalArgumentException
+import java.lang.Exception
 
 /**
  * A MetaPropertyFunction provides information about properties defined on an element's metaclass
@@ -198,8 +198,10 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
         }
         result
       case x =>
-        Failure(new IllegalArgumentException(s"Type mismatch for evaluating $this on $x " +
-                                             s"(should have been ${domainType.runtimeClass.getName})"))
+        Failure(IllegalElementException[Uml, UMLElement[Uml]](
+          s"Type mismatch for evaluating $this on $x " +
+            s"(should have been ${domainType.runtimeClass.getName})",
+          Iterable(e)))
     }
 
   def evaluate(e: UMLElement[Uml]): Try[Option[UMLElement[Uml]]] =
@@ -300,9 +302,15 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 case class IllegalMetaPropertyEvaluation[Uml <: UML]
 (e: UMLElement[Uml],
  metaPropertyFunction: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]])
-  extends IllegalArgumentException(s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
+  extends Exception(s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
+  with UMLElementException[Uml, UMLElement[Uml]] {
+  override val element = Iterable(e)
+}
 
 case class IllegalMetaAttributeEvaluation[Uml <: UML]
 (e: UMLElement[Uml],
  metaAttributeFunction: MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _])
-  extends IllegalArgumentException(s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
+  extends Exception(s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
+  with UMLElementException[Uml, UMLElement[Uml]] {
+  override val element = Iterable(e)
+}
