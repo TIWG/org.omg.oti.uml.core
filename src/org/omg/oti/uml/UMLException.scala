@@ -45,9 +45,25 @@ import scala.Predef.String
 import scala.collection.Iterable
 import java.lang.Exception
 
-trait UMLException[Uml <: UML] extends Exception
+trait UMLException[Uml <: UML] extends Exception {
+
+  /**
+   * This type member is intended to facilitate pattern matching
+   * using a wildcard for the type parameter, i.e., UMLException[_]
+   * The type information can then be checked using the UmlType member.
+   */
+  type UmlType = Uml
+}
 
 trait UMLElementException[Uml <: UML, E <: UMLElement[Uml]] extends UMLException[Uml] {
+
+  /**
+   * This type member is intended to facilitate pattern matching
+   * using a wildcard for the type parameter, i.e., UMLElementException[_, _]
+   * The type information can then be checked using the UmlType and UmlElementType members.
+   */
+  type UmlElementType = E
+
   val element: Iterable[E]
 }
 
