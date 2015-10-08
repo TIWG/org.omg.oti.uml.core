@@ -45,7 +45,7 @@ import scala.Predef.String
 import scala.collection.Iterable
 import java.lang.Exception
 
-trait UMLException[Uml <: UML] extends Exception {
+trait UMLException[+Uml <: UML] extends Exception {
 
   /**
    * This type member is intended to facilitate pattern matching
@@ -55,7 +55,7 @@ trait UMLException[Uml <: UML] extends Exception {
   type UmlType = Uml
 }
 
-trait UMLElementException[Uml <: UML, E <: UMLElement[Uml]] extends UMLException[Uml] {
+trait UMLElementException[+Uml <: UML, +E <: UMLElement[Uml]] extends UMLException[Uml] {
 
   /**
    * This type member is intended to facilitate pattern matching
