@@ -16,6 +16,18 @@ This functional API is parameterized by the implementation of OMG UML 2.5, inclu
 
 - Tool-neutral serialization of an OTI model representation to OMG Cannonical XMI
 
+## Towards a functional API
+
+The goal for the OTI API is to provide a pure, tool-neutral functional API for OMG UML2.5-compliant modeling tools
+running on the Java platform.
+
+An important FP principle involves using the type system as a way of documenting important information
+ about API operations, in particular, the distinction between 3 outcomes:
+
+   - normal results
+   - error results due to the model
+   - abnormal errors (these should be uncaught exceptions)
+
 ## Dependencies
 
 ### [Scala](http://www.scala-lang.org)
