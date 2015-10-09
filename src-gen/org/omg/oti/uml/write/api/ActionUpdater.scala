@@ -40,11 +40,14 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
+
 // End of user code
 
 /**
@@ -56,18 +59,18 @@ class ActionUpdater[Uml <: UML](val domain: UMLAction[Uml]) extends AnyVal {
   def links_Action_action_compose_localPostcondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException, Unit] =
     umlU.links_Action_action_compose_localPostcondition_Constraint(domain, range)
 
   def links_Action_action_compose_localPrecondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException, Unit] =
     umlU.links_Action_action_compose_localPrecondition_Constraint(domain, range)
 
   def setIsLocallyReentrant
   (isLocallyReentrant: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException, Unit] =
     umlU.set_Action_isLocallyReentrant(domain, isLocallyReentrant)
 }

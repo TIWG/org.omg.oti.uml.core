@@ -47,13 +47,15 @@ import scala.language.postfixOps
 import scala.annotation
 import scala.Boolean
 import scala.{Option,None,Some}
-import scala.Predef.String
+import scala.Predef._
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -409,7 +411,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 	def validate_cannot_import_ownedMembers: Boolean = {
 		// Start of user code for "cannot_import_ownedMembers"
     elementImport
-    .forall( ei => (ownedMember & ei.importedElement.toSet[UMLNamedElement[Uml]]).isEmpty )
+    .forall( ei => ei.importedElement.fold[Boolean](true){ ie => !ownedMember.contains(ie) } )
     // End of user code
 	}
 
@@ -510,14 +512,12 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
    * This does not include references from elements in nested packages.
    */
-  def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml]): Try[Set[UMLNamespace[Uml]]] =
-    forwardReferencesBeyondNamespaceScope match {
-      case Failure(t)       => Failure(t)
-      case Success(triples) =>
-        val ns = triples map
-          (_.obj) flatMap
-          (_.owningNamespace)
-        Success(ns)
+  def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml])
+  : ValidationNel[UMLError[Uml]#UException, Set[UMLNamespace[Uml]]] =
+    forwardReferencesBeyondNamespaceScope.map { triples =>
+      triples
+      .map(_.obj)
+      .flatMap (_.owningNamespace)
     }
 
   /**
@@ -526,7 +526,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * The object of each relation triple is an element outside the ownership scope of the namespace.
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
-  def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml]): Try[Set[RelationTriple[Uml]]] = {
+  def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml])
+	: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = {
 
     val scope = self.ownedElement
 
@@ -534,40 +535,34 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
     @annotation.tailrec def followReferencesUntilNamespaceScopeBoundary
     (acc: Set[RelationTriple[Uml]],
-     triples: Try[Set[RelationTriple[Uml]]])
-    : Try[Set[RelationTriple[Uml]]] =
-      triples match {
-        case Failure(t)  =>
-          Failure(t)
-        case Success(ts) =>
-          if (ts.isEmpty)
-            Success(acc)
+     triples: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]])
+    : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
+			(triples.disjunction flatMap { ts: Set[RelationTriple[Uml]] =>
+        (if (ts.isEmpty)
+            acc.success
           else {
             val (th, tr: Set[RelationTriple[Uml]]) = (ts.head, ts.tail)
             if (visited.contains(th.obj))
-              followReferencesUntilNamespaceScopeBoundary(acc, Success(tr))
+              followReferencesUntilNamespaceScopeBoundary(acc, tr.success)
             else {
               visited += th.sub; ()
               if (scope.contains(th.obj))
-                th.obj.forwardRelationTriples match {
-                  case Failure(t)                                     =>
-                    Failure(t)
-                  case Success(nextTriples: Set[RelationTriple[Uml]]) =>
-                    followReferencesUntilNamespaceScopeBoundary(acc, Success(nextTriples ++ tr))
-                }
+                (th.obj.forwardRelationTriples.disjunction flatMap { nextTriples: Set[RelationTriple[Uml]] =>
+                    followReferencesUntilNamespaceScopeBoundary(acc, (nextTriples ++ tr).success).disjunction
+                }).validation
               else
-                followReferencesUntilNamespaceScopeBoundary(acc + th, Success(tr))
+                followReferencesUntilNamespaceScopeBoundary(acc + th, tr.success)
             }
-          }
-      }
+          }).disjunction
+      }).validation
 
-    val triples0: Try[Set[RelationTriple[Uml]]] = Success(Set())
-    val triplesN: Try[Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
-      case ( Failure( t ), _ )   =>
-        Failure( t )
-      case ( Success( acc ), e ) =>
-        followReferencesUntilNamespaceScopeBoundary( acc, e.forwardRelationTriples )
-    }
+    val triples0: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = Set().success
+    val triplesN: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) { (ti, e) =>
+      ti.fold[ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]]](
+        fail = Validation.failure(_),
+        succ = (acc) =>
+          followReferencesUntilNamespaceScopeBoundary( acc, e.forwardRelationTriples )
+          )}
     triplesN
   }
 

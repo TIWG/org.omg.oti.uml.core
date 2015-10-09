@@ -40,9 +40,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.Int
 import scala.{Option,None,Some}
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -78,21 +82,23 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
    * @return True iff the <<OTI::SpecificationRootCharacterization>> stereotype is applied and
    *         the set of annotated elements is a singleton kind of Package
    */
-  def getSpecificationRootCharacterizedPackage: Option[UMLPackage[Uml]] =
+  def getSpecificationRootCharacterizedPackage
+	: ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]] =
     OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
-    .fold[Option[UMLPackage[Uml]]](None) { s =>
+    .fold[ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]]](
+    fail = Validation.failure(_),
+    succ = (s) =>
     if (!hasStereotype(s) || 1 != annotatedElement.size)
-      None
+      None.success
     else
      annotatedElement
      .headOption
-     .fold[Option[UMLPackage[Uml]]](None) {
+     .fold[ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]]](None.success) {
       case annotatedP: UMLPackage[Uml] =>
-        Some(annotatedP)
+        Some(annotatedP).success
       case _ =>
-        None
-    }
-  }
+        None.success
+    })
 
   // End of user code
 } //UMLCommentOps

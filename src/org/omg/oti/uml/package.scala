@@ -52,6 +52,8 @@ import scala.collection.Iterable
 
 import java.lang.Integer
 
+import scalaz._, Scalaz._
+
 /**
  * <a href="../../../../index.html" target="_top">Top</a>
  *
@@ -244,26 +246,42 @@ package object uml {
       case _ => false
     }
 
-  def booleanToIterable( value: Boolean, default: Boolean ): Iterable[Boolean] =
-    if ( value != default ) Iterable( value )
-    else Iterable()
+  def booleanToIterable[Uml <: UML]( value: Boolean, default: Boolean )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[Boolean]] =
+    if ( value != default )
+      Iterable( value ).success
+    else
+      Iterable().success
 
-  def integerToIterable( value: Integer, default: Integer ): Iterable[Integer] =
-    if ( value != default ) Iterable( value )
-    else Iterable()
+  def integerToIterable[Uml <: UML]( value: Integer, default: Integer )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[Integer]] =
+    if ( value != default )
+      Iterable( value ).success
+    else
+      Iterable().success
 
-  def unlimitedNaturalToIterable( value: Integer, default: Integer ): Iterable[String] =
-    if ( value == default ) Iterable()
-    else if (value == -1) Iterable("*") else Iterable(value.toString)
+  def unlimitedNaturalToIterable[Uml <: UML]( value: Integer, default: Integer )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+    if ( value == default )
+      Iterable().success
+    else if (value == -1)
+      Iterable("*").success
+    else
+      Iterable(value.toString).success
 
-  def realToIterable( value: Double, default: Double ): Iterable[Double] =
-    Iterable( value )
+  def realToIterable[Uml <: UML]( value: Double, default: Double )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[Double]] =
+    Iterable( value ).success
 
-  def stringToIterable( value: Option[String], default: String ): Iterable[String] =
-    value
+  def stringToIterable[Uml <: UML]( value: Option[String], default: String )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+    value.toIterable.success
 
-  def stringToIterable( value: String, default: String ): Iterable[String] =
-    if ( value != default ) Iterable( value )
-    else Iterable()
+  def stringToIterable[Uml <: UML]( value: String, default: String )
+  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+    if ( value != default )
+      Iterable( value ).success
+    else
+      Iterable().success
 
 }

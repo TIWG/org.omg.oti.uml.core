@@ -4,7 +4,7 @@ import sbt.Process
 // see JPLMBEECOmmonScalaLibraries.Version
 object Versions {
 
-  val version_prefix = "0.18.0"
+  val version_prefix = "0.19.0"
   val version_suffix = {
     val svnProc = Process(command = "svn", arguments = Seq("info"))
     val sedCommand = "s/^.*Last Changed Rev: \\([[:digit:]]\\{1,\\}\\).*$/\\1/p"
@@ -25,16 +25,16 @@ object Versions {
   // otherLibs
 
   val config = "1.3.0"
-  val scalaCheck = "1.12.2"
+  val scalaCheck = "1.12.5"
   val scalaTest = "2.2.4"
-  val specs2 = "3.6"
+  val specs2 = "3.6.4"
   val parboiled = "2.1.0"
-  val akka = "2.3.11"
+  val akka = "2.4.0"
   val spray = "1.3.3"
-  val shapeless = "2.1.0"
-  val scalaz = "7.1.1"
-  val scalaz_stream = "0.7a"
-  val play = "2.4.0"
+  val shapeless = "2.2.5"
+  val scalaz = "7.1.4"
+  val scalaz_stream = "0.8"
+  val play = "2.4.3"
 
   // owlapiLibs
 
@@ -45,7 +45,7 @@ object Versions {
   val xmlResolver = "1.2"
 
   // graphLibs
-  val graph_core = "1.9.2"
+  val graph_core = "1.9.4"
   val graph_constrained = "1.9.0"
   val graph_dot = "1.10.0"
   val graph_json = "1.9.2"

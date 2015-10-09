@@ -41,6 +41,7 @@ package org.omg.oti.uml.xmi
 
 import java.net.URL
 import java.net.MalformedURLException
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
@@ -61,6 +62,8 @@ import scala.util.Try
 
 import java.lang.StringBuffer
 
+import scalaz._
+
 /**
  * A generic API corresponding to OMG XMI 2.5.1, Section B.4 Identification
  *
@@ -78,7 +81,7 @@ trait IDGenerator[Uml <: UML] {
    *
    * @return The current mapping of elements to their xmi:ID
    */
-  def getElement2IDMap: Map[UMLElement[Uml], Try[String]]
+  def getElement2IDMap: Map[UMLElement[Uml], ValidationNel[UMLError[Uml]#UException, String]]
 
   /**
    * Lookup the current element/xmi:ID map state
@@ -86,7 +89,7 @@ trait IDGenerator[Uml <: UML] {
    * @param e The element to lookup
    * @return The xmi:ID of `e`, if available
    */
-  def lookupElementXMI_ID( e: UMLElement[Uml] ): Try[Option[String]]
+  def lookupElementXMI_ID( e: UMLElement[Uml] ): ValidationNel[UMLError[Uml]#UException, Option[String]]
 
   /**
    * Lookup the current element/document map state
@@ -101,7 +104,7 @@ trait IDGenerator[Uml <: UML] {
    *
    * @param pkg The scope of the elements and their applied stereotype instances to compute their xmi:ID
    */
-  def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): Try[Unit]
+  def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] ): ValidationNel[UMLError[Uml]#UException, Unit]
 
   /**
    * Map an element to itself or to the tool-specific element it stands for
@@ -131,7 +134,7 @@ trait IDGenerator[Uml <: UML] {
    * @param self A UML Element
    * @return id, the xmi:ID of `self` such that getELement2IDMap(`self`) == Success(id)
    */
-  def getXMI_ID( self: UMLElement[Uml] ): Try[String]
+  def getXMI_ID( self: UMLElement[Uml] ): ValidationNel[UMLError[Uml]#UException, String]
 
   /**
    * Compute the canonical xmi:ID for a UML Element according to the OTI canonical XMI:ID generation rules
@@ -139,7 +142,7 @@ trait IDGenerator[Uml <: UML] {
    * @param self a UML Element that is in scope of a SerializableDocument
    * @return the xmi:ID computed according to the OTI canonical XMI:ID generation rules
    */
-  def computeID( self: UMLElement[Uml] ): Try[String]
+  def computeID( self: UMLElement[Uml] ): ValidationNel[UMLError[Uml]#UException, String]
 
   /**
    * Compute the legal fragment for an xmi:ID of a UML Image based on its location string interpreted as a URL
@@ -147,7 +150,7 @@ trait IDGenerator[Uml <: UML] {
    * @param i A UML Image with a location
    * @return A legal fragment for an xmi:ID corresponding to the image's location interpreted as a URL
    */
-  def getImageLocationURL( i: UMLImage[Uml] ): Try[String]
+  def getImageLocationURL( i: UMLImage[Uml] ): ValidationNel[UMLError[Uml]#UException, String]
 }
 
 object IDGenerator {

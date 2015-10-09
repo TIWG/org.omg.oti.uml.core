@@ -39,18 +39,19 @@
  */
 package org.omg.oti.uml
 
+import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.reflect._
 import scala.language.existentials
-import scala.reflect.runtime.universe._
 import scala.util.{Failure, Success, Try}
 import scala.{annotation,Any,Boolean,Double,Int,Option,None,Some}
 import scala.Predef.{???,require,String}
 import scala.collection.immutable.{List,Nil,Seq,Set,Stream}
 import scala.collection.Iterable
 import scala.StringContext
+import scalaz._, Scalaz._
 
 import java.lang.Exception
 
@@ -159,7 +160,7 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
 
-  def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]]
+  def evaluateTriples(e: UMLElement[Uml]): ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]]
 }
 
 
@@ -185,29 +186,32 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
 
-  override def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]] =
+  override def evaluateTriples(e: UMLElement[Uml])
+  : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
-        val result: Try[Set[RelationTriple[Uml]]]  = evaluate(u).map { ov =>
+        evaluate(u).map { ov =>
           ov.fold[Set[RelationTriple[Uml]]](Set()) { v =>
               if (u.owner.contains(v))
-                Set()
+                Set[RelationTriple[Uml]]()
               else
-                Set(AssociationTriple(sub=u, relf=this, obj=v))
+                Set[RelationTriple[Uml]](AssociationTriple(sub=u, relf=this, obj=v))
             }
         }
-        result
       case x =>
-        Failure(IllegalElementException[Uml, UMLElement[Uml]](
-          s"Type mismatch for evaluating $this on $x " +
-            s"(should have been ${domainType.runtimeClass.getName})",
-          Iterable(e)))
+        UMLError.illegalElementException[Uml, U](
+          s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
+          Iterable(e),
+          None).failureNel
     }
 
-  def evaluate(e: UMLElement[Uml]): Try[Option[UMLElement[Uml]]] =
+  def evaluate(e: UMLElement[Uml])
+  : ValidationNel[UMLError[Uml]#UException, Option[UMLElement[Uml]]] =
     e match {
-      case u: U => Success(f(u))
-      case _ => Failure(IllegalMetaPropertyEvaluation(e, this))
+      case u: U =>
+        f(u).success
+      case _ =>
+        UMLError.illegalMetaPropertyEvaluation[Uml, U](e, this).failureNel
     }
 
   override def toString: String =
@@ -251,7 +255,8 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
 
-  override def evaluateTriples(e: UMLElement[Uml]): Try[Set[RelationTriple[Uml]]] =
+  override def evaluateTriples(e: UMLElement[Uml])
+  : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
         evaluate(u).map { vs =>
@@ -259,20 +264,21 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
         }
     }
 
-  def evaluate(e: UMLElement[Uml]): Try[List[UMLElement[Uml]]] = {
+  def evaluate(e: UMLElement[Uml])
+  : ValidationNel[UMLError[Uml]#UException, List[UMLElement[Uml]]] = {
     require(e != null)
     e match {
       case u: U =>
         val v = f(u)
         require(v != null)
         if (v.isEmpty)
-          Success(Nil)
+          Nil.success
         else if (isOrdered)
-          Success(v.toList)
+          v.toList.success
         else
-          Success(v.toList)
+          v.toList.success
       case _ =>
-        Failure(IllegalMetaPropertyEvaluation(e, this))
+        UMLError.illegalMetaPropertyEvaluation[Uml, U](e, this).failureNel
     }
   }
 
@@ -294,23 +300,4 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     other.isInstanceOf[MetaPropertyCollection[Uml, _, _]]
 
   override def hashCode: Int = propertyName.hashCode()
-}
-
-/**
- * Error type: IllegalMetaPropertyEvaluation
- */
-case class IllegalMetaPropertyEvaluation[Uml <: UML]
-(e: UMLElement[Uml],
- metaPropertyFunction: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]])
-  extends Exception(s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
-  with UMLElementException[Uml, UMLElement[Uml]] {
-  override val element = Iterable(e)
-}
-
-case class IllegalMetaAttributeEvaluation[Uml <: UML]
-(e: UMLElement[Uml],
- metaAttributeFunction: MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _])
-  extends Exception(s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
-  with UMLElementException[Uml, UMLElement[Uml]] {
-  override val element = Iterable(e)
 }

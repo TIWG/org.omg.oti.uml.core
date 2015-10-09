@@ -40,6 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
@@ -49,6 +51,7 @@ import scala.Predef.String
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scalaz._, Scalaz._
 // End of user code
 
 /**
@@ -146,7 +149,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
 	 */
 	def validate_visibility_public_or_private: Boolean = {
 		// Start of user code for "visibility_public_or_private"
-    visibility == UMLVisibilityKind.public || visibility == UMLVisibilityKind._private
+    visibility.contains(UMLVisibilityKind.public) || visibility.contains(UMLVisibilityKind._private)
     // End of user code
 	}
 
@@ -155,11 +158,15 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml]): String =
-    element_xmiOrderingKey + (importedElement match {
-    case None     => "_"
-    case Some(ie) => "_" + ie.xmiOrderingKey
-  })
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
+  : ValidationNel[UMLError[Uml]#UException, String] =
+	for {
+		key <- element_xmiOrderingKey
+		i <- importedElement.fold[ValidationNel[UMLError[Uml]#UException, String]]("_".success){ ie =>
+				ie.xmiOrderingKey.map("_" + _)
+		}
+	} yield key + i
+
 
   // End of user code
 } //UMLElementImportOps

@@ -54,6 +54,7 @@ import scala.collection.Iterable
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try
+import scalaz._, Scalaz._
 
 // End of user code
 
@@ -267,14 +268,26 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    *
    * @return If unique, the OTI::SpecificationRootCharacterizedPackage-stereotype Comment that annotates this package
    */
-  def getSpecificationRootAnnotatingComment: Option[UMLComment[Uml]] = {
-    val characterizations =
-      annotatedElement_comment
-      .filter { c => c.getSpecificationRootCharacterizedPackage.contains(self) }
-    if (1 == characterizations.size)
-      characterizations.headOption
-    else
-      None
+  def getSpecificationRootAnnotatingComment
+  : ValidationNel[UMLError[Uml]#UException, Option[UMLComment[Uml]]] = {
+    val c0: ValidationNel[UMLError[Uml]#UException, Seq[UMLComment[Uml]]] = Seq().success
+    val cN = (c0 /: annotatedElement_comment) { (ci, c) =>
+      ci.fold[ValidationNel[UMLError[Uml]#UException, Seq[UMLComment[Uml]]]](
+        fail = Validation.failure(_),
+        succ = (_ci) =>
+          c.getSpecificationRootCharacterizedPackage.map { _p =>
+            if (_p.contains(self))
+              _ci :+ c
+            else
+              _ci
+          })
+      }
+    cN.map { cs =>
+      if (1 == cs.size)
+        cs.headOption
+      else
+        None
+    }
   }
 
   /**
@@ -299,41 +312,48 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    *         if available
    */
   def oti_attributeValue[V]
-  (pf: UMLPackage[Uml] => Option[V],
-   cf: UMLComment[Uml] => Option[V])
+  (pf: UMLPackage[Uml] => ValidationNel[UMLError[Uml]#UException, Option[V]],
+   cf: UMLComment[Uml] => ValidationNel[UMLError[Uml]#UException, Option[V]])
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[V] =
+  : ValidationNel[UMLError[Uml]#UException, Option[V]] =
   pf(self)
-  .orElse {
-    otiCharacterizations
-    .fold[Option[V]] {
-      self
-      .getSpecificationRootAnnotatingComment
-      .flatMap { c =>
-        cf(c)
-      }
-    }{ p2c =>
-      p2c
-      .get(self)
-      .flatMap { c =>
-        cf(c)
-      }
-    }
-  }
+    .fold[ValidationNel[UMLError[Uml]#UException, Option[V]]](
+    fail = Validation.failure(_),
+    succ = (opf) =>
+      opf
+      .fold[ValidationNel[UMLError[Uml]#UException, Option[V]]](None.success){ _opf =>
+        otiCharacterizations
+        .fold[ValidationNel[UMLError[Uml]#UException, Option[V]]](
+          self
+          .getSpecificationRootAnnotatingComment
+          .flatMap { c =>
+            c.fold[ValidationNel[UMLError[Uml]#UException, Option[V]]](None.success){ _c =>
+              cf(_c)
+            }
+          }
+        ){ p2c =>
+            p2c
+            .get(self)
+            .fold[ValidationNel[UMLError[Uml]#UException, Option[V]]](None.success){ _c =>
+              cf(_c)
+            }
+          }
+        })
+
 
   def oti_packageURI
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_attributeValue[String](
-    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_packageURI).headOption,
+    pf = (x) => (OTI_SPECIFICATION_ROOT_packageURI.disjunction flatMap ((prop) => x.getStereotypeTagPropertyStringValues(prop).headOption)),
     cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI).headOption
     )
 
   def oti_documentURL
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption,
     cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL).headOption
@@ -342,7 +362,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def oti_nsPrefix
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_nsPrefix).headOption,
     cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix).headOption
@@ -351,7 +371,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def oti_uuidPrefix
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_attributeValue[String](
     pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
     cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix).headOption
@@ -360,7 +380,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def oti_artifactKind
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[UMLEnumerationLiteral[Uml]] =
+  : ValidationNel[UMLError[Uml]#UException, Option[UMLEnumerationLiteral[Uml]]] =
     oti_attributeValue[UMLEnumerationLiteral[Uml]](
     pf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption,
     cf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind).headOption
@@ -402,7 +422,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getDocumentURL
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_documentURL.fold[Option[String]]{
       getEffectiveURI.fold[Option[String]](None) {
           uri =>
@@ -425,10 +445,10 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getEffectiveURI
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : Option[String] =
+  : ValidationNel[UMLError[Uml]#UException, Option[String]] =
     oti_packageURI
     .orElse {
-      self.URI
+      self.URI.success
     }
 
   /**
