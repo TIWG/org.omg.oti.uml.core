@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable._
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,24 +57,24 @@ class AssociationUpdater[Uml <: UML](val domain: UMLAssociation[Uml]) extends An
   def links_Association_association_reference_memberEnd_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Association_association_reference_memberEnd_Property(domain, range)
 
   def links_Association_association_reference_navigableOwnedEnd_Property
   (range: Set[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Association_association_reference_navigableOwnedEnd_Property(domain, range)
 
   def links_Association_owningAssociation_compose_ownedEnd_Property
   (range: Iterable[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Association_owningAssociation_compose_ownedEnd_Property(domain, range)
 
   def setIsDerived
   (isDerived: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_Association_isDerived(domain, isDerived)
 }

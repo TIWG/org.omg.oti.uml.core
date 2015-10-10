@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class DurationConstraintUpdater[Uml <: UML](val domain: UMLDurationConstraint[Um
   def links_DurationConstraint_durationConstraint_compose_specification_DurationInterval
   (range: Option[UMLDurationInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_DurationConstraint_durationConstraint_compose_specification_DurationInterval(domain, range)
 
   def setFirstEvent
   (firstEvent: Set[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_DurationConstraint_firstEvent(domain, firstEvent)
 }

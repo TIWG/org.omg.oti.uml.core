@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
 import scala.collection.immutable._
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class InvocationActionUpdater[Uml <: UML](val domain: UMLInvocationAction[Uml]) 
   def links_InvocationAction_invocationAction_compose_argument_InputPin
   (range: Seq[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_InvocationAction_invocationAction_compose_argument_InputPin(domain, range)
 
   def links_InvocationAction_invocationAction_reference_onPort_Port
   (range: Option[UMLPort[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_InvocationAction_invocationAction_reference_onPort_Port(domain, range)
 }

@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
-import scala.util.Try
+import scalaz._
 import java.lang.Integer
 // End of user code
 
@@ -57,6 +58,6 @@ class LiteralIntegerUpdater[Uml <: UML](val domain: UMLLiteralInteger[Uml]) exte
   def setValue
   (value: Integer)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_LiteralInteger_value(domain, value)
 }

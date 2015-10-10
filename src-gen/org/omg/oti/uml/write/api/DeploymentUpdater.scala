@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class DeploymentUpdater[Uml <: UML](val domain: UMLDeployment[Uml]) extends AnyV
   def links_Deployment_deployment_compose_configuration_DeploymentSpecification
   (range: Set[UMLDeploymentSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Deployment_deployment_compose_configuration_DeploymentSpecification(domain, range)
 
   def links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact
   (range: Set[UMLDeployedArtifact[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact(domain, range)
 }

@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class PinUpdater[Uml <: UML](val domain: UMLPin[Uml]) extends AnyVal {
   def setIsControl
   (isControl: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_Pin_isControl(domain, isControl)
 }

@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +56,6 @@ class ReceptionUpdater[Uml <: UML](val domain: UMLReception[Uml]) extends AnyVal
   def links_Reception_reception_reference_signal_Signal
   (range: Option[UMLSignal[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Reception_reception_reference_signal_Signal(domain, range)
 }

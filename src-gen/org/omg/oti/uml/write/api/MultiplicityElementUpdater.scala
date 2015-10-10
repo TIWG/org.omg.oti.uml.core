@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,24 +56,24 @@ class MultiplicityElementUpdater[Uml <: UML](val domain: UMLMultiplicityElement[
   def links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification(domain, range)
 
   def links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification(domain, range)
 
   def setIsOrdered
   (isOrdered: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_MultiplicityElement_isOrdered(domain, isOrdered)
 
   def setIsUnique
   (isUnique: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_MultiplicityElement_isUnique(domain, isUnique)
 }

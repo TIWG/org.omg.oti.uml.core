@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class TimeIntervalUpdater[Uml <: UML](val domain: UMLTimeInterval[Uml]) extends 
   def links_TimeInterval_timeInterval_reference_max_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TimeInterval_timeInterval_reference_max_TimeExpression(domain, range)
 
   def links_TimeInterval_timeInterval_reference_min_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TimeInterval_timeInterval_reference_min_TimeExpression(domain, range)
 }

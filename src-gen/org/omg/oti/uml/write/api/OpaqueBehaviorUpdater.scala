@@ -40,12 +40,13 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.Predef.String
 import scala.collection.immutable.Seq
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -58,12 +59,12 @@ class OpaqueBehaviorUpdater[Uml <: UML](val domain: UMLOpaqueBehavior[Uml]) exte
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_OpaqueBehavior_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_OpaqueBehavior_language(domain, language)
 }

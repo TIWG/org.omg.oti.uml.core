@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Double,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class LiteralRealUpdater[Uml <: UML](val domain: UMLLiteralReal[Uml]) extends An
   def setValue
   (value: Double)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_LiteralReal_value(domain, value)
 }

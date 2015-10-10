@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.{Seq,Set}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,36 +57,36 @@ class BehavioralFeatureUpdater[Uml <: UML](val domain: UMLBehavioralFeature[Uml]
   def links_BehavioralFeature_specification_reference_method_Behavior
   (range: Set[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_BehavioralFeature_specification_reference_method_Behavior(domain, range)
 
   def links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter
   (range: Seq[UMLParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter(domain, range)
 
   def links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet
   (range: Set[UMLParameterSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet(domain, range)
 
   def links_BehavioralFeature_behavioralFeature_reference_raisedException_Type
   (range: Set[UMLType[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_BehavioralFeature_behavioralFeature_reference_raisedException_Type(domain, range)
 
   def setConcurrency
   (concurrency: Option[UMLCallConcurrencyKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_BehavioralFeature_concurrency(domain, concurrency)
 
   def setIsAbstract
   (isAbstract: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_BehavioralFeature_isAbstract(domain, isAbstract)
 }

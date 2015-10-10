@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
 import scala.Predef.String
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -57,6 +58,6 @@ class ModelUpdater[Uml <: UML](val domain: UMLModel[Uml]) extends AnyVal {
   def setViewpoint
   (viewpoint: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_Model_viewpoint(domain, viewpoint)
 }

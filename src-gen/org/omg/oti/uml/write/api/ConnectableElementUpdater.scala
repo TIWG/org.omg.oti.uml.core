@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +56,6 @@ class ConnectableElementUpdater[Uml <: UML](val domain: UMLConnectableElement[Um
   def links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter
   (range: Option[UMLConnectableElementTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter(domain, range)
 }

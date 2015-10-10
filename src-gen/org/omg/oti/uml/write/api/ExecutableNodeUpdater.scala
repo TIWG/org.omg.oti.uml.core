@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class ExecutableNodeUpdater[Uml <: UML](val domain: UMLExecutableNode[Uml]) exte
   def links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler
   (range: Set[UMLExceptionHandler[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler(domain, range)
 }

@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +56,6 @@ class ExtensionEndUpdater[Uml <: UML](val domain: UMLExtensionEnd[Uml]) extends 
   def links_ExtensionEnd_extensionEnd_reference_type_Stereotype
   (range: Option[UMLStereotype[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ExtensionEnd_extensionEnd_reference_type_Stereotype(domain, range)
 }

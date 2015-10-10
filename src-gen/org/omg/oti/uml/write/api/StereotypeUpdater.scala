@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class StereotypeUpdater[Uml <: UML](val domain: UMLStereotype[Uml]) extends AnyV
   def links_Stereotype_stereotype_compose_icon_Image
   (range: Set[UMLImage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Stereotype_stereotype_compose_icon_Image(domain, range)
 }

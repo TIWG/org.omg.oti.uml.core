@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +56,6 @@ class ChangeEventUpdater[Uml <: UML](val domain: UMLChangeEvent[Uml]) extends An
   def links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification(domain, range)
 }

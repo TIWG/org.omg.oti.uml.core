@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class InteractionConstraintUpdater[Uml <: UML](val domain: UMLInteractionConstra
   def links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification(domain, range)
 
   def links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification(domain, range)
 }

@@ -45,7 +45,6 @@ import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
-import scala.util.Try
 import scalaz._
 
 // End of user code

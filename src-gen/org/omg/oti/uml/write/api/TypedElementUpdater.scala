@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +56,6 @@ class TypedElementUpdater[Uml <: UML](val domain: UMLTypedElement[Uml]) extends 
   def links_TypedElement_typedElement_reference_type_Type
   (range: Option[UMLType[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TypedElement_typedElement_reference_type_Type(domain, range)
 }

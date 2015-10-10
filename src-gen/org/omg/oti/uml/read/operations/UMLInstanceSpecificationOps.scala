@@ -40,6 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
@@ -51,6 +53,8 @@ import scala.collection.immutable.List
 import scala.collection.immutable.Nil
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -163,15 +167,19 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
     }
   }
 
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+  override def asForwardReferencesToImportableOuterPackageableElements
+	: ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] =
     instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
 
-  def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    owner match {
-    case None => Set()
-    case Some( p: UMLPackage[Uml] ) => Set( p )
-    case Some( e ) => e.asForwardReferencesToImportableOuterPackageableElements
-  }
+  def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
+  : ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] =
+    owner
+    .fold[ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]]](Set().success) {
+      case p: UMLPackage[Uml] =>
+        Set[UMLPackageableElement[Uml]]( p ).success
+      case e =>
+        e.asForwardReferencesToImportableOuterPackageableElements
+    }
   
   // End of user code
 } //UMLInstanceSpecificationOps

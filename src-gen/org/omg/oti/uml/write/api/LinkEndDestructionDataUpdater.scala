@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class LinkEndDestructionDataUpdater[Uml <: UML](val domain: UMLLinkEndDestructio
   def links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin(domain, range)
 
   def setIsDestroyDuplicates
   (isDestroyDuplicates: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_LinkEndDestructionData_isDestroyDuplicates(domain, isDestroyDuplicates)
 }

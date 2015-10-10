@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.{Seq,Set}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,48 +57,48 @@ class OperationUpdater[Uml <: UML](val domain: UMLOperation[Uml]) extends AnyVal
   def links_Operation_bodyContext_compose_bodyCondition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_bodyContext_compose_bodyCondition_Constraint(domain, range)
 
   def links_Operation_operation_compose_ownedParameter_Parameter
   (range: Seq[UMLParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_operation_compose_ownedParameter_Parameter(domain, range)
 
   def links_Operation_postContext_compose_postcondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_postContext_compose_postcondition_Constraint(domain, range)
 
   def links_Operation_preContext_compose_precondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_preContext_compose_precondition_Constraint(domain, range)
 
   def links_Operation_operation_reference_raisedException_Type
   (range: Set[UMLType[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_operation_reference_raisedException_Type(domain, range)
 
   def links_Operation_operation_reference_redefinedOperation_Operation
   (range: Set[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_operation_reference_redefinedOperation_Operation(domain, range)
 
   def links_Operation_parameteredElement_reference_templateParameter_OperationTemplateParameter
   (range: Option[UMLOperationTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Operation_parameteredElement_reference_templateParameter_OperationTemplateParameter(domain, range)
 
   def setIsQuery
   (isQuery: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_Operation_isQuery(domain, isQuery)
 }

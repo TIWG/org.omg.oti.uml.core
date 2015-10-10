@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class ProfileUpdater[Uml <: UML](val domain: UMLProfile[Uml]) extends AnyVal {
   def links_Profile_profile_compose_metaclassReference_ElementImport
   (range: Set[UMLElementImport[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Profile_profile_compose_metaclassReference_ElementImport(domain, range)
 
   def links_Profile_profile_compose_metamodelReference_PackageImport
   (range: Set[UMLPackageImport[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Profile_profile_compose_metamodelReference_PackageImport(domain, range)
 }

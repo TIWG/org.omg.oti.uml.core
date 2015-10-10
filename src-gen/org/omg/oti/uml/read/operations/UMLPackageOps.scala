@@ -51,9 +51,6 @@ import scala.{Option, None, Some}
 import scala.Predef.{Set => _, Map => _,_}
 import scala.collection.immutable._
 import scala.collection.Iterable
-import scala.util.Failure
-import scala.util.Success
-import scala.util.Try
 import scalaz._, Scalaz._
 
 // End of user code
@@ -345,46 +342,66 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[String]] =
-    oti_attributeValue[String](
-    pf = (x) => (OTI_SPECIFICATION_ROOT_packageURI.disjunction flatMap ((prop) => x.getStereotypeTagPropertyStringValues(prop).headOption)),
-    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI).headOption
-    )
+    for {
+      oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
+      oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
+      result <- oti_attributeValue[String](
+          pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_packageURI) } yield vs.headOption,
+          cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_packageURI) } yield vs.headOption
+        )
+    } yield result
 
   def oti_documentURL
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[String]] =
-    oti_attributeValue[String](
-    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_documentURL).headOption,
-    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL).headOption
-    )
+    for {
+      oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
+      oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
+      result <- oti_attributeValue[String](
+        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_documentURL) } yield vs.headOption,
+        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_documentURL) } yield vs.headOption
+      )
+    } yield result
 
   def oti_nsPrefix
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[String]] =
-    oti_attributeValue[String](
-    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_nsPrefix).headOption,
-    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix).headOption
-    )
+    for {
+      oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
+      oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
+      result <- oti_attributeValue[String](
+        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_nsPrefix) } yield vs.headOption,
+        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_nsPrefix) } yield vs.headOption
+      )
+    } yield result
 
   def oti_uuidPrefix
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[String]] =
-    oti_attributeValue[String](
-    pf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_uuidPrefix).headOption,
-    cf = (x) => x.getStereotypeTagPropertyStringValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix).headOption
-    )
+    for {
+      oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
+      oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
+      result <- oti_attributeValue[String](
+        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_uuidPrefix) } yield vs.headOption,
+        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_uuidPrefix) } yield vs.headOption
+      )
+    } yield result
 
   def oti_artifactKind
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[UMLEnumerationLiteral[Uml]]] =
-    oti_attributeValue[UMLEnumerationLiteral[Uml]](
-    pf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_artifactKind).headOption,
-    cf = (x) => x.getStereotypeTagPropertyEnumValues(OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind).headOption
-    )
+    for {
+      oti_artifactKind <- OTI_SPECIFICATION_ROOT_artifactKind
+      oti_ch_artifactKind <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
+      result <- oti_attributeValue[UMLEnumerationLiteral[Uml]](
+        pf = (x) => for { vs <- x.getStereotypeTagPropertyEnumValues(oti_artifactKind) } yield vs.headOption,
+        cf = (x) => for { vs <- x.getStereotypeTagPropertyEnumValues(oti_ch_artifactKind) } yield vs.headOption
+      )
+    } yield result
 
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
@@ -423,15 +440,20 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : ValidationNel[UMLError[Uml]#UException, Option[String]] =
-    oti_documentURL.fold[Option[String]]{
-      getEffectiveURI.fold[Option[String]](None) {
-          uri =>
-            if (uri.endsWith(".xmi")) Some(uri)
-            else Some(uri + ".xmi")
-        }
+    oti_documentURL.fold[ValidationNel[UMLError[Uml]#UException, Option[String]]](
+      fail=Validation.failure(_),
+      succ=_.fold[ValidationNel[UMLError[Uml]#UException, Option[String]]]{
+        getEffectiveURI.fold[ValidationNel[UMLError[Uml]#UException, Option[String]]](
+        fail = Validation.failure(_),
+        succ = _.fold[ValidationNel[UMLError[Uml]#UException, Option[String]]](None.success){ uri =>
+            if (uri.endsWith(".xmi"))
+              Some(uri).success
+            else
+              Some(uri + ".xmi").success
+              })
     }{ url =>
-        Some(url)
-    }
+        Some(url).success
+    })
 
   /**
    * The URI for the package, if any; subject to being overriden by the OTI::SpecificationRoot stereotype, if applied.
@@ -500,6 +522,10 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     allVisibleMembersAccessibleTransitively ++
     allIndirectlyAppliedProfilesIncludingNestingPackagesTransitively.flatMap(_.allVisibleMembersTransitively)
 
+  type UMLStereotypeBaseProperty = (UMLStereotype[Uml], UMLProperty[Uml])
+  type UMLExtendedElementsByAppliedStereotypes = Map[UMLStereotypeBaseProperty, Set[UMLElement[Uml]]]
+  type UMLStereotypedElementsByAppliedProfile = Map[Option[UMLProfile[Uml]], UMLExtendedElementsByAppliedStereotypes]
+
   /**
    * For the package and owned elements, calculates the map of
    * applied stereotypes to elements grouped by profile.
@@ -510,16 +536,23 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    * the set of elements on which the stereotype is applied.
    */
   def allAppliedStereotypesByProfile
-  : Map[Option[UMLProfile[Uml]], Map[(UMLStereotype[Uml], UMLProperty[Uml]), Set[UMLElement[Uml]]]] = {
+  : ValidationNel[UMLError[Uml]#UException, UMLStereotypedElementsByAppliedProfile] = {
 
-    val pkgContents = (allOwnedElements + self)
-    val tuples = pkgContents flatMap { e =>
-      val pf2spMap = e.getAppliedStereotypes groupBy (_._1.profile)
-      pf2spMap flatMap { case (pf, sps) => sps map { case (s, p) => (pf, s, p, e) } }
+    type PF_S_P_E = (Option[UMLProfile[Uml]], UMLStereotype[Uml], UMLProperty[Uml], UMLElement[Uml])
+
+    val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
+    val t0: ValidationNel[UMLError[Uml]#UException, Set[PF_S_P_E]] = Set().success
+    val tn: ValidationNel[UMLError[Uml]#UException, Set[PF_S_P_E]] = ( t0 /: pkgContents ) { ( ti, e) =>
+      (ti |@| e.getAppliedStereotypes) { (_ti, _appliedStereotypes) =>
+        val pf2spMap = _appliedStereotypes groupBy (_._1.profile)
+        val tuples = pf2spMap flatMap { case (pf, sps) => sps map { case (s, p) => (pf, s, p, e) } }
+        _ti ++ tuples.to[Set]
+      }
     }
 
-    val appliedStereotypesByProfile =
-      tuples.groupBy(_._1).map {
+    val appliedStereotypesByProfile = for {
+      tuples <- tn
+    } yield tuples.groupBy(_._1).map {
         case (pf, v) =>
           val speTuples = v.map {
             case (_, s, p, e) =>
@@ -537,12 +570,56 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     appliedStereotypesByProfile
   }
 
+  /**
+   * @todo simplify this scalaz code!
+   *
+   *       The non-validation version was concise:
+   *       (Stream(this) ++ allOwnedElements) flatMap
+   *       ((e) => Set(e) ++ e.allForwardReferencesFromStereotypeTagProperties) flatMap
+   *       ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
+   *       (_.allForwardReferencesToImportablePackageableElements) filter (!this.isAncestorOf(_)) toSet
+   *
+   * @return all forward references from the contents of this package to outside importable packageable elements
+   */
   def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
-  : Set[UMLPackageableElement[Uml]] =
-    (Stream(this) ++ allOwnedElements) flatMap
-    ((e) => Set(e) ++ e.allForwardReferencesFromStereotypeTagProperties) flatMap
-    ((e) => Set(e) ++ e.allForwardReferencesToElements) flatMap
-    (_.allForwardReferencesToImportablePackageableElements) filter (!this.isAncestorOf(_)) toSet
+  : ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] = {
+    val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
+
+    val a0: ValidationNel[UMLError[Uml]#UException, Set[UMLElement[Uml]]] = Set().success
+    val aN: ValidationNel[UMLError[Uml]#UException, Set[UMLElement[Uml]]] = (a0 /: pkgContents) {
+      (ai, e) =>
+        (ai |@| e.allForwardReferencesFromStereotypeTagProperties) { (_ai, eRefs) =>
+          _ai ++ Set(e) ++ eRefs
+        }
+      }
+
+    val result =
+      aN.flatMap { refs =>
+
+      val b0: ValidationNel[UMLError[Uml]#UException, Set[UMLElement[Uml]]] = Set().success
+      val bN: ValidationNel[UMLError[Uml]#UException, Set[UMLElement[Uml]]] = (b0 /: refs) {
+        (bi, e) =>
+          (bi |@| e.allForwardReferencesToElements) { (_bi, eRefs) =>
+            _bi ++ Set(e) ++ eRefs
+          }
+      }
+
+      bN.flatMap { refs =>
+
+        val c0: ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] = Set().success
+        val cN: ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] = (c0 /: refs) {
+        (ci, e) =>
+          (ci |@| e.allForwardReferencesToImportablePackageableElements) { (_ci, peRefs) =>
+            _ci ++ peRefs.filter(!this.isAncestorOf(_))
+          }
+        }
+        cN
+      }
+    }
+
+    result
+  }
+
 
   /**
    * Find the packages or profiles that own the elements referenced from the packaged elements of this package.
@@ -551,14 +628,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def forwardReferencesToPackagesOrProfiles
   ()
   (implicit idg: IDGenerator[Uml])
-  : Try[Set[UMLPackage[Uml]]] =
-    forwardReferencesBeyondPackageScope match {
-      case Failure(t) => Failure(t)
-      case Success(triples) =>
-        val ps = triples map
-                 (_.obj) flatMap
-                 (getPackageOrProfileOwner(_))
-        Success(ps)
+  : ValidationNel[UMLError[Uml]#UException, Set[UMLPackage[Uml]]] =
+    forwardReferencesBeyondPackageScope.map { triples =>
+      triples.map(_.obj).flatMap(getPackageOrProfileOwner(_))
     }
 
   /**
@@ -570,7 +642,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def forwardReferencesBeyondPackageScope
   ()
   (implicit idg: IDGenerator[Uml])
-  : Try[Set[RelationTriple[Uml]]] = {
+  : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = {
 
     val scope = self.allOwnedElementsWithinPackageScope
 
@@ -578,41 +650,38 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
     @annotation.tailrec def followReferencesUntilPackageScopeBoundary
     ( acc: Set[RelationTriple[Uml]],
-      triples: Try[Set[RelationTriple[Uml]]])
-    : Try[Set[RelationTriple[Uml]]] =
-      triples match {
-        case Failure(t) => Failure(t)
-        case Success(ts) =>
-          if (ts.isEmpty) Success(acc)
-          else {
-            val (th, tr: Set[RelationTriple[Uml]]) = (ts.head, ts.tail)
-            if (visited.contains(th.obj))
-              followReferencesUntilPackageScopeBoundary(
-                acc,
-                Success(tr))
-            else {
-              visited += th.sub; ()
-              if (scope.contains(th.obj))
-                th.obj.forwardRelationTriples match {
-                  case Failure(t) => Failure(t)
-                  case Success(nextTriples: Set[RelationTriple[Uml]]) =>
-                    followReferencesUntilPackageScopeBoundary(
-                      acc,
-                      Success(nextTriples ++ tr))
-                }
-              else
-                followReferencesUntilPackageScopeBoundary(
-                  acc + th,
-                  Success(tr))
+      triples: Set[RelationTriple[Uml]])
+    : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
+      if (triples.isEmpty)
+        acc.success
+      else {
+        val (th, tr: Set[RelationTriple[Uml]]) = (triples.head, triples.tail)
+        if (visited.contains(th.obj))
+          followReferencesUntilPackageScopeBoundary(acc, tr)
+        else {
+          visited += th.sub;
+          ()
+          if (scope.contains(th.obj))
+            th.obj.forwardRelationTriples.flatMap {
+              nextTriples: Set[RelationTriple[Uml]] =>
+                followReferencesUntilPackageScopeBoundary(acc, nextTriples ++ tr)
             }
-          }
+          else
+            followReferencesUntilPackageScopeBoundary(acc + th, tr)
+        }
       }
 
-    val triples0: Try[Set[RelationTriple[Uml]]] = Success(Set())
-    val triplesN: Try[Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
-      case ( Failure( t ), _ )   => Failure( t )
-      case ( Success( acc ), e ) => followReferencesUntilPackageScopeBoundary( acc, e.forwardRelationTriples )
+    val triples0: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = Set().success
+    val triplesN: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
+      ( ti, e ) =>
+
+      for {
+        _ti <- ti
+        _triples <- e.forwardRelationTriples
+        _more <- followReferencesUntilPackageScopeBoundary( _ti, _triples )
+      } yield _more
     }
+
     triplesN
   }
 

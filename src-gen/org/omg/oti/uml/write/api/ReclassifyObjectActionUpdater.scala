@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,24 +57,24 @@ class ReclassifyObjectActionUpdater[Uml <: UML](val domain: UMLReclassifyObjectA
   def links_ReclassifyObjectAction_reclassifyObjectAction_reference_newClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ReclassifyObjectAction_reclassifyObjectAction_reference_newClassifier_Classifier(domain, range)
 
   def links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin(domain, range)
 
   def links_ReclassifyObjectAction_reclassifyObjectAction_reference_oldClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ReclassifyObjectAction_reclassifyObjectAction_reference_oldClassifier_Classifier(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_ReclassifyObjectAction_isReplaceAll(domain, isReplaceAll)
 }

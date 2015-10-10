@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
 import scala.collection.immutable.{Seq,Set}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,36 +57,36 @@ class InterfaceUpdater[Uml <: UML](val domain: UMLInterface[Uml]) extends AnyVal
   def links_Interface_interface_compose_nestedClassifier_Classifier
   (range: Seq[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_compose_nestedClassifier_Classifier(domain, range)
 
   def links_Interface_interface_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_compose_ownedAttribute_Property(domain, range)
 
   def links_Interface_interface_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_compose_ownedOperation_Operation(domain, range)
 
   def links_Interface_interface_compose_ownedReception_Reception
   (range: Set[UMLReception[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_compose_ownedReception_Reception(domain, range)
 
   def links_Interface_interface_compose_protocol_ProtocolStateMachine
   (range: Option[UMLProtocolStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_compose_protocol_ProtocolStateMachine(domain, range)
 
   def links_Interface_interface_reference_redefinedInterface_Interface
   (range: Set[UMLInterface[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Interface_interface_reference_redefinedInterface_Interface(domain, range)
 }

@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class ParameterSetUpdater[Uml <: UML](val domain: UMLParameterSet[Uml]) extends 
   def links_ParameterSet_parameterSet_compose_condition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ParameterSet_parameterSet_compose_condition_Constraint(domain, range)
 
   def links_ParameterSet_parameterSet_reference_parameter_Parameter
   (range: Set[UMLParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_ParameterSet_parameterSet_reference_parameter_Parameter(domain, range)
 }

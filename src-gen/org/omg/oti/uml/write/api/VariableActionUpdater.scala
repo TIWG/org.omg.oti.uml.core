@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,6 +55,6 @@ class VariableActionUpdater[Uml <: UML](val domain: UMLVariableAction[Uml]) exte
   def links_VariableAction_variableAction_reference_variable_Variable
   (range: Option[UMLVariable[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_VariableAction_variableAction_reference_variable_Variable(domain, range)
 }

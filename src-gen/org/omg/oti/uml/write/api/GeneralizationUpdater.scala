@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,18 +57,18 @@ class GeneralizationUpdater[Uml <: UML](val domain: UMLGeneralization[Uml]) exte
   def links_Generalization_generalization_reference_general_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Generalization_generalization_reference_general_Classifier(domain, range)
 
   def links_Generalization_generalization_reference_generalizationSet_GeneralizationSet
   (range: Set[UMLGeneralizationSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_Generalization_generalization_reference_generalizationSet_GeneralizationSet(domain, range)
 
   def setIsSubstitutable
   (isSubstitutable: Option[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_Generalization_isSubstitutable(domain, isSubstitutable)
 }

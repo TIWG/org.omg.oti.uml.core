@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Seq
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class SequenceNodeUpdater[Uml <: UML](val domain: UMLSequenceNode[Uml]) extends 
   def links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode
   (range: Seq[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode(domain, range)
 }

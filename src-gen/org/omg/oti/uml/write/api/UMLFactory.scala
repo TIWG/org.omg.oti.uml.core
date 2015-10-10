@@ -40,11 +40,12 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.Predef._
 import scala.collection.immutable.Map
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -61,7 +62,7 @@ import scala.util.Try
  */
 trait UMLFactory[Uml <: UML] {
 
-  val reflectiveFactoryLookup: Map[String, (UMLFactory[Uml] => Try[_ <: UMLElement[Uml]])] =
+  val reflectiveFactoryLookup: Map[String, (UMLFactory[Uml] => ValidationNel[UMLError[Uml]#UException, _ <: UMLElement[Uml]])] =
     Map(
       "Abstraction" -> (f => f.createUMLAbstraction),
       "AcceptCallAction" -> (f => f.createUMLAcceptCallAction),
@@ -258,395 +259,396 @@ trait UMLFactory[Uml <: UML] {
       "Variable" -> (f => f.createUMLVariable)
     )
 
-  def createUMLAbstraction: Try[UMLAbstraction[Uml]]
+  def createUMLAbstraction: ValidationNel[UMLError[Uml]#UException,UMLAbstraction[Uml]]
 
-  def createUMLAcceptCallAction: Try[UMLAcceptCallAction[Uml]]
+  def createUMLAcceptCallAction: ValidationNel[UMLError[Uml]#UException,UMLAcceptCallAction[Uml]]
 
-  def createUMLAcceptEventAction: Try[UMLAcceptEventAction[Uml]]
+  def createUMLAcceptEventAction: ValidationNel[UMLError[Uml]#UException,UMLAcceptEventAction[Uml]]
 
-  def createUMLActionExecutionSpecification: Try[UMLActionExecutionSpecification[Uml]]
+  def createUMLActionExecutionSpecification: ValidationNel[UMLError[Uml]#UException,UMLActionExecutionSpecification[Uml]]
 
-  def createUMLActionInputPin: Try[UMLActionInputPin[Uml]]
+  def createUMLActionInputPin: ValidationNel[UMLError[Uml]#UException,UMLActionInputPin[Uml]]
 
-  def createUMLActivity: Try[UMLActivity[Uml]]
+  def createUMLActivity: ValidationNel[UMLError[Uml]#UException,UMLActivity[Uml]]
 
-  def createUMLActivityFinalNode: Try[UMLActivityFinalNode[Uml]]
+  def createUMLActivityFinalNode: ValidationNel[UMLError[Uml]#UException,UMLActivityFinalNode[Uml]]
 
-  def createUMLActivityParameterNode: Try[UMLActivityParameterNode[Uml]]
+  def createUMLActivityParameterNode: ValidationNel[UMLError[Uml]#UException,UMLActivityParameterNode[Uml]]
 
-  def createUMLActivityPartition: Try[UMLActivityPartition[Uml]]
+  def createUMLActivityPartition: ValidationNel[UMLError[Uml]#UException,UMLActivityPartition[Uml]]
 
-  def createUMLActor: Try[UMLActor[Uml]]
+  def createUMLActor: ValidationNel[UMLError[Uml]#UException,UMLActor[Uml]]
 
-  def createUMLAddStructuralFeatureValueAction: Try[UMLAddStructuralFeatureValueAction[Uml]]
+  def createUMLAddStructuralFeatureValueAction: ValidationNel[UMLError[Uml]#UException,UMLAddStructuralFeatureValueAction[Uml]]
 
-  def createUMLAddVariableValueAction: Try[UMLAddVariableValueAction[Uml]]
+  def createUMLAddVariableValueAction: ValidationNel[UMLError[Uml]#UException,UMLAddVariableValueAction[Uml]]
 
-  def createUMLAnyReceiveEvent: Try[UMLAnyReceiveEvent[Uml]]
+  def createUMLAnyReceiveEvent: ValidationNel[UMLError[Uml]#UException,UMLAnyReceiveEvent[Uml]]
 
-  def createUMLArtifact: Try[UMLArtifact[Uml]]
+  def createUMLArtifact: ValidationNel[UMLError[Uml]#UException,UMLArtifact[Uml]]
 
-  def createUMLAssociation: Try[UMLAssociation[Uml]]
+  def createUMLAssociation: ValidationNel[UMLError[Uml]#UException,UMLAssociation[Uml]]
 
-  def createUMLAssociationClass: Try[UMLAssociationClass[Uml]]
+  def createUMLAssociationClass: ValidationNel[UMLError[Uml]#UException,UMLAssociationClass[Uml]]
 
-  def createUMLBehaviorExecutionSpecification: Try[UMLBehaviorExecutionSpecification[Uml]]
+  def createUMLBehaviorExecutionSpecification: ValidationNel[UMLError[Uml]#UException,UMLBehaviorExecutionSpecification[Uml]]
 
-  def createUMLBroadcastSignalAction: Try[UMLBroadcastSignalAction[Uml]]
+  def createUMLBroadcastSignalAction: ValidationNel[UMLError[Uml]#UException,UMLBroadcastSignalAction[Uml]]
 
-  def createUMLCallBehaviorAction: Try[UMLCallBehaviorAction[Uml]]
+  def createUMLCallBehaviorAction: ValidationNel[UMLError[Uml]#UException,UMLCallBehaviorAction[Uml]]
 
-  def createUMLCallEvent: Try[UMLCallEvent[Uml]]
+  def createUMLCallEvent: ValidationNel[UMLError[Uml]#UException,UMLCallEvent[Uml]]
 
-  def createUMLCallOperationAction: Try[UMLCallOperationAction[Uml]]
+  def createUMLCallOperationAction: ValidationNel[UMLError[Uml]#UException,UMLCallOperationAction[Uml]]
 
-  def createUMLCentralBufferNode: Try[UMLCentralBufferNode[Uml]]
+  def createUMLCentralBufferNode: ValidationNel[UMLError[Uml]#UException,UMLCentralBufferNode[Uml]]
 
-  def createUMLChangeEvent: Try[UMLChangeEvent[Uml]]
+  def createUMLChangeEvent: ValidationNel[UMLError[Uml]#UException,UMLChangeEvent[Uml]]
 
-  def createUMLClass: Try[UMLClass[Uml]]
+  def createUMLClass: ValidationNel[UMLError[Uml]#UException,UMLClass[Uml]]
 
-  def createUMLClassifierTemplateParameter: Try[UMLClassifierTemplateParameter[Uml]]
+  def createUMLClassifierTemplateParameter: ValidationNel[UMLError[Uml]#UException,UMLClassifierTemplateParameter[Uml]]
 
-  def createUMLClause: Try[UMLClause[Uml]]
+  def createUMLClause: ValidationNel[UMLError[Uml]#UException,UMLClause[Uml]]
 
-  def createUMLClearAssociationAction: Try[UMLClearAssociationAction[Uml]]
+  def createUMLClearAssociationAction: ValidationNel[UMLError[Uml]#UException,UMLClearAssociationAction[Uml]]
 
-  def createUMLClearStructuralFeatureAction: Try[UMLClearStructuralFeatureAction[Uml]]
+  def createUMLClearStructuralFeatureAction: ValidationNel[UMLError[Uml]#UException,UMLClearStructuralFeatureAction[Uml]]
 
-  def createUMLClearVariableAction: Try[UMLClearVariableAction[Uml]]
+  def createUMLClearVariableAction: ValidationNel[UMLError[Uml]#UException,UMLClearVariableAction[Uml]]
 
-  def createUMLCollaboration: Try[UMLCollaboration[Uml]]
+  def createUMLCollaboration: ValidationNel[UMLError[Uml]#UException,UMLCollaboration[Uml]]
 
-  def createUMLCollaborationUse: Try[UMLCollaborationUse[Uml]]
+  def createUMLCollaborationUse: ValidationNel[UMLError[Uml]#UException,UMLCollaborationUse[Uml]]
 
-  def createUMLCombinedFragment: Try[UMLCombinedFragment[Uml]]
+  def createUMLCombinedFragment: ValidationNel[UMLError[Uml]#UException,UMLCombinedFragment[Uml]]
 
-  def createUMLComment: Try[UMLComment[Uml]]
+  def createUMLComment: ValidationNel[UMLError[Uml]#UException,UMLComment[Uml]]
 
-  def createUMLCommunicationPath: Try[UMLCommunicationPath[Uml]]
+  def createUMLCommunicationPath: ValidationNel[UMLError[Uml]#UException,UMLCommunicationPath[Uml]]
 
-  def createUMLComponent: Try[UMLComponent[Uml]]
+  def createUMLComponent: ValidationNel[UMLError[Uml]#UException,UMLComponent[Uml]]
 
-  def createUMLComponentRealization: Try[UMLComponentRealization[Uml]]
+  def createUMLComponentRealization: ValidationNel[UMLError[Uml]#UException,UMLComponentRealization[Uml]]
 
-  def createUMLConditionalNode: Try[UMLConditionalNode[Uml]]
+  def createUMLConditionalNode: ValidationNel[UMLError[Uml]#UException,UMLConditionalNode[Uml]]
 
-  def createUMLConnectableElementTemplateParameter: Try[UMLConnectableElementTemplateParameter[Uml]]
+  def createUMLConnectableElementTemplateParameter: ValidationNel[UMLError[Uml]#UException,UMLConnectableElementTemplateParameter[Uml]]
 
-  def createUMLConnectionPointReference: Try[UMLConnectionPointReference[Uml]]
+  def createUMLConnectionPointReference: ValidationNel[UMLError[Uml]#UException,UMLConnectionPointReference[Uml]]
 
-  def createUMLConnector: Try[UMLConnector[Uml]]
+  def createUMLConnector: ValidationNel[UMLError[Uml]#UException,UMLConnector[Uml]]
 
-  def createUMLConnectorEnd: Try[UMLConnectorEnd[Uml]]
+  def createUMLConnectorEnd: ValidationNel[UMLError[Uml]#UException,UMLConnectorEnd[Uml]]
 
-  def createUMLConsiderIgnoreFragment: Try[UMLConsiderIgnoreFragment[Uml]]
+  def createUMLConsiderIgnoreFragment: ValidationNel[UMLError[Uml]#UException,UMLConsiderIgnoreFragment[Uml]]
 
-  def createUMLConstraint: Try[UMLConstraint[Uml]]
+  def createUMLConstraint: ValidationNel[UMLError[Uml]#UException,UMLConstraint[Uml]]
 
-  def createUMLContinuation: Try[UMLContinuation[Uml]]
+  def createUMLContinuation: ValidationNel[UMLError[Uml]#UException,UMLContinuation[Uml]]
 
-  def createUMLControlFlow: Try[UMLControlFlow[Uml]]
+  def createUMLControlFlow: ValidationNel[UMLError[Uml]#UException,UMLControlFlow[Uml]]
 
-  def createUMLCreateLinkAction: Try[UMLCreateLinkAction[Uml]]
+  def createUMLCreateLinkAction: ValidationNel[UMLError[Uml]#UException,UMLCreateLinkAction[Uml]]
 
-  def createUMLCreateLinkObjectAction: Try[UMLCreateLinkObjectAction[Uml]]
+  def createUMLCreateLinkObjectAction: ValidationNel[UMLError[Uml]#UException,UMLCreateLinkObjectAction[Uml]]
 
-  def createUMLCreateObjectAction: Try[UMLCreateObjectAction[Uml]]
+  def createUMLCreateObjectAction: ValidationNel[UMLError[Uml]#UException,UMLCreateObjectAction[Uml]]
 
-  def createUMLDataStoreNode: Try[UMLDataStoreNode[Uml]]
+  def createUMLDataStoreNode: ValidationNel[UMLError[Uml]#UException,UMLDataStoreNode[Uml]]
 
-  def createUMLDataType: Try[UMLDataType[Uml]]
+  def createUMLDataType: ValidationNel[UMLError[Uml]#UException,UMLDataType[Uml]]
 
-  def createUMLDecisionNode: Try[UMLDecisionNode[Uml]]
+  def createUMLDecisionNode: ValidationNel[UMLError[Uml]#UException,UMLDecisionNode[Uml]]
 
-  def createUMLDependency: Try[UMLDependency[Uml]]
+  def createUMLDependency: ValidationNel[UMLError[Uml]#UException,UMLDependency[Uml]]
 
-  def createUMLDeployment: Try[UMLDeployment[Uml]]
+  def createUMLDeployment: ValidationNel[UMLError[Uml]#UException,UMLDeployment[Uml]]
 
-  def createUMLDeploymentSpecification: Try[UMLDeploymentSpecification[Uml]]
+  def createUMLDeploymentSpecification: ValidationNel[UMLError[Uml]#UException,UMLDeploymentSpecification[Uml]]
 
-  def createUMLDestroyLinkAction: Try[UMLDestroyLinkAction[Uml]]
+  def createUMLDestroyLinkAction: ValidationNel[UMLError[Uml]#UException,UMLDestroyLinkAction[Uml]]
 
-  def createUMLDestroyObjectAction: Try[UMLDestroyObjectAction[Uml]]
+  def createUMLDestroyObjectAction: ValidationNel[UMLError[Uml]#UException,UMLDestroyObjectAction[Uml]]
 
-  def createUMLDestructionOccurrenceSpecification: Try[UMLDestructionOccurrenceSpecification[Uml]]
+  def createUMLDestructionOccurrenceSpecification: ValidationNel[UMLError[Uml]#UException,UMLDestructionOccurrenceSpecification[Uml]]
 
-  def createUMLDevice: Try[UMLDevice[Uml]]
+  def createUMLDevice: ValidationNel[UMLError[Uml]#UException,UMLDevice[Uml]]
 
-  def createUMLDuration: Try[UMLDuration[Uml]]
+  def createUMLDuration: ValidationNel[UMLError[Uml]#UException,UMLDuration[Uml]]
 
-  def createUMLDurationConstraint: Try[UMLDurationConstraint[Uml]]
+  def createUMLDurationConstraint: ValidationNel[UMLError[Uml]#UException,UMLDurationConstraint[Uml]]
 
-  def createUMLDurationInterval: Try[UMLDurationInterval[Uml]]
+  def createUMLDurationInterval: ValidationNel[UMLError[Uml]#UException,UMLDurationInterval[Uml]]
 
-  def createUMLDurationObservation: Try[UMLDurationObservation[Uml]]
+  def createUMLDurationObservation: ValidationNel[UMLError[Uml]#UException,UMLDurationObservation[Uml]]
 
-  def createUMLElementImport: Try[UMLElementImport[Uml]]
+  def createUMLElementImport: ValidationNel[UMLError[Uml]#UException,UMLElementImport[Uml]]
 
-  def createUMLEnumeration: Try[UMLEnumeration[Uml]]
+  def createUMLEnumeration: ValidationNel[UMLError[Uml]#UException,UMLEnumeration[Uml]]
 
-  def createUMLEnumerationLiteral: Try[UMLEnumerationLiteral[Uml]]
+  def createUMLEnumerationLiteral: ValidationNel[UMLError[Uml]#UException,UMLEnumerationLiteral[Uml]]
 
-  def createUMLExceptionHandler: Try[UMLExceptionHandler[Uml]]
+  def createUMLExceptionHandler: ValidationNel[UMLError[Uml]#UException,UMLExceptionHandler[Uml]]
 
-  def createUMLExecutionEnvironment: Try[UMLExecutionEnvironment[Uml]]
+  def createUMLExecutionEnvironment: ValidationNel[UMLError[Uml]#UException,UMLExecutionEnvironment[Uml]]
 
-  def createUMLExecutionOccurrenceSpecification: Try[UMLExecutionOccurrenceSpecification[Uml]]
+  def createUMLExecutionOccurrenceSpecification: ValidationNel[UMLError[Uml]#UException,UMLExecutionOccurrenceSpecification[Uml]]
 
-  def createUMLExpansionNode: Try[UMLExpansionNode[Uml]]
+  def createUMLExpansionNode: ValidationNel[UMLError[Uml]#UException,UMLExpansionNode[Uml]]
 
-  def createUMLExpansionRegion: Try[UMLExpansionRegion[Uml]]
+  def createUMLExpansionRegion: ValidationNel[UMLError[Uml]#UException,UMLExpansionRegion[Uml]]
 
-  def createUMLExpression: Try[UMLExpression[Uml]]
+  def createUMLExpression: ValidationNel[UMLError[Uml]#UException,UMLExpression[Uml]]
 
-  def createUMLExtend: Try[UMLExtend[Uml]]
+  def createUMLExtend: ValidationNel[UMLError[Uml]#UException,UMLExtend[Uml]]
 
-  def createUMLExtension: Try[UMLExtension[Uml]]
+  def createUMLExtension: ValidationNel[UMLError[Uml]#UException,UMLExtension[Uml]]
 
-  def createUMLExtensionEnd: Try[UMLExtensionEnd[Uml]]
+  def createUMLExtensionEnd: ValidationNel[UMLError[Uml]#UException,UMLExtensionEnd[Uml]]
 
-  def createUMLExtensionPoint: Try[UMLExtensionPoint[Uml]]
+  def createUMLExtensionPoint: ValidationNel[UMLError[Uml]#UException,UMLExtensionPoint[Uml]]
 
-  def createUMLFinalState: Try[UMLFinalState[Uml]]
+  def createUMLFinalState: ValidationNel[UMLError[Uml]#UException,UMLFinalState[Uml]]
 
-  def createUMLFlowFinalNode: Try[UMLFlowFinalNode[Uml]]
+  def createUMLFlowFinalNode: ValidationNel[UMLError[Uml]#UException,UMLFlowFinalNode[Uml]]
 
-  def createUMLForkNode: Try[UMLForkNode[Uml]]
+  def createUMLForkNode: ValidationNel[UMLError[Uml]#UException,UMLForkNode[Uml]]
 
-  def createUMLFunctionBehavior: Try[UMLFunctionBehavior[Uml]]
+  def createUMLFunctionBehavior: ValidationNel[UMLError[Uml]#UException,UMLFunctionBehavior[Uml]]
 
-  def createUMLGate: Try[UMLGate[Uml]]
+  def createUMLGate: ValidationNel[UMLError[Uml]#UException,UMLGate[Uml]]
 
-  def createUMLGeneralOrdering: Try[UMLGeneralOrdering[Uml]]
+  def createUMLGeneralOrdering: ValidationNel[UMLError[Uml]#UException,UMLGeneralOrdering[Uml]]
 
-  def createUMLGeneralization: Try[UMLGeneralization[Uml]]
+  def createUMLGeneralization: ValidationNel[UMLError[Uml]#UException,UMLGeneralization[Uml]]
 
-  def createUMLGeneralizationSet: Try[UMLGeneralizationSet[Uml]]
+  def createUMLGeneralizationSet: ValidationNel[UMLError[Uml]#UException,UMLGeneralizationSet[Uml]]
 
-  def createUMLImage: Try[UMLImage[Uml]]
+  def createUMLImage: ValidationNel[UMLError[Uml]#UException,UMLImage[Uml]]
 
-  def createUMLInclude: Try[UMLInclude[Uml]]
+  def createUMLInclude: ValidationNel[UMLError[Uml]#UException,UMLInclude[Uml]]
 
-  def createUMLInformationFlow: Try[UMLInformationFlow[Uml]]
+  def createUMLInformationFlow: ValidationNel[UMLError[Uml]#UException,UMLInformationFlow[Uml]]
 
-  def createUMLInformationItem: Try[UMLInformationItem[Uml]]
+  def createUMLInformationItem: ValidationNel[UMLError[Uml]#UException,UMLInformationItem[Uml]]
 
-  def createUMLInitialNode: Try[UMLInitialNode[Uml]]
+  def createUMLInitialNode: ValidationNel[UMLError[Uml]#UException,UMLInitialNode[Uml]]
 
-  def createUMLInputPin: Try[UMLInputPin[Uml]]
+  def createUMLInputPin: ValidationNel[UMLError[Uml]#UException,UMLInputPin[Uml]]
 
-  def createUMLInstanceSpecification: Try[UMLInstanceSpecification[Uml]]
+  def createUMLInstanceSpecification: ValidationNel[UMLError[Uml]#UException,UMLInstanceSpecification[Uml]]
 
-  def createUMLInstanceValue: Try[UMLInstanceValue[Uml]]
+  def createUMLInstanceValue: ValidationNel[UMLError[Uml]#UException,UMLInstanceValue[Uml]]
 
-  def createUMLInteraction: Try[UMLInteraction[Uml]]
+  def createUMLInteraction: ValidationNel[UMLError[Uml]#UException,UMLInteraction[Uml]]
 
-  def createUMLInteractionConstraint: Try[UMLInteractionConstraint[Uml]]
+  def createUMLInteractionConstraint: ValidationNel[UMLError[Uml]#UException,UMLInteractionConstraint[Uml]]
 
-  def createUMLInteractionOperand: Try[UMLInteractionOperand[Uml]]
+  def createUMLInteractionOperand: ValidationNel[UMLError[Uml]#UException,UMLInteractionOperand[Uml]]
 
-  def createUMLInteractionUse: Try[UMLInteractionUse[Uml]]
+  def createUMLInteractionUse: ValidationNel[UMLError[Uml]#UException,UMLInteractionUse[Uml]]
 
-  def createUMLInterface: Try[UMLInterface[Uml]]
+  def createUMLInterface: ValidationNel[UMLError[Uml]#UException,UMLInterface[Uml]]
 
-  def createUMLInterfaceRealization: Try[UMLInterfaceRealization[Uml]]
+  def createUMLInterfaceRealization: ValidationNel[UMLError[Uml]#UException,UMLInterfaceRealization[Uml]]
 
-  def createUMLInterruptibleActivityRegion: Try[UMLInterruptibleActivityRegion[Uml]]
+  def createUMLInterruptibleActivityRegion: ValidationNel[UMLError[Uml]#UException,UMLInterruptibleActivityRegion[Uml]]
 
-  def createUMLInterval: Try[UMLInterval[Uml]]
+  def createUMLInterval: ValidationNel[UMLError[Uml]#UException,UMLInterval[Uml]]
 
-  def createUMLIntervalConstraint: Try[UMLIntervalConstraint[Uml]]
+  def createUMLIntervalConstraint: ValidationNel[UMLError[Uml]#UException,UMLIntervalConstraint[Uml]]
 
-  def createUMLJoinNode: Try[UMLJoinNode[Uml]]
+  def createUMLJoinNode: ValidationNel[UMLError[Uml]#UException,UMLJoinNode[Uml]]
 
-  def createUMLLifeline: Try[UMLLifeline[Uml]]
+  def createUMLLifeline: ValidationNel[UMLError[Uml]#UException,UMLLifeline[Uml]]
 
-  def createUMLLinkEndCreationData: Try[UMLLinkEndCreationData[Uml]]
+  def createUMLLinkEndCreationData: ValidationNel[UMLError[Uml]#UException,UMLLinkEndCreationData[Uml]]
 
-  def createUMLLinkEndData: Try[UMLLinkEndData[Uml]]
+  def createUMLLinkEndData: ValidationNel[UMLError[Uml]#UException,UMLLinkEndData[Uml]]
 
-  def createUMLLinkEndDestructionData: Try[UMLLinkEndDestructionData[Uml]]
+  def createUMLLinkEndDestructionData: ValidationNel[UMLError[Uml]#UException,UMLLinkEndDestructionData[Uml]]
 
-  def createUMLLiteralBoolean: Try[UMLLiteralBoolean[Uml]]
+  def createUMLLiteralBoolean: ValidationNel[UMLError[Uml]#UException,UMLLiteralBoolean[Uml]]
 
-  def createUMLLiteralInteger: Try[UMLLiteralInteger[Uml]]
+  def createUMLLiteralInteger: ValidationNel[UMLError[Uml]#UException,UMLLiteralInteger[Uml]]
 
-  def createUMLLiteralNull: Try[UMLLiteralNull[Uml]]
+  def createUMLLiteralNull: ValidationNel[UMLError[Uml]#UException,UMLLiteralNull[Uml]]
 
-  def createUMLLiteralReal: Try[UMLLiteralReal[Uml]]
+  def createUMLLiteralReal: ValidationNel[UMLError[Uml]#UException,UMLLiteralReal[Uml]]
 
-  def createUMLLiteralString: Try[UMLLiteralString[Uml]]
+  def createUMLLiteralString: ValidationNel[UMLError[Uml]#UException,UMLLiteralString[Uml]]
 
-  def createUMLLiteralUnlimitedNatural: Try[UMLLiteralUnlimitedNatural[Uml]]
+  def createUMLLiteralUnlimitedNatural: ValidationNel[UMLError[Uml]#UException,UMLLiteralUnlimitedNatural[Uml]]
 
-  def createUMLLoopNode: Try[UMLLoopNode[Uml]]
+  def createUMLLoopNode: ValidationNel[UMLError[Uml]#UException,UMLLoopNode[Uml]]
 
-  def createUMLManifestation: Try[UMLManifestation[Uml]]
+  def createUMLManifestation: ValidationNel[UMLError[Uml]#UException,UMLManifestation[Uml]]
 
-  def createUMLMergeNode: Try[UMLMergeNode[Uml]]
+  def createUMLMergeNode: ValidationNel[UMLError[Uml]#UException,UMLMergeNode[Uml]]
 
-  def createUMLMessage: Try[UMLMessage[Uml]]
+  def createUMLMessage: ValidationNel[UMLError[Uml]#UException,UMLMessage[Uml]]
 
-  def createUMLMessageOccurrenceSpecification: Try[UMLMessageOccurrenceSpecification[Uml]]
+  def createUMLMessageOccurrenceSpecification: ValidationNel[UMLError[Uml]#UException,UMLMessageOccurrenceSpecification[Uml]]
 
-  def createUMLModel: Try[UMLModel[Uml]]
+  def createUMLModel: ValidationNel[UMLError[Uml]#UException,UMLModel[Uml]]
 
-  def createUMLNode: Try[UMLNode[Uml]]
+  def createUMLNode: ValidationNel[UMLError[Uml]#UException,UMLNode[Uml]]
 
-  def createUMLObjectFlow: Try[UMLObjectFlow[Uml]]
+  def createUMLObjectFlow: ValidationNel[UMLError[Uml]#UException,UMLObjectFlow[Uml]]
 
-  def createUMLOccurrenceSpecification: Try[UMLOccurrenceSpecification[Uml]]
+  def createUMLOccurrenceSpecification: ValidationNel[UMLError[Uml]#UException,UMLOccurrenceSpecification[Uml]]
 
-  def createUMLOpaqueAction: Try[UMLOpaqueAction[Uml]]
+  def createUMLOpaqueAction: ValidationNel[UMLError[Uml]#UException,UMLOpaqueAction[Uml]]
 
-  def createUMLOpaqueBehavior: Try[UMLOpaqueBehavior[Uml]]
+  def createUMLOpaqueBehavior: ValidationNel[UMLError[Uml]#UException,UMLOpaqueBehavior[Uml]]
 
-  def createUMLOpaqueExpression: Try[UMLOpaqueExpression[Uml]]
+  def createUMLOpaqueExpression: ValidationNel[UMLError[Uml]#UException,UMLOpaqueExpression[Uml]]
 
-  def createUMLOperation: Try[UMLOperation[Uml]]
+  def createUMLOperation: ValidationNel[UMLError[Uml]#UException,UMLOperation[Uml]]
 
-  def createUMLOperationTemplateParameter: Try[UMLOperationTemplateParameter[Uml]]
+  def createUMLOperationTemplateParameter: ValidationNel[UMLError[Uml]#UException,UMLOperationTemplateParameter[Uml]]
 
-  def createUMLOutputPin: Try[UMLOutputPin[Uml]]
+  def createUMLOutputPin: ValidationNel[UMLError[Uml]#UException,UMLOutputPin[Uml]]
 
-  def createUMLPackage: Try[UMLPackage[Uml]]
+  def createUMLPackage: ValidationNel[UMLError[Uml]#UException,UMLPackage[Uml]]
 
-  def createUMLPackageImport: Try[UMLPackageImport[Uml]]
+  def createUMLPackageImport: ValidationNel[UMLError[Uml]#UException,UMLPackageImport[Uml]]
 
-  def createUMLPackageMerge: Try[UMLPackageMerge[Uml]]
+  def createUMLPackageMerge: ValidationNel[UMLError[Uml]#UException,UMLPackageMerge[Uml]]
 
-  def createUMLParameter: Try[UMLParameter[Uml]]
+  def createUMLParameter: ValidationNel[UMLError[Uml]#UException,UMLParameter[Uml]]
 
-  def createUMLParameterSet: Try[UMLParameterSet[Uml]]
+  def createUMLParameterSet: ValidationNel[UMLError[Uml]#UException,UMLParameterSet[Uml]]
 
-  def createUMLPartDecomposition: Try[UMLPartDecomposition[Uml]]
+  def createUMLPartDecomposition: ValidationNel[UMLError[Uml]#UException,UMLPartDecomposition[Uml]]
 
-  def createUMLPort: Try[UMLPort[Uml]]
+  def createUMLPort: ValidationNel[UMLError[Uml]#UException,UMLPort[Uml]]
 
-  def createUMLPrimitiveType: Try[UMLPrimitiveType[Uml]]
+  def createUMLPrimitiveType: ValidationNel[UMLError[Uml]#UException,UMLPrimitiveType[Uml]]
 
-  def createUMLProfile: Try[UMLProfile[Uml]]
+  def createUMLProfile: ValidationNel[UMLError[Uml]#UException,UMLProfile[Uml]]
 
-  def createUMLProfileApplication: Try[UMLProfileApplication[Uml]]
+  def createUMLProfileApplication: ValidationNel[UMLError[Uml]#UException,UMLProfileApplication[Uml]]
 
-  def createUMLProperty: Try[UMLProperty[Uml]]
+  def createUMLProperty: ValidationNel[UMLError[Uml]#UException,UMLProperty[Uml]]
 
-  def createUMLProtocolConformance: Try[UMLProtocolConformance[Uml]]
+  def createUMLProtocolConformance: ValidationNel[UMLError[Uml]#UException,UMLProtocolConformance[Uml]]
 
-  def createUMLProtocolStateMachine: Try[UMLProtocolStateMachine[Uml]]
+  def createUMLProtocolStateMachine: ValidationNel[UMLError[Uml]#UException,UMLProtocolStateMachine[Uml]]
 
-  def createUMLProtocolTransition: Try[UMLProtocolTransition[Uml]]
+  def createUMLProtocolTransition: ValidationNel[UMLError[Uml]#UException,UMLProtocolTransition[Uml]]
 
-  def createUMLPseudostate: Try[UMLPseudostate[Uml]]
+  def createUMLPseudostate: ValidationNel[UMLError[Uml]#UException,UMLPseudostate[Uml]]
 
-  def createUMLQualifierValue: Try[UMLQualifierValue[Uml]]
+  def createUMLQualifierValue: ValidationNel[UMLError[Uml]#UException,UMLQualifierValue[Uml]]
 
-  def createUMLRaiseExceptionAction: Try[UMLRaiseExceptionAction[Uml]]
+  def createUMLRaiseExceptionAction: ValidationNel[UMLError[Uml]#UException,UMLRaiseExceptionAction[Uml]]
 
-  def createUMLReadExtentAction: Try[UMLReadExtentAction[Uml]]
+  def createUMLReadExtentAction: ValidationNel[UMLError[Uml]#UException,UMLReadExtentAction[Uml]]
 
-  def createUMLReadIsClassifiedObjectAction: Try[UMLReadIsClassifiedObjectAction[Uml]]
+  def createUMLReadIsClassifiedObjectAction: ValidationNel[UMLError[Uml]#UException,UMLReadIsClassifiedObjectAction[Uml]]
 
-  def createUMLReadLinkAction: Try[UMLReadLinkAction[Uml]]
+  def createUMLReadLinkAction: ValidationNel[UMLError[Uml]#UException,UMLReadLinkAction[Uml]]
 
-  def createUMLReadLinkObjectEndAction: Try[UMLReadLinkObjectEndAction[Uml]]
+  def createUMLReadLinkObjectEndAction: ValidationNel[UMLError[Uml]#UException,UMLReadLinkObjectEndAction[Uml]]
 
-  def createUMLReadLinkObjectEndQualifierAction: Try[UMLReadLinkObjectEndQualifierAction[Uml]]
+  def createUMLReadLinkObjectEndQualifierAction: ValidationNel[UMLError[Uml]#UException,UMLReadLinkObjectEndQualifierAction[Uml]]
 
-  def createUMLReadSelfAction: Try[UMLReadSelfAction[Uml]]
+  def createUMLReadSelfAction: ValidationNel[UMLError[Uml]#UException,UMLReadSelfAction[Uml]]
 
-  def createUMLReadStructuralFeatureAction: Try[UMLReadStructuralFeatureAction[Uml]]
+  def createUMLReadStructuralFeatureAction: ValidationNel[UMLError[Uml]#UException,UMLReadStructuralFeatureAction[Uml]]
 
-  def createUMLReadVariableAction: Try[UMLReadVariableAction[Uml]]
+  def createUMLReadVariableAction: ValidationNel[UMLError[Uml]#UException,UMLReadVariableAction[Uml]]
 
-  def createUMLRealization: Try[UMLRealization[Uml]]
+  def createUMLRealization: ValidationNel[UMLError[Uml]#UException,UMLRealization[Uml]]
 
-  def createUMLReception: Try[UMLReception[Uml]]
+  def createUMLReception: ValidationNel[UMLError[Uml]#UException,UMLReception[Uml]]
 
-  def createUMLReclassifyObjectAction: Try[UMLReclassifyObjectAction[Uml]]
+  def createUMLReclassifyObjectAction: ValidationNel[UMLError[Uml]#UException,UMLReclassifyObjectAction[Uml]]
 
-  def createUMLRedefinableTemplateSignature: Try[UMLRedefinableTemplateSignature[Uml]]
+  def createUMLRedefinableTemplateSignature: ValidationNel[UMLError[Uml]#UException,UMLRedefinableTemplateSignature[Uml]]
 
-  def createUMLReduceAction: Try[UMLReduceAction[Uml]]
+  def createUMLReduceAction: ValidationNel[UMLError[Uml]#UException,UMLReduceAction[Uml]]
 
-  def createUMLRegion: Try[UMLRegion[Uml]]
+  def createUMLRegion: ValidationNel[UMLError[Uml]#UException,UMLRegion[Uml]]
 
-  def createUMLRemoveStructuralFeatureValueAction: Try[UMLRemoveStructuralFeatureValueAction[Uml]]
+  def createUMLRemoveStructuralFeatureValueAction: ValidationNel[UMLError[Uml]#UException,UMLRemoveStructuralFeatureValueAction[Uml]]
 
-  def createUMLRemoveVariableValueAction: Try[UMLRemoveVariableValueAction[Uml]]
+  def createUMLRemoveVariableValueAction: ValidationNel[UMLError[Uml]#UException,UMLRemoveVariableValueAction[Uml]]
 
-  def createUMLReplyAction: Try[UMLReplyAction[Uml]]
+  def createUMLReplyAction: ValidationNel[UMLError[Uml]#UException,UMLReplyAction[Uml]]
 
-  def createUMLSendObjectAction: Try[UMLSendObjectAction[Uml]]
+  def createUMLSendObjectAction: ValidationNel[UMLError[Uml]#UException,UMLSendObjectAction[Uml]]
 
-  def createUMLSendSignalAction: Try[UMLSendSignalAction[Uml]]
+  def createUMLSendSignalAction: ValidationNel[UMLError[Uml]#UException,UMLSendSignalAction[Uml]]
 
-  def createUMLSequenceNode: Try[UMLSequenceNode[Uml]]
+  def createUMLSequenceNode: ValidationNel[UMLError[Uml]#UException,UMLSequenceNode[Uml]]
 
-  def createUMLSignal: Try[UMLSignal[Uml]]
+  def createUMLSignal: ValidationNel[UMLError[Uml]#UException,UMLSignal[Uml]]
 
-  def createUMLSignalEvent: Try[UMLSignalEvent[Uml]]
+  def createUMLSignalEvent: ValidationNel[UMLError[Uml]#UException,UMLSignalEvent[Uml]]
 
-  def createUMLSlot: Try[UMLSlot[Uml]]
+  def createUMLSlot: ValidationNel[UMLError[Uml]#UException,UMLSlot[Uml]]
 
-  def createUMLStartClassifierBehaviorAction: Try[UMLStartClassifierBehaviorAction[Uml]]
+  def createUMLStartClassifierBehaviorAction: ValidationNel[UMLError[Uml]#UException,UMLStartClassifierBehaviorAction[Uml]]
 
-  def createUMLStartObjectBehaviorAction: Try[UMLStartObjectBehaviorAction[Uml]]
+  def createUMLStartObjectBehaviorAction: ValidationNel[UMLError[Uml]#UException,UMLStartObjectBehaviorAction[Uml]]
 
-  def createUMLState: Try[UMLState[Uml]]
+  def createUMLState: ValidationNel[UMLError[Uml]#UException,UMLState[Uml]]
 
-  def createUMLStateInvariant: Try[UMLStateInvariant[Uml]]
+  def createUMLStateInvariant: ValidationNel[UMLError[Uml]#UException,UMLStateInvariant[Uml]]
 
-  def createUMLStateMachine: Try[UMLStateMachine[Uml]]
+  def createUMLStateMachine: ValidationNel[UMLError[Uml]#UException,UMLStateMachine[Uml]]
 
-  def createUMLStereotype: Try[UMLStereotype[Uml]]
+  def createUMLStereotype: ValidationNel[UMLError[Uml]#UException,UMLStereotype[Uml]]
 
-  def createUMLStringExpression: Try[UMLStringExpression[Uml]]
+  def createUMLStringExpression: ValidationNel[UMLError[Uml]#UException,UMLStringExpression[Uml]]
 
-  def createUMLStructuredActivityNode: Try[UMLStructuredActivityNode[Uml]]
+  def createUMLStructuredActivityNode: ValidationNel[UMLError[Uml]#UException,UMLStructuredActivityNode[Uml]]
 
-  def createUMLSubstitution: Try[UMLSubstitution[Uml]]
+  def createUMLSubstitution: ValidationNel[UMLError[Uml]#UException,UMLSubstitution[Uml]]
 
-  def createUMLTemplateBinding: Try[UMLTemplateBinding[Uml]]
+  def createUMLTemplateBinding: ValidationNel[UMLError[Uml]#UException,UMLTemplateBinding[Uml]]
 
-  def createUMLTemplateParameter: Try[UMLTemplateParameter[Uml]]
+  def createUMLTemplateParameter: ValidationNel[UMLError[Uml]#UException,UMLTemplateParameter[Uml]]
 
-  def createUMLTemplateParameterSubstitution: Try[UMLTemplateParameterSubstitution[Uml]]
+  def createUMLTemplateParameterSubstitution: ValidationNel[UMLError[Uml]#UException,UMLTemplateParameterSubstitution[Uml]]
 
-  def createUMLTemplateSignature: Try[UMLTemplateSignature[Uml]]
+  def createUMLTemplateSignature: ValidationNel[UMLError[Uml]#UException,UMLTemplateSignature[Uml]]
 
-  def createUMLTestIdentityAction: Try[UMLTestIdentityAction[Uml]]
+  def createUMLTestIdentityAction: ValidationNel[UMLError[Uml]#UException,UMLTestIdentityAction[Uml]]
 
-  def createUMLTimeConstraint: Try[UMLTimeConstraint[Uml]]
+  def createUMLTimeConstraint: ValidationNel[UMLError[Uml]#UException,UMLTimeConstraint[Uml]]
 
-  def createUMLTimeEvent: Try[UMLTimeEvent[Uml]]
+  def createUMLTimeEvent: ValidationNel[UMLError[Uml]#UException,UMLTimeEvent[Uml]]
 
-  def createUMLTimeExpression: Try[UMLTimeExpression[Uml]]
+  def createUMLTimeExpression: ValidationNel[UMLError[Uml]#UException,UMLTimeExpression[Uml]]
 
-  def createUMLTimeInterval: Try[UMLTimeInterval[Uml]]
+  def createUMLTimeInterval: ValidationNel[UMLError[Uml]#UException,UMLTimeInterval[Uml]]
 
-  def createUMLTimeObservation: Try[UMLTimeObservation[Uml]]
+  def createUMLTimeObservation: ValidationNel[UMLError[Uml]#UException,UMLTimeObservation[Uml]]
 
-  def createUMLTransition: Try[UMLTransition[Uml]]
+  def createUMLTransition: ValidationNel[UMLError[Uml]#UException,UMLTransition[Uml]]
 
-  def createUMLTrigger: Try[UMLTrigger[Uml]]
+  def createUMLTrigger: ValidationNel[UMLError[Uml]#UException,UMLTrigger[Uml]]
 
-  def createUMLUnmarshallAction: Try[UMLUnmarshallAction[Uml]]
+  def createUMLUnmarshallAction: ValidationNel[UMLError[Uml]#UException,UMLUnmarshallAction[Uml]]
 
-  def createUMLUsage: Try[UMLUsage[Uml]]
+  def createUMLUsage: ValidationNel[UMLError[Uml]#UException,UMLUsage[Uml]]
 
-  def createUMLUseCase: Try[UMLUseCase[Uml]]
+  def createUMLUseCase: ValidationNel[UMLError[Uml]#UException,UMLUseCase[Uml]]
 
-  def createUMLValuePin: Try[UMLValuePin[Uml]]
+  def createUMLValuePin: ValidationNel[UMLError[Uml]#UException,UMLValuePin[Uml]]
 
-  def createUMLValueSpecificationAction: Try[UMLValueSpecificationAction[Uml]]
+  def createUMLValueSpecificationAction: ValidationNel[UMLError[Uml]#UException,UMLValueSpecificationAction[Uml]]
 
-  def createUMLVariable: Try[UMLVariable[Uml]]
+  def createUMLVariable: ValidationNel[UMLError[Uml]#UException,UMLVariable[Uml]]
 
 	// Start of user code for additional features
 
-  val reflectivePackageFactoryLookup: Map[String, (UMLFactory[Uml] => Try[_ <: UMLPackage[Uml]])] =
+  val reflectivePackageFactoryLookup
+  : Map[String, (UMLFactory[Uml] => ValidationNel[UMLError[Uml]#UException, _ <: UMLPackage[Uml]])] =
     Map(
       "Package" -> (f => f.createUMLPackage),
       "Model" -> (f => f.createUMLModel),

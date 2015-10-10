@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class DurationIntervalUpdater[Uml <: UML](val domain: UMLDurationInterval[Uml]) 
   def links_DurationInterval_durationInterval_reference_max_Duration
   (range: Option[UMLDuration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_DurationInterval_durationInterval_reference_max_Duration(domain, range)
 
   def links_DurationInterval_durationInterval_reference_min_Duration
   (range: Option[UMLDuration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_DurationInterval_durationInterval_reference_min_Duration(domain, range)
 }

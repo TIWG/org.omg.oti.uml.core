@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,18 +56,18 @@ class TestIdentityActionUpdater[Uml <: UML](val domain: UMLTestIdentityAction[Um
   def links_TestIdentityAction_testIdentityAction_compose_first_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_first_InputPin(domain, range)
 
   def links_TestIdentityAction_testIdentityAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_result_OutputPin(domain, range)
 
   def links_TestIdentityAction_testIdentityAction_compose_second_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_second_InputPin(domain, range)
 }

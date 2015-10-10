@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class TimeEventUpdater[Uml <: UML](val domain: UMLTimeEvent[Uml]) extends AnyVal
   def links_TimeEvent_timeEvent_compose_when_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_TimeEvent_timeEvent_compose_when_TimeExpression(domain, range)
 
   def setIsRelative
   (isRelative: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.set_TimeEvent_isRelative(domain, isRelative)
 }

@@ -40,10 +40,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.util.Try
+import scalaz._
 // End of user code
 
 /**
@@ -55,12 +56,12 @@ class CallOperationActionUpdater[Uml <: UML](val domain: UMLCallOperationAction[
   def links_CallOperationAction_callOperationAction_reference_operation_Operation
   (range: Option[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_CallOperationAction_callOperationAction_reference_operation_Operation(domain, range)
 
   def links_CallOperationAction_callOperationAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : Try[Unit] =
+  : ValidationNel[UMLError[Uml]#UException,Unit] =
     umlU.links_CallOperationAction_callOperationAction_compose_target_InputPin(domain, range)
 }
