@@ -62,7 +62,6 @@ import scalaz._, Scalaz._
  * == Key abstractions: ==
  *
  *   - [[uml.MetaAttributeAbstractFunction]]: A functional abstraction for a UML or MOF attribute property
- *   - [[uml.IllegalMetaPropertyEvaluation]]: An exception type for attribute property evaluation errors
  *   - [[uml.MetaPropertyFunction]]: A functional abstraction for a UML property typed by a UML metaclass
  *   - [[uml.RelationTriple]]: A functional abstraction for an instance of a UML metamodel association or stereotype property value
  *
