@@ -1752,7 +1752,7 @@ trait UMLOps[Uml <: UML] { self =>
 		(x) => booleanToIterable(x.isReplaceAll, false))
 
 	val Artifact_fileName =
-		new MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
+		new MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](OptionConstructor(), Option.empty[String], "fileName",
       (x: UMLArtifact[Uml]) => x.fileName)
 
 	val Artifact_manifestation =
@@ -1834,7 +1834,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val BehavioralFeature_concurrency =
-		new MetaAttributeEnumerationFunction[Uml, UMLBehavioralFeature[Uml], UMLCallConcurrencyKind.Value, UMLCallConcurrencyKind.ValueSet](None, "concurrency",
+		new MetaAttributeEnumerationFunction[Uml, UMLBehavioralFeature[Uml], UMLCallConcurrencyKind.Value, UMLCallConcurrencyKind.ValueSet](
+      OptionConstructor(), None, "concurrency",
       (x: UMLBehavioralFeature[Uml]) => x.concurrency, UMLCallConcurrencyKind.values)
 
 	val BehavioralFeature_isAbstract =
@@ -2081,7 +2082,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val CombinedFragment_interactionOperator =
-		new MetaAttributeEnumerationFunction[Uml, UMLCombinedFragment[Uml], UMLInteractionOperatorKind.Value, UMLInteractionOperatorKind.ValueSet](None, "interactionOperator", (x: UMLCombinedFragment[Uml]) => x.interactionOperator, UMLInteractionOperatorKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLCombinedFragment[Uml], UMLInteractionOperatorKind.Value, UMLInteractionOperatorKind.ValueSet](
+      OptionConstructor(), None, "interactionOperator",
+      (x: UMLCombinedFragment[Uml]) => x.interactionOperator, UMLInteractionOperatorKind.values)
 
 	val CombinedFragment_operand =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]](
@@ -2094,7 +2097,7 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Comment_body =
-		new MetaAttributeStringFunction[Uml, UMLComment[Uml]](None, "body",
+		new MetaAttributeStringFunction[Uml, UMLComment[Uml]](OptionConstructor(), None, "body",
       (x: UMLComment[Uml]) => x.body)
 
 	val Component_isIndirectlyInstantiated =
@@ -2264,11 +2267,13 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val DeploymentSpecification_deploymentLocation =
-		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "deploymentLocation",
+		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](OptionConstructor(),
+      None, "deploymentLocation",
       (x: UMLDeploymentSpecification[Uml]) => x.deploymentLocation)
 
 	val DeploymentSpecification_executionLocation =
-		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "executionLocation",
+		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](OptionConstructor(),
+			None, "executionLocation",
       (x:UMLDeploymentSpecification[Uml]) => x.executionLocation)
 
 	val DeploymentTarget_deployment =
@@ -2305,8 +2310,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val DurationConstraint_firstEvent =
-		new MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](None, "firstEvent",
-		(x: UMLDurationConstraint[Uml]) => x.firstEvent)
+		new MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](IterableConstructor(),
+      None, "firstEvent",
+		  (x: UMLDurationConstraint[Uml]) => x.firstEvent)
 
 	val DurationConstraint_specification =
 		MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
@@ -2329,8 +2335,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val DurationObservation_firstEvent =
-		new MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](None, "firstEvent",
-		(x: UMLDurationObservation[Uml]) => x.firstEvent)
+		new MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](IterableConstructor(),
+      None, "firstEvent",
+		  (x: UMLDurationObservation[Uml]) => x.firstEvent)
 
 	val Element_ownedComment =
 		MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
@@ -2338,7 +2345,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val ElementImport_alias =
-		new MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](None, "alias",
+		new MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](OptionConstructor(),
+      None, "alias",
       (x: UMLElementImport[Uml]) => x.alias)
 
 	val ElementImport_importedElement =
@@ -2347,7 +2355,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val ElementImport_visibility =
-		new MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLElementImport[Uml]) => x.visibility, UMLVisibilityKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
+      OptionConstructor(), None, "visibility",
+      (x: UMLElementImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Enumeration_ownedLiteral =
 		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
@@ -2406,7 +2416,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val ExpansionRegion_mode =
-		new MetaAttributeEnumerationFunction[Uml, UMLExpansionRegion[Uml], UMLExpansionKind.Value, UMLExpansionKind.ValueSet](None, "mode", (x: UMLExpansionRegion[Uml]) => x.mode, UMLExpansionKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLExpansionRegion[Uml], UMLExpansionKind.Value, UMLExpansionKind.ValueSet](
+      OptionConstructor(), None, "mode",
+      (x: UMLExpansionRegion[Uml]) => x.mode, UMLExpansionKind.values)
 
 	val ExpansionRegion_outputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
@@ -2419,7 +2431,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Expression_symbol =
-		new MetaAttributeStringFunction[Uml, UMLExpression[Uml]](None, "symbol",
+		new MetaAttributeStringFunction[Uml, UMLExpression[Uml]](OptionConstructor(),
+      None, "symbol",
       (x: UMLExpression[Uml]) => x.symbol)
 
 	val Extend_condition =
@@ -2495,15 +2508,18 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Image_content =
-		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "content",
+		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(),
+      None, "content",
       (x:UMLImage[Uml]) => x.content)
 
 	val Image_format =
-		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "format",
+		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(),
+      None, "format",
       (x:UMLImage[Uml]) => x.format)
 
 	val Image_location =
-		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "location",
+		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(),
+      None, "location",
       (x:UMLImage[Uml]) => x.location)
 
 	val Include_addition =
@@ -2806,7 +2822,8 @@ trait UMLOps[Uml <: UML] { self =>
 		(x) => realToIterable(x.value, 0.0))
 
 	val LiteralString_value =
-		new MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](None, "value",
+		new MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](OptionConstructor(),
+      None, "value",
       (x: UMLLiteralString[Uml]) => x.value)
 
 	val LiteralUnlimitedNatural_value =
@@ -2873,7 +2890,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Message_messageSort =
-		new MetaAttributeEnumerationFunction[Uml, UMLMessage[Uml], UMLMessageSort.Value, UMLMessageSort.ValueSet](None, "messageSort", (x: UMLMessage[Uml]) => x.messageSort, UMLMessageSort.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLMessage[Uml], UMLMessageSort.Value, UMLMessageSort.ValueSet](
+      OptionConstructor(), None, "messageSort",
+      (x: UMLMessage[Uml]) => x.messageSort, UMLMessageSort.values)
 
 	val Message_receiveEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
@@ -2896,7 +2915,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Model_viewpoint =
-		new MetaAttributeStringFunction[Uml, UMLModel[Uml]](None, "viewpoint",
+		new MetaAttributeStringFunction[Uml, UMLModel[Uml]](OptionConstructor(),
+      None, "viewpoint",
       (x: UMLModel[Uml]) => x.viewpoint)
 
 	val MultiplicityElement_isOrdered =
@@ -2918,7 +2938,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val NamedElement_name =
-		new MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](None, "name",
+		new MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](OptionConstructor(),
+      None, "name",
       (x: UMLNamedElement[Uml]) => x.name)
 
 	val NamedElement_nameExpression =
@@ -2927,7 +2948,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val NamedElement_visibility =
-		new MetaAttributeEnumerationFunction[Uml, UMLNamedElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLNamedElement[Uml]) => x.visibility, UMLVisibilityKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLNamedElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
+      OptionConstructor(), None, "visibility",
+      (x: UMLNamedElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Namespace_elementImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]](
@@ -2977,7 +3000,9 @@ trait UMLOps[Uml <: UML] { self =>
 		(x) => booleanToIterable(x.isControlType, false))
 
 	val ObjectNode_ordering =
-		new MetaAttributeEnumerationFunction[Uml, UMLObjectNode[Uml], UMLObjectNodeOrderingKind.Value, UMLObjectNodeOrderingKind.ValueSet](None, "ordering", (x: UMLObjectNode[Uml]) => x.ordering, UMLObjectNodeOrderingKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLObjectNode[Uml], UMLObjectNodeOrderingKind.Value, UMLObjectNodeOrderingKind.ValueSet](
+      OptionConstructor(), None, "ordering",
+      (x: UMLObjectNode[Uml]) => x.ordering, UMLObjectNodeOrderingKind.values)
 
 	val ObjectNode_selection =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]](
@@ -3005,7 +3030,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val OpaqueAction_body =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "body",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](IterableConstructor(),
+      None, "body",
       (x: UMLOpaqueAction[Uml]) => x.body)
 
 	val OpaqueAction_inputValue =
@@ -3014,7 +3040,8 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val OpaqueAction_language =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "language",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](IterableConstructor(),
+      None, "language",
       (x: UMLOpaqueAction[Uml]) => x.language)
 
 	val OpaqueAction_outputValue =
@@ -3023,11 +3050,13 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val OpaqueBehavior_body =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "body",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](IterableConstructor(),
+      None, "body",
       (x: UMLOpaqueBehavior[Uml]) => x.body)
 
 	val OpaqueBehavior_language =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "language",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](IterableConstructor(),
+      None, "language",
       (x: UMLOpaqueBehavior[Uml]) => x.language)
 
 	val OpaqueExpression_behavior =
@@ -3036,11 +3065,13 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val OpaqueExpression_body =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "body",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](IterableConstructor(),
+      None, "body",
       (x: UMLOpaqueExpression[Uml]) => x.body)
 
 	val OpaqueExpression_language =
-		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "language",
+		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](IterableConstructor(),
+      None, "language",
 		  (x: UMLOpaqueExpression[Uml]) => x.language)
 
 	val Operation_bodyCondition =
@@ -3112,7 +3143,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val PackageImport_visibility =
-		new MetaAttributeEnumerationFunction[Uml, UMLPackageImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageImport[Uml]) => x.visibility, UMLVisibilityKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLPackageImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
+      OptionConstructor(), None, "visibility",
+      (x: UMLPackageImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val PackageMerge_mergedPackage =
 		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
@@ -3120,7 +3153,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val PackageableElement_visibility =
-		new MetaAttributeEnumerationFunction[Uml, UMLPackageableElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageableElement[Uml]) => x.visibility, UMLVisibilityKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLPackageableElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
+      OptionConstructor(), None, "visibility",
+      (x: UMLPackageableElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
 	val Parameter_defaultValue =
 		MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]](
@@ -3128,10 +3163,14 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Parameter_direction =
-		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterDirectionKind.Value, UMLParameterDirectionKind.ValueSet](None, "direction", (x: UMLParameter[Uml]) => x.direction, UMLParameterDirectionKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterDirectionKind.Value, UMLParameterDirectionKind.ValueSet](
+      OptionConstructor(), None, "direction",
+      (x: UMLParameter[Uml]) => x.direction, UMLParameterDirectionKind.values)
 
 	val Parameter_effect =
-		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterEffectKind.Value, UMLParameterEffectKind.ValueSet](None, "effect", (x: UMLParameter[Uml]) => x.effect, UMLParameterEffectKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterEffectKind.Value, UMLParameterEffectKind.ValueSet](
+      OptionConstructor(), None, "effect",
+      (x: UMLParameter[Uml]) => x.effect, UMLParameterEffectKind.values)
 
 	val Parameter_isException =
 		MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException",
@@ -3207,7 +3246,9 @@ trait UMLOps[Uml <: UML] { self =>
 		(x) => booleanToIterable(x.isStrict, false))
 
 	val Property_aggregation =
-		new MetaAttributeEnumerationFunction[Uml, UMLProperty[Uml], UMLAggregationKind.Value, UMLAggregationKind.ValueSet](None, "aggregation", (x: UMLProperty[Uml]) => x.aggregation, UMLAggregationKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLProperty[Uml], UMLAggregationKind.Value, UMLAggregationKind.ValueSet](
+      OptionConstructor(), None, "aggregation",
+      (x: UMLProperty[Uml]) => x.aggregation, UMLAggregationKind.values)
 
 	val Property_association =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
@@ -3267,7 +3308,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Pseudostate_kind =
-		new MetaAttributeEnumerationFunction[Uml, UMLPseudostate[Uml], UMLPseudostateKind.Value, UMLPseudostateKind.ValueSet](None, "kind", (x: UMLPseudostate[Uml]) => x.kind, UMLPseudostateKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLPseudostate[Uml], UMLPseudostateKind.Value, UMLPseudostateKind.ValueSet](
+      OptionConstructor(), None, "kind",
+      (x: UMLPseudostate[Uml]) => x.kind, UMLPseudostateKind.values)
 
 	val QualifierValue_qualifier =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]](
@@ -3804,7 +3847,9 @@ trait UMLOps[Uml <: UML] { self =>
 		Set())
 
 	val Transition_kind =
-		new MetaAttributeEnumerationFunction[Uml, UMLTransition[Uml], UMLTransitionKind.Value, UMLTransitionKind.ValueSet](None, "kind", (x: UMLTransition[Uml]) => x.kind, UMLTransitionKind.values)
+		new MetaAttributeEnumerationFunction[Uml, UMLTransition[Uml], UMLTransitionKind.Value, UMLTransitionKind.ValueSet](
+      OptionConstructor(), None, "kind",
+      (x: UMLTransition[Uml]) => x.kind, UMLTransitionKind.values)
 
 	val Transition_redefinedTransition =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]](
@@ -4080,7 +4125,7 @@ trait UMLOps[Uml <: UML] { self =>
 	 * The tool-specific OTI adapter must provide the corresponding tool-specific OTI profile.
 	 */
 	val OTI_PROFILE
-  : ValidationNel[UMLError[Uml]#UException, UMLProfile[Uml]]
+  : ValidationNel[UMLError.UException, UMLProfile[Uml]]
 
   /**
    * OTI::SpecificationRoot stereotype
@@ -4090,7 +4135,7 @@ trait UMLOps[Uml <: UML] { self =>
    * The kind of artifact is specified via the `artifactKind` tag property.
    */
   val OTI_SPECIFICATION_ROOT_S
-  : ValidationNel[UMLError[Uml]#UException, UMLStereotype[Uml]]
+  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
 
   /**
    * OTI::SpecificationRoot::packageURI property
@@ -4102,7 +4147,7 @@ trait UMLOps[Uml <: UML] { self =>
    * or that of Package::URI. It is an error if both are unspecified.
    */
   val OTI_SPECIFICATION_ROOT_packageURI
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::documentURL property
@@ -4112,7 +4157,7 @@ trait UMLOps[Uml <: UML] { self =>
    * OTI::SpecificationRoot::documentURL
    */
   val OTI_SPECIFICATION_ROOT_documentURL
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::nsPrefix property
@@ -4121,7 +4166,7 @@ trait UMLOps[Uml <: UML] { self =>
    * package
    */
   val OTI_SPECIFICATION_ROOT_nsPrefix
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::uuidPrefix property
@@ -4131,7 +4176,7 @@ trait UMLOps[Uml <: UML] { self =>
    * package
    */
   val OTI_SPECIFICATION_ROOT_uuidPrefix
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::artifactKind property
@@ -4141,7 +4186,7 @@ trait UMLOps[Uml <: UML] { self =>
    * - Metamodel, Profile, Model Library
    */
   val OTI_SPECIFICATION_ROOT_artifactKind
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization stereotype
@@ -4151,7 +4196,7 @@ trait UMLOps[Uml <: UML] { self =>
    * The kind of artifact is specified via the `artifactKind` tag property.
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
-  : ValidationNel[UMLError[Uml]#UException, UMLStereotype[Uml]]
+  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::packageURI property
@@ -4163,7 +4208,7 @@ trait UMLOps[Uml <: UML] { self =>
    * or that of Package::URI. It is an error if both are unspecified.
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::documentURL property
@@ -4173,7 +4218,7 @@ trait UMLOps[Uml <: UML] { self =>
    * OTI::SpecificationRootCharacterization::documentURL
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::nsPrefix property
@@ -4182,7 +4227,7 @@ trait UMLOps[Uml <: UML] { self =>
    * by an OTI::SpecificationRootCharacterization-stereotyped comment
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::uuidPrefix property
@@ -4192,7 +4237,7 @@ trait UMLOps[Uml <: UML] { self =>
    * by an OTI::SpecificationRootCharacterization-stereotyped comment
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::artifactKind property
@@ -4202,31 +4247,31 @@ trait UMLOps[Uml <: UML] { self =>
    * - Metamodel, Profile, Model Library
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    *
    */
   val OTI_ARTIFACT_KIND
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumeration[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumeration[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_PROFILE
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY
-  : ValidationNel[UMLError[Uml]#UException, UMLEnumerationLiteral[Uml]]
+  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
 
   /**
    * OTI::Identity stereotype
@@ -4236,7 +4281,7 @@ trait UMLOps[Uml <: UML] { self =>
    * xmi:UUID generation or both
    */
   val OTI_IDENTITY_S
-  : ValidationNel[UMLError[Uml]#UException, UMLStereotype[Uml]]
+  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
 
   /**
    * OTI::Identity::xmiID property
@@ -4245,7 +4290,7 @@ trait UMLOps[Uml <: UML] { self =>
    * Instead of generating one
    */
   val OTI_IDENTITY_xmiID
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   /**
    * OTI::Identity::xmiUUID property
@@ -4256,7 +4301,7 @@ trait UMLOps[Uml <: UML] { self =>
    * containing package and the element's xmi:ID
    */
   val OTI_IDENTITY_xmiUUID
-  : ValidationNel[UMLError[Uml]#UException, UMLProperty[Uml]]
+  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
 
   def closure[U, V <: U](x: U, relation: U => Iterable[V]): Set[V] = {
 

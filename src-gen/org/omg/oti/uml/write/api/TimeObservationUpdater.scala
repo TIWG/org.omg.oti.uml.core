@@ -56,12 +56,12 @@ class TimeObservationUpdater[Uml <: UML](val domain: UMLTimeObservation[Uml]) ex
   def links_TimeObservation_timeObservation_reference_event_NamedElement
   (range: Option[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeObservation_timeObservation_reference_event_NamedElement(domain, range)
 
   def setFirstEvent
   (firstEvent: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_TimeObservation_firstEvent(domain, firstEvent)
 }

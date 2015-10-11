@@ -56,6 +56,6 @@ class ConnectableElementTemplateParameterUpdater[Uml <: UML](val domain: UMLConn
   def links_ConnectableElementTemplateParameter_templateParameter_reference_parameteredElement_ConnectableElement
   (range: Option[UMLConnectableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ConnectableElementTemplateParameter_templateParameter_reference_parameteredElement_ConnectableElement(domain, range)
 }

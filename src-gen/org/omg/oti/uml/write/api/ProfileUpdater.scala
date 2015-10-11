@@ -57,12 +57,12 @@ class ProfileUpdater[Uml <: UML](val domain: UMLProfile[Uml]) extends AnyVal {
   def links_Profile_profile_compose_metaclassReference_ElementImport
   (range: Set[UMLElementImport[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Profile_profile_compose_metaclassReference_ElementImport(domain, range)
 
   def links_Profile_profile_compose_metamodelReference_PackageImport
   (range: Set[UMLPackageImport[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Profile_profile_compose_metamodelReference_PackageImport(domain, range)
 }

@@ -56,6 +56,6 @@ class ReadLinkActionUpdater[Uml <: UML](val domain: UMLReadLinkAction[Uml]) exte
   def links_ReadLinkAction_readLinkAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadLinkAction_readLinkAction_compose_result_OutputPin(domain, range)
 }

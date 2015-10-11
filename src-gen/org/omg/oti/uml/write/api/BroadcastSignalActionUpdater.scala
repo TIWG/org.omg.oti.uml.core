@@ -56,6 +56,6 @@ class BroadcastSignalActionUpdater[Uml <: UML](val domain: UMLBroadcastSignalAct
   def links_BroadcastSignalAction_broadcastSignalAction_reference_signal_Signal
   (range: Option[UMLSignal[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_BroadcastSignalAction_broadcastSignalAction_reference_signal_Signal(domain, range)
 }

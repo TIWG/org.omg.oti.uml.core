@@ -56,12 +56,12 @@ class CallOperationActionUpdater[Uml <: UML](val domain: UMLCallOperationAction[
   def links_CallOperationAction_callOperationAction_reference_operation_Operation
   (range: Option[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CallOperationAction_callOperationAction_reference_operation_Operation(domain, range)
 
   def links_CallOperationAction_callOperationAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CallOperationAction_callOperationAction_compose_target_InputPin(domain, range)
 }

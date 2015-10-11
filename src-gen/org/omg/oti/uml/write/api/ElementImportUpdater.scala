@@ -57,18 +57,18 @@ class ElementImportUpdater[Uml <: UML](val domain: UMLElementImport[Uml]) extend
   def links_ElementImport_import_reference_importedElement_PackageableElement
   (range: Option[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ElementImport_import_reference_importedElement_PackageableElement(domain, range)
 
   def setAlias
   (alias: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_ElementImport_alias(domain, alias)
 
   def setVisibility
   (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_ElementImport_visibility(domain, visibility)
 }

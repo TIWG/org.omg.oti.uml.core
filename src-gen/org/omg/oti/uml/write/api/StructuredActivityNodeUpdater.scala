@@ -57,36 +57,36 @@ class StructuredActivityNodeUpdater[Uml <: UML](val domain: UMLStructuredActivit
   def links_StructuredActivityNode_inStructuredNode_compose_edge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredActivityNode_inStructuredNode_compose_edge_ActivityEdge(domain, range)
 
   def links_StructuredActivityNode_inStructuredNode_compose_node_ActivityNode
   (range: Set[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredActivityNode_inStructuredNode_compose_node_ActivityNode(domain, range)
 
   def links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeInput_InputPin
   (range: Set[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeInput_InputPin(domain, range)
 
   def links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeOutput_OutputPin
   (range: Set[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeOutput_OutputPin(domain, range)
 
   def links_StructuredActivityNode_scope_compose_variable_Variable
   (range: Set[UMLVariable[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredActivityNode_scope_compose_variable_Variable(domain, range)
 
   def setMustIsolate
   (mustIsolate: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_StructuredActivityNode_mustIsolate(domain, mustIsolate)
 }

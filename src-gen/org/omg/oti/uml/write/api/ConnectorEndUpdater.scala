@@ -56,6 +56,6 @@ class ConnectorEndUpdater[Uml <: UML](val domain: UMLConnectorEnd[Uml]) extends 
   def links_ConnectorEnd_connectorEnd_reference_partWithPort_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ConnectorEnd_connectorEnd_reference_partWithPort_Property(domain, range)
 }

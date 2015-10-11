@@ -56,6 +56,6 @@ class ExtensionEndUpdater[Uml <: UML](val domain: UMLExtensionEnd[Uml]) extends 
   def links_ExtensionEnd_extensionEnd_reference_type_Stereotype
   (range: Option[UMLStereotype[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExtensionEnd_extensionEnd_reference_type_Stereotype(domain, range)
 }

@@ -57,6 +57,6 @@ class ComponentRealizationUpdater[Uml <: UML](val domain: UMLComponentRealizatio
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier(domain, range)
 }

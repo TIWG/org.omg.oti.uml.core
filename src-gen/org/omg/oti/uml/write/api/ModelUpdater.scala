@@ -58,6 +58,6 @@ class ModelUpdater[Uml <: UML](val domain: UMLModel[Uml]) extends AnyVal {
   def setViewpoint
   (viewpoint: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Model_viewpoint(domain, viewpoint)
 }

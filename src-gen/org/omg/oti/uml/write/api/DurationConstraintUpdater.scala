@@ -57,12 +57,12 @@ class DurationConstraintUpdater[Uml <: UML](val domain: UMLDurationConstraint[Um
   def links_DurationConstraint_durationConstraint_compose_specification_DurationInterval
   (range: Option[UMLDurationInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DurationConstraint_durationConstraint_compose_specification_DurationInterval(domain, range)
 
   def setFirstEvent
   (firstEvent: Set[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DurationConstraint_firstEvent(domain, firstEvent)
 }

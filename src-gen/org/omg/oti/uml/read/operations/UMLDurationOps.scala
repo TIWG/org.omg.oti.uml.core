@@ -40,6 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
@@ -48,6 +50,8 @@ import scala.Predef.???
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -99,11 +103,13 @@ trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 
 	// Start of user code for additional features
 
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+  override def asForwardReferencesToImportableOuterPackageableElements
+	: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     expression_asForwardReferencesToImportableOuterPackageableElements
 
-  def expression_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    Set(this) ++ expr.toSet
+  def expression_asForwardReferencesToImportableOuterPackageableElements
+  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
+    (Set[UMLPackageableElement[Uml]](this) ++ expr.toSet).successNel[UMLError.UException]
 
   // End of user code
 } //UMLDurationOps

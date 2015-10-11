@@ -56,12 +56,12 @@ class GeneralOrderingUpdater[Uml <: UML](val domain: UMLGeneralOrdering[Uml]) ex
   def links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification(domain, range)
 
   def links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification(domain, range)
 }

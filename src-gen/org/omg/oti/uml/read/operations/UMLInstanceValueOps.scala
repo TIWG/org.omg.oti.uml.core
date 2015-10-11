@@ -40,6 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
@@ -47,6 +49,8 @@ import scala.Option
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -63,11 +67,13 @@ trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 
 	// Start of user code for additional features
 
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] =
+  override def asForwardReferencesToImportableOuterPackageableElements
+  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     instanceValue_asForwardReferencesToImportableOuterPackageableElements
 
-  def instanceValue_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    Set(this) ++ instance.toSet
+  def instanceValue_asForwardReferencesToImportableOuterPackageableElements
+  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
+    (Set[UMLPackageableElement[Uml]](this) ++ instance.toSet).successNel[UMLError.UException]
 
   // End of user code
 } //UMLInstanceValueOps

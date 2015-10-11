@@ -57,12 +57,12 @@ class StructuredClassifierUpdater[Uml <: UML](val domain: UMLStructuredClassifie
   def links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property(domain, range)
 
   def links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector
   (range: Set[UMLConnector[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector(domain, range)
 }

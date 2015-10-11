@@ -57,6 +57,6 @@ class DestroyLinkActionUpdater[Uml <: UML](val domain: UMLDestroyLinkAction[Uml]
   def links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData
   (range: Iterable[UMLLinkEndDestructionData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData(domain, range)
 }

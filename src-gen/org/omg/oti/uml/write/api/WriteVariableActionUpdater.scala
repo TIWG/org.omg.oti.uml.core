@@ -56,6 +56,6 @@ class WriteVariableActionUpdater[Uml <: UML](val domain: UMLWriteVariableAction[
   def links_WriteVariableAction_writeVariableAction_compose_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_WriteVariableAction_writeVariableAction_compose_value_InputPin(domain, range)
 }

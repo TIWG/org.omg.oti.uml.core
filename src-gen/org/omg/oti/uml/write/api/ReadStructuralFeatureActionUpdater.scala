@@ -56,6 +56,6 @@ class ReadStructuralFeatureActionUpdater[Uml <: UML](val domain: UMLReadStructur
   def links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin(domain, range)
 }

@@ -57,18 +57,18 @@ class LinkEndDataUpdater[Uml <: UML](val domain: UMLLinkEndData[Uml]) extends An
   def links_LinkEndData_linkEndData_reference_end_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkEndData_linkEndData_reference_end_Property(domain, range)
 
   def links_LinkEndData_linkEndData_compose_qualifier_QualifierValue
   (range: Set[UMLQualifierValue[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkEndData_linkEndData_compose_qualifier_QualifierValue(domain, range)
 
   def links_LinkEndData_linkEndData_reference_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkEndData_linkEndData_reference_value_InputPin(domain, range)
 }

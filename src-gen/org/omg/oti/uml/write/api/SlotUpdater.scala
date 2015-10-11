@@ -57,12 +57,12 @@ class SlotUpdater[Uml <: UML](val domain: UMLSlot[Uml]) extends AnyVal {
   def links_Slot_slot_reference_definingFeature_StructuralFeature
   (range: Option[UMLStructuralFeature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Slot_slot_reference_definingFeature_StructuralFeature(domain, range)
 
   def links_Slot_owningSlot_compose_value_ValueSpecification
   (range: Seq[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Slot_owningSlot_compose_value_ValueSpecification(domain, range)
 }

@@ -57,6 +57,6 @@ class DependencyUpdater[Uml <: UML](val domain: UMLDependency[Uml]) extends AnyV
   def links_Dependency_supplierDependency_reference_supplier_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Dependency_supplierDependency_reference_supplier_NamedElement(domain, range)
 }

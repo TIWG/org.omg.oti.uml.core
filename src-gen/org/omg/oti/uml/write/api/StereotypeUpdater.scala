@@ -57,6 +57,6 @@ class StereotypeUpdater[Uml <: UML](val domain: UMLStereotype[Uml]) extends AnyV
   def links_Stereotype_stereotype_compose_icon_Image
   (range: Set[UMLImage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Stereotype_stereotype_compose_icon_Image(domain, range)
 }

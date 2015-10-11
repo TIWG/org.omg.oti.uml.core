@@ -57,6 +57,6 @@ class PseudostateUpdater[Uml <: UML](val domain: UMLPseudostate[Uml]) extends An
   def setKind
   (kind: Option[UMLPseudostateKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Pseudostate_kind(domain, kind)
 }

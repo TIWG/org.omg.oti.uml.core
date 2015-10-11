@@ -58,6 +58,6 @@ class AbstractionUpdater[Uml <: UML](val domain: UMLAbstraction[Uml]) extends An
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
   (range: Option[UMLOpaqueExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Abstraction_abstraction_compose_mapping_OpaqueExpression(domain, range)
 }

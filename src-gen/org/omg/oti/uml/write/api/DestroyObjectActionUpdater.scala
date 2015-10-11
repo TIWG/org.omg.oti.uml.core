@@ -56,18 +56,18 @@ class DestroyObjectActionUpdater[Uml <: UML](val domain: UMLDestroyObjectAction[
   def links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin(domain, range)
 
   def setIsDestroyLinks
   (isDestroyLinks: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DestroyObjectAction_isDestroyLinks(domain, isDestroyLinks)
 
   def setIsDestroyOwnedObjects
   (isDestroyOwnedObjects: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DestroyObjectAction_isDestroyOwnedObjects(domain, isDestroyOwnedObjects)
 }

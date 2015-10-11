@@ -56,6 +56,6 @@ class InstanceValueUpdater[Uml <: UML](val domain: UMLInstanceValue[Uml]) extend
   def links_InstanceValue_instanceValue_reference_instance_InstanceSpecification
   (range: Option[UMLInstanceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_InstanceValue_instanceValue_reference_instance_InstanceSpecification(domain, range)
 }

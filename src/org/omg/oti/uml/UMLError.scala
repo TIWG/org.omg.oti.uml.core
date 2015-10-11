@@ -46,8 +46,7 @@ import scala.{Option, None, StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 
-trait UMLError[Uml <: UML] {
-
+object UMLError {
 
   trait UException {
 
@@ -59,82 +58,78 @@ trait UMLError[Uml <: UML] {
     val message: String
   }
 
-  trait UElementException extends UException {
+  trait UElementException[Uml <: UML, E <: UMLElement[Uml]] extends UException {
 
-    type E <: UMLElement[Uml]
+    type UmlE = E
 
     /**
      * Information about particular UML elements whose metaclass is a kind of `E`
      */
-    val element: Iterable[E]
+    val element: Iterable[UmlE]
   }
 
-  case class IllegalElementException[E <: UMLElement[Uml]]
+  case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    override val element: Iterable[E],
    override val error: Option[java.lang.Throwable])
-  extends UElementException
+  extends UElementException[Uml, E]
 
-  trait UEvaluationException extends UException {
+  trait UEvaluationException[Uml <: UML, E <: UMLElement[Uml]] extends UException {
 
-    type E <: UMLElement[Uml]
+    type UmlE = E
 
     /**
      * Information about the subject of evaluating a UML meta property/attribute function
      * on a particular UML element whose metaclass is a kind of `E`
      */
-    val element: E
+    val element: UmlE
 
     val message: String
   }
 
-  case class IllegalMetaPropertyEvaluation[E <: UMLElement[Uml]]
+  case class IllegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (override val element: E,
-   metaPropertyFunction: MetaPropertyFunction[Uml, E, _ <: UMLElement[Uml]])
-  extends UEvaluationException {
+   metaPropertyFunction: MPF)
+  extends UEvaluationException[Uml, E] {
 
     override val error: Option[java.lang.Throwable] = None
     override val message: String = s"$metaPropertyFunction not applicable to ${element.xmiType.head}"
 
   }
 
-  case class IllegalMetaAttributeEvaluation[E <: UMLElement[Uml]]
+  case class IllegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   (override val element: E,
-   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, E, _])
-  extends UEvaluationException {
+   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
+  extends UEvaluationException[Uml, E] {
 
     override val error: Option[java.lang.Throwable] = None
     override val message: String = s"$metaAttributeFunction not applicable to ${element.xmiType.head}"
   }
 
-  case class UMLUpdateError
+  case class UMLUpdateError[Uml <: UML]
   (umlUpdate: UMLUpdate[Uml],
    override val message: String,
    override val error: Option[java.lang.Throwable])
   extends UException
 
-}
-
-object UMLError {
-
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
    error: Option[java.lang.Throwable])
-  : UMLError[Uml]#IllegalElementException[E] =
-    new UMLError[Uml]#IllegalElementException[E](message, element, error)
+  : IllegalElementException[Uml, E] =
+    new IllegalElementException[Uml, E](message, element, error)
 
-  def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml]]
+  def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,
-   metaPropertyFunction: MetaPropertyFunction[Uml, E, _ <: UMLElement[Uml]])
-  : UMLError[Uml]#IllegalMetaAttributeEvaluation =
-    new UMLError[Uml]#IllegalMetaAttributeEvaluation(element, metaPropertyFunction)
+   metaPropertyFunction: MPF)
+  : IllegalMetaPropertyEvaluation[Uml, E, MPF] =
+    new IllegalMetaPropertyEvaluation[Uml, E, MPF](element, metaPropertyFunction)
 
-  def illegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml]]
+  def illegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   (element: E,
-   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, E, _ <: UMLElement[Uml], _])
-  : UMLError[Uml]#IllegalMetaAttributeEvaluation =
-    new UMLError[Uml]#IllegalMetaAttributeEvaluation(element, metaAttributeFunction)
+   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
+  : IllegalMetaAttributeEvaluation[Uml, E, U, DT] =
+    new IllegalMetaAttributeEvaluation[Uml, E, U, DT](element, metaAttributeFunction)
 
 
 }

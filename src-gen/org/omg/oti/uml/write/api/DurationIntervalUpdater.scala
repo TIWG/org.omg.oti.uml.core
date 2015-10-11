@@ -56,12 +56,12 @@ class DurationIntervalUpdater[Uml <: UML](val domain: UMLDurationInterval[Uml]) 
   def links_DurationInterval_durationInterval_reference_max_Duration
   (range: Option[UMLDuration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DurationInterval_durationInterval_reference_max_Duration(domain, range)
 
   def links_DurationInterval_durationInterval_reference_min_Duration
   (range: Option[UMLDuration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DurationInterval_durationInterval_reference_min_Duration(domain, range)
 }

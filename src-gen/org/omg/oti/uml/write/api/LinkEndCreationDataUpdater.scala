@@ -56,12 +56,12 @@ class LinkEndCreationDataUpdater[Uml <: UML](val domain: UMLLinkEndCreationData[
   def links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LinkEndCreationData_isReplaceAll(domain, isReplaceAll)
 }

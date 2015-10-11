@@ -56,6 +56,6 @@ class ReceptionUpdater[Uml <: UML](val domain: UMLReception[Uml]) extends AnyVal
   def links_Reception_reception_reference_signal_Signal
   (range: Option[UMLSignal[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Reception_reception_reference_signal_Signal(domain, range)
 }

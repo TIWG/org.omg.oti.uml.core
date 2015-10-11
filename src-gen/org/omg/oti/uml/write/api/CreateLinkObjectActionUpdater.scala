@@ -56,6 +56,6 @@ class CreateLinkObjectActionUpdater[Uml <: UML](val domain: UMLCreateLinkObjectA
   def links_CreateLinkObjectAction_createLinkObjectAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CreateLinkObjectAction_createLinkObjectAction_compose_result_OutputPin(domain, range)
 }

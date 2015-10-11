@@ -57,12 +57,12 @@ class TimeExpressionUpdater[Uml <: UML](val domain: UMLTimeExpression[Uml]) exte
   def links_TimeExpression_timeExpression_compose_expr_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeExpression_timeExpression_compose_expr_ValueSpecification(domain, range)
 
   def links_TimeExpression_timeExpression_reference_observation_Observation
   (range: Set[UMLObservation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeExpression_timeExpression_reference_observation_Observation(domain, range)
 }

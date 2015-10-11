@@ -59,12 +59,12 @@ class OpaqueBehaviorUpdater[Uml <: UML](val domain: UMLOpaqueBehavior[Uml]) exte
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_OpaqueBehavior_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_OpaqueBehavior_language(domain, language)
 }

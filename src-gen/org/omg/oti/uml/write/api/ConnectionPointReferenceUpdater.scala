@@ -57,12 +57,12 @@ class ConnectionPointReferenceUpdater[Uml <: UML](val domain: UMLConnectionPoint
   def links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate(domain, range)
 
   def links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate(domain, range)
 }

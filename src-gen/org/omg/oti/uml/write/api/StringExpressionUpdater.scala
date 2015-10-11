@@ -57,6 +57,6 @@ class StringExpressionUpdater[Uml <: UML](val domain: UMLStringExpression[Uml]) 
   def links_StringExpression_owningExpression_compose_subExpression_StringExpression
   (range: Seq[UMLStringExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StringExpression_owningExpression_compose_subExpression_StringExpression(domain, range)
 }

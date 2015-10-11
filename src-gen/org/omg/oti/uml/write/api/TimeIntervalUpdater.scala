@@ -56,12 +56,12 @@ class TimeIntervalUpdater[Uml <: UML](val domain: UMLTimeInterval[Uml]) extends 
   def links_TimeInterval_timeInterval_reference_max_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeInterval_timeInterval_reference_max_TimeExpression(domain, range)
 
   def links_TimeInterval_timeInterval_reference_min_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeInterval_timeInterval_reference_min_TimeExpression(domain, range)
 }

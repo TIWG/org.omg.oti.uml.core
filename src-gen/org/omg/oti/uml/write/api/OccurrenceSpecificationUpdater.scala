@@ -58,18 +58,18 @@ class OccurrenceSpecificationUpdater[Uml <: UML](val domain: UMLOccurrenceSpecif
   def links_OccurrenceSpecification_events_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_OccurrenceSpecification_events_reference_covered_Lifeline(domain, range)
 
   def links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering(domain, range)
 
   def links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering(domain, range)
 }

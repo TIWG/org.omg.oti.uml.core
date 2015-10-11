@@ -56,6 +56,6 @@ class CallBehaviorActionUpdater[Uml <: UML](val domain: UMLCallBehaviorAction[Um
   def links_CallBehaviorAction_callBehaviorAction_reference_behavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CallBehaviorAction_callBehaviorAction_reference_behavior_Behavior(domain, range)
 }

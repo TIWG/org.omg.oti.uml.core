@@ -57,6 +57,6 @@ class StructuralFeatureUpdater[Uml <: UML](val domain: UMLStructuralFeature[Uml]
   def setIsReadOnly
   (isReadOnly: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_StructuralFeature_isReadOnly(domain, isReadOnly)
 }

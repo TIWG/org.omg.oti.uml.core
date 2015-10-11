@@ -57,18 +57,18 @@ class ExceptionHandlerUpdater[Uml <: UML](val domain: UMLExceptionHandler[Uml]) 
   def links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode
   (range: Option[UMLObjectNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode(domain, range)
 
   def links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier(domain, range)
 
   def links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode
   (range: Option[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode(domain, range)
 }

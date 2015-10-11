@@ -57,12 +57,12 @@ class ConstraintUpdater[Uml <: UML](val domain: UMLConstraint[Uml]) extends AnyV
   def links_Constraint_constraint_reference_constrainedElement_Element
   (range: Seq[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Constraint_constraint_reference_constrainedElement_Element(domain, range)
 
   def links_Constraint_owningConstraint_compose_specification_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Constraint_owningConstraint_compose_specification_ValueSpecification(domain, range)
 }

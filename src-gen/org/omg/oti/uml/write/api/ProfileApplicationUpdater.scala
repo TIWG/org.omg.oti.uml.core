@@ -56,12 +56,12 @@ class ProfileApplicationUpdater[Uml <: UML](val domain: UMLProfileApplication[Um
   def links_ProfileApplication_profileApplication_reference_appliedProfile_Profile
   (range: Option[UMLProfile[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ProfileApplication_profileApplication_reference_appliedProfile_Profile(domain, range)
 
   def setIsStrict
   (isStrict: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_ProfileApplication_isStrict(domain, isStrict)
 }

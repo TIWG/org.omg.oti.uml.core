@@ -58,6 +58,6 @@ class LiteralStringUpdater[Uml <: UML](val domain: UMLLiteralString[Uml]) extend
   def setValue
   (value: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LiteralString_value(domain, value)
 }

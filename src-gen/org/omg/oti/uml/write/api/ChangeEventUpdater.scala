@@ -56,6 +56,6 @@ class ChangeEventUpdater[Uml <: UML](val domain: UMLChangeEvent[Uml]) extends An
   def links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification(domain, range)
 }

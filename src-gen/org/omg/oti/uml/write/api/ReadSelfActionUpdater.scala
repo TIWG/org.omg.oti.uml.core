@@ -56,6 +56,6 @@ class ReadSelfActionUpdater[Uml <: UML](val domain: UMLReadSelfAction[Uml]) exte
   def links_ReadSelfAction_readSelfAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadSelfAction_readSelfAction_compose_result_OutputPin(domain, range)
 }

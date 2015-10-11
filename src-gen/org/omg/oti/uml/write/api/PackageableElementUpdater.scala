@@ -57,6 +57,6 @@ class PackageableElementUpdater[Uml <: UML](val domain: UMLPackageableElement[Um
   def setVisibility
   (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_PackageableElement_visibility(domain, visibility)
 }

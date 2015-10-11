@@ -57,18 +57,18 @@ class BehavioredClassifierUpdater[Uml <: UML](val domain: UMLBehavioredClassifie
   def links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior(domain, range)
 
   def links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization
   (range: Set[UMLInterfaceRealization[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization(domain, range)
 
   def links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior
   (range: Set[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior(domain, range)
 }

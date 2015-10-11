@@ -56,12 +56,12 @@ class WriteStructuralFeatureActionUpdater[Uml <: UML](val domain: UMLWriteStruct
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin(domain, range)
 
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin(domain, range)
 }

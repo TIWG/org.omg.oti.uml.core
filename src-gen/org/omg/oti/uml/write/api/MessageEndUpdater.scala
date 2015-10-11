@@ -56,6 +56,6 @@ class MessageEndUpdater[Uml <: UML](val domain: UMLMessageEnd[Uml]) extends AnyV
   def links_MessageEnd_messageEnd_reference_message_Message
   (range: Option[UMLMessage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_MessageEnd_messageEnd_reference_message_Message(domain, range)
 }

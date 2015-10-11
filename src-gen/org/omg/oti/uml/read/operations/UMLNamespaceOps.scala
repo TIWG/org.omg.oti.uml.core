@@ -513,7 +513,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * This does not include references from elements in nested packages.
    */
   def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Set[UMLNamespace[Uml]]] =
+  : ValidationNel[UMLError.UException, Set[UMLNamespace[Uml]]] =
     forwardReferencesBeyondNamespaceScope.map { triples =>
       triples
       .map(_.obj)
@@ -527,16 +527,16 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
   def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml])
-	: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = {
+	: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = {
 
     val scope = self.ownedElement
 
     val visited = scala.collection.mutable.HashSet[UMLElement[Uml]]( self )
 
-    @annotation.tailrec def followReferencesUntilNamespaceScopeBoundary
+    /* @annotation.tailrec */ def followReferencesUntilNamespaceScopeBoundary
     (acc: Set[RelationTriple[Uml]],
-     triples: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]])
-    : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
+     triples: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]])
+    : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
 			(triples.disjunction flatMap { ts: Set[RelationTriple[Uml]] =>
         (if (ts.isEmpty)
             acc.success
@@ -556,9 +556,9 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
           }).disjunction
       }).validation
 
-    val triples0: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = Set().success
-    val triplesN: ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) { (ti, e) =>
-      ti.fold[ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]]](
+    val triples0: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = Set().success
+    val triplesN: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) { (ti, e) =>
+      ti.fold[ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]]](
         fail = Validation.failure(_),
         succ = (acc) =>
           followReferencesUntilNamespaceScopeBoundary( acc, e.forwardRelationTriples )

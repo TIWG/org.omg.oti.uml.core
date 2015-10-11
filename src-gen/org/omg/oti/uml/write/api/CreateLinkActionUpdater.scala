@@ -57,6 +57,6 @@ class CreateLinkActionUpdater[Uml <: UML](val domain: UMLCreateLinkAction[Uml]) 
   def links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData
   (range: Iterable[UMLLinkEndCreationData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData(domain, range)
 }

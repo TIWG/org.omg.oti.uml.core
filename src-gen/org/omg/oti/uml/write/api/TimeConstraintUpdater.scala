@@ -56,12 +56,12 @@ class TimeConstraintUpdater[Uml <: UML](val domain: UMLTimeConstraint[Uml]) exte
   def links_TimeConstraint_timeConstraint_compose_specification_TimeInterval
   (range: Option[UMLTimeInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TimeConstraint_timeConstraint_compose_specification_TimeInterval(domain, range)
 
   def setFirstEvent
   (firstEvent: Option[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_TimeConstraint_firstEvent(domain, firstEvent)
 }

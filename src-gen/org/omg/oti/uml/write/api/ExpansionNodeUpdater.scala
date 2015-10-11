@@ -56,12 +56,12 @@ class ExpansionNodeUpdater[Uml <: UML](val domain: UMLExpansionNode[Uml]) extend
   def links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion
   (range: Option[UMLExpansionRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion(domain, range)
 
   def links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion
   (range: Option[UMLExpansionRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion(domain, range)
 }

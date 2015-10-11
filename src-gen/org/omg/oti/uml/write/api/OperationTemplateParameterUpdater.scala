@@ -56,6 +56,6 @@ class OperationTemplateParameterUpdater[Uml <: UML](val domain: UMLOperationTemp
   def links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation
   (range: Option[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation(domain, range)
 }

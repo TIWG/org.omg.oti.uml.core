@@ -58,12 +58,12 @@ class LinkActionUpdater[Uml <: UML](val domain: UMLLinkAction[Uml]) extends AnyV
   def links_LinkAction_linkAction_compose_endData_LinkEndData
   (range: Iterable[UMLLinkEndData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkAction_linkAction_compose_endData_LinkEndData(domain, range)
 
   def links_LinkAction_linkAction_compose_inputValue_InputPin
   (range: Set[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkAction_linkAction_compose_inputValue_InputPin(domain, range)
 }

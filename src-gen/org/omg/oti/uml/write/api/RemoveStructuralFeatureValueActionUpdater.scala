@@ -56,12 +56,12 @@ class RemoveStructuralFeatureValueActionUpdater[Uml <: UML](val domain: UMLRemov
   def links_RemoveStructuralFeatureValueAction_removeStructuralFeatureValueAction_compose_removeAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_RemoveStructuralFeatureValueAction_removeStructuralFeatureValueAction_compose_removeAt_InputPin(domain, range)
 
   def setIsRemoveDuplicates
   (isRemoveDuplicates: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_RemoveStructuralFeatureValueAction_isRemoveDuplicates(domain, isRemoveDuplicates)
 }

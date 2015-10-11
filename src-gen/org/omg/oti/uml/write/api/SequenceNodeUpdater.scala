@@ -57,6 +57,6 @@ class SequenceNodeUpdater[Uml <: UML](val domain: UMLSequenceNode[Uml]) extends 
   def links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode
   (range: Seq[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode(domain, range)
 }

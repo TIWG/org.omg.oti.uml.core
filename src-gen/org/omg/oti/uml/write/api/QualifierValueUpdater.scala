@@ -56,12 +56,12 @@ class QualifierValueUpdater[Uml <: UML](val domain: UMLQualifierValue[Uml]) exte
   def links_QualifierValue_qualifierValue_reference_qualifier_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_QualifierValue_qualifierValue_reference_qualifier_Property(domain, range)
 
   def links_QualifierValue_qualifierValue_reference_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_QualifierValue_qualifierValue_reference_value_InputPin(domain, range)
 }

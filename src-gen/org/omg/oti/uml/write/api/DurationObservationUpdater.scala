@@ -57,12 +57,12 @@ class DurationObservationUpdater[Uml <: UML](val domain: UMLDurationObservation[
   def links_DurationObservation_durationObservation_reference_event_NamedElement
   (range: Seq[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DurationObservation_durationObservation_reference_event_NamedElement(domain, range)
 
   def setFirstEvent
   (firstEvent: Seq[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DurationObservation_firstEvent(domain, firstEvent)
 }

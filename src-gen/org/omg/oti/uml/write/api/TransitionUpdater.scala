@@ -57,30 +57,30 @@ class TransitionUpdater[Uml <: UML](val domain: UMLTransition[Uml]) extends AnyV
   def links_Transition_transition_compose_effect_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Transition_transition_compose_effect_Behavior(domain, range)
 
   def links_Transition_transition_compose_guard_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Transition_transition_compose_guard_Constraint(domain, range)
 
   def links_Transition_transition_reference_redefinedTransition_Transition
   (range: Option[UMLTransition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Transition_transition_reference_redefinedTransition_Transition(domain, range)
 
   def links_Transition_transition_compose_trigger_Trigger
   (range: Set[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Transition_transition_compose_trigger_Trigger(domain, range)
 
   def setKind
   (kind: Option[UMLTransitionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Transition_kind(domain, kind)
 }

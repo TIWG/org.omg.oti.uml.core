@@ -56,6 +56,6 @@ class BehaviorExecutionSpecificationUpdater[Uml <: UML](val domain: UMLBehaviorE
   def links_BehaviorExecutionSpecification_behaviorExecutionSpecification_reference_behavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_BehaviorExecutionSpecification_behaviorExecutionSpecification_reference_behavior_Behavior(domain, range)
 }

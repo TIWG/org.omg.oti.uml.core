@@ -53,6 +53,10 @@ import scala.util.{Failure, Success, Try}
 
 import scalaz._, Scalaz._
 
+sealed trait ConstructorKind
+case class OptionConstructor() extends ConstructorKind
+case class IterableConstructor() extends ConstructorKind
+
 /**
  * A functional wrapper for a UML Property typed by a PrimitiveType
  *
@@ -64,13 +68,13 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
   implicit val UType: TypeTag[U]
   val attributePrefix: Option[String]
   val attributeName: String
-  val f: Option[U => ValidationNel[UMLError[Uml]#UException, Iterable[DT]]]
-  val df: Option[(U, IDGenerator[Uml]) => ValidationNel[UMLError[Uml]#UException, Iterable[DT]]]
+  val f: Option[U => ValidationNel[UMLError.UException, Iterable[DT]]]
+  val df: Option[(U, IDGenerator[Uml]) => ValidationNel[UMLError.UException, Iterable[DT]]]
 
   def evaluate
   (e: UMLElement[Uml], idg: IDGenerator[Uml])
   (implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U])
-  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+  : ValidationNel[UMLError.UException, Iterable[String]] =
     e match {
       case u: U =>
         (f, df) match {
@@ -79,10 +83,10 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
           case (None, Some(_df)) =>
             _df(u, idg).map { ds => ds.map(_.toString) }
           case _ =>
-            UMLError.illegalMetaAttributeEvaluation[Uml, U](e, this).failureNel
+            UMLError.illegalMetaAttributeEvaluation[Uml, U, U, DT](u, this).failureNel
         }
       case _ =>
-        UMLError.illegalMetaAttributeEvaluation[Uml, U](e, this).failureNel
+        UMLError.illegalMetaAttributeEvaluation[Uml, UMLElement[Uml], U, DT](e, this).failureNel
     }
 
   override def toString: String = {
@@ -106,9 +110,9 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EValue <: Enumeration#Value, EValueSet <: Enumeration#ValueSet]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Option[EValue]],
+ f1: U => ValidationNel[UMLError.UException, Option[EValue]],
  orderedEnumerationValues: EValueSet)
   extends MetaAttributeAbstractFunction[Uml, U, EValue] {
   implicit val UType: TypeTag[U] = typeTag[U]
@@ -116,7 +120,8 @@ case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EV
   override val df = None
 
   def this
-  (attributePrefix: Option[String],
+  (ctr: OptionConstructor,
+   attributePrefix: Option[String],
    attributeName: String,
    f1: U => Option[EValue],
    orderedEnumerationValues: EValueSet) {
@@ -150,15 +155,15 @@ case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EV
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Iterable[Boolean]])
+ f1: U => ValidationNel[UMLError.UException, Iterable[Boolean]])
   extends MetaAttributeAbstractFunction[Uml, U, Boolean] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
   override val df = None
 
-  def this(attributePrefix: Option[String] = None, attributeName: String, f1: U => Iterable[Boolean]) {
+  def this(ctr: IterableConstructor, attributePrefix: Option[String], attributeName: String, f1: U => Iterable[Boolean]) {
     this(attributePrefix, attributeName, (u:U) => f1(u).successNel)
   }
 
@@ -189,9 +194,9 @@ case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Iterable[Integer]])
+ f1: U => ValidationNel[UMLError.UException, Iterable[Integer]])
   extends MetaAttributeAbstractFunction[Uml, U, Integer] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -224,9 +229,9 @@ case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Iterable[String]])
+ f1: U => ValidationNel[UMLError.UException, Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -259,19 +264,19 @@ case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Iterable[String]])
+ f1: U => ValidationNel[UMLError.UException, Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
   override val df = None
 
-  def this(attributePrefix: Option[String], attributeName: String, f1: U => Option[String]) {
+  def this(ctr: OptionConstructor, attributePrefix: Option[String], attributeName: String, f1: U => Option[String]) {
     this(attributePrefix, attributeName, (u:U) => f1(u).toIterable.successNel)
   }
 
-  def this(attributePrefix: Option[String], attributeName: String, f1: U => Iterable[String]) {
+  def this(ctr: IterableConstructor, attributePrefix: Option[String], attributeName: String, f1: U => Iterable[String]) {
     this(attributePrefix, attributeName, (u:U) => f1(u).successNel)
   }
 
@@ -302,9 +307,9 @@ case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
  * @tparam U An OTI UML metaclass
  */
 case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- f1: U => ValidationNel[UMLError[Uml]#UException, Iterable[Double]])
+ f1: U => ValidationNel[UMLError.UException, Iterable[Double]])
   extends MetaAttributeAbstractFunction[Uml, U, Double] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -337,9 +342,9 @@ case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
  * @tparam U An OTI UML metaclass
  */
 case class MetaDocumentAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
-(attributePrefix: Option[String] = None,
+(attributePrefix: Option[String],
  attributeName: String,
- df1: (U, IDGenerator[Uml]) => ValidationNel[UMLError[Uml]#UException, Iterable[String]])
+ df1: (U, IDGenerator[Uml]) => ValidationNel[UMLError.UException, Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = None

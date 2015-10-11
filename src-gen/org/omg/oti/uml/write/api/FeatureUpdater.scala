@@ -57,6 +57,6 @@ class FeatureUpdater[Uml <: UML](val domain: UMLFeature[Uml]) extends AnyVal {
   def setIsStatic
   (isStatic: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Feature_isStatic(domain, isStatic)
 }

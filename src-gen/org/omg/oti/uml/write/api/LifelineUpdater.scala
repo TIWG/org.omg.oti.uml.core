@@ -57,24 +57,24 @@ class LifelineUpdater[Uml <: UML](val domain: UMLLifeline[Uml]) extends AnyVal {
   def links_Lifeline_covered_reference_coveredBy_InteractionFragment
   (range: Set[UMLInteractionFragment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Lifeline_covered_reference_coveredBy_InteractionFragment(domain, range)
 
   def links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition
   (range: Option[UMLPartDecomposition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition(domain, range)
 
   def links_Lifeline_lifeline_reference_represents_ConnectableElement
   (range: Option[UMLConnectableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Lifeline_lifeline_reference_represents_ConnectableElement(domain, range)
 
   def links_Lifeline_lifeline_compose_selector_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Lifeline_lifeline_compose_selector_ValueSpecification(domain, range)
 }

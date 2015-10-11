@@ -57,6 +57,6 @@ class EnumerationUpdater[Uml <: UML](val domain: UMLEnumeration[Uml]) extends An
   def links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral
   (range: Seq[UMLEnumerationLiteral[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral(domain, range)
 }

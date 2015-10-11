@@ -56,12 +56,12 @@ class JoinNodeUpdater[Uml <: UML](val domain: UMLJoinNode[Uml]) extends AnyVal {
   def links_JoinNode_joinNode_compose_joinSpec_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_JoinNode_joinNode_compose_joinSpec_ValueSpecification(domain, range)
 
   def setIsCombineDuplicate
   (isCombineDuplicate: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_JoinNode_isCombineDuplicate(domain, isCombineDuplicate)
 }

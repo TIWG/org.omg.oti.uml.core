@@ -56,12 +56,12 @@ class CreateObjectActionUpdater[Uml <: UML](val domain: UMLCreateObjectAction[Um
   def links_CreateObjectAction_createObjectAction_reference_classifier_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CreateObjectAction_createObjectAction_reference_classifier_Classifier(domain, range)
 
   def links_CreateObjectAction_createObjectAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CreateObjectAction_createObjectAction_compose_result_OutputPin(domain, range)
 }

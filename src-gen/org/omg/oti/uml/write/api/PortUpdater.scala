@@ -57,30 +57,30 @@ class PortUpdater[Uml <: UML](val domain: UMLPort[Uml]) extends AnyVal {
   def links_Port_port_reference_protocol_ProtocolStateMachine
   (range: Option[UMLProtocolStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Port_port_reference_protocol_ProtocolStateMachine(domain, range)
 
   def links_Port_port_reference_redefinedPort_Port
   (range: Set[UMLPort[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Port_port_reference_redefinedPort_Port(domain, range)
 
   def setIsBehavior
   (isBehavior: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Port_isBehavior(domain, isBehavior)
 
   def setIsConjugated
   (isConjugated: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Port_isConjugated(domain, isConjugated)
 
   def setIsService
   (isService: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Port_isService(domain, isService)
 }

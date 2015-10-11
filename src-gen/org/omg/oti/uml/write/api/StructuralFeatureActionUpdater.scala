@@ -56,12 +56,12 @@ class StructuralFeatureActionUpdater[Uml <: UML](val domain: UMLStructuralFeatur
   def links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin(domain, range)
 
   def links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature
   (range: Option[UMLStructuralFeature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature(domain, range)
 }

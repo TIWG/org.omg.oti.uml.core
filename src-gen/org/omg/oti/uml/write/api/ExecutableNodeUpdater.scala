@@ -57,6 +57,6 @@ class ExecutableNodeUpdater[Uml <: UML](val domain: UMLExecutableNode[Uml]) exte
   def links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler
   (range: Set[UMLExceptionHandler[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler(domain, range)
 }

@@ -56,18 +56,18 @@ class TemplateParameterSubstitutionUpdater[Uml <: UML](val domain: UMLTemplatePa
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement(domain, range)
 
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter
   (range: Option[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter(domain, range)
 
   def links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement(domain, range)
 }

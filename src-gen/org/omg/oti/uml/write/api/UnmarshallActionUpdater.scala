@@ -57,18 +57,18 @@ class UnmarshallActionUpdater[Uml <: UML](val domain: UMLUnmarshallAction[Uml]) 
   def links_UnmarshallAction_unmarshallAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_compose_object_InputPin(domain, range)
 
   def links_UnmarshallAction_unmarshallAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_compose_result_OutputPin(domain, range)
 
   def links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier(domain, range)
 }

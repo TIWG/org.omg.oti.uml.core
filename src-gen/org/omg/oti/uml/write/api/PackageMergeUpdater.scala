@@ -56,6 +56,6 @@ class PackageMergeUpdater[Uml <: UML](val domain: UMLPackageMerge[Uml]) extends 
   def links_PackageMerge_packageMerge_reference_mergedPackage_Package
   (range: Option[UMLPackage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_PackageMerge_packageMerge_reference_mergedPackage_Package(domain, range)
 }

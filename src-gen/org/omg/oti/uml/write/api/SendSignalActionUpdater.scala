@@ -56,12 +56,12 @@ class SendSignalActionUpdater[Uml <: UML](val domain: UMLSendSignalAction[Uml]) 
   def links_SendSignalAction_sendSignalAction_reference_signal_Signal
   (range: Option[UMLSignal[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SendSignalAction_sendSignalAction_reference_signal_Signal(domain, range)
 
   def links_SendSignalAction_sendSignalAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SendSignalAction_sendSignalAction_compose_target_InputPin(domain, range)
 }

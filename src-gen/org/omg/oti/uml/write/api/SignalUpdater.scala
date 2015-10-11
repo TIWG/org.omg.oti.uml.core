@@ -57,6 +57,6 @@ class SignalUpdater[Uml <: UML](val domain: UMLSignal[Uml]) extends AnyVal {
   def links_Signal_owningSignal_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Signal_owningSignal_compose_ownedAttribute_Property(domain, range)
 }

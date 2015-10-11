@@ -58,18 +58,18 @@ class OpaqueExpressionUpdater[Uml <: UML](val domain: UMLOpaqueExpression[Uml]) 
   def links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior(domain, range)
 
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_OpaqueExpression_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_OpaqueExpression_language(domain, language)
 }

@@ -57,6 +57,6 @@ class PinUpdater[Uml <: UML](val domain: UMLPin[Uml]) extends AnyVal {
   def setIsControl
   (isControl: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Pin_isControl(domain, isControl)
 }

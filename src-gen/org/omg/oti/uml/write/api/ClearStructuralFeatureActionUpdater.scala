@@ -56,6 +56,6 @@ class ClearStructuralFeatureActionUpdater[Uml <: UML](val domain: UMLClearStruct
   def links_ClearStructuralFeatureAction_clearStructuralFeatureAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ClearStructuralFeatureAction_clearStructuralFeatureAction_compose_result_OutputPin(domain, range)
 }

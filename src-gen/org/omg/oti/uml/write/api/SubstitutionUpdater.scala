@@ -56,6 +56,6 @@ class SubstitutionUpdater[Uml <: UML](val domain: UMLSubstitution[Uml]) extends 
   def links_Substitution_substitution_reference_contract_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Substitution_substitution_reference_contract_Classifier(domain, range)
 }

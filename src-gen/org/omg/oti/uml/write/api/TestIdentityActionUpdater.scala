@@ -56,18 +56,18 @@ class TestIdentityActionUpdater[Uml <: UML](val domain: UMLTestIdentityAction[Um
   def links_TestIdentityAction_testIdentityAction_compose_first_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_first_InputPin(domain, range)
 
   def links_TestIdentityAction_testIdentityAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_result_OutputPin(domain, range)
 
   def links_TestIdentityAction_testIdentityAction_compose_second_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TestIdentityAction_testIdentityAction_compose_second_InputPin(domain, range)
 }

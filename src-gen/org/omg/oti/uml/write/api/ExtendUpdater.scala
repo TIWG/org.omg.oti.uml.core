@@ -57,18 +57,18 @@ class ExtendUpdater[Uml <: UML](val domain: UMLExtend[Uml]) extends AnyVal {
   def links_Extend_extend_compose_condition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Extend_extend_compose_condition_Constraint(domain, range)
 
   def links_Extend_extend_reference_extendedCase_UseCase
   (range: Option[UMLUseCase[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Extend_extend_reference_extendedCase_UseCase(domain, range)
 
   def links_Extend_extension_reference_extensionLocation_ExtensionPoint
   (range: Seq[UMLExtensionPoint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Extend_extension_reference_extensionLocation_ExtensionPoint(domain, range)
 }

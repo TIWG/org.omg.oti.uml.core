@@ -56,6 +56,6 @@ class TypedElementUpdater[Uml <: UML](val domain: UMLTypedElement[Uml]) extends 
   def links_TypedElement_typedElement_reference_type_Type
   (range: Option[UMLType[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TypedElement_typedElement_reference_type_Type(domain, range)
 }

@@ -58,6 +58,6 @@ class LiteralUnlimitedNaturalUpdater[Uml <: UML](val domain: UMLLiteralUnlimited
   def setValue
   (value: String)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LiteralUnlimitedNatural_value(domain, value)
 }

@@ -57,36 +57,36 @@ class ParameterUpdater[Uml <: UML](val domain: UMLParameter[Uml]) extends AnyVal
   def links_Parameter_owningParameter_compose_defaultValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Parameter_owningParameter_compose_defaultValue_ValueSpecification(domain, range)
 
   def links_Parameter_parameter_reference_parameterSet_ParameterSet
   (range: Set[UMLParameterSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Parameter_parameter_reference_parameterSet_ParameterSet(domain, range)
 
   def setDirection
   (direction: Option[UMLParameterDirectionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Parameter_direction(domain, direction)
 
   def setEffect
   (effect: Option[UMLParameterEffectKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Parameter_effect(domain, effect)
 
   def setIsException
   (isException: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Parameter_isException(domain, isException)
 
   def setIsStream
   (isStream: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Parameter_isStream(domain, isStream)
 }

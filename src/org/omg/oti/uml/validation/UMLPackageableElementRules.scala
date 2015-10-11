@@ -39,11 +39,13 @@
  */
 package org.omg.oti.uml.validation
 
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api.{UMLPackage, UML, UMLPackageableElement}
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.{Function2,Option,None,Some}
 import scala.collection.Iterable
+import scalaz._
 
 /**
  * Non-standard well-formedness rules for the accessibility of and references to packageable elements.
@@ -99,9 +101,10 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   type ReferencedButNotAccessibleConstructor =
   Function2[UMLPackage[Uml], UMLPackageableElement[Uml], Option[ReferencedButNotAccessibleViolation]]
 
-  def defaultReferencedButNotAccessibleConstructor(
-    _context: UMLPackage[Uml],
-    _referencedButNotAccessible: UMLPackageableElement[Uml] ): Option[ReferencedButNotAccessibleViolation] =
+  def defaultReferencedButNotAccessibleConstructor
+  ( _context: UMLPackage[Uml],
+    _referencedButNotAccessible: UMLPackageableElement[Uml] )
+  : Option[ReferencedButNotAccessibleViolation] =
     Some( new ReferencedButNotAccessibleViolation {
       override val context = _context
       override val referencedButNotAccessible = _referencedButNotAccessible
@@ -113,15 +116,16 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
    * - accessible from direct imports and applied profiles (excluding those from nesting packages)
    * @return Violations correspond to referenced elements that are not accessible.
    */
-  def findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles(
-    context: UMLPackage[Uml] )(
-      implicit c: ReferencedButNotAccessibleConstructor ): Iterable[ReferencedButNotAccessibleViolation] = {
-
-    val unaccessible = 
-      context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively --       
-      context.allDirectlyVisibleMembersTransitivelyAccessibleExceptNestingPackagesAndAppliedProfiles
-
-    unaccessible.flatMap( c( context, _ ) )
+  def findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles
+  ( context: UMLPackage[Uml] )
+  ( implicit c: ReferencedButNotAccessibleConstructor )
+  : ValidationNel[UMLError.UException, Iterable[ReferencedButNotAccessibleViolation]] =
+  for {
+    s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
+  } yield {
+    val unaccessible =
+      s -- context.allDirectlyVisibleMembersTransitivelyAccessibleExceptNestingPackagesAndAppliedProfiles
+    unaccessible.flatMap(c(context, _))
   }
 
   /**
@@ -130,14 +134,15 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
    * - accessible from all imports and applied profiles (including those from nesting packages)
    * @return Violations correspond to referenced elements that are not accessible.
    */
-  def findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles(
-    context: UMLPackage[Uml] )(
-      implicit c: ReferencedButNotAccessibleConstructor ): Iterable[ReferencedButNotAccessibleViolation] = {
-
+  def findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles
+  ( context: UMLPackage[Uml] )
+  ( implicit c: ReferencedButNotAccessibleConstructor )
+  : ValidationNel[UMLError.UException, Iterable[ReferencedButNotAccessibleViolation]] =
+  for {
+    s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
+  } yield {
     val unaccessible = 
-      context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively --       
-      context.allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles
-
+      s -- context.allIndirectlyVisibleMembersTransitivelyAccessibleFromNestingPackagesAndAppliedProfiles
     unaccessible.flatMap( c( context, _ ) )
   }
 

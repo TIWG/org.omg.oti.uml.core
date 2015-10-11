@@ -58,12 +58,12 @@ class ExpressionUpdater[Uml <: UML](val domain: UMLExpression[Uml]) extends AnyV
   def links_Expression_expression_compose_operand_ValueSpecification
   (range: Seq[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Expression_expression_compose_operand_ValueSpecification(domain, range)
 
   def setSymbol
   (symbol: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Expression_symbol(domain, symbol)
 }

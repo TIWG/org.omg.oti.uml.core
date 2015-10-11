@@ -39,7 +39,6 @@
  */
 package org.omg.oti.uml
 
-import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 
@@ -160,7 +159,7 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
 
-  def evaluateTriples(e: UMLElement[Uml]): ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]]
+  def evaluateTriples(e: UMLElement[Uml]): ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]]
 }
 
 
@@ -187,7 +186,7 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
+  : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
         evaluate(u).map { ov =>
@@ -199,19 +198,19 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
             }
         }
       case x =>
-        UMLError.illegalElementException[Uml, U](
+        UMLError.illegalElementException[Uml, UMLElement[Uml]](
           s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
           Iterable(e),
           None).failureNel
     }
 
   def evaluate(e: UMLElement[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Option[UMLElement[Uml]]] =
+  : ValidationNel[UMLError.UException, Option[UMLElement[Uml]]] =
     e match {
       case u: U =>
         f(u).success
       case _ =>
-        UMLError.illegalMetaPropertyEvaluation[Uml, U](e, this).failureNel
+        UMLError.illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this).failureNel
     }
 
   override def toString: String =
@@ -256,7 +255,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Set[RelationTriple[Uml]]] =
+  : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
         evaluate(u).map { vs =>
@@ -265,7 +264,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     }
 
   def evaluate(e: UMLElement[Uml])
-  : ValidationNel[UMLError[Uml]#UException, List[UMLElement[Uml]]] = {
+  : ValidationNel[UMLError.UException, List[UMLElement[Uml]]] = {
     require(e != null)
     e match {
       case u: U =>
@@ -278,7 +277,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
         else
           v.toList.success
       case _ =>
-        UMLError.illegalMetaPropertyEvaluation[Uml, U](e, this).failureNel
+        UMLError.illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this).failureNel
     }
   }
 

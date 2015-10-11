@@ -56,6 +56,6 @@ class ManifestationUpdater[Uml <: UML](val domain: UMLManifestation[Uml]) extend
   def links_Manifestation_manifestation_reference_utilizedElement_PackageableElement
   (range: Option[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Manifestation_manifestation_reference_utilizedElement_PackageableElement(domain, range)
 }

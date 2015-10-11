@@ -56,12 +56,12 @@ class LinkEndDestructionDataUpdater[Uml <: UML](val domain: UMLLinkEndDestructio
   def links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin(domain, range)
 
   def setIsDestroyDuplicates
   (isDestroyDuplicates: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LinkEndDestructionData_isDestroyDuplicates(domain, isDestroyDuplicates)
 }

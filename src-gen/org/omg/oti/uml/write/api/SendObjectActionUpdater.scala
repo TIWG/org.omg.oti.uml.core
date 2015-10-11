@@ -56,12 +56,12 @@ class SendObjectActionUpdater[Uml <: UML](val domain: UMLSendObjectAction[Uml]) 
   def links_SendObjectAction_sendObjectAction_compose_request_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SendObjectAction_sendObjectAction_compose_request_InputPin(domain, range)
 
   def links_SendObjectAction_sendObjectAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SendObjectAction_sendObjectAction_compose_target_InputPin(domain, range)
 }

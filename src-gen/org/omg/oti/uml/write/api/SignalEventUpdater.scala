@@ -56,6 +56,6 @@ class SignalEventUpdater[Uml <: UML](val domain: UMLSignalEvent[Uml]) extends An
   def links_SignalEvent_signalEvent_reference_signal_Signal
   (range: Option[UMLSignal[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_SignalEvent_signalEvent_reference_signal_Signal(domain, range)
 }

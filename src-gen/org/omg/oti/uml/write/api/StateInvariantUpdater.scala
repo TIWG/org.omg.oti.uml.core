@@ -57,12 +57,12 @@ class StateInvariantUpdater[Uml <: UML](val domain: UMLStateInvariant[Uml]) exte
   def links_StateInvariant_stateInvariant_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StateInvariant_stateInvariant_reference_covered_Lifeline(domain, range)
 
   def links_StateInvariant_stateInvariant_compose_invariant_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StateInvariant_stateInvariant_compose_invariant_Constraint(domain, range)
 }

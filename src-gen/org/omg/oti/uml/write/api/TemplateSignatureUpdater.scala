@@ -57,12 +57,12 @@ class TemplateSignatureUpdater[Uml <: UML](val domain: UMLTemplateSignature[Uml]
   def links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter
   (range: Seq[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter(domain, range)
 
   def links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter
   (range: Seq[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter(domain, range)
 }

@@ -58,6 +58,6 @@ class LiteralIntegerUpdater[Uml <: UML](val domain: UMLLiteralInteger[Uml]) exte
   def setValue
   (value: Integer)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LiteralInteger_value(domain, value)
 }

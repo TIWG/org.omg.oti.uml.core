@@ -247,21 +247,21 @@ package object uml {
     }
 
   def booleanToIterable[Uml <: UML]( value: Boolean, default: Boolean )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[Boolean]] =
+  : ValidationNel[UMLError.UException, Iterable[Boolean]] =
     if ( value != default )
       Iterable( value ).success
     else
       Iterable().success
 
   def integerToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[Integer]] =
+  : ValidationNel[UMLError.UException, Iterable[Integer]] =
     if ( value != default )
       Iterable( value ).success
     else
       Iterable().success
 
   def unlimitedNaturalToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+  : ValidationNel[UMLError.UException, Iterable[String]] =
     if ( value == default )
       Iterable().success
     else if (value == -1)
@@ -270,15 +270,15 @@ package object uml {
       Iterable(value.toString).success
 
   def realToIterable[Uml <: UML]( value: Double, default: Double )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[Double]] =
+  : ValidationNel[UMLError.UException, Iterable[Double]] =
     Iterable( value ).success
 
   def stringToIterable[Uml <: UML]( value: Option[String], default: String )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+  : ValidationNel[UMLError.UException, Iterable[String]] =
     value.toIterable.success
 
   def stringToIterable[Uml <: UML]( value: String, default: String )
-  : ValidationNel[UMLError[Uml]#UException, Iterable[String]] =
+  : ValidationNel[UMLError.UException, Iterable[String]] =
     if ( value != default )
       Iterable( value ).success
     else

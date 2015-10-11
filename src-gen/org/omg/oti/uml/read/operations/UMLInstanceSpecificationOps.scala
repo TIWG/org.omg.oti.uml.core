@@ -168,13 +168,13 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
   }
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] =
+	: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
 
   def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
-  : ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]] =
+  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     owner
-    .fold[ValidationNel[UMLError[Uml]#UException, Set[UMLPackageableElement[Uml]]]](Set().success) {
+    .fold[ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]]](Set().success) {
       case p: UMLPackage[Uml] =>
         Set[UMLPackageableElement[Uml]]( p ).success
       case e =>

@@ -220,6 +220,8 @@ case class TypedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
   /**
    * EMOF/CMOF validation for Operation::raisedException
    *
+   * @todo propagate errors.
+   *
    * @see MOF 2.5, Section 12.4 EMOF Constraints
    *      [1] The type of Operation::raisedException is limited to be Class rather than Type.
    *
@@ -234,7 +236,7 @@ case class TypedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
       case o: UMLOperation[Uml] =>
         val nonClassTypes = (o.raisedException selectByKindOf {
           case t: UMLType[Uml] if !oclIsTypeOfClass(t) => t
-        }).toList.sortBy(_.xmiOrderingKey)
+        }).toList.sortBy(_.xmiOrderingKey.toOption.getOrElse("")) // @todo propagate errors
         if (nonClassTypes.isEmpty)
           None
         else

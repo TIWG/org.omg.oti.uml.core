@@ -58,12 +58,12 @@ class InteractionFragmentUpdater[Uml <: UML](val domain: UMLInteractionFragment[
   def links_InteractionFragment_coveredBy_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_InteractionFragment_coveredBy_reference_covered_Lifeline(domain, range)
 
   def links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering(domain, range)
 }

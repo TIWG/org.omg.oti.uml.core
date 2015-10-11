@@ -51,7 +51,7 @@ import scala.Predef.String
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scalaz._, Scalaz._
+import scalaz._, Scalaz._, Validation.FlatMap._
 
 // End of user code
 
@@ -105,18 +105,18 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: ValidationNel[UMLError[Uml]#UException, String] =
+	: ValidationNel[UMLError.UException, String] =
   for {
     key <- element_xmiOrderingKey
     cs <- {
-			val cks0: ValidationNel[UMLError[Uml]#UException, Seq[String]] = Seq().success
+			val cks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().success
 			val cksN = (cks0 /: client) { (ck, c) =>
 				(ck |@| c.xmiOrderingKey()) { (_ck, _c) => _ck :+ _c }
 			}
 			cksN.map(_.mkString("_", "_", "-"))
 		}
 		ss <- {
-			val sks0: ValidationNel[UMLError[Uml]#UException, Seq[String]] = Seq().success
+			val sks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().success
 			val sksN = (sks0 /: supplier) { (sk, s) =>
 				(sk |@| s.xmiOrderingKey()) { (_sk, _s) => _sk :+ _s }
 			}

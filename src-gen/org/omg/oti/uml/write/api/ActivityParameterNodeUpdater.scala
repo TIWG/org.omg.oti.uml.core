@@ -56,6 +56,6 @@ class ActivityParameterNodeUpdater[Uml <: UML](val domain: UMLActivityParameterN
   def links_ActivityParameterNode_activityParameterNode_reference_parameter_Parameter
   (range: Option[UMLParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ActivityParameterNode_activityParameterNode_reference_parameter_Parameter(domain, range)
 }

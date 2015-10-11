@@ -57,6 +57,6 @@ class LiteralRealUpdater[Uml <: UML](val domain: UMLLiteralReal[Uml]) extends An
   def setValue
   (value: Double)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LiteralReal_value(domain, value)
 }

@@ -57,18 +57,18 @@ class NamedElementUpdater[Uml <: UML](val domain: UMLNamedElement[Uml]) extends 
   def links_NamedElement_namedElement_compose_nameExpression_StringExpression
   (range: Option[UMLStringExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_NamedElement_namedElement_compose_nameExpression_StringExpression(domain, range)
 
   def setName
   (name: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_NamedElement_name(domain, name)
 
   def setVisibility
   (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_NamedElement_visibility(domain, visibility)
 }

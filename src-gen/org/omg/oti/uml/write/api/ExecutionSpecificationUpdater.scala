@@ -56,12 +56,12 @@ class ExecutionSpecificationUpdater[Uml <: UML](val domain: UMLExecutionSpecific
   def links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification(domain, range)
 
   def links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification(domain, range)
 }

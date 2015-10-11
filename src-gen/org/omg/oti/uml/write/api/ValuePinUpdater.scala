@@ -56,6 +56,6 @@ class ValuePinUpdater[Uml <: UML](val domain: UMLValuePin[Uml]) extends AnyVal {
   def links_ValuePin_valuePin_compose_value_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ValuePin_valuePin_compose_value_ValueSpecification(domain, range)
 }

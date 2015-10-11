@@ -56,12 +56,12 @@ class ClearAssociationActionUpdater[Uml <: UML](val domain: UMLClearAssociationA
   def links_ClearAssociationAction_clearAssociationAction_reference_association_Association
   (range: Option[UMLAssociation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ClearAssociationAction_clearAssociationAction_reference_association_Association(domain, range)
 
   def links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin(domain, range)
 }

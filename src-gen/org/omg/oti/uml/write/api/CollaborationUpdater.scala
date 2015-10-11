@@ -57,6 +57,6 @@ class CollaborationUpdater[Uml <: UML](val domain: UMLCollaboration[Uml]) extend
   def links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement
   (range: Set[UMLConnectableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement(domain, range)
 }

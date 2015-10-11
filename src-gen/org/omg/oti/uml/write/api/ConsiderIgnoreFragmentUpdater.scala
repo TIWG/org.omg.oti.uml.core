@@ -57,6 +57,6 @@ class ConsiderIgnoreFragmentUpdater[Uml <: UML](val domain: UMLConsiderIgnoreFra
   def links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement(domain, range)
 }

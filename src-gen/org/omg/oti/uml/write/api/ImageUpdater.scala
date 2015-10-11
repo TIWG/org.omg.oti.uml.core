@@ -58,18 +58,18 @@ class ImageUpdater[Uml <: UML](val domain: UMLImage[Uml]) extends AnyVal {
   def setContent
   (content: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Image_content(domain, content)
 
   def setFormat
   (format: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Image_format(domain, format)
 
   def setLocation
   (location: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Image_location(domain, location)
 }

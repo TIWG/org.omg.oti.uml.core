@@ -57,6 +57,6 @@ class LiteralBooleanUpdater[Uml <: UML](val domain: UMLLiteralBoolean[Uml]) exte
   def setValue
   (value: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_LiteralBoolean_value(domain, value)
 }

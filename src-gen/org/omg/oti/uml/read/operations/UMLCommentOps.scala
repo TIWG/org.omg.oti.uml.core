@@ -83,9 +83,9 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
    *         the set of annotated elements is a singleton kind of Package
    */
   def getSpecificationRootCharacterizedPackage
-	: ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]] =
+	: ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]] =
     OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
-    .fold[ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]]](
+    .fold[ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]]](
     fail = Validation.failure(_),
     succ = (s) =>
     if (!hasStereotype(s) || 1 != annotatedElement.size)
@@ -93,7 +93,7 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
     else
      annotatedElement
      .headOption
-     .fold[ValidationNel[UMLError[Uml]#UException, Option[UMLPackage[Uml]]]](None.success) {
+     .fold[ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]]](None.success) {
       case annotatedP: UMLPackage[Uml] =>
         Some(annotatedP).success
       case _ =>

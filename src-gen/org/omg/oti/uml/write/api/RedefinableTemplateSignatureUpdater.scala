@@ -57,6 +57,6 @@ class RedefinableTemplateSignatureUpdater[Uml <: UML](val domain: UMLRedefinable
   def links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature
   (range: Set[UMLRedefinableTemplateSignature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature(domain, range)
 }

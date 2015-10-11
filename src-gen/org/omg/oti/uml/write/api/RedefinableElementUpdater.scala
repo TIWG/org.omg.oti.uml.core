@@ -57,6 +57,6 @@ class RedefinableElementUpdater[Uml <: UML](val domain: UMLRedefinableElement[Um
   def setIsLeaf
   (isLeaf: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_RedefinableElement_isLeaf(domain, isLeaf)
 }

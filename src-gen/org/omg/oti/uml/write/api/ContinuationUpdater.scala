@@ -57,6 +57,6 @@ class ContinuationUpdater[Uml <: UML](val domain: UMLContinuation[Uml]) extends 
   def setSetting
   (setting: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Continuation_setting(domain, setting)
 }

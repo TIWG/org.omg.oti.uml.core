@@ -56,12 +56,12 @@ class IntervalUpdater[Uml <: UML](val domain: UMLInterval[Uml]) extends AnyVal {
   def links_Interval_interval_reference_max_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Interval_interval_reference_max_ValueSpecification(domain, range)
 
   def links_Interval_interval_reference_min_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Interval_interval_reference_min_ValueSpecification(domain, range)
 }

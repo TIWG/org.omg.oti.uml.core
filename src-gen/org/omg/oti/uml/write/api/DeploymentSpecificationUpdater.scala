@@ -58,12 +58,12 @@ class DeploymentSpecificationUpdater[Uml <: UML](val domain: UMLDeploymentSpecif
   def setDeploymentLocation
   (deploymentLocation: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DeploymentSpecification_deploymentLocation(domain, deploymentLocation)
 
   def setExecutionLocation
   (executionLocation: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_DeploymentSpecification_executionLocation(domain, executionLocation)
 }

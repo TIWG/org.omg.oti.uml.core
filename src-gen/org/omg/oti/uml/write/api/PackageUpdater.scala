@@ -58,24 +58,24 @@ class PackageUpdater[Uml <: UML](val domain: UMLPackage[Uml]) extends AnyVal {
   def links_Package_receivingPackage_compose_packageMerge_PackageMerge
   (range: Set[UMLPackageMerge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Package_receivingPackage_compose_packageMerge_PackageMerge(domain, range)
 
   def links_Package_owningPackage_compose_packagedElement_PackageableElement
   (range: Set[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Package_owningPackage_compose_packagedElement_PackageableElement(domain, range)
 
   def links_Package_applyingPackage_compose_profileApplication_ProfileApplication
   (range: Set[UMLProfileApplication[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Package_applyingPackage_compose_profileApplication_ProfileApplication(domain, range)
 
   def setURI
   (URI: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_Package_URI(domain, URI)
 }

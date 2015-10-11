@@ -57,12 +57,12 @@ class CallActionUpdater[Uml <: UML](val domain: UMLCallAction[Uml]) extends AnyV
   def links_CallAction_callAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CallAction_callAction_compose_result_OutputPin(domain, range)
 
   def setIsSynchronous
   (isSynchronous: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_CallAction_isSynchronous(domain, isSynchronous)
 }

@@ -56,12 +56,12 @@ class ReadExtentActionUpdater[Uml <: UML](val domain: UMLReadExtentAction[Uml]) 
   def links_ReadExtentAction_readExtentAction_reference_classifier_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadExtentAction_readExtentAction_reference_classifier_Classifier(domain, range)
 
   def links_ReadExtentAction_readExtentAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadExtentAction_readExtentAction_compose_result_OutputPin(domain, range)
 }

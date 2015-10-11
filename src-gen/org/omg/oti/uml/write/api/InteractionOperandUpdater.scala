@@ -57,12 +57,12 @@ class InteractionOperandUpdater[Uml <: UML](val domain: UMLInteractionOperand[Um
   def links_InteractionOperand_enclosingOperand_compose_fragment_InteractionFragment
   (range: Seq[UMLInteractionFragment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_InteractionOperand_enclosingOperand_compose_fragment_InteractionFragment(domain, range)
 
   def links_InteractionOperand_interactionOperand_compose_guard_InteractionConstraint
   (range: Option[UMLInteractionConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_InteractionOperand_interactionOperand_compose_guard_InteractionConstraint(domain, range)
 }

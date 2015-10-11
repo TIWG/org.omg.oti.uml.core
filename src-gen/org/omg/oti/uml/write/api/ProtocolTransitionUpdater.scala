@@ -56,12 +56,12 @@ class ProtocolTransitionUpdater[Uml <: UML](val domain: UMLProtocolTransition[Um
   def links_ProtocolTransition_owningTransition_compose_postCondition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ProtocolTransition_owningTransition_compose_postCondition_Constraint(domain, range)
 
   def links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint(domain, range)
 }

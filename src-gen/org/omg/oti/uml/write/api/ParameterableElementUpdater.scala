@@ -56,6 +56,6 @@ class ParameterableElementUpdater[Uml <: UML](val domain: UMLParameterableElemen
   def links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter
   (range: Option[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter(domain, range)
 }

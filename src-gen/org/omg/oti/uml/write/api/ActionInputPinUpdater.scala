@@ -58,6 +58,6 @@ class ActionInputPinUpdater[Uml <: UML](val domain: UMLActionInputPin[Uml]) exte
   def links_ActionInputPin_actionInputPin_compose_fromAction_Action
   (range: Option[UMLAction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException, Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ActionInputPin_actionInputPin_compose_fromAction_Action(domain, range)
 }

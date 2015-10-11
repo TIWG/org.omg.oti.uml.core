@@ -57,24 +57,24 @@ class UseCaseUpdater[Uml <: UML](val domain: UMLUseCase[Uml]) extends AnyVal {
   def links_UseCase_extension_compose_extend_Extend
   (range: Set[UMLExtend[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UseCase_extension_compose_extend_Extend(domain, range)
 
   def links_UseCase_useCase_compose_extensionPoint_ExtensionPoint
   (range: Set[UMLExtensionPoint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UseCase_useCase_compose_extensionPoint_ExtensionPoint(domain, range)
 
   def links_UseCase_includingCase_compose_include_Include
   (range: Set[UMLInclude[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UseCase_includingCase_compose_include_Include(domain, range)
 
   def links_UseCase_useCase_reference_subject_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_UseCase_useCase_reference_subject_Classifier(domain, range)
 }

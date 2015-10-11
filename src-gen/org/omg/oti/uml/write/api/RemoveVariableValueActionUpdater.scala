@@ -56,12 +56,12 @@ class RemoveVariableValueActionUpdater[Uml <: UML](val domain: UMLRemoveVariable
   def links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin(domain, range)
 
   def setIsRemoveDuplicates
   (isRemoveDuplicates: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.set_RemoveVariableValueAction_isRemoveDuplicates(domain, isRemoveDuplicates)
 }

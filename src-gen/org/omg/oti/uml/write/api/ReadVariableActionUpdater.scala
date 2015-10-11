@@ -56,6 +56,6 @@ class ReadVariableActionUpdater[Uml <: UML](val domain: UMLReadVariableAction[Um
   def links_ReadVariableAction_readVariableAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ReadVariableAction_readVariableAction_compose_result_OutputPin(domain, range)
 }

@@ -57,12 +57,12 @@ class DataTypeUpdater[Uml <: UML](val domain: UMLDataType[Uml]) extends AnyVal {
   def links_DataType_datatype_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DataType_datatype_compose_ownedAttribute_Property(domain, range)
 
   def links_DataType_datatype_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_DataType_datatype_compose_ownedOperation_Operation(domain, range)
 }

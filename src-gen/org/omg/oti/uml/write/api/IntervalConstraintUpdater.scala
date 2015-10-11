@@ -56,6 +56,6 @@ class IntervalConstraintUpdater[Uml <: UML](val domain: UMLIntervalConstraint[Um
   def links_IntervalConstraint_intervalConstraint_compose_specification_Interval
   (range: Option[UMLInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_IntervalConstraint_intervalConstraint_compose_specification_Interval(domain, range)
 }

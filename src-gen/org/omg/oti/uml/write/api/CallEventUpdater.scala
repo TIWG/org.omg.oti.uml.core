@@ -56,6 +56,6 @@ class CallEventUpdater[Uml <: UML](val domain: UMLCallEvent[Uml]) extends AnyVal
   def links_CallEvent_callEvent_reference_operation_Operation
   (range: Option[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_CallEvent_callEvent_reference_operation_Operation(domain, range)
 }

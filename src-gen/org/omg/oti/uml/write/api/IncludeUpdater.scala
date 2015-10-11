@@ -56,6 +56,6 @@ class IncludeUpdater[Uml <: UML](val domain: UMLInclude[Uml]) extends AnyVal {
   def links_Include_include_reference_addition_UseCase
   (range: Option[UMLUseCase[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_Include_include_reference_addition_UseCase(domain, range)
 }

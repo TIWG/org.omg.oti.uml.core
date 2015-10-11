@@ -40,6 +40,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
@@ -47,6 +49,8 @@ import scala.Option
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scalaz._, Scalaz._
+
 // End of user code
 
 /**
@@ -73,11 +77,13 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 
 	// Start of user code for additional features
 
-  override def asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
+  override def asForwardReferencesToImportableOuterPackageableElements
+	: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     interval_asForwardReferencesToImportableOuterPackageableElements
 
-  def interval_asForwardReferencesToImportableOuterPackageableElements: Set[UMLPackageableElement[Uml]] = 
-    Set(this) ++ min.toSet ++ max.toSet
+  def interval_asForwardReferencesToImportableOuterPackageableElements
+  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
+    (Set[UMLPackageableElement[Uml]](this) ++ min.toSet ++ max.toSet).successNel[UMLError.UException]
 
   // End of user code
 } //UMLIntervalOps

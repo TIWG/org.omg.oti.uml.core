@@ -56,6 +56,6 @@ class StartObjectBehaviorActionUpdater[Uml <: UML](val domain: UMLStartObjectBeh
   def links_StartObjectBehaviorAction_startObjectBehaviorAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_StartObjectBehaviorAction_startObjectBehaviorAction_compose_object_InputPin(domain, range)
 }

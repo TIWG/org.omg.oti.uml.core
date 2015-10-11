@@ -56,6 +56,6 @@ class ProtocolConformanceUpdater[Uml <: UML](val domain: UMLProtocolConformance[
   def links_ProtocolConformance_protocolConformance_reference_generalMachine_ProtocolStateMachine
   (range: Option[UMLProtocolStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError[Uml]#UException,Unit] =
+  : ValidationNel[UMLError.UException,Unit] =
     umlU.links_ProtocolConformance_protocolConformance_reference_generalMachine_ProtocolStateMachine(domain, range)
 }
