@@ -32,7 +32,7 @@ object Versions {
   val akka = "2.4.0"
   val spray = "1.3.3"
   val shapeless = "2.2.5"
-  val scalaz = "7.1.4"
+  val scalaz = "7.2.0-M3"
   val scalaz_stream = "0.8"
   val play = "2.4.3"
 

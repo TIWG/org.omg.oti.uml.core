@@ -116,19 +116,19 @@ object UMLError {
   (message: String,
    element: Iterable[E],
    error: Option[java.lang.Throwable])
-  : IllegalElementException[Uml, E] =
+  : UException =
     new IllegalElementException[Uml, E](message, element, error)
 
   def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,
    metaPropertyFunction: MPF)
-  : IllegalMetaPropertyEvaluation[Uml, E, MPF] =
+  : UException =
     new IllegalMetaPropertyEvaluation[Uml, E, MPF](element, metaPropertyFunction)
 
   def illegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   (element: E,
    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
-  : IllegalMetaAttributeEvaluation[Uml, E, U, DT] =
+  : UException =
     new IllegalMetaAttributeEvaluation[Uml, E, U, DT](element, metaAttributeFunction)
 
 
