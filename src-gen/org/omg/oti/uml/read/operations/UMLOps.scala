@@ -46,12 +46,12 @@ import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
 import scala.reflect.{classTag}
-import scala.util.Try
 import scala.{annotation,Boolean,Double,Int,Option,None,PartialFunction,Some,Tuple3}
 import scala.Option
 import scala.Predef.{Set => _,_}
 import scala.collection.immutable._
 import scala.collection.{Iterable,Iterator}
+import scalaz.ValidationNel
 
 import java.lang.Integer
 import java.lang.System
@@ -4061,15 +4061,15 @@ trait UMLOps[Uml <: UML] { self =>
 
   val UML_PRIMITIVE_TYPES_STRING: UMLPrimitiveType[Uml]
 
-  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml], Try[String]]
+  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml],  ValidationNel[UMLError.UException, String]]
 
   type Element2IDRule = PartialFunction[
     UMLElement[Uml],
-    Try[String]]
+    ValidationNel[UMLError.UException, String]]
 
   type ContainedElement2IDRule = PartialFunction[
     (UMLElement[Uml], String, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
-    Try[String]]
+    ValidationNel[UMLError.UException, String]]
 
   class FilterableUMLOption[U](o: Option[U]) {
 
