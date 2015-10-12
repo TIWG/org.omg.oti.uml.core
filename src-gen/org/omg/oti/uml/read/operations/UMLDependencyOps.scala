@@ -109,15 +109,15 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
   for {
     key <- element_xmiOrderingKey
     cs <- {
-			val cks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().success
+			val cks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().successNel
 			val cksN = (cks0 /: client) { (ck, c) =>
 				(ck |@| c.xmiOrderingKey()) { (_ck, _c) => _ck :+ _c }
 			}
 			cksN.map(_.mkString("_", "_", "-"))
 		}
 		ss <- {
-			val sks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().success
-			val sksN = (sks0 /: supplier) { (sk, s) =>
+			val sks0: ValidationNel[UMLError.UException, Seq[String]] = Seq().successNel
+      val sksN = (sks0 /: supplier) { (sk, s) =>
 				(sk |@| s.xmiOrderingKey()) { (_sk, _s) => _sk :+ _s }
 			}
 			sksN.map(_.mkString("_", "_", "-"))

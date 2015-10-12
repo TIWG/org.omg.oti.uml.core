@@ -88,7 +88,7 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
 	: ValidationNel[UMLError.UException, String] =
 		for {
 			key <- element_xmiOrderingKey
-			f <- definingFeature.fold[ValidationNel[UMLError.UException, String]]("_".success){ sf =>
+			f <- definingFeature.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ sf =>
 			  sf.xmiOrderingKey.map("_" + _)
 			}
 		} yield key + f

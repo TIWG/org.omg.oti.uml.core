@@ -117,7 +117,7 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
 	: ValidationNel[UMLError.UException, String] =
 	for {
 		key <- element_xmiOrderingKey
-		i <- importedPackage.fold[ValidationNel[UMLError.UException, String]]("_".success){ ip =>
+		i <- importedPackage.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ ip =>
 			ip.xmiOrderingKey.map("_" + _)
     }
 	} yield key + i

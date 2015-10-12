@@ -42,7 +42,7 @@ package org.omg.oti.uml
 import org.omg.oti.uml.read.api.{UML, UMLElement}
 import org.omg.oti.uml.write.api.UMLUpdate
 
-import scala.{Option, None, StringContext}
+import scala.{Option, None, Some, StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 
@@ -68,11 +68,22 @@ object UMLError {
     val element: Iterable[UmlE]
   }
 
+  case class IllegalElementError[Uml <: UML, E <: UMLElement[Uml]]
+  (message: String,
+   override val element: Iterable[E])
+    extends java.lang.Throwable(message)
+    with UElementException[Uml, E] {
+    override val error: Option[java.lang.Throwable] = None
+  }
+
   case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    override val element: Iterable[E],
-   override val error: Option[java.lang.Throwable])
-  extends UElementException[Uml, E]
+   cause: java.lang.Throwable)
+  extends java.lang.Throwable(message, cause)
+  with UElementException[Uml, E] {
+    override val error: Option[java.lang.Throwable] = Some(cause)
+  }
 
   trait UEvaluationException[Uml <: UML, E <: UMLElement[Uml]] extends UException {
 
@@ -112,12 +123,18 @@ object UMLError {
    override val error: Option[java.lang.Throwable])
   extends UException
 
+  def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
+  (message: String,
+   element: Iterable[E])
+  : UException =
+    new IllegalElementError[Uml, E](message, element)
+
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
-   error: Option[java.lang.Throwable])
+   cause: java.lang.Throwable)
   : UException =
-    new IllegalElementException[Uml, E](message, element, error)
+    new IllegalElementException[Uml, E](message, element, cause)
 
   def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,

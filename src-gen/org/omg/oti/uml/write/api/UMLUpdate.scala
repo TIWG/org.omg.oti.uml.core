@@ -3341,16 +3341,14 @@ trait UMLUpdate[Uml <: UML] {
             case v: V =>
               links_composes(u, Some(v))
             case _ =>
-              UMLError.illegalElementException[Uml, UMLElement[Uml]](
+              UMLError.illegalElementError[Uml, UMLElement[Uml]](
               s"setLinks update for $links_query: error type mismatch",
-              Iterable(owner) ++ owned.toIterable,
-              None).failureNel
+              Iterable(owner) ++ owned.toIterable).failureNel
           }
         case _ =>
-          UMLError.illegalElementException[Uml, UMLElement[Uml]](
+          UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable,
-            None).failureNel
+            Iterable(owner) ++ owned.toIterable).failureNel
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
@@ -3382,10 +3380,9 @@ trait UMLUpdate[Uml <: UML] {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v)
         case _ =>
-          UMLError.illegalElementException[Uml, UMLElement[Uml]](
+          UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable,
-            None).failureNel
+            Iterable(owner) ++ owned.toIterable).failureNel
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
@@ -3418,10 +3415,11 @@ trait UMLUpdate[Uml <: UML] {
         case (u: U, v: Seq[V]) =>
           links_composes(u, v)
         case _ =>
-          UMLError.illegalElementException[Uml, UMLElement[Uml]](
+          UMLError
+          .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable,
-            None).failureNel
+            Iterable(owner) ++ owned.toIterable)
+          .failureNel
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
@@ -3455,10 +3453,11 @@ trait UMLUpdate[Uml <: UML] {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v.toSet)
         case _ =>
-          UMLError.illegalElementException[Uml, UMLElement[Uml]](
+          UMLError
+          .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable,
-            None).failureNel
+            Iterable(owner) ++ owned.toIterable)
+          .failureNel
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])

@@ -99,7 +99,7 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
 	: ValidationNel[UMLError.UException, String] =
 		for {
 			key <- element_xmiOrderingKey
-			i <- appliedProfile.fold[ValidationNel[UMLError.UException, String]]("_".success){ ap =>
+			i <- appliedProfile.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ ap =>
 			ap.xmiOrderingKey.map("_" + _)
     }
 		} yield key + i

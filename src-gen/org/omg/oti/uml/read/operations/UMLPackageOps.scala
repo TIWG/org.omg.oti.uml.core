@@ -267,7 +267,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def getSpecificationRootAnnotatingComment
   : ValidationNel[UMLError.UException, Option[UMLComment[Uml]]] = {
-    val c0: ValidationNel[UMLError.UException, Seq[UMLComment[Uml]]] = Seq().success
+    val c0: ValidationNel[UMLError.UException, Seq[UMLComment[Uml]]] = Seq().successNel
     val cN = (c0 /: annotatedElement_comment) { (ci, c) =>
       ci.fold[ValidationNel[UMLError.UException, Seq[UMLComment[Uml]]]](
         fail = Validation.failure(_),
@@ -318,20 +318,20 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     fail = Validation.failure(_),
     succ = (opf) =>
       opf
-      .fold[ValidationNel[UMLError.UException, Option[V]]](None.success){ _opf =>
+      .fold[ValidationNel[UMLError.UException, Option[V]]](None.successNel){ _opf =>
         otiCharacterizations
         .fold[ValidationNel[UMLError.UException, Option[V]]](
           self
           .getSpecificationRootAnnotatingComment
           .flatMap { c =>
-            c.fold[ValidationNel[UMLError.UException, Option[V]]](None.success){ _c =>
+            c.fold[ValidationNel[UMLError.UException, Option[V]]](None.successNel){ _c =>
               cf(_c)
             }
           }
         ){ p2c =>
             p2c
             .get(self)
-            .fold[ValidationNel[UMLError.UException, Option[V]]](None.success){ _c =>
+            .fold[ValidationNel[UMLError.UException, Option[V]]](None.successNel){ _c =>
               cf(_c)
             }
           }
@@ -445,14 +445,14 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       succ=_.fold[ValidationNel[UMLError.UException, Option[String]]]{
         getEffectiveURI.fold[ValidationNel[UMLError.UException, Option[String]]](
         fail = Validation.failure(_),
-        succ = _.fold[ValidationNel[UMLError.UException, Option[String]]](None.success){ uri =>
+        succ = _.fold[ValidationNel[UMLError.UException, Option[String]]](None.successNel){ uri =>
             if (uri.endsWith(".xmi"))
-              Some(uri).success
+              Some(uri).successNel
             else
-              Some(uri + ".xmi").success
+              Some(uri + ".xmi").successNel
               })
     }{ url =>
-        Some(url).success
+        Some(url).successNel
     })
 
   /**
@@ -470,7 +470,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   : ValidationNel[UMLError.UException, Option[String]] =
     oti_packageURI
     .orElse {
-      self.URI.success
+      self.URI.successNel
     }
 
   /**
@@ -541,7 +541,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     type PF_S_P_E = (Option[UMLProfile[Uml]], UMLStereotype[Uml], UMLProperty[Uml], UMLElement[Uml])
 
     val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
-    val t0: ValidationNel[UMLError.UException, Set[PF_S_P_E]] = Set().success
+    val t0: ValidationNel[UMLError.UException, Set[PF_S_P_E]] = Set().successNel
     val tn: ValidationNel[UMLError.UException, Set[PF_S_P_E]] = ( t0 /: pkgContents ) { ( ti, e) =>
       (ti |@| e.getAppliedStereotypes) { (_ti, _appliedStereotypes) =>
         val pf2spMap = _appliedStereotypes groupBy (_._1.profile)
@@ -585,7 +585,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = {
     val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
 
-    val a0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().success
+    val a0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().successNel
     val aN: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = (a0 /: pkgContents) {
       (ai, e) =>
         (ai |@| e.allForwardReferencesFromStereotypeTagProperties) { (_ai, eRefs) =>
@@ -596,7 +596,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     val result =
       aN.flatMap { refs =>
 
-      val b0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().success
+      val b0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().successNel
       val bN: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = (b0 /: refs) {
         (bi, e) =>
           (bi |@| e.allForwardReferencesToElements) { (_bi, eRefs) =>
@@ -606,7 +606,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
       bN.flatMap { refs =>
 
-        val c0: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = Set().success
+        val c0: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = Set().successNel
         val cN: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = (c0 /: refs) {
         (ci, e) =>
           (ci |@| e.allForwardReferencesToImportablePackageableElements) { (_ci, peRefs) =>
@@ -653,7 +653,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       triples: Set[RelationTriple[Uml]])
     : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
       if (triples.isEmpty)
-        acc.success
+        acc.successNel
       else {
         val (th, tr: Set[RelationTriple[Uml]]) = (triples.head, triples.tail)
         if (visited.contains(th.obj))
@@ -671,7 +671,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         }
       }
 
-    val triples0: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = Set().success
+    val triples0: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = Set().successNel
     val triplesN: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) {
       ( ti, e ) =>
 

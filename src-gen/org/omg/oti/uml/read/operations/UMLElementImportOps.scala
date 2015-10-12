@@ -162,7 +162,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
   : ValidationNel[UMLError.UException, String] =
 	for {
 		key <- element_xmiOrderingKey
-		i <- importedElement.fold[ValidationNel[UMLError.UException, String]]("_".success){ ie =>
+		i <- importedElement.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ ie =>
 				ie.xmiOrderingKey.map("_" + _)
 		}
 	} yield key + i

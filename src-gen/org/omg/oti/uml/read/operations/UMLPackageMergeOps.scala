@@ -98,7 +98,7 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 	: ValidationNel[UMLError.UException, String] =
 			for {
 				key <- element_xmiOrderingKey
-				i <- mergedPackage.fold[ValidationNel[UMLError.UException, String]]("_".success){ mp =>
+				i <- mergedPackage.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ mp =>
 				  mp.xmiOrderingKey.map("_" + _)
 				}
     } yield key + i

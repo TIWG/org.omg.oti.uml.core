@@ -89,16 +89,16 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
     fail = Validation.failure(_),
     succ = (s) =>
     if (!hasStereotype(s) || 1 != annotatedElement.size)
-      None.success
+      None.successNel
     else
      annotatedElement
      .headOption
-     .fold[ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]]](None.success) {
+     .fold[ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]]](None.successNel) {
       case annotatedP: UMLPackage[Uml] =>
-        Some(annotatedP).success
+        Some(annotatedP).successNel
       case _ =>
-        None.success
-    })
+        None.successNel
+      })
 
   // End of user code
 } //UMLCommentOps

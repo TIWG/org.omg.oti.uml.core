@@ -174,9 +174,9 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
   def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     owner
-    .fold[ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]]](Set().success) {
+    .fold[ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]]](Set().successNel) {
       case p: UMLPackage[Uml] =>
-        Set[UMLPackageableElement[Uml]]( p ).success
+        Set[UMLPackageableElement[Uml]]( p ).successNel
       case e =>
         e.asForwardReferencesToImportableOuterPackageableElements
     }

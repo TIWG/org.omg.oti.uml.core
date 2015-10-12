@@ -115,11 +115,11 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 
   override def asForwardReferencesToImportableOuterPackageableElements
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
-		Set( this ).success
+		Set( this ).successNel
 
   override def asForwardReferencesToOwningElementImportableOuterPackageableElements
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
-    Set( this ).success
+    Set( this ).successNel
 
   // End of user code
 } //UMLPackageableElementOps

@@ -198,19 +198,22 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
             }
         }
       case x =>
-        UMLError.illegalElementException[Uml, UMLElement[Uml]](
+        UMLError
+        .illegalElementError[Uml, UMLElement[Uml]](
           s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
-          Iterable(e),
-          None).failureNel
+          Iterable(e))
+        .failureNel
     }
 
   def evaluate(e: UMLElement[Uml])
   : ValidationNel[UMLError.UException, Option[UMLElement[Uml]]] =
     e match {
       case u: U =>
-        f(u).success
+        f(u).successNel
       case _ =>
-        UMLError.illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this).failureNel
+        UMLError
+        .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)
+        .failureNel
     }
 
   override def toString: String =
@@ -271,13 +274,15 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
         val v = f(u)
         require(v != null)
         if (v.isEmpty)
-          Nil.success
+          Nil.successNel
         else if (isOrdered)
-          v.toList.success
+          v.toList.successNel
         else
-          v.toList.success
+          v.toList.successNel
       case _ =>
-        UMLError.illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this).failureNel
+        UMLError
+        .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)
+        .failureNel
     }
   }
 

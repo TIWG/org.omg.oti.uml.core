@@ -83,10 +83,14 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
           case (None, Some(_df)) =>
             _df(u, idg).map { ds => ds.map(_.toString) }
           case _ =>
-            UMLError.illegalMetaAttributeEvaluation[Uml, U, U, DT](u, this).failureNel
+            UMLError
+            .illegalMetaAttributeEvaluation[Uml, U, U, DT](u, this)
+            .failureNel
         }
       case _ =>
-        UMLError.illegalMetaAttributeEvaluation[Uml, UMLElement[Uml], U, DT](e, this).failureNel
+        UMLError
+        .illegalMetaAttributeEvaluation[Uml, UMLElement[Uml], U, DT](e, this)
+        .failureNel
     }
 
   override def toString: String = {

@@ -169,12 +169,12 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : ValidationNel[UMLError.UException, Option[UMLPackage[Uml]]] =
     self match {
       case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined =>
-        Some(p).success
+        Some(p).successNel
       case _ => owner match {
         case Some(o) =>
           o.getPackageOwnerWithEffectiveURI
         case None =>
-          None.success
+          None.successNel
       }
     }
 
@@ -305,7 +305,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
           _id.map { uuid => Iterable(uuid) }
         }),
       MetaAttributeStringFunction[Uml, UMLElement[Uml]](
-        Some( "xmi" ), "type", _.xmiType.success ))
+        Some( "xmi" ), "type", _.xmiType.successNel ))
 
   type MetaAttributeFunction = MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _]
 
@@ -602,7 +602,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       .fold[ValidationNel[UMLError.UException, String]]{
         generatedOTI_id()
       }{ oid =>
-        oid.success
+        oid.successNel
       }
         .disjunction}).validation
 
@@ -634,7 +634,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       .fold[ValidationNel[UMLError.UException, String]]{
         generatedOTI_uuid()
       }{ ouuid =>
-        ouuid.success
+        ouuid.successNel
       }
       .disjunction}).validation
 
@@ -697,7 +697,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] =
   tagValues.disjunctioned { stvs: \/[NonEmptyList[UMLError.UException], Seq[UMLStereotypeTagValue[Uml]]] =>
     stvs.flatMap[NonEmptyList[UMLError.UException], Set[UMLElement[Uml]]] { _stvs =>
-      val r0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().success
+      val r0: ValidationNel[UMLError.UException, Set[UMLElement[Uml]]] = Set().successNel
       val rn = (r0 /: _stvs) { (ri, stv) =>
         ri.map{ refs =>
           refs ++ stv.tagPropertyValueElementReferences
@@ -730,7 +730,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def allForwardReferencesToImportablePackageableElements
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     allForwardReferencesToElements.flatMap { (frefs) =>
-      val a0: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = Set().success
+      val a0: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] = Set().successNel
       val an = (a0 /: frefs) { (ai, fref) =>
         (fref.asForwardReferencesToImportableOuterPackageableElements |@| ai) { (s1, s2) =>
           s1 ++ s2
@@ -743,7 +743,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
     owner
       .fold[ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]]](
-      Set[UMLPackageableElement[Uml]]().success
+      Set[UMLPackageableElement[Uml]]().successNel
       )(_.asForwardReferencesToImportableOuterPackageableElements)
 
   // API to be implemented
@@ -796,8 +796,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   (implicit idg: IDGenerator[Uml])
   : ValidationNel[UMLError.UException, Option[MetaPropertyEvaluator]] =
     owner
-    .fold[ValidationNel[UMLError.UException, Option[MetaPropertyEvaluator]]](None.success) { o =>
-      val p0: ValidationNel[UMLError.UException, Seq[MetaPropertyEvaluator]] = Seq().success
+    .fold[ValidationNel[UMLError.UException, Option[MetaPropertyEvaluator]]](None.successNel) { o =>
+      val p0: ValidationNel[UMLError.UException, Seq[MetaPropertyEvaluator]] = Seq().successNel
       val pN = (p0 /: o.compositeMetaProperties.reverse) { (pi, mi) =>
         pi.fold[ValidationNel[UMLError.UException, Seq[MetaPropertyEvaluator]]](
           fail = Validation.failure(_),
@@ -879,13 +879,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : ValidationNel[UMLError.UException, String] =
     idg.element2mappedDocument(self) match {
       case Some(d) =>
-        (d.uuidPrefix + xmiID()).success
+        (d.uuidPrefix + xmiID()).successNel
       case None =>
-        val ex = UMLError.illegalElementException[Uml, UMLElement[Uml]](
+        UMLError
+        .illegalElementError[Uml, UMLElement[Uml]](
           s"Cannot generate the OTI uuid for $self because it does not belong to a document",
-          Iterable[UMLElement[Uml]](self),
-          None)
-        ex.failureNel
+          Iterable[UMLElement[Uml]](self))
+        .failureNel
     }
 
   /* 
