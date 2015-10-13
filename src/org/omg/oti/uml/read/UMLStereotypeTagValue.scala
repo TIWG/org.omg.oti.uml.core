@@ -39,6 +39,7 @@
  */
 package org.omg.oti.uml.read
 
+import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.xmi.IDGenerator
 import org.omg.oti.uml.read.api.UML
 import org.omg.oti.uml.read.api.UMLElement
@@ -47,7 +48,7 @@ import org.omg.oti.uml.read.api._
 
 import scala.collection.Iterable
 import scala.collection.immutable.StringOps
-import scala.util.Try
+import scalaz._
 
 /**
  * An abstraction for the value of a stereotype "tag property".
@@ -152,7 +153,9 @@ trait UMLStereotypeTagValue[Uml <: UML] {
    *
    * @return OMG UML 2.5 compliant serialization of stereotype tag property values.
    */
-  def serialize( implicit xmiScopes: scala.xml.NamespaceBinding, idg: IDGenerator[Uml] ): Try[Iterable[scala.xml.Elem]]
+  def serialize
+  ( implicit xmiScopes: scala.xml.NamespaceBinding, idg: IDGenerator[Uml] )
+  : ValidationNel[UMLError.UException, Iterable[scala.xml.Elem]]
 }
 
 /**
