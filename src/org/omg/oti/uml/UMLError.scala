@@ -99,14 +99,14 @@ object UMLError {
   def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E])
-  : UException with java.lang.Throwable  =
+  : UException =
     new IllegalElementException[Uml, E](element, message, None)
 
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
    cause: java.lang.Throwable)
-  : UException with java.lang.Throwable =
+  : UException =
     new IllegalElementException[Uml, E](element, message, Some(cause))
 
   def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
@@ -125,7 +125,7 @@ object UMLError {
   (umlUpdate: UMLUpdate[Uml],
    element: Iterable[E],
    message: String)
-  : UException with java.lang.Throwable =
+  : UException =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, None)
 
   def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
@@ -133,6 +133,6 @@ object UMLError {
    element: Iterable[E],
    message: String,
    cause: java.lang.Throwable)
-  : UException with java.lang.Throwable =
+  : UException =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, Some(cause))
 }
