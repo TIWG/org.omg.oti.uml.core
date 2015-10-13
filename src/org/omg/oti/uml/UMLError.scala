@@ -48,93 +48,66 @@ import scala.collection.Iterable
 
 object UMLError {
 
-  trait UException {
+  class UException
+  ( val message: String,
+    val cause: Option[java.lang.Throwable] = None )
+  extends java.lang.Throwable(message) {
 
-    /**
-     * Information about the error that occured
-     */
-    val error: Option[java.lang.Throwable]
+    cause.map(this.initCause(_))
 
-    val message: String
   }
 
-  trait UElementException[Uml <: UML, E <: UMLElement[Uml]] extends UException {
-
+  class UElementException[Uml <: UML, E <: UMLElement[Uml]]
+  ( val element: Iterable[E],
+    override val message: String,
+    override val cause: Option[java.lang.Throwable] = None)
+  extends UException(message, cause) {
     type UmlE = E
-
-    /**
-     * Information about particular UML elements whose metaclass is a kind of `E`
-     */
-    val element: Iterable[UmlE]
   }
 
-  case class IllegalElementError[Uml <: UML, E <: UMLElement[Uml]]
-  (message: String,
-   override val element: Iterable[E])
-    extends java.lang.Throwable(message)
-    with UElementException[Uml, E] {
-    override val error: Option[java.lang.Throwable] = None
-  }
-
-  case class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
-  (message: String,
-   override val element: Iterable[E],
-   cause: java.lang.Throwable)
-  extends java.lang.Throwable(message, cause)
-  with UElementException[Uml, E] {
-    override val error: Option[java.lang.Throwable] = Some(cause)
-  }
-
-  trait UEvaluationException[Uml <: UML, E <: UMLElement[Uml]] extends UException {
-
-    type UmlE = E
-
-    /**
-     * Information about the subject of evaluating a UML meta property/attribute function
-     * on a particular UML element whose metaclass is a kind of `E`
-     */
-    val element: UmlE
-
-    val message: String
-  }
-
-  case class IllegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
-  (override val element: E,
-   metaPropertyFunction: MPF)
-  extends UEvaluationException[Uml, E] {
-
-    override val error: Option[java.lang.Throwable] = None
-    override val message: String = s"$metaPropertyFunction not applicable to ${element.xmiType.head}"
-
-  }
-
-  case class IllegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
-  (override val element: E,
-   metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
-  extends UEvaluationException[Uml, E] {
-
-    override val error: Option[java.lang.Throwable] = None
-    override val message: String = s"$metaAttributeFunction not applicable to ${element.xmiType.head}"
-  }
-
-  case class UMLUpdateError[Uml <: UML]
-  (umlUpdate: UMLUpdate[Uml],
+  class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
+  (override val element: Iterable[E],
    override val message: String,
-   override val error: Option[java.lang.Throwable])
-  extends UException
+   override val cause: Option[java.lang.Throwable] = None)
+  extends UElementException[Uml, E](element, message, cause)
+
+  abstract class UEvaluationException[Uml <: UML, E <: UMLElement[Uml]]
+  ( val element: Iterable[E],
+    override val message: String,
+    override val cause: Option[java.lang.Throwable] = None)
+  extends UException(message, cause) {
+    type UmlE = E
+  }
+
+  class IllegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+  ( val e: E,
+    metaPropertyFunction: MPF)
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaPropertyFunction not applicable to ${e.xmiType.head}", None)
+
+  class IllegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
+  ( val e: E,
+    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}", None)
+
+  class UMLUpdateException[Uml <: UML, E <: UMLElement[Uml]]
+  (umlUpdate: UMLUpdate[Uml],
+   override val element: Iterable[E],
+   override val message: String,
+   override val cause: Option[java.lang.Throwable])
+  extends UElementException[Uml, E](element, message, cause)
 
   def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E])
-  : UException =
-    new IllegalElementError[Uml, E](message, element)
+  : UException with java.lang.Throwable  =
+    new IllegalElementException[Uml, E](element, message, None)
 
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
    cause: java.lang.Throwable)
-  : UException =
-    new IllegalElementException[Uml, E](message, element, cause)
+  : UException with java.lang.Throwable =
+    new IllegalElementException[Uml, E](element, message, Some(cause))
 
   def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,
@@ -148,5 +121,18 @@ object UMLError {
   : UException =
     new IllegalMetaAttributeEvaluation[Uml, E, U, DT](element, metaAttributeFunction)
 
+  def umlUpdateError[Uml <: UML, E <: UMLElement[Uml]]
+  (umlUpdate: UMLUpdate[Uml],
+   element: Iterable[E],
+   message: String)
+  : UException with java.lang.Throwable =
+    new UMLUpdateException[Uml, E](umlUpdate, element, message, None)
 
+  def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
+  (umlUpdate: UMLUpdate[Uml],
+   element: Iterable[E],
+   message: String,
+   cause: java.lang.Throwable)
+  : UException with java.lang.Throwable =
+    new UMLUpdateException[Uml, E](umlUpdate, element, message, Some(cause))
 }

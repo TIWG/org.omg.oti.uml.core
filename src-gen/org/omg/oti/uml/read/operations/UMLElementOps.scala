@@ -884,7 +884,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         UMLError
         .illegalElementError[Uml, UMLElement[Uml]](
           s"Cannot generate the OTI uuid for $self because it does not belong to a document",
-          Iterable[UMLElement[Uml]](self))
+          Iterable(self))
+        .asInstanceOf[UMLError.UException]
         .failureNel
     }
 
