@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.Iterable
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,6 +56,6 @@ class DestroyLinkActionUpdater[Uml <: UML](val domain: UMLDestroyLinkAction[Uml]
   def links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData
   (range: Iterable[UMLLinkEndDestructionData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData(domain, range)
 }

@@ -39,14 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.Predef.String
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -58,24 +56,24 @@ class PackageUpdater[Uml <: UML](val domain: UMLPackage[Uml]) extends AnyVal {
   def links_Package_receivingPackage_compose_packageMerge_PackageMerge
   (range: Set[UMLPackageMerge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Package_receivingPackage_compose_packageMerge_PackageMerge(domain, range)
 
   def links_Package_owningPackage_compose_packagedElement_PackageableElement
   (range: Set[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Package_owningPackage_compose_packagedElement_PackageableElement(domain, range)
 
   def links_Package_applyingPackage_compose_profileApplication_ProfileApplication
   (range: Set[UMLProfileApplication[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Package_applyingPackage_compose_profileApplication_ProfileApplication(domain, range)
 
   def setURI
   (URI: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_Package_URI(domain, URI)
 }

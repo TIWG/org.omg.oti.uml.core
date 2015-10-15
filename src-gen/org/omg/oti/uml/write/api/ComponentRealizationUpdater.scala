@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,6 +56,6 @@ class ComponentRealizationUpdater[Uml <: UML](val domain: UMLComponentRealizatio
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier(domain, range)
 }

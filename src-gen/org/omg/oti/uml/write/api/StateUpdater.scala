@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,60 +56,60 @@ class StateUpdater[Uml <: UML](val domain: UMLState[Uml]) extends AnyVal {
   def links_State_state_compose_connection_ConnectionPointReference
   (range: Set[UMLConnectionPointReference[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_connection_ConnectionPointReference(domain, range)
 
   def links_State_state_compose_connectionPoint_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_connectionPoint_Pseudostate(domain, range)
 
   def links_State_state_compose_deferrableTrigger_Trigger
   (range: Set[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_deferrableTrigger_Trigger(domain, range)
 
   def links_State_state_compose_doActivity_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_doActivity_Behavior(domain, range)
 
   def links_State_state_compose_entry_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_entry_Behavior(domain, range)
 
   def links_State_state_compose_exit_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_exit_Behavior(domain, range)
 
   def links_State_state_reference_redefinedState_State
   (range: Option[UMLState[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_reference_redefinedState_State(domain, range)
 
   def links_State_state_compose_region_Region
   (range: Set[UMLRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_state_compose_region_Region(domain, range)
 
   def links_State_owningState_compose_stateInvariant_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_owningState_compose_stateInvariant_Constraint(domain, range)
 
   def links_State_submachineState_reference_submachine_StateMachine
   (range: Option[UMLStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_State_submachineState_reference_submachine_StateMachine(domain, range)
 }

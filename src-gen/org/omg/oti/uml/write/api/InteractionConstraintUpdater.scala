@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class InteractionConstraintUpdater[Uml <: UML](val domain: UMLInteractionConstra
   def links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification(domain, range)
 
   def links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification(domain, range)
 }

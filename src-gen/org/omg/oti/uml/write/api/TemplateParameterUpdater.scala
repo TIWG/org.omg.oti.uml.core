@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -56,24 +56,24 @@ class TemplateParameterUpdater[Uml <: UML](val domain: UMLTemplateParameter[Uml]
   def links_TemplateParameter_templateParameter_reference_default_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateParameter_templateParameter_reference_default_ParameterableElement(domain, range)
 
   def links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement(domain, range)
 
   def links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement(domain, range)
 
   def links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement(domain, range)
 }

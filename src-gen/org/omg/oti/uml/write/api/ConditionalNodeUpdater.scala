@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,24 +56,24 @@ class ConditionalNodeUpdater[Uml <: UML](val domain: UMLConditionalNode[Uml]) ex
   def links_ConditionalNode_conditionalNode_compose_clause_Clause
   (range: Set[UMLClause[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ConditionalNode_conditionalNode_compose_clause_Clause(domain, range)
 
   def links_ConditionalNode_conditionalNode_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ConditionalNode_conditionalNode_compose_result_OutputPin(domain, range)
 
   def setIsAssured
   (isAssured: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ConditionalNode_isAssured(domain, isAssured)
 
   def setIsDeterminate
   (isDeterminate: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ConditionalNode_isDeterminate(domain, isDeterminate)
 }

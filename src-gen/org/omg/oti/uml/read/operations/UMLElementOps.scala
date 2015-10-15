@@ -86,8 +86,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
 	 */
-	def ownedComment: Set[UMLComment[Uml]] =
-    ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
+	def ownedComment: Set[UMLComment[Uml]] = ownedElement.selectByKindOf { case x: UMLComment[Uml] => x }
 
 	/**
 	 * The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.

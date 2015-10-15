@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class QualifierValueUpdater[Uml <: UML](val domain: UMLQualifierValue[Uml]) exte
   def links_QualifierValue_qualifierValue_reference_qualifier_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_QualifierValue_qualifierValue_reference_qualifier_Property(domain, range)
 
   def links_QualifierValue_qualifierValue_reference_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_QualifierValue_qualifierValue_reference_value_InputPin(domain, range)
 }

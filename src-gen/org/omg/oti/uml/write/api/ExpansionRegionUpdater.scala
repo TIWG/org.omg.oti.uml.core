@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,18 +56,18 @@ class ExpansionRegionUpdater[Uml <: UML](val domain: UMLExpansionRegion[Uml]) ex
   def links_ExpansionRegion_regionAsInput_reference_inputElement_ExpansionNode
   (range: Set[UMLExpansionNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ExpansionRegion_regionAsInput_reference_inputElement_ExpansionNode(domain, range)
 
   def links_ExpansionRegion_regionAsOutput_reference_outputElement_ExpansionNode
   (range: Set[UMLExpansionNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ExpansionRegion_regionAsOutput_reference_outputElement_ExpansionNode(domain, range)
 
   def setMode
   (mode: Option[UMLExpansionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ExpansionRegion_mode(domain, mode)
 }

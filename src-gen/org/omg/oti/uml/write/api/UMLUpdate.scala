@@ -39,11 +39,10 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
-
-import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
+// Start of user code for imports
+import org.omg.oti.uml._
 
 import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
 import scala.Predef.String

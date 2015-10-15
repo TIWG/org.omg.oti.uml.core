@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,18 +56,18 @@ class RegionUpdater[Uml <: UML](val domain: UMLRegion[Uml]) extends AnyVal {
   def links_Region_region_reference_extendedRegion_Region
   (range: Option[UMLRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Region_region_reference_extendedRegion_Region(domain, range)
 
   def links_Region_container_compose_subvertex_Vertex
   (range: Set[UMLVertex[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Region_container_compose_subvertex_Vertex(domain, range)
 
   def links_Region_container_compose_transition_Transition
   (range: Set[UMLTransition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Region_container_compose_transition_Transition(domain, range)
 }

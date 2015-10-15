@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,12 +56,12 @@ class TemplateBindingUpdater[Uml <: UML](val domain: UMLTemplateBinding[Uml]) ex
   def links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution
   (range: Set[UMLTemplateParameterSubstitution[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution(domain, range)
 
   def links_TemplateBinding_templateBinding_reference_signature_TemplateSignature
   (range: Option[UMLTemplateSignature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_TemplateBinding_templateBinding_reference_signature_TemplateSignature(domain, range)
 }

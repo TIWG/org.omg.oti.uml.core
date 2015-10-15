@@ -39,14 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.Iterable
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -58,12 +56,12 @@ class LinkActionUpdater[Uml <: UML](val domain: UMLLinkAction[Uml]) extends AnyV
   def links_LinkAction_linkAction_compose_endData_LinkEndData
   (range: Iterable[UMLLinkEndData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LinkAction_linkAction_compose_endData_LinkEndData(domain, range)
 
   def links_LinkAction_linkAction_compose_inputValue_InputPin
   (range: Set[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LinkAction_linkAction_compose_inputValue_InputPin(domain, range)
 }

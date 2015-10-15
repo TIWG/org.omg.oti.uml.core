@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Boolean,Option,Unit}
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,30 +56,30 @@ class ObjectNodeUpdater[Uml <: UML](val domain: UMLObjectNode[Uml]) extends AnyV
   def links_ObjectNode_objectNode_reference_inState_State
   (range: Set[UMLState[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ObjectNode_objectNode_reference_inState_State(domain, range)
 
   def links_ObjectNode_objectNode_reference_selection_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ObjectNode_objectNode_reference_selection_Behavior(domain, range)
 
   def links_ObjectNode_objectNode_compose_upperBound_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ObjectNode_objectNode_compose_upperBound_ValueSpecification(domain, range)
 
   def setIsControlType
   (isControlType: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ObjectNode_isControlType(domain, isControlType)
 
   def setOrdering
   (ordering: Option[UMLObjectNodeOrderingKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ObjectNode_ordering(domain, ordering)
 }

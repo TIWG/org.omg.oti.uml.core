@@ -1,0 +1,15 @@
+
+Mon Oct 12 16:14:03 PDT 2015
+================================================================================
+Start of user code for imports
+import org.omg.oti.uml.UMLError
+import org.omg.oti.uml.read.api._
+
+import scala.{AnyVal,Option,Unit}
+import scalaz._
+// End of user code
+
+Mon Oct 12 16:16:06 PDT 2015
+================================================================================
+Start of user code for imports2
+// End of user code

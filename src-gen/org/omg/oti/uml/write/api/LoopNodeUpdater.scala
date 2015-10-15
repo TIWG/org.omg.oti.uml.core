@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Boolean,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,54 +56,54 @@ class LoopNodeUpdater[Uml <: UML](val domain: UMLLoopNode[Uml]) extends AnyVal {
   def links_LoopNode_loopNode_reference_bodyOutput_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_reference_bodyOutput_OutputPin(domain, range)
 
   def links_LoopNode_loopNode_reference_bodyPart_ExecutableNode
   (range: Set[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_reference_bodyPart_ExecutableNode(domain, range)
 
   def links_LoopNode_loopNode_reference_decider_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_reference_decider_OutputPin(domain, range)
 
   def links_LoopNode_loopNode_compose_loopVariable_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_compose_loopVariable_OutputPin(domain, range)
 
   def links_LoopNode_loopNode_compose_loopVariableInput_InputPin
   (range: Seq[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_compose_loopVariableInput_InputPin(domain, range)
 
   def links_LoopNode_loopNode_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_compose_result_OutputPin(domain, range)
 
   def links_LoopNode_loopNode_reference_setupPart_ExecutableNode
   (range: Set[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_reference_setupPart_ExecutableNode(domain, range)
 
   def links_LoopNode_loopNode_reference_test_ExecutableNode
   (range: Set[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_LoopNode_loopNode_reference_test_ExecutableNode(domain, range)
 
   def setIsTestedFirst
   (isTestedFirst: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_LoopNode_isTestedFirst(domain, isTestedFirst)
 }

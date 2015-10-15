@@ -39,14 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.Iterable
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -58,12 +56,12 @@ class InteractionFragmentUpdater[Uml <: UML](val domain: UMLInteractionFragment[
   def links_InteractionFragment_coveredBy_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InteractionFragment_coveredBy_reference_covered_Lifeline(domain, range)
 
   def links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering(domain, range)
 }

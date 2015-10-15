@@ -39,14 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.collection.Iterable
-import scala.collection.immutable.Set
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -58,18 +56,18 @@ class InstanceSpecificationUpdater[Uml <: UML](val domain: UMLInstanceSpecificat
   def links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier
   (range: Iterable[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier(domain, range)
 
   def links_InstanceSpecification_owningInstance_compose_slot_Slot
   (range: Set[UMLSlot[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InstanceSpecification_owningInstance_compose_slot_Slot(domain, range)
 
   def links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification(domain, range)
 }

@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
 import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.Set
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,18 +56,18 @@ class ComponentUpdater[Uml <: UML](val domain: UMLComponent[Uml]) extends AnyVal
   def links_Component_component_compose_packagedElement_PackageableElement
   (range: Set[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Component_component_compose_packagedElement_PackageableElement(domain, range)
 
   def links_Component_abstraction_compose_realization_ComponentRealization
   (range: Set[UMLComponentRealization[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_Component_abstraction_compose_realization_ComponentRealization(domain, range)
 
   def setIsIndirectlyInstantiated
   (isIndirectlyInstantiated: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_Component_isIndirectlyInstantiated(domain, isIndirectlyInstantiated)
 }

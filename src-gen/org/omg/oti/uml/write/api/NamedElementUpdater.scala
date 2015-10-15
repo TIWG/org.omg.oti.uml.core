@@ -39,13 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Option,Unit}
-import scala.Predef.String
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -57,18 +56,18 @@ class NamedElementUpdater[Uml <: UML](val domain: UMLNamedElement[Uml]) extends 
   def links_NamedElement_namedElement_compose_nameExpression_StringExpression
   (range: Option[UMLStringExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_NamedElement_namedElement_compose_nameExpression_StringExpression(domain, range)
 
   def setName
   (name: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_NamedElement_name(domain, name)
 
   def setVisibility
   (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_NamedElement_visibility(domain, visibility)
 }

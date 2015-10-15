@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Boolean,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -56,18 +56,18 @@ class DestroyObjectActionUpdater[Uml <: UML](val domain: UMLDestroyObjectAction[
   def links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin(domain, range)
 
   def setIsDestroyLinks
   (isDestroyLinks: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_DestroyObjectAction_isDestroyLinks(domain, isDestroyLinks)
 
   def setIsDestroyOwnedObjects
   (isDestroyOwnedObjects: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_DestroyObjectAction_isDestroyOwnedObjects(domain, isDestroyOwnedObjects)
 }

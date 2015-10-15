@@ -39,14 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.immutable._
-import scala.collection.Iterable
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -58,18 +56,18 @@ class OccurrenceSpecificationUpdater[Uml <: UML](val domain: UMLOccurrenceSpecif
   def links_OccurrenceSpecification_events_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_OccurrenceSpecification_events_reference_covered_Lifeline(domain, range)
 
   def links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering(domain, range)
 
   def links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering
   (range: Set[UMLGeneralOrdering[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering(domain, range)
 }

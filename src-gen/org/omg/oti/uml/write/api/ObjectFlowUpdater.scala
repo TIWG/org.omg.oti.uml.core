@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
-// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Boolean,Option,Unit}
+import scala.{AnyVal,Boolean,Unit}
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
+// Start of user code for imports
 // End of user code
 
 /**
@@ -56,24 +56,24 @@ class ObjectFlowUpdater[Uml <: UML](val domain: UMLObjectFlow[Uml]) extends AnyV
   def links_ObjectFlow_objectFlow_reference_selection_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ObjectFlow_objectFlow_reference_selection_Behavior(domain, range)
 
   def links_ObjectFlow_objectFlow_reference_transformation_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.links_ObjectFlow_objectFlow_reference_transformation_Behavior(domain, range)
 
   def setIsMulticast
   (isMulticast: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ObjectFlow_isMulticast(domain, isMulticast)
 
   def setIsMultireceive
   (isMultireceive: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException,Unit] =
+  : ValidationNel[UMLError.UException, Unit] =
     umlU.set_ObjectFlow_isMultireceive(domain, isMultireceive)
 }
