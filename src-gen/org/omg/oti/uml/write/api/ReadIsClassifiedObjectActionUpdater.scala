@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,24 +56,24 @@ class ReadIsClassifiedObjectActionUpdater[Uml <: UML](val domain: UMLReadIsClass
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier(domain, range)
 
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin(domain, range)
 
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_result_OutputPin(domain, range)
 
   def setIsDirect
   (isDirect: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_ReadIsClassifiedObjectAction_isDirect(domain, isDirect)
 }

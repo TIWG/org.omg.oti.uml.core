@@ -39,12 +39,14 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.Predef.String
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +58,12 @@ class CommentUpdater[Uml <: UML](val domain: UMLComment[Uml]) extends AnyVal {
   def links_Comment_comment_reference_annotatedElement_Element
   (range: Set[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Comment_comment_reference_annotatedElement_Element(domain, range)
 
   def setBody
   (body: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Comment_body(domain, body)
 }

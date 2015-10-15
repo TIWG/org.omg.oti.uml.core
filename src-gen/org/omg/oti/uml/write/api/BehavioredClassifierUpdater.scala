@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,18 +57,18 @@ class BehavioredClassifierUpdater[Uml <: UML](val domain: UMLBehavioredClassifie
   def links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior(domain, range)
 
   def links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization
   (range: Set[UMLInterfaceRealization[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization(domain, range)
 
   def links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior
   (range: Set[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior(domain, range)
 }

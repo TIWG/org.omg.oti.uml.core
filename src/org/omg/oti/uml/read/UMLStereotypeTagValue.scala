@@ -155,7 +155,7 @@ trait UMLStereotypeTagValue[Uml <: UML] {
    */
   def serialize
   ( implicit xmiScopes: scala.xml.NamespaceBinding, idg: IDGenerator[Uml] )
-  : ValidationNel[UMLError.UException, Iterable[scala.xml.Elem]]
+  : \/[NonEmptyList[UMLError.UException], Iterable[scala.xml.Elem]]
 }
 
 /**

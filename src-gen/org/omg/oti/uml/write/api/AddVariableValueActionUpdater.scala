@@ -56,12 +56,12 @@ class AddVariableValueActionUpdater[Uml <: UML](val domain: UMLAddVariableValueA
   def links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.set_AddVariableValueAction_isReplaceAll(domain, isReplaceAll)
 }

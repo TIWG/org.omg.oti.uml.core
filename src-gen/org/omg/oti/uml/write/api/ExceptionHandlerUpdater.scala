@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,18 +57,18 @@ class ExceptionHandlerUpdater[Uml <: UML](val domain: UMLExceptionHandler[Uml]) 
   def links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode
   (range: Option[UMLObjectNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode(domain, range)
 
   def links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier(domain, range)
 
   def links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode
   (range: Option[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode(domain, range)
 }

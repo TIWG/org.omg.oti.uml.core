@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Unit}
+import scala.collection.immutable.Seq
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class StringExpressionUpdater[Uml <: UML](val domain: UMLStringExpression[Uml]) 
   def links_StringExpression_owningExpression_compose_subExpression_StringExpression
   (range: Seq[UMLStringExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StringExpression_owningExpression_compose_subExpression_StringExpression(domain, range)
 }

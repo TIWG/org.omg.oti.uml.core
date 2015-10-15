@@ -220,12 +220,12 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
+	: \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
     opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
 
   def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
-  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
-    (Set[UMLPackageableElement[Uml]](this) ++ behavior.toSet).successNel[UMLError.UException]
+  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+    (Set[UMLPackageableElement[Uml]](this) ++ behavior.toSet).right
 
   // End of user code
 } //UMLOpaqueExpressionOps

@@ -56,6 +56,6 @@ class AcceptCallActionUpdater[Uml <: UML](val domain: UMLAcceptCallAction[Uml]) 
   def links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin(domain, range)
 }

@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
+
+import scala.{AnyVal,Unit}
 import scala.collection.immutable.{Seq,Set}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class StructuredClassifierUpdater[Uml <: UML](val domain: UMLStructuredClassifie
   def links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property(domain, range)
 
   def links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector
   (range: Set[UMLConnector[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector(domain, range)
 }

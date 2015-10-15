@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Boolean,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,36 +57,36 @@ class ParameterUpdater[Uml <: UML](val domain: UMLParameter[Uml]) extends AnyVal
   def links_Parameter_owningParameter_compose_defaultValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Parameter_owningParameter_compose_defaultValue_ValueSpecification(domain, range)
 
   def links_Parameter_parameter_reference_parameterSet_ParameterSet
   (range: Set[UMLParameterSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Parameter_parameter_reference_parameterSet_ParameterSet(domain, range)
 
   def setDirection
   (direction: Option[UMLParameterDirectionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Parameter_direction(domain, direction)
 
   def setEffect
   (effect: Option[UMLParameterEffectKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Parameter_effect(domain, effect)
 
   def setIsException
   (isException: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Parameter_isException(domain, isException)
 
   def setIsStream
   (isStream: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Parameter_isStream(domain, isStream)
 }

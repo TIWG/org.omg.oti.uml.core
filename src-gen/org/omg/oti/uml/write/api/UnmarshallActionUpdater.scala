@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Seq
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,18 +57,18 @@ class UnmarshallActionUpdater[Uml <: UML](val domain: UMLUnmarshallAction[Uml]) 
   def links_UnmarshallAction_unmarshallAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_compose_object_InputPin(domain, range)
 
   def links_UnmarshallAction_unmarshallAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_compose_result_OutputPin(domain, range)
 
   def links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier(domain, range)
 }

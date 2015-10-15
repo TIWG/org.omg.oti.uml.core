@@ -51,7 +51,7 @@ import scala.collection.Iterable
 import scala.language.implicitConversions
 import scala.language.existentials
 import scala.reflect._
-import scalaz._, Scalaz._, Validation.FlatMap._
+import scalaz._, Scalaz._
 
 import java.lang.IllegalArgumentException
 import java.lang.Integer
@@ -74,12 +74,12 @@ import java.lang.Integer
  * For (1)
  * links_<metaclass1>_<end1>_compose_<end2>_<metaclass2>
  *   (from: <metaclass1>,
- *    to: <metaclass2TypeOrCollection>): ValidationNel[UMLError.UException, Unit]
+ *    to: <metaclass2TypeOrCollection>): \/[NonEmptyList[UMLError.UException], Unit]
  *
  * For (3)
  * links_<metaclass1>_<end1>_reference_<end2>_<metaclass2>
  *   (from: <metaclass1>,
- *    to: <metaclass2TypeOrCollection>): ValidationNel[UMLError.UException, Unit]
+ *    to: <metaclass2TypeOrCollection>): \/[NonEmptyList[UMLError.UException], Unit]
  *
  * This is done for all non-derived, non-abstract associations whose member ends have each an upper bound > 0
  *
@@ -110,7 +110,7 @@ import java.lang.Integer
  * of CMOF associations as part of the API for managing Class-owned association end properties.
  * 
  * set_<metaclass>_<dataProperty>
- *   (e: <metaclass>, value: <dataPropertyTypeOrCollection>): ValidationNel[UMLError.UException, Unit]
+ *   (e: <metaclass>, value: <dataPropertyTypeOrCollection>): \/[NonEmptyList[UMLError.UException], Unit]
  */
 trait UMLUpdate[Uml <: UML] {
 
@@ -118,626 +118,626 @@ trait UMLUpdate[Uml <: UML] {
 
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
   (from: UMLAbstraction[Uml],
-   to: Option[UMLOpaqueExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOpaqueExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin
   (from: UMLAcceptCallAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_AcceptEventAction_acceptEventAction_compose_result_OutputPin
   (from: UMLAcceptEventAction[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger
   (from: UMLAcceptEventAction[Uml],
-   to: Set[UMLTrigger[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTrigger[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_AcceptEventAction_isUnmarshall
-  (e: UMLAcceptEventAction[Uml], isUnmarshall: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLAcceptEventAction[Uml], isUnmarshall: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Action_action_compose_localPostcondition_Constraint
   (from: UMLAction[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Action_action_compose_localPrecondition_Constraint
   (from: UMLAction[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Action_isLocallyReentrant
-  (e: UMLAction[Uml], isLocallyReentrant: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLAction[Uml], isLocallyReentrant: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ActionExecutionSpecification_actionExecutionSpecification_reference_action_Action
   (from: UMLActionExecutionSpecification[Uml],
-   to: Option[UMLAction[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLAction[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ActionInputPin_actionInputPin_compose_fromAction_Action
   (from: UMLActionInputPin[Uml],
-   to: Option[UMLAction[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLAction[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Activity_activity_compose_edge_ActivityEdge
   (from: UMLActivity[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Activity_inActivity_compose_group_ActivityGroup
   (from: UMLActivity[Uml],
-   to: Set[UMLActivityGroup[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityGroup[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Activity_activity_compose_node_ActivityNode
   (from: UMLActivity[Uml],
-   to: Set[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Activity_activity_reference_partition_ActivityPartition
   (from: UMLActivity[Uml],
-   to: Set[UMLActivityPartition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityPartition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Activity_activity_compose_structuredNode_StructuredActivityNode
   (from: UMLActivity[Uml],
-   to: Set[UMLStructuredActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLStructuredActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Activity_activityScope_compose_variable_Variable
   (from: UMLActivity[Uml],
-   to: Set[UMLVariable[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLVariable[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Activity_isReadOnly
-  (e: UMLActivity[Uml], isReadOnly: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLActivity[Uml], isReadOnly: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Activity_isSingleExecution
-  (e: UMLActivity[Uml], isSingleExecution: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLActivity[Uml], isSingleExecution: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ActivityEdge_activityEdge_compose_guard_ValueSpecification
   (from: UMLActivityEdge[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_edge_reference_inPartition_ActivityPartition
   (from: UMLActivityEdge[Uml],
-   to: Set[UMLActivityPartition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityPartition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion
   (from: UMLActivityEdge[Uml],
-   to: Option[UMLInterruptibleActivityRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInterruptibleActivityRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge
   (from: UMLActivityEdge[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_outgoing_reference_source_ActivityNode
   (from: UMLActivityEdge[Uml],
-   to: Option[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_incoming_reference_target_ActivityNode
   (from: UMLActivityEdge[Uml],
-   to: Option[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityEdge_activityEdge_compose_weight_ValueSpecification
   (from: UMLActivityEdge[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion
   (from: UMLActivityNode[Uml],
-   to: Set[UMLInterruptibleActivityRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInterruptibleActivityRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityNode_node_reference_inPartition_ActivityPartition
   (from: UMLActivityNode[Uml],
-   to: Set[UMLActivityPartition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityPartition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityNode_target_reference_incoming_ActivityEdge
   (from: UMLActivityNode[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityNode_source_reference_outgoing_ActivityEdge
   (from: UMLActivityNode[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode
   (from: UMLActivityNode[Uml],
-   to: Set[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ActivityParameterNode_activityParameterNode_reference_parameter_Parameter
   (from: UMLActivityParameterNode[Uml],
-   to: Option[UMLParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ActivityPartition_inPartition_reference_edge_ActivityEdge
   (from: UMLActivityPartition[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityPartition_inPartition_reference_node_ActivityNode
   (from: UMLActivityPartition[Uml],
-   to: Set[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityPartition_activityPartition_reference_represents_Element
   (from: UMLActivityPartition[Uml],
-   to: Option[UMLElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition
   (from: UMLActivityPartition[Uml],
-   to: Set[UMLActivityPartition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityPartition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ActivityPartition_isDimension
-  (e: UMLActivityPartition[Uml], isDimension: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLActivityPartition[Uml], isDimension: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_ActivityPartition_isExternal
-  (e: UMLActivityPartition[Uml], isExternal: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLActivityPartition[Uml], isExternal: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin
   (from: UMLAddStructuralFeatureValueAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_AddStructuralFeatureValueAction_isReplaceAll
-  (e: UMLAddStructuralFeatureValueAction[Uml], isReplaceAll: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLAddStructuralFeatureValueAction[Uml], isReplaceAll: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin
   (from: UMLAddVariableValueAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_AddVariableValueAction_isReplaceAll
-  (e: UMLAddVariableValueAction[Uml], isReplaceAll: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLAddVariableValueAction[Uml], isReplaceAll: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Artifact_artifact_compose_manifestation_Manifestation
   (from: UMLArtifact[Uml],
-   to: Set[UMLManifestation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLManifestation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Artifact_artifact_compose_nestedArtifact_Artifact
   (from: UMLArtifact[Uml],
-   to: Set[UMLArtifact[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLArtifact[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Artifact_artifact_compose_ownedAttribute_Property
   (from: UMLArtifact[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Artifact_artifact_compose_ownedOperation_Operation
   (from: UMLArtifact[Uml],
-   to: Seq[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Artifact_fileName
-  (e: UMLArtifact[Uml], fileName: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLArtifact[Uml], fileName: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Association_association_reference_memberEnd_Property
   (from: UMLAssociation[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Association_association_reference_navigableOwnedEnd_Property
   (from: UMLAssociation[Uml],
-   to: Set[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Association_owningAssociation_compose_ownedEnd_Property
   (from: UMLAssociation[Uml],
-   to: Iterable[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Association_isDerived
-  (e: UMLAssociation[Uml], isDerived: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLAssociation[Uml], isDerived: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Behavior_behavior_compose_ownedParameter_Parameter
   (from: UMLBehavior[Uml],
-   to: Seq[UMLParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Behavior_behavior_compose_ownedParameterSet_ParameterSet
   (from: UMLBehavior[Uml],
-   to: Set[UMLParameterSet[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLParameterSet[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Behavior_behavior_compose_postcondition_Constraint
   (from: UMLBehavior[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Behavior_behavior_compose_precondition_Constraint
   (from: UMLBehavior[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Behavior_behavior_reference_redefinedBehavior_Behavior
   (from: UMLBehavior[Uml],
-   to: Set[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Behavior_method_reference_specification_BehavioralFeature
   (from: UMLBehavior[Uml],
-   to: Option[UMLBehavioralFeature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavioralFeature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Behavior_isReentrant
-  (e: UMLBehavior[Uml], isReentrant: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLBehavior[Uml], isReentrant: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_BehaviorExecutionSpecification_behaviorExecutionSpecification_reference_behavior_Behavior
   (from: UMLBehaviorExecutionSpecification[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_BehavioralFeature_specification_reference_method_Behavior
   (from: UMLBehavioralFeature[Uml],
-   to: Set[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter
   (from: UMLBehavioralFeature[Uml],
-   to: Seq[UMLParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet
   (from: UMLBehavioralFeature[Uml],
-   to: Set[UMLParameterSet[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLParameterSet[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_BehavioralFeature_behavioralFeature_reference_raisedException_Type
   (from: UMLBehavioralFeature[Uml],
-   to: Set[UMLType[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLType[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_BehavioralFeature_concurrency
-  (e: UMLBehavioralFeature[Uml], concurrency: Option[UMLCallConcurrencyKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLBehavioralFeature[Uml], concurrency: Option[UMLCallConcurrencyKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_BehavioralFeature_isAbstract
-  (e: UMLBehavioralFeature[Uml], isAbstract: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLBehavioralFeature[Uml], isAbstract: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior
   (from: UMLBehavioredClassifier[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization
   (from: UMLBehavioredClassifier[Uml],
-   to: Set[UMLInterfaceRealization[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInterfaceRealization[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior
   (from: UMLBehavioredClassifier[Uml],
-   to: Set[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_BroadcastSignalAction_broadcastSignalAction_reference_signal_Signal
   (from: UMLBroadcastSignalAction[Uml],
-   to: Option[UMLSignal[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLSignal[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CallAction_callAction_compose_result_OutputPin
   (from: UMLCallAction[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_CallAction_isSynchronous
-  (e: UMLCallAction[Uml], isSynchronous: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLCallAction[Uml], isSynchronous: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CallBehaviorAction_callBehaviorAction_reference_behavior_Behavior
   (from: UMLCallBehaviorAction[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CallEvent_callEvent_reference_operation_Operation
   (from: UMLCallEvent[Uml],
-   to: Option[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CallOperationAction_callOperationAction_reference_operation_Operation
   (from: UMLCallOperationAction[Uml],
-   to: Option[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_CallOperationAction_callOperationAction_compose_target_InputPin
   (from: UMLCallOperationAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_ChangeEvent_changeEvent_compose_changeExpression_ValueSpecification
   (from: UMLChangeEvent[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Class_nestingClass_compose_nestedClassifier_Classifier
   (from: UMLClass[Uml],
-   to: Seq[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Class_class_compose_ownedAttribute_Property
   (from: UMLClass[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Class_class_compose_ownedOperation_Operation
   (from: UMLClass[Uml],
-   to: Seq[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Class_class_compose_ownedReception_Reception
   (from: UMLClass[Uml],
-   to: Set[UMLReception[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLReception[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Class_isAbstract
-  (e: UMLClass[Uml], isAbstract: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLClass[Uml], isAbstract: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Class_isActive
-  (e: UMLClass[Uml], isActive: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLClass[Uml], isActive: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Classifier_classifier_compose_collaborationUse_CollaborationUse
   (from: UMLClassifier[Uml],
-   to: Set[UMLCollaborationUse[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLCollaborationUse[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_specific_compose_generalization_Generalization
   (from: UMLClassifier[Uml],
-   to: Set[UMLGeneralization[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralization[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_classifier_compose_ownedTemplateSignature_RedefinableTemplateSignature
   (from: UMLClassifier[Uml],
-   to: Option[UMLRedefinableTemplateSignature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLRedefinableTemplateSignature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_classifier_compose_ownedUseCase_UseCase
   (from: UMLClassifier[Uml],
-   to: Set[UMLUseCase[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLUseCase[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet
   (from: UMLClassifier[Uml],
-   to: Set[UMLGeneralizationSet[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralizationSet[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_classifier_reference_redefinedClassifier_Classifier
   (from: UMLClassifier[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_classifier_reference_representation_CollaborationUse
   (from: UMLClassifier[Uml],
-   to: Option[UMLCollaborationUse[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLCollaborationUse[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_substitutingClassifier_compose_substitution_Substitution
   (from: UMLClassifier[Uml],
-   to: Set[UMLSubstitution[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLSubstitution[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter
   (from: UMLClassifier[Uml],
-   to: Option[UMLClassifierTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifierTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Classifier_subject_reference_useCase_UseCase
   (from: UMLClassifier[Uml],
-   to: Set[UMLUseCase[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLUseCase[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Classifier_isAbstract
-  (e: UMLClassifier[Uml], isAbstract: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLClassifier[Uml], isAbstract: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Classifier_isFinalSpecialization
-  (e: UMLClassifier[Uml], isFinalSpecialization: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLClassifier[Uml], isFinalSpecialization: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier
   (from: UMLClassifierTemplateParameter[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier
   (from: UMLClassifierTemplateParameter[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ClassifierTemplateParameter_allowSubstitutable
-  (e: UMLClassifierTemplateParameter[Uml], allowSubstitutable: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLClassifierTemplateParameter[Uml], allowSubstitutable: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Clause_clause_reference_body_ExecutableNode
   (from: UMLClause[Uml],
-   to: Set[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Clause_clause_reference_bodyOutput_OutputPin
   (from: UMLClause[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Clause_clause_reference_decider_OutputPin
   (from: UMLClause[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Clause_successorClause_reference_predecessorClause_Clause
   (from: UMLClause[Uml],
-   to: Set[UMLClause[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClause[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Clause_predecessorClause_reference_successorClause_Clause
   (from: UMLClause[Uml],
-   to: Set[UMLClause[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClause[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Clause_clause_reference_test_ExecutableNode
   (from: UMLClause[Uml],
-   to: Set[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ClearAssociationAction_clearAssociationAction_reference_association_Association
   (from: UMLClearAssociationAction[Uml],
-   to: Option[UMLAssociation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLAssociation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin
   (from: UMLClearAssociationAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ClearStructuralFeatureAction_clearStructuralFeatureAction_compose_result_OutputPin
   (from: UMLClearStructuralFeatureAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement
   (from: UMLCollaboration[Uml],
-   to: Set[UMLConnectableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConnectableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency
   (from: UMLCollaborationUse[Uml],
-   to: Set[UMLDependency[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLDependency[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_CollaborationUse_collaborationUse_reference_type_Collaboration
   (from: UMLCollaborationUse[Uml],
-   to: Option[UMLCollaboration[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLCollaboration[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CombinedFragment_combinedFragment_compose_cfragmentGate_Gate
   (from: UMLCombinedFragment[Uml],
-   to: Set[UMLGate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand
   (from: UMLCombinedFragment[Uml],
-   to: Seq[UMLInteractionOperand[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInteractionOperand[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_CombinedFragment_interactionOperator
-  (e: UMLCombinedFragment[Uml], interactionOperator: Option[UMLInteractionOperatorKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLCombinedFragment[Uml], interactionOperator: Option[UMLInteractionOperatorKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Comment_comment_reference_annotatedElement_Element
   (from: UMLComment[Uml],
-   to: Set[UMLElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Comment_body
-  (e: UMLComment[Uml], body: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLComment[Uml], body: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Component_component_compose_packagedElement_PackageableElement
   (from: UMLComponent[Uml],
-   to: Set[UMLPackageableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPackageableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Component_abstraction_compose_realization_ComponentRealization
   (from: UMLComponent[Uml],
-   to: Set[UMLComponentRealization[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLComponentRealization[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Component_isIndirectlyInstantiated
-  (e: UMLComponent[Uml], isIndirectlyInstantiated: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLComponent[Uml], isIndirectlyInstantiated: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (from: UMLComponentRealization[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConditionalNode_conditionalNode_compose_clause_Clause
   (from: UMLConditionalNode[Uml],
-   to: Set[UMLClause[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClause[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ConditionalNode_conditionalNode_compose_result_OutputPin
   (from: UMLConditionalNode[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ConditionalNode_isAssured
-  (e: UMLConditionalNode[Uml], isAssured: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLConditionalNode[Uml], isAssured: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_ConditionalNode_isDeterminate
-  (e: UMLConditionalNode[Uml], isDeterminate: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLConditionalNode[Uml], isDeterminate: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter
   (from: UMLConnectableElement[Uml],
-   to: Option[UMLConnectableElementTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConnectableElementTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConnectableElementTemplateParameter_templateParameter_reference_parameteredElement_ConnectableElement
   (from: UMLConnectableElementTemplateParameter[Uml],
-   to: Option[UMLConnectableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConnectableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate
   (from: UMLConnectionPointReference[Uml],
-   to: Set[UMLPseudostate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPseudostate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate
   (from: UMLConnectionPointReference[Uml],
-   to: Set[UMLPseudostate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPseudostate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Connector_connector_reference_contract_Behavior
   (from: UMLConnector[Uml],
-   to: Set[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Connector_connector_compose_end_ConnectorEnd
   (from: UMLConnector[Uml],
-   to: Seq[UMLConnectorEnd[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLConnectorEnd[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Connector_connector_reference_redefinedConnector_Connector
   (from: UMLConnector[Uml],
-   to: Set[UMLConnector[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConnector[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Connector_connector_reference_type_Association
   (from: UMLConnector[Uml],
-   to: Option[UMLAssociation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLAssociation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConnectorEnd_connectorEnd_reference_partWithPort_Property
   (from: UMLConnectorEnd[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement
   (from: UMLConsiderIgnoreFragment[Uml],
-   to: Set[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Constraint_constraint_reference_constrainedElement_Element
   (from: UMLConstraint[Uml],
-   to: Seq[UMLElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Constraint_owningConstraint_compose_specification_ValueSpecification
   (from: UMLConstraint[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Continuation_setting
-  (e: UMLContinuation[Uml], setting: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLContinuation[Uml], setting: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData
   (from: UMLCreateLinkAction[Uml],
-   to: Iterable[UMLLinkEndCreationData[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLinkEndCreationData[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CreateLinkObjectAction_createLinkObjectAction_compose_result_OutputPin
   (from: UMLCreateLinkObjectAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_CreateObjectAction_createObjectAction_reference_classifier_Classifier
   (from: UMLCreateObjectAction[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_CreateObjectAction_createObjectAction_compose_result_OutputPin
   (from: UMLCreateObjectAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_DataType_datatype_compose_ownedAttribute_Property
   (from: UMLDataType[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_DataType_datatype_compose_ownedOperation_Operation
   (from: UMLDataType[Uml],
-   to: Seq[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DecisionNode_decisionNode_reference_decisionInput_Behavior
   (from: UMLDecisionNode[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_DecisionNode_decisionNode_reference_decisionInputFlow_ObjectFlow
   (from: UMLDecisionNode[Uml],
-   to: Option[UMLObjectFlow[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLObjectFlow[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Dependency_supplierDependency_reference_supplier_NamedElement
   (from: UMLDependency[Uml],
-   to: Set[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Deployment_deployment_compose_configuration_DeploymentSpecification
   (from: UMLDeployment[Uml],
-   to: Set[UMLDeploymentSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLDeploymentSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact
   (from: UMLDeployment[Uml],
-   to: Set[UMLDeployedArtifact[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLDeployedArtifact[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_DeploymentSpecification_deploymentLocation
-  (e: UMLDeploymentSpecification[Uml], deploymentLocation: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDeploymentSpecification[Uml], deploymentLocation: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_DeploymentSpecification_executionLocation
-  (e: UMLDeploymentSpecification[Uml], executionLocation: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDeploymentSpecification[Uml], executionLocation: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DeploymentTarget_location_compose_deployment_Deployment
   (from: UMLDeploymentTarget[Uml],
-   to: Set[UMLDeployment[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLDeployment[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData
   (from: UMLDestroyLinkAction[Uml],
-   to: Iterable[UMLLinkEndDestructionData[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLinkEndDestructionData[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin
   (from: UMLDestroyObjectAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_DestroyObjectAction_isDestroyLinks
-  (e: UMLDestroyObjectAction[Uml], isDestroyLinks: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDestroyObjectAction[Uml], isDestroyLinks: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_DestroyObjectAction_isDestroyOwnedObjects
-  (e: UMLDestroyObjectAction[Uml], isDestroyOwnedObjects: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDestroyObjectAction[Uml], isDestroyOwnedObjects: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
 
   def links_Duration_duration_compose_expr_ValueSpecification
   (from: UMLDuration[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Duration_duration_reference_observation_Observation
   (from: UMLDuration[Uml],
-   to: Set[UMLObservation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLObservation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DurationConstraint_durationConstraint_compose_specification_DurationInterval
   (from: UMLDurationConstraint[Uml],
-   to: Option[UMLDurationInterval[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLDurationInterval[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_DurationConstraint_firstEvent
-  (e: UMLDurationConstraint[Uml], firstEvent: Set[Boolean]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDurationConstraint[Uml], firstEvent: Set[Boolean]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DurationInterval_durationInterval_reference_max_Duration
   (from: UMLDurationInterval[Uml],
-   to: Option[UMLDuration[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLDuration[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_DurationInterval_durationInterval_reference_min_Duration
   (from: UMLDurationInterval[Uml],
-   to: Option[UMLDuration[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLDuration[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_DurationObservation_durationObservation_reference_event_NamedElement
   (from: UMLDurationObservation[Uml],
-   to: Seq[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_DurationObservation_firstEvent
-  (e: UMLDurationObservation[Uml], firstEvent: Seq[Boolean]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLDurationObservation[Uml], firstEvent: Seq[Boolean]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Element_owningElement_compose_ownedComment_Comment
   (from: UMLElement[Uml],
-   to: Set[UMLComment[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLComment[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ElementImport_import_reference_importedElement_PackageableElement
   (from: UMLElementImport[Uml],
-   to: Option[UMLPackageableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPackageableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ElementImport_alias
-  (e: UMLElementImport[Uml], alias: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLElementImport[Uml], alias: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_ElementImport_visibility
-  (e: UMLElementImport[Uml], visibility: Option[UMLVisibilityKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLElementImport[Uml], visibility: Option[UMLVisibilityKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral
   (from: UMLEnumeration[Uml],
-   to: Seq[UMLEnumerationLiteral[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLEnumerationLiteral[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode
   (from: UMLExceptionHandler[Uml],
-   to: Option[UMLObjectNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLObjectNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier
   (from: UMLExceptionHandler[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode
   (from: UMLExceptionHandler[Uml],
-   to: Option[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler
   (from: UMLExecutableNode[Uml],
-   to: Set[UMLExceptionHandler[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExceptionHandler[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_ExecutionOccurrenceSpecification_executionOccurrenceSpecification_reference_execution_ExecutionSpecification
   (from: UMLExecutionOccurrenceSpecification[Uml],
-   to: Option[UMLExecutionSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLExecutionSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification
   (from: UMLExecutionSpecification[Uml],
-   to: Option[UMLOccurrenceSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOccurrenceSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification
   (from: UMLExecutionSpecification[Uml],
-   to: Option[UMLOccurrenceSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOccurrenceSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion
   (from: UMLExpansionNode[Uml],
-   to: Option[UMLExpansionRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLExpansionRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion
   (from: UMLExpansionNode[Uml],
-   to: Option[UMLExpansionRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLExpansionRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ExpansionRegion_regionAsInput_reference_inputElement_ExpansionNode
   (from: UMLExpansionRegion[Uml],
-   to: Set[UMLExpansionNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExpansionNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ExpansionRegion_regionAsOutput_reference_outputElement_ExpansionNode
   (from: UMLExpansionRegion[Uml],
-   to: Set[UMLExpansionNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExpansionNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ExpansionRegion_mode
-  (e: UMLExpansionRegion[Uml], mode: Option[UMLExpansionKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLExpansionRegion[Uml], mode: Option[UMLExpansionKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Expression_expression_compose_operand_ValueSpecification
   (from: UMLExpression[Uml],
-   to: Seq[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Expression_symbol
-  (e: UMLExpression[Uml], symbol: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLExpression[Uml], symbol: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Extend_extend_compose_condition_Constraint
   (from: UMLExtend[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Extend_extend_reference_extendedCase_UseCase
   (from: UMLExtend[Uml],
-   to: Option[UMLUseCase[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLUseCase[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Extend_extension_reference_extensionLocation_ExtensionPoint
   (from: UMLExtend[Uml],
-   to: Seq[UMLExtensionPoint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLExtensionPoint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Extension_extension_compose_ownedEnd_ExtensionEnd
   (from: UMLExtension[Uml],
-   to: Iterable[UMLExtensionEnd[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLExtensionEnd[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ExtensionEnd_extensionEnd_reference_type_Stereotype
   (from: UMLExtensionEnd[Uml],
-   to: Option[UMLStereotype[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLStereotype[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def set_Feature_isStatic
-  (e: UMLFeature[Uml], isStatic: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLFeature[Uml], isStatic: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
@@ -747,1013 +747,1013 @@ trait UMLUpdate[Uml <: UML] {
 
   def links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification
   (from: UMLGeneralOrdering[Uml],
-   to: Option[UMLOccurrenceSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOccurrenceSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification
   (from: UMLGeneralOrdering[Uml],
-   to: Option[UMLOccurrenceSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOccurrenceSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Generalization_generalization_reference_general_Classifier
   (from: UMLGeneralization[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Generalization_generalization_reference_generalizationSet_GeneralizationSet
   (from: UMLGeneralization[Uml],
-   to: Set[UMLGeneralizationSet[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralizationSet[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Generalization_isSubstitutable
-  (e: UMLGeneralization[Uml], isSubstitutable: Option[Boolean]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLGeneralization[Uml], isSubstitutable: Option[Boolean]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_GeneralizationSet_generalizationSet_reference_generalization_Generalization
   (from: UMLGeneralizationSet[Uml],
-   to: Set[UMLGeneralization[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralization[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_GeneralizationSet_powertypeExtent_reference_powertype_Classifier
   (from: UMLGeneralizationSet[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_GeneralizationSet_isCovering
-  (e: UMLGeneralizationSet[Uml], isCovering: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLGeneralizationSet[Uml], isCovering: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_GeneralizationSet_isDisjoint
-  (e: UMLGeneralizationSet[Uml], isDisjoint: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLGeneralizationSet[Uml], isDisjoint: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Image_content
-  (e: UMLImage[Uml], content: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLImage[Uml], content: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Image_format
-  (e: UMLImage[Uml], format: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLImage[Uml], format: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Image_location
-  (e: UMLImage[Uml], location: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLImage[Uml], location: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Include_include_reference_addition_UseCase
   (from: UMLInclude[Uml],
-   to: Option[UMLUseCase[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLUseCase[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InformationFlow_conveyingFlow_reference_conveyed_Classifier
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_informationFlow_reference_informationSource_NamedElement
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_informationFlow_reference_informationTarget_NamedElement
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_abstraction_reference_realization_Relationship
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLRelationship[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLRelationship[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_informationFlow_reference_realizingActivityEdge_ActivityEdge
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_informationFlow_reference_realizingConnector_Connector
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLConnector[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConnector[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InformationFlow_informationFlow_reference_realizingMessage_Message
   (from: UMLInformationFlow[Uml],
-   to: Set[UMLMessage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLMessage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InformationItem_representation_reference_represented_Classifier
   (from: UMLInformationItem[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier
   (from: UMLInstanceSpecification[Uml],
-   to: Iterable[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InstanceSpecification_owningInstance_compose_slot_Slot
   (from: UMLInstanceSpecification[Uml],
-   to: Set[UMLSlot[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLSlot[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification
   (from: UMLInstanceSpecification[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InstanceValue_instanceValue_reference_instance_InstanceSpecification
   (from: UMLInstanceValue[Uml],
-   to: Option[UMLInstanceSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInstanceSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Interaction_interaction_compose_action_Action
   (from: UMLInteraction[Uml],
-   to: Set[UMLAction[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLAction[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interaction_interaction_compose_formalGate_Gate
   (from: UMLInteraction[Uml],
-   to: Set[UMLGate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interaction_enclosingInteraction_compose_fragment_InteractionFragment
   (from: UMLInteraction[Uml],
-   to: Seq[UMLInteractionFragment[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInteractionFragment[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interaction_interaction_compose_lifeline_Lifeline
   (from: UMLInteraction[Uml],
-   to: Set[UMLLifeline[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLLifeline[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interaction_interaction_compose_message_Message
   (from: UMLInteraction[Uml],
-   to: Set[UMLMessage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLMessage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InteractionConstraint_interactionConstraint_compose_maxint_ValueSpecification
   (from: UMLInteractionConstraint[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionConstraint_interactionConstraint_compose_minint_ValueSpecification
   (from: UMLInteractionConstraint[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InteractionFragment_coveredBy_reference_covered_Lifeline
   (from: UMLInteractionFragment[Uml],
-   to: Iterable[UMLLifeline[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLifeline[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering
   (from: UMLInteractionFragment[Uml],
-   to: Set[UMLGeneralOrdering[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralOrdering[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InteractionOperand_enclosingOperand_compose_fragment_InteractionFragment
   (from: UMLInteractionOperand[Uml],
-   to: Seq[UMLInteractionFragment[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInteractionFragment[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionOperand_interactionOperand_compose_guard_InteractionConstraint
   (from: UMLInteractionOperand[Uml],
-   to: Option[UMLInteractionConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInteractionConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InteractionUse_interactionUse_compose_actualGate_Gate
   (from: UMLInteractionUse[Uml],
-   to: Set[UMLGate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionUse_interactionUse_compose_argument_ValueSpecification
   (from: UMLInteractionUse[Uml],
-   to: Seq[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionUse_interactionUse_reference_refersTo_Interaction
   (from: UMLInteractionUse[Uml],
-   to: Option[UMLInteraction[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInteraction[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification
   (from: UMLInteractionUse[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InteractionUse_interactionUse_reference_returnValueRecipient_Property
   (from: UMLInteractionUse[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Interface_interface_compose_nestedClassifier_Classifier
   (from: UMLInterface[Uml],
-   to: Seq[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interface_interface_compose_ownedAttribute_Property
   (from: UMLInterface[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interface_interface_compose_ownedOperation_Operation
   (from: UMLInterface[Uml],
-   to: Seq[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interface_interface_compose_ownedReception_Reception
   (from: UMLInterface[Uml],
-   to: Set[UMLReception[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLReception[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interface_interface_compose_protocol_ProtocolStateMachine
   (from: UMLInterface[Uml],
-   to: Option[UMLProtocolStateMachine[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProtocolStateMachine[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interface_interface_reference_redefinedInterface_Interface
   (from: UMLInterface[Uml],
-   to: Set[UMLInterface[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInterface[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InterfaceRealization_interfaceRealization_reference_contract_Interface
   (from: UMLInterfaceRealization[Uml],
-   to: Option[UMLInterface[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInterface[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge
   (from: UMLInterruptibleActivityRegion[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InterruptibleActivityRegion_inInterruptibleRegion_reference_node_ActivityNode
   (from: UMLInterruptibleActivityRegion[Uml],
-   to: Set[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Interval_interval_reference_max_ValueSpecification
   (from: UMLInterval[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Interval_interval_reference_min_ValueSpecification
   (from: UMLInterval[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_IntervalConstraint_intervalConstraint_compose_specification_Interval
   (from: UMLIntervalConstraint[Uml],
-   to: Option[UMLInterval[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInterval[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_InvocationAction_invocationAction_compose_argument_InputPin
   (from: UMLInvocationAction[Uml],
-   to: Seq[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_InvocationAction_invocationAction_reference_onPort_Port
   (from: UMLInvocationAction[Uml],
-   to: Option[UMLPort[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPort[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_JoinNode_joinNode_compose_joinSpec_ValueSpecification
   (from: UMLJoinNode[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_JoinNode_isCombineDuplicate
-  (e: UMLJoinNode[Uml], isCombineDuplicate: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLJoinNode[Uml], isCombineDuplicate: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Lifeline_covered_reference_coveredBy_InteractionFragment
   (from: UMLLifeline[Uml],
-   to: Set[UMLInteractionFragment[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInteractionFragment[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition
   (from: UMLLifeline[Uml],
-   to: Option[UMLPartDecomposition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPartDecomposition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Lifeline_lifeline_reference_represents_ConnectableElement
   (from: UMLLifeline[Uml],
-   to: Option[UMLConnectableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConnectableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Lifeline_lifeline_compose_selector_ValueSpecification
   (from: UMLLifeline[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_LinkAction_linkAction_compose_endData_LinkEndData
   (from: UMLLinkAction[Uml],
-   to: Iterable[UMLLinkEndData[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLinkEndData[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LinkAction_linkAction_compose_inputValue_InputPin
   (from: UMLLinkAction[Uml],
-   to: Set[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin
   (from: UMLLinkEndCreationData[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_LinkEndCreationData_isReplaceAll
-  (e: UMLLinkEndCreationData[Uml], isReplaceAll: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLinkEndCreationData[Uml], isReplaceAll: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_LinkEndData_linkEndData_reference_end_Property
   (from: UMLLinkEndData[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LinkEndData_linkEndData_compose_qualifier_QualifierValue
   (from: UMLLinkEndData[Uml],
-   to: Set[UMLQualifierValue[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLQualifierValue[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LinkEndData_linkEndData_reference_value_InputPin
   (from: UMLLinkEndData[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin
   (from: UMLLinkEndDestructionData[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_LinkEndDestructionData_isDestroyDuplicates
-  (e: UMLLinkEndDestructionData[Uml], isDestroyDuplicates: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLinkEndDestructionData[Uml], isDestroyDuplicates: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_LiteralBoolean_value
-  (e: UMLLiteralBoolean[Uml], value: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLiteralBoolean[Uml], value: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_LiteralInteger_value
-  (e: UMLLiteralInteger[Uml], value: Integer): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLiteralInteger[Uml], value: Integer): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def set_LiteralReal_value
-  (e: UMLLiteralReal[Uml], value: Double): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLiteralReal[Uml], value: Double): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def set_LiteralString_value
-  (e: UMLLiteralString[Uml], value: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLiteralString[Uml], value: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_LiteralUnlimitedNatural_value
-  (e: UMLLiteralUnlimitedNatural[Uml], value: String): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLiteralUnlimitedNatural[Uml], value: String): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_LoopNode_loopNode_reference_bodyOutput_OutputPin
   (from: UMLLoopNode[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_reference_bodyPart_ExecutableNode
   (from: UMLLoopNode[Uml],
-   to: Set[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_reference_decider_OutputPin
   (from: UMLLoopNode[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_compose_loopVariable_OutputPin
   (from: UMLLoopNode[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_compose_loopVariableInput_InputPin
   (from: UMLLoopNode[Uml],
-   to: Seq[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_compose_result_OutputPin
   (from: UMLLoopNode[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_reference_setupPart_ExecutableNode
   (from: UMLLoopNode[Uml],
-   to: Set[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_LoopNode_loopNode_reference_test_ExecutableNode
   (from: UMLLoopNode[Uml],
-   to: Set[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_LoopNode_isTestedFirst
-  (e: UMLLoopNode[Uml], isTestedFirst: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLLoopNode[Uml], isTestedFirst: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Manifestation_manifestation_reference_utilizedElement_PackageableElement
   (from: UMLManifestation[Uml],
-   to: Option[UMLPackageableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPackageableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Message_message_compose_argument_ValueSpecification
   (from: UMLMessage[Uml],
-   to: Seq[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Message_message_reference_connector_Connector
   (from: UMLMessage[Uml],
-   to: Option[UMLConnector[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConnector[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Message_endMessage_reference_receiveEvent_MessageEnd
   (from: UMLMessage[Uml],
-   to: Option[UMLMessageEnd[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLMessageEnd[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Message_endMessage_reference_sendEvent_MessageEnd
   (from: UMLMessage[Uml],
-   to: Option[UMLMessageEnd[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLMessageEnd[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Message_message_reference_signature_NamedElement
   (from: UMLMessage[Uml],
-   to: Option[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Message_messageSort
-  (e: UMLMessage[Uml], messageSort: Option[UMLMessageSort.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLMessage[Uml], messageSort: Option[UMLMessageSort.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_MessageEnd_messageEnd_reference_message_Message
   (from: UMLMessageEnd[Uml],
-   to: Option[UMLMessage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLMessage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def set_Model_viewpoint
-  (e: UMLModel[Uml], viewpoint: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLModel[Uml], viewpoint: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification
   (from: UMLMultiplicityElement[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification
   (from: UMLMultiplicityElement[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_MultiplicityElement_isOrdered
-  (e: UMLMultiplicityElement[Uml], isOrdered: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLMultiplicityElement[Uml], isOrdered: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_MultiplicityElement_isUnique
-  (e: UMLMultiplicityElement[Uml], isUnique: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLMultiplicityElement[Uml], isUnique: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_NamedElement_namedElement_compose_nameExpression_StringExpression
   (from: UMLNamedElement[Uml],
-   to: Option[UMLStringExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLStringExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_NamedElement_name
-  (e: UMLNamedElement[Uml], name: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLNamedElement[Uml], name: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_NamedElement_visibility
-  (e: UMLNamedElement[Uml], visibility: Option[UMLVisibilityKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLNamedElement[Uml], visibility: Option[UMLVisibilityKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Namespace_importingNamespace_compose_elementImport_ElementImport
   (from: UMLNamespace[Uml],
-   to: Set[UMLElementImport[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLElementImport[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Namespace_context_compose_ownedRule_Constraint
   (from: UMLNamespace[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Namespace_importingNamespace_compose_packageImport_PackageImport
   (from: UMLNamespace[Uml],
-   to: Set[UMLPackageImport[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPackageImport[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Node_node_compose_nestedNode_Node
   (from: UMLNode[Uml],
-   to: Set[UMLNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ObjectFlow_objectFlow_reference_selection_Behavior
   (from: UMLObjectFlow[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ObjectFlow_objectFlow_reference_transformation_Behavior
   (from: UMLObjectFlow[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ObjectFlow_isMulticast
-  (e: UMLObjectFlow[Uml], isMulticast: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLObjectFlow[Uml], isMulticast: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_ObjectFlow_isMultireceive
-  (e: UMLObjectFlow[Uml], isMultireceive: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLObjectFlow[Uml], isMultireceive: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ObjectNode_objectNode_reference_inState_State
   (from: UMLObjectNode[Uml],
-   to: Set[UMLState[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLState[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ObjectNode_objectNode_reference_selection_Behavior
   (from: UMLObjectNode[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ObjectNode_objectNode_compose_upperBound_ValueSpecification
   (from: UMLObjectNode[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ObjectNode_isControlType
-  (e: UMLObjectNode[Uml], isControlType: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLObjectNode[Uml], isControlType: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_ObjectNode_ordering
-  (e: UMLObjectNode[Uml], ordering: Option[UMLObjectNodeOrderingKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLObjectNode[Uml], ordering: Option[UMLObjectNodeOrderingKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_OccurrenceSpecification_events_reference_covered_Lifeline
   (from: UMLOccurrenceSpecification[Uml],
-   to: Iterable[UMLLifeline[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLifeline[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering
   (from: UMLOccurrenceSpecification[Uml],
-   to: Set[UMLGeneralOrdering[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralOrdering[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering
   (from: UMLOccurrenceSpecification[Uml],
-   to: Set[UMLGeneralOrdering[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLGeneralOrdering[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_OpaqueAction_opaqueAction_compose_inputValue_InputPin
   (from: UMLOpaqueAction[Uml],
-   to: Set[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_OpaqueAction_opaqueAction_compose_outputValue_OutputPin
   (from: UMLOpaqueAction[Uml],
-   to: Set[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_OpaqueAction_body
-  (e: UMLOpaqueAction[Uml], body: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueAction[Uml], body: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_OpaqueAction_language
-  (e: UMLOpaqueAction[Uml], language: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueAction[Uml], language: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_OpaqueBehavior_body
-  (e: UMLOpaqueBehavior[Uml], body: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueBehavior[Uml], body: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_OpaqueBehavior_language
-  (e: UMLOpaqueBehavior[Uml], language: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueBehavior[Uml], language: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior
   (from: UMLOpaqueExpression[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_OpaqueExpression_body
-  (e: UMLOpaqueExpression[Uml], body: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueExpression[Uml], body: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_OpaqueExpression_language
-  (e: UMLOpaqueExpression[Uml], language: Seq[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOpaqueExpression[Uml], language: Seq[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Operation_bodyContext_compose_bodyCondition_Constraint
   (from: UMLOperation[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_operation_compose_ownedParameter_Parameter
   (from: UMLOperation[Uml],
-   to: Seq[UMLParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_postContext_compose_postcondition_Constraint
   (from: UMLOperation[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_preContext_compose_precondition_Constraint
   (from: UMLOperation[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_operation_reference_raisedException_Type
   (from: UMLOperation[Uml],
-   to: Set[UMLType[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLType[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_operation_reference_redefinedOperation_Operation
   (from: UMLOperation[Uml],
-   to: Set[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Operation_parameteredElement_reference_templateParameter_OperationTemplateParameter
   (from: UMLOperation[Uml],
-   to: Option[UMLOperationTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOperationTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Operation_isQuery
-  (e: UMLOperation[Uml], isQuery: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLOperation[Uml], isQuery: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation
   (from: UMLOperationTemplateParameter[Uml],
-   to: Option[UMLOperation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOperation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Package_receivingPackage_compose_packageMerge_PackageMerge
   (from: UMLPackage[Uml],
-   to: Set[UMLPackageMerge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPackageMerge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Package_owningPackage_compose_packagedElement_PackageableElement
   (from: UMLPackage[Uml],
-   to: Set[UMLPackageableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPackageableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Package_applyingPackage_compose_profileApplication_ProfileApplication
   (from: UMLPackage[Uml],
-   to: Set[UMLProfileApplication[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLProfileApplication[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Package_URI
-  (e: UMLPackage[Uml], URI: Option[String]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPackage[Uml], URI: Option[String]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_PackageImport_packageImport_reference_importedPackage_Package
   (from: UMLPackageImport[Uml],
-   to: Option[UMLPackage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPackage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_PackageImport_visibility
-  (e: UMLPackageImport[Uml], visibility: Option[UMLVisibilityKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPackageImport[Uml], visibility: Option[UMLVisibilityKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_PackageMerge_packageMerge_reference_mergedPackage_Package
   (from: UMLPackageMerge[Uml],
-   to: Option[UMLPackage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLPackage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_PackageableElement_visibility
-  (e: UMLPackageableElement[Uml], visibility: Option[UMLVisibilityKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPackageableElement[Uml], visibility: Option[UMLVisibilityKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Parameter_owningParameter_compose_defaultValue_ValueSpecification
   (from: UMLParameter[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Parameter_parameter_reference_parameterSet_ParameterSet
   (from: UMLParameter[Uml],
-   to: Set[UMLParameterSet[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLParameterSet[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Parameter_direction
-  (e: UMLParameter[Uml], direction: Option[UMLParameterDirectionKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLParameter[Uml], direction: Option[UMLParameterDirectionKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Parameter_effect
-  (e: UMLParameter[Uml], effect: Option[UMLParameterEffectKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLParameter[Uml], effect: Option[UMLParameterEffectKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Parameter_isException
-  (e: UMLParameter[Uml], isException: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLParameter[Uml], isException: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Parameter_isStream
-  (e: UMLParameter[Uml], isStream: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLParameter[Uml], isStream: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ParameterSet_parameterSet_compose_condition_Constraint
   (from: UMLParameterSet[Uml],
-   to: Set[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ParameterSet_parameterSet_reference_parameter_Parameter
   (from: UMLParameterSet[Uml],
-   to: Set[UMLParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter
   (from: UMLParameterableElement[Uml],
-   to: Option[UMLTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def set_Pin_isControl
-  (e: UMLPin[Uml], isControl: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPin[Uml], isControl: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Port_port_reference_protocol_ProtocolStateMachine
   (from: UMLPort[Uml],
-   to: Option[UMLProtocolStateMachine[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProtocolStateMachine[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Port_port_reference_redefinedPort_Port
   (from: UMLPort[Uml],
-   to: Set[UMLPort[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPort[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Port_isBehavior
-  (e: UMLPort[Uml], isBehavior: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPort[Uml], isBehavior: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Port_isConjugated
-  (e: UMLPort[Uml], isConjugated: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPort[Uml], isConjugated: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Port_isService
-  (e: UMLPort[Uml], isService: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPort[Uml], isService: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Profile_profile_compose_metaclassReference_ElementImport
   (from: UMLProfile[Uml],
-   to: Set[UMLElementImport[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLElementImport[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Profile_profile_compose_metamodelReference_PackageImport
   (from: UMLProfile[Uml],
-   to: Set[UMLPackageImport[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPackageImport[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ProfileApplication_profileApplication_reference_appliedProfile_Profile
   (from: UMLProfileApplication[Uml],
-   to: Option[UMLProfile[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProfile[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ProfileApplication_isStrict
-  (e: UMLProfileApplication[Uml], isStrict: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLProfileApplication[Uml], isStrict: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Property_memberEnd_reference_association_Association
   (from: UMLProperty[Uml],
-   to: Option[UMLAssociation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLAssociation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Property_owningProperty_compose_defaultValue_ValueSpecification
   (from: UMLProperty[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Property_associationEnd_compose_qualifier_Property
   (from: UMLProperty[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Property_property_reference_redefinedProperty_Property
   (from: UMLProperty[Uml],
-   to: Set[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Property_property_reference_subsettedProperty_Property
   (from: UMLProperty[Uml],
-   to: Set[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Property_aggregation
-  (e: UMLProperty[Uml], aggregation: Option[UMLAggregationKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLProperty[Uml], aggregation: Option[UMLAggregationKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Property_isDerived
-  (e: UMLProperty[Uml], isDerived: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLProperty[Uml], isDerived: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Property_isDerivedUnion
-  (e: UMLProperty[Uml], isDerivedUnion: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLProperty[Uml], isDerivedUnion: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Property_isID
-  (e: UMLProperty[Uml], isID: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLProperty[Uml], isID: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ProtocolConformance_protocolConformance_reference_generalMachine_ProtocolStateMachine
   (from: UMLProtocolConformance[Uml],
-   to: Option[UMLProtocolStateMachine[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProtocolStateMachine[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance
   (from: UMLProtocolStateMachine[Uml],
-   to: Set[UMLProtocolConformance[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLProtocolConformance[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ProtocolTransition_owningTransition_compose_postCondition_Constraint
   (from: UMLProtocolTransition[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint
   (from: UMLProtocolTransition[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_Pseudostate_kind
-  (e: UMLPseudostate[Uml], kind: Option[UMLPseudostateKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLPseudostate[Uml], kind: Option[UMLPseudostateKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_QualifierValue_qualifierValue_reference_qualifier_Property
   (from: UMLQualifierValue[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_QualifierValue_qualifierValue_reference_value_InputPin
   (from: UMLQualifierValue[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_RaiseExceptionAction_raiseExceptionAction_compose_exception_InputPin
   (from: UMLRaiseExceptionAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadExtentAction_readExtentAction_reference_classifier_Classifier
   (from: UMLReadExtentAction[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadExtentAction_readExtentAction_compose_result_OutputPin
   (from: UMLReadExtentAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier
   (from: UMLReadIsClassifiedObjectAction[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin
   (from: UMLReadIsClassifiedObjectAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_result_OutputPin
   (from: UMLReadIsClassifiedObjectAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ReadIsClassifiedObjectAction_isDirect
-  (e: UMLReadIsClassifiedObjectAction[Uml], isDirect: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLReadIsClassifiedObjectAction[Uml], isDirect: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadLinkAction_readLinkAction_compose_result_OutputPin
   (from: UMLReadLinkAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property
   (from: UMLReadLinkObjectEndAction[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin
   (from: UMLReadLinkObjectEndAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_result_OutputPin
   (from: UMLReadLinkObjectEndAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_object_InputPin
   (from: UMLReadLinkObjectEndQualifierAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_reference_qualifier_Property
   (from: UMLReadLinkObjectEndQualifierAction[Uml],
-   to: Option[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_result_OutputPin
   (from: UMLReadLinkObjectEndQualifierAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadSelfAction_readSelfAction_compose_result_OutputPin
   (from: UMLReadSelfAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin
   (from: UMLReadStructuralFeatureAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReadVariableAction_readVariableAction_compose_result_OutputPin
   (from: UMLReadVariableAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_Reception_reception_reference_signal_Signal
   (from: UMLReception[Uml],
-   to: Option[UMLSignal[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLSignal[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReclassifyObjectAction_reclassifyObjectAction_reference_newClassifier_Classifier
   (from: UMLReclassifyObjectAction[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin
   (from: UMLReclassifyObjectAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReclassifyObjectAction_reclassifyObjectAction_reference_oldClassifier_Classifier
   (from: UMLReclassifyObjectAction[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ReclassifyObjectAction_isReplaceAll
-  (e: UMLReclassifyObjectAction[Uml], isReplaceAll: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLReclassifyObjectAction[Uml], isReplaceAll: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_RedefinableElement_isLeaf
-  (e: UMLRedefinableElement[Uml], isLeaf: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLRedefinableElement[Uml], isLeaf: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature
   (from: UMLRedefinableTemplateSignature[Uml],
-   to: Set[UMLRedefinableTemplateSignature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLRedefinableTemplateSignature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReduceAction_reduceAction_compose_collection_InputPin
   (from: UMLReduceAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReduceAction_reduceAction_reference_reducer_Behavior
   (from: UMLReduceAction[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReduceAction_reduceAction_compose_result_OutputPin
   (from: UMLReduceAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_ReduceAction_isOrdered
-  (e: UMLReduceAction[Uml], isOrdered: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLReduceAction[Uml], isOrdered: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Region_region_reference_extendedRegion_Region
   (from: UMLRegion[Uml],
-   to: Option[UMLRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Region_container_compose_subvertex_Vertex
   (from: UMLRegion[Uml],
-   to: Set[UMLVertex[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLVertex[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Region_container_compose_transition_Transition
   (from: UMLRegion[Uml],
-   to: Set[UMLTransition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTransition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_RemoveStructuralFeatureValueAction_removeStructuralFeatureValueAction_compose_removeAt_InputPin
   (from: UMLRemoveStructuralFeatureValueAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_RemoveStructuralFeatureValueAction_isRemoveDuplicates
-  (e: UMLRemoveStructuralFeatureValueAction[Uml], isRemoveDuplicates: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLRemoveStructuralFeatureValueAction[Uml], isRemoveDuplicates: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin
   (from: UMLRemoveVariableValueAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_RemoveVariableValueAction_isRemoveDuplicates
-  (e: UMLRemoveVariableValueAction[Uml], isRemoveDuplicates: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLRemoveVariableValueAction[Uml], isRemoveDuplicates: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ReplyAction_replyAction_reference_replyToCall_Trigger
   (from: UMLReplyAction[Uml],
-   to: Option[UMLTrigger[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTrigger[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReplyAction_replyAction_compose_replyValue_InputPin
   (from: UMLReplyAction[Uml],
-   to: Seq[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ReplyAction_replyAction_compose_returnInformation_InputPin
   (from: UMLReplyAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_SendObjectAction_sendObjectAction_compose_request_InputPin
   (from: UMLSendObjectAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_SendObjectAction_sendObjectAction_compose_target_InputPin
   (from: UMLSendObjectAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_SendSignalAction_sendSignalAction_reference_signal_Signal
   (from: UMLSendSignalAction[Uml],
-   to: Option[UMLSignal[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLSignal[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_SendSignalAction_sendSignalAction_compose_target_InputPin
   (from: UMLSendSignalAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode
   (from: UMLSequenceNode[Uml],
-   to: Seq[UMLExecutableNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLExecutableNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Signal_owningSignal_compose_ownedAttribute_Property
   (from: UMLSignal[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_SignalEvent_signalEvent_reference_signal_Signal
   (from: UMLSignalEvent[Uml],
-   to: Option[UMLSignal[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLSignal[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Slot_slot_reference_definingFeature_StructuralFeature
   (from: UMLSlot[Uml],
-   to: Option[UMLStructuralFeature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLStructuralFeature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Slot_owningSlot_compose_value_ValueSpecification
   (from: UMLSlot[Uml],
-   to: Seq[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StartClassifierBehaviorAction_startClassifierBehaviorAction_compose_object_InputPin
   (from: UMLStartClassifierBehaviorAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StartObjectBehaviorAction_startObjectBehaviorAction_compose_object_InputPin
   (from: UMLStartObjectBehaviorAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_State_state_compose_connection_ConnectionPointReference
   (from: UMLState[Uml],
-   to: Set[UMLConnectionPointReference[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConnectionPointReference[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_connectionPoint_Pseudostate
   (from: UMLState[Uml],
-   to: Set[UMLPseudostate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPseudostate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_deferrableTrigger_Trigger
   (from: UMLState[Uml],
-   to: Set[UMLTrigger[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTrigger[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_doActivity_Behavior
   (from: UMLState[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_entry_Behavior
   (from: UMLState[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_exit_Behavior
   (from: UMLState[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_reference_redefinedState_State
   (from: UMLState[Uml],
-   to: Option[UMLState[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLState[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_state_compose_region_Region
   (from: UMLState[Uml],
-   to: Set[UMLRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_owningState_compose_stateInvariant_Constraint
   (from: UMLState[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_State_submachineState_reference_submachine_StateMachine
   (from: UMLState[Uml],
-   to: Option[UMLStateMachine[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLStateMachine[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StateInvariant_stateInvariant_reference_covered_Lifeline
   (from: UMLStateInvariant[Uml],
-   to: Iterable[UMLLifeline[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Iterable[UMLLifeline[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StateInvariant_stateInvariant_compose_invariant_Constraint
   (from: UMLStateInvariant[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate
   (from: UMLStateMachine[Uml],
-   to: Set[UMLPseudostate[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPseudostate[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine
   (from: UMLStateMachine[Uml],
-   to: Set[UMLStateMachine[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLStateMachine[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StateMachine_stateMachine_compose_region_Region
   (from: UMLStateMachine[Uml],
-   to: Set[UMLRegion[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLRegion[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StateMachine_submachine_reference_submachineState_State
   (from: UMLStateMachine[Uml],
-   to: Set[UMLState[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLState[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Stereotype_stereotype_compose_icon_Image
   (from: UMLStereotype[Uml],
-   to: Set[UMLImage[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLImage[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StringExpression_owningExpression_compose_subExpression_StringExpression
   (from: UMLStringExpression[Uml],
-   to: Seq[UMLStringExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLStringExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def set_StructuralFeature_isReadOnly
-  (e: UMLStructuralFeature[Uml], isReadOnly: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLStructuralFeature[Uml], isReadOnly: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin
   (from: UMLStructuralFeatureAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature
   (from: UMLStructuralFeatureAction[Uml],
-   to: Option[UMLStructuralFeature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLStructuralFeature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StructuredActivityNode_inStructuredNode_compose_edge_ActivityEdge
   (from: UMLStructuredActivityNode[Uml],
-   to: Set[UMLActivityEdge[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityEdge[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuredActivityNode_inStructuredNode_compose_node_ActivityNode
   (from: UMLStructuredActivityNode[Uml],
-   to: Set[UMLActivityNode[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLActivityNode[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeInput_InputPin
   (from: UMLStructuredActivityNode[Uml],
-   to: Set[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuredActivityNode_structuredActivityNode_compose_structuredNodeOutput_OutputPin
   (from: UMLStructuredActivityNode[Uml],
-   to: Set[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuredActivityNode_scope_compose_variable_Variable
   (from: UMLStructuredActivityNode[Uml],
-   to: Set[UMLVariable[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLVariable[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_StructuredActivityNode_mustIsolate
-  (e: UMLStructuredActivityNode[Uml], mustIsolate: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLStructuredActivityNode[Uml], mustIsolate: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property
   (from: UMLStructuredClassifier[Uml],
-   to: Seq[UMLProperty[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLProperty[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector
   (from: UMLStructuredClassifier[Uml],
-   to: Set[UMLConnector[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLConnector[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Substitution_substitution_reference_contract_Classifier
   (from: UMLSubstitution[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution
   (from: UMLTemplateBinding[Uml],
-   to: Set[UMLTemplateParameterSubstitution[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTemplateParameterSubstitution[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateBinding_templateBinding_reference_signature_TemplateSignature
   (from: UMLTemplateBinding[Uml],
-   to: Option[UMLTemplateSignature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTemplateSignature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TemplateParameter_templateParameter_reference_default_ParameterableElement
   (from: UMLTemplateParameter[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement
   (from: UMLTemplateParameter[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement
   (from: UMLTemplateParameter[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement
   (from: UMLTemplateParameter[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement
   (from: UMLTemplateParameterSubstitution[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter
   (from: UMLTemplateParameterSubstitution[Uml],
-   to: Option[UMLTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement
   (from: UMLTemplateParameterSubstitution[Uml],
-   to: Option[UMLParameterableElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLParameterableElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter
   (from: UMLTemplateSignature[Uml],
-   to: Seq[UMLTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter
   (from: UMLTemplateSignature[Uml],
-   to: Seq[UMLTemplateParameter[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLTemplateParameter[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature
   (from: UMLTemplateableElement[Uml],
-   to: Option[UMLTemplateSignature[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTemplateSignature[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TemplateableElement_boundElement_compose_templateBinding_TemplateBinding
   (from: UMLTemplateableElement[Uml],
-   to: Set[UMLTemplateBinding[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTemplateBinding[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TestIdentityAction_testIdentityAction_compose_first_InputPin
   (from: UMLTestIdentityAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TestIdentityAction_testIdentityAction_compose_result_OutputPin
   (from: UMLTestIdentityAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TestIdentityAction_testIdentityAction_compose_second_InputPin
   (from: UMLTestIdentityAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TimeConstraint_timeConstraint_compose_specification_TimeInterval
   (from: UMLTimeConstraint[Uml],
-   to: Option[UMLTimeInterval[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTimeInterval[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_TimeConstraint_firstEvent
-  (e: UMLTimeConstraint[Uml], firstEvent: Option[Boolean]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLTimeConstraint[Uml], firstEvent: Option[Boolean]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TimeEvent_timeEvent_compose_when_TimeExpression
   (from: UMLTimeEvent[Uml],
-   to: Option[UMLTimeExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTimeExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_TimeEvent_isRelative
-  (e: UMLTimeEvent[Uml], isRelative: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLTimeEvent[Uml], isRelative: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TimeExpression_timeExpression_compose_expr_ValueSpecification
   (from: UMLTimeExpression[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TimeExpression_timeExpression_reference_observation_Observation
   (from: UMLTimeExpression[Uml],
-   to: Set[UMLObservation[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLObservation[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TimeInterval_timeInterval_reference_max_TimeExpression
   (from: UMLTimeInterval[Uml],
-   to: Option[UMLTimeExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTimeExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_TimeInterval_timeInterval_reference_min_TimeExpression
   (from: UMLTimeInterval[Uml],
-   to: Option[UMLTimeExpression[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTimeExpression[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_TimeObservation_timeObservation_reference_event_NamedElement
   (from: UMLTimeObservation[Uml],
-   to: Option[UMLNamedElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLNamedElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_TimeObservation_firstEvent
-  (e: UMLTimeObservation[Uml], firstEvent: Boolean): ValidationNel[UMLError.UException, Unit]
+  (e: UMLTimeObservation[Uml], firstEvent: Boolean): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Transition_transition_compose_effect_Behavior
   (from: UMLTransition[Uml],
-   to: Option[UMLBehavior[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLBehavior[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Transition_transition_compose_guard_Constraint
   (from: UMLTransition[Uml],
-   to: Option[UMLConstraint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLConstraint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Transition_transition_reference_redefinedTransition_Transition
   (from: UMLTransition[Uml],
-   to: Option[UMLTransition[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLTransition[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Transition_transition_compose_trigger_Trigger
   (from: UMLTransition[Uml],
-   to: Set[UMLTrigger[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLTrigger[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def set_Transition_kind
-  (e: UMLTransition[Uml], kind: Option[UMLTransitionKind.Value]): ValidationNel[UMLError.UException, Unit]
+  (e: UMLTransition[Uml], kind: Option[UMLTransitionKind.Value]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_Trigger_trigger_reference_event_Event
   (from: UMLTrigger[Uml],
-   to: Option[UMLEvent[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLEvent[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_Trigger_trigger_reference_port_Port
   (from: UMLTrigger[Uml],
-   to: Set[UMLPort[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLPort[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_TypedElement_typedElement_reference_type_Type
   (from: UMLTypedElement[Uml],
-   to: Option[UMLType[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLType[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_UnmarshallAction_unmarshallAction_compose_object_InputPin
   (from: UMLUnmarshallAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_UnmarshallAction_unmarshallAction_compose_result_OutputPin
   (from: UMLUnmarshallAction[Uml],
-   to: Seq[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Seq[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier
   (from: UMLUnmarshallAction[Uml],
-   to: Option[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_UseCase_extension_compose_extend_Extend
   (from: UMLUseCase[Uml],
-   to: Set[UMLExtend[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExtend[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_UseCase_useCase_compose_extensionPoint_ExtensionPoint
   (from: UMLUseCase[Uml],
-   to: Set[UMLExtensionPoint[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLExtensionPoint[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_UseCase_includingCase_compose_include_Include
   (from: UMLUseCase[Uml],
-   to: Set[UMLInclude[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLInclude[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_UseCase_useCase_reference_subject_Classifier
   (from: UMLUseCase[Uml],
-   to: Set[UMLClassifier[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Set[UMLClassifier[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_ValuePin_valuePin_compose_value_ValueSpecification
   (from: UMLValuePin[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_ValueSpecificationAction_valueSpecificationAction_compose_result_OutputPin
   (from: UMLValueSpecificationAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_ValueSpecificationAction_valueSpecificationAction_compose_value_ValueSpecification
   (from: UMLValueSpecificationAction[Uml],
-   to: Option[UMLValueSpecification[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLValueSpecification[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
   def links_VariableAction_variableAction_reference_variable_Variable
   (from: UMLVariableAction[Uml],
-   to: Option[UMLVariable[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLVariable[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
 
 
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin
   (from: UMLWriteStructuralFeatureAction[Uml],
-   to: Option[UMLOutputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLOutputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin
   (from: UMLWriteStructuralFeatureAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   def links_WriteVariableAction_writeVariableAction_compose_value_InputPin
   (from: UMLWriteVariableAction[Uml],
-   to: Option[UMLInputPin[Uml]]): ValidationNel[UMLError.UException, Unit]
+   to: Option[UMLInputPin[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
 
   // was: MetaPropertyReference2LinksUpdate: Seq of CompositeReferenceUpdater
   val AssociationMetaPropertyOption2LinksUpdate
@@ -3256,7 +3256,7 @@ trait UMLUpdate[Uml <: UML] {
 	// Start of user code for additional features
 
   case class MetaScalarAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, DT) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, DT) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3264,7 +3264,7 @@ trait UMLUpdate[Uml <: UML] {
   MetaScalarAttributeUpdater[_ <: UMLElement[Uml], _]
 
   case class MetaEnumerationAttributeUpdater[U <: UMLElement[Uml], DT <: Enumeration#Value, DTSet <: Enumeration#ValueSet]
-  ( attributeUpdate: (U, Option[DT]) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeEnumerationFunction[Uml, U, DT, DTSet] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3272,7 +3272,7 @@ trait UMLUpdate[Uml <: UML] {
   MetaEnumerationAttributeUpdater[_ <: UMLElement[Uml], _, _]
 
   case class MetaOptionAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Option[DT]) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3280,7 +3280,7 @@ trait UMLUpdate[Uml <: UML] {
   MetaOptionAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaIterableAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Iterable[DT]) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, Iterable[DT]) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3288,7 +3288,7 @@ trait UMLUpdate[Uml <: UML] {
   MetaIterableAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaSetAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Set[DT]) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, Set[DT]) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3296,7 +3296,7 @@ trait UMLUpdate[Uml <: UML] {
   MetaSetAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaSeqAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Seq[DT]) => ValidationNel[UMLError.UException, Unit],
+  ( attributeUpdate: (U, Seq[DT]) => \/[NonEmptyList[UMLError.UException], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
 
@@ -3314,44 +3314,46 @@ trait UMLUpdate[Uml <: UML] {
   // was: CompositeReferenceSingleUpdate
   trait AssociationMetaPropertyUpdater {
 
-    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): ValidationNel[UMLError.UException, Unit]
+    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): \/[NonEmptyList[UMLError.UException], Unit]
   }
 
   // was: CompositeReferenceUpdater
   trait AssociationMetaPropertyOptionUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyReferenceQuery
-    def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): ValidationNel[UMLError.UException, Unit]
+    def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): \/[NonEmptyList[UMLError.UException], Unit]
   }
 
   // was: CompositeReferenceUpdate
   case class AssociationMetaPropertyOptionUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Option[V]) => ValidationNel[UMLError.UException, Unit],
+  ( links_composes: (U, Option[V]) => \/[NonEmptyList[UMLError.UException], Unit],
     override val links_query: AssociationMetaPropertyReferenceQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyOptionUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       owner match {
         case u: U =>
-          owned.fold[ValidationNel[UMLError.UException, Unit]]{
+          owned.fold[\/[NonEmptyList[UMLError.UException], Unit]]{
             links_composes(u, None)
           }{
             case v: V =>
               links_composes(u, Some(v))
             case _ =>
-              UMLError.illegalElementError[Uml, UMLElement[Uml]](
-              s"setLinks update for $links_query: error type mismatch",
-              Iterable(owner) ++ owned.toIterable).failureNel
+              NonEmptyList(
+                UMLError.illegalElementError[Uml, UMLElement[Uml]](
+                  s"setLinks update for $links_query: error type mismatch",
+                  Iterable(owner) ++ owned.toIterable)).left
           }
         case _ =>
-          UMLError.illegalElementError[Uml, UMLElement[Uml]](
+          NonEmptyList(
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable).failureNel
+            Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       setLinks(owner, Some(owned))
   }
 
@@ -3363,29 +3365,30 @@ trait UMLUpdate[Uml <: UML] {
   trait AssociationMetaPropertyIterableUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit]
+    : \/[NonEmptyList[UMLError.UException], Unit]
   }
 
   // was: CompositeIterableUpdate
   case class AssociationMetaPropertyIterableUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Iterable[V]) => ValidationNel[UMLError.UException, Unit],
+  ( links_composes: (U, Iterable[V]) => \/[NonEmptyList[UMLError.UException], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyIterableUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v)
         case _ =>
-          UMLError.illegalElementError[Uml, UMLElement[Uml]](
+          NonEmptyList(
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable).failureNel
+            Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       links_query.evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
@@ -3398,31 +3401,31 @@ trait UMLUpdate[Uml <: UML] {
   trait AssociationMetaPropertySequenceUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit]
+    : \/[NonEmptyList[UMLError.UException], Unit]
   }
 
   // was: CompositeSequenceUpdate
   case class AssociationMetaPropertySequenceUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Seq[V]) => ValidationNel[UMLError.UException, Unit],
+  ( links_composes: (U, Seq[V]) => \/[NonEmptyList[UMLError.UException], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySequenceUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       (owner, owned) match {
         case (u: U, v: Seq[V]) =>
           links_composes(u, v)
         case _ =>
-          UMLError
+          NonEmptyList(
+            UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable)
-          .failureNel
+            Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       links_query
       .evaluate(owner)
       .flatMap { composed =>
@@ -3436,31 +3439,31 @@ trait UMLUpdate[Uml <: UML] {
   trait AssociationMetaPropertySetUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit]
+    : \/[NonEmptyList[UMLError.UException], Unit]
   }
 
   // was: CompositeSetUpdate
   case class AssociationMetaPropertySetUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Set[V]) => ValidationNel[UMLError.UException, Unit],
+  ( links_composes: (U, Set[V]) => \/[NonEmptyList[UMLError.UException], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery)
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySetUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v.toSet)
         case _ =>
-          UMLError
+          NonEmptyList(
+            UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable)
-          .failureNel
+            Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : ValidationNel[UMLError.UException, Unit] =
+    : \/[NonEmptyList[UMLError.UException], Unit] =
       links_query
       .evaluate(owner)
       .flatMap { composed =>

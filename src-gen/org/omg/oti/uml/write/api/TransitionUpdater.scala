@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,30 +57,30 @@ class TransitionUpdater[Uml <: UML](val domain: UMLTransition[Uml]) extends AnyV
   def links_Transition_transition_compose_effect_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Transition_transition_compose_effect_Behavior(domain, range)
 
   def links_Transition_transition_compose_guard_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Transition_transition_compose_guard_Constraint(domain, range)
 
   def links_Transition_transition_reference_redefinedTransition_Transition
   (range: Option[UMLTransition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Transition_transition_reference_redefinedTransition_Transition(domain, range)
 
   def links_Transition_transition_compose_trigger_Trigger
   (range: Set[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Transition_transition_compose_trigger_Trigger(domain, range)
 
   def setKind
   (kind: Option[UMLTransitionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Transition_kind(domain, kind)
 }

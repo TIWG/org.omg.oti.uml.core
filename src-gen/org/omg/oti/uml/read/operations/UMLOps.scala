@@ -51,7 +51,7 @@ import scala.Option
 import scala.Predef.{Set => _,_}
 import scala.collection.immutable._
 import scala.collection.{Iterable,Iterator}
-import scalaz.ValidationNel
+import scalaz._
 
 import java.lang.Integer
 import java.lang.System
@@ -97,7 +97,6 @@ trait UMLOps[Uml <: UML] { self =>
 
 // Start of user code for ops imports
   import Option._
-  import scalaz._
 // End of user code
 
 	implicit val ABSTRACTION: TypeTag[Uml#Abstraction]
@@ -4043,15 +4042,15 @@ trait UMLOps[Uml <: UML] { self =>
 
   val UML_PRIMITIVE_TYPES_STRING: UMLPrimitiveType[Uml]
 
-  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml],  ValidationNel[UMLError.UException, String]]
+  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml],  \/[NonEmptyList[UMLError.UException], String]]
 
   type Element2IDRule = PartialFunction[
     UMLElement[Uml],
-    ValidationNel[UMLError.UException, String]]
+    \/[NonEmptyList[UMLError.UException], String]]
 
   type ContainedElement2IDRule = PartialFunction[
     (UMLElement[Uml], String, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
-    ValidationNel[UMLError.UException, String]]
+    \/[NonEmptyList[UMLError.UException], String]]
 
   class FilterableUMLOption[U](o: Option[U]) {
 
@@ -4107,7 +4106,7 @@ trait UMLOps[Uml <: UML] { self =>
 	 * The tool-specific OTI adapter must provide the corresponding tool-specific OTI profile.
 	 */
 	val OTI_PROFILE
-  : ValidationNel[UMLError.UException, UMLProfile[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProfile[Uml]]
 
   /**
    * OTI::SpecificationRoot stereotype
@@ -4117,7 +4116,7 @@ trait UMLOps[Uml <: UML] { self =>
    * The kind of artifact is specified via the `artifactKind` tag property.
    */
   val OTI_SPECIFICATION_ROOT_S
-  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLStereotype[Uml]]
 
   /**
    * OTI::SpecificationRoot::packageURI property
@@ -4129,7 +4128,7 @@ trait UMLOps[Uml <: UML] { self =>
    * or that of Package::URI. It is an error if both are unspecified.
    */
   val OTI_SPECIFICATION_ROOT_packageURI
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::documentURL property
@@ -4139,7 +4138,7 @@ trait UMLOps[Uml <: UML] { self =>
    * OTI::SpecificationRoot::documentURL
    */
   val OTI_SPECIFICATION_ROOT_documentURL
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::nsPrefix property
@@ -4148,7 +4147,7 @@ trait UMLOps[Uml <: UML] { self =>
    * package
    */
   val OTI_SPECIFICATION_ROOT_nsPrefix
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::uuidPrefix property
@@ -4158,7 +4157,7 @@ trait UMLOps[Uml <: UML] { self =>
    * package
    */
   val OTI_SPECIFICATION_ROOT_uuidPrefix
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRoot::artifactKind property
@@ -4168,7 +4167,7 @@ trait UMLOps[Uml <: UML] { self =>
    * - Metamodel, Profile, Model Library
    */
   val OTI_SPECIFICATION_ROOT_artifactKind
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization stereotype
@@ -4178,7 +4177,7 @@ trait UMLOps[Uml <: UML] { self =>
    * The kind of artifact is specified via the `artifactKind` tag property.
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
-  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLStereotype[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::packageURI property
@@ -4190,7 +4189,7 @@ trait UMLOps[Uml <: UML] { self =>
    * or that of Package::URI. It is an error if both are unspecified.
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::documentURL property
@@ -4200,7 +4199,7 @@ trait UMLOps[Uml <: UML] { self =>
    * OTI::SpecificationRootCharacterization::documentURL
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::nsPrefix property
@@ -4209,7 +4208,7 @@ trait UMLOps[Uml <: UML] { self =>
    * by an OTI::SpecificationRootCharacterization-stereotyped comment
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::uuidPrefix property
@@ -4219,7 +4218,7 @@ trait UMLOps[Uml <: UML] { self =>
    * by an OTI::SpecificationRootCharacterization-stereotyped comment
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::SpecificationRootCharacterization::artifactKind property
@@ -4229,31 +4228,31 @@ trait UMLOps[Uml <: UML] { self =>
    * - Metamodel, Profile, Model Library
    */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    *
    */
   val OTI_ARTIFACT_KIND
-  : ValidationNel[UMLError.UException, UMLEnumeration[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumeration[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_PROFILE
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY
-  : ValidationNel[UMLError.UException, UMLEnumerationLiteral[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLEnumerationLiteral[Uml]]
 
   /**
    * OTI::Identity stereotype
@@ -4263,7 +4262,7 @@ trait UMLOps[Uml <: UML] { self =>
    * xmi:UUID generation or both
    */
   val OTI_IDENTITY_S
-  : ValidationNel[UMLError.UException, UMLStereotype[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLStereotype[Uml]]
 
   /**
    * OTI::Identity::xmiID property
@@ -4272,7 +4271,7 @@ trait UMLOps[Uml <: UML] { self =>
    * Instead of generating one
    */
   val OTI_IDENTITY_xmiID
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   /**
    * OTI::Identity::xmiUUID property
@@ -4283,7 +4282,7 @@ trait UMLOps[Uml <: UML] { self =>
    * containing package and the element's xmi:ID
    */
   val OTI_IDENTITY_xmiUUID
-  : ValidationNel[UMLError.UException, UMLProperty[Uml]]
+  : \/[NonEmptyList[UMLError.UException], UMLProperty[Uml]]
 
   def closure[U, V <: U](x: U, relation: U => Iterable[V]): Set[V] = {
 

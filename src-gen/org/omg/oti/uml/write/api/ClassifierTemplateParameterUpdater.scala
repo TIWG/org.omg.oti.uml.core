@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Boolean,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,18 +57,18 @@ class ClassifierTemplateParameterUpdater[Uml <: UML](val domain: UMLClassifierTe
   def links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier(domain, range)
 
   def links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier(domain, range)
 
   def setAllowSubstitutable
   (allowSubstitutable: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_ClassifierTemplateParameter_allowSubstitutable(domain, allowSubstitutable)
 }

@@ -246,41 +246,41 @@ package object uml {
     }
 
   def booleanToIterable[Uml <: UML]( value: Boolean, default: Boolean )
-  : ValidationNel[UMLError.UException, Iterable[Boolean]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[Boolean]] =
     if ( value != default )
-      Iterable( value ).successNel
+      Iterable( value ).right
     else
-      Iterable().successNel
+      Iterable().right
 
   def integerToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : ValidationNel[UMLError.UException, Iterable[Integer]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[Integer]] =
     if ( value != default )
-      Iterable( value ).successNel
+      Iterable( value ).right
     else
-      Iterable().successNel
+      Iterable().right
 
   def unlimitedNaturalToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : ValidationNel[UMLError.UException, Iterable[String]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[String]] =
     if ( value == default )
-      Iterable().successNel
+      Iterable().right
     else if (value == -1)
-      Iterable("*").successNel
+      Iterable("*").right
     else
-      Iterable(value.toString).successNel
+      Iterable(value.toString).right
 
   def realToIterable[Uml <: UML]( value: Double, default: Double )
-  : ValidationNel[UMLError.UException, Iterable[Double]] =
-    Iterable( value ).successNel
+  : \/[NonEmptyList[UMLError.UException], Iterable[Double]] =
+    Iterable( value ).right
 
   def stringToIterable[Uml <: UML]( value: Option[String], default: String )
-  : ValidationNel[UMLError.UException, Iterable[String]] =
-    value.toIterable.successNel
+  : \/[NonEmptyList[UMLError.UException], Iterable[String]] =
+    value.toIterable.right
 
   def stringToIterable[Uml <: UML]( value: String, default: String )
-  : ValidationNel[UMLError.UException, Iterable[String]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[String]] =
     if ( value != default )
-      Iterable( value ).successNel
+      Iterable( value ).right
     else
-      Iterable().successNel
+      Iterable().right
 
 }

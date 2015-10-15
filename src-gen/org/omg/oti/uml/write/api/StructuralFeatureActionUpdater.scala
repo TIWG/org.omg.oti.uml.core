@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class StructuralFeatureActionUpdater[Uml <: UML](val domain: UMLStructuralFeatur
   def links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin(domain, range)
 
   def links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature
   (range: Option[UMLStructuralFeature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature(domain, range)
 }

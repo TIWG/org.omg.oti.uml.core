@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class TimeConstraintUpdater[Uml <: UML](val domain: UMLTimeConstraint[Uml]) exte
   def links_TimeConstraint_timeConstraint_compose_specification_TimeInterval
   (range: Option[UMLTimeInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_TimeConstraint_timeConstraint_compose_specification_TimeInterval(domain, range)
 
   def setFirstEvent
   (firstEvent: Option[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_TimeConstraint_firstEvent(domain, firstEvent)
 }

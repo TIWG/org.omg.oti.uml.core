@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class TimeExpressionUpdater[Uml <: UML](val domain: UMLTimeExpression[Uml]) exte
   def links_TimeExpression_timeExpression_compose_expr_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_TimeExpression_timeExpression_compose_expr_ValueSpecification(domain, range)
 
   def links_TimeExpression_timeExpression_reference_observation_Observation
   (range: Set[UMLObservation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_TimeExpression_timeExpression_reference_observation_Observation(domain, range)
 }

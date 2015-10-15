@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class DecisionNodeUpdater[Uml <: UML](val domain: UMLDecisionNode[Uml]) extends 
   def links_DecisionNode_decisionNode_reference_decisionInput_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_DecisionNode_decisionNode_reference_decisionInput_Behavior(domain, range)
 
   def links_DecisionNode_decisionNode_reference_decisionInputFlow_ObjectFlow
   (range: Option[UMLObjectFlow[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_DecisionNode_decisionNode_reference_decisionInputFlow_ObjectFlow(domain, range)
 }

@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Unit}
+import scala.collection.Iterable
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,6 +57,6 @@ class CreateLinkActionUpdater[Uml <: UML](val domain: UMLCreateLinkAction[Uml]) 
   def links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData
   (range: Iterable[UMLLinkEndCreationData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData(domain, range)
 }

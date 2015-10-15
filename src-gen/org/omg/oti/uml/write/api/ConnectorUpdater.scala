@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
+
+import scala.{AnyVal,Option,Unit}
 import scala.collection.immutable.{Seq,Set}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,24 +57,24 @@ class ConnectorUpdater[Uml <: UML](val domain: UMLConnector[Uml]) extends AnyVal
   def links_Connector_connector_reference_contract_Behavior
   (range: Set[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Connector_connector_reference_contract_Behavior(domain, range)
 
   def links_Connector_connector_compose_end_ConnectorEnd
   (range: Seq[UMLConnectorEnd[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Connector_connector_compose_end_ConnectorEnd(domain, range)
 
   def links_Connector_connector_reference_redefinedConnector_Connector
   (range: Set[UMLConnector[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Connector_connector_reference_redefinedConnector_Connector(domain, range)
 
   def links_Connector_connector_reference_type_Association
   (range: Option[UMLAssociation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Connector_connector_reference_type_Association(domain, range)
 }

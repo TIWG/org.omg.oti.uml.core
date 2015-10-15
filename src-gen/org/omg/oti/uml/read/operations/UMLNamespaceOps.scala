@@ -513,7 +513,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * This does not include references from elements in nested packages.
    */
   def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml])
-  : ValidationNel[UMLError.UException, Set[UMLNamespace[Uml]]] =
+  : \/[NonEmptyList[UMLError.UException], Set[UMLNamespace[Uml]]] =
     forwardReferencesBeyondNamespaceScope.map { triples =>
       triples
       .map(_.obj)
@@ -527,7 +527,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
   def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml])
-	: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = {
+	: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] = {
 
     val scope = self.ownedElement
 
@@ -535,42 +535,40 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
     /* @annotation.tailrec */ def followReferencesUntilNamespaceScopeBoundary
     (acc: Set[RelationTriple[Uml]],
-     triples: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]])
-    : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = {
-      val td: (NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]]) = triples.disjunction
+     triples: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]])
+    : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] = {
 			val r =
-        td.flatMap { ts: Set[RelationTriple[Uml]] => {
-          val ti: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
+        triples
+				.flatMap { ts: Set[RelationTriple[Uml]] =>
+          val ti: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
             if (ts.isEmpty)
-              acc.successNel
+              acc.right
             else {
               val (th, tr: Set[RelationTriple[Uml]]) = (ts.head, ts.tail)
               if (visited.contains(th.obj))
-                followReferencesUntilNamespaceScopeBoundary(acc, tr.successNel)
+                followReferencesUntilNamespaceScopeBoundary(acc, tr.right)
               else {
                 visited += th.sub;
                 ()
                 if (scope.contains(th.obj))
-                  (th.obj.forwardRelationTriples.disjunction flatMap { nextTriples: Set[RelationTriple[Uml]] =>
-                    followReferencesUntilNamespaceScopeBoundary(acc, (nextTriples ++ tr).successNel).disjunction
-                  }).validation
+                  th.obj.forwardRelationTriples.flatMap { nextTriples: Set[RelationTriple[Uml]] =>
+                    followReferencesUntilNamespaceScopeBoundary(acc, (nextTriples ++ tr).right)
+                  }
                 else
-                  followReferencesUntilNamespaceScopeBoundary(acc + th, tr.successNel)
+                  followReferencesUntilNamespaceScopeBoundary(acc + th, tr.right)
               }
             }
-          ti.disjunction
+          ti
         }
-      }
-      r.validation
+      r
     }
 
-    val triples0: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = Set().successNel
-    val triplesN: ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] = ( triples0 /: scope ) { (ti, e) =>
-      ti.fold[ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]]](
-        fail = Validation.failure(_),
-        succ = (acc) =>
-          followReferencesUntilNamespaceScopeBoundary( acc, e.forwardRelationTriples )
-          )}
+    val triples0: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] = Set().right
+    val triplesN: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] = ( triples0 /: scope ) { (ti, e) =>
+      ti.flatMap { acc: Set[RelationTriple[Uml]] =>
+        followReferencesUntilNamespaceScopeBoundary(acc, e.forwardRelationTriples)
+      }
+    }
     triplesN
   }
 

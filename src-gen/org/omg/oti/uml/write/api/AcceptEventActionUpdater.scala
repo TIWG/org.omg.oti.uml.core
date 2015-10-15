@@ -56,18 +56,18 @@ class AcceptEventActionUpdater[Uml <: UML](val domain: UMLAcceptEventAction[Uml]
   def links_AcceptEventAction_acceptEventAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.links_AcceptEventAction_acceptEventAction_compose_result_OutputPin(domain, range)
 
   def links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger
   (range: Set[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.links_AcceptEventAction_acceptEventAction_compose_trigger_Trigger(domain, range)
 
   def setIsUnmarshall
   (isUnmarshall: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException], Unit] =
     umlU.set_AcceptEventAction_isUnmarshall(domain, isUnmarshall)
 }

@@ -51,7 +51,7 @@ import scala.{Option,None,Some}
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scalaz._, Scalaz._, Validation.FlatMap._
+import scalaz._, Scalaz._
 
 // End of user code
 
@@ -85,10 +85,10 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
    * TIWG: see UMLUtil, Rule #4
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: ValidationNel[UMLError.UException, String] =
+	: \/[NonEmptyList[UMLError.UException], String] =
 		for {
 			key <- element_xmiOrderingKey
-			f <- definingFeature.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ sf =>
+			f <- definingFeature.fold[\/[NonEmptyList[UMLError.UException], String]]("_".right){ sf =>
 			  sf.xmiOrderingKey.map("_" + _)
 			}
 		} yield key + f

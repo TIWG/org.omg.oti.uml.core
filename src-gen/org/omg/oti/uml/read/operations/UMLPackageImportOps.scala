@@ -53,7 +53,7 @@ import scala.Predef.String
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scalaz._, Scalaz._, Validation.FlatMap._
+import scalaz._, Scalaz._
 
 // End of user code
 
@@ -114,10 +114,10 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: ValidationNel[UMLError.UException, String] =
+	: \/[NonEmptyList[UMLError.UException], String] =
 	for {
 		key <- element_xmiOrderingKey
-		i <- importedPackage.fold[ValidationNel[UMLError.UException, String]]("_".successNel){ ip =>
+		i <- importedPackage.fold[\/[NonEmptyList[UMLError.UException], String]]("_".right){ ip =>
 			ip.xmiOrderingKey.map("_" + _)
     }
 	} yield key + i

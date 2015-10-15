@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,42 +57,42 @@ class InformationFlowUpdater[Uml <: UML](val domain: UMLInformationFlow[Uml]) ex
   def links_InformationFlow_conveyingFlow_reference_conveyed_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_conveyingFlow_reference_conveyed_Classifier(domain, range)
 
   def links_InformationFlow_informationFlow_reference_informationSource_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_informationFlow_reference_informationSource_NamedElement(domain, range)
 
   def links_InformationFlow_informationFlow_reference_informationTarget_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_informationFlow_reference_informationTarget_NamedElement(domain, range)
 
   def links_InformationFlow_abstraction_reference_realization_Relationship
   (range: Set[UMLRelationship[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_abstraction_reference_realization_Relationship(domain, range)
 
   def links_InformationFlow_informationFlow_reference_realizingActivityEdge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_informationFlow_reference_realizingActivityEdge_ActivityEdge(domain, range)
 
   def links_InformationFlow_informationFlow_reference_realizingConnector_Connector
   (range: Set[UMLConnector[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_informationFlow_reference_realizingConnector_Connector(domain, range)
 
   def links_InformationFlow_informationFlow_reference_realizingMessage_Message
   (range: Set[UMLMessage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_InformationFlow_informationFlow_reference_realizingMessage_Message(domain, range)
 }

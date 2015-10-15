@@ -39,12 +39,12 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +56,12 @@ class GeneralOrderingUpdater[Uml <: UML](val domain: UMLGeneralOrdering[Uml]) ex
   def links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification(domain, range)
 
   def links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification(domain, range)
 }

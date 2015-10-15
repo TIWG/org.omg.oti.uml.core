@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,24 +57,24 @@ class StateMachineUpdater[Uml <: UML](val domain: UMLStateMachine[Uml]) extends 
   def links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate(domain, range)
 
   def links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine
   (range: Set[UMLStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine(domain, range)
 
   def links_StateMachine_stateMachine_compose_region_Region
   (range: Set[UMLRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StateMachine_stateMachine_compose_region_Region(domain, range)
 
   def links_StateMachine_submachine_reference_submachineState_State
   (range: Set[UMLState[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_StateMachine_submachine_reference_submachineState_State(domain, range)
 }

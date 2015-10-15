@@ -159,7 +159,7 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
 
-  def evaluateTriples(e: UMLElement[Uml]): ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]]
+  def evaluateTriples(e: UMLElement[Uml]): \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]]
 }
 
 
@@ -186,34 +186,40 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
+  : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
-        evaluate(u).map { ov =>
-          ov.fold[Set[RelationTriple[Uml]]](Set()) { v =>
+        evaluate(u)
+        .flatMap { ov: Option[UMLElement[Uml]] =>
+          ov
+          .fold[\/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]]](
+            Set[RelationTriple[Uml]]().right
+          ){ v =>
               if (u.owner.contains(v))
-                Set[RelationTriple[Uml]]()
+                Set[RelationTriple[Uml]]().right
               else
-                Set[RelationTriple[Uml]](AssociationTriple(sub=u, relf=this, obj=v))
-            }
+                Set[RelationTriple[Uml]](AssociationTriple(sub=u, relf=this, obj=v)).right
+          }
         }
       case x =>
-        UMLError
-        .illegalElementError[Uml, UMLElement[Uml]](
-          s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
-          Iterable(e))
-        .failureNel
+        -\/(
+          NonEmptyList(
+            UMLError
+            .illegalElementError[Uml, UMLElement[Uml]](
+              s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
+              Iterable(e))))
     }
 
   def evaluate(e: UMLElement[Uml])
-  : ValidationNel[UMLError.UException, Option[UMLElement[Uml]]] =
+  : \/[NonEmptyList[UMLError.UException], Option[UMLElement[Uml]]] =
     e match {
       case u: U =>
-        f(u).successNel
+        f(u).right
       case _ =>
-        UMLError
-        .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)
-        .failureNel
+        -\/(
+          NonEmptyList(
+            UMLError
+            .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)))
     }
 
   override def toString: String =
@@ -258,31 +264,35 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : ValidationNel[UMLError.UException, Set[RelationTriple[Uml]]] =
+  : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
     e match {
       case u: U =>
-        evaluate(u).map { vs =>
-          (vs.toSet -- u.owner.toSet).map { v => AssociationTriple(sub=u, relf=this, obj=v) }
+        evaluate(u)
+        .flatMap { vs =>
+          (vs.toSet -- u.owner.toSet)
+          .map { v => AssociationTriple(sub=u, relf=this, obj=v).asInstanceOf[RelationTriple[Uml]] }
+          .right
         }
     }
 
   def evaluate(e: UMLElement[Uml])
-  : ValidationNel[UMLError.UException, List[UMLElement[Uml]]] = {
+  : \/[NonEmptyList[UMLError.UException], List[UMLElement[Uml]]] = {
     require(e != null)
     e match {
       case u: U =>
         val v = f(u)
         require(v != null)
         if (v.isEmpty)
-          Nil.successNel
+          List.empty[UMLElement[Uml]].right
         else if (isOrdered)
-          v.toList.successNel
+          v.toList.right
         else
-          v.toList.successNel
+          v.toList.right
       case _ =>
-        UMLError
-        .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)
-        .failureNel
+        -\/(
+          NonEmptyList(
+            UMLError
+            .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)))
     }
   }
 

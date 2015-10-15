@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
+
 import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,48 +57,48 @@ class ActivityUpdater[Uml <: UML](val domain: UMLActivity[Uml]) extends AnyVal {
   def links_Activity_activity_compose_edge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_activity_compose_edge_ActivityEdge(domain, range)
 
   def links_Activity_inActivity_compose_group_ActivityGroup
   (range: Set[UMLActivityGroup[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_inActivity_compose_group_ActivityGroup(domain, range)
 
   def links_Activity_activity_compose_node_ActivityNode
   (range: Set[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_activity_compose_node_ActivityNode(domain, range)
 
   def links_Activity_activity_reference_partition_ActivityPartition
   (range: Set[UMLActivityPartition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_activity_reference_partition_ActivityPartition(domain, range)
 
   def links_Activity_activity_compose_structuredNode_StructuredActivityNode
   (range: Set[UMLStructuredActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_activity_compose_structuredNode_StructuredActivityNode(domain, range)
 
   def links_Activity_activityScope_compose_variable_Variable
   (range: Set[UMLVariable[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_Activity_activityScope_compose_variable_Variable(domain, range)
 
   def setIsReadOnly
   (isReadOnly: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Activity_isReadOnly(domain, isReadOnly)
 
   def setIsSingleExecution
   (isSingleExecution: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.set_Activity_isSingleExecution(domain, isSingleExecution)
 }

@@ -68,12 +68,12 @@ trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
+  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
     instanceValue_asForwardReferencesToImportableOuterPackageableElements
 
   def instanceValue_asForwardReferencesToImportableOuterPackageableElements
-  : ValidationNel[UMLError.UException, Set[UMLPackageableElement[Uml]]] =
-    (Set[UMLPackageableElement[Uml]](this) ++ instance.toSet).successNel[UMLError.UException]
+  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+    (Set[UMLPackageableElement[Uml]](this) ++ instance.toSet).right
 
   // End of user code
 } //UMLInstanceValueOps

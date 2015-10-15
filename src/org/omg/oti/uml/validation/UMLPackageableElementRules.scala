@@ -119,7 +119,7 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   def findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles
   ( context: UMLPackage[Uml] )
   ( implicit c: ReferencedButNotAccessibleConstructor )
-  : ValidationNel[UMLError.UException, Iterable[ReferencedButNotAccessibleViolation]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[ReferencedButNotAccessibleViolation]] =
   for {
     s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
   } yield {
@@ -137,7 +137,7 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   def findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles
   ( context: UMLPackage[Uml] )
   ( implicit c: ReferencedButNotAccessibleConstructor )
-  : ValidationNel[UMLError.UException, Iterable[ReferencedButNotAccessibleViolation]] =
+  : \/[NonEmptyList[UMLError.UException], Iterable[ReferencedButNotAccessibleViolation]] =
   for {
     s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
   } yield {

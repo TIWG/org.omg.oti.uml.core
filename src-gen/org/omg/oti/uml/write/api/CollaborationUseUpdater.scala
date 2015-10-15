@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -56,12 +57,12 @@ class CollaborationUseUpdater[Uml <: UML](val domain: UMLCollaborationUse[Uml]) 
   def links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency
   (range: Set[UMLDependency[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency(domain, range)
 
   def links_CollaborationUse_collaborationUse_reference_type_Collaboration
   (range: Option[UMLCollaboration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : ValidationNel[UMLError.UException, Unit] =
+  : \/[NonEmptyList[UMLError.UException],Unit] =
     umlU.links_CollaborationUse_collaborationUse_reference_type_Collaboration(domain, range)
 }
