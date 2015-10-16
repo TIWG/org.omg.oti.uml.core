@@ -51,9 +51,6 @@ import scala.Predef._
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scala.util.Failure
-import scala.util.Success
-import scala.util.Try
 import scalaz._, Scalaz._
 
 // End of user code

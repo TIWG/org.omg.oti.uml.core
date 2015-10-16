@@ -39,26 +39,16 @@
  */
 package org.omg.oti.uml.xmi
 
-import java.net.URL
-import java.net.MalformedURLException
+import java.net.{MalformedURLException,URL}
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.Predef.String
-import scala.Array
-import scala.Byte
-import scala.Boolean
-import scala.Char
-import scala.Int
-import scala.Option
-import scala.Unit
+import scala.{Array,Byte,Boolean,Char,Int,Option,Unit}
 import scala.Predef.{Map => _,_}
 import scala.collection.immutable._
 import scala.language.postfixOps
-import scala.util.Failure
-import scala.util.Success
-import scala.util.Try
 
 import java.lang.StringBuffer
 

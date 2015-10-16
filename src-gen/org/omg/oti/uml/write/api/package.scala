@@ -42,7 +42,6 @@ package org.omg.oti.uml.write
 import org.omg.oti.uml.read.api._
 import scala.{Option,Unit}
 import scala.collection.immutable.Set
-import scala.util.Try
 // Start of user code for imports
 // End of user code
 

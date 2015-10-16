@@ -39,14 +39,15 @@
  */
 package sext
 
-import scala.util.Try
 import scala.language.higherKinds
+import scala.util.control.NonFatal
 import scala.{AnyVal,Boolean,Byte,Char,Console,Double,Int,Float,Option,None,Long,Product,Short,Some,Unit}
 import scala.Predef._
 import scala.reflect.runtime.universe._
 import scala.reflect.runtime.currentMirror
 import scala.collection.{Set => _, Map => _,_}
 import scala.collection.immutable.{List,ListMap,Map,Stream}
+import scala.util.control.NonFatal
 
 /**
  * @author Nikita Volkov (original development)
@@ -108,7 +109,13 @@ object PrettyPrinting {
     def trace [ Z ] ( f : A => Z = (x : A) => x.treeString )
     = { Console.println(f(a)); a }
 
-    def trying [ Z ] ( f : A => Z ) = Try(f(a)).toOption
+    def trying [ Z ] ( f : A => Z ) =
+      try {
+        Option.apply(f(a))
+      } catch {
+        case NonFatal(_) =>
+          None
+      }
 
     def unfold
     [ Z ]

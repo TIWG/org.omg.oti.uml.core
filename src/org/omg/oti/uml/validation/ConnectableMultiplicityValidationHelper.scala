@@ -48,7 +48,7 @@ import scala.Predef._
 import scala.collection.Iterable
 import scala.collection.immutable.::
 import scala.collection.immutable.Nil
-import scala.util._
+import scala.util.control.Exception._
 
 import java.lang.Integer
 
@@ -336,29 +336,31 @@ case class ConnectableMultiplicityValidationHelper[Uml <: UML, UmlOps <: UMLOps[
                   pop.lowerValue, InvalidValueAsStringStatus,
                   REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(0))
               else
-                Try(Integer.parseInt(s)) match {
-                  case Success(x) =>
-                    if (1 == x)
+                catching(classOf[java.lang.NumberFormatException])
+                .withApply { _ =>
+                  ConnectableMultiplicityValidationInfo[Uml](
+                    pop, MultiplicityElement_lowerValue,
+                    pop.lowerValue, InvalidValueAsStringStatus,
+                    INVALID_STRING_VALUE)
+                }
+                .apply({
+                  val x = Integer.parseInt(s)
+                  if (1 == x)
                       ConnectableMultiplicityValidationInfo[Uml](
                         pop, MultiplicityElement_lowerValue,
                         pop.lowerValue, RedundantValueStatus,
                         DELETE_REDUNDANT_DEFAULT_VALUE)
-                    else if (0 <= x)
+                  else if (0 <= x)
                       ConnectableMultiplicityValidationInfo[Uml](
                         pop, MultiplicityElement_lowerValue,
                         pop.lowerValue, InvalidValueAsStringStatus,
                         REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(x))
-                    else
+                  else
                       ConnectableMultiplicityValidationInfo[Uml](
                         pop, MultiplicityElement_lowerValue,
                         pop.lowerValue, InvalidValueAsStringStatus,
                         INVALID_STRING_VALUE)
-                  case _: Failure[_] =>
-                    ConnectableMultiplicityValidationInfo[Uml](
-                      pop, MultiplicityElement_lowerValue,
-                      pop.lowerValue, InvalidValueAsStringStatus,
-                      INVALID_STRING_VALUE)
-                }
+                })
           }
 
         case v =>
@@ -434,29 +436,31 @@ case class ConnectableMultiplicityValidationHelper[Uml <: UML, UmlOps <: UMLOps[
                     pop.upperValue, InvalidValueAsStringStatus,
                     REPAIR_STRING_VALUE_TO_EQUIVALENT_UNLIMITED_NATURAL_VALUE, Some(-1))
               else
-                Try(Integer.parseInt(s)) match {
-                  case Success(x) =>
-                    if (1 == x)
-                      ConnectableMultiplicityValidationInfo[Uml](
-                          pop, MultiplicityElement_upperValue,
-                          pop.upperValue, RedundantValueStatus,
-                          DELETE_REDUNDANT_DEFAULT_VALUE)
-                    else if (-1 <= x)
-                      ConnectableMultiplicityValidationInfo[Uml](
-                          pop, MultiplicityElement_upperValue,
-                          pop.upperValue, InvalidValueAsStringStatus,
-                          REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(x))
-                    else
-                      ConnectableMultiplicityValidationInfo[Uml](
-                          pop, MultiplicityElement_upperValue,
-                          pop.upperValue, InvalidValueAsStringStatus,
-                          INVALID_STRING_VALUE)
-                  case _: Failure[_] =>
+                catching(classOf[java.lang.NumberFormatException])
+                .withApply { _ =>
+                  ConnectableMultiplicityValidationInfo[Uml](
+                    pop, MultiplicityElement_upperValue,
+                    pop.upperValue, InvalidValueAsStringStatus,
+                    INVALID_STRING_VALUE)
+                }
+                .apply({
+                  val x = Integer.parseInt(s)
+                  if (1 == x)
+                    ConnectableMultiplicityValidationInfo[Uml](
+                        pop, MultiplicityElement_upperValue,
+                        pop.upperValue, RedundantValueStatus,
+                        DELETE_REDUNDANT_DEFAULT_VALUE)
+                  else if (-1 <= x)
+                    ConnectableMultiplicityValidationInfo[Uml](
+                        pop, MultiplicityElement_upperValue,
+                        pop.upperValue, InvalidValueAsStringStatus,
+                        REPAIR_STRING_VALUE_TO_EQUIVALENT_INTEGER_VALUE, Some(x))
+                  else
                     ConnectableMultiplicityValidationInfo[Uml](
                         pop, MultiplicityElement_upperValue,
                         pop.upperValue, InvalidValueAsStringStatus,
                         INVALID_STRING_VALUE)
-                }
+                })
           }
 
         case v =>

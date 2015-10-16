@@ -44,7 +44,6 @@ import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.existentials
-import scala.util.{Failure, Success, Try}
 import scala.{annotation,Boolean,Double,Int,Option,None,Some}
 import scala.Predef.{???,String}
 import scala.collection.immutable._
