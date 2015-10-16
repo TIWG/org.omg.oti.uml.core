@@ -41,8 +41,8 @@ package org.omg.oti.uml.write.api
 
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
-import scala.{AnyVal,Boolean,Unit}
-import scala.collection.immutable.{Seq,Set}
+import scala.{AnyVal,Option,Unit}
+import scala.collection.immutable.Set
 import scalaz._
 // Start of user code for imports
 // End of user code
