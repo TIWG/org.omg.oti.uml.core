@@ -85,7 +85,7 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
    * TIWG: see UMLUtil, Rule #4
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: \/[NonEmptyList[UMLError.UException], String] =
+	: NonEmptyList[UMLError.UException] \/ String =
 		for {
 			key <- element_xmiOrderingKey
 			f <- definingFeature.fold[\/[NonEmptyList[UMLError.UException], String]]("_".right){ sf =>

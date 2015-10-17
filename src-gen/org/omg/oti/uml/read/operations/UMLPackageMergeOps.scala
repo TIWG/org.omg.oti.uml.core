@@ -95,7 +95,7 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: \/[NonEmptyList[UMLError.UException], String] =
+	: NonEmptyList[UMLError.UException] \/ String =
 			for {
 				key <- element_xmiOrderingKey
 				i <- mergedPackage.fold[\/[NonEmptyList[UMLError.UException], String]]("_".right){ mp =>

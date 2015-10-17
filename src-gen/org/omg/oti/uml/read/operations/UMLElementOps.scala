@@ -53,7 +53,6 @@ import scala.collection.immutable._
 import scala.collection.Iterable
 import java.lang.IllegalArgumentException
 
-
 // End of user code
 
 /**
@@ -161,7 +160,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   @annotation.tailrec final def getPackageOwnerWithEffectiveURI
   ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : \/[NonEmptyList[UMLError.UException], Option[UMLPackage[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Option[UMLPackage[Uml]] =
     self match {
       case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined =>
         p.some.right
@@ -282,7 +281,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @see asForwardReferencesToOwningElementImportableOuterPackageableElements
    */
   def asForwardReferencesToImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     asForwardReferencesToOwningElementImportableOuterPackageableElements
 
   def mofXMI_metaAtttributes: MetaAttributeFunctions = {
@@ -333,19 +332,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def forwardRelationTriples
   ()
   (implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] = {
+  : NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] = {
 
     def addEvaluatedTriples
-    (acc: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]],
+    (acc: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]],
      f: MetaPropertyEvaluator)
-    : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
+    : NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] =
       acc.flatMap { ts =>
         f
         .evaluateTriples(self)
         .map( _ ++ ts )
       }
 
-    val acc0: \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
+    val acc0: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] =
       tagValues.map { tvs =>
         for {
           tagValue <- tvs.to[Set]
@@ -377,7 +376,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The String values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyBooleanValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[Boolean]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[Boolean] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -402,7 +401,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The Integer values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyIntegerValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[Int]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[Int] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -427,7 +426,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The Integer values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyUnlimitedNaturalValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[Int]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[Int] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -452,13 +451,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The Integer values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyRealValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[Double]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[Double] =
     lookupTagValueByProperty(tagProperty)
     .map {
-      case None =>
-        None
-      case Some(v) =>
-        v match {
+      _.fold[Iterable[Double]](Iterable()){
           case vs: UMLStereotypeTagPropertyClassifierValue[Uml] =>
             for {
               tv <- vs.values
@@ -468,7 +464,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
               }
             } yield v
           case _ =>
-            None
+            Iterable()
         }
     }
 
@@ -477,7 +473,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The String values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyStringValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[String]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -502,7 +498,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The EnumerationLiteral values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyEnumValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[UMLEnumerationLiteral[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[UMLEnumerationLiteral[Uml]] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -527,7 +523,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The InstanceSpecification values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyInstanceValues(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[UMLInstanceSpecification[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[UMLInstanceSpecification[Uml]] =
     lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
@@ -552,7 +548,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def oti_xmiID: \/[NonEmptyList[UMLError.UException], Option[String]] =
+  def oti_xmiID: NonEmptyList[UMLError.UException] \/ Option[String] =
     OTI_IDENTITY_xmiID
     .flatMap{ p: UMLProperty[Uml] =>
         getStereotypeTagPropertyStringValues(p).map(_.headOption)
@@ -563,7 +559,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def oti_xmiUUID: \/[NonEmptyList[UMLError.UException], Option[String]] =
+  def oti_xmiUUID: NonEmptyList[UMLError.UException] \/ Option[String] =
     OTI_IDENTITY_xmiUUID
     .flatMap{ p: UMLProperty[Uml] =>
         getStereotypeTagPropertyStringValues(p).map(_.headOption)
@@ -593,7 +589,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiID()(implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
     oti_xmiID
     .flatMap {
       _id: Option[String] =>
@@ -627,7 +623,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def xmiUUID
   ()
   (implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
     oti_xmiUUID
     .flatMap { _id: Option[String] =>
       _id
@@ -643,11 +639,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def metaclass_name: String = mofMetaclassName(0).toLower + mofMetaclassName.drop(1)
 
   def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
     element_xmiOrderingKey
 
   def element_xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
   for {
     uuid <- xmiUUID
   } yield xmiElementLabel + uuid
@@ -694,10 +690,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The set of Elements referenced from this Element due to values of applied stereotype tag properties
    */
   def allForwardReferencesFromStereotypeTagProperties
-  : \/[NonEmptyList[UMLError.UException], Set[UMLElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLElement[Uml]] =
     tagValues
     .flatMap{ stvs: Seq[UMLStereotypeTagValue[Uml]] =>
-      val r0: \/[NonEmptyList[UMLError.UException], Set[UMLElement[Uml]]] = Set().right
+      val r0: NonEmptyList[UMLError.UException] \/ Set[UMLElement[Uml]] = Set().right
       val rn = (r0 /: stvs) { (ri, stv) =>
         ri.map{ refs =>
           refs ++ stv.tagPropertyValueElementReferences
@@ -720,16 +716,16 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * references due to values of applied stereotype tag properties.
    */
   def allForwardReferencesToElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLElement[Uml]] =
     allForwardReferencesFromStereotypeTagProperties.map(Set(this) ++ forwardReferencesFromMetamodelAssociations ++ _)
 
   /**
    * Aggregates all forward references to the level of importable outer packageable elements
    */
   def allForwardReferencesToImportablePackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     allForwardReferencesToElements.flatMap { (frefs) =>
-      val a0: \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] = Set().right
+      val a0: NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] = Set().right
       val an = (a0 /: frefs) { (ai, fref) =>
         (fref.asForwardReferencesToImportableOuterPackageableElements |@| ai) { (s1, s2) =>
           s1 ++ s2
@@ -739,7 +735,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     }
 
   def asForwardReferencesToOwningElementImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     owner
     .fold[\/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]]](
       Set[UMLPackageableElement[Uml]]().right
@@ -768,10 +764,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return A tuple of the tag property values according to their lifecycle semantics
    */
   def tagValues
-  : \/[NonEmptyList[UMLError.UException], Seq[UMLStereotypeTagValue[Uml]]]
+  : NonEmptyList[UMLError.UException] \/ Seq[UMLStereotypeTagValue[Uml]]
 
   def lookupTagValueByProperty(tagProperty: UMLProperty[Uml])
-  : \/[NonEmptyList[UMLError.UException], Option[UMLStereotypeTagValue[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Option[UMLStereotypeTagValue[Uml]] =
    tagValues.map{ _.find(p => p.stereotypeTagProperty == tagProperty) }
 
   /**
@@ -793,12 +789,12 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getContainingMetaPropertyEvaluator
   ()
   (implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], Option[MetaPropertyEvaluator]] =
+  : NonEmptyList[UMLError.UException] \/ Option[MetaPropertyEvaluator] =
     owner
     .fold[\/[NonEmptyList[UMLError.UException], Option[MetaPropertyEvaluator]]](
       Option.empty[MetaPropertyEvaluator].right
     ){ o: UMLElement[Uml] =>
-      val p0: \/[NonEmptyList[UMLError.UException], Seq[MetaPropertyEvaluator]] = Seq().right
+      val p0: NonEmptyList[UMLError.UException] \/ Seq[MetaPropertyEvaluator] = Seq().right
       val pN = (p0 /: o.compositeMetaProperties.reverse) { (pi, mi) =>
         pi
         .flatMap { mps: Seq[MetaPropertyEvaluator] =>
@@ -855,7 +851,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getElementMetamodelPropertyValue
   (f: MetaPropertyEvaluator)
   (implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], Iterable[UMLElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[UMLElement[Uml]] =
     f match {
       case rf: MetaReferenceEvaluator =>
         for {v <- rf.evaluate(self)}
@@ -868,7 +864,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The computed OTI xmi:id for the element
    */
   def generatedOTI_id()(implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
     idg.computeID(self)
 
   /**
@@ -877,18 +873,21 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def generatedOTI_uuid
   ()
   (implicit idg: IDGenerator[Uml])
-  : \/[NonEmptyList[UMLError.UException], String] =
+  : NonEmptyList[UMLError.UException] \/ String =
     idg
     .element2mappedDocument(self)
-    .fold[\/[NonEmptyList[UMLError.UException], String]](
-      -\/(
+    .flatMap {
+      _.fold[\/[NonEmptyList[UMLError.UException], String]](
         NonEmptyList(
           UMLError
             .illegalElementError[Uml, UMLElement[Uml]](
             s"Cannot generate the OTI uuid for $self because it does not belong to a document",
-            Iterable(self))))
-    ){ d =>
-      (d.uuidPrefix + xmiID()).right
+            Iterable(self)))
+        .left
+      ) { d =>
+        (d.uuidPrefix + xmiID())
+        .right
+      }
     }
 
   /* 
@@ -906,15 +905,16 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return the tool-specific "xmi:uuid" global identifier for the UML Element, if any.
    */
-  def toolSpecific_uuid: Option[String] = ???
+  def toolSpecific_uuid: Option[String]
 
-  def hasStereotype(s: UMLStereotype[Uml]): Boolean
+  def hasStereotype(s: UMLStereotype[Uml])
+  : NonEmptyList[UMLError.UException] \/ Boolean
 
   /**
    * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
    */
   final def getAppliedStereotypes
-  : \/[NonEmptyList[UMLError.UException], Map[UMLStereotype[Uml], UMLProperty[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Map[UMLStereotype[Uml], UMLProperty[Uml]] =
   tagValues
   .map { stvs =>
     (for {
@@ -925,9 +925,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   /**
    * Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.
    */
-  def getAppliedStereotypesWithoutMetaclassProperties: Set[UMLStereotype[Uml]]
+  def getAppliedStereotypesWithoutMetaclassProperties
+  : NonEmptyList[UMLError.UException] \/ Set[UMLStereotype[Uml]]
 
-  def isAncestorOf(other: UMLElement[Uml]): Boolean
+  def isAncestorOf(other: UMLElement[Uml])
+  : NonEmptyList[UMLError.UException] \/ Boolean
 
   def toWrappedObjectString: String = {
 
@@ -956,9 +958,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
    */
-  def isSpecificationRoot: \/[NonEmptyList[UMLError.UException], Boolean] =
+  def isSpecificationRoot: NonEmptyList[UMLError.UException] \/ Boolean =
     OTI_SPECIFICATION_ROOT_S
-    .map{ s =>
+    .flatMap{ s =>
       hasStereotype(s)
     }
 

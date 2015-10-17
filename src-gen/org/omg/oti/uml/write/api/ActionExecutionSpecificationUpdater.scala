@@ -55,6 +55,6 @@ class ActionExecutionSpecificationUpdater[Uml <: UML](val domain: UMLActionExecu
   def links_ActionExecutionSpecification_actionExecutionSpecification_reference_action_Action
   (range: Option[UMLAction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActionExecutionSpecification_actionExecutionSpecification_reference_action_Action(domain, range)
 }

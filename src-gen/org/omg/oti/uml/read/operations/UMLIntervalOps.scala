@@ -78,11 +78,11 @@ trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+	: NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     interval_asForwardReferencesToImportableOuterPackageableElements
 
   def interval_asForwardReferencesToImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     (Set[UMLPackageableElement[Uml]](this) ++ min.toSet ++ max.toSet).right
 
   // End of user code

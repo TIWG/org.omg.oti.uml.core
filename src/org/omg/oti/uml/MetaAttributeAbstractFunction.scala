@@ -73,7 +73,7 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
   def evaluate
   (e: UMLElement[Uml], idg: IDGenerator[Uml])
   (implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U])
-  : \/[NonEmptyList[UMLError.UException], Iterable[String]] =
+  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
     e match {
       case u: U =>
         (f, df) match {

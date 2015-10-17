@@ -158,7 +158,7 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
 
-  def evaluateTriples(e: UMLElement[Uml]): \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]]
+  def evaluateTriples(e: UMLElement[Uml]): NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]]
 }
 
 
@@ -185,7 +185,7 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] =
     e match {
       case u: U =>
         evaluate(u)
@@ -210,7 +210,7 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
     }
 
   def evaluate(e: UMLElement[Uml])
-  : \/[NonEmptyList[UMLError.UException], Option[UMLElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Option[UMLElement[Uml]] =
     e match {
       case u: U =>
         f(u).right
@@ -263,7 +263,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : \/[NonEmptyList[UMLError.UException], Set[RelationTriple[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] =
     e match {
       case u: U =>
         evaluate(u)
@@ -275,7 +275,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     }
 
   def evaluate(e: UMLElement[Uml])
-  : \/[NonEmptyList[UMLError.UException], List[UMLElement[Uml]]] = {
+  : NonEmptyList[UMLError.UException] \/ List[UMLElement[Uml]] = {
     require(e != null)
     e match {
       case u: U =>

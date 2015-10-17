@@ -135,4 +135,5 @@ object UMLError {
    cause: java.lang.Throwable)
   : UException =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, Some(cause))
+
 }

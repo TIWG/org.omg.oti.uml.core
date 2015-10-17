@@ -113,11 +113,11 @@ trait UMLTimeExpressionOps[Uml <: UML] { self: UMLTimeExpression[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     expression_asForwardReferencesToImportableOuterPackageableElements
 
   def expression_asForwardReferencesToImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
 		(Set[UMLPackageableElement[Uml]](this) ++ expr.toSet).right
 
   // End of user code

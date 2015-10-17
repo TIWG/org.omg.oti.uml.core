@@ -168,11 +168,11 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
   }
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+	: NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
 
   def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
-  : \/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]] =
+  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
     owner
     .fold[\/[NonEmptyList[UMLError.UException], Set[UMLPackageableElement[Uml]]]](Set().right) {
       case p: UMLPackage[Uml] =>

@@ -56,42 +56,42 @@ class ActivityEdgeUpdater[Uml <: UML](val domain: UMLActivityEdge[Uml]) extends 
   def links_ActivityEdge_activityEdge_compose_guard_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_activityEdge_compose_guard_ValueSpecification(domain, range)
 
   def links_ActivityEdge_edge_reference_inPartition_ActivityPartition
   (range: Set[UMLActivityPartition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_edge_reference_inPartition_ActivityPartition(domain, range)
 
   def links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion
   (range: Option[UMLInterruptibleActivityRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion(domain, range)
 
   def links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge(domain, range)
 
   def links_ActivityEdge_outgoing_reference_source_ActivityNode
   (range: Option[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_outgoing_reference_source_ActivityNode(domain, range)
 
   def links_ActivityEdge_incoming_reference_target_ActivityNode
   (range: Option[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_incoming_reference_target_ActivityNode(domain, range)
 
   def links_ActivityEdge_activityEdge_compose_weight_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException], Unit] =
+  : NonEmptyList[UMLError.UException] \/ Unit =
     umlU.links_ActivityEdge_activityEdge_compose_weight_ValueSpecification(domain, range)
 }

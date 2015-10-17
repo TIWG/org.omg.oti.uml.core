@@ -83,22 +83,26 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
    *         the set of annotated elements is a singleton kind of Package
    */
   def getSpecificationRootCharacterizedPackage
-	: \/[NonEmptyList[UMLError.UException], Option[UMLPackage[Uml]]] =
+	: NonEmptyList[UMLError.UException] \/ Option[UMLPackage[Uml]] =
     OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
     .flatMap { s =>
-      if (!hasStereotype(s) || 1 != annotatedElement.size)
-        Option.empty[UMLPackage[Uml]].right
-      else
-        annotatedElement
-        .headOption
-        .fold[\/[NonEmptyList[UMLError.UException], Option[UMLPackage[Uml]]]](
+      hasStereotype(s)
+      .flatMap { isOTICharacterization =>
+
+        if (!isOTICharacterization || 1 != annotatedElement.size)
           Option.empty[UMLPackage[Uml]].right
-        ) {
-          case annotatedP: UMLPackage[Uml] =>
-            annotatedP.some.right
-          case _ =>
+        else
+          annotatedElement
+            .headOption
+            .fold[\/[NonEmptyList[UMLError.UException], Option[UMLPackage[Uml]]]](
             Option.empty[UMLPackage[Uml]].right
-        }
+          ) {
+            case annotatedP: UMLPackage[Uml] =>
+              annotatedP.some.right
+            case _ =>
+              Option.empty[UMLPackage[Uml]].right
+          }
+      }
     }
 
   // End of user code
