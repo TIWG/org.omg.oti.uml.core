@@ -40,11 +40,14 @@
 package org.omg.oti.uml
 
 import org.omg.oti.uml.read.api.{UML, UMLElement}
+import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.write.api.UMLUpdate
 
 import scala.{Option, None, Some, StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
+
+import scalaz.Scalaz._
 
 object UMLError {
 
@@ -56,6 +59,26 @@ object UMLError {
     cause.map(this.initCause(_))
 
   }
+
+  class UMLAdaptationError
+  ( override val message: String)
+    extends UException(message, Option.empty[java.lang.Throwable] )
+
+  class UMLAdaptationException
+  ( override val message: String,
+    override val cause: Option[java.lang.Throwable])
+    extends UException(message, cause)
+
+  class UMLOpsError[Uml <: UML]
+  ( val ops: UMLOps[Uml],
+    override val message: String)
+    extends UException(message, Option.empty[java.lang.Throwable] )
+
+  class UMLOpsException[Uml <: UML]
+  ( val ops: UMLOps[Uml],
+    override val message: String,
+    override val cause: Option[java.lang.Throwable])
+    extends UException(message, cause)
 
   class UElementException[Uml <: UML, E <: UMLElement[Uml]]
   ( val element: Iterable[E],
@@ -96,6 +119,17 @@ object UMLError {
    override val cause: Option[java.lang.Throwable])
   extends UElementException[Uml, E](element, message, cause)
 
+  def umlAdaptationError
+  (message: String)
+  : UException =
+    new UMLAdaptationError(message)
+
+  def UMLAdaptationException
+  ( message: String,
+    cause: java.lang.Throwable)
+  : UException =
+    new UMLAdaptationException(message, cause.some)
+
   def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E])
@@ -120,6 +154,19 @@ object UMLError {
    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
   : UException =
     new IllegalMetaAttributeEvaluation[Uml, E, U, DT](element, metaAttributeFunction)
+
+  def umlOpsError[Uml <: UML]
+  ( ops: UMLOps[Uml],
+    message: String)
+  : UException =
+    new UMLOpsError(ops, message)
+
+  def umlOpsException[Uml <: UML]
+  ( ops: UMLOps[Uml],
+    message: String,
+    cause: java.lang.Throwable)
+  : UException =
+    new UMLOpsException(ops, message, cause.some)
 
   def umlUpdateError[Uml <: UML, E <: UMLElement[Uml]]
   (umlUpdate: UMLUpdate[Uml],
