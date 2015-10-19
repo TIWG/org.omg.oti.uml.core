@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -58,6 +57,6 @@ class LiteralUnlimitedNaturalUpdater[Uml <: UML](val domain: UMLLiteralUnlimited
   def setValue
   (value: String)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_LiteralUnlimitedNatural_value(domain, value)
 }

@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -58,30 +57,30 @@ class ArtifactUpdater[Uml <: UML](val domain: UMLArtifact[Uml]) extends AnyVal {
   def links_Artifact_artifact_compose_manifestation_Manifestation
   (range: Set[UMLManifestation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Artifact_artifact_compose_manifestation_Manifestation(domain, range)
 
   def links_Artifact_artifact_compose_nestedArtifact_Artifact
   (range: Set[UMLArtifact[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Artifact_artifact_compose_nestedArtifact_Artifact(domain, range)
 
   def links_Artifact_artifact_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Artifact_artifact_compose_ownedAttribute_Property(domain, range)
 
   def links_Artifact_artifact_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Artifact_artifact_compose_ownedOperation_Operation(domain, range)
 
   def setFileName
   (fileName: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_Artifact_fileName(domain, fileName)
 }

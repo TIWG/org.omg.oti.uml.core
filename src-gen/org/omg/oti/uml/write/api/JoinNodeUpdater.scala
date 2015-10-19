@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
@@ -56,12 +55,12 @@ class JoinNodeUpdater[Uml <: UML](val domain: UMLJoinNode[Uml]) extends AnyVal {
   def links_JoinNode_joinNode_compose_joinSpec_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_JoinNode_joinNode_compose_joinSpec_ValueSpecification(domain, range)
 
   def setIsCombineDuplicate
   (isCombineDuplicate: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_JoinNode_isCombineDuplicate(domain, isCombineDuplicate)
 }

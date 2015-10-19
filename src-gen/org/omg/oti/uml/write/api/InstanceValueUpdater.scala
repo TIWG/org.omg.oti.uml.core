@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class InstanceValueUpdater[Uml <: UML](val domain: UMLInstanceValue[Uml]) extend
   def links_InstanceValue_instanceValue_reference_instance_InstanceSpecification
   (range: Option[UMLInstanceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_InstanceValue_instanceValue_reference_instance_InstanceSpecification(domain, range)
 }

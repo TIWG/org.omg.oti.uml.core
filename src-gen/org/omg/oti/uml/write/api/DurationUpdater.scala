@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -57,12 +56,12 @@ class DurationUpdater[Uml <: UML](val domain: UMLDuration[Uml]) extends AnyVal {
   def links_Duration_duration_compose_expr_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Duration_duration_compose_expr_ValueSpecification(domain, range)
 
   def links_Duration_duration_reference_observation_Observation
   (range: Set[UMLObservation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Duration_duration_reference_observation_Observation(domain, range)
 }

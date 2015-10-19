@@ -85,10 +85,12 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
    * TIWG: see UMLUtil, Rule #4
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: NonEmptyList[UMLError.UException] \/ String =
+	: NonEmptyList[java.lang.Throwable] \/ String =
 		for {
 			key <- element_xmiOrderingKey
-			f <- definingFeature.fold[\/[NonEmptyList[UMLError.UException], String]]("_".right){ sf =>
+			f <- definingFeature.fold[NonEmptyList[java.lang.Throwable] \/ String](
+				"_".right
+			){ sf =>
 			  sf.xmiOrderingKey.map("_" + _)
 			}
 		} yield key + f

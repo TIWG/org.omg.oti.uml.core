@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
@@ -56,12 +55,12 @@ class LinkEndCreationDataUpdater[Uml <: UML](val domain: UMLLinkEndCreationData[
   def links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_LinkEndCreationData_isReplaceAll(domain, isReplaceAll)
 }

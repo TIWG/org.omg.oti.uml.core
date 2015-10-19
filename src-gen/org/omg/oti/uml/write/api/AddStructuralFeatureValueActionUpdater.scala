@@ -39,7 +39,6 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
@@ -55,12 +54,12 @@ class AddStructuralFeatureValueActionUpdater[Uml <: UML](val domain: UMLAddStruc
   def links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[UMLError.UException] \/ Unit =
+  : NonEmptyList[java.lang.Throwable] \/ Unit =
     umlU.links_AddStructuralFeatureValueAction_addStructuralFeatureValueAction_compose_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[UMLError.UException] \/ Unit =
+  : NonEmptyList[java.lang.Throwable] \/ Unit =
     umlU.set_AddStructuralFeatureValueAction_isReplaceAll(domain, isReplaceAll)
 }

@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class StringExpressionUpdater[Uml <: UML](val domain: UMLStringExpression[Uml]) 
   def links_StringExpression_owningExpression_compose_subExpression_StringExpression
   (range: Seq[UMLStringExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_StringExpression_owningExpression_compose_subExpression_StringExpression(domain, range)
 }

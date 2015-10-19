@@ -114,11 +114,11 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
+  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
 		Set( this ).right
 
   override def asForwardReferencesToOwningElementImportableOuterPackageableElements
-  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
+  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     Set( this ).right
 
   // End of user code

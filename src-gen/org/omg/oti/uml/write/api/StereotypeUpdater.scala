@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class StereotypeUpdater[Uml <: UML](val domain: UMLStereotype[Uml]) extends AnyV
   def links_Stereotype_stereotype_compose_icon_Image
   (range: Set[UMLImage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Stereotype_stereotype_compose_icon_Image(domain, range)
 }

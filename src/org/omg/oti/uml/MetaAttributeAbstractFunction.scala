@@ -67,13 +67,13 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
   implicit val UType: TypeTag[U]
   val attributePrefix: Option[String]
   val attributeName: String
-  val f: Option[U => \/[NonEmptyList[UMLError.UException], Iterable[DT]]]
-  val df: Option[(U, IDGenerator[Uml]) => \/[NonEmptyList[UMLError.UException], Iterable[DT]]]
+  val f: Option[U => \/[NonEmptyList[java.lang.Throwable], Iterable[DT]]]
+  val df: Option[(U, IDGenerator[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[DT]]]
 
   def evaluate
   (e: UMLElement[Uml], idg: IDGenerator[Uml])
   (implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U])
-  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
     e match {
       case u: U =>
         (f, df) match {
@@ -118,7 +118,7 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
 case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EValue <: Enumeration#Value, EValueSet <: Enumeration#ValueSet]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Option[EValue]],
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Option[EValue]],
  orderedEnumerationValues: EValueSet)
   extends MetaAttributeAbstractFunction[Uml, U, EValue] {
   implicit val UType: TypeTag[U] = typeTag[U]
@@ -163,7 +163,7 @@ case class MetaAttributeEnumerationFunction[Uml <: UML, U <: UMLElement[Uml], EV
 case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Iterable[Boolean]])
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Iterable[Boolean]])
   extends MetaAttributeAbstractFunction[Uml, U, Boolean] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -202,7 +202,7 @@ case class MetaAttributeBooleanFunction[Uml <: UML, U <: UMLElement[Uml]]
 case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Iterable[Integer]])
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Iterable[Integer]])
   extends MetaAttributeAbstractFunction[Uml, U, Integer] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -237,7 +237,7 @@ case class MetaAttributeIntegerFunction[Uml <: UML, U <: UMLElement[Uml]]
 case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Iterable[String]])
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -272,7 +272,7 @@ case class MetaAttributeUnlimitedNaturalFunction[Uml <: UML, U <: UMLElement[Uml
 case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Iterable[String]])
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -315,7 +315,7 @@ case class MetaAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
 case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- f1: U => \/[NonEmptyList[UMLError.UException], Iterable[Double]])
+ f1: U => \/[NonEmptyList[java.lang.Throwable], Iterable[Double]])
   extends MetaAttributeAbstractFunction[Uml, U, Double] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = Some(f1)
@@ -350,7 +350,7 @@ case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
 case class MetaDocumentAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- df1: (U, IDGenerator[Uml]) => \/[NonEmptyList[UMLError.UException], Iterable[String]])
+ df1: (U, IDGenerator[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = None

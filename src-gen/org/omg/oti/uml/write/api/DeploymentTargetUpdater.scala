@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class DeploymentTargetUpdater[Uml <: UML](val domain: UMLDeploymentTarget[Uml]) 
   def links_DeploymentTarget_location_compose_deployment_Deployment
   (range: Set[UMLDeployment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_DeploymentTarget_location_compose_deployment_Deployment(domain, range)
 }

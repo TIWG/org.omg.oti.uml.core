@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class ConnectorEndUpdater[Uml <: UML](val domain: UMLConnectorEnd[Uml]) extends 
   def links_ConnectorEnd_connectorEnd_reference_partWithPort_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ConnectorEnd_connectorEnd_reference_partWithPort_Property(domain, range)
 }

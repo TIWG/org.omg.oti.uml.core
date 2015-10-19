@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class StartClassifierBehaviorActionUpdater[Uml <: UML](val domain: UMLStartClass
   def links_StartClassifierBehaviorAction_startClassifierBehaviorAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_StartClassifierBehaviorAction_startClassifierBehaviorAction_compose_object_InputPin(domain, range)
 }

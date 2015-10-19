@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Double,Unit}
@@ -57,6 +56,6 @@ class LiteralRealUpdater[Uml <: UML](val domain: UMLLiteralReal[Uml]) extends An
   def setValue
   (value: Double)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_LiteralReal_value(domain, value)
 }

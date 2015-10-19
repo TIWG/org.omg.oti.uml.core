@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -58,18 +57,18 @@ class InstanceSpecificationUpdater[Uml <: UML](val domain: UMLInstanceSpecificat
   def links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier
   (range: Iterable[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier(domain, range)
 
   def links_InstanceSpecification_owningInstance_compose_slot_Slot
   (range: Set[UMLSlot[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_InstanceSpecification_owningInstance_compose_slot_Slot(domain, range)
 
   def links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_InstanceSpecification_owningInstanceSpec_compose_specification_ValueSpecification(domain, range)
 }

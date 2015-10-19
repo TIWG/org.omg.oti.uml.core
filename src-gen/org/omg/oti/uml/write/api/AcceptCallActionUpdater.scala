@@ -39,7 +39,6 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Option,Unit}
 import scalaz._
@@ -55,6 +54,6 @@ class AcceptCallActionUpdater[Uml <: UML](val domain: UMLAcceptCallAction[Uml]) 
   def links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[UMLError.UException] \/ Unit =
+  : NonEmptyList[java.lang.Throwable] \/ Unit =
     umlU.links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin(domain, range)
 }

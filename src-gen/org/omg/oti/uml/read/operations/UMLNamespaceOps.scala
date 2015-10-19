@@ -510,7 +510,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * This does not include references from elements in nested packages.
    */
   def forwardReferencesToNamespaces()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[UMLError.UException] \/ Set[UMLNamespace[Uml]] =
+  : NonEmptyList[java.lang.Throwable] \/ Set[UMLNamespace[Uml]] =
     forwardReferencesBeyondNamespaceScope.map { triples =>
       triples
       .map(_.obj)
@@ -524,7 +524,7 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
    * The property of each relation triple is either a metamodel association or a stereotype property.
    */
   def forwardReferencesBeyondNamespaceScope()(implicit idg: IDGenerator[Uml])
-	: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] = {
+	: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 
     val scope = self.ownedElement
 
@@ -532,12 +532,12 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
     /* @annotation.tailrec */ def followReferencesUntilNamespaceScopeBoundary
     (acc: Set[RelationTriple[Uml]],
-     triples: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]])
-    : NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] = {
+     triples: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]])
+    : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 			val r =
         triples
 				.flatMap { ts: Set[RelationTriple[Uml]] =>
-          val ti: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] =
+          val ti: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
             if (ts.isEmpty)
               acc.right
             else {
@@ -560,8 +560,8 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
       r
     }
 
-    val triples0: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] = Set().right
-    val triplesN: NonEmptyList[UMLError.UException] \/ Set[RelationTriple[Uml]] = ( triples0 /: scope ) { (ti, e) =>
+    val triples0: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = Set().right
+    val triplesN: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = ( triples0 /: scope ) { (ti, e) =>
       ti.flatMap { acc: Set[RelationTriple[Uml]] =>
         followReferencesUntilNamespaceScopeBoundary(acc, e.forwardRelationTriples)
       }

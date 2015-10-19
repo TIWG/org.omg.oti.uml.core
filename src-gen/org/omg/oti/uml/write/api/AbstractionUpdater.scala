@@ -39,7 +39,6 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Option,Unit}
 import scalaz._
@@ -55,6 +54,6 @@ class AbstractionUpdater[Uml <: UML](val domain: UMLAbstraction[Uml]) extends An
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
   (range: Option[UMLOpaqueExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[UMLError.UException] \/ Unit =
+  : NonEmptyList[java.lang.Throwable] \/ Unit =
     umlU.links_Abstraction_abstraction_compose_mapping_OpaqueExpression(domain, range)
 }

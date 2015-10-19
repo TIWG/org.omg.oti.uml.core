@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class RaiseExceptionActionUpdater[Uml <: UML](val domain: UMLRaiseExceptionActio
   def links_RaiseExceptionAction_raiseExceptionAction_compose_exception_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_RaiseExceptionAction_raiseExceptionAction_compose_exception_InputPin(domain, range)
 }

@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -57,6 +56,6 @@ class PseudostateUpdater[Uml <: UML](val domain: UMLPseudostate[Uml]) extends An
   def setKind
   (kind: Option[UMLPseudostateKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_Pseudostate_kind(domain, kind)
 }

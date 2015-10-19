@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -57,12 +56,12 @@ class TriggerUpdater[Uml <: UML](val domain: UMLTrigger[Uml]) extends AnyVal {
   def links_Trigger_trigger_reference_event_Event
   (range: Option[UMLEvent[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Trigger_trigger_reference_event_Event(domain, range)
 
   def links_Trigger_trigger_reference_port_Port
   (range: Set[UMLPort[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Trigger_trigger_reference_port_Port(domain, range)
 }

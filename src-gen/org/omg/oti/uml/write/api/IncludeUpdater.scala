@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class IncludeUpdater[Uml <: UML](val domain: UMLInclude[Uml]) extends AnyVal {
   def links_Include_include_reference_addition_UseCase
   (range: Option[UMLUseCase[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Include_include_reference_addition_UseCase(domain, range)
 }

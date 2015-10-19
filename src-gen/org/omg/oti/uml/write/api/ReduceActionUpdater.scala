@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
@@ -56,24 +55,24 @@ class ReduceActionUpdater[Uml <: UML](val domain: UMLReduceAction[Uml]) extends 
   def links_ReduceAction_reduceAction_compose_collection_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ReduceAction_reduceAction_compose_collection_InputPin(domain, range)
 
   def links_ReduceAction_reduceAction_reference_reducer_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ReduceAction_reduceAction_reference_reducer_Behavior(domain, range)
 
   def links_ReduceAction_reduceAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ReduceAction_reduceAction_compose_result_OutputPin(domain, range)
 
   def setIsOrdered
   (isOrdered: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_ReduceAction_isOrdered(domain, isOrdered)
 }

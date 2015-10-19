@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class SequenceNodeUpdater[Uml <: UML](val domain: UMLSequenceNode[Uml]) extends 
   def links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode
   (range: Seq[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_SequenceNode_sequenceNode_compose_executableNode_ExecutableNode(domain, range)
 }

@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,12 +56,12 @@ class TemplateSignatureUpdater[Uml <: UML](val domain: UMLTemplateSignature[Uml]
   def links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter
   (range: Seq[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter(domain, range)
 
   def links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter
   (range: Seq[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter(domain, range)
 }

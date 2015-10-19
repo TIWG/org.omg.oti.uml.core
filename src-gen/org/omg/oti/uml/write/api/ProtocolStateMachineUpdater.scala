@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class ProtocolStateMachineUpdater[Uml <: UML](val domain: UMLProtocolStateMachin
   def links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance
   (range: Set[UMLProtocolConformance[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance(domain, range)
 }

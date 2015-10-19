@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
@@ -57,6 +56,6 @@ class FeatureUpdater[Uml <: UML](val domain: UMLFeature[Uml]) extends AnyVal {
   def setIsStatic
   (isStatic: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_Feature_isStatic(domain, isStatic)
 }

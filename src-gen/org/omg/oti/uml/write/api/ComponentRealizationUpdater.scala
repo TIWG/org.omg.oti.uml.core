@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class ComponentRealizationUpdater[Uml <: UML](val domain: UMLComponentRealizatio
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier(domain, range)
 }

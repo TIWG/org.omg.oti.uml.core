@@ -105,18 +105,18 @@ trait UMLDependencyOps[Uml <: UML] { self: UMLDependency[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: NonEmptyList[UMLError.UException] \/ String =
+	: NonEmptyList[java.lang.Throwable] \/ String =
   for {
     key <- element_xmiOrderingKey
     cs <- {
-			val cks0: NonEmptyList[UMLError.UException] \/ Seq[String] = Seq().right
+			val cks0: NonEmptyList[java.lang.Throwable] \/ Seq[String] = Seq().right
 			val cksN = (cks0 /: client) { (ck, c) =>
 				(ck |@| c.xmiOrderingKey()) { (_ck, _c) => _ck :+ _c }
 			}
 			cksN.map(_.mkString("_", "_", "-"))
 		}
 		ss <- {
-			val sks0: NonEmptyList[UMLError.UException] \/ Seq[String] = Seq().right
+			val sks0: NonEmptyList[java.lang.Throwable] \/ Seq[String] = Seq().right
       val sksN = (sks0 /: supplier) { (sk, s) =>
 				(sk |@| s.xmiOrderingKey()) { (_sk, _s) => _sk :+ _s }
 			}

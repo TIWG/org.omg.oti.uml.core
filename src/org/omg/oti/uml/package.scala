@@ -245,21 +245,21 @@ package object uml {
     }
 
   def booleanToIterable[Uml <: UML]( value: Boolean, default: Boolean )
-  : NonEmptyList[UMLError.UException] \/ Iterable[Boolean] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[Boolean] =
     if ( value != default )
       Iterable( value ).right
     else
       Iterable().right
 
   def integerToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : NonEmptyList[UMLError.UException] \/ Iterable[Integer] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[Integer] =
     if ( value != default )
       Iterable( value ).right
     else
       Iterable().right
 
   def unlimitedNaturalToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
     if ( value == default )
       Iterable().right
     else if (value == -1)
@@ -268,15 +268,15 @@ package object uml {
       Iterable(value.toString).right
 
   def realToIterable[Uml <: UML]( value: Double, default: Double )
-  : NonEmptyList[UMLError.UException] \/ Iterable[Double] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[Double] =
     Iterable( value ).right
 
   def stringToIterable[Uml <: UML]( value: Option[String], default: String )
-  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
     value.toIterable.right
 
   def stringToIterable[Uml <: UML]( value: String, default: String )
-  : NonEmptyList[UMLError.UException] \/ Iterable[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
     if ( value != default )
       Iterable( value ).right
     else

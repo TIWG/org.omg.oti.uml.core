@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class ConsiderIgnoreFragmentUpdater[Uml <: UML](val domain: UMLConsiderIgnoreFra
   def links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement(domain, range)
 }

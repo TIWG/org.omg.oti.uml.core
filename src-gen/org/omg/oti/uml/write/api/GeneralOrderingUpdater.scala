@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,12 +55,12 @@ class GeneralOrderingUpdater[Uml <: UML](val domain: UMLGeneralOrdering[Uml]) ex
   def links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification(domain, range)
 
   def links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification(domain, range)
 }

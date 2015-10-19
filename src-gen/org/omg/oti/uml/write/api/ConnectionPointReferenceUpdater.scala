@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,12 +56,12 @@ class ConnectionPointReferenceUpdater[Uml <: UML](val domain: UMLConnectionPoint
   def links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate(domain, range)
 
   def links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate
   (range: Set[UMLPseudostate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate(domain, range)
 }

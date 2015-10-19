@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -57,18 +56,18 @@ class ExtendUpdater[Uml <: UML](val domain: UMLExtend[Uml]) extends AnyVal {
   def links_Extend_extend_compose_condition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Extend_extend_compose_condition_Constraint(domain, range)
 
   def links_Extend_extend_reference_extendedCase_UseCase
   (range: Option[UMLUseCase[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Extend_extend_reference_extendedCase_UseCase(domain, range)
 
   def links_Extend_extension_reference_extensionLocation_ExtensionPoint
   (range: Seq[UMLExtensionPoint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Extend_extension_reference_extensionLocation_ExtensionPoint(domain, range)
 }

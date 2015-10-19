@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
@@ -57,12 +56,12 @@ class CallActionUpdater[Uml <: UML](val domain: UMLCallAction[Uml]) extends AnyV
   def links_CallAction_callAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_CallAction_callAction_compose_result_OutputPin(domain, range)
 
   def setIsSynchronous
   (isSynchronous: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_CallAction_isSynchronous(domain, isSynchronous)
 }

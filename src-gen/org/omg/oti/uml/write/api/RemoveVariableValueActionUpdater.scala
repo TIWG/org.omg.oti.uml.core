@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
@@ -56,12 +55,12 @@ class RemoveVariableValueActionUpdater[Uml <: UML](val domain: UMLRemoveVariable
   def links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_RemoveVariableValueAction_removeVariableValueAction_compose_removeAt_InputPin(domain, range)
 
   def setIsRemoveDuplicates
   (isRemoveDuplicates: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_RemoveVariableValueAction_isRemoveDuplicates(domain, isRemoveDuplicates)
 }

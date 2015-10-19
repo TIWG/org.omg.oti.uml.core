@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -58,12 +57,12 @@ class LinkActionUpdater[Uml <: UML](val domain: UMLLinkAction[Uml]) extends AnyV
   def links_LinkAction_linkAction_compose_endData_LinkEndData
   (range: Iterable[UMLLinkEndData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_LinkAction_linkAction_compose_endData_LinkEndData(domain, range)
 
   def links_LinkAction_linkAction_compose_inputValue_InputPin
   (range: Set[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_LinkAction_linkAction_compose_inputValue_InputPin(domain, range)
 }

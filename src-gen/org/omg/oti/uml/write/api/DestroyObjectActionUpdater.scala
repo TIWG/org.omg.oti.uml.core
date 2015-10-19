@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Option,Unit}
@@ -56,18 +55,18 @@ class DestroyObjectActionUpdater[Uml <: UML](val domain: UMLDestroyObjectAction[
   def links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin(domain, range)
 
   def setIsDestroyLinks
   (isDestroyLinks: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_DestroyObjectAction_isDestroyLinks(domain, isDestroyLinks)
 
   def setIsDestroyOwnedObjects
   (isDestroyOwnedObjects: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_DestroyObjectAction_isDestroyOwnedObjects(domain, isDestroyOwnedObjects)
 }

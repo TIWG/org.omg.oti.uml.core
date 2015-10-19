@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -58,18 +57,18 @@ class OpaqueExpressionUpdater[Uml <: UML](val domain: UMLOpaqueExpression[Uml]) 
   def links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior(domain, range)
 
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_OpaqueExpression_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_OpaqueExpression_language(domain, language)
 }

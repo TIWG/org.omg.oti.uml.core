@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,12 +55,12 @@ class ProtocolTransitionUpdater[Uml <: UML](val domain: UMLProtocolTransition[Um
   def links_ProtocolTransition_owningTransition_compose_postCondition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ProtocolTransition_owningTransition_compose_postCondition_Constraint(domain, range)
 
   def links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint(domain, range)
 }

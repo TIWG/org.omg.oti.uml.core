@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class ManifestationUpdater[Uml <: UML](val domain: UMLManifestation[Uml]) extend
   def links_Manifestation_manifestation_reference_utilizedElement_PackageableElement
   (range: Option[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Manifestation_manifestation_reference_utilizedElement_PackageableElement(domain, range)
 }

@@ -68,11 +68,11 @@ trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 	// Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
+  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     instanceValue_asForwardReferencesToImportableOuterPackageableElements
 
   def instanceValue_asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[UMLError.UException] \/ Set[UMLPackageableElement[Uml]] =
+  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     (Set[UMLPackageableElement[Uml]](this) ++ instance.toSet).right
 
   // End of user code

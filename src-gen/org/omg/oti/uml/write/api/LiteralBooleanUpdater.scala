@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Boolean,Unit}
@@ -57,6 +56,6 @@ class LiteralBooleanUpdater[Uml <: UML](val domain: UMLLiteralBoolean[Uml]) exte
   def setValue
   (value: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_LiteralBoolean_value(domain, value)
 }

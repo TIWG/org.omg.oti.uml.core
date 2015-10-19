@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -59,12 +58,12 @@ class OpaqueBehaviorUpdater[Uml <: UML](val domain: UMLOpaqueBehavior[Uml]) exte
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_OpaqueBehavior_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_OpaqueBehavior_language(domain, language)
 }

@@ -39,8 +39,9 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.UMLError
+// Start of user code for imports
 import org.omg.oti.uml.read.api._
+
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // Start of user code for imports
@@ -55,18 +56,18 @@ class TemplateParameterSubstitutionUpdater[Uml <: UML](val domain: UMLTemplatePa
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement(domain, range)
 
   def links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter
   (range: Option[UMLTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter(domain, range)
 
   def links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement(domain, range)
 }

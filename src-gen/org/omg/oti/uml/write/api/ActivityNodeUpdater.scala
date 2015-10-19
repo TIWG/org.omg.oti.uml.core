@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,30 +56,30 @@ class ActivityNodeUpdater[Uml <: UML](val domain: UMLActivityNode[Uml]) extends 
   def links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion
   (range: Set[UMLInterruptibleActivityRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion(domain, range)
 
   def links_ActivityNode_node_reference_inPartition_ActivityPartition
   (range: Set[UMLActivityPartition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActivityNode_node_reference_inPartition_ActivityPartition(domain, range)
 
   def links_ActivityNode_target_reference_incoming_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActivityNode_target_reference_incoming_ActivityEdge(domain, range)
 
   def links_ActivityNode_source_reference_outgoing_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActivityNode_source_reference_outgoing_ActivityEdge(domain, range)
 
   def links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode
   (range: Set[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode(domain, range)
 }

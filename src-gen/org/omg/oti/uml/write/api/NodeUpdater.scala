@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class NodeUpdater[Uml <: UML](val domain: UMLNode[Uml]) extends AnyVal {
   def links_Node_node_compose_nestedNode_Node
   (range: Set[UMLNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Node_node_compose_nestedNode_Node(domain, range)
 }

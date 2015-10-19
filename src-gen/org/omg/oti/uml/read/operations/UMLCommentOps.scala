@@ -83,7 +83,7 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
    *         the set of annotated elements is a singleton kind of Package
    */
   def getSpecificationRootCharacterizedPackage
-	: NonEmptyList[UMLError.UException] \/ Option[UMLPackage[Uml]] =
+	: NonEmptyList[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
     OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
     .flatMap { s =>
       hasStereotype(s)
@@ -94,7 +94,7 @@ trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
         else
           annotatedElement
             .headOption
-            .fold[\/[NonEmptyList[UMLError.UException], Option[UMLPackage[Uml]]]](
+            .fold[NonEmptyList[java.lang.Throwable] \/  Option[UMLPackage[Uml]]](
             Option.empty[UMLPackage[Uml]].right
           ) {
             case annotatedP: UMLPackage[Uml] =>

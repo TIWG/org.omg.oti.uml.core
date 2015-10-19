@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,6 +55,6 @@ class InterfaceRealizationUpdater[Uml <: UML](val domain: UMLInterfaceRealizatio
   def links_InterfaceRealization_interfaceRealization_reference_contract_Interface
   (range: Option[UMLInterface[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_InterfaceRealization_interfaceRealization_reference_contract_Interface(domain, range)
 }

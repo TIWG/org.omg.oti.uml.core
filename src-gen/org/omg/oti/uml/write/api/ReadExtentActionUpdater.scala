@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -56,12 +55,12 @@ class ReadExtentActionUpdater[Uml <: UML](val domain: UMLReadExtentAction[Uml]) 
   def links_ReadExtentAction_readExtentAction_reference_classifier_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ReadExtentAction_readExtentAction_reference_classifier_Classifier(domain, range)
 
   def links_ReadExtentAction_readExtentAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ReadExtentAction_readExtentAction_compose_result_OutputPin(domain, range)
 }

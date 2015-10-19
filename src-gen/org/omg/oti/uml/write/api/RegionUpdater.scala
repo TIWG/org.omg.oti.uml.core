@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
@@ -57,18 +56,18 @@ class RegionUpdater[Uml <: UML](val domain: UMLRegion[Uml]) extends AnyVal {
   def links_Region_region_reference_extendedRegion_Region
   (range: Option[UMLRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Region_region_reference_extendedRegion_Region(domain, range)
 
   def links_Region_container_compose_subvertex_Vertex
   (range: Set[UMLVertex[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Region_container_compose_subvertex_Vertex(domain, range)
 
   def links_Region_container_compose_transition_Transition
   (range: Set[UMLTransition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Region_container_compose_transition_Transition(domain, range)
 }

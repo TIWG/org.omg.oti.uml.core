@@ -40,7 +40,6 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
@@ -57,6 +56,6 @@ class DestroyLinkActionUpdater[Uml <: UML](val domain: UMLDestroyLinkAction[Uml]
   def links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData
   (range: Iterable[UMLLinkEndDestructionData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[UMLError.UException],Unit] =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_DestroyLinkAction_destroyLinkAction_compose_endData_LinkEndDestructionData(domain, range)
 }

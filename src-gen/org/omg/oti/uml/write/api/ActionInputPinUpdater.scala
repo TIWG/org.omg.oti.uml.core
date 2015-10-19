@@ -39,7 +39,6 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Option,Unit}
 import scalaz._
@@ -55,6 +54,6 @@ class ActionInputPinUpdater[Uml <: UML](val domain: UMLActionInputPin[Uml]) exte
   def links_ActionInputPin_actionInputPin_compose_fromAction_Action
   (range: Option[UMLAction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[UMLError.UException] \/ Unit =
+  : NonEmptyList[java.lang.Throwable] \/ Unit =
     umlU.links_ActionInputPin_actionInputPin_compose_fromAction_Action(domain, range)
 }

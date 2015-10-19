@@ -121,58 +121,58 @@ object UMLError {
 
   def umlAdaptationError
   (message: String)
-  : UException =
+  : java.lang.Throwable =
     new UMLAdaptationError(message)
 
   def UMLAdaptationException
   ( message: String,
     cause: java.lang.Throwable)
-  : UException =
+  : java.lang.Throwable =
     new UMLAdaptationException(message, cause.some)
 
   def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E])
-  : UException =
+  : java.lang.Throwable =
     new IllegalElementException[Uml, E](element, message, None)
 
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
    cause: java.lang.Throwable)
-  : UException =
+  : java.lang.Throwable =
     new IllegalElementException[Uml, E](element, message, Some(cause))
 
   def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,
    metaPropertyFunction: MPF)
-  : UException =
+  : java.lang.Throwable =
     new IllegalMetaPropertyEvaluation[Uml, E, MPF](element, metaPropertyFunction)
 
   def illegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   (element: E,
    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
-  : UException =
+  : java.lang.Throwable =
     new IllegalMetaAttributeEvaluation[Uml, E, U, DT](element, metaAttributeFunction)
 
   def umlOpsError[Uml <: UML]
   ( ops: UMLOps[Uml],
     message: String)
-  : UException =
+  : java.lang.Throwable =
     new UMLOpsError(ops, message)
 
   def umlOpsException[Uml <: UML]
   ( ops: UMLOps[Uml],
     message: String,
     cause: java.lang.Throwable)
-  : UException =
+  : java.lang.Throwable =
     new UMLOpsException(ops, message, cause.some)
 
   def umlUpdateError[Uml <: UML, E <: UMLElement[Uml]]
   (umlUpdate: UMLUpdate[Uml],
    element: Iterable[E],
    message: String)
-  : UException =
+  : java.lang.Throwable =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, None)
 
   def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
@@ -180,7 +180,7 @@ object UMLError {
    element: Iterable[E],
    message: String,
    cause: java.lang.Throwable)
-  : UException =
+  : java.lang.Throwable =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, Some(cause))
 
 }
