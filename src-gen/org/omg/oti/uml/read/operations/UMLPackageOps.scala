@@ -313,20 +313,25 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[V] =
     pf(self)
-    .flatMap { opf: Option[V] =>
+    .flatMap {
+      opf: Option[V] =>
       opf
       .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
         otiCharacterizations
-          .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+        .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
           Option.empty[V].right
-        ) { p2c: Map[UMLPackage[Uml], UMLComment[Uml]] =>
+        ) {
+          p2c: Map[UMLPackage[Uml], UMLComment[Uml]] =>
           p2c
-            .get(self)
-            .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+          .get(self)
+          .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
             self
               .getSpecificationRootAnnotatingComment
               .flatMap { c =>
-                c.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](Option.empty[V].right) { _c =>
+                c
+                .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+                  Option.empty[V].right
+                ) { _c =>
                   cf(_c)
                 }
               }
@@ -335,7 +340,9 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
           }
         }
       ) { v: V =>
-        v.some.right
+        v
+        .some.
+        right
       }
     }
 
@@ -347,8 +354,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
       oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
       result <- oti_attributeValue[String](
-          pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_packageURI) } yield vs.headOption,
-          cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_packageURI) } yield vs.headOption
+          pf = (x) =>
+            for {
+              vs <- x.getStereotypeTagPropertyStringValues(oti_packageURI)
+            } yield
+              vs.headOption,
+          cf = (x) =>
+            for {
+              vs <- x.getStereotypeTagPropertyStringValues(oti_ch_packageURI)
+            } yield
+              vs.headOption
         )
     } yield result
 
@@ -360,8 +375,15 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
       oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
       result <- oti_attributeValue[String](
-        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_documentURL) } yield vs.headOption,
-        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_documentURL) } yield vs.headOption
+        pf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyStringValues(oti_documentURL)
+          } yield
+            vs.headOption,
+        cf = (x) => for {
+          vs <- x.getStereotypeTagPropertyStringValues(oti_ch_documentURL)
+        } yield
+          vs.headOption
       )
     } yield result
 
@@ -373,8 +395,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
       oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
       result <- oti_attributeValue[String](
-        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_nsPrefix) } yield vs.headOption,
-        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_nsPrefix) } yield vs.headOption
+        pf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyStringValues(oti_nsPrefix)
+          } yield
+            vs.headOption,
+        cf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyStringValues(oti_ch_nsPrefix)
+          } yield
+            vs.headOption
       )
     } yield result
 
@@ -386,8 +416,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
       oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
       result <- oti_attributeValue[String](
-        pf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_uuidPrefix) } yield vs.headOption,
-        cf = (x) => for { vs <- x.getStereotypeTagPropertyStringValues(oti_ch_uuidPrefix) } yield vs.headOption
+        pf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyStringValues(oti_uuidPrefix)
+          } yield
+            vs.headOption,
+        cf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyStringValues(oti_ch_uuidPrefix)
+          } yield
+            vs.headOption
       )
     } yield result
 
@@ -399,8 +437,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
       oti_artifactKind <- OTI_SPECIFICATION_ROOT_artifactKind
       oti_ch_artifactKind <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
       result <- oti_attributeValue[UMLEnumerationLiteral[Uml]](
-        pf = (x) => for { vs <- x.getStereotypeTagPropertyEnumValues(oti_artifactKind) } yield vs.headOption,
-        cf = (x) => for { vs <- x.getStereotypeTagPropertyEnumValues(oti_ch_artifactKind) } yield vs.headOption
+        pf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyEnumValues(oti_artifactKind)
+          } yield
+            vs.headOption,
+        cf = (x) =>
+          for {
+            vs <- x.getStereotypeTagPropertyEnumValues(oti_ch_artifactKind)
+          } yield
+            vs.headOption
       )
     } yield result
 
@@ -448,7 +494,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         getEffectiveURI
         .flatMap { ouri: Option[String] =>
           ouri
-            .fold[NonEmptyList[java.lang.Throwable] \/ Option[String]](
+          .fold[NonEmptyList[java.lang.Throwable] \/ Option[String]](
             Option.empty[String].right
           ) { uri: String =>
             if (uri.endsWith(".xmi"))
@@ -476,8 +522,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     oti_packageURI
-    .orElse {
-      self.URI.right
+    .map {
+      ouri =>
+      ouri.orElse {
+        self.URI
+      }
     }
 
   /**
