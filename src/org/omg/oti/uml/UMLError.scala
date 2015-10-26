@@ -47,43 +47,49 @@ import scala.{Option, None, Some, StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 
-import scalaz.Scalaz._
+import scalaz._, Scalaz._
 
 object UMLError {
 
+  type ThrowableNel = NonEmptyList[java.lang.Throwable]
+  type OptionThrowableNel = Option[ThrowableNel]
+  val emptyThrowableNel = Option.empty[NonEmptyList[java.lang.Throwable]]
+
   class UException
   ( val message: String,
-    val cause: Option[java.lang.Throwable] = None )
+    val cause: OptionThrowableNel = None )
   extends java.lang.Throwable(message) {
 
-    cause.map(this.initCause(_))
+    cause.map { nels =>
+      this.initCause(nels.head)
+    }
 
   }
 
   class UMLAdaptationError
   ( override val message: String)
-    extends UException(message, Option.empty[java.lang.Throwable] )
+    extends UException(message, emptyThrowableNel )
 
   class UMLAdaptationException
   ( override val message: String,
-    override val cause: Option[java.lang.Throwable])
+    override val cause: OptionThrowableNel)
     extends UException(message, cause)
 
   class UMLOpsError[Uml <: UML]
   ( val ops: UMLOps[Uml],
     override val message: String)
-    extends UException(message, Option.empty[java.lang.Throwable] )
+    extends UException(message, emptyThrowableNel )
 
   class UMLOpsException[Uml <: UML]
   ( val ops: UMLOps[Uml],
     override val message: String,
-    override val cause: Option[java.lang.Throwable])
+    override val cause: OptionThrowableNel )
     extends UException(message, cause)
 
   class UElementException[Uml <: UML, E <: UMLElement[Uml]]
   ( val element: Iterable[E],
     override val message: String,
-    override val cause: Option[java.lang.Throwable] = None)
+    override val cause: OptionThrowableNel = emptyThrowableNel)
   extends UException(message, cause) {
     type UmlE = E
   }
@@ -91,32 +97,35 @@ object UMLError {
   class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (override val element: Iterable[E],
    override val message: String,
-   override val cause: Option[java.lang.Throwable] = None)
+   override val cause: OptionThrowableNel = emptyThrowableNel)
   extends UElementException[Uml, E](element, message, cause)
 
   abstract class UEvaluationException[Uml <: UML, E <: UMLElement[Uml]]
   ( val element: Iterable[E],
     override val message: String,
-    override val cause: Option[java.lang.Throwable] = None)
+    override val cause: OptionThrowableNel = emptyThrowableNel)
   extends UException(message, cause) {
     type UmlE = E
   }
 
-  class IllegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+  class IllegalMetaPropertyEvaluation[
+  Uml <: UML, 
+  E <: UMLElement[Uml], 
+  MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   ( val e: E,
     metaPropertyFunction: MPF)
-  extends UEvaluationException[Uml, E](Iterable(e), s"$metaPropertyFunction not applicable to ${e.xmiType.head}", None)
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
 
   class IllegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   ( val e: E,
     metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
-  extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}", None)
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
 
   class UMLUpdateException[Uml <: UML, E <: UMLElement[Uml]]
   (umlUpdate: UMLUpdate[Uml],
    override val element: Iterable[E],
    override val message: String,
-   override val cause: Option[java.lang.Throwable])
+   override val cause: OptionThrowableNel)
   extends UElementException[Uml, E](element, message, cause)
 
   def umlAdaptationError
@@ -126,9 +135,15 @@ object UMLError {
 
   def UMLAdaptationException
   ( message: String,
-    cause: java.lang.Throwable)
+    cause: ThrowableNel)
   : java.lang.Throwable =
     new UMLAdaptationException(message, cause.some)
+
+  def UMLAdaptationException
+  ( message: String,
+    cause: java.lang.Throwable)
+  : java.lang.Throwable =
+    new UMLAdaptationException(message, cause.wrapNel.some)
 
   def illegalElementError[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
@@ -139,11 +154,21 @@ object UMLError {
   def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (message: String,
    element: Iterable[E],
+   cause: ThrowableNel)
+  : java.lang.Throwable =
+    new IllegalElementException[Uml, E](element, message, cause.some)
+
+  def illegalElementException[Uml <: UML, E <: UMLElement[Uml]]
+  (message: String,
+   element: Iterable[E],
    cause: java.lang.Throwable)
   : java.lang.Throwable =
-    new IllegalElementException[Uml, E](element, message, Some(cause))
+    new IllegalElementException[Uml, E](element, message, cause.wrapNel.some)
 
-  def illegalMetaPropertyEvaluation[Uml <: UML, E <: UMLElement[Uml], MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
+  def illegalMetaPropertyEvaluation[
+  Uml <: UML, 
+  E <: UMLElement[Uml], 
+  MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   (element: E,
    metaPropertyFunction: MPF)
   : java.lang.Throwable =
@@ -164,9 +189,16 @@ object UMLError {
   def umlOpsException[Uml <: UML]
   ( ops: UMLOps[Uml],
     message: String,
-    cause: java.lang.Throwable)
+    cause: ThrowableNel)
   : java.lang.Throwable =
     new UMLOpsException(ops, message, cause.some)
+
+  def umlOpsException[Uml <: UML]
+  ( ops: UMLOps[Uml],
+    message: String,
+    cause: java.lang.Throwable)
+  : java.lang.Throwable =
+    new UMLOpsException(ops, message, cause.wrapNel.some)
 
   def umlUpdateError[Uml <: UML, E <: UMLElement[Uml]]
   (umlUpdate: UMLUpdate[Uml],
@@ -179,8 +211,16 @@ object UMLError {
   (umlUpdate: UMLUpdate[Uml],
    element: Iterable[E],
    message: String,
+   cause: ThrowableNel)
+  : java.lang.Throwable =
+    new UMLUpdateException[Uml, E](umlUpdate, element, message, cause.some)
+
+  def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
+  (umlUpdate: UMLUpdate[Uml],
+   element: Iterable[E],
+   message: String,
    cause: java.lang.Throwable)
   : java.lang.Throwable =
-    new UMLUpdateException[Uml, E](umlUpdate, element, message, Some(cause))
+    new UMLUpdateException[Uml, E](umlUpdate, element, message, cause.wrapNel.some)
 
 }

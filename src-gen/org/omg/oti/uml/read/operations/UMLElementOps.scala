@@ -885,8 +885,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
             Iterable(self)))
         .left
       ) { d =>
-        (d.uuidPrefix + xmiID())
-        .right
+        xmiID()
+        .flatMap { id =>
+          (d.uuidPrefix + id)
+          .right
+        }
       }
     }
 
