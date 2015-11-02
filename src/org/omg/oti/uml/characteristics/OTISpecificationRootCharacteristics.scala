@@ -37,41 +37,22 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.uml.read.operations
+package org.omg.oti.uml.characteristics
 
-// Start of user code for imports
-
-import org.omg.oti.uml.read.api._
-import scala.Int
-import scala.Option
-
-// End of user code
+import scala.Predef.String
 
 /**
- * A Comment is a textual annotation that can be attached to a set of Elements.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
-trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
-
-// Start of user code for class imports
-// End of user code
-
-
-	/**
-	 * <!-- Start of user code doc for ownedComment_owningElement -->
-   * <!-- End of user code doc for ownedComment_owningElement -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.ownedComment
-	 */
-	def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
-
-	// Start of user code for additional features
-
-  def getCommentOwnerIndex: Int
-
-
-  // End of user code
-} //UMLCommentOps
+  * The OTI characteristics for a UML Package specifying the root of an OTI document of some kind.
+  *
+  * @param packageURI the Package::URI characteristic
+  * @param documentURL the URL where the OTI document is externally accessible as a resource
+  * @param artifactKind the kind of the OTI document
+  * @param nsPrefix the XML namespace prefix for the contents of the OTI document
+  * @param uuidPrefix the XMI uuid prefix for all the contents of the OTI document
+  */
+case class OTISpecificationRootCharacteristics
+(packageURI: String,
+ documentURL: String,
+ artifactKind: OTIArtifactKind,
+ nsPrefix: String,
+ uuidPrefix: String)

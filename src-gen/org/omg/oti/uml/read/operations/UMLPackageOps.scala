@@ -42,12 +42,11 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml._
+import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
-import scala.annotation
-import scala.Boolean
-import scala.{Option, None, Some}
+import scala.{annotation,Boolean,Option, None, Some}
 import scala.Predef.{Set => _, Map => _,_}
 import scala.collection.immutable._
 import scala.collection.Iterable
@@ -261,195 +260,34 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	// Start of user code for additional features
 
   /**
-   * Find the unique OTI::SpecificationRootCharacterizedPackage-stereotype Comment that annotates this package
-   *
-   * @return If unique, the OTI::SpecificationRootCharacterizedPackage-stereotype Comment that annotates this package
-   */
-  def getSpecificationRootAnnotatingComment
-  : NonEmptyList[java.lang.Throwable] \/ Option[UMLComment[Uml]] = {
-    val c0: NonEmptyList[java.lang.Throwable] \/ Seq[UMLComment[Uml]] = Seq().right
-    val cN: NonEmptyList[java.lang.Throwable] \/ Seq[UMLComment[Uml]] = (c0 /: annotatedElement_comment) { (ci, c) =>
-      ci.flatMap { _ci: Seq[UMLComment[Uml]] =>
-        c.getSpecificationRootCharacterizedPackage.map { _p =>
-          if (_p.contains(self))
-            _ci :+ c
-          else
-            _ci
-        }
-      }
-    }
-    cN.flatMap { cs: Seq[UMLComment[Uml]] =>
-      if (1 == cs.size)
-        cs.headOption.right
-      else
-        Option.empty[UMLComment[Uml]].right
-    }
-  }
-
-  /**
-   * Get the value of an OTI SpecificationRoot or SpecificationRootCharacterization
-   * attribute property for this package
-   *
-   * An OTI SpecificationRoot attribute property can be specified as a tag value on
-   * the OTI::SpecificationRoot stereotype applied to the package or as a tag value
-   * on an OTI::SpecificationRootCharacterization stereotype applied to a comment
-   * that annotates this package
-   *
-   * @param pf A function to retrieve the value of the OTI SpecificationRoot stereotype property
-   *           when the OTI::SpecificationRoot stereotype is applied to the package
-   * @param cf A function to retrieve the value of the OTI SpecificationRootCharacterization stereotype property
-   *           when the OTI::SpecificationRootCharacterization stereotype is applied to a comment
-   *           that uniquely annotates this package
-   * @param otiCharacterizations If provided, a map of OTI::SpecificationRootCharacterization stereotyped
-   *                             comment annotations for specific packages to bypass a global lookup
-   *                             for unique comment annotations of the package
-   * @tparam V The type of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
-   * @return The value of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
-   *         if available
-   */
-  def oti_attributeValue[V]
-  (pf: UMLPackage[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]],
-   cf: UMLComment[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]])
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : NonEmptyList[java.lang.Throwable] \/ Option[V] =
-    pf(self)
-    .flatMap {
-      opf: Option[V] =>
-      opf
-      .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-        otiCharacterizations
-        .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-          Option.empty[V].right
-        ) {
-          p2c: Map[UMLPackage[Uml], UMLComment[Uml]] =>
-          p2c
-          .get(self)
-          .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-            self
-              .getSpecificationRootAnnotatingComment
-              .flatMap { c =>
-                c
-                .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-                  Option.empty[V].right
-                ) { _c =>
-                  cf(_c)
-                }
-              }
-          ) { _c =>
-            cf(_c)
-          }
-        }
-      ) { v: V =>
-        v
-        .some.
-        right
-      }
-    }
+    * is this element representing the root of a specification publishable artifact?
+    *
+    * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
+    */
+  def getSpecificationRootCharacteristics
+  : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
+    otiCharacteristicsProvider.getSpecificationRootCharacteristics(self)
 
   def oti_packageURI
-  ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    for {
-      oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
-      oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
-      result <- oti_attributeValue[String](
-          pf = (x) =>
-            for {
-              vs <- x.getStereotypeTagPropertyStringValues(oti_packageURI)
-            } yield
-              vs.headOption,
-          cf = (x) =>
-            for {
-              vs <- x.getStereotypeTagPropertyStringValues(oti_ch_packageURI)
-            } yield
-              vs.headOption
-        )
-    } yield result
+    otiCharacteristicsProvider.packageURI(self)
 
   def oti_documentURL
-  ()
   (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    for {
-      oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
-      oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
-      result <- oti_attributeValue[String](
-        pf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyStringValues(oti_documentURL)
-          } yield
-            vs.headOption,
-        cf = (x) => for {
-          vs <- x.getStereotypeTagPropertyStringValues(oti_ch_documentURL)
-        } yield
-          vs.headOption
-      )
-    } yield result
+    otiCharacteristicsProvider.documentURL(self)
 
   def oti_nsPrefix
-  ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    for {
-      oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
-      oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
-      result <- oti_attributeValue[String](
-        pf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyStringValues(oti_nsPrefix)
-          } yield
-            vs.headOption,
-        cf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyStringValues(oti_ch_nsPrefix)
-          } yield
-            vs.headOption
-      )
-    } yield result
+    otiCharacteristicsProvider.nsPrefix(self)
 
   def oti_uuidPrefix
-  ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    for {
-      oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
-      oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
-      result <- oti_attributeValue[String](
-        pf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyStringValues(oti_uuidPrefix)
-          } yield
-            vs.headOption,
-        cf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyStringValues(oti_ch_uuidPrefix)
-          } yield
-            vs.headOption
-      )
-    } yield result
+    otiCharacteristicsProvider.uuidPrefix(self)
 
   def oti_artifactKind
-  ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
-  : NonEmptyList[java.lang.Throwable] \/ Option[UMLEnumerationLiteral[Uml]] =
-    for {
-      oti_artifactKind <- OTI_SPECIFICATION_ROOT_artifactKind
-      oti_ch_artifactKind <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
-      result <- oti_attributeValue[UMLEnumerationLiteral[Uml]](
-        pf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyEnumValues(oti_artifactKind)
-          } yield
-            vs.headOption,
-        cf = (x) =>
-          for {
-            vs <- x.getStereotypeTagPropertyEnumValues(oti_ch_artifactKind)
-          } yield
-            vs.headOption
-      )
-    } yield result
-
+  : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind] =
+    otiCharacteristicsProvider.artifactKind(self)
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
 

@@ -548,22 +548,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def oti_xmiID: NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    OTI_IDENTITY_xmiID
-    .flatMap{ p: UMLProperty[Uml] =>
-        getStereotypeTagPropertyStringValues(p).map(_.headOption)
-    }
+  def oti_xmiID
+  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+    otiCharacteristicsProvider.xmiID(self)
 
   /**
    * Returns the value of the OTI::Identity::xmiUUID tag property on the element, if any. 
    *
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def oti_xmiUUID: NonEmptyList[java.lang.Throwable] \/ Option[String] =
-    OTI_IDENTITY_xmiUUID
-    .flatMap{ p: UMLProperty[Uml] =>
-        getStereotypeTagPropertyStringValues(p).map(_.headOption)
-    }
+  def oti_xmiUUID
+  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+    otiCharacteristicsProvider.xmiUUID(self)
 
   /**
    * @see OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, id
@@ -955,17 +951,6 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     describe(Some(this), Seq())
   }
-
-  /**
-   * is this element representing the root of a specification publishable artifact?
-   *
-   * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
-   */
-  def isSpecificationRoot: NonEmptyList[java.lang.Throwable] \/ Boolean =
-    OTI_SPECIFICATION_ROOT_S
-    .flatMap{ s =>
-      hasStereotype(s)
-    }
 
   // End of user code
 } //UMLElementOps
