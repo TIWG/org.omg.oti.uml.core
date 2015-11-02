@@ -260,10 +260,16 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 	// Start of user code for additional features
 
   /**
-    * is this element representing the root of a specification publishable artifact?
+    * ignoring errors, is this package representing the root of an OTI document artifact?
     *
     * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
     */
+  def hasSpecificationRootCharacteristics
+  : Boolean =
+    getSpecificationRootCharacteristics
+    .getOrElse(Option.empty[OTISpecificationRootCharacteristics])
+    .isDefined
+
   def getSpecificationRootCharacteristics
   : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
     otiCharacteristicsProvider.getSpecificationRootCharacteristics(self)
