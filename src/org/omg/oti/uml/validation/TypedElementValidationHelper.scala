@@ -40,6 +40,7 @@
 package org.omg.oti.uml.validation
 
 import org.omg.oti.uml._
+import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
@@ -171,7 +172,10 @@ object TypedElementValidationHelper {
    */
   def analyzePackageContents[Uml <: UML, UmlOps <: UMLOps[Uml]]
   (pkgs: Iterable[UMLPackage[Uml]])
-  (implicit umlOps: UmlOps, idg: IDGenerator[Uml])
+  (implicit
+   umlOps: UmlOps,
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : Iterable[TypedElementValidationInfo[Uml]] = {
 
     val scope = pkgs.toSet
@@ -212,7 +216,10 @@ object TypedElementValidationHelper {
  */
 case class TypedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
 (scope: Set[UMLPackage[Uml]])
-(implicit umlOps: UmlOps, idg: IDGenerator[Uml]) {
+(implicit
+ umlOps: UmlOps,
+ idg: IDGenerator[Uml],
+ otiCharacteristicsProvider: OTICharacteristicsProvider[Uml]) {
 
   import umlOps._
   import org.omg.oti.uml.validation.TypedElementValidationHelper._

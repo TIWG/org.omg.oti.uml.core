@@ -265,33 +265,46 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     * @return True iff the <<OTI::SpecificationRoot>> stereotype is applied
     */
   def hasSpecificationRootCharacteristics
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : Boolean =
     getSpecificationRootCharacteristics
     .getOrElse(Option.empty[OTISpecificationRootCharacteristics])
     .isDefined
 
   def getSpecificationRootCharacteristics
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
     otiCharacteristicsProvider.getSpecificationRootCharacteristics(self)
 
   def oti_packageURI
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.packageURI(self)
 
   def oti_documentURL
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.documentURL(self)
 
   def oti_nsPrefix
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.nsPrefix(self)
 
   def oti_uuidPrefix
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.uuidPrefix(self)
 
   def oti_artifactKind
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind] =
     otiCharacteristicsProvider.artifactKind(self)
 
@@ -329,7 +342,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def getDocumentURL
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     oti_documentURL
     .flatMap { ourl: Option[String] =>
@@ -363,7 +376,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
    */
   def getEffectiveURI
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     oti_packageURI
     .map {

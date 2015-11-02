@@ -42,7 +42,6 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml._
-import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
@@ -3101,8 +3100,10 @@ trait UMLOps[Uml <: UML] { self =>
 		Set(TemplateParameter_parameteredElement))
 
 	val Package_URI =
-		MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
-		_.getEffectiveURI()(None).map(_.toIterable))
+		MetaDocumentAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
+			(pkg, idg, otiCharacteristicsProvider) => {
+				pkg.getEffectiveURI()(otiCharacteristicsProvider).map(_.toIterable)
+			})
 
 	val Package_packageMerge =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](
@@ -4101,8 +4102,6 @@ trait UMLOps[Uml <: UML] { self =>
   val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
 
   def cacheLookupOrUpdate(e: Uml#Element): UMLElement[Uml]
-
-	implicit val otiCharacteristicsProvider: OTICharacteristicsProvider[Uml]
 
   def closure[U, V <: U](x: U, relation: U => Iterable[V]): Set[V] = {
 

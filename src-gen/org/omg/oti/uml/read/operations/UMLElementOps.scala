@@ -41,6 +41,7 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml._
+import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
@@ -159,7 +160,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   @annotation.tailrec final def getPackageOwnerWithEffectiveURI
   ()
-  (implicit otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]])
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
     self match {
       case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined =>
@@ -288,15 +289,15 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     val af1: MetaAttributeFunction =
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "id",
-        (e, idg) => {
-          val _id = e.xmiID()(idg)
+        (e, idg, otiCharacteristicsProvider) => {
+          val _id = e.xmiID()(idg, otiCharacteristicsProvider)
           _id.map { id => Iterable(id) }
         })
     val af2: MetaAttributeFunction =
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "uuid",
-        (e, idg) => {
-          val _id = e.xmiUUID()(idg)
+        (e, idg, otiCharacteristicsProvider) => {
+          val _id = e.xmiUUID()(idg, otiCharacteristicsProvider)
           _id.map { uuid => Iterable(uuid) }
         })
     val af3: MetaAttributeFunction =
@@ -549,6 +550,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def oti_xmiID
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.xmiID(self)
 
@@ -558,6 +561,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def oti_xmiUUID
+  ()
+  (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String] =
     otiCharacteristicsProvider.xmiUUID(self)
 
@@ -584,7 +589,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def xmiID()(implicit idg: IDGenerator[Uml])
+  def xmiID
+  ()
+  (implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     oti_xmiID
     .flatMap {
@@ -618,7 +627,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   def xmiUUID
   ()
-  (implicit idg: IDGenerator[Uml])
+  (implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     oti_xmiUUID
     .flatMap { _id: Option[String] =>
@@ -634,11 +645,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def metaclass_name: String = mofMetaclassName(0).toLower + mofMetaclassName.drop(1)
 
-  def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
+  def xmiOrderingKey
+  ()
+  (implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     element_xmiOrderingKey
 
-  def element_xmiOrderingKey()(implicit idg: IDGenerator[Uml])
+  def element_xmiOrderingKey
+  ()
+  (implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
   for {
     uuid <- xmiUUID
@@ -868,7 +887,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    */
   def generatedOTI_uuid
   ()
-  (implicit idg: IDGenerator[Uml])
+  (implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     idg
     .element2mappedDocument(self)

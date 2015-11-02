@@ -39,6 +39,7 @@
  */
 package org.omg.oti.uml
 
+import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 
@@ -68,10 +69,10 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
   val attributePrefix: Option[String]
   val attributeName: String
   val f: Option[U => \/[NonEmptyList[java.lang.Throwable], Iterable[DT]]]
-  val df: Option[(U, IDGenerator[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[DT]]]
+  val df: Option[(U, IDGenerator[Uml], OTICharacteristicsProvider[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[DT]]]
 
   def evaluate
-  (e: UMLElement[Uml], idg: IDGenerator[Uml])
+  (e: UMLElement[Uml], idg: IDGenerator[Uml], otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
   (implicit etag: ClassTag[UMLElement[Uml]], utag: ClassTag[U])
   : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
     e match {
@@ -80,7 +81,7 @@ sealed trait MetaAttributeAbstractFunction[Uml <: UML, U <: UMLElement[Uml], DT]
           case (Some(_f), _) =>
             _f(u).map { ds => ds.map(_.toString) }
           case (None, Some(_df)) =>
-            _df(u, idg).map { ds => ds.map(_.toString) }
+            _df(u, idg, otiCharacteristicsProvider).map { ds => ds.map(_.toString) }
           case _ =>
             -\/(
               NonEmptyList(
@@ -350,7 +351,7 @@ case class MetaAttributeRealFunction[Uml <: UML, U <: UMLElement[Uml]]
 case class MetaDocumentAttributeStringFunction[Uml <: UML, U <: UMLElement[Uml]]
 (attributePrefix: Option[String],
  attributeName: String,
- df1: (U, IDGenerator[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[String]])
+ df1: (U, IDGenerator[Uml], OTICharacteristicsProvider[Uml]) => \/[NonEmptyList[java.lang.Throwable], Iterable[String]])
   extends MetaAttributeAbstractFunction[Uml, U, String] {
   implicit val UType: TypeTag[U] = typeTag[U]
   override val f = None
