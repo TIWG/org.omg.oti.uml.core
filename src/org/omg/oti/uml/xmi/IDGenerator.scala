@@ -41,6 +41,7 @@ package org.omg.oti.uml.xmi
 
 import java.net.{MalformedURLException,URL}
 import org.omg.oti.uml.UMLError
+import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
@@ -65,6 +66,8 @@ import scalaz._
 trait IDGenerator[Uml <: UML] { 
   
   implicit val umlOps: UMLOps[Uml]
+
+  implicit val otiCharacteristicsProvider: OTICharacteristicsProvider[Uml]
 
   /**
    * Get the current element/xmi:ID map state of this ID Generator
