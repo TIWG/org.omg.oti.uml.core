@@ -880,7 +880,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       ) { d =>
         xmiID()
         .flatMap { id =>
-          (d.uuidPrefix + id)
+          (d.info.uuidPrefix + id)
           .right
         }
       }

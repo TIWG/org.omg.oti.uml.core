@@ -40,10 +40,10 @@
 package org.omg.oti.uml.xmi
 
 import java.net.URI
-import org.omg.oti.uml.read.api.{UML, UMLElement}
+import org.omg.oti.uml.characteristics.OTISpecificationRootCharacteristics
+import org.omg.oti.uml.read.api.{UML, UMLElement, UMLPackage}
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.Predef.String
 import scala.collection.immutable.Set
 
 /**
@@ -79,9 +79,7 @@ import scala.collection.immutable.Set
  */
 abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
-  val uri: URI
-  val nsPrefix: String
-  val uuidPrefix: String
+  val info: OTISpecificationRootCharacteristics
 
   /**
    * The location where this document is published as
@@ -98,7 +96,7 @@ abstract trait Document[Uml <: UML] {
   /**
    * The root element defining the containment scope of this document
    */
-  val scope: UMLElement[Uml]
+  val scope: UMLPackage[Uml]
 
   /**
    * The set of all elements directly or indirectly owned by `scope`, including `scope`
