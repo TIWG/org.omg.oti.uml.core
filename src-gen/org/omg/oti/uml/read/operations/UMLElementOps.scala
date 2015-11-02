@@ -290,14 +290,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "id",
         (e, idg, otiCharacteristicsProvider) => {
-          val _id = e.xmiID()(idg, otiCharacteristicsProvider)
+          val _id = e.xmiID()(idg)
           _id.map { id => Iterable(id) }
         })
     val af2: MetaAttributeFunction =
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "uuid",
         (e, idg, otiCharacteristicsProvider) => {
-          val _id = e.xmiUUID()(idg, otiCharacteristicsProvider)
+          val _id = e.xmiUUID()(idg)
           _id.map { uuid => Iterable(uuid) }
         })
     val af3: MetaAttributeFunction =
@@ -330,9 +330,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return
    */
-  def forwardRelationTriples
-  ()
-  (implicit idg: IDGenerator[Uml])
+  def forwardRelationTriples()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 
     def addEvaluatedTriples
@@ -589,13 +587,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def xmiID
-  ()
-  (implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  def xmiID()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
-    oti_xmiID
+    oti_xmiID()(idg.otiCharacteristicsProvider)
     .flatMap {
       _id: Option[String] =>
       _id
@@ -625,13 +619,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
-  def xmiUUID
-  ()
-  (implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  def xmiUUID()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
-    oti_xmiUUID
+    oti_xmiUUID()(idg.otiCharacteristicsProvider)
     .flatMap { _id: Option[String] =>
       _id
       .fold[NonEmptyList[java.lang.Throwable] \/ String] {
@@ -645,19 +635,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def metaclass_name: String = mofMetaclassName(0).toLower + mofMetaclassName.drop(1)
 
-  def xmiOrderingKey
-  ()
-  (implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     element_xmiOrderingKey
 
-  def element_xmiOrderingKey
-  ()
-  (implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  def element_xmiOrderingKey()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
   for {
     uuid <- xmiUUID
@@ -801,9 +783,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.
    */
-  def getContainingMetaPropertyEvaluator
-  ()
-  (implicit idg: IDGenerator[Uml])
+  def getContainingMetaPropertyEvaluator()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[MetaPropertyEvaluator] =
     owner
     .fold[NonEmptyList[java.lang.Throwable] \/ Option[MetaPropertyEvaluator]](
@@ -885,11 +865,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   /**
    * The computed OTI xmi:uuid for the element
    */
-  def generatedOTI_uuid
-  ()
-  (implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  def generatedOTI_uuid()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
     idg
     .element2mappedDocument(self)

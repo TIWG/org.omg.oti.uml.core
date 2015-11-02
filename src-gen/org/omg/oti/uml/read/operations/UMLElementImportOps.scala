@@ -160,11 +160,7 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey
-	()
-	(implicit
-   idg: IDGenerator[Uml],
-   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
   : NonEmptyList[java.lang.Throwable] \/ String =
 	for {
 		key <- element_xmiOrderingKey
