@@ -41,6 +41,7 @@ package org.omg.oti.uml.characteristics
 
 import org.omg.oti.uml.read.api._
 
+import scala.collection.immutable.Map
 import scala.Option
 import scala.Predef.String
 import scalaz.{NonEmptyList, \/}
@@ -115,6 +116,12 @@ trait OTICharacteristicsProvider[Uml <: UML] {
   def getSpecificationRootCharacteristics
   (e: UMLPackage[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
+
+  def getAllOTIBuiltInDocumentPackages
+  : NonEmptyList[java.lang.Throwable] \/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
+
+  def getAllOTISerializableDocumentPackages
+  : NonEmptyList[java.lang.Throwable] \/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
 
   /**
     * Optionally provide an xmi:ID overriding the xmi:ID of a UML Element for serialization purposes
