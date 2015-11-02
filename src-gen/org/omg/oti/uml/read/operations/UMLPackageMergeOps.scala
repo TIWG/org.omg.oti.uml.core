@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml.UMLError
+import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
@@ -94,7 +95,11 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
   /**
    * TIWG: see UMLUtil, Rule #3
    */
-  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
+  override def xmiOrderingKey
+	()
+	(implicit
+   idg: IDGenerator[Uml],
+   otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
 	: NonEmptyList[java.lang.Throwable] \/ String =
 			for {
 				key <- element_xmiOrderingKey
