@@ -277,10 +277,18 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     kind.flatMap( _.fold[NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind]](
       Option.empty[OTIArtifactKind].right
     ) { kind: UMLEnumerationLiteral[Uml] =>
-      if (OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL.exists(_ == kind))
+      if (OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL.exists(_ == kind))
+        OTISerializableMetamodelArtifactKind().some.right
+      else if (OTI_ARTIFACT_KIND_SPECIFIED_PROFILE.exists(_ == kind))
+        OTISerializableProfileArtifactKind().some.right
+      else if (OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY.exists(_ == kind))
+        OTISerializableModelLibraryArtifactKind().some.right
+      else if (OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL.exists(_ == kind))
         OTIBuiltInMetamodelArtifactKind().some.right
       else if (OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE.exists(_ == kind))
         OTIBuiltInProfileArtifactKind().some.right
+      else if (OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY.exists(_ == kind))
+        OTIBuiltInModelLibraryArtifactKind().some.right
       else
         NonEmptyList(
           UMLError.illegalElementError[Uml, UMLElement[Uml]](
