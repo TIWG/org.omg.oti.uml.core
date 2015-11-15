@@ -76,7 +76,7 @@ trait IDGenerator[Uml <: UML] {
    * @return The current mapping of elements to their xmi:ID
    */
   def getElement2IDMap
-  : Map[UMLElement[Uml], \/[NonEmptyList[java.lang.Throwable], String]]
+  : Map[UMLElement[Uml], \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
 
   /**
    * Lookup the current element/xmi:ID map state
@@ -85,7 +85,7 @@ trait IDGenerator[Uml <: UML] {
    * @return The xmi:ID of `e`, if available
    */
   def lookupElementXMI_ID( e: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
 
   /**
    * Lookup the current element/document map state
@@ -135,7 +135,7 @@ trait IDGenerator[Uml <: UML] {
    * @return id, the xmi:ID of `self` such that getELement2IDMap(`self`) == Success(id)
    */
   def getXMI_ID( self: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ String
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID)
 
   /**
    * Compute the canonical xmi:ID for a UML Element according to the OTI canonical XMI:ID generation rules
@@ -871,7 +871,7 @@ object IDGenerator {
     }
   }
   
-  def computeStereotypeApplicationID (eID: String, stID: String) =
-    eID+".stereotypeApplication_"+stID
+  def computeStereotypeApplicationID (eID: String @@ OTI_ID, stID: String @@ OTI_ID) =
+    OTI_ID.unwrap(eID)+".stereotypeApplication_"+OTI_ID.unwrap(stID)
 
 }
