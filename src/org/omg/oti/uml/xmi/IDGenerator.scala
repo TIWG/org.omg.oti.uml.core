@@ -871,7 +871,14 @@ object IDGenerator {
     }
   }
   
-  def computeStereotypeApplicationID (eID: String @@ OTI_ID, stID: String @@ OTI_ID) =
-    OTI_ID.unwrap(eID)+".stereotypeApplication_"+OTI_ID.unwrap(stID)
+  def computeStereotypeApplicationID
+  (eID: String @@ OTI_ID, stID: String @@ OTI_ID)
+  : String @@ OTI_ID =
+    OTI_ID(OTI_ID.unwrap(eID)+".stereotypeApplication_"+OTI_ID.unwrap(stID))
+
+  def computeStereotypeApplicationUUID
+  (eUUID: String @@ OTI_UUID, stUUID: String @@ OTI_UUID)
+  : String @@ OTI_UUID =
+    OTI_UUID(OTI_UUID.unwrap(eUUID)+".stereotypeApplication_"+OTI_UUID.unwrap(stUUID))
 
 }
