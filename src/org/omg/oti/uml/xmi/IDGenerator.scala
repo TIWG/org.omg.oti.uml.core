@@ -40,6 +40,7 @@
 package org.omg.oti.uml.xmi
 
 import java.net.{MalformedURLException,URL}
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
@@ -143,7 +144,7 @@ trait IDGenerator[Uml <: UML] {
    * @return the xmi:ID computed according to the OTI canonical XMI:ID generation rules
    */
   def computeID( self: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ String
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID)
 
   /**
    * Compute the legal fragment for an xmi:ID of a UML Image based on its location string interpreted as a URL
@@ -152,7 +153,7 @@ trait IDGenerator[Uml <: UML] {
    * @return A legal fragment for an xmi:ID corresponding to the image's location interpreted as a URL
    */
   def getImageLocationURL( i: UMLImage[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ String
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_URL)
 }
 
 object IDGenerator {

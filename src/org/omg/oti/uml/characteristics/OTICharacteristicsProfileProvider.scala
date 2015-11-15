@@ -39,6 +39,7 @@
  */
 package org.omg.oti.uml.characteristics
 
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
@@ -171,7 +172,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def packageURI
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     for {
       oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
       oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
@@ -188,11 +189,11 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
           } yield
             vs.headOption
       )
-    } yield result
+    } yield result.map(OTI_URI.apply)
 
   override def documentURL
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     for {
       oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
       oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
@@ -208,11 +209,11 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
         } yield
           vs.headOption
       )
-    } yield result
+    } yield result.map(OTI_URL.apply)
 
   override def nsPrefix
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
     for {
       oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
       oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
@@ -229,11 +230,11 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
           } yield
             vs.headOption
       )
-    } yield result
+    } yield result.map(OTI_NS_PREFIX.apply)
 
   override def uuidPrefix
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
     for {
       oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
       oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
@@ -250,7 +251,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
           } yield
             vs.headOption
       )
-    } yield result
+    } yield result.map(OTI_UUID_PREFIX.apply)
 
   override def artifactKind
   (self: UMLPackage[Uml])
@@ -318,18 +319,18 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def xmiID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
     OTI_IDENTITY_xmiID
       .flatMap{ p: UMLProperty[Uml] =>
-        self.getStereotypeTagPropertyStringValues(p).map(_.headOption)
+        self.getStereotypeTagPropertyStringValues(p).map(_.headOption.map(OTI_ID.apply))
       }
 
   override def xmiUUID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
     OTI_IDENTITY_xmiUUID
       .flatMap{ p: UMLProperty[Uml] =>
-        self.getStereotypeTagPropertyStringValues(p).map(_.headOption)
+        self.getStereotypeTagPropertyStringValues(p).map(_.headOption.map(OTI_UUID.apply))
       }
 
   /**

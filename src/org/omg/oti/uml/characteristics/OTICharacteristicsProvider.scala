@@ -39,12 +39,13 @@
  */
 package org.omg.oti.uml.characteristics
 
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 
 import scala.collection.immutable.Map
 import scala.Option
 import scala.Predef.String
-import scalaz.{NonEmptyList, \/}
+import scalaz.{@@, \/, \&/, NonEmptyList}
 
 /**
   * Tool-neutral interface to provide OTI Characteristics about UML Packages
@@ -65,7 +66,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def packageURI
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI]
 
   /**
     * Optionally provide a URL corresponding to the external resource published for a UML Package
@@ -75,7 +76,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def documentURL
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]
 
   /**
     * Optionally provide an OTI artifact kind categorizing the external resource published for a UML Package
@@ -95,7 +96,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def nsPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX]
 
   /**
     * Optionally provide an XMI UUID prefix for the serialization of a UML Package as an external resource
@@ -105,7 +106,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def uuidPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX]
 
   /**
     * If applicable, provide the characteristics of the OTI document artifact corresponding to a given UML Package.
@@ -118,10 +119,10 @@ trait OTICharacteristicsProvider[Uml <: UML] {
   : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
 
   def getAllOTIBuiltInDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
+  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
 
   def getAllOTISerializableDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
+  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
 
   /**
     * Optionally provide an xmi:ID overriding the xmi:ID of a UML Element for serialization purposes
@@ -131,7 +132,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def xmiID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
 
   /**
     * Optionally provide an xmi:UUID overriding the xmi:UUID of a UML Element for serialization purposes
@@ -141,7 +142,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def xmiUUID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String]
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
 }
 
 /**
@@ -150,6 +151,22 @@ trait OTICharacteristicsProvider[Uml <: UML] {
   * UML Package inter-relationships. 
   */
 sealed trait OTIArtifactKind
+
+/**
+  * The kind for a UML Package representing a metamodel (built-in or serializable)
+  */
+sealed trait OTIMetamodelArtifactKind
+
+/**
+  * The kind for a UML Package representing a profile (built-in or serializable)
+  */
+sealed trait OTIProfileArtifactKind
+
+/**
+  * The kind for a UML Package representing a model-library (built-in or serializable)
+  */
+sealed trait OTIModelLibraryArtifactKind
+
 
 /**
   * A UML Package that is the root of an OTI artifact of some kind
@@ -164,6 +181,7 @@ sealed trait OTISerializableArtifactKind
 case class OTISerializableMetamodelArtifactKind()
   extends OTIArtifactKind
   with OTISerializableArtifactKind
+  with OTIMetamodelArtifactKind
 
 /**
   * The kind for a UML Package representing a profile that can be serialized.
@@ -173,6 +191,7 @@ case class OTISerializableMetamodelArtifactKind()
 case class OTISerializableProfileArtifactKind()
   extends OTIArtifactKind
   with OTISerializableArtifactKind
+  with OTIProfileArtifactKind
 
 /**
   * The kind for a UML Package representing a model library that can be serialized.
@@ -182,6 +201,7 @@ case class OTISerializableProfileArtifactKind()
 case class OTISerializableModelLibraryArtifactKind()
   extends OTIArtifactKind
   with OTISerializableArtifactKind
+  with OTIModelLibraryArtifactKind
 
 /**
   * A UML Package that is the root of an OTI artifact of some kind
@@ -197,6 +217,7 @@ sealed trait OTIBuiltInArtifactKind
 case class OTIBuiltInMetamodelArtifactKind()
   extends OTIArtifactKind
   with OTIBuiltInArtifactKind
+  with OTIMetamodelArtifactKind
 
 /**
   * The kind for a UML Package representing a profile that is built-in an OTI compatible tool.
@@ -206,6 +227,7 @@ case class OTIBuiltInMetamodelArtifactKind()
 case class OTIBuiltInProfileArtifactKind()
   extends OTIArtifactKind
   with OTIBuiltInArtifactKind
+  with OTIProfileArtifactKind
 
 /**
   * The kind for a UML Package representing a model library that is built-in an OTI compatible tool.
@@ -215,3 +237,4 @@ case class OTIBuiltInProfileArtifactKind()
 case class OTIBuiltInModelLibraryArtifactKind()
   extends OTIArtifactKind
   with OTIBuiltInArtifactKind
+  with OTIModelLibraryArtifactKind

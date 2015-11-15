@@ -45,7 +45,7 @@ import org.omg.oti.uml.xmi.IDGenerator
 import scala.reflect._
 import scala.language.existentials
 import scala.{annotation,Any,Boolean,Double,Int,Option,None,Some}
-import scala.Predef.{???,require,String}
+import scala.Predef.{require,String}
 import scala.collection.immutable.{List,Nil,Seq,Set,Stream}
 import scala.collection.Iterable
 import scala.StringContext

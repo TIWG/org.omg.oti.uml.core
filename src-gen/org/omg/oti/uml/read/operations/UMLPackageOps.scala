@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml._
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
@@ -281,25 +282,25 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def oti_packageURI
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     otiCharacteristicsProvider.packageURI(self)
 
   def oti_documentURL
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     otiCharacteristicsProvider.documentURL(self)
 
   def oti_nsPrefix
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
     otiCharacteristicsProvider.nsPrefix(self)
 
   def oti_uuidPrefix
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
     otiCharacteristicsProvider.uuidPrefix(self)
 
   def oti_artifactKind
@@ -343,24 +344,25 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getDocumentURL
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     oti_documentURL
-    .flatMap { ourl: Option[String] =>
+    .flatMap { ourl: Option[String @@ OTI_URL] =>
       ourl
-      .fold[NonEmptyList[java.lang.Throwable] \/ Option[String]](
+      .fold[NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
         getEffectiveURI
-        .flatMap { ouri: Option[String] =>
+        .flatMap { ouri: Option[String @@ OTI_URI] =>
           ouri
-          .fold[NonEmptyList[java.lang.Throwable] \/ Option[String]](
-            Option.empty[String].right
-          ) { uri: String =>
-            if (uri.endsWith(".xmi"))
-              uri.some.right
+          .fold[NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
+            Option.empty[String @@ OTI_URL].right
+          ) { uri: String @@ OTI_URI =>
+            val _uri = OTI_URI.unwrap(uri)
+            if (_uri.endsWith(".xmi"))
+              OTI_URL(_uri).some.right
             else
-              (uri + ".xmi").some.right
+              OTI_URL(_uri + ".xmi").some.right
           }
         }
-      ) { url: String =>
+      ) { url: String @@ OTI_URL =>
         url.some.right
       }
     }
@@ -377,12 +379,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getEffectiveURI
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     oti_packageURI
     .map {
       ouri =>
       ouri.orElse {
-        self.URI
+        self.URI.map(OTI_URI.apply)
       }
     }
 

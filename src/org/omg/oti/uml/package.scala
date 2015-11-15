@@ -45,7 +45,7 @@ import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.existentials
 import scala.{annotation,Boolean,Double,Int,Option,None,Some}
-import scala.Predef.{???,String}
+import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
 
@@ -71,7 +71,6 @@ import scalaz._, Scalaz._
  *   - ownership and path queries
  */
 package object uml {
-
 
   /**
    * Minimal semantics from UML 2.5:
@@ -114,14 +113,19 @@ package object uml {
 
     def growPath(candidate: Seq[(T, T)]): Set[Seq[(T, T)]] = {
       val t1 = candidate.last._2
-      for {
-        t2 <- next(t1)
-        path = candidate :+ ((t1, t2))
-        follow <- if (targets.contains(t2)) {
-          paths += path
-          None
-        } else Some(path)
-      } yield follow
+      if (targets.contains(t1)) {
+        paths += candidate
+        Set[Seq[(T, T)]]()
+      } else {
+        for {
+          t2 <- next(t1)
+          path = candidate :+ ((t1, t2))
+          follow <- if (targets.contains(t2)) {
+            paths += path
+            None
+          } else Some(path)
+        } yield follow
+      }
     }
 
     @annotation.tailrec def growPaths(candidates: Set[Seq[(T, T)]]): Set[Seq[(T, T)]] = {

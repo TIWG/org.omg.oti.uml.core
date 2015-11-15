@@ -42,6 +42,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 
 import org.omg.oti.uml._
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
@@ -3102,7 +3103,7 @@ trait UMLOps[Uml <: UML] { self =>
 	val Package_URI =
 		MetaDocumentAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
 			(pkg, idg, otiCharacteristicsProvider) => {
-				pkg.getEffectiveURI()(otiCharacteristicsProvider).map(_.toIterable)
+				pkg.getEffectiveURI()(otiCharacteristicsProvider).map(_.map(OTI_URI.unwrap).toIterable)
 			})
 
 	val Package_packageMerge =

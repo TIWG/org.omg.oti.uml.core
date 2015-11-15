@@ -39,7 +39,9 @@
  */
 package org.omg.oti.uml.characteristics
 
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import scala.Predef.String
+import scalaz.@@
 
 /**
   * The OTI characteristics for a UML Package specifying the root of an OTI document of some kind.
@@ -51,8 +53,8 @@ import scala.Predef.String
   * @param uuidPrefix the XMI uuid prefix for all the contents of the OTI document
   */
 case class OTISpecificationRootCharacteristics
-(packageURI: String,
- documentURL: String,
+(packageURI: String @@ OTI_URI,
+ documentURL: String @@ OTI_URL,
  artifactKind: OTIArtifactKind,
- nsPrefix: String,
- uuidPrefix: String)
+ nsPrefix: String @@ OTI_NS_PREFIX,
+ uuidPrefix: String @@ OTI_UUID_PREFIX)

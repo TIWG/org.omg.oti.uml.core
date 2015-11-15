@@ -1259,7 +1259,7 @@ trait UML {
 	type WriteVariableAction <: VariableAction
 
 	// Start of user code for additional types
-	
+
 	/**
 	 * A type corresponding to the tool-specific mechanism used for managing an inter-related
 	 * set of UML model documents (serializable or built-in)

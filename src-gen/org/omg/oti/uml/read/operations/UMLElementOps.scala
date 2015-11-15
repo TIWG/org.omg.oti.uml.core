@@ -41,6 +41,7 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml._
+import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
@@ -52,7 +53,6 @@ import scala.{Option,None,Some}
 import scala.Predef.{Set => _, Map => _,_}
 import scala.collection.immutable._
 import scala.collection.Iterable
-import java.lang.IllegalArgumentException
 
 // End of user code
 
@@ -291,14 +291,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
         Some("xmi"), "id",
         (e, idg, otiCharacteristicsProvider) => {
           val _id = e.xmiID()(idg)
-          _id.map { id => Iterable(id) }
+          _id.map { id => Iterable(Tag.unwrap(id)) }
         })
     val af2: MetaAttributeFunction =
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "uuid",
         (e, idg, otiCharacteristicsProvider) => {
           val _id = e.xmiUUID()(idg)
-          _id.map { uuid => Iterable(uuid) }
+          _id.map { uuid => Iterable(Tag.unwrap(uuid)) }
         })
     val af3: MetaAttributeFunction =
       MetaAttributeStringFunction[Uml, UMLElement[Uml]](
@@ -550,7 +550,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def oti_xmiID
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
     otiCharacteristicsProvider.xmiID(self)
 
   /**
@@ -561,7 +561,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def oti_xmiUUID
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String] =
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
     otiCharacteristicsProvider.xmiUUID(self)
 
   /**
@@ -588,12 +588,12 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiID()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String =
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID) =
     oti_xmiID()(idg.otiCharacteristicsProvider)
     .flatMap {
-      _id: Option[String] =>
+      _id: Option[String @@ OTI_ID] =>
       _id
-      .fold[NonEmptyList[java.lang.Throwable] \/ String] {
+      .fold[NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID)] {
         generatedOTI_id()
       }{ oid =>
         oid.right
@@ -620,11 +620,11 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiUUID()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String =
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_UUID) =
     oti_xmiUUID()(idg.otiCharacteristicsProvider)
-    .flatMap { _id: Option[String] =>
+    .flatMap { _id: Option[String @@ OTI_UUID] =>
       _id
-      .fold[NonEmptyList[java.lang.Throwable] \/ String] {
+      .fold[NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_UUID)] {
         generatedOTI_uuid()
       }{ ouuid =>
         ouuid.right
@@ -859,18 +859,18 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The computed OTI xmi:id for the element
    */
   def generatedOTI_id()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String =
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID) =
     idg.computeID(self)
 
   /**
    * The computed OTI xmi:uuid for the element
    */
   def generatedOTI_uuid()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String =
+  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_UUID) =
     idg
     .element2mappedDocument(self)
     .flatMap {
-      _.fold[NonEmptyList[java.lang.Throwable] \/ String](
+      _.fold[NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_UUID)](
         NonEmptyList(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
@@ -880,7 +880,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       ) { d =>
         xmiID()
         .flatMap { id =>
-          (d.info.uuidPrefix + id)
+          OTI_UUID(d.info.uuidPrefix + OTI_ID.unwrap(id))
           .right
         }
       }
@@ -893,7 +893,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return the tool-specific "xmi:id" identifier for the UML Element.
    * @throws java.lang.IllegalArgumentException if there is no tool-specific "xmi:id" available.
    */
-  def toolSpecific_id: Option[String] = ???
+  def toolSpecific_id: Option[String @@ OTI_ID]
 
   /**
    * Every UML Element should have a tool-specific "xmi:uuid" identifier of some kind.
@@ -901,7 +901,24 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return the tool-specific "xmi:uuid" global identifier for the UML Element, if any.
    */
-  def toolSpecific_uuid: Option[String]
+  def toolSpecific_uuid: Option[String @@ OTI_UUID]
+
+  def toolSpecific_id_uuid
+  : NonEmptyList[java.lang.Throwable] \/ OTI_ID_UUID =
+    toolSpecific_id.fold[NonEmptyList[java.lang.Throwable] \/ OTI_ID_UUID](
+      toolSpecific_uuid.fold[NonEmptyList[java.lang.Throwable] \/ OTI_ID_UUID](
+        NonEmptyList(
+          UMLError.illegalElementError[Uml, UMLElement[Uml]](
+          "A UMLElement must have either an OTI toolSpecific_id or an OTI toolSpecific_uuid",
+          Iterable(self)
+          )
+        ).left
+      ) { uuid =>
+        \&/.That(uuid).right
+      }
+    ){ id =>
+      \&/.This(id).right
+    }
 
   def hasStereotype(s: UMLStereotype[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Boolean
