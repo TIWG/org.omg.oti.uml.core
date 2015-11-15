@@ -4045,15 +4045,16 @@ trait UMLOps[Uml <: UML] { self =>
 
   val UML_PRIMITIVE_TYPES_STRING: UMLPrimitiveType[Uml]
 
-  type Element2IDHashMap = scala.collection.mutable.HashMap[UMLElement[Uml],  \/[NonEmptyList[java.lang.Throwable], String]]
+  type Element2IDHashMap =
+  scala.collection.mutable.HashMap[UMLElement[Uml], \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
 
   type Element2IDRule = PartialFunction[
     UMLElement[Uml],
-    \/[NonEmptyList[java.lang.Throwable], String]]
+    \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
 
   type ContainedElement2IDRule = PartialFunction[
-    (UMLElement[Uml], String, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
-    \/[NonEmptyList[java.lang.Throwable], String]]
+    (UMLElement[Uml], String @@ OTI_ID, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
+    \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
 
   class FilterableUMLOption[U](o: Option[U]) {
 
