@@ -384,7 +384,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     .map {
       ouri =>
       ouri.orElse {
-        self.URI.map(OTI_URI.apply)
+        self.URI.map(_.trim).map(OTI_URI.apply)
       }
     }
 
