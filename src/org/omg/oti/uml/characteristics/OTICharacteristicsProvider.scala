@@ -155,24 +155,24 @@ sealed trait OTIArtifactKind
 /**
   * The kind for a UML Package representing a metamodel (built-in or serializable)
   */
-sealed trait OTIMetamodelArtifactKind
+sealed trait OTIMetamodelArtifactKind extends OTIArtifactKind
 
 /**
   * The kind for a UML Package representing a profile (built-in or serializable)
   */
-sealed trait OTIProfileArtifactKind
+sealed trait OTIProfileArtifactKind extends OTIArtifactKind
 
 /**
   * The kind for a UML Package representing a model-library (built-in or serializable)
   */
-sealed trait OTIModelLibraryArtifactKind
+sealed trait OTIModelLibraryArtifactKind extends OTIArtifactKind
 
 
 /**
   * A UML Package that is the root of an OTI artifact of some kind
   * that can be serialized to or deserialized from an external representation.
   */
-sealed trait OTISerializableArtifactKind
+sealed trait OTISerializableArtifactKind extends OTIArtifactKind
 
 /**
   * The kind for a UML Package representing a metamodel that can be serialized.
@@ -208,7 +208,7 @@ case class OTISerializableModelLibraryArtifactKind()
   * that is built-in an OTI-compatible tool. Such an artifact is neither
   * serialized to nor deserialized from an external representation.
   */
-sealed trait OTIBuiltInArtifactKind
+sealed trait OTIBuiltInArtifactKind extends OTIArtifactKind
 
 /**
   * The kind for a UML Package representing a metamodel that is built-in an OTI compatible tool.
