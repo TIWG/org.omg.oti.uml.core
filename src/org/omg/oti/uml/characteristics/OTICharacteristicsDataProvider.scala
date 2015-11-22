@@ -142,7 +142,10 @@ extends OTICharacteristicsProvider[Uml] {
   override def packageURI
   (e: UMLPackage[Uml])
   : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
-    getSpecificationRootCharacteristics(e).map(_.map(_.packageURI))
+    getSpecificationRootCharacteristics(e)
+      .map(_.fold[Option[String @@ OTI_URI]]( e.URI.map(_.trim).map(OTI_URI.apply) ){
+      ch => ch.packageURI
+    })
 
   override
   def documentURL

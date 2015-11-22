@@ -62,7 +62,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     * Optionally provide a URI to override the Package::URI on a UML Package
     * 
     * @param e a UML Package
-    * @return If available, a URI overriding any Package::URI on `e`
+    * @return A whitespace-trimmed URI which the characteristics' URI (if available) or the package's URI (if available)
     */
   def packageURI
   (e: UMLPackage[Uml])

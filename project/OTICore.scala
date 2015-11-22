@@ -75,6 +75,7 @@ object OTICore extends Build {
     com.banno.license.Plugin.licenseSettings ++
     aether.AetherPlugin.autoImport.overridePublishSettings ++
     Seq(
+    sourcesInBase := false,
       sourceDirectories in Compile ~= {
         _.filter(_.exists)
       },

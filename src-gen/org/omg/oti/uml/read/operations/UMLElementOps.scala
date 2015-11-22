@@ -330,7 +330,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return
    */
-  def forwardRelationTriples()(implicit idg: IDGenerator[Uml])
+  def forwardRelationTriples()
   : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 
     def addEvaluatedTriples

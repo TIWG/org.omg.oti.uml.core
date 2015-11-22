@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:mofext="http://www.omg.org/spec/MOF/20131001" xmlns:OTI="http://www.omg.org/TIWG/OTI/20151118/OTI.profile">
+  <uml:Profile xmi:id="OTI" xmi:uuid="www.omg.org_TIWG_OTI" xmi:type="uml:Profile">
+    <name>OTI</name>
+    <URI>http://www.omg.org/TIWG/OTI/20151118/OTI.profile</URI>
+    <packageImport xmi:id="OTI._packageImport.http_u003A_u002F_u002Fwww.omg.org_u002Fspec_u002FUML_u002F20131001._0" xmi:uuid="www.omg.org_TIWG_OTI._packageImport.http_u003A_u002F_u002Fwww.omg.org_u002Fspec_u002FUML_u002F20131001._0" xmi:type="uml:PackageImport">
+      <importedPackage href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/UML.xmi,profiles/UML_Standard_Profile.mdzip)#UML2_Metamodel"/>
+    </packageImport>
+    <packagedElement xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind" xmi:type="uml:Enumeration">
+      <name>OMG ArtifactKind</name>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_METAMODEL" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_METAMODEL" xmi:type="uml:EnumerationLiteral">
+        <name>IMPLEMENTED_METAMODEL</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_MODEL_LIBRARY" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_MODEL_LIBRARY" xmi:type="uml:EnumerationLiteral">
+        <name>IMPLEMENTED_MODEL_LIBRARY</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_PROFILE" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_IMPLEMENTED_PROFILE" xmi:type="uml:EnumerationLiteral">
+        <name>IMPLEMENTED_PROFILE</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_METAMODEL" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_METAMODEL" xmi:type="uml:EnumerationLiteral">
+        <name>SPECIFIED_METAMODEL</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_MODEL_LIBRARY" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_MODEL_LIBRARY" xmi:type="uml:EnumerationLiteral">
+        <name>SPECIFIED_MODEL_LIBRARY</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_PROFILE" xmi:uuid="www.omg.org_TIWG_OTI.enumeration_packagedElement_OMG_ArtifactKind.enumerationLiteral_ownedLiteral_SPECIFIED_PROFILE" xmi:type="uml:EnumerationLiteral">
+        <name>SPECIFIED_PROFILE</name>
+        <classifier xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedLiteral>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.extension_packagedElement_E_extension_Identity_base_Element" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_Identity_base_Element" xmi:type="uml:Extension">
+      <name>E_extension_Identity_base_Element</name>
+      <ownedEnd xmi:idref="OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity"/>
+      <ownedEnd xmi:id="OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity" xmi:type="uml:ExtensionEnd">
+        <name>extension_Identity</name>
+        <lowerValue xmi:id="OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity_lowerValue" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity_lowerValue" xmi:type="uml:LiteralInteger"/>
+        <type xmi:idref="OTI.stereotype_packagedElement_Identity"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_Identity_base_Element"/>
+        <type xmi:idref="OTI.stereotype_packagedElement_Identity"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity"/>
+      <navigableOwnedEnd xmi:idref="OTI.extension_packagedElement_E_extension_Identity_base_Element_ownedEnd.extension_Identity"/>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment" xmi:type="uml:Extension">
+      <name>E_extension_SpecificationRootCharacteristics_base_Comment</name>
+      <ownedEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics"/>
+      <ownedEnd 
+      xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics" xmi:type="uml:ExtensionEnd">
+        <name>extension_SpecificationRootCharacteristics</name>
+        <lowerValue 
+        xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics_lowerValue" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics_lowerValue" xmi:type="uml:LiteralInteger">
+</lowerValue>
+        <type xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment"/>
+        <type xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics"/>
+</ownedEnd>
+      <memberEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics"/>
+      <navigableOwnedEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment_ownedEnd.extension_SpecificationRootCharacteristics"/>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package" xmi:type="uml:Extension">
+      <name>E_extension_SpecificationRoot_base_Package</name>
+      <ownedEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot"/>
+      <ownedEnd xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot" xmi:type="uml:ExtensionEnd">
+        <name>extension_SpecificationRoot</name>
+        <lowerValue 
+        xmi:id="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot_lowerValue" xmi:uuid="www.omg.org_TIWG_OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot_lowerValue" xmi:type="uml:LiteralInteger">
+</lowerValue>
+        <type xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package"/>
+        <type xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot"/>
+      </ownedEnd>
+      <memberEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot"/>
+      <navigableOwnedEnd xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package_ownedEnd.extension_SpecificationRoot"/>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.stereotype_packagedElement_Identity" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity" xmi:type="uml:Stereotype">
+      <name>Identity</name>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_Identity_ownedAttribute.base_Element"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiID"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiUUID"/>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_Identity_ownedAttribute.base_Element" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity_ownedAttribute.base_Element" xmi:type="uml:Property">
+        <name>base_Element</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/UML.xmi,profiles/UML_Standard_Profile.mdzip)#_9_0_be00301_1108053761194_467635_11463.class_packagedElement_Element"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_Identity_base_Element"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiID" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiID" xmi:type="uml:Property">
+        <name>xmiID</name>
+        <lowerValue xmi:id="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiID_lowerValue" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiID_lowerValue" xmi:type="uml:LiteralInteger"/>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiUUID" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiUUID" xmi:type="uml:Property">
+        <name>xmiUUID</name>
+        <lowerValue xmi:id="OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiUUID_lowerValue" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_Identity_ownedAttribute.xmiUUID_lowerValue" xmi:type="uml:LiteralInteger"/>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.stereotype_packagedElement_SpecificationRoot" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot" xmi:type="uml:Stereotype">
+      <name>SpecificationRoot</name>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.artifactKind"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.base_Package"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.documentURL"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.nsPrefix"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.packageURI"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.uuidPrefix"/>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.artifactKind" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.artifactKind" xmi:type="uml:Property">
+        <name>artifactKind</name>
+        <type xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.base_Package" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.base_Package" xmi:type="uml:Property">
+        <name>base_Package</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/UML.xmi,profiles/UML_Standard_Profile.mdzip)#_9_0_be00301_1108053761194_467635_11463.class_packagedElement_Package"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRoot_base_Package"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.documentURL" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.documentURL" xmi:type="uml:Property">
+        <name>documentURL</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.nsPrefix" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.nsPrefix" xmi:type="uml:Property">
+        <name>nsPrefix</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.packageURI" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.packageURI" xmi:type="uml:Property">
+        <name>packageURI</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.uuidPrefix" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot_ownedAttribute.uuidPrefix" xmi:type="uml:Property">
+        <name>uuidPrefix</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics" xmi:type="uml:Stereotype">
+      <name>SpecificationRootCharacteristics</name>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.artifactKind"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.base_Comment"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.documentURL"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.nsPrefix"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.packageURI"/>
+      <ownedAttribute xmi:idref="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.uuidPrefix"/>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.artifactKind" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.artifactKind" xmi:type="uml:Property">
+        <name>artifactKind</name>
+        <type xmi:idref="OTI.enumeration_packagedElement_OMG_ArtifactKind"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.base_Comment" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.base_Comment" xmi:type="uml:Property">
+        <name>base_Comment</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/UML.xmi,profiles/UML_Standard_Profile.mdzip)#_9_0_be00301_1108053761194_467635_11463.class_packagedElement_Comment"/>
+        <association xmi:idref="OTI.extension_packagedElement_E_extension_SpecificationRootCharacteristics_base_Comment"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.documentURL" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.documentURL" xmi:type="uml:Property">
+        <name>documentURL</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.nsPrefix" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.nsPrefix" xmi:type="uml:Property">
+        <name>nsPrefix</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.packageURI" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.packageURI" xmi:type="uml:Property">
+        <name>packageURI</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.uuidPrefix" xmi:uuid="www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRootCharacteristics_ownedAttribute.uuidPrefix" xmi:type="uml:Property">
+        <name>uuidPrefix</name>
+        <type href="MagicDrawAttachedLocalModuleBuiltInDocumentLoadURL(http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi,profiles/UML_Standard_Profile.mdzip)#_12_0EAPbeta_be00301_1157529392394_202602_1.primitiveType_packagedElement_String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="OTI._profileApplication.OTI" xmi:uuid="www.omg.org_TIWG_OTI._profileApplication.OTI" xmi:type="uml:ProfileApplication">
+      <appliedProfile xmi:idref="OTI"/>
+    </profileApplication>
+  </uml:Profile>
+  <mofext:Tag xmi:id="OTI_mofext.Tag" xmi:uuid="www.omg.org_TIWG_OTI_mofext.Tag" xmi:type="mofext:Tag" name="org.omg.xmi.nsPrefix" value="OTI">
+    <element xmi:idref="OTI"/>
+  </mofext:Tag>
+  <OTI:SpecificationRoot xmi:id="OTI.stereotypeApplication_OTI.stereotype_packagedElement_SpecificationRoot" xmi:uuid="www.omg.org_TIWG_OTI.stereotypeApplication_www.omg.org_TIWG_OTI.stereotype_packagedElement_SpecificationRoot" xmi:type="OTI:SpecificationRoot">
+    <base_Package xmi:idref="OTI"/>
+    <artifactKind>SPECIFIED_PROFILE</artifactKind>
+    <documentURL>http://www.omg.org/TIWG/OTI/20151118/OTI.profile.xmi</documentURL>
+    <uuidPrefix>www.omg.org_TIWG_</uuidPrefix>
+    <nsPrefix>oti</nsPrefix>
+  </OTI:SpecificationRoot>
+</xmi:XMI>

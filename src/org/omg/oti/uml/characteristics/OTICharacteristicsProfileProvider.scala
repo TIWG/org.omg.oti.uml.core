@@ -189,7 +189,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
           } yield
             vs.headOption
       )
-    } yield result.map(_.trim).map(OTI_URI.apply)
+    } yield result.orElse(self.URI).map(_.trim).map(OTI_URI.apply)
 
   override def documentURL
   (self: UMLPackage[Uml])
