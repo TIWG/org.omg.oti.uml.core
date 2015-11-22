@@ -44,7 +44,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.collection.immutable.{Map,Set}
-import scala.Option
+import scala.{Option,Some}
 import scala.Predef.{Map => _, Set => _, _}
 import scala.reflect.runtime.universe._
 import scala.reflect.classTag
