@@ -144,7 +144,7 @@ extends OTICharacteristicsProvider[Uml] {
   : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     getSpecificationRootCharacteristics(e)
       .map(_.fold[Option[String @@ OTI_URI]]( e.URI.map(_.trim).map(OTI_URI.apply) ){
-      ch => ch.packageURI
+      ch => Some(ch.packageURI)
     })
 
   override
