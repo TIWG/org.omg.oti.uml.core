@@ -40,6 +40,7 @@
 package org.omg.oti.uml.xmi
 
 import java.net.URI
+import org.omg.oti.uml.RelationTriple
 import org.omg.oti.uml.characteristics.OTISpecificationRootCharacteristics
 import org.omg.oti.uml.read.api.{UML, UMLElement, UMLPackage}
 import org.omg.oti.uml.read.operations.UMLOps
@@ -79,6 +80,10 @@ import scala.collection.immutable.Set
  */
 abstract trait Document[Uml <: UML] {
   implicit val ops: UMLOps[Uml]
+
+  type DocumentRelationTriple = RelationTriple[Uml]
+  type DocumentEdgeTriples = Set[DocumentRelationTriple]
+
   val info: OTISpecificationRootCharacteristics
 
   /**
