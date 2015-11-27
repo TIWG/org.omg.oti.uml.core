@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OMG Tool-neutral Interface (OTI) API for OMG UML 2.5-compatible modeling tools
 Bundle-SymbolicName: org.omg.oti;singleton:=true
-Bundle-Version: 0.18.0.qualifier
+Bundle-Version: 0.19.0.qualifier
 Bundle-ClassPath: .,
- lib_managed/jars/com.assembla.scala-incubator/graph-core_2.11/graph-core_2.11-1.9.2.jar,
+ lib_managed/jars/com.assembla.scala-incubator/graph-core_2.11/graph-core_2.11-1.9.4.jar,
  lib_managed/jars/com.assembla.scala-incubator/graph-constrained_2.11/graph-constrained_2.11-1.9.0.jar,
  lib_managed/jars/com.assembla.scala-incubator/graph-json_2.11/graph-json_2.11-1.9.2.jar,
  lib_managed/jars/com.assembla.scala-incubator/graph-dot_2.11/graph-dot_2.11-1.10.0.jar,
  lib_managed/jars/com.thoughtworks.paranamer/paranamer/paranamer-2.4.1.jar,
- lib_managed/jars/org.scalaz/scalaz-core_2.11/scalaz-core_2.11-7.1.1.jar,
+ lib_managed/jars/org.scalaz/scalaz-core_2.11/scalaz-core_2.11-7.2.0-M5.jar,
  lib_managed/jars/xml-resolver/xml-resolver/xml-resolver-1.2.jar,
  lib_managed/jars/net.liftweb/lift-json_2.11/lift-json_2.11-2.6-M4.jar,
  lib_managed/jars/org.scala-lang/scalap/scalap-2.11.1.jar
@@ -23,6 +23,7 @@ Export-Package: com.thoughtworks.paranamer,
  org.apache.xml.resolver.readers,
  org.apache.xml.resolver.tools,
  org.omg.oti.uml,
+ org.omg.oti.uml.characteristics,
  org.omg.oti.uml.read,
  org.omg.oti.uml.read.api,
  org.omg.oti.uml.read.operations,
@@ -82,6 +83,9 @@ Export-Package: com.thoughtworks.paranamer,
  scalaz.std.util.parsing.combinator,
  scalaz.syntax,
  scalaz.syntax.std,
+ scaldi,
+ scaldi.util,
+ scaldi.util.constraints,
  scoverage,
  scoverage.report;
   uses:="scala,
@@ -89,7 +93,7 @@ Export-Package: com.thoughtworks.paranamer,
    scala.collection.generic,
    scala.collection.immutable,
    scala.reflect.api",
-   sext
+ sext
 Require-Bundle: org.scala-lang.modules.scala-parser-combinators;bundle-version="1.0.3";visibility:=reexport,
  org.scala-lang.modules.scala-xml;bundle-version="1.0.3";visibility:=reexport,
  org.scala-lang.scala-compiler;bundle-version="2.11.7";visibility:=reexport,

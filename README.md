@@ -85,6 +85,15 @@ It is possible to use both SBT and an IDE (Eclipse or IntelliJ) to work on this 
 
 ### IntelliJ IDEA Community Edition (with JetBrains Scala plugin)
 
+- Edit IDEA Settings
+
+  - Languages & Frameworks
+  - Scala Compile Server
+  - JVM maximum heap size, MB: 2048
+  - JVM parameters: -server -Xss24m
+  
+- Import the project from SBT
+
 1. File | New > Project from Existing Sources...
 2. Select the location of the project
 3. Use the SBT model for importing the project
@@ -96,12 +105,28 @@ To manually refresh it, use View | Tool Windows > SBT, then click on the refresh
 
 ### Eclipse (with Scala IDE plugin)
 
+- Edit eclipse.ini
+
+    --launcher.appendVmargs
+    -vmargs
+    -Dosgi.requiredJavaVersion=1.7
+    -XX:MaxPermSize=256m
+    -Xss24m
+    -Xms512m
+    -Xmx4096m
+    -server
+    -XX:+UseConcMarkSweepGC
+    -XX:+UseCompressedOops
+    
 See https://github.com/typesafehub/sbteclipse
 
 1. Use SBT to create the Eclipse metadata files (.project, .classpath)
 
     `sbt -DOTI_LOCAL_REPOSITORY=<dir> eclipse`
-
+   
+   Note: This is only necessary if you change the SBT project definition.
+   The Eclipse metadata files (.project, .classpath, META-INF/MANIFEST.MF, .settings) are already in the repository.
+   
 2. File | Import ...
 3. Choose: "Existing Projects into Workspace"
 4. Select the location of the project
