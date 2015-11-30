@@ -2,10 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry kind="src" path="models"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.sksamuel.scapegoat/scalac-scapegoat-plugin_2.11/scalac-scapegoat-plugin_2.11-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/org.scaldi/scaldi_2.11/scaldi_2.11-0.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/org.scalaz/scalaz-core_2.11/scalaz-core_2.11-7.2.0-M5.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib_managed/jars/xml-resolver/xml-resolver/xml-resolver-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_managed/jars/xml-resolver/xml-resolver/xml-resolver-1.2.jar" sourcepath="lib_managed/srcs/xml-resolver/xml-resolver/xml-resolver-1.2-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.assembla.scala-incubator/graph-core_2.11/graph-core_2.11-1.9.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.assembla.scala-incubator/graph-constrained_2.11/graph-constrained_2.11-1.9.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.assembla.scala-incubator/graph-json_2.11/graph-json_2.11-1.9.2.jar"/>
