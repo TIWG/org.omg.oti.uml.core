@@ -69,14 +69,45 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     *           when the OTI::SpecificationRootCharacterization stereotype is applied to a comment
     *           that uniquely annotates this package
     * @tparam V The type of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
-    * @return The value of the OTI SpecificationRoot or SpecificationRootCharacterization attribute property
-    *         if available
+    * @return In decreasing priority order:
+    *         - the value of the OTI SpecificationRootCharacterization attribute property, if available
+    *         - the value of the OTI SpecificationRoot if available
+    *         - no value
     */
   def oti_attributeValue[V]
   (self: UMLPackage[Uml],
    pf: UMLPackage[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]],
    cf: UMLComment[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]])
   : NonEmptyList[java.lang.Throwable] \/ Option[V] =
+    otiCharacterizations.getOrElse(Map.empty[UMLPackage[Uml], UMLComment[Uml]])
+    .get(self)
+    .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+      getSpecificationRootAnnotatingComment(self)
+      .flatMap { oc =>
+        // The `self` Package does not have an OTI Characterization Comment
+        oc.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+          pf(self)
+        ){ c =>
+          cf(c).flatMap { ov =>
+            ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+              pf(self)
+            ){ v =>
+              v.right
+            }
+          }
+        }
+      }
+    ){ c =>
+      cf(c).flatMap { ov =>
+        ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+          pf(self)
+        ){ v =>
+          v.right
+        }
+      }
+    }
+
+  /*
     pf(self)
       .flatMap {
         opf: Option[V] =>
@@ -109,6 +140,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
               right
           }
       }
+
+*/
 
   /**
     * is this comment representing the characteristics for a single annotated package
