@@ -54,13 +54,15 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
   implicit val otiCharacterizations: Option[Map[UMLPackage[Uml], UMLComment[Uml]]]
 
   /**
-    * Get the value of an OTI SpecificationRoot or SpecificationRootCharacterization
-    * attribute property for this package
+    * For a package, get the value of an attribute property of 
+    * a SpecificationRootCharacterization-stereotype Comment annotating this package, if any,
+    * or that of the SpecificationRoot stereotype applied to this package, if any.
     *
-    * An OTI SpecificationRoot attribute property can be specified as a tag value on
-    * the OTI::SpecificationRoot stereotype applied to the package or as a tag value
-    * on an OTI::SpecificationRootCharacterization stereotype applied to a comment
-    * that annotates this package
+    * An OTI SpecificationRoot attribute property can be specified as 
+    * 1) a tag value on an OTI::SpecificationRootCharacterization stereotype applied 
+    *    to a comment that annotates this package
+    * 2) a tag value on the OTI::SpecificationRoot stereotype applied to the package or 
+    * Note that (1) has higher priority than (2).
     *
     * @param self a UML Package
     * @param pf A function to retrieve the value of the OTI SpecificationRoot stereotype property
@@ -84,64 +86,37 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
       getSpecificationRootAnnotatingComment(self)
       .flatMap { oc =>
-        // The `self` Package does not have an OTI Characterization Comment
-        oc.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+        oc.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({       
+          // (1) no value because no SpecificationRoot-stereotyped Comment annotates the package
+          // try (2)
           pf(self)
-        ){ c =>
+        }){ c =>
           cf(c).flatMap { ov =>
-            ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+            ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({
+              // (1) no value because the SpecificationRoot-stereotype Comment annotating 
+              //     the package does not have a value for the property
+              // try (2)
               pf(self)
-            ){ v =>
-              v.right
+            }){ v:V =>
+              // (1) yields a value
+              v.some.right
             }
           }
         }
       }
     ){ c =>
       cf(c).flatMap { ov =>
-        ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+        ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({
+          // (1) no value because SpecificationRoot-stereotype Comment annotating 
+          //     the package does not have a value for the property
+          // try (2)
           pf(self)
-        ){ v =>
-          v.right
+        }){ v: V =>
+          // (1) yields a value
+          v.some.right
         }
       }
     }
-
-  /*
-    pf(self)
-      .flatMap {
-        opf: Option[V] =>
-          opf
-            .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-            otiCharacterizations
-              .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-              Option.empty[V].right
-            ) {
-              p2c: Map[UMLPackage[Uml], UMLComment[Uml]] =>
-                p2c
-                  .get(self)
-                  .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-                  getSpecificationRootAnnotatingComment(self)
-                    .flatMap { c =>
-                      c
-                      .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
-                        Option.empty[V].right
-                      ) { _c =>
-                        cf(_c)
-                      }
-                    }
-                ) { _c =>
-                  cf(_c)
-                }
-            }
-          ) { v: V =>
-            v
-              .some.
-              right
-          }
-      }
-
-*/
 
   /**
     * is this comment representing the characteristics for a single annotated package
