@@ -3,6 +3,9 @@ package org.omg.oti.uml.util
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations._
 import scala.collection.immutable._
+import scala.{Boolean,Option}
+import scala.Predef.String
+
 /**
  * An abstraction for managing stereotype application.
  *
