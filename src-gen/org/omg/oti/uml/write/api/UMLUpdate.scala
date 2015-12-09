@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -39,15 +41,15 @@
  */
 package org.omg.oti.uml.write.api
 
-import org.omg.oti.uml.read.api._
-
 // Start of user code for imports
+import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.write._
 
 import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
-import scala.Predef.String
+import scala.Predef.{Map => _, Set => _, _}
 import scala.collection.immutable._
 import scala.collection.Iterable
+import scala.language.postfixOps
 import scala.language.implicitConversions
 import scala.language.existentials
 import scalaz._
@@ -57,7 +59,7 @@ import java.lang.Integer
 // End of user code
 
 trait UMLUpdate[Uml <: UML] 
-extends UMLAttributeUpdater[Uml]
+extends UMLAttributeUpdater[Uml] 
 with UMLPropertyUpdater[Uml] {
 
   def links_Abstraction_abstraction_compose_mapping_OpaqueExpression
@@ -2891,313 +2893,1798 @@ with UMLPropertyUpdater[Uml] {
       AssociationMetaPropertySetUpdateInfo(
         links_UseCase_useCase_reference_subject_Classifier _,
         ops.UseCase_subject)
-  val MetaPropertyScalarAttributeUpdate
-  : Seq[MetaScalarAttributeUpdate]
-  = Seq() :+
+
+  val MetaScalarAttributeUpdater_AcceptEventAction_isUnmarshall =
       MetaScalarAttributeUpdater(
         set_AcceptEventAction_isUnmarshall _,
-        ops.AcceptEventAction_isUnmarshall) :+
+        ops.AcceptEventAction_isUnmarshall)
+
+  val MetaScalarAttributeUpdater_Action_isLocallyReentrant =
       MetaScalarAttributeUpdater(
         set_Action_isLocallyReentrant _,
-        ops.Action_isLocallyReentrant) :+
+        ops.Action_isLocallyReentrant)
+
+  val MetaScalarAttributeUpdater_Activity_isReadOnly =
       MetaScalarAttributeUpdater(
         set_Activity_isReadOnly _,
-        ops.Activity_isReadOnly) :+
+        ops.Activity_isReadOnly)
+
+  val MetaScalarAttributeUpdater_Activity_isSingleExecution =
       MetaScalarAttributeUpdater(
         set_Activity_isSingleExecution _,
-        ops.Activity_isSingleExecution) :+
+        ops.Activity_isSingleExecution)
+
+  val MetaScalarAttributeUpdater_ActivityPartition_isDimension =
       MetaScalarAttributeUpdater(
         set_ActivityPartition_isDimension _,
-        ops.ActivityPartition_isDimension) :+
+        ops.ActivityPartition_isDimension)
+
+  val MetaScalarAttributeUpdater_ActivityPartition_isExternal =
       MetaScalarAttributeUpdater(
         set_ActivityPartition_isExternal _,
-        ops.ActivityPartition_isExternal) :+
+        ops.ActivityPartition_isExternal)
+
+  val MetaScalarAttributeUpdater_AddStructuralFeatureValueAction_isReplaceAll =
       MetaScalarAttributeUpdater(
         set_AddStructuralFeatureValueAction_isReplaceAll _,
-        ops.AddStructuralFeatureValueAction_isReplaceAll) :+
+        ops.AddStructuralFeatureValueAction_isReplaceAll)
+
+  val MetaScalarAttributeUpdater_AddVariableValueAction_isReplaceAll =
       MetaScalarAttributeUpdater(
         set_AddVariableValueAction_isReplaceAll _,
-        ops.AddVariableValueAction_isReplaceAll) :+
+        ops.AddVariableValueAction_isReplaceAll)
+
+  val MetaScalarAttributeUpdater_Association_isDerived =
       MetaScalarAttributeUpdater(
         set_Association_isDerived _,
-        ops.Association_isDerived) :+
+        ops.Association_isDerived)
+
+  val MetaScalarAttributeUpdater_Behavior_isReentrant =
       MetaScalarAttributeUpdater(
         set_Behavior_isReentrant _,
-        ops.Behavior_isReentrant) :+
+        ops.Behavior_isReentrant)
+
+  val MetaScalarAttributeUpdater_BehavioralFeature_isAbstract =
       MetaScalarAttributeUpdater(
         set_BehavioralFeature_isAbstract _,
-        ops.BehavioralFeature_isAbstract) :+
+        ops.BehavioralFeature_isAbstract)
+
+  val MetaScalarAttributeUpdater_CallAction_isSynchronous =
       MetaScalarAttributeUpdater(
         set_CallAction_isSynchronous _,
-        ops.CallAction_isSynchronous) :+
+        ops.CallAction_isSynchronous)
+
+  val MetaScalarAttributeUpdater_Class_isAbstract =
       MetaScalarAttributeUpdater(
         set_Class_isAbstract _,
-        ops.Class_isAbstract) :+
+        ops.Class_isAbstract)
+
+  val MetaScalarAttributeUpdater_Class_isActive =
       MetaScalarAttributeUpdater(
         set_Class_isActive _,
-        ops.Class_isActive) :+
+        ops.Class_isActive)
+
+  val MetaScalarAttributeUpdater_Classifier_isAbstract =
       MetaScalarAttributeUpdater(
         set_Classifier_isAbstract _,
-        ops.Classifier_isAbstract) :+
+        ops.Classifier_isAbstract)
+
+  val MetaScalarAttributeUpdater_Classifier_isFinalSpecialization =
       MetaScalarAttributeUpdater(
         set_Classifier_isFinalSpecialization _,
-        ops.Classifier_isFinalSpecialization) :+
+        ops.Classifier_isFinalSpecialization)
+
+  val MetaScalarAttributeUpdater_ClassifierTemplateParameter_allowSubstitutable =
       MetaScalarAttributeUpdater(
         set_ClassifierTemplateParameter_allowSubstitutable _,
-        ops.ClassifierTemplateParameter_allowSubstitutable) :+
+        ops.ClassifierTemplateParameter_allowSubstitutable)
+
+  val MetaScalarAttributeUpdater_Component_isIndirectlyInstantiated =
       MetaScalarAttributeUpdater(
         set_Component_isIndirectlyInstantiated _,
-        ops.Component_isIndirectlyInstantiated) :+
+        ops.Component_isIndirectlyInstantiated)
+
+  val MetaScalarAttributeUpdater_ConditionalNode_isAssured =
       MetaScalarAttributeUpdater(
         set_ConditionalNode_isAssured _,
-        ops.ConditionalNode_isAssured) :+
+        ops.ConditionalNode_isAssured)
+
+  val MetaScalarAttributeUpdater_ConditionalNode_isDeterminate =
       MetaScalarAttributeUpdater(
         set_ConditionalNode_isDeterminate _,
-        ops.ConditionalNode_isDeterminate) :+
+        ops.ConditionalNode_isDeterminate)
+
+  val MetaScalarAttributeUpdater_Continuation_setting =
       MetaScalarAttributeUpdater(
         set_Continuation_setting _,
-        ops.Continuation_setting) :+
+        ops.Continuation_setting)
+
+  val MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyLinks =
       MetaScalarAttributeUpdater(
         set_DestroyObjectAction_isDestroyLinks _,
-        ops.DestroyObjectAction_isDestroyLinks) :+
+        ops.DestroyObjectAction_isDestroyLinks)
+
+  val MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyOwnedObjects =
       MetaScalarAttributeUpdater(
         set_DestroyObjectAction_isDestroyOwnedObjects _,
-        ops.DestroyObjectAction_isDestroyOwnedObjects) :+
+        ops.DestroyObjectAction_isDestroyOwnedObjects)
+
+  val MetaScalarAttributeUpdater_Feature_isStatic =
       MetaScalarAttributeUpdater(
         set_Feature_isStatic _,
-        ops.Feature_isStatic) :+
+        ops.Feature_isStatic)
+
+  val MetaScalarAttributeUpdater_GeneralizationSet_isCovering =
       MetaScalarAttributeUpdater(
         set_GeneralizationSet_isCovering _,
-        ops.GeneralizationSet_isCovering) :+
+        ops.GeneralizationSet_isCovering)
+
+  val MetaScalarAttributeUpdater_GeneralizationSet_isDisjoint =
       MetaScalarAttributeUpdater(
         set_GeneralizationSet_isDisjoint _,
-        ops.GeneralizationSet_isDisjoint) :+
+        ops.GeneralizationSet_isDisjoint)
+
+  val MetaScalarAttributeUpdater_JoinNode_isCombineDuplicate =
       MetaScalarAttributeUpdater(
         set_JoinNode_isCombineDuplicate _,
-        ops.JoinNode_isCombineDuplicate) :+
+        ops.JoinNode_isCombineDuplicate)
+
+  val MetaScalarAttributeUpdater_LinkEndCreationData_isReplaceAll =
       MetaScalarAttributeUpdater(
         set_LinkEndCreationData_isReplaceAll _,
-        ops.LinkEndCreationData_isReplaceAll) :+
+        ops.LinkEndCreationData_isReplaceAll)
+
+  val MetaScalarAttributeUpdater_LinkEndDestructionData_isDestroyDuplicates =
       MetaScalarAttributeUpdater(
         set_LinkEndDestructionData_isDestroyDuplicates _,
-        ops.LinkEndDestructionData_isDestroyDuplicates) :+
+        ops.LinkEndDestructionData_isDestroyDuplicates)
+
+  val MetaScalarAttributeUpdater_LiteralBoolean_value =
       MetaScalarAttributeUpdater(
         set_LiteralBoolean_value _,
-        ops.LiteralBoolean_value) :+
+        ops.LiteralBoolean_value)
+
+  val MetaScalarAttributeUpdater_LiteralInteger_value =
       MetaScalarAttributeUpdater(
         set_LiteralInteger_value _,
-        ops.LiteralInteger_value) :+
+        ops.LiteralInteger_value)
+
+  val MetaScalarAttributeUpdater_LiteralReal_value =
       MetaScalarAttributeUpdater(
         set_LiteralReal_value _,
-        ops.LiteralReal_value) :+
+        ops.LiteralReal_value)
+
+  val MetaScalarAttributeUpdater_LiteralUnlimitedNatural_value =
       MetaScalarAttributeUpdater(
         set_LiteralUnlimitedNatural_value _,
-        ops.LiteralUnlimitedNatural_value) :+
+        ops.LiteralUnlimitedNatural_value)
+
+  val MetaScalarAttributeUpdater_LoopNode_isTestedFirst =
       MetaScalarAttributeUpdater(
         set_LoopNode_isTestedFirst _,
-        ops.LoopNode_isTestedFirst) :+
+        ops.LoopNode_isTestedFirst)
+
+  val MetaScalarAttributeUpdater_MultiplicityElement_isOrdered =
       MetaScalarAttributeUpdater(
         set_MultiplicityElement_isOrdered _,
-        ops.MultiplicityElement_isOrdered) :+
+        ops.MultiplicityElement_isOrdered)
+
+  val MetaScalarAttributeUpdater_MultiplicityElement_isUnique =
       MetaScalarAttributeUpdater(
         set_MultiplicityElement_isUnique _,
-        ops.MultiplicityElement_isUnique) :+
+        ops.MultiplicityElement_isUnique)
+
+  val MetaScalarAttributeUpdater_ObjectFlow_isMulticast =
       MetaScalarAttributeUpdater(
         set_ObjectFlow_isMulticast _,
-        ops.ObjectFlow_isMulticast) :+
+        ops.ObjectFlow_isMulticast)
+
+  val MetaScalarAttributeUpdater_ObjectFlow_isMultireceive =
       MetaScalarAttributeUpdater(
         set_ObjectFlow_isMultireceive _,
-        ops.ObjectFlow_isMultireceive) :+
+        ops.ObjectFlow_isMultireceive)
+
+  val MetaScalarAttributeUpdater_ObjectNode_isControlType =
       MetaScalarAttributeUpdater(
         set_ObjectNode_isControlType _,
-        ops.ObjectNode_isControlType) :+
+        ops.ObjectNode_isControlType)
+
+  val MetaScalarAttributeUpdater_Operation_isQuery =
       MetaScalarAttributeUpdater(
         set_Operation_isQuery _,
-        ops.Operation_isQuery) :+
+        ops.Operation_isQuery)
+
+  val MetaScalarAttributeUpdater_Parameter_isException =
       MetaScalarAttributeUpdater(
         set_Parameter_isException _,
-        ops.Parameter_isException) :+
+        ops.Parameter_isException)
+
+  val MetaScalarAttributeUpdater_Parameter_isStream =
       MetaScalarAttributeUpdater(
         set_Parameter_isStream _,
-        ops.Parameter_isStream) :+
+        ops.Parameter_isStream)
+
+  val MetaScalarAttributeUpdater_Pin_isControl =
       MetaScalarAttributeUpdater(
         set_Pin_isControl _,
-        ops.Pin_isControl) :+
+        ops.Pin_isControl)
+
+  val MetaScalarAttributeUpdater_Port_isBehavior =
       MetaScalarAttributeUpdater(
         set_Port_isBehavior _,
-        ops.Port_isBehavior) :+
+        ops.Port_isBehavior)
+
+  val MetaScalarAttributeUpdater_Port_isConjugated =
       MetaScalarAttributeUpdater(
         set_Port_isConjugated _,
-        ops.Port_isConjugated) :+
+        ops.Port_isConjugated)
+
+  val MetaScalarAttributeUpdater_Port_isService =
       MetaScalarAttributeUpdater(
         set_Port_isService _,
-        ops.Port_isService) :+
+        ops.Port_isService)
+
+  val MetaScalarAttributeUpdater_ProfileApplication_isStrict =
       MetaScalarAttributeUpdater(
         set_ProfileApplication_isStrict _,
-        ops.ProfileApplication_isStrict) :+
+        ops.ProfileApplication_isStrict)
+
+  val MetaScalarAttributeUpdater_Property_isDerived =
       MetaScalarAttributeUpdater(
         set_Property_isDerived _,
-        ops.Property_isDerived) :+
+        ops.Property_isDerived)
+
+  val MetaScalarAttributeUpdater_Property_isDerivedUnion =
       MetaScalarAttributeUpdater(
         set_Property_isDerivedUnion _,
-        ops.Property_isDerivedUnion) :+
+        ops.Property_isDerivedUnion)
+
+  val MetaScalarAttributeUpdater_Property_isID =
       MetaScalarAttributeUpdater(
         set_Property_isID _,
-        ops.Property_isID) :+
+        ops.Property_isID)
+
+  val MetaScalarAttributeUpdater_ReadIsClassifiedObjectAction_isDirect =
       MetaScalarAttributeUpdater(
         set_ReadIsClassifiedObjectAction_isDirect _,
-        ops.ReadIsClassifiedObjectAction_isDirect) :+
+        ops.ReadIsClassifiedObjectAction_isDirect)
+
+  val MetaScalarAttributeUpdater_ReclassifyObjectAction_isReplaceAll =
       MetaScalarAttributeUpdater(
         set_ReclassifyObjectAction_isReplaceAll _,
-        ops.ReclassifyObjectAction_isReplaceAll) :+
+        ops.ReclassifyObjectAction_isReplaceAll)
+
+  val MetaScalarAttributeUpdater_RedefinableElement_isLeaf =
       MetaScalarAttributeUpdater(
         set_RedefinableElement_isLeaf _,
-        ops.RedefinableElement_isLeaf) :+
+        ops.RedefinableElement_isLeaf)
+
+  val MetaScalarAttributeUpdater_ReduceAction_isOrdered =
       MetaScalarAttributeUpdater(
         set_ReduceAction_isOrdered _,
-        ops.ReduceAction_isOrdered) :+
+        ops.ReduceAction_isOrdered)
+
+  val MetaScalarAttributeUpdater_RemoveStructuralFeatureValueAction_isRemoveDuplicates =
       MetaScalarAttributeUpdater(
         set_RemoveStructuralFeatureValueAction_isRemoveDuplicates _,
-        ops.RemoveStructuralFeatureValueAction_isRemoveDuplicates) :+
+        ops.RemoveStructuralFeatureValueAction_isRemoveDuplicates)
+
+  val MetaScalarAttributeUpdater_RemoveVariableValueAction_isRemoveDuplicates =
       MetaScalarAttributeUpdater(
         set_RemoveVariableValueAction_isRemoveDuplicates _,
-        ops.RemoveVariableValueAction_isRemoveDuplicates) :+
+        ops.RemoveVariableValueAction_isRemoveDuplicates)
+
+  val MetaScalarAttributeUpdater_StructuralFeature_isReadOnly =
       MetaScalarAttributeUpdater(
         set_StructuralFeature_isReadOnly _,
-        ops.StructuralFeature_isReadOnly) :+
+        ops.StructuralFeature_isReadOnly)
+
+  val MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate =
       MetaScalarAttributeUpdater(
         set_StructuredActivityNode_mustIsolate _,
-        ops.StructuredActivityNode_mustIsolate) :+
+        ops.StructuredActivityNode_mustIsolate)
+
+  val MetaScalarAttributeUpdater_TimeEvent_isRelative =
       MetaScalarAttributeUpdater(
         set_TimeEvent_isRelative _,
-        ops.TimeEvent_isRelative) :+
+        ops.TimeEvent_isRelative)
+
+  val MetaScalarAttributeUpdater_TimeObservation_firstEvent =
       MetaScalarAttributeUpdater(
         set_TimeObservation_firstEvent _,
         ops.TimeObservation_firstEvent)
-  val MetaPropertyOptionAttributeUpdate
-  : Seq[MetaOptionAttributeUpdate]
+
+  val MetaPropertyScalarAttributeUpdate
+  : Seq[MetaScalarAttributeUpdate]
   = Seq() :+
+      MetaScalarAttributeUpdater_AcceptEventAction_isUnmarshall :+
+      MetaScalarAttributeUpdater_Action_isLocallyReentrant :+
+      MetaScalarAttributeUpdater_Activity_isReadOnly :+
+      MetaScalarAttributeUpdater_Activity_isSingleExecution :+
+      MetaScalarAttributeUpdater_ActivityPartition_isDimension :+
+      MetaScalarAttributeUpdater_ActivityPartition_isExternal :+
+      MetaScalarAttributeUpdater_AddStructuralFeatureValueAction_isReplaceAll :+
+      MetaScalarAttributeUpdater_AddVariableValueAction_isReplaceAll :+
+      MetaScalarAttributeUpdater_Association_isDerived :+
+      MetaScalarAttributeUpdater_Behavior_isReentrant :+
+      MetaScalarAttributeUpdater_BehavioralFeature_isAbstract :+
+      MetaScalarAttributeUpdater_CallAction_isSynchronous :+
+      MetaScalarAttributeUpdater_Class_isAbstract :+
+      MetaScalarAttributeUpdater_Class_isActive :+
+      MetaScalarAttributeUpdater_Classifier_isAbstract :+
+      MetaScalarAttributeUpdater_Classifier_isFinalSpecialization :+
+      MetaScalarAttributeUpdater_ClassifierTemplateParameter_allowSubstitutable :+
+      MetaScalarAttributeUpdater_Component_isIndirectlyInstantiated :+
+      MetaScalarAttributeUpdater_ConditionalNode_isAssured :+
+      MetaScalarAttributeUpdater_ConditionalNode_isDeterminate :+
+      MetaScalarAttributeUpdater_Continuation_setting :+
+      MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyLinks :+
+      MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyOwnedObjects :+
+      MetaScalarAttributeUpdater_Feature_isStatic :+
+      MetaScalarAttributeUpdater_GeneralizationSet_isCovering :+
+      MetaScalarAttributeUpdater_GeneralizationSet_isDisjoint :+
+      MetaScalarAttributeUpdater_JoinNode_isCombineDuplicate :+
+      MetaScalarAttributeUpdater_LinkEndCreationData_isReplaceAll :+
+      MetaScalarAttributeUpdater_LinkEndDestructionData_isDestroyDuplicates :+
+      MetaScalarAttributeUpdater_LiteralBoolean_value :+
+      MetaScalarAttributeUpdater_LiteralInteger_value :+
+      MetaScalarAttributeUpdater_LiteralReal_value :+
+      MetaScalarAttributeUpdater_LiteralUnlimitedNatural_value :+
+      MetaScalarAttributeUpdater_LoopNode_isTestedFirst :+
+      MetaScalarAttributeUpdater_MultiplicityElement_isOrdered :+
+      MetaScalarAttributeUpdater_MultiplicityElement_isUnique :+
+      MetaScalarAttributeUpdater_ObjectFlow_isMulticast :+
+      MetaScalarAttributeUpdater_ObjectFlow_isMultireceive :+
+      MetaScalarAttributeUpdater_ObjectNode_isControlType :+
+      MetaScalarAttributeUpdater_Operation_isQuery :+
+      MetaScalarAttributeUpdater_Parameter_isException :+
+      MetaScalarAttributeUpdater_Parameter_isStream :+
+      MetaScalarAttributeUpdater_Pin_isControl :+
+      MetaScalarAttributeUpdater_Port_isBehavior :+
+      MetaScalarAttributeUpdater_Port_isConjugated :+
+      MetaScalarAttributeUpdater_Port_isService :+
+      MetaScalarAttributeUpdater_ProfileApplication_isStrict :+
+      MetaScalarAttributeUpdater_Property_isDerived :+
+      MetaScalarAttributeUpdater_Property_isDerivedUnion :+
+      MetaScalarAttributeUpdater_Property_isID :+
+      MetaScalarAttributeUpdater_ReadIsClassifiedObjectAction_isDirect :+
+      MetaScalarAttributeUpdater_ReclassifyObjectAction_isReplaceAll :+
+      MetaScalarAttributeUpdater_RedefinableElement_isLeaf :+
+      MetaScalarAttributeUpdater_ReduceAction_isOrdered :+
+      MetaScalarAttributeUpdater_RemoveStructuralFeatureValueAction_isRemoveDuplicates :+
+      MetaScalarAttributeUpdater_RemoveVariableValueAction_isRemoveDuplicates :+
+      MetaScalarAttributeUpdater_StructuralFeature_isReadOnly :+
+      MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate :+
+      MetaScalarAttributeUpdater_TimeEvent_isRelative :+
+      MetaScalarAttributeUpdater_TimeObservation_firstEvent
+
+  val MetaOptionAttributeUpdater_Artifact_fileName =
       MetaOptionAttributeUpdater(
         set_Artifact_fileName _,
-        ops.Artifact_fileName) :+
+        ops.Artifact_fileName)
+
+  val MetaOptionAttributeUpdater_BehavioralFeature_concurrency =
       MetaOptionAttributeUpdater(
         set_BehavioralFeature_concurrency _,
-        ops.BehavioralFeature_concurrency) :+
+        ops.BehavioralFeature_concurrency)
+
+  val MetaOptionAttributeUpdater_CombinedFragment_interactionOperator =
       MetaOptionAttributeUpdater(
         set_CombinedFragment_interactionOperator _,
-        ops.CombinedFragment_interactionOperator) :+
+        ops.CombinedFragment_interactionOperator)
+
+  val MetaOptionAttributeUpdater_Comment_body =
       MetaOptionAttributeUpdater(
         set_Comment_body _,
-        ops.Comment_body) :+
+        ops.Comment_body)
+
+  val MetaOptionAttributeUpdater_DeploymentSpecification_deploymentLocation =
       MetaOptionAttributeUpdater(
         set_DeploymentSpecification_deploymentLocation _,
-        ops.DeploymentSpecification_deploymentLocation) :+
+        ops.DeploymentSpecification_deploymentLocation)
+
+  val MetaOptionAttributeUpdater_DeploymentSpecification_executionLocation =
       MetaOptionAttributeUpdater(
         set_DeploymentSpecification_executionLocation _,
-        ops.DeploymentSpecification_executionLocation) :+
+        ops.DeploymentSpecification_executionLocation)
+
+  val MetaOptionAttributeUpdater_ElementImport_alias =
       MetaOptionAttributeUpdater(
         set_ElementImport_alias _,
-        ops.ElementImport_alias) :+
+        ops.ElementImport_alias)
+
+  val MetaOptionAttributeUpdater_ElementImport_visibility =
       MetaOptionAttributeUpdater(
         set_ElementImport_visibility _,
-        ops.ElementImport_visibility) :+
+        ops.ElementImport_visibility)
+
+  val MetaOptionAttributeUpdater_ExpansionRegion_mode =
       MetaOptionAttributeUpdater(
         set_ExpansionRegion_mode _,
-        ops.ExpansionRegion_mode) :+
+        ops.ExpansionRegion_mode)
+
+  val MetaOptionAttributeUpdater_Expression_symbol =
       MetaOptionAttributeUpdater(
         set_Expression_symbol _,
-        ops.Expression_symbol) :+
+        ops.Expression_symbol)
+
+  val MetaOptionAttributeUpdater_Generalization_isSubstitutable =
       MetaOptionAttributeUpdater(
         set_Generalization_isSubstitutable _,
-        ops.Generalization_isSubstitutable) :+
+        ops.Generalization_isSubstitutable)
+
+  val MetaOptionAttributeUpdater_Image_content =
       MetaOptionAttributeUpdater(
         set_Image_content _,
-        ops.Image_content) :+
+        ops.Image_content)
+
+  val MetaOptionAttributeUpdater_Image_format =
       MetaOptionAttributeUpdater(
         set_Image_format _,
-        ops.Image_format) :+
+        ops.Image_format)
+
+  val MetaOptionAttributeUpdater_Image_location =
       MetaOptionAttributeUpdater(
         set_Image_location _,
-        ops.Image_location) :+
+        ops.Image_location)
+
+  val MetaOptionAttributeUpdater_LiteralString_value =
       MetaOptionAttributeUpdater(
         set_LiteralString_value _,
-        ops.LiteralString_value) :+
+        ops.LiteralString_value)
+
+  val MetaOptionAttributeUpdater_Message_messageSort =
       MetaOptionAttributeUpdater(
         set_Message_messageSort _,
-        ops.Message_messageSort) :+
+        ops.Message_messageSort)
+
+  val MetaOptionAttributeUpdater_Model_viewpoint =
       MetaOptionAttributeUpdater(
         set_Model_viewpoint _,
-        ops.Model_viewpoint) :+
+        ops.Model_viewpoint)
+
+  val MetaOptionAttributeUpdater_NamedElement_name =
       MetaOptionAttributeUpdater(
         set_NamedElement_name _,
-        ops.NamedElement_name) :+
+        ops.NamedElement_name)
+
+  val MetaOptionAttributeUpdater_NamedElement_visibility =
       MetaOptionAttributeUpdater(
         set_NamedElement_visibility _,
-        ops.NamedElement_visibility) :+
+        ops.NamedElement_visibility)
+
+  val MetaOptionAttributeUpdater_ObjectNode_ordering =
       MetaOptionAttributeUpdater(
         set_ObjectNode_ordering _,
-        ops.ObjectNode_ordering) :+
+        ops.ObjectNode_ordering)
+
+  val MetaOptionAttributeUpdater_Package_URI =
       MetaOptionAttributeUpdater(
         set_Package_URI _,
-        ops.Package_URI) :+
+        ops.Package_URI)
+
+  val MetaOptionAttributeUpdater_PackageImport_visibility =
       MetaOptionAttributeUpdater(
         set_PackageImport_visibility _,
-        ops.PackageImport_visibility) :+
+        ops.PackageImport_visibility)
+
+  val MetaOptionAttributeUpdater_PackageableElement_visibility =
       MetaOptionAttributeUpdater(
         set_PackageableElement_visibility _,
-        ops.PackageableElement_visibility) :+
+        ops.PackageableElement_visibility)
+
+  val MetaOptionAttributeUpdater_Parameter_direction =
       MetaOptionAttributeUpdater(
         set_Parameter_direction _,
-        ops.Parameter_direction) :+
+        ops.Parameter_direction)
+
+  val MetaOptionAttributeUpdater_Parameter_effect =
       MetaOptionAttributeUpdater(
         set_Parameter_effect _,
-        ops.Parameter_effect) :+
+        ops.Parameter_effect)
+
+  val MetaOptionAttributeUpdater_Property_aggregation =
       MetaOptionAttributeUpdater(
         set_Property_aggregation _,
-        ops.Property_aggregation) :+
+        ops.Property_aggregation)
+
+  val MetaOptionAttributeUpdater_Pseudostate_kind =
       MetaOptionAttributeUpdater(
         set_Pseudostate_kind _,
-        ops.Pseudostate_kind) :+
+        ops.Pseudostate_kind)
+
+  val MetaOptionAttributeUpdater_TimeConstraint_firstEvent =
       MetaOptionAttributeUpdater(
         set_TimeConstraint_firstEvent _,
-        ops.TimeConstraint_firstEvent) :+
+        ops.TimeConstraint_firstEvent)
+
+  val MetaOptionAttributeUpdater_Transition_kind =
       MetaOptionAttributeUpdater(
         set_Transition_kind _,
         ops.Transition_kind)
+
+  val MetaPropertyOptionAttributeUpdate
+  : Seq[MetaOptionAttributeUpdate]
+  = Seq() :+
+      MetaOptionAttributeUpdater_Artifact_fileName :+
+      MetaOptionAttributeUpdater_BehavioralFeature_concurrency :+
+      MetaOptionAttributeUpdater_CombinedFragment_interactionOperator :+
+      MetaOptionAttributeUpdater_Comment_body :+
+      MetaOptionAttributeUpdater_DeploymentSpecification_deploymentLocation :+
+      MetaOptionAttributeUpdater_DeploymentSpecification_executionLocation :+
+      MetaOptionAttributeUpdater_ElementImport_alias :+
+      MetaOptionAttributeUpdater_ElementImport_visibility :+
+      MetaOptionAttributeUpdater_ExpansionRegion_mode :+
+      MetaOptionAttributeUpdater_Expression_symbol :+
+      MetaOptionAttributeUpdater_Generalization_isSubstitutable :+
+      MetaOptionAttributeUpdater_Image_content :+
+      MetaOptionAttributeUpdater_Image_format :+
+      MetaOptionAttributeUpdater_Image_location :+
+      MetaOptionAttributeUpdater_LiteralString_value :+
+      MetaOptionAttributeUpdater_Message_messageSort :+
+      MetaOptionAttributeUpdater_Model_viewpoint :+
+      MetaOptionAttributeUpdater_NamedElement_name :+
+      MetaOptionAttributeUpdater_NamedElement_visibility :+
+      MetaOptionAttributeUpdater_ObjectNode_ordering :+
+      MetaOptionAttributeUpdater_Package_URI :+
+      MetaOptionAttributeUpdater_PackageImport_visibility :+
+      MetaOptionAttributeUpdater_PackageableElement_visibility :+
+      MetaOptionAttributeUpdater_Parameter_direction :+
+      MetaOptionAttributeUpdater_Parameter_effect :+
+      MetaOptionAttributeUpdater_Property_aggregation :+
+      MetaOptionAttributeUpdater_Pseudostate_kind :+
+      MetaOptionAttributeUpdater_TimeConstraint_firstEvent :+
+      MetaOptionAttributeUpdater_Transition_kind
+
   val MetaPropertyIterableAttributeUpdate
   : Seq[MetaIterableAttributeUpdate]
   = Seq()
+
+   val MetaSeqAttributeUpdater_DurationObservation_firstEvent =
+     MetaSeqAttributeUpdater(
+        set_DurationObservation_firstEvent _,
+        ops.DurationObservation_firstEvent)
+
+   val MetaSeqAttributeUpdater_OpaqueAction_body =
+     MetaSeqAttributeUpdater(
+        set_OpaqueAction_body _,
+        ops.OpaqueAction_body)
+
+   val MetaSeqAttributeUpdater_OpaqueAction_language =
+     MetaSeqAttributeUpdater(
+        set_OpaqueAction_language _,
+        ops.OpaqueAction_language)
+
+   val MetaSeqAttributeUpdater_OpaqueBehavior_body =
+     MetaSeqAttributeUpdater(
+        set_OpaqueBehavior_body _,
+        ops.OpaqueBehavior_body)
+
+   val MetaSeqAttributeUpdater_OpaqueBehavior_language =
+     MetaSeqAttributeUpdater(
+        set_OpaqueBehavior_language _,
+        ops.OpaqueBehavior_language)
+
+   val MetaSeqAttributeUpdater_OpaqueExpression_body =
+     MetaSeqAttributeUpdater(
+        set_OpaqueExpression_body _,
+        ops.OpaqueExpression_body)
+
+   val MetaSeqAttributeUpdater_OpaqueExpression_language =
+     MetaSeqAttributeUpdater(
+        set_OpaqueExpression_language _,
+        ops.OpaqueExpression_language)
+
   val MetaPropertySeqAttributeUpdate
   : Seq[MetaSeqAttributeUpdate]
   = Seq() :+
-      MetaSeqAttributeUpdater(
-        set_DurationObservation_firstEvent _,
-        ops.DurationObservation_firstEvent) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueAction_body _,
-        ops.OpaqueAction_body) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueAction_language _,
-        ops.OpaqueAction_language) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueBehavior_body _,
-        ops.OpaqueBehavior_body) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueBehavior_language _,
-        ops.OpaqueBehavior_language) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueExpression_body _,
-        ops.OpaqueExpression_body) :+
-      MetaSeqAttributeUpdater(
-        set_OpaqueExpression_language _,
-        ops.OpaqueExpression_language)
-  val MetaPropertySetAttributeUpdate
-  : Seq[MetaSetAttributeUpdate]
-  = Seq() :+
+      MetaSeqAttributeUpdater_DurationObservation_firstEvent :+
+      MetaSeqAttributeUpdater_OpaqueAction_body :+
+      MetaSeqAttributeUpdater_OpaqueAction_language :+
+      MetaSeqAttributeUpdater_OpaqueBehavior_body :+
+      MetaSeqAttributeUpdater_OpaqueBehavior_language :+
+      MetaSeqAttributeUpdater_OpaqueExpression_body :+
+      MetaSeqAttributeUpdater_OpaqueExpression_language
+
+  val MetaSetAttributeUpdater_DurationConstraint_firstEvent =
       MetaSetAttributeUpdater(
         set_DurationConstraint_firstEvent _,
         ops.DurationConstraint_firstEvent)
 
-  // Start of user code for additional features
-  // End of user code
+  val MetaPropertySetAttributeUpdate
+  : Seq[MetaSetAttributeUpdate]
+  = Seq() :+
+      MetaSetAttributeUpdater_DurationConstraint_firstEvent
+
+  val metaclass_attribute_updaters
+  : Map[String, Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]] =
+    metaclass_attribute_updater_table
+    
+  // this is very long; it has to be in a method otherwise it yields code that exceeds the JVM restrictions 
+  // on the size of initialization code.
+  def metaclass_attribute_updater_table
+  : Map[String, Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]] =
+    Map[String, Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]]() ++
+    Map( "Abstraction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "AcceptCallAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isUnmarshall" -> MetaScalarAttributeUpdater_AcceptEventAction_isUnmarshall ) ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "AcceptEventAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isUnmarshall" -> MetaScalarAttributeUpdater_AcceptEventAction_isUnmarshall ) ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ActionExecutionSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ActionInputPin" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isControl" -> MetaScalarAttributeUpdater_Pin_isControl ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "Activity" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReadOnly" -> MetaScalarAttributeUpdater_Activity_isReadOnly ) ++
+        Map( "isSingleExecution" -> MetaScalarAttributeUpdater_Activity_isSingleExecution ) ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ActivityFinalNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ActivityParameterNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "ActivityPartition" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDimension" -> MetaScalarAttributeUpdater_ActivityPartition_isDimension ) ++
+        Map( "isExternal" -> MetaScalarAttributeUpdater_ActivityPartition_isExternal ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Actor" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "AddStructuralFeatureValueAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isReplaceAll" -> MetaScalarAttributeUpdater_AddStructuralFeatureValueAction_isReplaceAll ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "AddVariableValueAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isReplaceAll" -> MetaScalarAttributeUpdater_AddVariableValueAction_isReplaceAll ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "AnyReceiveEvent" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Artifact" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "fileName" -> MetaOptionAttributeUpdater_Artifact_fileName ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Association" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Association_isDerived ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "AssociationClass" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Association_isDerived ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "BehaviorExecutionSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "BroadcastSignalAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CallBehaviorAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isSynchronous" -> MetaScalarAttributeUpdater_CallAction_isSynchronous ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CallEvent" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "CallOperationAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isSynchronous" -> MetaScalarAttributeUpdater_CallAction_isSynchronous ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CentralBufferNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "ChangeEvent" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Class" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ClassifierTemplateParameter" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "allowSubstitutable" -> MetaScalarAttributeUpdater_ClassifierTemplateParameter_allowSubstitutable ))) ++
+    Map( "Clause" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "ClearAssociationAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ClearStructuralFeatureAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ClearVariableAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Collaboration" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "CollaborationUse" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CombinedFragment" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "interactionOperator" -> MetaOptionAttributeUpdater_CombinedFragment_interactionOperator ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Comment" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "body" -> MetaOptionAttributeUpdater_Comment_body ))) ++
+    Map( "CommunicationPath" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Association_isDerived ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Component" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isIndirectlyInstantiated" -> MetaScalarAttributeUpdater_Component_isIndirectlyInstantiated ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ComponentRealization" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ConditionalNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isAssured" -> MetaScalarAttributeUpdater_ConditionalNode_isAssured ) ++
+        Map( "isDeterminate" -> MetaScalarAttributeUpdater_ConditionalNode_isDeterminate ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "mustIsolate" -> MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ConnectableElementTemplateParameter" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "ConnectionPointReference" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Connector" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ConnectorEnd" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ))) ++
+    Map( "ConsiderIgnoreFragment" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "interactionOperator" -> MetaOptionAttributeUpdater_CombinedFragment_interactionOperator ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Constraint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Continuation" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "setting" -> MetaScalarAttributeUpdater_Continuation_setting ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ControlFlow" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CreateLinkAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CreateLinkObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "CreateObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "DataStoreNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "DataType" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "DecisionNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Dependency" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Deployment" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "DeploymentSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "fileName" -> MetaOptionAttributeUpdater_Artifact_fileName ) ++
+        Map( "deploymentLocation" -> MetaOptionAttributeUpdater_DeploymentSpecification_deploymentLocation ) ++
+        Map( "executionLocation" -> MetaOptionAttributeUpdater_DeploymentSpecification_executionLocation ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "DestroyLinkAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "DestroyObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isDestroyLinks" -> MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyLinks ) ++
+        Map( "isDestroyOwnedObjects" -> MetaScalarAttributeUpdater_DestroyObjectAction_isDestroyOwnedObjects ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "DestructionOccurrenceSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Device" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Duration" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "DurationConstraint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "firstEvent" -> MetaSetAttributeUpdater_DurationConstraint_firstEvent ))) ++
+    Map( "DurationInterval" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "DurationObservation" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "firstEvent" -> MetaSeqAttributeUpdater_DurationObservation_firstEvent ))) ++
+    Map( "ElementImport" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "alias" -> MetaOptionAttributeUpdater_ElementImport_alias ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_ElementImport_visibility ))) ++
+    Map( "Enumeration" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "EnumerationLiteral" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ExceptionHandler" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "ExecutionEnvironment" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ExecutionOccurrenceSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ExpansionNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "ExpansionRegion" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "mustIsolate" -> MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate ) ++
+        Map( "mode" -> MetaOptionAttributeUpdater_ExpansionRegion_mode ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Expression" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "symbol" -> MetaOptionAttributeUpdater_Expression_symbol ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Extend" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Extension" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Association_isDerived ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ExtensionEnd" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Property_isDerived ) ++
+        Map( "isDerivedUnion" -> MetaScalarAttributeUpdater_Property_isDerivedUnion ) ++
+        Map( "isID" -> MetaScalarAttributeUpdater_Property_isID ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "aggregation" -> MetaOptionAttributeUpdater_Property_aggregation ))) ++
+    Map( "ExtensionPoint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "FinalState" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "FlowFinalNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ForkNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "FunctionBehavior" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "body" -> MetaSeqAttributeUpdater_OpaqueBehavior_body ) ++
+        Map( "language" -> MetaSeqAttributeUpdater_OpaqueBehavior_language ))) ++
+    Map( "Gate" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "GeneralOrdering" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Generalization" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isSubstitutable" -> MetaOptionAttributeUpdater_Generalization_isSubstitutable ))) ++
+    Map( "GeneralizationSet" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isCovering" -> MetaScalarAttributeUpdater_GeneralizationSet_isCovering ) ++
+        Map( "isDisjoint" -> MetaScalarAttributeUpdater_GeneralizationSet_isDisjoint ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Image" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "content" -> MetaOptionAttributeUpdater_Image_content ) ++
+        Map( "format" -> MetaOptionAttributeUpdater_Image_format ) ++
+        Map( "location" -> MetaOptionAttributeUpdater_Image_location ))) ++
+    Map( "Include" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "InformationFlow" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InformationItem" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InitialNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "InputPin" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isControl" -> MetaScalarAttributeUpdater_Pin_isControl ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "InstanceSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InstanceValue" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Interaction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InteractionConstraint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InteractionOperand" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "InteractionUse" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Interface" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InterfaceRealization" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "InterruptibleActivityRegion" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Interval" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "IntervalConstraint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "JoinNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isCombineDuplicate" -> MetaScalarAttributeUpdater_JoinNode_isCombineDuplicate ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Lifeline" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "LinkEndCreationData" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReplaceAll" -> MetaScalarAttributeUpdater_LinkEndCreationData_isReplaceAll ))) ++
+    Map( "LinkEndData" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "LinkEndDestructionData" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isDestroyDuplicates" -> MetaScalarAttributeUpdater_LinkEndDestructionData_isDestroyDuplicates ))) ++
+    Map( "LiteralBoolean" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "value" -> MetaScalarAttributeUpdater_LiteralBoolean_value ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LiteralInteger" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "value" -> MetaScalarAttributeUpdater_LiteralInteger_value ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LiteralNull" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LiteralReal" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "value" -> MetaScalarAttributeUpdater_LiteralReal_value ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LiteralString" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "value" -> MetaOptionAttributeUpdater_LiteralString_value ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LiteralUnlimitedNatural" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "value" -> MetaScalarAttributeUpdater_LiteralUnlimitedNatural_value ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "LoopNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isTestedFirst" -> MetaScalarAttributeUpdater_LoopNode_isTestedFirst ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "mustIsolate" -> MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Manifestation" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "MergeNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Message" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "messageSort" -> MetaOptionAttributeUpdater_Message_messageSort ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "MessageOccurrenceSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Model" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "viewpoint" -> MetaOptionAttributeUpdater_Model_viewpoint ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "URI" -> MetaOptionAttributeUpdater_Package_URI ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Node" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ObjectFlow" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isMulticast" -> MetaScalarAttributeUpdater_ObjectFlow_isMulticast ) ++
+        Map( "isMultireceive" -> MetaScalarAttributeUpdater_ObjectFlow_isMultireceive ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "OccurrenceSpecification" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "OpaqueAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "body" -> MetaSeqAttributeUpdater_OpaqueAction_body ) ++
+        Map( "language" -> MetaSeqAttributeUpdater_OpaqueAction_language ))) ++
+    Map( "OpaqueBehavior" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "body" -> MetaSeqAttributeUpdater_OpaqueBehavior_body ) ++
+        Map( "language" -> MetaSeqAttributeUpdater_OpaqueBehavior_language ))) ++
+    Map( "OpaqueExpression" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "body" -> MetaSeqAttributeUpdater_OpaqueExpression_body ) ++
+        Map( "language" -> MetaSeqAttributeUpdater_OpaqueExpression_language ))) ++
+    Map( "Operation" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_BehavioralFeature_isAbstract ) ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isQuery" -> MetaScalarAttributeUpdater_Operation_isQuery ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "concurrency" -> MetaOptionAttributeUpdater_BehavioralFeature_concurrency ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "OperationTemplateParameter" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "OutputPin" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isControl" -> MetaScalarAttributeUpdater_Pin_isControl ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "Package" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "URI" -> MetaOptionAttributeUpdater_Package_URI ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "PackageImport" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageImport_visibility ))) ++
+    Map( "PackageMerge" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "Parameter" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isException" -> MetaScalarAttributeUpdater_Parameter_isException ) ++
+        Map( "isStream" -> MetaScalarAttributeUpdater_Parameter_isStream ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "direction" -> MetaOptionAttributeUpdater_Parameter_direction ) ++
+        Map( "effect" -> MetaOptionAttributeUpdater_Parameter_effect ))) ++
+    Map( "ParameterSet" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "PartDecomposition" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Port" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isBehavior" -> MetaScalarAttributeUpdater_Port_isBehavior ) ++
+        Map( "isConjugated" -> MetaScalarAttributeUpdater_Port_isConjugated ) ++
+        Map( "isService" -> MetaScalarAttributeUpdater_Port_isService ) ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Property_isDerived ) ++
+        Map( "isDerivedUnion" -> MetaScalarAttributeUpdater_Property_isDerivedUnion ) ++
+        Map( "isID" -> MetaScalarAttributeUpdater_Property_isID ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "aggregation" -> MetaOptionAttributeUpdater_Property_aggregation ))) ++
+    Map( "PrimitiveType" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Profile" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "URI" -> MetaOptionAttributeUpdater_Package_URI ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ProfileApplication" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isStrict" -> MetaScalarAttributeUpdater_ProfileApplication_isStrict ))) ++
+    Map( "Property" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isDerived" -> MetaScalarAttributeUpdater_Property_isDerived ) ++
+        Map( "isDerivedUnion" -> MetaScalarAttributeUpdater_Property_isDerivedUnion ) ++
+        Map( "isID" -> MetaScalarAttributeUpdater_Property_isID ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "aggregation" -> MetaOptionAttributeUpdater_Property_aggregation ))) ++
+    Map( "ProtocolConformance" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "ProtocolStateMachine" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ProtocolTransition" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "kind" -> MetaOptionAttributeUpdater_Transition_kind ))) ++
+    Map( "Pseudostate" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "kind" -> MetaOptionAttributeUpdater_Pseudostate_kind ))) ++
+    Map( "QualifierValue" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "RaiseExceptionAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadExtentAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadIsClassifiedObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isDirect" -> MetaScalarAttributeUpdater_ReadIsClassifiedObjectAction_isDirect ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadLinkAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadLinkObjectEndAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadLinkObjectEndQualifierAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadSelfAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadStructuralFeatureAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReadVariableAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Realization" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Reception" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_BehavioralFeature_isAbstract ) ++
+        Map( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "concurrency" -> MetaOptionAttributeUpdater_BehavioralFeature_concurrency ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReclassifyObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isReplaceAll" -> MetaScalarAttributeUpdater_ReclassifyObjectAction_isReplaceAll ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "RedefinableTemplateSignature" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReduceAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_ReduceAction_isOrdered ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Region" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "RemoveStructuralFeatureValueAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isRemoveDuplicates" -> MetaScalarAttributeUpdater_RemoveStructuralFeatureValueAction_isRemoveDuplicates ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "RemoveVariableValueAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "isRemoveDuplicates" -> MetaScalarAttributeUpdater_RemoveVariableValueAction_isRemoveDuplicates ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "ReplyAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "SendObjectAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "SendSignalAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "SequenceNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "mustIsolate" -> MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Signal" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "SignalEvent" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Slot" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "StartClassifierBehaviorAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "StartObjectBehaviorAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isSynchronous" -> MetaScalarAttributeUpdater_CallAction_isSynchronous ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "State" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "StateInvariant" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "StateMachine" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isReentrant" -> MetaScalarAttributeUpdater_Behavior_isReentrant ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Stereotype" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Class_isAbstract ) ++
+        Map( "isActive" -> MetaScalarAttributeUpdater_Class_isActive ) ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "StringExpression" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "symbol" -> MetaOptionAttributeUpdater_Expression_symbol ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "StructuredActivityNode" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "mustIsolate" -> MetaScalarAttributeUpdater_StructuredActivityNode_mustIsolate ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Substitution" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "TemplateBinding" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "TemplateParameter" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "TemplateParameterSubstitution" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "TemplateSignature" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]())) ++
+    Map( "TestIdentityAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "TimeConstraint" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ) ++
+        Map( "firstEvent" -> MetaOptionAttributeUpdater_TimeConstraint_firstEvent ))) ++
+    Map( "TimeEvent" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isRelative" -> MetaScalarAttributeUpdater_TimeEvent_isRelative ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "TimeExpression" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "TimeInterval" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "TimeObservation" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "firstEvent" -> MetaScalarAttributeUpdater_TimeObservation_firstEvent ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "Transition" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "kind" -> MetaOptionAttributeUpdater_Transition_kind ))) ++
+    Map( "Trigger" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "UnmarshallAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Usage" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "UseCase" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isAbstract" -> MetaScalarAttributeUpdater_Classifier_isAbstract ) ++
+        Map( "isFinalSpecialization" -> MetaScalarAttributeUpdater_Classifier_isFinalSpecialization ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_PackageableElement_visibility ))) ++
+    Map( "ValuePin" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "isControlType" -> MetaScalarAttributeUpdater_ObjectNode_isControlType ) ++
+        Map( "isControl" -> MetaScalarAttributeUpdater_Pin_isControl ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ) ++
+        Map( "ordering" -> MetaOptionAttributeUpdater_ObjectNode_ordering ))) ++
+    Map( "ValueSpecificationAction" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isLocallyReentrant" -> MetaScalarAttributeUpdater_Action_isLocallyReentrant ) ++
+        Map( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility ))) ++
+    Map( "Variable" -> 
+      ( Map[String, MetaAttributeUpdate[_ <: UMLElement[Uml]]]() ++
+        Map( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) ++
+        Map( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) ++
+        Map( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) ++
+        Map( "visibility" -> MetaOptionAttributeUpdater_NamedElement_visibility )))
+	// Start of user code for additional features
+	// End of user code
 }

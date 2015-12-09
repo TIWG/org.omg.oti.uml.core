@@ -57,7 +57,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   
   implicit def ops: UMLOps[Uml]
   
-	sealed abstract trait MetaAttributeUpdate[U <: UMLElement[Uml], DT] {
+	sealed abstract trait MetaAttributeUpdate[U <: UMLElement[Uml]] {
 	  
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit
 	  
@@ -67,7 +67,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, DT) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
@@ -81,7 +81,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeEnumerationFunction[Uml, U, DT, DTSet] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
@@ -95,7 +95,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
@@ -109,7 +109,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Iterable[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
@@ -123,7 +123,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Set[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
@@ -137,7 +137,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Seq[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
-  extends MetaAttributeUpdate[U, DT] {
+  extends MetaAttributeUpdate[U] {
         
 	  def update(u: U, v: String): NonEmptyList[java.lang.Throwable] \/ Unit = {
 	    ???
