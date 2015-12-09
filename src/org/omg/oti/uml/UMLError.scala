@@ -41,7 +41,7 @@ package org.omg.oti.uml
 
 import org.omg.oti.uml.read.api.{UML, UMLElement}
 import org.omg.oti.uml.read.operations.UMLOps
-import org.omg.oti.uml.write.api.UMLUpdate
+import org.omg.oti.uml.write.UMLAttributeUpdater
 
 import scala.{Option, None, Some, StringContext}
 import scala.Predef.String
@@ -122,7 +122,7 @@ object UMLError {
   extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
 
   class UMLUpdateException[Uml <: UML, E <: UMLElement[Uml]]
-  (umlUpdate: UMLUpdate[Uml],
+  (umlUpdate: UMLAttributeUpdater[Uml],
    override val element: Iterable[E],
    override val message: String,
    override val cause: OptionThrowableNel)
@@ -201,14 +201,14 @@ object UMLError {
     new UMLOpsException(ops, message, cause.wrapNel.some)
 
   def umlUpdateError[Uml <: UML, E <: UMLElement[Uml]]
-  (umlUpdate: UMLUpdate[Uml],
+  (umlUpdate: UMLAttributeUpdater[Uml],
    element: Iterable[E],
    message: String)
   : java.lang.Throwable =
     new UMLUpdateException[Uml, E](umlUpdate, element, message, None)
 
   def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
-  (umlUpdate: UMLUpdate[Uml],
+  (umlUpdate: UMLAttributeUpdater[Uml],
    element: Iterable[E],
    message: String,
    cause: ThrowableNel)
@@ -216,7 +216,7 @@ object UMLError {
     new UMLUpdateException[Uml, E](umlUpdate, element, message, cause.some)
 
   def umlUpdateException[Uml <: UML, E <: UMLElement[Uml]]
-  (umlUpdate: UMLUpdate[Uml],
+  (umlUpdate: UMLAttributeUpdater[Uml],
    element: Iterable[E],
    message: String,
    cause: java.lang.Throwable)

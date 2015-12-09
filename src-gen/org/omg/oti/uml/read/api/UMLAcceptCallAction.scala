@@ -51,7 +51,7 @@ import scala.collection.immutable.Seq
 /**
  * An AcceptCallAction is an AcceptEventAction that handles the receipt of a synchronous call request. In addition to the values from the Operation input parameters, the Action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller. An AcceptCallAction is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent ReplyAction will complete immediately with no effect.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLAcceptCallAction[Uml <: UML]
@@ -66,7 +66,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * An OutputPin where a value is placed containing sufficient information to perform a subsequent ReplyAction and return control to the caller. The contents of this value are opaque. It can be passed and copied but it cannot be manipulated by the model.
 	 *
 	 * <!-- Start of user code doc for returnInformation -->
-   * <!-- End of user code doc for returnInformation -->
+	 * <!-- End of user code doc for returnInformation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.returnInformation_acceptCallAction
@@ -77,7 +77,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		acceptCallAction_metaAttributes
@@ -86,7 +86,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLAcceptCallAction
 	 *
 	 * <!-- Start of user code doc for acceptCallAction_metaAttributes -->
-   * <!-- End of user code doc for acceptCallAction_metaAttributes -->
+	 * <!-- End of user code doc for acceptCallAction_metaAttributes -->
 	 */
 	def acceptCallAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -97,7 +97,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		acceptCallAction_compositeMetaProperties
@@ -106,7 +106,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLAcceptCallAction
 	 *
 	 * <!-- Start of user code doc for acceptCallAction_compositeMetaProperties -->
-   * <!-- End of user code doc for acceptCallAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for acceptCallAction_compositeMetaProperties -->
 	 */
 	def acceptCallAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -117,7 +117,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		acceptCallAction_referenceMetaProperties
@@ -126,7 +126,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLAcceptCallAction
 	 *
 	 * <!-- Start of user code doc for acceptCallAction_referenceMetaProperties -->
-   * <!-- End of user code doc for acceptCallAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for acceptCallAction_referenceMetaProperties -->
 	 */
 	def acceptCallAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,7 +137,7 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		acceptCallAction_forwardReferencesFromMetamodelAssociations
@@ -146,12 +146,12 @@ trait UMLAcceptCallAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLAcceptCallAction
 	 *
 	 * <!-- Start of user code doc for acceptCallAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for acceptCallAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for acceptCallAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def acceptCallAction_forwardReferencesFromMetamodelAssociations: Elements =
 		acceptEventAction_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLAcceptCallAction

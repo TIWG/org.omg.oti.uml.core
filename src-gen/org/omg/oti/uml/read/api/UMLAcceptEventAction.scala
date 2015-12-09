@@ -51,7 +51,7 @@ import scala.collection.immutable.Seq
 /**
  * An AcceptEventAction is an Action that waits for the occurrence of one or more specific Events.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLAcceptEventAction[Uml <: UML]
@@ -66,7 +66,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * Indicates whether there is a single OutputPin for a SignalEvent occurrence, or multiple OutputPins for attribute values of the instance of the Signal associated with a SignalEvent occurrence.
 	 *
 	 * <!-- Start of user code doc for isUnmarshall -->
-   * <!-- End of user code doc for isUnmarshall -->
+	 * <!-- End of user code doc for isUnmarshall -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +76,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * OutputPins holding the values received from an Event occurrence.
 	 *
 	 * <!-- Start of user code doc for result -->
-   * <!-- End of user code doc for result -->
+	 * <!-- End of user code doc for result -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_acceptEventAction
@@ -87,7 +87,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		acceptEventAction_metaAttributes
@@ -96,7 +96,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLAcceptEventAction
 	 *
 	 * <!-- Start of user code doc for acceptEventAction_metaAttributes -->
-   * <!-- End of user code doc for acceptEventAction_metaAttributes -->
+	 * <!-- End of user code doc for acceptEventAction_metaAttributes -->
 	 */
 	def acceptEventAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -107,7 +107,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		acceptEventAction_compositeMetaProperties
@@ -116,7 +116,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLAcceptEventAction
 	 *
 	 * <!-- Start of user code doc for acceptEventAction_compositeMetaProperties -->
-   * <!-- End of user code doc for acceptEventAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for acceptEventAction_compositeMetaProperties -->
 	 */
 	def acceptEventAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +128,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		acceptEventAction_referenceMetaProperties
@@ -137,7 +137,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLAcceptEventAction
 	 *
 	 * <!-- Start of user code doc for acceptEventAction_referenceMetaProperties -->
-   * <!-- End of user code doc for acceptEventAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for acceptEventAction_referenceMetaProperties -->
 	 */
 	def acceptEventAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +148,7 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		acceptEventAction_forwardReferencesFromMetamodelAssociations
@@ -157,12 +157,12 @@ trait UMLAcceptEventAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLAcceptEventAction
 	 *
 	 * <!-- Start of user code doc for acceptEventAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for acceptEventAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for acceptEventAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def acceptEventAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLAcceptEventAction

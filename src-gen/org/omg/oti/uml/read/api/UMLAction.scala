@@ -51,7 +51,7 @@ import scala.collection.immutable.Seq
 /**
  * An Action is the fundamental unit of executable functionality. The execution of an Action represents some transformation or processing in the modeled system. Actions provide the ExecutableNodes within Activities and may also be used within Interactions.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLAction[Uml <: UML]
@@ -66,7 +66,7 @@ trait UMLAction[Uml <: UML]
 	 * The ordered set of InputPins representing the inputs to the Action.
 	 *
 	 * <!-- Start of user code doc for input -->
-   * <!-- End of user code doc for input -->
+	 * <!-- End of user code doc for input -->
 	 *
 	 * UML Property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.input_action
@@ -77,7 +77,7 @@ trait UMLAction[Uml <: UML]
 	 * If true, the Action can begin a new, concurrent execution, even if there is already another execution of the Action ongoing. If false, the Action cannot begin a new execution until any previous execution has completed.
 	 *
 	 * <!-- Start of user code doc for isLocallyReentrant -->
-   * <!-- End of user code doc for isLocallyReentrant -->
+	 * <!-- End of user code doc for isLocallyReentrant -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -109,7 +109,7 @@ trait UMLAction[Uml <: UML]
 	 * The ordered set of OutputPins representing outputs from the Action.
 	 *
 	 * <!-- Start of user code doc for output -->
-   * <!-- End of user code doc for output -->
+	 * <!-- End of user code doc for output -->
 	 *
 	 * UML Property derived="true" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.output_action
@@ -118,7 +118,7 @@ trait UMLAction[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for action_actionExecutionSpecification -->
-   * <!-- End of user code doc for action_actionExecutionSpecification -->
+	 * <!-- End of user code doc for action_actionExecutionSpecification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActionExecutionSpecification.action
@@ -129,7 +129,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		action_metaAttributes
@@ -138,7 +138,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLAction
 	 *
 	 * <!-- Start of user code doc for action_metaAttributes -->
-   * <!-- End of user code doc for action_metaAttributes -->
+	 * <!-- End of user code doc for action_metaAttributes -->
 	 */
 	def action_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -149,7 +149,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		action_compositeMetaProperties
@@ -158,7 +158,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLAction
 	 *
 	 * <!-- Start of user code doc for action_compositeMetaProperties -->
-   * <!-- End of user code doc for action_compositeMetaProperties -->
+	 * <!-- End of user code doc for action_compositeMetaProperties -->
 	 */
 	def action_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -170,7 +170,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		action_referenceMetaProperties
@@ -179,7 +179,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLAction
 	 *
 	 * <!-- Start of user code doc for action_referenceMetaProperties -->
-   * <!-- End of user code doc for action_referenceMetaProperties -->
+	 * <!-- End of user code doc for action_referenceMetaProperties -->
 	 */
 	def action_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -190,7 +190,7 @@ trait UMLAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations
@@ -199,12 +199,12 @@ trait UMLAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLAction
 	 *
 	 * <!-- Start of user code doc for action_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for action_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for action_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def action_forwardReferencesFromMetamodelAssociations: Elements =
 		executableNode_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLAction
