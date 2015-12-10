@@ -129,7 +129,12 @@ trait UMLAttributeUpdater[Uml <: UML] {
   
 	sealed abstract trait MetaAttributeUpdate[U <: UMLElement[Uml]] {
 	  
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+    : NonEmptyList[java.lang.Throwable] \/ Unit
 	  
 	}
   
@@ -137,10 +142,15 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, DT) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
     valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT)
-  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT])
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+    : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -166,11 +176,16 @@ trait UMLAttributeUpdater[Uml <: UML] {
   case class MetaEnumerationAttributeUpdater[U <: UMLElement[Uml], DT <: Enumeration#Value, DTSet <: Enumeration#ValueSet]
   ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeEnumerationFunction[Uml, U, DT, DTSet],
-    enumerationValues: Iterable[DT])
+    enumerationValues: Iterable[DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      enumerationValues.find { eValue: DT =>
@@ -206,7 +221,12 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      ???
@@ -227,14 +247,15 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Iterable[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
     valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )
-  ( implicit 
-      utag: ClassTag[U], 
-      dtag: ClassTag[DT],
-      idg: IDGenerator[Uml], 
-      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -274,21 +295,24 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( attributeUpdate: (U, Set[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
     valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )  
-  ( implicit 
-      utag: ClassTag[U], 
-      dtag: ClassTag[DT],
-      idg: IDGenerator[Uml], 
-      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
+  ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
 	        case -\/(nels) =>
 	          -\/(nels)
 	        case \/-(aV) =>
-	          attributeUpdate(aU, aV)
+	          // @todo
+	          //attributeUpdate(aU, aV)
+	          ???
 	      }
 	    
       case _ =>
@@ -310,14 +334,21 @@ trait UMLAttributeUpdater[Uml <: UML] {
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
-	  def update(u: UMLElement[Uml], v: String): NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  def update
+	  (u: UMLElement[Uml], v: String)
+    ( implicit 
+      idg: IDGenerator[Uml], 
+      otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
+	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
 	        case -\/(nels) =>
 	          -\/(nels)
 	        case \/-(aV) =>
-	          attributeUpdate(aU, aV)
+	          // @todo 
+	          // attributeUpdate(aU, aV)
+	          ???
 	      }
 	    
       case _ =>
