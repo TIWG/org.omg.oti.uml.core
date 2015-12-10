@@ -42,6 +42,7 @@ package org.omg.oti.uml
 import org.omg.oti.uml.read.api.{UML, UMLElement}
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.write.UMLAttributeUpdater
+import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.{Option, None, Some, StringContext}
 import scala.Predef.String
@@ -127,6 +128,13 @@ object UMLError {
    override val message: String,
    override val cause: OptionThrowableNel)
   extends UElementException[Uml, E](element, message, cause)
+  
+  class IDGeneratorException[Uml <: UML]
+  ( idGenerator: IDGenerator[Uml],
+    override val element: Iterable[UMLElement[Uml]],
+    override val message: String,
+    override val cause: UMLError.OptionThrowableNel = UMLError.emptyThrowableNel)
+  extends UMLError.UElementException[Uml, UMLElement[Uml]](element, message, cause)
 
   def umlAdaptationError
   (message: String)
