@@ -21,14 +21,22 @@
        xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
     <info
         organisation=""
-        module="org.omg.oti"
+        module="oti-core"
         status="integration">
 	</info>
 	<dependencies>
 		<dependency org="com.assembla.scala-incubator" name="graph-json_2.11" rev="1.9.2" />
 		<dependency org="com.assembla.scala-incubator" name="graph-constrained_2.11" rev="1.9.0" />
-		<dependency org="org.scalaz" name="scalaz-core_2.11" rev="7.1.3"/>
+		<dependency org="com.assembla.scala-incubator" name="graph-core_2.11" rev="1.9.2" />
+		<dependency org="com.assembla.scala-incubator" name="graph-core_2.11" rev="1.9.4" />
+		<dependency org="com.assembla.scala-incubator" name="graph-dot_2.11" rev="1.10.0" />
+		<dependency org="org.scalaz" name="scalaz-core_2.11" rev="7.2.0-M5"/>
+		<dependency org="org.scalaz" name="scalaz-core_2.11" rev="7.2.0-M5"/>		
 		<dependency org="xml-resolver" name="xml-resolver" rev="1.2"/>
+		<dependency org="org.scoverage" name="scalac-scoverage-plugin_2.11" rev="1.1.0" />		
+		<dependency org="org.scoverage" name="scalac-scoverage-runtime_2.11" rev="1.1.0" />		
+		<dependency org="com.sksamuel.scapegoat" name="scalac-scapegoat-plugin_2.11" rev="1.0.0" />
+		<dependency org="org.scaldi" name="scaldi_2.11" rev="0.4"/>						
 		<exclude org="org.scala-lang" artifact="scala-library" />
 	</dependencies>
 </ivy-module>

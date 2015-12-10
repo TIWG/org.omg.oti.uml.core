@@ -8,6 +8,7 @@
   <natures>
     <nature>org.scala-ide.sdt.core.scalanature</nature>
     <nature>org.eclipse.jdt.core.javanature</nature>
+	<nature>org.apache.ivyde.eclipse.ivynature</nature>
   </natures>
 	<linkedResources>
 		<link>

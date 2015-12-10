@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="models"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.sksamuel.scapegoat/scalac-scapegoat-plugin_2.11/scalac-scapegoat-plugin_2.11-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/org.scaldi/scaldi_2.11/scaldi_2.11-0.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib_managed/jars/org.scalaz/scalaz-core_2.11/scalaz-core_2.11-7.2.0-M5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib_managed/bundles/org.scalaz/scalaz-core_2.11/scalaz-core_2.11-7.2.0-M5.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/xml-resolver/xml-resolver/xml-resolver-1.2.jar" sourcepath="lib_managed/srcs/xml-resolver/xml-resolver/xml-resolver-1.2-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.assembla.scala-incubator/graph-core_2.11/graph-core_2.11-1.9.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib_managed/jars/com.assembla.scala-incubator/graph-constrained_2.11/graph-constrained_2.11-1.9.0.jar"/>
@@ -21,5 +21,6 @@
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_COMPILER_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=oti-core&amp;ivyXmlPath=ivy.xml&amp;confs=*&amp;acceptedTypes=jar%2Cbundle%2Cejb%2Cmaven-plugin&amp;alphaOrder=false&amp;resolveInWorkspace=true&amp;transitiveResolve=true&amp;readOSGiMetadata=true&amp;retrievedClasspath=false"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
