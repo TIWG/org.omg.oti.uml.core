@@ -39,13 +39,15 @@
  */
 package org.omg.oti.uml.write
 
-import org.omg.oti.uml._
+import java.lang.Integer
+
+import org.omg.oti.uml.{MetaAttributeAbstractFunction, MetaAttributeEnumerationFunction, UMLError}
 import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
 
-import scala.{Enumeration,Option,Unit}
+import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
 import scala.Predef.{???,String}
 import scala.collection.immutable._
 import scala.collection.Iterable

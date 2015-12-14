@@ -45,7 +45,7 @@ import org.omg.oti.uml.read.api.{UML, UMLElement, UMLPackage}
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.collection.immutable._
-import scala.Enumeration
+import scala.{Boolean,Enumeration}
 
 object DocumentKind extends Enumeration {
   type DocumentKind = Value
