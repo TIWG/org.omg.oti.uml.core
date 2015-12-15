@@ -231,7 +231,10 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
 	    u match {
 	    case aU: U =>
-	      ???
+	      for {
+	        dValue <- valueConverter(v)
+	        _ <- attributeUpdate(aU, Some(dValue))
+	      } yield ()
 	    
       case _ =>
         -\/(NonEmptyList(

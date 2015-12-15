@@ -49,14 +49,16 @@ import scala.{Boolean,Enumeration}
 
 object DocumentKind extends Enumeration {
   type DocumentKind = Value
-  val BuiltInImmutable, BuiltInMutable, SerializableImmutable, SerializableMutable = Value
+  val BuiltInImmutable, BuiltInMutable, SerializableImmutable, SerializableMutable, LoadingMutable = Value
   
   def isImmutable(kind: DocumentKind): Boolean =
-    kind == BuiltInImmutable || kind == SerializableImmutable
+    BuiltInImmutable == kind || SerializableImmutable == kind
       
   def isSerializable(kind: DocumentKind): Boolean =
-    kind == SerializableImmutable || kind == SerializableMutable
+    SerializableImmutable == kind || SerializableMutable == kind
     
+  def isLoading(kind: DocumentKind): Boolean =
+    LoadingMutable == kind
 }
 
 import DocumentKind._
@@ -229,5 +231,12 @@ extends MutableDocument[Uml]
 with SerializableDocument {
    
   override val kind: DocumentKind = SerializableMutable
+
+}
+
+trait LoadingMutableDocument[Uml <: UML] 
+extends MutableDocument[Uml] {
+   
+  override val kind: DocumentKind = LoadingMutable
 
 }

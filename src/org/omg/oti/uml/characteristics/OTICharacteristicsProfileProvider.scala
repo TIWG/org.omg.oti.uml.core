@@ -287,17 +287,17 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
       Option.empty[OTIArtifactKind].right
     ) { kind: UMLEnumerationLiteral[Uml] =>
       if (OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL.exists(_ == kind))
-        OTISerializableMetamodelArtifactKind().some.right
+        OTISerializableMetamodelArtifactKind.some.right
       else if (OTI_ARTIFACT_KIND_SPECIFIED_PROFILE.exists(_ == kind))
-        OTISerializableProfileArtifactKind().some.right
+        OTISerializableProfileArtifactKind.some.right
       else if (OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY.exists(_ == kind))
-        OTISerializableModelLibraryArtifactKind().some.right
+        OTISerializableModelLibraryArtifactKind.some.right
       else if (OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL.exists(_ == kind))
-        OTIBuiltInMetamodelArtifactKind().some.right
+        OTIBuiltInMetamodelArtifactKind.some.right
       else if (OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE.exists(_ == kind))
-        OTIBuiltInProfileArtifactKind().some.right
+        OTIBuiltInProfileArtifactKind.some.right
       else if (OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY.exists(_ == kind))
-        OTIBuiltInModelLibraryArtifactKind().some.right
+        OTIBuiltInModelLibraryArtifactKind.some.right
       else
         NonEmptyList(
           UMLError.illegalElementError[Uml, UMLElement[Uml]](
