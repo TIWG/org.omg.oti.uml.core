@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * An Activity is the specification of parameterized Behavior as the coordinated sequencing of subordinate units.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActivity[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLActivity[Uml <: UML]
 	 * If true, this Activity must not make any changes to objects. The default is false (an Activity may make nonlocal changes). (This is an assertion, not an executable property. It may be used by an execution engine to optimize model execution. If the assertion is violated by the Activity, then the model is ill-formed.) 
 	 *
 	 * <!-- Start of user code doc for isReadOnly -->
-   * <!-- End of user code doc for isReadOnly -->
+	 * <!-- End of user code doc for isReadOnly -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +78,7 @@ trait UMLActivity[Uml <: UML]
 	 * If true, all invocations of the Activity are handled by the same execution.
 	 *
 	 * <!-- Start of user code doc for isSingleExecution -->
-   * <!-- End of user code doc for isSingleExecution -->
+	 * <!-- End of user code doc for isSingleExecution -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -86,7 +88,7 @@ trait UMLActivity[Uml <: UML]
 	 * Top-level ActivityPartitions in the Activity.
 	 *
 	 * <!-- Start of user code doc for partition -->
-   * <!-- End of user code doc for partition -->
+	 * <!-- End of user code doc for partition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.partition_activity
@@ -97,7 +99,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activity_metaAttributes
@@ -106,7 +108,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActivity
 	 *
 	 * <!-- Start of user code doc for activity_metaAttributes -->
-   * <!-- End of user code doc for activity_metaAttributes -->
+	 * <!-- End of user code doc for activity_metaAttributes -->
 	 */
 	def activity_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,7 +120,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activity_compositeMetaProperties
@@ -127,7 +129,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActivity
 	 *
 	 * <!-- Start of user code doc for activity_compositeMetaProperties -->
-   * <!-- End of user code doc for activity_compositeMetaProperties -->
+	 * <!-- End of user code doc for activity_compositeMetaProperties -->
 	 */
 	def activity_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -142,7 +144,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activity_referenceMetaProperties
@@ -151,7 +153,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActivity
 	 *
 	 * <!-- Start of user code doc for activity_referenceMetaProperties -->
-   * <!-- End of user code doc for activity_referenceMetaProperties -->
+	 * <!-- End of user code doc for activity_referenceMetaProperties -->
 	 */
 	def activity_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -162,7 +164,7 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activity_forwardReferencesFromMetamodelAssociations
@@ -171,12 +173,12 @@ trait UMLActivity[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActivity
 	 *
 	 * <!-- Start of user code doc for activity_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for activity_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activity_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activity_forwardReferencesFromMetamodelAssociations: Elements =
 		behavior_forwardReferencesFromMetamodelAssociations ++
 		partition
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivity

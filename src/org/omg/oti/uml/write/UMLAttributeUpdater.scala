@@ -96,6 +96,29 @@ object UMLAttributeUpdater {
     .apply(\/-(new Integer(valueRepresentation.toInt)))
   }
   
+  object UnlimitedNaturalValueConverter 
+  extends ValueConverter[Integer] {
+    override def convert(valueRepresentation: String)
+    : NonEmptyList[java.lang.Throwable] \/ Integer =
+      nonFatalCatch[NonEmptyList[java.lang.Throwable] \/ Integer]
+      .withApply{
+      (cause: java.lang.Throwable) =>
+        -\/(NonEmptyList(
+          UMLError
+            .UMLAdaptationException(
+            s"Error parsing an Integer value: ${cause.getMessage}",
+            cause)))
+    }
+    .apply(
+        if ("*" == valueRepresentation)
+          infinite
+        else
+          \/-(new Integer(valueRepresentation.toInt))
+    )
+    
+    val infinite = \/-(new Integer(-1))
+  }
+  
   object DoubleValueConverter 
   extends ValueConverter[Double] {
     override def convert(valueRepresentation: String)

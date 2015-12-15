@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * An ActionInputPin is a kind of InputPin that executes an Action to determine the values to input to another Action.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActionInputPin[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		actionInputPin_metaAttributes
@@ -74,7 +76,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActionInputPin
 	 *
 	 * <!-- Start of user code doc for actionInputPin_metaAttributes -->
-   * <!-- End of user code doc for actionInputPin_metaAttributes -->
+	 * <!-- End of user code doc for actionInputPin_metaAttributes -->
 	 */
 	def actionInputPin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -85,7 +87,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		actionInputPin_compositeMetaProperties
@@ -94,7 +96,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActionInputPin
 	 *
 	 * <!-- Start of user code doc for actionInputPin_compositeMetaProperties -->
-   * <!-- End of user code doc for actionInputPin_compositeMetaProperties -->
+	 * <!-- End of user code doc for actionInputPin_compositeMetaProperties -->
 	 */
 	def actionInputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,7 +107,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		actionInputPin_referenceMetaProperties
@@ -114,7 +116,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActionInputPin
 	 *
 	 * <!-- Start of user code doc for actionInputPin_referenceMetaProperties -->
-   * <!-- End of user code doc for actionInputPin_referenceMetaProperties -->
+	 * <!-- End of user code doc for actionInputPin_referenceMetaProperties -->
 	 */
 	def actionInputPin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,7 +127,7 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		actionInputPin_forwardReferencesFromMetamodelAssociations
@@ -134,12 +136,12 @@ trait UMLActionInputPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActionInputPin
 	 *
 	 * <!-- Start of user code doc for actionInputPin_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for actionInputPin_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for actionInputPin_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def actionInputPin_forwardReferencesFromMetamodelAssociations: Elements =
 		inputPin_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActionInputPin
