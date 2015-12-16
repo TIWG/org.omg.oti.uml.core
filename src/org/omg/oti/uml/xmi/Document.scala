@@ -187,7 +187,8 @@ extends Document[Uml] {
 
 /**
  * A kind of Document corresponding to a tool-specific implementation of an OMG-published XMI Document
- * and whose extent may be partially represented.
+ * and whose extent may be partially represented. Typically, a BuiltInDocument is a tool-specific
+ * representation of a published Document (e.g., from the OMG).
  *
  * (e.g., [[http://www.omg.org/spec/UML/20131001/PrimitiveTypes.xmi OMG UML 2.5's PrimitiveTypes library]])
  *

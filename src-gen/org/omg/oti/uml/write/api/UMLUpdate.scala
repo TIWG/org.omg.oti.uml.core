@@ -5918,7 +5918,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -6107,7 +6107,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -6233,7 +6233,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) ++
         Map( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -6762,7 +6762,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -6949,7 +6949,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "association" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ClearAssociationAction_clearAssociationAction_reference_association_Association _,
           ops.ClearAssociationAction_association)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin _,
           ops.ClearAssociationAction_object)) ++
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -6993,7 +6993,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) ++
         Map( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -7146,7 +7146,7 @@ with UMLPropertyUpdater[Uml] {
   : Map[String, Map[String, AssociationMetaPropertyUpdater]] =
     Map( "CollaborationUse" -> 
       ( Map[String, AssociationMetaPropertyUpdater]() ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_CollaborationUse_collaborationUse_reference_type_Collaboration _,
           ops.CollaborationUse_type)) ++
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -7485,7 +7485,7 @@ with UMLPropertyUpdater[Uml] {
   : Map[String, Map[String, AssociationMetaPropertyUpdater]] =
     Map( "Connector" -> 
       ( Map[String, AssociationMetaPropertyUpdater]() ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Connector_connector_reference_type_Association _,
           ops.Connector_type)) ++
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -7761,7 +7761,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -8210,7 +8210,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "observation" -> AssociationMetaPropertySetUpdateInfo(
@@ -8268,7 +8268,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -8554,7 +8554,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -8654,7 +8654,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "operand" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -8762,7 +8762,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
           ops.ConnectableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ExtensionEnd_extensionEnd_reference_type_Stereotype _,
           ops.ExtensionEnd_type)) ++
         Map( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -8783,7 +8783,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -9248,7 +9248,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -9312,7 +9312,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9667,7 +9667,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9816,7 +9816,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9833,7 +9833,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9850,7 +9850,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9867,7 +9867,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9884,7 +9884,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -9901,7 +9901,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -10447,7 +10447,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -10558,7 +10558,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -10665,7 +10665,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -10752,7 +10752,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -10919,7 +10919,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -11220,7 +11220,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "classifier" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier _,
           ops.ReadIsClassifiedObjectAction_classifier)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin _,
           ops.ReadIsClassifiedObjectAction_object)) ++
         Map( "result" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -11308,7 +11308,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "end" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property _,
           ops.ReadLinkObjectEndAction_end)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin _,
           ops.ReadLinkObjectEndAction_object)) ++
         Map( "result" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -11349,7 +11349,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_object_InputPin _,
           ops.ReadLinkObjectEndQualifierAction_object)) ++
         Map( "qualifier" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -11434,7 +11434,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin _,
           ops.ReadStructuralFeatureAction_result)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) ++
         Map( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -11571,7 +11571,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin _,
           ops.ReclassifyObjectAction_object)) ++
         Map( "localPostcondition" -> AssociationMetaPropertySetUpdateInfo(
@@ -11711,7 +11711,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "removeAt" -> AssociationMetaPropertyOptionUpdateInfo(
           links_RemoveStructuralFeatureValueAction_removeStructuralFeatureValueAction_compose_removeAt_InputPin _,
           ops.RemoveStructuralFeatureValueAction_removeAt)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) ++
         Map( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -12095,7 +12095,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StartClassifierBehaviorAction_startClassifierBehaviorAction_compose_object_InputPin _,
           ops.StartClassifierBehaviorAction_object)) ++
         Map( "localPostcondition" -> AssociationMetaPropertySetUpdateInfo(
@@ -12136,7 +12136,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StartObjectBehaviorAction_startObjectBehaviorAction_compose_object_InputPin _,
           ops.StartObjectBehaviorAction_object)) ++
         Map( "result" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -12464,7 +12464,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "ownedTemplateSignature" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _,
           ops.TemplateableElement_ownedTemplateSignature)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "operand" -> AssociationMetaPropertySequenceUpdateInfo(
@@ -12727,7 +12727,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "expr" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TimeExpression_timeExpression_compose_expr_ValueSpecification _,
           ops.TimeExpression_expr)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -12759,7 +12759,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "min" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TimeInterval_timeInterval_reference_min_TimeExpression _,
           ops.TimeInterval_min)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -12839,7 +12839,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) ++
-        Map( "_object" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_UnmarshallAction_unmarshallAction_compose_object_InputPin _,
           ops.UnmarshallAction_object)) ++
         Map( "unmarshallType" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -12992,7 +12992,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "value" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -13080,7 +13080,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
@@ -13365,7 +13365,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -13452,7 +13452,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -13765,7 +13765,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -13963,7 +13963,7 @@ with UMLPropertyUpdater[Uml] {
   : Map[String, Map[String, AssociationMetaPropertyUpdater]] =
     Map( "CollaborationUse" -> 
       ( Map[String, AssociationMetaPropertyUpdater]() ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_CollaborationUse_collaborationUse_reference_type_Collaboration _,
           ops.CollaborationUse_type))))
 
@@ -14101,7 +14101,7 @@ with UMLPropertyUpdater[Uml] {
   : Map[String, Map[String, AssociationMetaPropertyUpdater]] =
     Map( "Connector" -> 
       ( Map[String, AssociationMetaPropertyUpdater]() ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Connector_connector_reference_type_Association _,
           ops.Connector_type)) ++
         Map( "contract" -> AssociationMetaPropertySetUpdateInfo(
@@ -14239,7 +14239,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -14451,7 +14451,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "observation" -> AssociationMetaPropertySetUpdateInfo(
@@ -14488,7 +14488,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -14618,7 +14618,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -14673,7 +14673,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -14724,7 +14724,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
           ops.ConnectableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ExtensionEnd_extensionEnd_reference_type_Stereotype _,
           ops.ExtensionEnd_type)) ++
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
@@ -14733,7 +14733,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "association" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_memberEnd_reference_association_Association _,
           ops.Property_association)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "redefinedProperty" -> AssociationMetaPropertySetUpdateInfo(
@@ -14970,7 +14970,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -15013,7 +15013,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15149,7 +15149,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15244,7 +15244,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15255,7 +15255,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15266,7 +15266,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15277,7 +15277,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15288,7 +15288,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15299,7 +15299,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15548,7 +15548,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -15596,7 +15596,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -15652,7 +15652,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "parameterSet" -> AssociationMetaPropertySetUpdateInfo(
@@ -15697,7 +15697,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "association" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_memberEnd_reference_association_Association _,
           ops.Property_association)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "redefinedPort" -> AssociationMetaPropertySetUpdateInfo(
@@ -15762,7 +15762,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "association" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_memberEnd_reference_association_Association _,
           ops.Property_association)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "redefinedProperty" -> AssociationMetaPropertySetUpdateInfo(
@@ -16449,7 +16449,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -16571,7 +16571,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "observation" -> AssociationMetaPropertySetUpdateInfo(
@@ -16597,7 +16597,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "min" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TimeInterval_timeInterval_reference_min_TimeExpression _,
           ops.TimeInterval_min)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
@@ -16701,7 +16701,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_reference_selection_Behavior _,
           ops.ObjectNode_selection)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type)) ++
         Map( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
@@ -16753,7 +16753,7 @@ with UMLPropertyUpdater[Uml] {
         Map( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter)) ++
-        Map( "_type" -> AssociationMetaPropertyOptionUpdateInfo(
+        Map( "type" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))))
 
