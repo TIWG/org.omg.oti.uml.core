@@ -36,7 +36,9 @@
 		<dependency org="org.scoverage" name="scalac-scoverage-plugin_2.11" rev="1.1.0" />		
 		<dependency org="org.scoverage" name="scalac-scoverage-runtime_2.11" rev="1.1.0" />		
 		<dependency org="com.sksamuel.scapegoat" name="scalac-scapegoat-plugin_2.11" rev="1.0.0" />
-		<dependency org="org.scaldi" name="scaldi_2.11" rev="0.4"/>						
+		<dependency org="org.scala-lang.modules" name="scala-parser-combinators_2.11" rev="1.0.4"/>
+		<dependency org="org.scala-lang.modules" name="scala-xml_2.11" rev="1.0.4"/>
+		<dependency org="org.scaldi" name="scaldi_2.11" rev="0.4"/>
 		<exclude org="org.scala-lang" artifact="scala-library" />
 	</dependencies>
 </ivy-module>
