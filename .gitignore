@@ -1,0 +1,6 @@
+*~
+.ensime*
+.idea
+.iml
+svn
+target
