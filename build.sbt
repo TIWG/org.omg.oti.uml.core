@@ -32,10 +32,10 @@ buildUTCDate in Global := {
   formatter.format(new Date)
 }
 
-lazy val core = Project("oti-core", file("."))
+lazy val core = Project("oti-uml-core", file("."))
   .enablePlugins(IMCEGitPlugin)
   .enablePlugins(IMCEReleasePlugin)
-  .settings(dynamicScriptsResourceSettings(Some("org.omg.oti")))
+  .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.uml.core")))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   .settings(IMCEPlugin.scalaDocSettings(diagrams=false))
   .settings(
@@ -47,7 +47,7 @@ lazy val core = Project("oti-core", file("."))
     organizationHomepage :=
       Some(url("http://www.omg.org/members/sysml-rtf-wiki/doku.php?id=rtf5:groups:tools_infrastructure:index")),
 
-    buildInfoPackage := "org.omg.oti",
+    buildInfoPackage := "org.omg.oti.uml.core",
     buildInfoKeys ++= Seq[BuildInfoKey](BuildInfoKey.action("buildDateUTC") { buildUTCDate.value }),
 
     mappings in (Compile, packageSrc) ++= {
