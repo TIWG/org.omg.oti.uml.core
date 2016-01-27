@@ -72,6 +72,12 @@ lazy val core = Project("oti-uml-core", file("."))
     classDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "bin",
     cleanFiles += (classDirectory in Compile).value,
 
+    scalacOptions in(Compile, doc) ++= Seq(
+      "-diagrams",
+      "-doc-title", name.value,
+      "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
+    ),
+
     resourceDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "resources",
 
     libraryDependencies ++= Seq (
