@@ -81,10 +81,8 @@ lazy val core = Project("oti-uml-core", file("."))
     resourceDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "resources",
 
     libraryDependencies ++= Seq (
-      "gov.nasa.jpl.imce.thirdParty" %% "all-scala-libraries" % Versions.jpl_mbee_common_scala_libraries artifacts 
-      Artifact("all-scala-libraries", "zip", "zip"),
       "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions.jpl_mbee_common_scala_libraries artifacts 
-      Artifact("other-scala-libraries", "zip", "zip")
+      Artifact("other-scala-libraries", "zip", "zip", Some("resource"), Seq(), None, Map())
     ),
 
     IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName := Map(
