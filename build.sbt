@@ -81,7 +81,7 @@ lazy val core = Project("oti-uml-core", file("."))
     resourceDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "resources",
 
     libraryDependencies ++= Seq (
-      "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions.jpl_mbee_common_scala_libraries artifacts 
+      "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions_other_scala_libraries.version artifacts
       Artifact("other-scala-libraries", "zip", "zip", Some("resource"), Seq(), None, Map())
     ),
 
