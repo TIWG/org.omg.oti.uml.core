@@ -52,7 +52,7 @@ lazy val core = Project("oti-uml-core", file("."))
       val previous = projectID.value
       previous.extra(
         "build.date.utc" -> buildUTCDate.value,
-        "zip.contents" -> "oti.generic")
+        "artifact.kind" -> "generic.library")
     },
 
     git.baseVersion := Versions.version,
@@ -114,7 +114,7 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
       normalizedName.value + "_" + scalaBinaryVersion.value + "-" + version.value + "-resource",
 
     // contents of the '*-resource.zip' to be produced by 'universal:packageBin'
-    mappings in Universal <++= (
+    mappings in packageBin in Universal <++= (
       baseDirectory,
       packageBin in Compile,
       packageSrc in Compile,
@@ -126,7 +126,7 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
         val dir = base / "svn" / "org.omg.oti"
         (dir ** "*.dynamicScripts").pair(relativeTo(dir)) ++
           ((dir ** "*.md") --- (dir / "sbt.staging" ***)).pair(relativeTo(dir)) ++
-          (dir / "models" ** "*.mdzip").pair(relativeTo(dir)) ++
+          (dir ** "*.mdzip").pair(relativeTo(dir)) ++
           com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
           addIfExists(bin, "lib/" + bin.name) ++
           addIfExists(binT, "lib/" + binT.name) ++
