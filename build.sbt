@@ -114,7 +114,7 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
       normalizedName.value + "_" + scalaBinaryVersion.value + "-" + version.value + "-resource",
 
     // contents of the '*-resource.zip' to be produced by 'universal:packageBin'
-    mappings in packageBin in Universal <++= (
+    mappings in Universal <++= (
       baseDirectory,
       packageBin in Compile,
       packageSrc in Compile,
