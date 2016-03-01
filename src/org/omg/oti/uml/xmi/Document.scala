@@ -160,9 +160,10 @@ abstract trait Document[Uml <: UML] {
 abstract trait MutableDocument[Uml <: UML] 
 extends Document[Uml] {
   
-  override def includes(e: UMLElement[Uml]): Boolean =
-    extent.find(_ == e).isDefined
-    
+  override def includes(e: UMLElement[Uml]): Boolean = {
+    val ee = extent.find(_ == e)
+    ee.isDefined
+  }
 }
 
 /**
@@ -173,8 +174,10 @@ extends Document[Uml] {
 abstract trait ImmutableDocument[Uml <: UML] 
 extends Document[Uml] {
   
-  override def includes(e: UMLElement[Uml]): Boolean =
-    extent.contains(e)
+  override def includes(e: UMLElement[Uml]): Boolean = {
+    val included = extent.contains(e)
+    included
+  }
     
   /**
    * The set of all elements directly or indirectly owned by `scope`, including `scope`

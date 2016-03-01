@@ -44,7 +44,7 @@ import org.omg.oti.uml.read.api._
 import scala.collection.immutable.Map
 import scala.Option
 import scala.Predef.String
-import scalaz.{@@, \/, \&/, NonEmptyList}
+import scalaz.{@@, NonEmptyList, \&/, \/}
 
 /**
   * Tool-neutral interface to provide OTI Characteristics about UML Packages

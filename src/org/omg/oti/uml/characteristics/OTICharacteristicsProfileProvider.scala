@@ -43,9 +43,10 @@ import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.collection.immutable._
-import scala.{Boolean,Option,StringContext}
+import scala.{Boolean, Option, StringContext}
 import scala.Predef.String
-import scalaz._, Scalaz._
+import scalaz._
+import Scalaz._
 
 trait OTICharacteristicsProfileProvider[Uml <: UML]
   extends OTICharacteristicsProvider[Uml] {
@@ -326,19 +327,23 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def xmiID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
-    OTI_IDENTITY_xmiID
-      .flatMap{ p: UMLProperty[Uml] =>
-        self.getStereotypeTagPropertyStringValues(p).map(_.headOption.map(_.trim).map(OTI_ID.apply))
-      }
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+  = for {
+    idTagProperty <- OTI_IDENTITY_xmiID
+    idTagValue <- self
+      .getStereotypeTagPropertyStringValues(idTagProperty)
+      .map(_.headOption.map(_.trim).map(OTI_ID.apply))
+  } yield idTagValue
 
   override def xmiUUID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
-    OTI_IDENTITY_xmiUUID
-      .flatMap{ p: UMLProperty[Uml] =>
-        self.getStereotypeTagPropertyStringValues(p).map(_.headOption.map(_.trim).map(OTI_UUID.apply))
-      }
+  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
+  = for {
+    uuidTagProperty <- OTI_IDENTITY_xmiUUID
+    uuidTagValue <- self
+      .getStereotypeTagPropertyStringValues(uuidTagProperty)
+      .map(_.headOption.map(_.trim).map(OTI_UUID.apply))
+  } yield uuidTagValue
 
   /**
     * The OMG Tool-neutral Interchange API for OMG UML 2.5 compliant modeling tools.
