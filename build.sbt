@@ -60,11 +60,10 @@ lazy val core = Project("oti-uml-core", file("."))
     organizationName := "JPL, Caltech, Airbus & Object Management Group",
     organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
-    scalaSource in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "src",
-    unmanagedSourceDirectories in Compile +=  baseDirectory.value / "svn" / "org.omg.oti" / "src-gen",
-
-    classDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "bin",
-    cleanFiles += (classDirectory in Compile).value,
+    scalaSource in Compile :=
+      baseDirectory.value / "svn" / "org.omg.oti" / "src",
+    unmanagedSourceDirectories in Compile +=
+      baseDirectory.value / "svn" / "org.omg.oti" / "src-gen",
 
     scalacOptions in(Compile, doc) ++= Seq(
       "-diagrams",
