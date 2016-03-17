@@ -94,6 +94,9 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
   val propertyName: String
 
   val isComposite: Boolean
+  
+  val isSerializedAsNested: Boolean
+  val isSerializedAsReference: Boolean
 
   val isUnique: Boolean
 
@@ -163,12 +166,14 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
 
 case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
-(propertyName: String,
+(override val propertyName: String,
  f: U => Option[V],
- isComposite: Boolean,
- isUnique: Boolean,
- isOrdered: Boolean,
- redefinedMetaProperties:
+ override val isComposite: Boolean,
+ override val isSerializedAsNested: Boolean=false,
+ override val isSerializedAsReference: Boolean=false,
+ override val isUnique: Boolean,
+ override val isOrdered: Boolean,
+ override val redefinedMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
 (implicit val uType: ClassTag[U], vType: ClassTag[V])
@@ -241,12 +246,14 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
 }
 
 case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElement[Uml]]
-(propertyName: String,
+(override val propertyName: String,
  f: U => Iterable[V],
- isComposite: Boolean,
- isUnique: Boolean,
- isOrdered: Boolean,
- redefinedMetaProperties:
+ override val isComposite: Boolean,
+ override val isSerializedAsNested: Boolean=false,
+ override val isSerializedAsReference: Boolean=false,
+ override val isUnique: Boolean,
+ override val isOrdered: Boolean,
+ override val redefinedMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
 (implicit val uType: ClassTag[U], vType: ClassTag[V])

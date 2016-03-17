@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -1555,13 +1557,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Abstraction_mapping =
 		MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]](
-		"mapping", _.mapping, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"mapping",
+		_.mapping,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val AcceptCallAction_returnInformation =
 		MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]](
-		"returnInformation", _.returnInformation, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"returnInformation",
+		_.returnInformation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val AcceptEventAction_isUnmarshall =
 		new MetaAttributeBooleanFunction[Uml, UMLAcceptEventAction[Uml]](None, "isUnmarshall",
@@ -1569,13 +1583,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val AcceptEventAction_result =
 		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val AcceptEventAction_trigger =
 		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]](
-		"trigger", _.trigger, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"trigger",
+		_.trigger,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Action_isLocallyReentrant =
 		new MetaAttributeBooleanFunction[Uml, UMLAction[Uml]](None, "isLocallyReentrant",
@@ -1583,33 +1609,69 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Action_localPostcondition =
 		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
-		"localPostcondition", _.localPostcondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"localPostcondition",
+		_.localPostcondition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Action_localPrecondition =
 		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
-		"localPrecondition", _.localPrecondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"localPrecondition",
+		_.localPrecondition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActionExecutionSpecification_action =
 		MetaPropertyReference[Uml, UMLActionExecutionSpecification[Uml], UMLAction[Uml]](
-		"action", _.action, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"action",
+		_.action,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActionInputPin_fromAction =
 		MetaPropertyReference[Uml, UMLActionInputPin[Uml], UMLAction[Uml]](
-		"fromAction", _.fromAction, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"fromAction",
+		_.fromAction,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_edge =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]](
-		"edge", _.edge, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"edge",
+		_.edge,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_group =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]](
-		"group", _.group, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"group",
+		_.group,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_isReadOnly =
 		new MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isReadOnly",
@@ -1621,94 +1683,196 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Activity_node =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]](
-		"node", _.node, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"node",
+		_.node,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_partition =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]](
-		"partition", _.partition, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"partition",
+		_.partition,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_structuredNode =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]](
-		"structuredNode", _.structuredNode, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"structuredNode",
+		_.structuredNode,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Activity_variable =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]](
-		"variable", _.variable, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"variable",
+		_.variable,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_guard =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
-		"guard", _.guard, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"guard",
+		_.guard,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_inPartition =
 		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]](
-		"inPartition", _.inPartition, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"inPartition",
+		_.inPartition,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_interrupts =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]](
-		"interrupts", _.interrupts, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"interrupts",
+		_.interrupts,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_redefinedEdge =
 		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]](
-		"redefinedEdge", _.redefinedEdge, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedEdge",
+		_.redefinedEdge,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_source =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
-		"source", _.source, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"source",
+		_.source,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_target =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
-		"target", _.target, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityEdge_weight =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
-		"weight", _.weight, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"weight",
+		_.weight,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 
 	val ActivityNode_inInterruptibleRegion =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]](
-		"inInterruptibleRegion", _.inInterruptibleRegion, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"inInterruptibleRegion",
+		_.inInterruptibleRegion,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityNode_inPartition =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]](
-		"inPartition", _.inPartition, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"inPartition",
+		_.inPartition,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityNode_incoming =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
-		"incoming", _.incoming, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"incoming",
+		_.incoming,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityNode_outgoing =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
-		"outgoing", _.outgoing, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"outgoing",
+		_.outgoing,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityNode_redefinedNode =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]](
 		"redefinedNode", _.redefinedNode, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val ActivityParameterNode_parameter =
 		MetaPropertyReference[Uml, UMLActivityParameterNode[Uml], UMLParameter[Uml]](
-		"parameter", _.parameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"parameter",
+		_.parameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityPartition_edge =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityEdge[Uml]](
-		"edge", _.edge, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"edge",
+		_.edge,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityPartition_isDimension =
 		new MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isDimension",
@@ -1720,23 +1884,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ActivityPartition_node =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityNode[Uml]](
-		"node", _.node, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"node",
+		_.node,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityPartition_represents =
 		MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]](
-		"represents", _.represents, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"represents",
+		_.represents,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ActivityPartition_subpartition =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]](
-		"subpartition", _.subpartition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"subpartition",
+		_.subpartition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val AddStructuralFeatureValueAction_insertAt =
 		MetaPropertyReference[Uml, UMLAddStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
-		"insertAt", _.insertAt, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"insertAt",
+		_.insertAt,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val AddStructuralFeatureValueAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLAddStructuralFeatureValueAction[Uml]](None, "isReplaceAll",
@@ -1744,36 +1932,66 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val AddVariableValueAction_insertAt =
 		MetaPropertyReference[Uml, UMLAddVariableValueAction[Uml], UMLInputPin[Uml]](
-		"insertAt", _.insertAt, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"insertAt",
+		_.insertAt,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val AddVariableValueAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLAddVariableValueAction[Uml]](None, "isReplaceAll",
 		(x: UMLAddVariableValueAction[Uml]) => booleanToIterable(x.isReplaceAll, false))
 
 	val Artifact_fileName =
-		new MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](None, "fileName",
-		(x: UMLArtifact[Uml]) => \/-(x.fileName))
+		new MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](OptionConstructor(), None, "fileName",
+		(x: UMLArtifact[Uml]) => x.fileName)
 
 	val Artifact_manifestation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]](
-		"manifestation", _.manifestation, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"manifestation",
+		_.manifestation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Artifact_nestedArtifact =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]](
-		"nestedArtifact", _.nestedArtifact, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"nestedArtifact",
+		_.nestedArtifact,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Artifact_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Artifact_ownedOperation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]](
-		"ownedOperation", _.ownedOperation, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedOperation",
+		_.ownedOperation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Association_isDerived =
 		new MetaAttributeBooleanFunction[Uml, UMLAssociation[Uml]](None, "isDerived",
@@ -1782,17 +2000,29 @@ trait UMLOps[Uml <: UML] { self =>
 	val Association_memberEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
 		"memberEnd", _.memberEnd, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val Association_navigableOwnedEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
-		"navigableOwnedEnd", _.navigableOwnedEnd, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"navigableOwnedEnd",
+		_.navigableOwnedEnd,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Association_ownedEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
-		"ownedEnd", _.ownedEnd, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedEnd",
+		_.ownedEnd,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Behavior_isReentrant =
 		new MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant",
@@ -1800,38 +2030,80 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Behavior_ownedParameter =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]](
-		"ownedParameter", _.ownedParameter, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedParameter",
+		_.ownedParameter,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Behavior_ownedParameterSet =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]](
-		"ownedParameterSet", _.ownedParameterSet, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedParameterSet",
+		_.ownedParameterSet,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Behavior_postcondition =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
-		"postcondition", _.postcondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"postcondition",
+		_.postcondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Behavior_precondition =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
-		"precondition", _.precondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"precondition",
+		_.precondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Behavior_redefinedBehavior =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]](
-		"redefinedBehavior", _.redefinedBehavior, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedBehavior",
+		_.redefinedBehavior,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Behavior_specification =
 		MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]](
-		"specification", _.specification, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"specification",
+		_.specification,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehaviorExecutionSpecification_behavior =
 		MetaPropertyReference[Uml, UMLBehaviorExecutionSpecification[Uml], UMLBehavior[Uml]](
-		"behavior", _.behavior, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"behavior",
+		_.behavior,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioralFeature_concurrency =
 		new MetaAttributeEnumerationFunction[Uml, UMLBehavioralFeature[Uml], UMLCallConcurrencyKind.Value, UMLCallConcurrencyKind.ValueSet](None, "concurrency", (x: UMLBehavioralFeature[Uml]) => \/-(x.concurrency), UMLCallConcurrencyKind.values)
@@ -1842,43 +2114,91 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val BehavioralFeature_method =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLBehavior[Uml]](
-		"method", _.method, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"method",
+		_.method,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioralFeature_ownedParameter =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]](
-		"ownedParameter", _.ownedParameter, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedParameter",
+		_.ownedParameter,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val BehavioralFeature_ownedParameterSet =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameterSet[Uml]](
-		"ownedParameterSet", _.ownedParameterSet, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedParameterSet",
+		_.ownedParameterSet,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioralFeature_raisedException =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLType[Uml]](
-		"raisedException", _.raisedException, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"raisedException",
+		_.raisedException,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioredClassifier_classifierBehavior =
 		MetaPropertyReference[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
-		"classifierBehavior", _.classifierBehavior, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"classifierBehavior",
+		_.classifierBehavior,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioredClassifier_interfaceRealization =
 		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLInterfaceRealization[Uml]](
-		"interfaceRealization", _.interfaceRealization, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"interfaceRealization",
+		_.interfaceRealization,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BehavioredClassifier_ownedBehavior =
 		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
-		"ownedBehavior", _.ownedBehavior, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedBehavior",
+		_.ownedBehavior,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val BroadcastSignalAction_signal =
 		MetaPropertyReference[Uml, UMLBroadcastSignalAction[Uml], UMLSignal[Uml]](
-		"signal", _.signal, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signal",
+		_.signal,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CallAction_isSynchronous =
 		new MetaAttributeBooleanFunction[Uml, UMLCallAction[Uml]](None, "isSynchronous",
@@ -1886,33 +2206,69 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val CallAction_result =
 		MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val CallBehaviorAction_behavior =
 		MetaPropertyReference[Uml, UMLCallBehaviorAction[Uml], UMLBehavior[Uml]](
-		"behavior", _.behavior, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"behavior",
+		_.behavior,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CallEvent_operation =
 		MetaPropertyReference[Uml, UMLCallEvent[Uml], UMLOperation[Uml]](
-		"operation", _.operation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"operation",
+		_.operation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CallOperationAction_operation =
 		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLOperation[Uml]](
-		"operation", _.operation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"operation",
+		_.operation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CallOperationAction_target =
 		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLInputPin[Uml]](
-		"target", _.target, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ChangeEvent_changeExpression =
 		MetaPropertyReference[Uml, UMLChangeEvent[Uml], UMLValueSpecification[Uml]](
-		"changeExpression", _.changeExpression, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"changeExpression",
+		_.changeExpression,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Class_isAbstract =
 		new MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isAbstract",
@@ -1924,33 +2280,69 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Class_nestedClassifier =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]](
-		"nestedClassifier", _.nestedClassifier, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"nestedClassifier",
+		_.nestedClassifier,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Class_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set(StructuredClassifier_ownedAttribute))
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(StructuredClassifier_ownedAttribute))
 
 	val Class_ownedOperation =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]](
-		"ownedOperation", _.ownedOperation, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedOperation",
+		_.ownedOperation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Class_ownedReception =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]](
-		"ownedReception", _.ownedReception, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedReception",
+		_.ownedReception,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_collaborationUse =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
-		"collaborationUse", _.collaborationUse, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"collaborationUse",
+		_.collaborationUse,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_generalization =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralization[Uml]](
-		"generalization", _.generalization, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"generalization",
+		_.generalization,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_isAbstract =
 		new MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isAbstract",
@@ -1962,43 +2354,91 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Classifier_ownedTemplateSignature =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLRedefinableTemplateSignature[Uml]](
-		"ownedTemplateSignature", _.ownedTemplateSignature, isComposite=true, isUnique=true, isOrdered=false,
-		Set(TemplateableElement_ownedTemplateSignature))
+		"ownedTemplateSignature",
+		_.ownedTemplateSignature,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(TemplateableElement_ownedTemplateSignature))
 
 	val Classifier_ownedUseCase =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
-		"ownedUseCase", _.ownedUseCase, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedUseCase",
+		_.ownedUseCase,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_powertypeExtent =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralizationSet[Uml]](
-		"powertypeExtent", _.powertypeExtent, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"powertypeExtent",
+		_.powertypeExtent,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_redefinedClassifier =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLClassifier[Uml]](
-		"redefinedClassifier", _.redefinedClassifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedClassifier",
+		_.redefinedClassifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_representation =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
-		"representation", _.representation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"representation",
+		_.representation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_substitution =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLSubstitution[Uml]](
-		"substitution", _.substitution, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"substitution",
+		_.substitution,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Classifier_templateParameter =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]](
-		"templateParameter", _.templateParameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set(ParameterableElement_templateParameter))
+		"templateParameter",
+		_.templateParameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(ParameterableElement_templateParameter))
 
 	val Classifier_useCase =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
-		"useCase", _.useCase, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"useCase",
+		_.useCase,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ClassifierTemplateParameter_allowSubstitutable =
 		new MetaAttributeBooleanFunction[Uml, UMLClassifierTemplateParameter[Uml]](None, "allowSubstitutable",
@@ -2006,91 +2446,193 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ClassifierTemplateParameter_constrainingClassifier =
 		MetaPropertyCollection[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
-		"constrainingClassifier", _.constrainingClassifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"constrainingClassifier",
+		_.constrainingClassifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ClassifierTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
-		"parameteredElement", _.parameteredElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set(TemplateParameter_parameteredElement))
+		"parameteredElement",
+		_.parameteredElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(TemplateParameter_parameteredElement))
 
 	val Clause_body =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
-		"body", _.body, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"body",
+		_.body,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Clause_bodyOutput =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
-		"bodyOutput", _.bodyOutput, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"bodyOutput",
+		_.bodyOutput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Clause_decider =
 		MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
-		"decider", _.decider, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"decider",
+		_.decider,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Clause_predecessorClause =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
-		"predecessorClause", _.predecessorClause, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"predecessorClause",
+		_.predecessorClause,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Clause_successorClause =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
-		"successorClause", _.successorClause, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"successorClause",
+		_.successorClause,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Clause_test =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
-		"test", _.test, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"test",
+		_.test,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ClearAssociationAction_association =
 		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLAssociation[Uml]](
-		"association", _.association, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"association",
+		_.association,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ClearAssociationAction_object =
 		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ClearStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLClearStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Collaboration_collaborationRole =
 		MetaPropertyCollection[Uml, UMLCollaboration[Uml], UMLConnectableElement[Uml]](
-		"collaborationRole", _.collaborationRole, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"collaborationRole",
+		_.collaborationRole,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CollaborationUse_roleBinding =
 		MetaPropertyCollection[Uml, UMLCollaborationUse[Uml], UMLDependency[Uml]](
-		"roleBinding", _.roleBinding, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"roleBinding",
+		_.roleBinding,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CollaborationUse_type =
 		MetaPropertyReference[Uml, UMLCollaborationUse[Uml], UMLCollaboration[Uml]](
-		"type", _._type, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"type",
+		_._type,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CombinedFragment_cfragmentGate =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLGate[Uml]](
-		"cfragmentGate", _.cfragmentGate, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"cfragmentGate",
+		_.cfragmentGate,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CombinedFragment_interactionOperator =
 		new MetaAttributeEnumerationFunction[Uml, UMLCombinedFragment[Uml], UMLInteractionOperatorKind.Value, UMLInteractionOperatorKind.ValueSet](None, "interactionOperator", (x: UMLCombinedFragment[Uml]) => \/-(x.interactionOperator), UMLInteractionOperatorKind.values)
 
 	val CombinedFragment_operand =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]](
-		"operand", _.operand, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"operand",
+		_.operand,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Comment_annotatedElement =
 		MetaPropertyCollection[Uml, UMLComment[Uml], UMLElement[Uml]](
-		"annotatedElement", _.annotatedElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"annotatedElement",
+		_.annotatedElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Comment_body =
 		new MetaAttributeStringFunction[Uml, UMLComment[Uml]](None, "body",
@@ -2102,23 +2644,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Component_packagedElement =
 		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLPackageableElement[Uml]](
-		"packagedElement", _.packagedElement, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"packagedElement",
+		_.packagedElement,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Component_realization =
 		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLComponentRealization[Uml]](
-		"realization", _.realization, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"realization",
+		_.realization,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ComponentRealization_realizingClassifier =
 		MetaPropertyCollection[Uml, UMLComponentRealization[Uml], UMLClassifier[Uml]](
-		"realizingClassifier", _.realizingClassifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"realizingClassifier",
+		_.realizingClassifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConditionalNode_clause =
 		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]](
-		"clause", _.clause, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"clause",
+		_.clause,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConditionalNode_isAssured =
 		new MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isAssured",
@@ -2130,73 +2696,157 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ConditionalNode_result =
 		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=true,
-		Set(StructuredActivityNode_structuredNodeOutput))
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeOutput))
 
 	val ConnectableElement_templateParameter =
 		MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]](
-		"templateParameter", _.templateParameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set(ParameterableElement_templateParameter))
+		"templateParameter",
+		_.templateParameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(ParameterableElement_templateParameter))
 
 	val ConnectableElementTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]](
-		"parameteredElement", _.parameteredElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set(TemplateParameter_parameteredElement))
+		"parameteredElement",
+		_.parameteredElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(TemplateParameter_parameteredElement))
 
 	val ConnectionPointReference_entry =
 		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
-		"entry", _.entry, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"entry",
+		_.entry,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConnectionPointReference_exit =
 		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
-		"exit", _.exit, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"exit",
+		_.exit,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Connector_contract =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLBehavior[Uml]](
-		"contract", _.contract, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"contract",
+		_.contract,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Connector_end =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnectorEnd[Uml]](
-		"end", _.end, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"end",
+		_.end,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Connector_redefinedConnector =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnector[Uml]](
-		"redefinedConnector", _.redefinedConnector, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedConnector",
+		_.redefinedConnector,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Connector_type =
 		MetaPropertyReference[Uml, UMLConnector[Uml], UMLAssociation[Uml]](
-		"type", _._type, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"type",
+		_._type,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConnectorEnd_partWithPort =
 		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLProperty[Uml]](
-		"partWithPort", _.partWithPort, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"partWithPort",
+		_.partWithPort,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConnectorEnd_role =
 		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLConnectableElement[Uml]](
-		"role", _.role, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"role",
+		_.role,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ConsiderIgnoreFragment_message =
 		MetaPropertyCollection[Uml, UMLConsiderIgnoreFragment[Uml], UMLNamedElement[Uml]](
-		"message", _.message, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"message",
+		_.message,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Constraint_constrainedElement =
 		MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]](
-		"constrainedElement", _.constrainedElement, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"constrainedElement",
+		_.constrainedElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Constraint_specification =
 		MetaPropertyReference[Uml, UMLConstraint[Uml], UMLValueSpecification[Uml]](
-		"specification", _.specification, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"specification",
+		_.specification,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Continuation_setting =
 		new MetaAttributeBooleanFunction[Uml, UMLContinuation[Uml]](None, "setting",
@@ -2204,63 +2854,135 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val CreateLinkAction_endData =
 		MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
-		"endData", _.endData, isComposite=true, isUnique=true, isOrdered=false,
-		Set(LinkAction_endData))
+		"endData",
+		_.endData,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(LinkAction_endData))
 
 	val CreateLinkObjectAction_result =
 		MetaPropertyReference[Uml, UMLCreateLinkObjectAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CreateObjectAction_classifier =
 		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLClassifier[Uml]](
-		"classifier", _.classifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"classifier",
+		_.classifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val CreateObjectAction_result =
 		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val DataType_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val DataType_ownedOperation =
 		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLOperation[Uml]](
-		"ownedOperation", _.ownedOperation, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedOperation",
+		_.ownedOperation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val DecisionNode_decisionInput =
 		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLBehavior[Uml]](
-		"decisionInput", _.decisionInput, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"decisionInput",
+		_.decisionInput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val DecisionNode_decisionInputFlow =
 		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLObjectFlow[Uml]](
-		"decisionInputFlow", _.decisionInputFlow, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"decisionInputFlow",
+		_.decisionInputFlow,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Dependency_client =
 		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
-		"client", _.client, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"client",
+		_.client,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Dependency_supplier =
 		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
-		"supplier", _.supplier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"supplier",
+		_.supplier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Deployment_configuration =
 		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeploymentSpecification[Uml]](
-		"configuration", _.configuration, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"configuration",
+		_.configuration,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Deployment_deployedArtifact =
 		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeployedArtifact[Uml]](
-		"deployedArtifact", _.deployedArtifact, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"deployedArtifact",
+		_.deployedArtifact,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val DeploymentSpecification_deploymentLocation =
 		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](None, "deploymentLocation",
@@ -2272,13 +2994,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val DeploymentTarget_deployment =
 		MetaPropertyCollection[Uml, UMLDeploymentTarget[Uml], UMLDeployment[Uml]](
-		"deployment", _.deployment, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"deployment",
+		_.deployment,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val DestroyLinkAction_endData =
 		MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]](
-		"endData", _.endData, isComposite=true, isUnique=true, isOrdered=false,
-		Set(LinkAction_endData))
+		"endData",
+		_.endData,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(LinkAction_endData))
 
 	val DestroyObjectAction_isDestroyLinks =
 		new MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyLinks",
@@ -2290,18 +3024,36 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val DestroyObjectAction_target =
 		MetaPropertyReference[Uml, UMLDestroyObjectAction[Uml], UMLInputPin[Uml]](
-		"target", _.target, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Duration_expr =
 		MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]](
-		"expr", _.expr, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"expr",
+		_.expr,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Duration_observation =
 		MetaPropertyCollection[Uml, UMLDuration[Uml], UMLObservation[Uml]](
-		"observation", _.observation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"observation",
+		_.observation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val DurationConstraint_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](None, "firstEvent",
@@ -2309,23 +3061,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val DurationConstraint_specification =
 		MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
-		"specification", _.specification, isComposite=true, isUnique=true, isOrdered=false,
-		Set(IntervalConstraint_specification))
+		"specification",
+		_.specification,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(IntervalConstraint_specification))
 
 	val DurationInterval_max =
 		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
-		"max", _.max, isComposite=false, isUnique=true, isOrdered=false,
-		Set(Interval_max))
+		"max",
+		_.max,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Interval_max))
 
 	val DurationInterval_min =
 		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
-		"min", _.min, isComposite=false, isUnique=true, isOrdered=false,
-		Set(Interval_min))
+		"min",
+		_.min,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Interval_min))
 
 	val DurationObservation_event =
 		MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]](
-		"event", _.event, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"event",
+		_.event,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val DurationObservation_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](None, "firstEvent",
@@ -2333,8 +3109,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Element_ownedComment =
 		MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
-		"ownedComment", _.ownedComment, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedComment",
+		_.ownedComment,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ElementImport_alias =
 		new MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](None, "alias",
@@ -2342,80 +3124,164 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ElementImport_importedElement =
 		MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]](
-		"importedElement", _.importedElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"importedElement",
+		_.importedElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ElementImport_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLElementImport[Uml]) => \/-(x.visibility), UMLVisibilityKind.values)
 
 	val Enumeration_ownedLiteral =
 		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
-		"ownedLiteral", _.ownedLiteral, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedLiteral",
+		_.ownedLiteral,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 
 	val ExceptionHandler_exceptionInput =
 		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLObjectNode[Uml]](
-		"exceptionInput", _.exceptionInput, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"exceptionInput",
+		_.exceptionInput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExceptionHandler_exceptionType =
 		MetaPropertyCollection[Uml, UMLExceptionHandler[Uml], UMLClassifier[Uml]](
-		"exceptionType", _.exceptionType, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"exceptionType",
+		_.exceptionType,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExceptionHandler_handlerBody =
 		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLExecutableNode[Uml]](
-		"handlerBody", _.handlerBody, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"handlerBody",
+		_.handlerBody,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExecutableNode_handler =
 		MetaPropertyCollection[Uml, UMLExecutableNode[Uml], UMLExceptionHandler[Uml]](
-		"handler", _.handler, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"handler",
+		_.handler,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExecutionOccurrenceSpecification_execution =
 		MetaPropertyReference[Uml, UMLExecutionOccurrenceSpecification[Uml], UMLExecutionSpecification[Uml]](
-		"execution", _.execution, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"execution",
+		_.execution,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExecutionSpecification_finish =
 		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
-		"finish", _.finish, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"finish",
+		_.finish,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExecutionSpecification_start =
 		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
-		"start", _.start, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"start",
+		_.start,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExpansionNode_regionAsInput =
 		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
-		"regionAsInput", _.regionAsInput, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"regionAsInput",
+		_.regionAsInput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExpansionNode_regionAsOutput =
 		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
-		"regionAsOutput", _.regionAsOutput, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"regionAsOutput",
+		_.regionAsOutput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExpansionRegion_inputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
-		"inputElement", _.inputElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"inputElement",
+		_.inputElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ExpansionRegion_mode =
 		new MetaAttributeEnumerationFunction[Uml, UMLExpansionRegion[Uml], UMLExpansionKind.Value, UMLExpansionKind.ValueSet](None, "mode", (x: UMLExpansionRegion[Uml]) => \/-(x.mode), UMLExpansionKind.values)
 
 	val ExpansionRegion_outputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
-		"outputElement", _.outputElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"outputElement",
+		_.outputElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Expression_operand =
 		MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]](
-		"operand", _.operand, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"operand",
+		_.operand,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Expression_symbol =
 		new MetaAttributeStringFunction[Uml, UMLExpression[Uml]](None, "symbol",
@@ -2423,28 +3289,58 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Extend_condition =
 		MetaPropertyReference[Uml, UMLExtend[Uml], UMLConstraint[Uml]](
-		"condition", _.condition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"condition",
+		_.condition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Extend_extendedCase =
 		MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]](
-		"extendedCase", _.extendedCase, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"extendedCase",
+		_.extendedCase,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Extend_extensionLocation =
 		MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]](
-		"extensionLocation", _.extensionLocation, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"extensionLocation",
+		_.extensionLocation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Extension_ownedEnd =
 		MetaPropertyCollection[Uml, UMLExtension[Uml], UMLExtensionEnd[Uml]](
-		"ownedEnd", _.ownedEnd, isComposite=true, isUnique=true, isOrdered=false,
-		Set(Association_ownedEnd))
+		"ownedEnd",
+		_.ownedEnd,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Association_ownedEnd))
 
 	val ExtensionEnd_type =
 		MetaPropertyReference[Uml, UMLExtensionEnd[Uml], UMLStereotype[Uml]](
-		"type", _._type, isComposite=false, isUnique=true, isOrdered=false,
-		Set(TypedElement_type))
+		"type",
+		_._type,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(TypedElement_type))
 
 
 	val Feature_isStatic =
@@ -2453,23 +3349,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val GeneralOrdering_after =
 		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
-		"after", _.after, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"after",
+		_.after,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val GeneralOrdering_before =
 		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
-		"before", _.before, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"before",
+		_.before,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Generalization_general =
 		MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]](
-		"general", _.general, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"general",
+		_.general,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Generalization_generalizationSet =
 		MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]](
-		"generalizationSet", _.generalizationSet, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"generalizationSet",
+		_.generalizationSet,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Generalization_isSubstitutable =
 		new MetaAttributeBooleanFunction[Uml, UMLGeneralization[Uml]](None, "isSubstitutable",
@@ -2477,8 +3397,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val GeneralizationSet_generalization =
 		MetaPropertyCollection[Uml, UMLGeneralizationSet[Uml], UMLGeneralization[Uml]](
-		"generalization", _.generalization, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"generalization",
+		_.generalization,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val GeneralizationSet_isCovering =
 		new MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isCovering",
@@ -2490,8 +3416,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val GeneralizationSet_powertype =
 		MetaPropertyReference[Uml, UMLGeneralizationSet[Uml], UMLClassifier[Uml]](
-		"powertype", _.powertype, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"powertype",
+		_.powertype,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Image_content =
 		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](None, "content",
@@ -2507,218 +3439,476 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Include_addition =
 		MetaPropertyReference[Uml, UMLInclude[Uml], UMLUseCase[Uml]](
-		"addition", _.addition, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"addition",
+		_.addition,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_conveyed =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLClassifier[Uml]](
-		"conveyed", _.conveyed, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"conveyed",
+		_.conveyed,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_informationSource =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
-		"informationSource", _.informationSource, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"informationSource",
+		_.informationSource,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_informationTarget =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
-		"informationTarget", _.informationTarget, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"informationTarget",
+		_.informationTarget,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_realization =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLRelationship[Uml]](
-		"realization", _.realization, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"realization",
+		_.realization,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_realizingActivityEdge =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLActivityEdge[Uml]](
-		"realizingActivityEdge", _.realizingActivityEdge, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"realizingActivityEdge",
+		_.realizingActivityEdge,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_realizingConnector =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLConnector[Uml]](
-		"realizingConnector", _.realizingConnector, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"realizingConnector",
+		_.realizingConnector,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationFlow_realizingMessage =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLMessage[Uml]](
-		"realizingMessage", _.realizingMessage, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"realizingMessage",
+		_.realizingMessage,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InformationItem_represented =
 		MetaPropertyCollection[Uml, UMLInformationItem[Uml], UMLClassifier[Uml]](
-		"represented", _.represented, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"represented",
+		_.represented,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InstanceSpecification_classifier =
 		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLClassifier[Uml]](
-		"classifier", _.classifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"classifier",
+		_.classifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InstanceSpecification_slot =
 		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLSlot[Uml]](
-		"slot", _.slot, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"slot",
+		_.slot,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InstanceSpecification_specification =
 		MetaPropertyReference[Uml, UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]](
-		"specification", _.specification, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"specification",
+		_.specification,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InstanceValue_instance =
 		MetaPropertyReference[Uml, UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]](
-		"instance", _.instance, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"instance",
+		_.instance,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interaction_action =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLAction[Uml]](
-		"action", _.action, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"action",
+		_.action,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interaction_formalGate =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLGate[Uml]](
-		"formalGate", _.formalGate, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"formalGate",
+		_.formalGate,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interaction_fragment =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLInteractionFragment[Uml]](
-		"fragment", _.fragment, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"fragment",
+		_.fragment,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Interaction_lifeline =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLLifeline[Uml]](
-		"lifeline", _.lifeline, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"lifeline",
+		_.lifeline,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interaction_message =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLMessage[Uml]](
-		"message", _.message, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"message",
+		_.message,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionConstraint_maxint =
 		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
-		"maxint", _.maxint, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"maxint",
+		_.maxint,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionConstraint_minint =
 		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
-		"minint", _.minint, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"minint",
+		_.minint,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionFragment_covered =
 		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLLifeline[Uml]](
-		"covered", _.covered, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"covered",
+		_.covered,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionFragment_generalOrdering =
 		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]](
-		"generalOrdering", _.generalOrdering, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"generalOrdering",
+		_.generalOrdering,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionOperand_fragment =
 		MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]](
-		"fragment", _.fragment, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"fragment",
+		_.fragment,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val InteractionOperand_guard =
 		MetaPropertyReference[Uml, UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]](
-		"guard", _.guard, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"guard",
+		_.guard,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionUse_actualGate =
 		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLGate[Uml]](
-		"actualGate", _.actualGate, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"actualGate",
+		_.actualGate,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionUse_argument =
 		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
-		"argument", _.argument, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"argument",
+		_.argument,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val InteractionUse_refersTo =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLInteraction[Uml]](
-		"refersTo", _.refersTo, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"refersTo",
+		_.refersTo,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionUse_returnValue =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
-		"returnValue", _.returnValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"returnValue",
+		_.returnValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InteractionUse_returnValueRecipient =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLProperty[Uml]](
-		"returnValueRecipient", _.returnValueRecipient, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"returnValueRecipient",
+		_.returnValueRecipient,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interface_nestedClassifier =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]](
-		"nestedClassifier", _.nestedClassifier, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"nestedClassifier",
+		_.nestedClassifier,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Interface_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Interface_ownedOperation =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]](
-		"ownedOperation", _.ownedOperation, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedOperation",
+		_.ownedOperation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Interface_ownedReception =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]](
-		"ownedReception", _.ownedReception, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedReception",
+		_.ownedReception,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interface_protocol =
 		MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]](
-		"protocol", _.protocol, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"protocol",
+		_.protocol,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interface_redefinedInterface =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLInterface[Uml]](
-		"redefinedInterface", _.redefinedInterface, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedInterface",
+		_.redefinedInterface,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InterfaceRealization_contract =
 		MetaPropertyReference[Uml, UMLInterfaceRealization[Uml], UMLInterface[Uml]](
-		"contract", _.contract, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"contract",
+		_.contract,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InterruptibleActivityRegion_interruptingEdge =
 		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityEdge[Uml]](
-		"interruptingEdge", _.interruptingEdge, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"interruptingEdge",
+		_.interruptingEdge,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val InterruptibleActivityRegion_node =
 		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityNode[Uml]](
-		"node", _.node, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"node",
+		_.node,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interval_max =
 		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
-		"max", _.max, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"max",
+		_.max,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Interval_min =
 		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
-		"min", _.min, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"min",
+		_.min,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val IntervalConstraint_specification =
 		MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]](
-		"specification", _.specification, isComposite=true, isUnique=true, isOrdered=false,
-		Set(Constraint_specification))
+		"specification",
+		_.specification,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Constraint_specification))
 
 	val InvocationAction_argument =
 		MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]](
-		"argument", _.argument, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"argument",
+		_.argument,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val InvocationAction_onPort =
 		MetaPropertyReference[Uml, UMLInvocationAction[Uml], UMLPort[Uml]](
-		"onPort", _.onPort, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"onPort",
+		_.onPort,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val JoinNode_isCombineDuplicate =
 		new MetaAttributeBooleanFunction[Uml, UMLJoinNode[Uml]](None, "isCombineDuplicate",
@@ -2726,43 +3916,91 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val JoinNode_joinSpec =
 		MetaPropertyReference[Uml, UMLJoinNode[Uml], UMLValueSpecification[Uml]](
-		"joinSpec", _.joinSpec, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"joinSpec",
+		_.joinSpec,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Lifeline_coveredBy =
 		MetaPropertyCollection[Uml, UMLLifeline[Uml], UMLInteractionFragment[Uml]](
-		"coveredBy", _.coveredBy, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"coveredBy",
+		_.coveredBy,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Lifeline_decomposedAs =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLPartDecomposition[Uml]](
-		"decomposedAs", _.decomposedAs, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"decomposedAs",
+		_.decomposedAs,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Lifeline_represents =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLConnectableElement[Uml]](
-		"represents", _.represents, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"represents",
+		_.represents,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Lifeline_selector =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLValueSpecification[Uml]](
-		"selector", _.selector, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"selector",
+		_.selector,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkAction_endData =
 		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]](
-		"endData", _.endData, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"endData",
+		_.endData,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkAction_inputValue =
 		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]](
-		"inputValue", _.inputValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"inputValue",
+		_.inputValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndCreationData_insertAt =
 		MetaPropertyReference[Uml, UMLLinkEndCreationData[Uml], UMLInputPin[Uml]](
-		"insertAt", _.insertAt, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"insertAt",
+		_.insertAt,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndCreationData_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLLinkEndCreationData[Uml]](None, "isReplaceAll",
@@ -2770,23 +4008,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val LinkEndData_end =
 		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLProperty[Uml]](
-		"end", _.end, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"end",
+		_.end,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndData_qualifier =
 		MetaPropertyCollection[Uml, UMLLinkEndData[Uml], UMLQualifierValue[Uml]](
-		"qualifier", _.qualifier, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"qualifier",
+		_.qualifier,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndData_value =
 		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLInputPin[Uml]](
-		"value", _.value, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndDestructionData_destroyAt =
 		MetaPropertyReference[Uml, UMLLinkEndDestructionData[Uml], UMLInputPin[Uml]](
-		"destroyAt", _.destroyAt, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"destroyAt",
+		_.destroyAt,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LinkEndDestructionData_isDestroyDuplicates =
 		new MetaAttributeBooleanFunction[Uml, UMLLinkEndDestructionData[Uml]](None, "isDestroyDuplicates",
@@ -2814,18 +4076,30 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val LoopNode_bodyOutput =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
-		"bodyOutput", _.bodyOutput, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"bodyOutput",
+		_.bodyOutput,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val LoopNode_bodyPart =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
-		"bodyPart", _.bodyPart, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"bodyPart",
+		_.bodyPart,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LoopNode_decider =
 		MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
 		"decider", _.decider, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val LoopNode_isTestedFirst =
 		new MetaAttributeBooleanFunction[Uml, UMLLoopNode[Uml]](None, "isTestedFirst",
@@ -2833,66 +4107,132 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val LoopNode_loopVariable =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
-		"loopVariable", _.loopVariable, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"loopVariable",
+		_.loopVariable,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val LoopNode_loopVariableInput =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]](
-		"loopVariableInput", _.loopVariableInput, isComposite=true, isUnique=true, isOrdered=true,
-		Set(StructuredActivityNode_structuredNodeInput))
+		"loopVariableInput",
+		_.loopVariableInput,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeInput))
 
 	val LoopNode_result =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=true,
-		Set(StructuredActivityNode_structuredNodeOutput))
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeOutput))
 
 	val LoopNode_setupPart =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
-		"setupPart", _.setupPart, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"setupPart",
+		_.setupPart,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val LoopNode_test =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
 		"test", _.test, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val Manifestation_utilizedElement =
 		MetaPropertyReference[Uml, UMLManifestation[Uml], UMLPackageableElement[Uml]](
-		"utilizedElement", _.utilizedElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"utilizedElement",
+		_.utilizedElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Message_argument =
 		MetaPropertyCollection[Uml, UMLMessage[Uml], UMLValueSpecification[Uml]](
-		"argument", _.argument, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"argument",
+		_.argument,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Message_connector =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLConnector[Uml]](
-		"connector", _.connector, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"connector",
+		_.connector,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Message_messageSort =
 		new MetaAttributeEnumerationFunction[Uml, UMLMessage[Uml], UMLMessageSort.Value, UMLMessageSort.ValueSet](None, "messageSort", (x: UMLMessage[Uml]) => \/-(x.messageSort), UMLMessageSort.values)
 
 	val Message_receiveEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
-		"receiveEvent", _.receiveEvent, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"receiveEvent",
+		_.receiveEvent,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Message_sendEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
-		"sendEvent", _.sendEvent, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"sendEvent",
+		_.sendEvent,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Message_signature =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLNamedElement[Uml]](
-		"signature", _.signature, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signature",
+		_.signature,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val MessageEnd_message =
 		MetaPropertyReference[Uml, UMLMessageEnd[Uml], UMLMessage[Uml]](
-		"message", _.message, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"message",
+		_.message,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Model_viewpoint =
 		new MetaAttributeStringFunction[Uml, UMLModel[Uml]](None, "viewpoint",
@@ -2908,13 +4248,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val MultiplicityElement_lowerValue =
 		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
-		"lowerValue", _.lowerValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"lowerValue",
+		_.lowerValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val MultiplicityElement_upperValue =
 		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
-		"upperValue", _.upperValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"upperValue",
+		_.upperValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val NamedElement_name =
 		new MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](None, "name",
@@ -2922,31 +4274,55 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val NamedElement_nameExpression =
 		MetaPropertyReference[Uml, UMLNamedElement[Uml], UMLStringExpression[Uml]](
-		"nameExpression", _.nameExpression, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"nameExpression",
+		_.nameExpression,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val NamedElement_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLNamedElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLNamedElement[Uml]) => \/-(x.visibility), UMLVisibilityKind.values)
 
 	val Namespace_elementImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]](
-		"elementImport", _.elementImport, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"elementImport",
+		_.elementImport,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Namespace_ownedRule =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLConstraint[Uml]](
-		"ownedRule", _.ownedRule, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedRule",
+		_.ownedRule,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Namespace_packageImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLPackageImport[Uml]](
 		"packageImport", _.packageImport, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val Node_nestedNode =
 		MetaPropertyCollection[Uml, UMLNode[Uml], UMLNode[Uml]](
-		"nestedNode", _.nestedNode, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"nestedNode",
+		_.nestedNode,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ObjectFlow_isMulticast =
 		new MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMulticast",
@@ -2958,18 +4334,36 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ObjectFlow_selection =
 		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
-		"selection", _.selection, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"selection",
+		_.selection,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ObjectFlow_transformation =
 		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
-		"transformation", _.transformation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"transformation",
+		_.transformation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ObjectNode_inState =
 		MetaPropertyCollection[Uml, UMLObjectNode[Uml], UMLState[Uml]](
-		"inState", _.inState, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"inState",
+		_.inState,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ObjectNode_isControlType =
 		new MetaAttributeBooleanFunction[Uml, UMLObjectNode[Uml]](None, "isControlType",
@@ -2980,28 +4374,58 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ObjectNode_selection =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]](
-		"selection", _.selection, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"selection",
+		_.selection,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ObjectNode_upperBound =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLValueSpecification[Uml]](
-		"upperBound", _.upperBound, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"upperBound",
+		_.upperBound,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OccurrenceSpecification_covered =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]](
-		"covered", _.covered, isComposite=false, isUnique=true, isOrdered=false,
-		Set(InteractionFragment_covered))
+		"covered",
+		_.covered,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(InteractionFragment_covered))
 
 	val OccurrenceSpecification_toAfter =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
-		"toAfter", _.toAfter, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"toAfter",
+		_.toAfter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OccurrenceSpecification_toBefore =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
-		"toBefore", _.toBefore, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"toBefore",
+		_.toBefore,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OpaqueAction_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "body",
@@ -3009,8 +4433,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val OpaqueAction_inputValue =
 		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLInputPin[Uml]](
-		"inputValue", _.inputValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"inputValue",
+		_.inputValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OpaqueAction_language =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](None, "language",
@@ -3018,8 +4448,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val OpaqueAction_outputValue =
 		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLOutputPin[Uml]](
-		"outputValue", _.outputValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"outputValue",
+		_.outputValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OpaqueBehavior_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](None, "body",
@@ -3031,8 +4467,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val OpaqueExpression_behavior =
 		MetaPropertyReference[Uml, UMLOpaqueExpression[Uml], UMLBehavior[Uml]](
-		"behavior", _.behavior, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"behavior",
+		_.behavior,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val OpaqueExpression_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](None, "body",
@@ -3044,8 +4486,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Operation_bodyCondition =
 		MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
-		"bodyCondition", _.bodyCondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"bodyCondition",
+		_.bodyCondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Operation_isQuery =
 		new MetaAttributeBooleanFunction[Uml, UMLOperation[Uml]](None, "isQuery",
@@ -3053,38 +4501,80 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Operation_ownedParameter =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]](
-		"ownedParameter", _.ownedParameter, isComposite=true, isUnique=true, isOrdered=true,
-		Set(BehavioralFeature_ownedParameter))
+		"ownedParameter",
+		_.ownedParameter,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(BehavioralFeature_ownedParameter))
 
 	val Operation_postcondition =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
-		"postcondition", _.postcondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"postcondition",
+		_.postcondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Operation_precondition =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
-		"precondition", _.precondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"precondition",
+		_.precondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Operation_raisedException =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]](
-		"raisedException", _.raisedException, isComposite=false, isUnique=true, isOrdered=false,
-		Set(BehavioralFeature_raisedException))
+		"raisedException",
+		_.raisedException,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(BehavioralFeature_raisedException))
 
 	val Operation_redefinedOperation =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]](
-		"redefinedOperation", _.redefinedOperation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedOperation",
+		_.redefinedOperation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Operation_templateParameter =
 		MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]](
-		"templateParameter", _.templateParameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set(ParameterableElement_templateParameter))
+		"templateParameter",
+		_.templateParameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(ParameterableElement_templateParameter))
 
 	val OperationTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLOperationTemplateParameter[Uml], UMLOperation[Uml]](
-		"parameteredElement", _.parameteredElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set(TemplateParameter_parameteredElement))
+		"parameteredElement",
+		_.parameteredElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(TemplateParameter_parameteredElement))
 
 	val Package_URI =
 		new MetaDocumentAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
@@ -3094,39 +4584,75 @@ trait UMLOps[Uml <: UML] { self =>
 			
 	val Package_packageMerge =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](
-		"packageMerge", _.packageMerge, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"packageMerge",
+		_.packageMerge,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Package_packagedElement =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageableElement[Uml]](
-		"packagedElement", _.packagedElement, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"packagedElement",
+		_.packagedElement,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Package_profileApplication =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLProfileApplication[Uml]](
-		"profileApplication", _.profileApplication, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"profileApplication",
+		_.profileApplication,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val PackageImport_importedPackage =
 		MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLPackage[Uml]](
-		"importedPackage", _.importedPackage, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"importedPackage",
+		_.importedPackage,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val PackageImport_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLPackageImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageImport[Uml]) => \/-(x.visibility), UMLVisibilityKind.values)
 
 	val PackageMerge_mergedPackage =
 		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
-		"mergedPackage", _.mergedPackage, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"mergedPackage",
+		_.mergedPackage,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val PackageableElement_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLPackageableElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](None, "visibility", (x: UMLPackageableElement[Uml]) => \/-(x.visibility), UMLVisibilityKind.values)
 
 	val Parameter_defaultValue =
 		MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]](
-		"defaultValue", _.defaultValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"defaultValue",
+		_.defaultValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Parameter_direction =
 		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterDirectionKind.Value, UMLParameterDirectionKind.ValueSet](None, "direction", (x: UMLParameter[Uml]) => \/-(x.direction), UMLParameterDirectionKind.values)
@@ -3144,23 +4670,47 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Parameter_parameterSet =
 		MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]](
-		"parameterSet", _.parameterSet, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"parameterSet",
+		_.parameterSet,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ParameterSet_condition =
 		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLConstraint[Uml]](
-		"condition", _.condition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"condition",
+		_.condition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ParameterSet_parameter =
 		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLParameter[Uml]](
-		"parameter", _.parameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"parameter",
+		_.parameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ParameterableElement_templateParameter =
 		MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
-		"templateParameter", _.templateParameter, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"templateParameter",
+		_.templateParameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Pin_isControl =
 		new MetaAttributeBooleanFunction[Uml, UMLPin[Uml]](None, "isControl",
@@ -3180,28 +4730,58 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Port_protocol =
 		MetaPropertyReference[Uml, UMLPort[Uml], UMLProtocolStateMachine[Uml]](
-		"protocol", _.protocol, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"protocol",
+		_.protocol,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Port_redefinedPort =
 		MetaPropertyCollection[Uml, UMLPort[Uml], UMLPort[Uml]](
-		"redefinedPort", _.redefinedPort, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedPort",
+		_.redefinedPort,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Profile_metaclassReference =
 		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]](
-		"metaclassReference", _.metaclassReference, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"metaclassReference",
+		_.metaclassReference,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Profile_metamodelReference =
 		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]](
-		"metamodelReference", _.metamodelReference, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"metamodelReference",
+		_.metamodelReference,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProfileApplication_appliedProfile =
 		MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLProfile[Uml]](
-		"appliedProfile", _.appliedProfile, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"appliedProfile",
+		_.appliedProfile,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProfileApplication_isStrict =
 		new MetaAttributeBooleanFunction[Uml, UMLProfileApplication[Uml]](None, "isStrict",
@@ -3212,13 +4792,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Property_association =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
-		"association", _.association, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"association",
+		_.association,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Property_defaultValue =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]](
-		"defaultValue", _.defaultValue, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"defaultValue",
+		_.defaultValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Property_isDerived =
 		new MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerived",
@@ -3234,38 +4826,80 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Property_qualifier =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
-		"qualifier", _.qualifier, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"qualifier",
+		_.qualifier,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val Property_redefinedProperty =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
-		"redefinedProperty", _.redefinedProperty, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedProperty",
+		_.redefinedProperty,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Property_subsettedProperty =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
-		"subsettedProperty", _.subsettedProperty, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"subsettedProperty",
+		_.subsettedProperty,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProtocolConformance_generalMachine =
 		MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]](
-		"generalMachine", _.generalMachine, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"generalMachine",
+		_.generalMachine,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProtocolStateMachine_conformance =
 		MetaPropertyCollection[Uml, UMLProtocolStateMachine[Uml], UMLProtocolConformance[Uml]](
-		"conformance", _.conformance, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"conformance",
+		_.conformance,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProtocolTransition_postCondition =
 		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
-		"postCondition", _.postCondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"postCondition",
+		_.postCondition,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ProtocolTransition_preCondition =
 		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
-		"preCondition", _.preCondition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"preCondition",
+		_.preCondition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Pseudostate_kind =
 		new MetaAttributeEnumerationFunction[Uml, UMLPseudostate[Uml], UMLPseudostateKind.Value, UMLPseudostateKind.ValueSet](None, "kind", (x: UMLPseudostate[Uml]) => \/-(x.kind), UMLPseudostateKind.values)
@@ -3273,32 +4907,62 @@ trait UMLOps[Uml <: UML] { self =>
 	val QualifierValue_qualifier =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]](
 		"qualifier", _.qualifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		redefinedMetaProperties=Set())
 
 	val QualifierValue_value =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLInputPin[Uml]](
-		"value", _.value, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val RaiseExceptionAction_exception =
 		MetaPropertyReference[Uml, UMLRaiseExceptionAction[Uml], UMLInputPin[Uml]](
-		"exception", _.exception, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"exception",
+		_.exception,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadExtentAction_classifier =
 		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLClassifier[Uml]](
-		"classifier", _.classifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"classifier",
+		_.classifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadExtentAction_result =
 		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadIsClassifiedObjectAction_classifier =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]](
-		"classifier", _.classifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"classifier",
+		_.classifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadIsClassifiedObjectAction_isDirect =
 		new MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect",
@@ -3306,68 +4970,146 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ReadIsClassifiedObjectAction_object =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadIsClassifiedObjectAction_result =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndAction_end =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLProperty[Uml]](
-		"end", _.end, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"end",
+		_.end,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndQualifierAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndQualifierAction_qualifier =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLProperty[Uml]](
-		"qualifier", _.qualifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"qualifier",
+		_.qualifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadLinkObjectEndQualifierAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadSelfAction_result =
 		MetaPropertyReference[Uml, UMLReadSelfAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLReadStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReadVariableAction_result =
 		MetaPropertyReference[Uml, UMLReadVariableAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Reception_signal =
 		MetaPropertyReference[Uml, UMLReception[Uml], UMLSignal[Uml]](
-		"signal", _.signal, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signal",
+		_.signal,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReclassifyObjectAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLReclassifyObjectAction[Uml]](None, "isReplaceAll",
@@ -3375,18 +5117,36 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ReclassifyObjectAction_newClassifier =
 		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
-		"newClassifier", _.newClassifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"newClassifier",
+		_.newClassifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReclassifyObjectAction_object =
 		MetaPropertyReference[Uml, UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReclassifyObjectAction_oldClassifier =
 		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
-		"oldClassifier", _.oldClassifier, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"oldClassifier",
+		_.oldClassifier,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val RedefinableElement_isLeaf =
 		new MetaAttributeBooleanFunction[Uml, UMLRedefinableElement[Uml]](None, "isLeaf",
@@ -3394,13 +5154,25 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val RedefinableTemplateSignature_extendedSignature =
 		MetaPropertyCollection[Uml, UMLRedefinableTemplateSignature[Uml], UMLRedefinableTemplateSignature[Uml]](
-		"extendedSignature", _.extendedSignature, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"extendedSignature",
+		_.extendedSignature,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReduceAction_collection =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLInputPin[Uml]](
-		"collection", _.collection, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"collection",
+		_.collection,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReduceAction_isOrdered =
 		new MetaAttributeBooleanFunction[Uml, UMLReduceAction[Uml]](None, "isOrdered",
@@ -3408,28 +5180,58 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val ReduceAction_reducer =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLBehavior[Uml]](
-		"reducer", _.reducer, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"reducer",
+		_.reducer,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReduceAction_result =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Region_extendedRegion =
 		MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]](
-		"extendedRegion", _.extendedRegion, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"extendedRegion",
+		_.extendedRegion,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Region_subvertex =
 		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLVertex[Uml]](
-		"subvertex", _.subvertex, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"subvertex",
+		_.subvertex,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Region_transition =
 		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]](
-		"transition", _.transition, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"transition",
+		_.transition,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val RemoveStructuralFeatureValueAction_isRemoveDuplicates =
 		new MetaAttributeBooleanFunction[Uml, UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates",
@@ -3437,177 +5239,381 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val RemoveStructuralFeatureValueAction_removeAt =
 		MetaPropertyReference[Uml, UMLRemoveStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
-		"removeAt", _.removeAt, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"removeAt",
+		_.removeAt,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val RemoveVariableValueAction_isRemoveDuplicates =
-		new MetaAttributeBooleanFunction[Uml, UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates",
-		(x: UMLRemoveVariableValueAction[Uml]) => booleanToIterable(x.isRemoveDuplicates, false))
+		MetaAttributeBooleanFunction[Uml, UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates",
+		(x) => booleanToIterable(x.isRemoveDuplicates, false))
 
 	val RemoveVariableValueAction_removeAt =
 		MetaPropertyReference[Uml, UMLRemoveVariableValueAction[Uml], UMLInputPin[Uml]](
-		"removeAt", _.removeAt, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"removeAt",
+		_.removeAt,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReplyAction_replyToCall =
 		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLTrigger[Uml]](
-		"replyToCall", _.replyToCall, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"replyToCall",
+		_.replyToCall,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ReplyAction_replyValue =
 		MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
-		"replyValue", _.replyValue, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"replyValue",
+		_.replyValue,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val ReplyAction_returnInformation =
 		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
-		"returnInformation", _.returnInformation, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"returnInformation",
+		_.returnInformation,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val SendObjectAction_request =
 		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
-		"request", _.request, isComposite=true, isUnique=true, isOrdered=false,
-		Set(InvocationAction_argument))
+		"request",
+		_.request,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(InvocationAction_argument))
 
 	val SendObjectAction_target =
 		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
-		"target", _.target, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val SendSignalAction_signal =
 		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLSignal[Uml]](
-		"signal", _.signal, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signal",
+		_.signal,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val SendSignalAction_target =
 		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLInputPin[Uml]](
-		"target", _.target, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val SequenceNode_executableNode =
 		MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]](
-		"executableNode", _.executableNode, isComposite=true, isUnique=true, isOrdered=true,
-		Set(StructuredActivityNode_node))
+		"executableNode",
+		_.executableNode,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set(StructuredActivityNode_node))
 
 	val Signal_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLSignal[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val SignalEvent_signal =
 		MetaPropertyReference[Uml, UMLSignalEvent[Uml], UMLSignal[Uml]](
-		"signal", _.signal, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signal",
+		_.signal,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Slot_definingFeature =
 		MetaPropertyReference[Uml, UMLSlot[Uml], UMLStructuralFeature[Uml]](
-		"definingFeature", _.definingFeature, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"definingFeature",
+		_.definingFeature,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Slot_value =
 		MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]](
-		"value", _.value, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"value",
+		_.value,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val StartClassifierBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartClassifierBehaviorAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StartObjectBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartObjectBehaviorAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_connection =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLConnectionPointReference[Uml]](
-		"connection", _.connection, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"connection",
+		_.connection,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_connectionPoint =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLPseudostate[Uml]](
-		"connectionPoint", _.connectionPoint, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"connectionPoint",
+		_.connectionPoint,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_deferrableTrigger =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLTrigger[Uml]](
-		"deferrableTrigger", _.deferrableTrigger, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"deferrableTrigger",
+		_.deferrableTrigger,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_doActivity =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
-		"doActivity", _.doActivity, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"doActivity",
+		_.doActivity,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_entry =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
-		"entry", _.entry, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"entry",
+		_.entry,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_exit =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
-		"exit", _.exit, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"exit",
+		_.exit,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_redefinedState =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLState[Uml]](
-		"redefinedState", _.redefinedState, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedState",
+		_.redefinedState,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_region =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]](
-		"region", _.region, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"region",
+		_.region,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_stateInvariant =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]](
-		"stateInvariant", _.stateInvariant, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"stateInvariant",
+		_.stateInvariant,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val State_submachine =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLStateMachine[Uml]](
-		"submachine", _.submachine, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"submachine",
+		_.submachine,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StateInvariant_covered =
 		MetaPropertyCollection[Uml, UMLStateInvariant[Uml], UMLLifeline[Uml]](
-		"covered", _.covered, isComposite=false, isUnique=true, isOrdered=false,
-		Set(InteractionFragment_covered))
+		"covered",
+		_.covered,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(InteractionFragment_covered))
 
 	val StateInvariant_invariant =
 		MetaPropertyReference[Uml, UMLStateInvariant[Uml], UMLConstraint[Uml]](
-		"invariant", _.invariant, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"invariant",
+		_.invariant,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StateMachine_connectionPoint =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLPseudostate[Uml]](
-		"connectionPoint", _.connectionPoint, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"connectionPoint",
+		_.connectionPoint,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StateMachine_extendedStateMachine =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLStateMachine[Uml]](
-		"extendedStateMachine", _.extendedStateMachine, isComposite=false, isUnique=true, isOrdered=false,
-		Set(Behavior_redefinedBehavior))
+		"extendedStateMachine",
+		_.extendedStateMachine,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Behavior_redefinedBehavior))
 
 	val StateMachine_region =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLRegion[Uml]](
-		"region", _.region, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"region",
+		_.region,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StateMachine_submachineState =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLState[Uml]](
-		"submachineState", _.submachineState, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"submachineState",
+		_.submachineState,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Stereotype_icon =
 		MetaPropertyCollection[Uml, UMLStereotype[Uml], UMLImage[Uml]](
-		"icon", _.icon, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"icon",
+		_.icon,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StringExpression_subExpression =
 		MetaPropertyCollection[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]](
-		"subExpression", _.subExpression, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"subExpression",
+		_.subExpression,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val StructuralFeature_isReadOnly =
 		new MetaAttributeBooleanFunction[Uml, UMLStructuralFeature[Uml]](None, "isReadOnly",
@@ -3615,18 +5621,36 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val StructuralFeatureAction_object =
 		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuralFeatureAction_structuralFeature =
 		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLStructuralFeature[Uml]](
-		"structuralFeature", _.structuralFeature, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"structuralFeature",
+		_.structuralFeature,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredActivityNode_edge =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
-		"edge", _.edge, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"edge",
+		_.edge,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredActivityNode_mustIsolate =
 		new MetaAttributeBooleanFunction[Uml, UMLStructuredActivityNode[Uml]](None, "mustIsolate",
@@ -3634,118 +5658,256 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val StructuredActivityNode_node =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]](
-		"node", _.node, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"node",
+		_.node,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredActivityNode_structuredNodeInput =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]](
-		"structuredNodeInput", _.structuredNodeInput, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"structuredNodeInput",
+		_.structuredNodeInput,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredActivityNode_structuredNodeOutput =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]](
-		"structuredNodeOutput", _.structuredNodeOutput, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"structuredNodeOutput",
+		_.structuredNodeOutput,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredActivityNode_variable =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]](
-		"variable", _.variable, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"variable",
+		_.variable,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val StructuredClassifier_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLProperty[Uml]](
-		"ownedAttribute", _.ownedAttribute, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedAttribute",
+		_.ownedAttribute,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val StructuredClassifier_ownedConnector =
 		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLConnector[Uml]](
-		"ownedConnector", _.ownedConnector, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedConnector",
+		_.ownedConnector,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Substitution_contract =
 		MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]](
-		"contract", _.contract, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"contract",
+		_.contract,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateBinding_parameterSubstitution =
 		MetaPropertyCollection[Uml, UMLTemplateBinding[Uml], UMLTemplateParameterSubstitution[Uml]](
-		"parameterSubstitution", _.parameterSubstitution, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"parameterSubstitution",
+		_.parameterSubstitution,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateBinding_signature =
 		MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateSignature[Uml]](
-		"signature", _.signature, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"signature",
+		_.signature,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameter_default =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
-		"default", _.default, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"default",
+		_.default,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameter_ownedDefault =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
-		"ownedDefault", _.ownedDefault, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedDefault",
+		_.ownedDefault,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameter_ownedParameteredElement =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
-		"ownedParameteredElement", _.ownedParameteredElement, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedParameteredElement",
+		_.ownedParameteredElement,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
-		"parameteredElement", _.parameteredElement, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"parameteredElement",
+		_.parameteredElement,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameterSubstitution_actual =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
-		"actual", _.actual, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"actual",
+		_.actual,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameterSubstitution_formal =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]](
-		"formal", _.formal, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"formal",
+		_.formal,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateParameterSubstitution_ownedActual =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
-		"ownedActual", _.ownedActual, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedActual",
+		_.ownedActual,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateSignature_ownedParameter =
 		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
-		"ownedParameter", _.ownedParameter, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"ownedParameter",
+		_.ownedParameter,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val TemplateSignature_parameter =
 		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
-		"parameter", _.parameter, isComposite=false, isUnique=true, isOrdered=true,
-		Set())
+		"parameter",
+		_.parameter,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val TemplateableElement_ownedTemplateSignature =
 		MetaPropertyReference[Uml, UMLTemplateableElement[Uml], UMLTemplateSignature[Uml]](
-		"ownedTemplateSignature", _.ownedTemplateSignature, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"ownedTemplateSignature",
+		_.ownedTemplateSignature,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TemplateableElement_templateBinding =
 		MetaPropertyCollection[Uml, UMLTemplateableElement[Uml], UMLTemplateBinding[Uml]](
-		"templateBinding", _.templateBinding, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"templateBinding",
+		_.templateBinding,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TestIdentityAction_first =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
-		"first", _.first, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"first",
+		_.first,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TestIdentityAction_result =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TestIdentityAction_second =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
-		"second", _.second, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"second",
+		_.second,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TimeConstraint_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent",
@@ -3753,8 +5915,14 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val TimeConstraint_specification =
 		MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
-		"specification", _.specification, isComposite=true, isUnique=true, isOrdered=false,
-		Set(IntervalConstraint_specification))
+		"specification",
+		_.specification,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(IntervalConstraint_specification))
 
 	val TimeEvent_isRelative =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeEvent[Uml]](None, "isRelative",
@@ -3762,33 +5930,69 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val TimeEvent_when =
 		MetaPropertyReference[Uml, UMLTimeEvent[Uml], UMLTimeExpression[Uml]](
-		"when", _.when, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"when",
+		_.when,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TimeExpression_expr =
 		MetaPropertyReference[Uml, UMLTimeExpression[Uml], UMLValueSpecification[Uml]](
-		"expr", _.expr, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"expr",
+		_.expr,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TimeExpression_observation =
 		MetaPropertyCollection[Uml, UMLTimeExpression[Uml], UMLObservation[Uml]](
-		"observation", _.observation, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"observation",
+		_.observation,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TimeInterval_max =
 		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
-		"max", _.max, isComposite=false, isUnique=true, isOrdered=false,
-		Set(Interval_max))
+		"max",
+		_.max,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Interval_max))
 
 	val TimeInterval_min =
 		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
-		"min", _.min, isComposite=false, isUnique=true, isOrdered=false,
-		Set(Interval_min))
+		"min",
+		_.min,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set(Interval_min))
 
 	val TimeObservation_event =
 		MetaPropertyReference[Uml, UMLTimeObservation[Uml], UMLNamedElement[Uml]](
-		"event", _.event, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"event",
+		_.event,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val TimeObservation_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeObservation[Uml]](None, "firstEvent",
@@ -3796,124 +6000,262 @@ trait UMLOps[Uml <: UML] { self =>
 
 	val Transition_effect =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]](
-		"effect", _.effect, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"effect",
+		_.effect,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Transition_guard =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]](
-		"guard", _.guard, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"guard",
+		_.guard,
+		isComposite=true,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Transition_kind =
 		new MetaAttributeEnumerationFunction[Uml, UMLTransition[Uml], UMLTransitionKind.Value, UMLTransitionKind.ValueSet](None, "kind", (x: UMLTransition[Uml]) => \/-(x.kind), UMLTransitionKind.values)
 
 	val Transition_redefinedTransition =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]](
-		"redefinedTransition", _.redefinedTransition, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"redefinedTransition",
+		_.redefinedTransition,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Transition_source =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
-		"source", _.source, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"source",
+		_.source,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Transition_target =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
-		"target", _.target, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"target",
+		_.target,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Transition_trigger =
 		MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]](
-		"trigger", _.trigger, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"trigger",
+		_.trigger,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Trigger_event =
 		MetaPropertyReference[Uml, UMLTrigger[Uml], UMLEvent[Uml]](
-		"event", _.event, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"event",
+		_.event,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val Trigger_port =
 		MetaPropertyCollection[Uml, UMLTrigger[Uml], UMLPort[Uml]](
-		"port", _.port, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"port",
+		_.port,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 
 	val TypedElement_type =
 		MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]](
-		"type", _._type, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"type",
+		_._type,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UnmarshallAction_object =
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]](
-		"object", _._object, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"object",
+		_._object,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UnmarshallAction_result =
 		MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=true,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=true,
+		redefinedMetaProperties=Set())
 
 	val UnmarshallAction_unmarshallType =
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLClassifier[Uml]](
-		"unmarshallType", _.unmarshallType, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"unmarshallType",
+		_.unmarshallType,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UseCase_extend =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtend[Uml]](
-		"extend", _.extend, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"extend",
+		_.extend,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UseCase_extensionPoint =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtensionPoint[Uml]](
-		"extensionPoint", _.extensionPoint, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"extensionPoint",
+		_.extensionPoint,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UseCase_include =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLInclude[Uml]](
-		"include", _.include, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"include",
+		_.include,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val UseCase_subject =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLClassifier[Uml]](
-		"subject", _.subject, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"subject",
+		_.subject,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ValuePin_value =
 		MetaPropertyReference[Uml, UMLValuePin[Uml], UMLValueSpecification[Uml]](
-		"value", _.value, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ValueSpecificationAction_result =
 		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val ValueSpecificationAction_value =
 		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLValueSpecification[Uml]](
-		"value", _.value, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 
 	val VariableAction_variable =
 		MetaPropertyReference[Uml, UMLVariableAction[Uml], UMLVariable[Uml]](
-		"variable", _.variable, isComposite=false, isUnique=true, isOrdered=false,
-		Set())
+		"variable",
+		_.variable,
+		isComposite=false,
+		isSerializedAsNested=false,
+		isSerializedAsReference=true,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 
 	val WriteStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
-		"result", _.result, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"result",
+		_.result,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val WriteStructuralFeatureAction_value =
 		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLInputPin[Uml]](
-		"value", _.value, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	val WriteVariableAction_value =
 		MetaPropertyReference[Uml, UMLWriteVariableAction[Uml], UMLInputPin[Uml]](
-		"value", _.value, isComposite=true, isUnique=true, isOrdered=false,
-		Set())
+		"value",
+		_.value,
+		isComposite=true,
+		isSerializedAsNested=true,
+		isSerializedAsReference=false,
+		isUnique=true,
+		isOrdered=false,
+		redefinedMetaProperties=Set())
 
 	// Start of user code for additional features
 
