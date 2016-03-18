@@ -291,19 +291,19 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	        case \/-(aV) =>
 	          (attributeQuery.f, attributeQuery.df) match {
 	             case (Some(_f), _) =>
-                _f(aU).flatMap { ds => 
-                  attributeUpdate(aU, ds ++ Iterable(aV))
-                }
-          case (None, Some(_df)) =>
-            _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
-              attributeUpdate(aU, ds ++ Iterable(aV))
+	               _f(aU).flatMap { ds => 
+	                 attributeUpdate(aU, ds ++ Iterable(aV))
+	               }
+	             case (None, Some(_df)) =>
+	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	                 attributeUpdate(aU, ds ++ Iterable(aV))
+                 }
+               case _ =>
+                 -\/(
+                     NonEmptyList(
+                         UMLError
+                         .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
             }
-          case _ =>
-            -\/(
-              NonEmptyList(
-                UMLError
-                .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
-	          }
 	      }
 	    
       case _ =>
@@ -337,9 +337,21 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	        case -\/(nels) =>
 	          -\/(nels)
 	        case \/-(aV) =>
-	          // @todo
-	          //attributeUpdate(aU, aV)
-	          ???
+	          (attributeQuery.f, attributeQuery.df) match {
+	             case (Some(_f), _) =>
+	               _f(aU).flatMap { ds => 
+	                 attributeUpdate(aU, ds.toSet ++ Set(aV))
+	               }
+	             case (None, Some(_df)) =>
+	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	                 attributeUpdate(aU, ds.toSet ++ Set(aV))
+                 }
+               case _ =>
+                 -\/(
+                     NonEmptyList(
+                         UMLError
+                         .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
+            }
 	      }
 	    
       case _ =>
@@ -373,9 +385,21 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	        case -\/(nels) =>
 	          -\/(nels)
 	        case \/-(aV) =>
-	          // @todo 
-	          // attributeUpdate(aU, aV)
-	          ???
+	          (attributeQuery.f, attributeQuery.df) match {
+	             case (Some(_f), _) =>
+	               _f(aU).flatMap { ds => 
+	                 attributeUpdate(aU, ds.to[Seq] ++ Seq(aV))
+	               }
+	             case (None, Some(_df)) =>
+	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	                 attributeUpdate(aU, ds.to[Seq] ++ Seq(aV))
+                 }
+               case _ =>
+                 -\/(
+                     NonEmptyList(
+                         UMLError
+                         .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
+            }
 	      }
 	    
       case _ =>
