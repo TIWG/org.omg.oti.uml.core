@@ -4836,9 +4836,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) :+
         ( "visibility" -> MetaEnumerationAttributeUpdater_NamedElement_visibility ) :+
-        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) :+
+        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) :+
         ( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> MetaEnumerationAttributeUpdater_Property_aggregation ) :+
@@ -5513,18 +5513,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
           ops.Abstraction_mapping))
@@ -5539,21 +5530,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -5583,21 +5559,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -5624,21 +5585,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "finish" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification _,
-          ops.ExecutionSpecification_finish)) :+
-        ( "start" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification _,
-          ops.ExecutionSpecification_start)) :+
-        ( "action" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActionExecutionSpecification_actionExecutionSpecification_reference_action_Action _,
-          ops.ActionExecutionSpecification_action))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {ActionInputPin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ActionInputPin
@@ -5650,30 +5599,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) :+
@@ -5694,9 +5619,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -5727,33 +5649,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -5778,18 +5682,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
           ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification)) :+
         ( "edge" -> AssociationMetaPropertySetUpdateInfo(
           links_Activity_activity_compose_edge_ActivityEdge _,
           ops.Activity_edge)) :+
@@ -5799,12 +5691,6 @@ with UMLPropertyUpdater[Uml] {
         ( "node" -> AssociationMetaPropertySetUpdateInfo(
           links_Activity_activity_compose_node_ActivityNode _,
           ops.Activity_node)) :+
-        ( "partition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Activity_activity_reference_partition_ActivityPartition _,
-          ops.Activity_partition)) :+
-        ( "structuredNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_Activity_activity_compose_structuredNode_StructuredActivityNode _,
-          ops.Activity_structuredNode)) :+
         ( "variable" -> AssociationMetaPropertySetUpdateInfo(
           links_Activity_activityScope_compose_variable_Variable _,
           ops.Activity_variable))
@@ -5818,22 +5704,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode))
+          ops.NamedElement_nameExpression))
 
   // All parents: {ActivityParameterNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ActivityParameterNode
@@ -5845,36 +5716,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
-          ops.ObjectNode_upperBound)) :+
-        ( "parameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityParameterNode_activityParameterNode_reference_parameter_Parameter _,
-          ops.ActivityParameterNode_parameter))
+          ops.ObjectNode_upperBound))
 
   // All parents: {ActivityPartition, ActivityGroup, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ActivityPartition
@@ -5886,15 +5730,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "edge" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityPartition_inPartition_reference_edge_ActivityEdge _,
-          ops.ActivityPartition_edge)) :+
-        ( "node" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityPartition_inPartition_reference_node_ActivityNode _,
-          ops.ActivityPartition_node)) :+
-        ( "represents" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityPartition_activityPartition_reference_represents_Element _,
-          ops.ActivityPartition_represents)) :+
         ( "subpartition" -> AssociationMetaPropertySetUpdateInfo(
           links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition _,
           ops.ActivityPartition_subpartition))
@@ -5906,9 +5741,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -5939,27 +5771,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -5977,21 +5791,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6004,9 +5803,6 @@ with UMLPropertyUpdater[Uml] {
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) :+
-        ( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature _,
-          ops.StructuralFeatureAction_structuralFeature)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin _,
           ops.WriteStructuralFeatureAction_result)) :+
@@ -6027,21 +5823,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6051,9 +5832,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "variable" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_VariableAction_variableAction_reference_variable_Variable _,
-          ops.VariableAction_variable)) :+
         ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
           links_WriteVariableAction_writeVariableAction_compose_value_InputPin _,
           ops.WriteVariableAction_value)) :+
@@ -6068,9 +5846,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
@@ -6082,9 +5857,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6115,24 +5887,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "manifestation" -> AssociationMetaPropertySetUpdateInfo(
           links_Artifact_artifact_compose_manifestation_Manifestation _,
           ops.Artifact_manifestation)) :+
@@ -6153,9 +5910,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6186,30 +5940,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "memberEnd" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Association_association_reference_memberEnd_Property _,
-          ops.Association_memberEnd)) :+
-        ( "navigableOwnedEnd" -> AssociationMetaPropertySetUpdateInfo(
-          links_Association_association_reference_navigableOwnedEnd_Property _,
-          ops.Association_navigableOwnedEnd)) :+
         ( "ownedEnd" -> AssociationMetaPropertyIterableUpdateInfo(
           links_Association_owningAssociation_compose_ownedEnd_Property _,
           ops.Association_ownedEnd))
@@ -6221,9 +5954,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6254,33 +5984,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -6299,12 +6011,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedReception" -> AssociationMetaPropertySetUpdateInfo(
           links_Class_class_compose_ownedReception_Reception _,
           ops.Class_ownedReception)) :+
-        ( "memberEnd" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Association_association_reference_memberEnd_Property _,
-          ops.Association_memberEnd)) :+
-        ( "navigableOwnedEnd" -> AssociationMetaPropertySetUpdateInfo(
-          links_Association_association_reference_navigableOwnedEnd_Property _,
-          ops.Association_navigableOwnedEnd)) :+
         ( "ownedEnd" -> AssociationMetaPropertyIterableUpdateInfo(
           links_Association_owningAssociation_compose_ownedEnd_Property _,
           ops.Association_ownedEnd))
@@ -6319,21 +6025,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "finish" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExecutionSpecification_executionSpecification_reference_finish_OccurrenceSpecification _,
-          ops.ExecutionSpecification_finish)) :+
-        ( "start" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExecutionSpecification_executionSpecification_reference_start_OccurrenceSpecification _,
-          ops.ExecutionSpecification_start)) :+
-        ( "behavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehaviorExecutionSpecification_behaviorExecutionSpecification_reference_behavior_Behavior _,
-          ops.BehaviorExecutionSpecification_behavior))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {BroadcastSignalAction, InvocationAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_BroadcastSignalAction
@@ -6345,21 +6039,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6371,13 +6050,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Action_localPrecondition)) :+
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
-          ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
-        ( "signal" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BroadcastSignalAction_broadcastSignalAction_reference_signal_Signal _,
-          ops.BroadcastSignalAction_signal))
+          ops.InvocationAction_argument))
 
   // All parents: {CallBehaviorAction, CallAction, InvocationAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_CallBehaviorAction
@@ -6389,21 +6062,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6416,15 +6074,9 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
           ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
         ( "result" -> AssociationMetaPropertySequenceUpdateInfo(
           links_CallAction_callAction_compose_result_OutputPin _,
-          ops.CallAction_result)) :+
-        ( "behavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_CallBehaviorAction_callBehaviorAction_reference_behavior_Behavior _,
-          ops.CallBehaviorAction_behavior))
+          ops.CallAction_result))
 
   // All parents: {CallEvent, MessageEvent, Event, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_CallEvent
@@ -6433,15 +6085,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "operation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_CallEvent_callEvent_reference_operation_Operation _,
-          ops.CallEvent_operation))
+          ops.NamedElement_nameExpression))
 
   // All parents: {CallOperationAction, CallAction, InvocationAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_CallOperationAction
@@ -6453,21 +6099,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6480,15 +6111,9 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
           ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
         ( "result" -> AssociationMetaPropertySequenceUpdateInfo(
           links_CallAction_callAction_compose_result_OutputPin _,
           ops.CallAction_result)) :+
-        ( "operation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_CallOperationAction_callOperationAction_reference_operation_Operation _,
-          ops.CallOperationAction_operation)) :+
         ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
           links_CallOperationAction_callOperationAction_compose_target_InputPin _,
           ops.CallOperationAction_target))
@@ -6503,30 +6128,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound))
@@ -6538,9 +6139,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6555,9 +6153,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6588,33 +6183,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -6641,24 +6218,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "default" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_default_ParameterableElement _,
-          ops.TemplateParameter_default)) :+
         ( "ownedDefault" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement _,
           ops.TemplateParameter_ownedDefault)) :+
         ( "ownedParameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
-          ops.TemplateParameter_ownedParameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
-          ops.TemplateParameter_parameteredElement)) :+
-        ( "constrainingClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier _,
-          ops.ClassifierTemplateParameter_constrainingClassifier)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier _,
-          ops.ClassifierTemplateParameter_parameteredElement))
+          ops.TemplateParameter_ownedParameteredElement))
 
   // All parents: {Clause, Element}
   lazy val metaclass_composite_updater_table_Clause
@@ -6666,25 +6231,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "body" -> AssociationMetaPropertySetUpdateInfo(
-          links_Clause_clause_reference_body_ExecutableNode _,
-          ops.Clause_body)) :+
-        ( "bodyOutput" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Clause_clause_reference_bodyOutput_OutputPin _,
-          ops.Clause_bodyOutput)) :+
-        ( "decider" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Clause_clause_reference_decider_OutputPin _,
-          ops.Clause_decider)) :+
-        ( "predecessorClause" -> AssociationMetaPropertySetUpdateInfo(
-          links_Clause_successorClause_reference_predecessorClause_Clause _,
-          ops.Clause_predecessorClause)) :+
-        ( "successorClause" -> AssociationMetaPropertySetUpdateInfo(
-          links_Clause_predecessorClause_reference_successorClause_Clause _,
-          ops.Clause_successorClause)) :+
-        ( "test" -> AssociationMetaPropertySetUpdateInfo(
-          links_Clause_clause_reference_test_ExecutableNode _,
-          ops.Clause_test))
+          ops.Element_ownedComment))
 
   // All parents: {ClearAssociationAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ClearAssociationAction
@@ -6696,21 +6243,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6720,9 +6252,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "association" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ClearAssociationAction_clearAssociationAction_reference_association_Association _,
-          ops.ClearAssociationAction_association)) :+
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin _,
           ops.ClearAssociationAction_object))
@@ -6737,21 +6266,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6764,9 +6278,6 @@ with UMLPropertyUpdater[Uml] {
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) :+
-        ( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature _,
-          ops.StructuralFeatureAction_structuralFeature)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ClearStructuralFeatureAction_clearStructuralFeatureAction_compose_result_OutputPin _,
           ops.ClearStructuralFeatureAction_result))
@@ -6781,21 +6292,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -6804,10 +6300,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Action_localPostcondition)) :+
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
-          ops.Action_localPrecondition)) :+
-        ( "variable" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_VariableAction_variableAction_reference_variable_Variable _,
-          ops.VariableAction_variable))
+          ops.Action_localPrecondition))
 
   // All parents: {Collaboration, BehavioredClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Collaboration
@@ -6816,9 +6309,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6849,42 +6339,21 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
         ( "ownedBehavior" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
-          ops.BehavioredClassifier_ownedBehavior)) :+
-        ( "collaborationRole" -> AssociationMetaPropertySetUpdateInfo(
-          links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement _,
-          ops.Collaboration_collaborationRole))
+          ops.BehavioredClassifier_ownedBehavior))
 
   // All parents: {CollaborationUse, NamedElement, Element}
   lazy val metaclass_composite_updater_table_CollaborationUse
@@ -6898,10 +6367,7 @@ with UMLPropertyUpdater[Uml] {
           ops.NamedElement_nameExpression)) :+
         ( "roleBinding" -> AssociationMetaPropertySetUpdateInfo(
           links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency _,
-          ops.CollaborationUse_roleBinding)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_CollaborationUse_collaborationUse_reference_type_Collaboration _,
-          ops.CollaborationUse_type))
+          ops.CollaborationUse_roleBinding))
 
   // All parents: {CombinedFragment, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_CombinedFragment
@@ -6913,9 +6379,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -6932,10 +6395,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "annotatedElement" -> AssociationMetaPropertySetUpdateInfo(
-          links_Comment_comment_reference_annotatedElement_Element _,
-          ops.Comment_annotatedElement))
+          ops.Element_ownedComment))
 
   // All parents: {CommunicationPath, Association, Classifier, Namespace, Relationship, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_CommunicationPath
@@ -6944,9 +6404,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -6977,30 +6434,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "memberEnd" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Association_association_reference_memberEnd_Property _,
-          ops.Association_memberEnd)) :+
-        ( "navigableOwnedEnd" -> AssociationMetaPropertySetUpdateInfo(
-          links_Association_association_reference_navigableOwnedEnd_Property _,
-          ops.Association_navigableOwnedEnd)) :+
         ( "ownedEnd" -> AssociationMetaPropertyIterableUpdateInfo(
           links_Association_owningAssociation_compose_ownedEnd_Property _,
           ops.Association_ownedEnd))
@@ -7012,9 +6448,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -7045,33 +6478,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -7104,24 +6519,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
-          ops.Abstraction_mapping)) :+
-        ( "realizingClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier _,
-          ops.ComponentRealization_realizingClassifier))
+          ops.Abstraction_mapping))
 
   // All parents: {ConditionalNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ConditionalNode
@@ -7133,21 +6536,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "elementImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
           ops.Namespace_elementImport)) :+
@@ -7195,21 +6583,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "default" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_default_ParameterableElement _,
-          ops.TemplateParameter_default)) :+
         ( "ownedDefault" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement _,
           ops.TemplateParameter_ownedDefault)) :+
         ( "ownedParameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
-          ops.TemplateParameter_ownedParameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
-          ops.TemplateParameter_parameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElementTemplateParameter_templateParameter_reference_parameteredElement_ConnectableElement _,
-          ops.ConnectableElementTemplateParameter_parameteredElement))
+          ops.TemplateParameter_ownedParameteredElement))
 
   // All parents: {ConnectionPointReference, Vertex, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ConnectionPointReference
@@ -7220,13 +6599,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "entry" -> AssociationMetaPropertySetUpdateInfo(
-          links_ConnectionPointReference_connectionPointReference_reference_entry_Pseudostate _,
-          ops.ConnectionPointReference_entry)) :+
-        ( "exit" -> AssociationMetaPropertySetUpdateInfo(
-          links_ConnectionPointReference_connectionPointReference_reference_exit_Pseudostate _,
-          ops.ConnectionPointReference_exit))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Connector, Feature, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Connector
@@ -7238,18 +6611,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "contract" -> AssociationMetaPropertySetUpdateInfo(
-          links_Connector_connector_reference_contract_Behavior _,
-          ops.Connector_contract)) :+
         ( "end" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Connector_connector_compose_end_ConnectorEnd _,
-          ops.Connector_end)) :+
-        ( "redefinedConnector" -> AssociationMetaPropertySetUpdateInfo(
-          links_Connector_connector_reference_redefinedConnector_Connector _,
-          ops.Connector_redefinedConnector)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Connector_connector_reference_type_Association _,
-          ops.Connector_type))
+          ops.Connector_end))
 
   // All parents: {ConnectorEnd, MultiplicityElement, Element}
   lazy val metaclass_composite_updater_table_ConnectorEnd
@@ -7263,13 +6627,7 @@ with UMLPropertyUpdater[Uml] {
           ops.MultiplicityElement_lowerValue)) :+
         ( "upperValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
-          ops.MultiplicityElement_upperValue)) :+
-        ( "partWithPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectorEnd_connectorEnd_reference_partWithPort_Property _,
-          ops.ConnectorEnd_partWithPort)) :+
-        ( "role" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectorEnd_end_reference_role_ConnectableElement _,
-          ops.ConnectorEnd_role))
+          ops.MultiplicityElement_upperValue))
 
   // All parents: {ConsiderIgnoreFragment, CombinedFragment, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ConsiderIgnoreFragment
@@ -7281,9 +6639,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -7292,10 +6647,7 @@ with UMLPropertyUpdater[Uml] {
           ops.CombinedFragment_cfragmentGate)) :+
         ( "operand" -> AssociationMetaPropertySequenceUpdateInfo(
           links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand _,
-          ops.CombinedFragment_operand)) :+
-        ( "message" -> AssociationMetaPropertySetUpdateInfo(
-          links_ConsiderIgnoreFragment_considerIgnoreFragment_reference_message_NamedElement _,
-          ops.ConsiderIgnoreFragment_message))
+          ops.CombinedFragment_operand))
 
   // All parents: {Constraint, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Constraint
@@ -7304,15 +6656,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "constrainedElement" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Constraint_constraint_reference_constrainedElement_Element _,
-          ops.Constraint_constrainedElement)) :+
         ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
           ops.Constraint_specification))
@@ -7327,9 +6673,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering))
@@ -7347,21 +6690,6 @@ with UMLPropertyUpdater[Uml] {
         ( "guard" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ActivityEdge_activityEdge_compose_guard_ValueSpecification _,
           ops.ActivityEdge_guard)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityEdge_edge_reference_inPartition_ActivityPartition _,
-          ops.ActivityEdge_inPartition)) :+
-        ( "interrupts" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion _,
-          ops.ActivityEdge_interrupts)) :+
-        ( "redefinedEdge" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge _,
-          ops.ActivityEdge_redefinedEdge)) :+
-        ( "source" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_outgoing_reference_source_ActivityNode _,
-          ops.ActivityEdge_source)) :+
-        ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_incoming_reference_target_ActivityNode _,
-          ops.ActivityEdge_target)) :+
         ( "weight" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ActivityEdge_activityEdge_compose_weight_ValueSpecification _,
           ops.ActivityEdge_weight))
@@ -7376,21 +6704,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -7420,21 +6733,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -7467,21 +6765,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -7491,9 +6774,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "classifier" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_CreateObjectAction_createObjectAction_reference_classifier_Classifier _,
-          ops.CreateObjectAction_classifier)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_CreateObjectAction_createObjectAction_compose_result_OutputPin _,
           ops.CreateObjectAction_result))
@@ -7508,30 +6788,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound))
@@ -7543,9 +6799,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -7576,24 +6829,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_DataType_datatype_compose_ownedAttribute_Property _,
           ops.DataType_ownedAttribute)) :+
@@ -7610,28 +6848,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "decisionInput" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_DecisionNode_decisionNode_reference_decisionInput_Behavior _,
-          ops.DecisionNode_decisionInput)) :+
-        ( "decisionInputFlow" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_DecisionNode_decisionNode_reference_decisionInputFlow_ObjectFlow _,
-          ops.DecisionNode_decisionInputFlow))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Dependency
@@ -7640,18 +6857,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Deployment, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Deployment
@@ -7660,24 +6868,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "configuration" -> AssociationMetaPropertySetUpdateInfo(
           links_Deployment_deployment_compose_configuration_DeploymentSpecification _,
-          ops.Deployment_configuration)) :+
-        ( "deployedArtifact" -> AssociationMetaPropertySetUpdateInfo(
-          links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact _,
-          ops.Deployment_deployedArtifact))
+          ops.Deployment_configuration))
 
   // All parents: {DeploymentSpecification, Artifact, Classifier, DeployedArtifact, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_DeploymentSpecification
@@ -7686,9 +6882,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -7719,24 +6912,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "manifestation" -> AssociationMetaPropertySetUpdateInfo(
           links_Artifact_artifact_compose_manifestation_Manifestation _,
           ops.Artifact_manifestation)) :+
@@ -7760,21 +6938,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -7804,21 +6967,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -7842,24 +6990,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_OccurrenceSpecification_events_reference_covered_Lifeline _,
-          ops.OccurrenceSpecification_covered)) :+
-        ( "toAfter" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering _,
-          ops.OccurrenceSpecification_toAfter)) :+
-        ( "toBefore" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering _,
-          ops.OccurrenceSpecification_toBefore)) :+
-        ( "message" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_MessageEnd_messageEnd_reference_message_Message _,
-          ops.MessageEnd_message))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {Device, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Device
@@ -7868,9 +7001,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -7901,24 +7031,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
@@ -7928,9 +7043,6 @@ with UMLPropertyUpdater[Uml] {
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -7960,21 +7072,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "expr" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Duration_duration_compose_expr_ValueSpecification _,
-          ops.Duration_expr)) :+
-        ( "observation" -> AssociationMetaPropertySetUpdateInfo(
-          links_Duration_duration_reference_observation_Observation _,
-          ops.Duration_observation))
+          ops.Duration_expr))
 
   // All parents: {DurationConstraint, IntervalConstraint, Constraint, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_DurationConstraint
@@ -7983,15 +7086,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "constrainedElement" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Constraint_constraint_reference_constrainedElement_Element _,
-          ops.Constraint_constrainedElement)) :+
         ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
           ops.Constraint_specification)) :+
@@ -8009,27 +7106,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "max" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_max_ValueSpecification _,
-          ops.Interval_max)) :+
-        ( "min" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_min_ValueSpecification _,
-          ops.Interval_min)) :+
-        ( "max" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_DurationInterval_durationInterval_reference_max_Duration _,
-          ops.DurationInterval_max)) :+
-        ( "min" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_DurationInterval_durationInterval_reference_min_Duration _,
-          ops.DurationInterval_min))
+          ops.NamedElement_nameExpression))
 
   // All parents: {DurationObservation, Observation, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_DurationObservation
@@ -8038,15 +7117,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "event" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_DurationObservation_durationObservation_reference_event_NamedElement _,
-          ops.DurationObservation_event))
+          ops.NamedElement_nameExpression))
 
   // All parents: {ElementImport, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_ElementImport
@@ -8054,10 +7127,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "importedElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ElementImport_import_reference_importedElement_PackageableElement _,
-          ops.ElementImport_importedElement))
+          ops.Element_ownedComment))
 
   // All parents: {Enumeration, DataType, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Enumeration
@@ -8066,9 +7136,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -8099,24 +7166,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_DataType_datatype_compose_ownedAttribute_Property _,
           ops.DataType_ownedAttribute)) :+
@@ -8134,18 +7186,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "classifier" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier _,
-          ops.InstanceSpecification_classifier)) :+
         ( "slot" -> AssociationMetaPropertySetUpdateInfo(
           links_InstanceSpecification_owningInstance_compose_slot_Slot _,
           ops.InstanceSpecification_slot)) :+
@@ -8159,16 +7205,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "exceptionInput" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExceptionHandler_exceptionHandler_reference_exceptionInput_ObjectNode _,
-          ops.ExceptionHandler_exceptionInput)) :+
-        ( "exceptionType" -> AssociationMetaPropertySetUpdateInfo(
-          links_ExceptionHandler_exceptionHandler_reference_exceptionType_Classifier _,
-          ops.ExceptionHandler_exceptionType)) :+
-        ( "handlerBody" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode _,
-          ops.ExceptionHandler_handlerBody))
+          ops.Element_ownedComment))
 
   // All parents: {ExecutionEnvironment, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_ExecutionEnvironment
@@ -8177,9 +7214,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -8210,33 +7244,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -8272,24 +7288,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_OccurrenceSpecification_events_reference_covered_Lifeline _,
-          ops.OccurrenceSpecification_covered)) :+
-        ( "toAfter" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering _,
-          ops.OccurrenceSpecification_toAfter)) :+
-        ( "toBefore" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering _,
-          ops.OccurrenceSpecification_toBefore)) :+
-        ( "execution" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExecutionOccurrenceSpecification_executionOccurrenceSpecification_reference_execution_ExecutionSpecification _,
-          ops.ExecutionOccurrenceSpecification_execution))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {ExpansionNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExpansionNode
@@ -8301,39 +7302,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
-          ops.ObjectNode_upperBound)) :+
-        ( "regionAsInput" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion _,
-          ops.ExpansionNode_regionAsInput)) :+
-        ( "regionAsOutput" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion _,
-          ops.ExpansionNode_regionAsOutput))
+          ops.ObjectNode_upperBound))
 
   // All parents: {ExpansionRegion, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExpansionRegion
@@ -8354,21 +7325,6 @@ with UMLPropertyUpdater[Uml] {
         ( "packageImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
           ops.Namespace_packageImport)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -8392,13 +7348,7 @@ with UMLPropertyUpdater[Uml] {
           ops.StructuredActivityNode_structuredNodeOutput)) :+
         ( "variable" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredActivityNode_scope_compose_variable_Variable _,
-          ops.StructuredActivityNode_variable)) :+
-        ( "inputElement" -> AssociationMetaPropertySetUpdateInfo(
-          links_ExpansionRegion_regionAsInput_reference_inputElement_ExpansionNode _,
-          ops.ExpansionRegion_inputElement)) :+
-        ( "outputElement" -> AssociationMetaPropertySetUpdateInfo(
-          links_ExpansionRegion_regionAsOutput_reference_outputElement_ExpansionNode _,
-          ops.ExpansionRegion_outputElement))
+          ops.StructuredActivityNode_variable))
 
   // All parents: {Expression, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Expression
@@ -8407,15 +7357,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "operand" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Expression_expression_compose_operand_ValueSpecification _,
           ops.Expression_operand))
@@ -8432,13 +7376,7 @@ with UMLPropertyUpdater[Uml] {
           ops.NamedElement_nameExpression)) :+
         ( "condition" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Extend_extend_compose_condition_Constraint _,
-          ops.Extend_condition)) :+
-        ( "extendedCase" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Extend_extend_reference_extendedCase_UseCase _,
-          ops.Extend_extendedCase)) :+
-        ( "extensionLocation" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Extend_extension_reference_extensionLocation_ExtensionPoint _,
-          ops.Extend_extensionLocation))
+          ops.Extend_condition))
 
   // All parents: {Extension, Association, Classifier, Relationship, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Extension
@@ -8447,9 +7385,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -8480,30 +7415,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "memberEnd" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Association_association_reference_memberEnd_Property _,
-          ops.Association_memberEnd)) :+
-        ( "navigableOwnedEnd" -> AssociationMetaPropertySetUpdateInfo(
-          links_Association_association_reference_navigableOwnedEnd_Property _,
-          ops.Association_navigableOwnedEnd)) :+
         ( "ownedEnd" -> AssociationMetaPropertyIterableUpdateInfo(
           links_Association_owningAssociation_compose_ownedEnd_Property _,
           ops.Association_ownedEnd)) :+
@@ -8521,42 +7435,21 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
           ops.MultiplicityElement_lowerValue)) :+
         ( "upperValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
           ops.MultiplicityElement_upperValue)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
-          ops.ConnectableElement_templateParameter)) :+
-        ( "association" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Property_memberEnd_reference_association_Association _,
-          ops.Property_association)) :+
         ( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) :+
         ( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Property_associationEnd_compose_qualifier_Property _,
-          ops.Property_qualifier)) :+
-        ( "redefinedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_redefinedProperty_Property _,
-          ops.Property_redefinedProperty)) :+
-        ( "subsettedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_subsettedProperty_Property _,
-          ops.Property_subsettedProperty)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ExtensionEnd_extensionEnd_reference_type_Stereotype _,
-          ops.ExtensionEnd_type))
+          ops.Property_qualifier))
 
   // All parents: {ExtensionPoint, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExtensionPoint
@@ -8606,18 +7499,9 @@ with UMLPropertyUpdater[Uml] {
         ( "exit" -> AssociationMetaPropertyOptionUpdateInfo(
           links_State_state_compose_exit_Behavior _,
           ops.State_exit)) :+
-        ( "redefinedState" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_state_reference_redefinedState_State _,
-          ops.State_redefinedState)) :+
         ( "region" -> AssociationMetaPropertySetUpdateInfo(
           links_State_state_compose_region_Region _,
-          ops.State_region)) :+
-        ( "stateInvariant" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_owningState_compose_stateInvariant_Constraint _,
-          ops.State_stateInvariant)) :+
-        ( "submachine" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_submachineState_reference_submachine_StateMachine _,
-          ops.State_submachine))
+          ops.State_region))
 
   // All parents: {FlowFinalNode, FinalNode, ControlNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_FlowFinalNode
@@ -8628,22 +7512,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode))
+          ops.NamedElement_nameExpression))
 
   // All parents: {ForkNode, ControlNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ForkNode
@@ -8654,22 +7523,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode))
+          ops.NamedElement_nameExpression))
 
   // All parents: {FunctionBehavior, OpaqueBehavior, Behavior, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_FunctionBehavior
@@ -8678,9 +7532,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -8711,33 +7562,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -8761,19 +7594,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Behavior_ownedParameter)) :+
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
-          ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification))
+          ops.Behavior_ownedParameterSet))
 
   // All parents: {Gate, MessageEnd, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Gate
@@ -8784,10 +7605,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "message" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_MessageEnd_messageEnd_reference_message_Message _,
-          ops.MessageEnd_message))
+          ops.NamedElement_nameExpression))
 
   // All parents: {GeneralOrdering, NamedElement, Element}
   lazy val metaclass_composite_updater_table_GeneralOrdering
@@ -8798,13 +7616,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "after" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification _,
-          ops.GeneralOrdering_after)) :+
-        ( "before" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification _,
-          ops.GeneralOrdering_before))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Generalization, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_Generalization
@@ -8812,13 +7624,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "general" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Generalization_generalization_reference_general_Classifier _,
-          ops.Generalization_general)) :+
-        ( "generalizationSet" -> AssociationMetaPropertySetUpdateInfo(
-          links_Generalization_generalization_reference_generalizationSet_GeneralizationSet _,
-          ops.Generalization_generalizationSet))
+          ops.Element_ownedComment))
 
   // All parents: {GeneralizationSet, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_GeneralizationSet
@@ -8827,18 +7633,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "generalization" -> AssociationMetaPropertySetUpdateInfo(
-          links_GeneralizationSet_generalizationSet_reference_generalization_Generalization _,
-          ops.GeneralizationSet_generalization)) :+
-        ( "powertype" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_GeneralizationSet_powertypeExtent_reference_powertype_Classifier _,
-          ops.GeneralizationSet_powertype))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Image, Element}
   lazy val metaclass_composite_updater_table_Image
@@ -8857,10 +7654,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "addition" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Include_include_reference_addition_UseCase _,
-          ops.Include_addition))
+          ops.NamedElement_nameExpression))
 
   // All parents: {InformationFlow, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_InformationFlow
@@ -8869,33 +7663,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "conveyed" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_conveyingFlow_reference_conveyed_Classifier _,
-          ops.InformationFlow_conveyed)) :+
-        ( "informationSource" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_informationFlow_reference_informationSource_NamedElement _,
-          ops.InformationFlow_informationSource)) :+
-        ( "informationTarget" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_informationFlow_reference_informationTarget_NamedElement _,
-          ops.InformationFlow_informationTarget)) :+
-        ( "realization" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_abstraction_reference_realization_Relationship _,
-          ops.InformationFlow_realization)) :+
-        ( "realizingActivityEdge" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_informationFlow_reference_realizingActivityEdge_ActivityEdge _,
-          ops.InformationFlow_realizingActivityEdge)) :+
-        ( "realizingConnector" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_informationFlow_reference_realizingConnector_Connector _,
-          ops.InformationFlow_realizingConnector)) :+
-        ( "realizingMessage" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationFlow_informationFlow_reference_realizingMessage_Message _,
-          ops.InformationFlow_realizingMessage))
+          ops.NamedElement_nameExpression))
 
   // All parents: {InformationItem, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_InformationItem
@@ -8904,9 +7674,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -8937,27 +7704,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
-          ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "represented" -> AssociationMetaPropertySetUpdateInfo(
-          links_InformationItem_representation_reference_represented_Classifier _,
-          ops.InformationItem_represented))
+          ops.Classifier_substitution))
 
   // All parents: {InitialNode, ControlNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_InitialNode
@@ -8968,22 +7717,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode))
+          ops.NamedElement_nameExpression))
 
   // All parents: {InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_InputPin
@@ -8995,30 +7729,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) :+
@@ -9036,18 +7746,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "classifier" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InstanceSpecification_instanceSpecification_reference_classifier_Classifier _,
-          ops.InstanceSpecification_classifier)) :+
         ( "slot" -> AssociationMetaPropertySetUpdateInfo(
           links_InstanceSpecification_owningInstance_compose_slot_Slot _,
           ops.InstanceSpecification_slot)) :+
@@ -9062,18 +7766,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "instance" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InstanceValue_instanceValue_reference_instance_InstanceSpecification _,
-          ops.InstanceValue_instance))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Interaction, Behavior, InteractionFragment, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Interaction
@@ -9082,9 +7777,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -9115,33 +7807,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -9160,9 +7834,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedReception" -> AssociationMetaPropertySetUpdateInfo(
           links_Class_class_compose_ownedReception_Reception _,
           ops.Class_ownedReception)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -9172,18 +7843,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
           ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification)) :+
         ( "action" -> AssociationMetaPropertySetUpdateInfo(
           links_Interaction_interaction_compose_action_Action _,
           ops.Interaction_action)) :+
@@ -9207,15 +7866,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "constrainedElement" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Constraint_constraint_reference_constrainedElement_Element _,
-          ops.Constraint_constrainedElement)) :+
         ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
           ops.Constraint_specification)) :+
@@ -9245,9 +7898,6 @@ with UMLPropertyUpdater[Uml] {
         ( "packageImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
           ops.Namespace_packageImport)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -9268,9 +7918,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -9280,15 +7927,9 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InteractionUse_interactionUse_compose_argument_ValueSpecification _,
           ops.InteractionUse_argument)) :+
-        ( "refersTo" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InteractionUse_interactionUse_reference_refersTo_Interaction _,
-          ops.InteractionUse_refersTo)) :+
         ( "returnValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification _,
-          ops.InteractionUse_returnValue)) :+
-        ( "returnValueRecipient" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InteractionUse_interactionUse_reference_returnValueRecipient_Property _,
-          ops.InteractionUse_returnValueRecipient))
+          ops.InteractionUse_returnValue))
 
   // All parents: {Interface, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Interface
@@ -9297,9 +7938,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -9330,24 +7968,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "nestedClassifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Interface_interface_compose_nestedClassifier_Classifier _,
           ops.Interface_nestedClassifier)) :+
@@ -9362,10 +7985,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Interface_ownedReception)) :+
         ( "protocol" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Interface_interface_compose_protocol_ProtocolStateMachine _,
-          ops.Interface_protocol)) :+
-        ( "redefinedInterface" -> AssociationMetaPropertySetUpdateInfo(
-          links_Interface_interface_reference_redefinedInterface_Interface _,
-          ops.Interface_redefinedInterface))
+          ops.Interface_protocol))
 
   // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_InterfaceRealization
@@ -9374,24 +7994,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
-          ops.Abstraction_mapping)) :+
-        ( "contract" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InterfaceRealization_interfaceRealization_reference_contract_Interface _,
-          ops.InterfaceRealization_contract))
+          ops.Abstraction_mapping))
 
   // All parents: {InterruptibleActivityRegion, ActivityGroup, NamedElement, Element}
   lazy val metaclass_composite_updater_table_InterruptibleActivityRegion
@@ -9402,13 +8010,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "interruptingEdge" -> AssociationMetaPropertySetUpdateInfo(
-          links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge _,
-          ops.InterruptibleActivityRegion_interruptingEdge)) :+
-        ( "node" -> AssociationMetaPropertySetUpdateInfo(
-          links_InterruptibleActivityRegion_inInterruptibleRegion_reference_node_ActivityNode _,
-          ops.InterruptibleActivityRegion_node))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Interval, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Interval
@@ -9417,21 +8019,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "max" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_max_ValueSpecification _,
-          ops.Interval_max)) :+
-        ( "min" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_min_ValueSpecification _,
-          ops.Interval_min))
+          ops.NamedElement_nameExpression))
 
   // All parents: {IntervalConstraint, Constraint, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_IntervalConstraint
@@ -9440,15 +8030,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "constrainedElement" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Constraint_constraint_reference_constrainedElement_Element _,
-          ops.Constraint_constrainedElement)) :+
         ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
           ops.Constraint_specification)) :+
@@ -9466,21 +8050,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "joinSpec" -> AssociationMetaPropertyOptionUpdateInfo(
           links_JoinNode_joinNode_compose_joinSpec_ValueSpecification _,
           ops.JoinNode_joinSpec))
@@ -9495,15 +8064,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "coveredBy" -> AssociationMetaPropertySetUpdateInfo(
-          links_Lifeline_covered_reference_coveredBy_InteractionFragment _,
-          ops.Lifeline_coveredBy)) :+
-        ( "decomposedAs" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Lifeline_lifeline_reference_decomposedAs_PartDecomposition _,
-          ops.Lifeline_decomposedAs)) :+
-        ( "represents" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Lifeline_lifeline_reference_represents_ConnectableElement _,
-          ops.Lifeline_represents)) :+
         ( "selector" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Lifeline_lifeline_compose_selector_ValueSpecification _,
           ops.Lifeline_selector))
@@ -9515,18 +8075,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "end" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_end_Property _,
-          ops.LinkEndData_end)) :+
         ( "qualifier" -> AssociationMetaPropertySetUpdateInfo(
           links_LinkEndData_linkEndData_compose_qualifier_QualifierValue _,
-          ops.LinkEndData_qualifier)) :+
-        ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_value_InputPin _,
-          ops.LinkEndData_value)) :+
-        ( "insertAt" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndCreationData_linkEndCreationData_reference_insertAt_InputPin _,
-          ops.LinkEndCreationData_insertAt))
+          ops.LinkEndData_qualifier))
 
   // All parents: {LinkEndData, Element}
   lazy val metaclass_composite_updater_table_LinkEndData
@@ -9535,15 +8086,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "end" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_end_Property _,
-          ops.LinkEndData_end)) :+
         ( "qualifier" -> AssociationMetaPropertySetUpdateInfo(
           links_LinkEndData_linkEndData_compose_qualifier_QualifierValue _,
-          ops.LinkEndData_qualifier)) :+
-        ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_value_InputPin _,
-          ops.LinkEndData_value))
+          ops.LinkEndData_qualifier))
 
   // All parents: {LinkEndDestructionData, LinkEndData, Element}
   lazy val metaclass_composite_updater_table_LinkEndDestructionData
@@ -9552,18 +8097,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "end" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_end_Property _,
-          ops.LinkEndData_end)) :+
         ( "qualifier" -> AssociationMetaPropertySetUpdateInfo(
           links_LinkEndData_linkEndData_compose_qualifier_QualifierValue _,
-          ops.LinkEndData_qualifier)) :+
-        ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndData_linkEndData_reference_value_InputPin _,
-          ops.LinkEndData_value)) :+
-        ( "destroyAt" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LinkEndDestructionData_linkEndDestructionData_reference_destroyAt_InputPin _,
-          ops.LinkEndDestructionData_destroyAt))
+          ops.LinkEndData_qualifier))
 
   // All parents: {LiteralBoolean, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralBoolean
@@ -9572,15 +8108,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LiteralInteger, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralInteger
@@ -9589,15 +8119,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LiteralNull, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralNull
@@ -9606,15 +8130,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LiteralReal, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralReal
@@ -9623,15 +8141,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LiteralString, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralString
@@ -9640,15 +8152,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LiteralUnlimitedNatural, LiteralSpecification, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_LiteralUnlimitedNatural
@@ -9657,15 +8163,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type))
+          ops.NamedElement_nameExpression))
 
   // All parents: {LoopNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_LoopNode
@@ -9677,21 +8177,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "elementImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
           ops.Namespace_elementImport)) :+
@@ -9725,15 +8210,6 @@ with UMLPropertyUpdater[Uml] {
         ( "variable" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredActivityNode_scope_compose_variable_Variable _,
           ops.StructuredActivityNode_variable)) :+
-        ( "bodyOutput" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_LoopNode_loopNode_reference_bodyOutput_OutputPin _,
-          ops.LoopNode_bodyOutput)) :+
-        ( "bodyPart" -> AssociationMetaPropertySetUpdateInfo(
-          links_LoopNode_loopNode_reference_bodyPart_ExecutableNode _,
-          ops.LoopNode_bodyPart)) :+
-        ( "decider" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_LoopNode_loopNode_reference_decider_OutputPin _,
-          ops.LoopNode_decider)) :+
         ( "loopVariable" -> AssociationMetaPropertySequenceUpdateInfo(
           links_LoopNode_loopNode_compose_loopVariable_OutputPin _,
           ops.LoopNode_loopVariable)) :+
@@ -9742,13 +8218,7 @@ with UMLPropertyUpdater[Uml] {
           ops.LoopNode_loopVariableInput)) :+
         ( "result" -> AssociationMetaPropertySequenceUpdateInfo(
           links_LoopNode_loopNode_compose_result_OutputPin _,
-          ops.LoopNode_result)) :+
-        ( "setupPart" -> AssociationMetaPropertySetUpdateInfo(
-          links_LoopNode_loopNode_reference_setupPart_ExecutableNode _,
-          ops.LoopNode_setupPart)) :+
-        ( "test" -> AssociationMetaPropertySetUpdateInfo(
-          links_LoopNode_loopNode_reference_test_ExecutableNode _,
-          ops.LoopNode_test))
+          ops.LoopNode_result))
 
   // All parents: {Manifestation, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Manifestation
@@ -9757,24 +8227,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
-          ops.Abstraction_mapping)) :+
-        ( "utilizedElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Manifestation_manifestation_reference_utilizedElement_PackageableElement _,
-          ops.Manifestation_utilizedElement))
+          ops.Abstraction_mapping))
 
   // All parents: {MergeNode, ControlNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_MergeNode
@@ -9785,22 +8243,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Message, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Message
@@ -9814,19 +8257,7 @@ with UMLPropertyUpdater[Uml] {
           ops.NamedElement_nameExpression)) :+
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Message_message_compose_argument_ValueSpecification _,
-          ops.Message_argument)) :+
-        ( "connector" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Message_message_reference_connector_Connector _,
-          ops.Message_connector)) :+
-        ( "receiveEvent" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Message_endMessage_reference_receiveEvent_MessageEnd _,
-          ops.Message_receiveEvent)) :+
-        ( "sendEvent" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Message_endMessage_reference_sendEvent_MessageEnd _,
-          ops.Message_sendEvent)) :+
-        ( "signature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Message_message_reference_signature_NamedElement _,
-          ops.Message_signature))
+          ops.Message_argument))
 
   // All parents: {MessageOccurrenceSpecification, MessageEnd, OccurrenceSpecification, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_MessageOccurrenceSpecification
@@ -9838,24 +8269,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_OccurrenceSpecification_events_reference_covered_Lifeline _,
-          ops.OccurrenceSpecification_covered)) :+
-        ( "toAfter" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering _,
-          ops.OccurrenceSpecification_toAfter)) :+
-        ( "toBefore" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering _,
-          ops.OccurrenceSpecification_toBefore)) :+
-        ( "message" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_MessageEnd_messageEnd_reference_message_Message _,
-          ops.MessageEnd_message))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {Model, Package, Namespace, PackageableElement, TemplateableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Model
@@ -9864,9 +8280,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -9902,9 +8315,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -9935,33 +8345,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -10000,30 +8392,9 @@ with UMLPropertyUpdater[Uml] {
         ( "guard" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ActivityEdge_activityEdge_compose_guard_ValueSpecification _,
           ops.ActivityEdge_guard)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityEdge_edge_reference_inPartition_ActivityPartition _,
-          ops.ActivityEdge_inPartition)) :+
-        ( "interrupts" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_interruptingEdge_reference_interrupts_InterruptibleActivityRegion _,
-          ops.ActivityEdge_interrupts)) :+
-        ( "redefinedEdge" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityEdge_activityEdge_reference_redefinedEdge_ActivityEdge _,
-          ops.ActivityEdge_redefinedEdge)) :+
-        ( "source" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_outgoing_reference_source_ActivityNode _,
-          ops.ActivityEdge_source)) :+
-        ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ActivityEdge_incoming_reference_target_ActivityNode _,
-          ops.ActivityEdge_target)) :+
         ( "weight" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ActivityEdge_activityEdge_compose_weight_ValueSpecification _,
-          ops.ActivityEdge_weight)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectFlow_objectFlow_reference_selection_Behavior _,
-          ops.ObjectFlow_selection)) :+
-        ( "transformation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectFlow_objectFlow_reference_transformation_Behavior _,
-          ops.ObjectFlow_transformation))
+          ops.ActivityEdge_weight))
 
   // All parents: {OccurrenceSpecification, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_OccurrenceSpecification
@@ -10035,21 +8406,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_OccurrenceSpecification_events_reference_covered_Lifeline _,
-          ops.OccurrenceSpecification_covered)) :+
-        ( "toAfter" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_before_reference_toAfter_GeneralOrdering _,
-          ops.OccurrenceSpecification_toAfter)) :+
-        ( "toBefore" -> AssociationMetaPropertySetUpdateInfo(
-          links_OccurrenceSpecification_after_reference_toBefore_GeneralOrdering _,
-          ops.OccurrenceSpecification_toBefore))
+          ops.InteractionFragment_generalOrdering))
 
   // All parents: {OpaqueAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_OpaqueAction
@@ -10061,21 +8420,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -10099,9 +8443,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -10132,33 +8473,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -10182,19 +8505,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Behavior_ownedParameter)) :+
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
-          ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification))
+          ops.Behavior_ownedParameterSet))
 
   // All parents: {OpaqueExpression, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_OpaqueExpression
@@ -10203,18 +8514,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "behavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_OpaqueExpression_opaqueExpression_reference_behavior_Behavior _,
-          ops.OpaqueExpression_behavior))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, RedefinableElement, Namespace, TemplateableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Operation
@@ -10241,42 +8543,15 @@ with UMLPropertyUpdater[Uml] {
         ( "packageImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
           ops.Namespace_packageImport)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
-        ( "method" -> AssociationMetaPropertySetUpdateInfo(
-          links_BehavioralFeature_specification_reference_method_Behavior _,
-          ops.BehavioralFeature_method)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter _,
           ops.BehavioralFeature_ownedParameter)) :+
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet _,
           ops.BehavioralFeature_ownedParameterSet)) :+
-        ( "raisedException" -> AssociationMetaPropertySetUpdateInfo(
-          links_BehavioralFeature_behavioralFeature_reference_raisedException_Type _,
-          ops.BehavioralFeature_raisedException)) :+
-        ( "bodyCondition" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Operation_bodyContext_compose_bodyCondition_Constraint _,
-          ops.Operation_bodyCondition)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Operation_operation_compose_ownedParameter_Parameter _,
-          ops.Operation_ownedParameter)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Operation_postContext_compose_postcondition_Constraint _,
-          ops.Operation_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Operation_preContext_compose_precondition_Constraint _,
-          ops.Operation_precondition)) :+
-        ( "raisedException" -> AssociationMetaPropertySetUpdateInfo(
-          links_Operation_operation_reference_raisedException_Type _,
-          ops.Operation_raisedException)) :+
-        ( "redefinedOperation" -> AssociationMetaPropertySetUpdateInfo(
-          links_Operation_operation_reference_redefinedOperation_Operation _,
-          ops.Operation_redefinedOperation)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Operation_parameteredElement_reference_templateParameter_OperationTemplateParameter _,
-          ops.Operation_templateParameter))
+          ops.Operation_ownedParameter))
 
   // All parents: {OperationTemplateParameter, TemplateParameter, Element}
   lazy val metaclass_composite_updater_table_OperationTemplateParameter
@@ -10285,21 +8560,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "default" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_default_ParameterableElement _,
-          ops.TemplateParameter_default)) :+
         ( "ownedDefault" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement _,
           ops.TemplateParameter_ownedDefault)) :+
         ( "ownedParameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
-          ops.TemplateParameter_ownedParameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
-          ops.TemplateParameter_parameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation _,
-          ops.OperationTemplateParameter_parameteredElement))
+          ops.TemplateParameter_ownedParameteredElement))
 
   // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_OutputPin
@@ -10311,30 +8577,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) :+
@@ -10352,9 +8594,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "ownedTemplateSignature" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _,
           ops.TemplateableElement_ownedTemplateSignature)) :+
@@ -10389,10 +8628,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "importedPackage" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_PackageImport_packageImport_reference_importedPackage_Package _,
-          ops.PackageImport_importedPackage))
+          ops.Element_ownedComment))
 
   // All parents: {PackageMerge, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_PackageMerge
@@ -10400,10 +8636,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "mergedPackage" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_PackageMerge_packageMerge_reference_mergedPackage_Package _,
-          ops.PackageMerge_mergedPackage))
+          ops.Element_ownedComment))
 
   // All parents: {Parameter, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Parameter
@@ -10415,27 +8648,15 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
           ops.MultiplicityElement_lowerValue)) :+
         ( "upperValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
           ops.MultiplicityElement_upperValue)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
-          ops.ConnectableElement_templateParameter)) :+
         ( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Parameter_owningParameter_compose_defaultValue_ValueSpecification _,
-          ops.Parameter_defaultValue)) :+
-        ( "parameterSet" -> AssociationMetaPropertySetUpdateInfo(
-          links_Parameter_parameter_reference_parameterSet_ParameterSet _,
-          ops.Parameter_parameterSet))
+          ops.Parameter_defaultValue))
 
   // All parents: {ParameterSet, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ParameterSet
@@ -10449,10 +8670,7 @@ with UMLPropertyUpdater[Uml] {
           ops.NamedElement_nameExpression)) :+
         ( "condition" -> AssociationMetaPropertySetUpdateInfo(
           links_ParameterSet_parameterSet_compose_condition_Constraint _,
-          ops.ParameterSet_condition)) :+
-        ( "parameter" -> AssociationMetaPropertySetUpdateInfo(
-          links_ParameterSet_parameterSet_reference_parameter_Parameter _,
-          ops.ParameterSet_parameter))
+          ops.ParameterSet_condition))
 
   // All parents: {PartDecomposition, InteractionUse, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_PartDecomposition
@@ -10464,9 +8682,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
@@ -10476,15 +8691,9 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InteractionUse_interactionUse_compose_argument_ValueSpecification _,
           ops.InteractionUse_argument)) :+
-        ( "refersTo" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InteractionUse_interactionUse_reference_refersTo_Interaction _,
-          ops.InteractionUse_refersTo)) :+
         ( "returnValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification _,
-          ops.InteractionUse_returnValue)) :+
-        ( "returnValueRecipient" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InteractionUse_interactionUse_reference_returnValueRecipient_Property _,
-          ops.InteractionUse_returnValueRecipient))
+          ops.InteractionUse_returnValue))
 
   // All parents: {Port, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Port
@@ -10496,45 +8705,21 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
           ops.MultiplicityElement_lowerValue)) :+
         ( "upperValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
           ops.MultiplicityElement_upperValue)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
-          ops.ConnectableElement_templateParameter)) :+
-        ( "association" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Property_memberEnd_reference_association_Association _,
-          ops.Property_association)) :+
         ( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) :+
         ( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Property_associationEnd_compose_qualifier_Property _,
-          ops.Property_qualifier)) :+
-        ( "redefinedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_redefinedProperty_Property _,
-          ops.Property_redefinedProperty)) :+
-        ( "subsettedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_subsettedProperty_Property _,
-          ops.Property_subsettedProperty)) :+
-        ( "protocol" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Port_port_reference_protocol_ProtocolStateMachine _,
-          ops.Port_protocol)) :+
-        ( "redefinedPort" -> AssociationMetaPropertySetUpdateInfo(
-          links_Port_port_reference_redefinedPort_Port _,
-          ops.Port_redefinedPort))
+          ops.Property_qualifier))
 
   // All parents: {PrimitiveType, DataType, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_PrimitiveType
@@ -10543,9 +8728,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -10576,24 +8758,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_DataType_datatype_compose_ownedAttribute_Property _,
           ops.DataType_ownedAttribute)) :+
@@ -10608,9 +8775,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "ownedTemplateSignature" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _,
           ops.TemplateableElement_ownedTemplateSignature)) :+
@@ -10637,13 +8801,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Package_packagedElement)) :+
         ( "profileApplication" -> AssociationMetaPropertySetUpdateInfo(
           links_Package_applyingPackage_compose_profileApplication_ProfileApplication _,
-          ops.Package_profileApplication)) :+
-        ( "metaclassReference" -> AssociationMetaPropertySetUpdateInfo(
-          links_Profile_profile_compose_metaclassReference_ElementImport _,
-          ops.Profile_metaclassReference)) :+
-        ( "metamodelReference" -> AssociationMetaPropertySetUpdateInfo(
-          links_Profile_profile_compose_metamodelReference_PackageImport _,
-          ops.Profile_metamodelReference))
+          ops.Package_profileApplication))
 
   // All parents: {ProfileApplication, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_ProfileApplication
@@ -10651,10 +8809,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "appliedProfile" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ProfileApplication_profileApplication_reference_appliedProfile_Profile _,
-          ops.ProfileApplication_appliedProfile))
+          ops.Element_ownedComment))
 
   // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Property
@@ -10666,9 +8821,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
           ops.MultiplicityElement_lowerValue)) :+
@@ -10678,27 +8830,12 @@ with UMLPropertyUpdater[Uml] {
         ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
           links_DeploymentTarget_location_compose_deployment_Deployment _,
           ops.DeploymentTarget_deployment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
-          ops.ConnectableElement_templateParameter)) :+
-        ( "association" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Property_memberEnd_reference_association_Association _,
-          ops.Property_association)) :+
         ( "defaultValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Property_owningProperty_compose_defaultValue_ValueSpecification _,
           ops.Property_defaultValue)) :+
         ( "qualifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Property_associationEnd_compose_qualifier_Property _,
-          ops.Property_qualifier)) :+
-        ( "redefinedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_redefinedProperty_Property _,
-          ops.Property_redefinedProperty)) :+
-        ( "subsettedProperty" -> AssociationMetaPropertySetUpdateInfo(
-          links_Property_property_reference_subsettedProperty_Property _,
-          ops.Property_subsettedProperty))
+          ops.Property_qualifier))
 
   // All parents: {ProtocolConformance, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_ProtocolConformance
@@ -10706,10 +8843,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "generalMachine" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ProtocolConformance_protocolConformance_reference_generalMachine_ProtocolStateMachine _,
-          ops.ProtocolConformance_generalMachine))
+          ops.Element_ownedComment))
 
   // All parents: {ProtocolStateMachine, StateMachine, Behavior, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_ProtocolStateMachine
@@ -10718,9 +8852,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -10751,33 +8882,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -10802,30 +8915,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
           ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification)) :+
         ( "connectionPoint" -> AssociationMetaPropertySetUpdateInfo(
           links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate _,
           ops.StateMachine_connectionPoint)) :+
-        ( "extendedStateMachine" -> AssociationMetaPropertySetUpdateInfo(
-          links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine _,
-          ops.StateMachine_extendedStateMachine)) :+
         ( "region" -> AssociationMetaPropertySetUpdateInfo(
           links_StateMachine_stateMachine_compose_region_Region _,
           ops.StateMachine_region)) :+
-        ( "submachineState" -> AssociationMetaPropertySetUpdateInfo(
-          links_StateMachine_submachine_reference_submachineState_State _,
-          ops.StateMachine_submachineState)) :+
         ( "conformance" -> AssociationMetaPropertySetUpdateInfo(
           links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance _,
           ops.ProtocolStateMachine_conformance))
@@ -10852,24 +8947,9 @@ with UMLPropertyUpdater[Uml] {
         ( "effect" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Transition_transition_compose_effect_Behavior _,
           ops.Transition_effect)) :+
-        ( "guard" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_transition_compose_guard_Constraint _,
-          ops.Transition_guard)) :+
-        ( "redefinedTransition" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_transition_reference_redefinedTransition_Transition _,
-          ops.Transition_redefinedTransition)) :+
-        ( "source" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_outgoing_reference_source_Vertex _,
-          ops.Transition_source)) :+
-        ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_incoming_reference_target_Vertex _,
-          ops.Transition_target)) :+
         ( "trigger" -> AssociationMetaPropertySetUpdateInfo(
           links_Transition_transition_compose_trigger_Trigger _,
           ops.Transition_trigger)) :+
-        ( "postCondition" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ProtocolTransition_owningTransition_compose_postCondition_Constraint _,
-          ops.ProtocolTransition_postCondition)) :+
         ( "preCondition" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ProtocolTransition_protocolTransition_compose_preCondition_Constraint _,
           ops.ProtocolTransition_preCondition))
@@ -10891,13 +8971,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
-          ops.Element_ownedComment)) :+
-        ( "qualifier" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_QualifierValue_qualifierValue_reference_qualifier_Property _,
-          ops.QualifierValue_qualifier)) :+
-        ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_QualifierValue_qualifierValue_reference_value_InputPin _,
-          ops.QualifierValue_value))
+          ops.Element_ownedComment))
 
   // All parents: {RaiseExceptionAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_RaiseExceptionAction
@@ -10909,21 +8983,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -10947,21 +9006,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -10971,9 +9015,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "classifier" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReadExtentAction_readExtentAction_reference_classifier_Classifier _,
-          ops.ReadExtentAction_classifier)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadExtentAction_readExtentAction_compose_result_OutputPin _,
           ops.ReadExtentAction_result))
@@ -10988,21 +9029,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11012,9 +9038,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "classifier" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_reference_classifier_Classifier _,
-          ops.ReadIsClassifiedObjectAction_classifier)) :+
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadIsClassifiedObjectAction_readIsClassifiedObjectAction_compose_object_InputPin _,
           ops.ReadIsClassifiedObjectAction_object)) :+
@@ -11032,21 +9055,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11076,21 +9084,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11100,9 +9093,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "end" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property _,
-          ops.ReadLinkObjectEndAction_end)) :+
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin _,
           ops.ReadLinkObjectEndAction_object)) :+
@@ -11120,21 +9110,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11147,9 +9122,6 @@ with UMLPropertyUpdater[Uml] {
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_object_InputPin _,
           ops.ReadLinkObjectEndQualifierAction_object)) :+
-        ( "qualifier" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_reference_qualifier_Property _,
-          ops.ReadLinkObjectEndQualifierAction_qualifier)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadLinkObjectEndQualifierAction_readLinkObjectEndQualifierAction_compose_result_OutputPin _,
           ops.ReadLinkObjectEndQualifierAction_result))
@@ -11164,21 +9136,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11202,21 +9159,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11229,9 +9171,6 @@ with UMLPropertyUpdater[Uml] {
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) :+
-        ( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature _,
-          ops.StructuralFeatureAction_structuralFeature)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin _,
           ops.ReadStructuralFeatureAction_result))
@@ -11246,21 +9185,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11270,9 +9194,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "variable" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_VariableAction_variableAction_reference_variable_Variable _,
-          ops.VariableAction_variable)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReadVariableAction_readVariableAction_compose_result_OutputPin _,
           ops.ReadVariableAction_result))
@@ -11284,18 +9205,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
           ops.Abstraction_mapping))
@@ -11319,21 +9231,12 @@ with UMLPropertyUpdater[Uml] {
         ( "packageImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
           ops.Namespace_packageImport)) :+
-        ( "method" -> AssociationMetaPropertySetUpdateInfo(
-          links_BehavioralFeature_specification_reference_method_Behavior _,
-          ops.BehavioralFeature_method)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_BehavioralFeature_ownerFormalParam_compose_ownedParameter_Parameter _,
           ops.BehavioralFeature_ownedParameter)) :+
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioralFeature_behavioralFeature_compose_ownedParameterSet_ParameterSet _,
-          ops.BehavioralFeature_ownedParameterSet)) :+
-        ( "raisedException" -> AssociationMetaPropertySetUpdateInfo(
-          links_BehavioralFeature_behavioralFeature_reference_raisedException_Type _,
-          ops.BehavioralFeature_raisedException)) :+
-        ( "signal" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Reception_reception_reference_signal_Signal _,
-          ops.Reception_signal))
+          ops.BehavioralFeature_ownedParameterSet))
 
   // All parents: {ReclassifyObjectAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ReclassifyObjectAction
@@ -11345,21 +9248,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11369,15 +9257,9 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "newClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_ReclassifyObjectAction_reclassifyObjectAction_reference_newClassifier_Classifier _,
-          ops.ReclassifyObjectAction_newClassifier)) :+
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReclassifyObjectAction_reclassifyObjectAction_compose_object_InputPin _,
-          ops.ReclassifyObjectAction_object)) :+
-        ( "oldClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_ReclassifyObjectAction_reclassifyObjectAction_reference_oldClassifier_Classifier _,
-          ops.ReclassifyObjectAction_oldClassifier))
+          ops.ReclassifyObjectAction_object))
 
   // All parents: {RedefinableTemplateSignature, RedefinableElement, TemplateSignature, NamedElement, Element}
   lazy val metaclass_composite_updater_table_RedefinableTemplateSignature
@@ -11391,13 +9273,7 @@ with UMLPropertyUpdater[Uml] {
           ops.NamedElement_nameExpression)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter _,
-          ops.TemplateSignature_ownedParameter)) :+
-        ( "parameter" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter _,
-          ops.TemplateSignature_parameter)) :+
-        ( "extendedSignature" -> AssociationMetaPropertySetUpdateInfo(
-          links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature _,
-          ops.RedefinableTemplateSignature_extendedSignature))
+          ops.TemplateSignature_ownedParameter))
 
   // All parents: {ReduceAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ReduceAction
@@ -11409,21 +9285,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11436,9 +9297,6 @@ with UMLPropertyUpdater[Uml] {
         ( "collection" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReduceAction_reduceAction_compose_collection_InputPin _,
           ops.ReduceAction_collection)) :+
-        ( "reducer" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReduceAction_reduceAction_reference_reducer_Behavior _,
-          ops.ReduceAction_reducer)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ReduceAction_reduceAction_compose_result_OutputPin _,
           ops.ReduceAction_result))
@@ -11462,9 +9320,6 @@ with UMLPropertyUpdater[Uml] {
         ( "packageImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_packageImport_PackageImport _,
           ops.Namespace_packageImport)) :+
-        ( "extendedRegion" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Region_region_reference_extendedRegion_Region _,
-          ops.Region_extendedRegion)) :+
         ( "subvertex" -> AssociationMetaPropertySetUpdateInfo(
           links_Region_container_compose_subvertex_Vertex _,
           ops.Region_subvertex)) :+
@@ -11482,21 +9337,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11509,9 +9349,6 @@ with UMLPropertyUpdater[Uml] {
         ( "object" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StructuralFeatureAction_structuralFeatureAction_compose_object_InputPin _,
           ops.StructuralFeatureAction_object)) :+
-        ( "structuralFeature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_StructuralFeatureAction_structuralFeatureAction_reference_structuralFeature_StructuralFeature _,
-          ops.StructuralFeatureAction_structuralFeature)) :+
         ( "result" -> AssociationMetaPropertyOptionUpdateInfo(
           links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin _,
           ops.WriteStructuralFeatureAction_result)) :+
@@ -11532,21 +9369,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11556,9 +9378,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "variable" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_VariableAction_variableAction_reference_variable_Variable _,
-          ops.VariableAction_variable)) :+
         ( "value" -> AssociationMetaPropertyOptionUpdateInfo(
           links_WriteVariableAction_writeVariableAction_compose_value_InputPin _,
           ops.WriteVariableAction_value)) :+
@@ -11576,21 +9395,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11600,9 +9404,6 @@ with UMLPropertyUpdater[Uml] {
         ( "localPrecondition" -> AssociationMetaPropertySetUpdateInfo(
           links_Action_action_compose_localPrecondition_Constraint _,
           ops.Action_localPrecondition)) :+
-        ( "replyToCall" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ReplyAction_replyAction_reference_replyToCall_Trigger _,
-          ops.ReplyAction_replyToCall)) :+
         ( "replyValue" -> AssociationMetaPropertySequenceUpdateInfo(
           links_ReplyAction_replyAction_compose_replyValue_InputPin _,
           ops.ReplyAction_replyValue)) :+
@@ -11620,21 +9421,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11647,9 +9433,6 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
           ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
         ( "request" -> AssociationMetaPropertyOptionUpdateInfo(
           links_SendObjectAction_sendObjectAction_compose_request_InputPin _,
           ops.SendObjectAction_request)) :+
@@ -11667,21 +9450,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11694,12 +9462,6 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
           ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
-        ( "signal" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_SendSignalAction_sendSignalAction_reference_signal_Signal _,
-          ops.SendSignalAction_signal)) :+
         ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
           links_SendSignalAction_sendSignalAction_compose_target_InputPin _,
           ops.SendSignalAction_target))
@@ -11714,21 +9476,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "elementImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
           ops.Namespace_elementImport)) :+
@@ -11773,9 +9520,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -11806,24 +9550,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Signal_owningSignal_compose_ownedAttribute_Property _,
           ops.Signal_ownedAttribute))
@@ -11835,15 +9564,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "signal" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_SignalEvent_signalEvent_reference_signal_Signal _,
-          ops.SignalEvent_signal))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Slot, Element}
   lazy val metaclass_composite_updater_table_Slot
@@ -11852,9 +9575,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "definingFeature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Slot_slot_reference_definingFeature_StructuralFeature _,
-          ops.Slot_definingFeature)) :+
         ( "value" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Slot_owningSlot_compose_value_ValueSpecification _,
           ops.Slot_value))
@@ -11869,21 +9589,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11907,21 +9612,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -11934,9 +9624,6 @@ with UMLPropertyUpdater[Uml] {
         ( "argument" -> AssociationMetaPropertySequenceUpdateInfo(
           links_InvocationAction_invocationAction_compose_argument_InputPin _,
           ops.InvocationAction_argument)) :+
-        ( "onPort" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_InvocationAction_invocationAction_reference_onPort_Port _,
-          ops.InvocationAction_onPort)) :+
         ( "result" -> AssociationMetaPropertySequenceUpdateInfo(
           links_CallAction_callAction_compose_result_OutputPin _,
           ops.CallAction_result)) :+
@@ -11981,18 +9668,9 @@ with UMLPropertyUpdater[Uml] {
         ( "exit" -> AssociationMetaPropertyOptionUpdateInfo(
           links_State_state_compose_exit_Behavior _,
           ops.State_exit)) :+
-        ( "redefinedState" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_state_reference_redefinedState_State _,
-          ops.State_redefinedState)) :+
         ( "region" -> AssociationMetaPropertySetUpdateInfo(
           links_State_state_compose_region_Region _,
-          ops.State_region)) :+
-        ( "stateInvariant" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_owningState_compose_stateInvariant_Constraint _,
-          ops.State_stateInvariant)) :+
-        ( "submachine" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_State_submachineState_reference_submachine_StateMachine _,
-          ops.State_submachine))
+          ops.State_region))
 
   // All parents: {StateInvariant, InteractionFragment, NamedElement, Element}
   lazy val metaclass_composite_updater_table_StateInvariant
@@ -12004,15 +9682,9 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
-          ops.InteractionFragment_covered)) :+
         ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering)) :+
-        ( "covered" -> AssociationMetaPropertyIterableUpdateInfo(
-          links_StateInvariant_stateInvariant_reference_covered_Lifeline _,
-          ops.StateInvariant_covered)) :+
         ( "invariant" -> AssociationMetaPropertyOptionUpdateInfo(
           links_StateInvariant_stateInvariant_compose_invariant_Constraint _,
           ops.StateInvariant_invariant))
@@ -12024,9 +9696,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -12057,33 +9726,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -12108,30 +9759,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedParameterSet" -> AssociationMetaPropertySetUpdateInfo(
           links_Behavior_behavior_compose_ownedParameterSet_ParameterSet _,
           ops.Behavior_ownedParameterSet)) :+
-        ( "postcondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_postcondition_Constraint _,
-          ops.Behavior_postcondition)) :+
-        ( "precondition" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_compose_precondition_Constraint _,
-          ops.Behavior_precondition)) :+
-        ( "redefinedBehavior" -> AssociationMetaPropertySetUpdateInfo(
-          links_Behavior_behavior_reference_redefinedBehavior_Behavior _,
-          ops.Behavior_redefinedBehavior)) :+
-        ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Behavior_method_reference_specification_BehavioralFeature _,
-          ops.Behavior_specification)) :+
         ( "connectionPoint" -> AssociationMetaPropertySetUpdateInfo(
           links_StateMachine_stateMachine_compose_connectionPoint_Pseudostate _,
           ops.StateMachine_connectionPoint)) :+
-        ( "extendedStateMachine" -> AssociationMetaPropertySetUpdateInfo(
-          links_StateMachine_stateMachine_reference_extendedStateMachine_StateMachine _,
-          ops.StateMachine_extendedStateMachine)) :+
         ( "region" -> AssociationMetaPropertySetUpdateInfo(
           links_StateMachine_stateMachine_compose_region_Region _,
-          ops.StateMachine_region)) :+
-        ( "submachineState" -> AssociationMetaPropertySetUpdateInfo(
-          links_StateMachine_submachine_reference_submachineState_State _,
-          ops.StateMachine_submachineState))
+          ops.StateMachine_region))
 
   // All parents: {Stereotype, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Stereotype
@@ -12140,9 +9773,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -12173,33 +9803,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
         ( "ownedAttribute" -> AssociationMetaPropertySequenceUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedAttribute_Property _,
           ops.StructuredClassifier_ownedAttribute)) :+
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -12229,15 +9841,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "ownedTemplateSignature" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature _,
           ops.TemplateableElement_ownedTemplateSignature)) :+
@@ -12261,21 +9867,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "elementImport" -> AssociationMetaPropertySetUpdateInfo(
           links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
           ops.Namespace_elementImport)) :+
@@ -12317,24 +9908,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier)) :+
         ( "mapping" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
-          ops.Abstraction_mapping)) :+
-        ( "contract" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Substitution_substitution_reference_contract_Classifier _,
-          ops.Substitution_contract))
+          ops.Abstraction_mapping))
 
   // All parents: {TemplateBinding, DirectedRelationship, Relationship, Element}
   lazy val metaclass_composite_updater_table_TemplateBinding
@@ -12345,10 +9924,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "parameterSubstitution" -> AssociationMetaPropertySetUpdateInfo(
           links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution _,
-          ops.TemplateBinding_parameterSubstitution)) :+
-        ( "signature" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateBinding_templateBinding_reference_signature_TemplateSignature _,
-          ops.TemplateBinding_signature))
+          ops.TemplateBinding_parameterSubstitution))
 
   // All parents: {TemplateParameter, Element}
   lazy val metaclass_composite_updater_table_TemplateParameter
@@ -12357,18 +9933,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "default" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_default_ParameterableElement _,
-          ops.TemplateParameter_default)) :+
         ( "ownedDefault" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement _,
           ops.TemplateParameter_ownedDefault)) :+
         ( "ownedParameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
-          ops.TemplateParameter_ownedParameteredElement)) :+
-        ( "parameteredElement" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
-          ops.TemplateParameter_parameteredElement))
+          ops.TemplateParameter_ownedParameteredElement))
 
   // All parents: {TemplateParameterSubstitution, Element}
   lazy val metaclass_composite_updater_table_TemplateParameterSubstitution
@@ -12377,12 +9947,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "actual" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameterSubstitution_templateParameterSubstitution_reference_actual_ParameterableElement _,
-          ops.TemplateParameterSubstitution_actual)) :+
-        ( "formal" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TemplateParameterSubstitution_templateParameterSubstitution_reference_formal_TemplateParameter _,
-          ops.TemplateParameterSubstitution_formal)) :+
         ( "ownedActual" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TemplateParameterSubstitution_owningTemplateParameterSubstitution_compose_ownedActual_ParameterableElement _,
           ops.TemplateParameterSubstitution_ownedActual))
@@ -12396,10 +9960,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_TemplateSignature_signature_compose_ownedParameter_TemplateParameter _,
-          ops.TemplateSignature_ownedParameter)) :+
-        ( "parameter" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_TemplateSignature_templateSignature_reference_parameter_TemplateParameter _,
-          ops.TemplateSignature_parameter))
+          ops.TemplateSignature_ownedParameter))
 
   // All parents: {TestIdentityAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_TestIdentityAction
@@ -12411,21 +9972,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -12452,15 +9998,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "constrainedElement" -> AssociationMetaPropertySequenceUpdateInfo(
-          links_Constraint_constraint_reference_constrainedElement_Element _,
-          ops.Constraint_constrainedElement)) :+
         ( "specification" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Constraint_owningConstraint_compose_specification_ValueSpecification _,
           ops.Constraint_specification)) :+
@@ -12478,9 +10018,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -12495,21 +10032,12 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "expr" -> AssociationMetaPropertyOptionUpdateInfo(
           links_TimeExpression_timeExpression_compose_expr_ValueSpecification _,
-          ops.TimeExpression_expr)) :+
-        ( "observation" -> AssociationMetaPropertySetUpdateInfo(
-          links_TimeExpression_timeExpression_reference_observation_Observation _,
-          ops.TimeExpression_observation))
+          ops.TimeExpression_expr))
 
   // All parents: {TimeInterval, Interval, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_TimeInterval
@@ -12518,27 +10046,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "max" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_max_ValueSpecification _,
-          ops.Interval_max)) :+
-        ( "min" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Interval_interval_reference_min_ValueSpecification _,
-          ops.Interval_min)) :+
-        ( "max" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TimeInterval_timeInterval_reference_max_TimeExpression _,
-          ops.TimeInterval_max)) :+
-        ( "min" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TimeInterval_timeInterval_reference_min_TimeExpression _,
-          ops.TimeInterval_min))
+          ops.NamedElement_nameExpression))
 
   // All parents: {TimeObservation, Observation, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_TimeObservation
@@ -12547,15 +10057,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "event" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TimeObservation_timeObservation_reference_event_NamedElement _,
-          ops.TimeObservation_event))
+          ops.NamedElement_nameExpression))
 
   // All parents: {Transition, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Transition
@@ -12579,18 +10083,6 @@ with UMLPropertyUpdater[Uml] {
         ( "effect" -> AssociationMetaPropertyOptionUpdateInfo(
           links_Transition_transition_compose_effect_Behavior _,
           ops.Transition_effect)) :+
-        ( "guard" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_transition_compose_guard_Constraint _,
-          ops.Transition_guard)) :+
-        ( "redefinedTransition" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_transition_reference_redefinedTransition_Transition _,
-          ops.Transition_redefinedTransition)) :+
-        ( "source" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_outgoing_reference_source_Vertex _,
-          ops.Transition_source)) :+
-        ( "target" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Transition_incoming_reference_target_Vertex _,
-          ops.Transition_target)) :+
         ( "trigger" -> AssociationMetaPropertySetUpdateInfo(
           links_Transition_transition_compose_trigger_Trigger _,
           ops.Transition_trigger))
@@ -12604,13 +10096,7 @@ with UMLPropertyUpdater[Uml] {
           ops.Element_ownedComment)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "event" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Trigger_trigger_reference_event_Event _,
-          ops.Trigger_event)) :+
-        ( "port" -> AssociationMetaPropertySetUpdateInfo(
-          links_Trigger_trigger_reference_port_Port _,
-          ops.Trigger_port))
+          ops.NamedElement_nameExpression))
 
   // All parents: {UnmarshallAction, Action, ExecutableNode, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_UnmarshallAction
@@ -12622,21 +10108,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -12651,10 +10122,7 @@ with UMLPropertyUpdater[Uml] {
           ops.UnmarshallAction_object)) :+
         ( "result" -> AssociationMetaPropertySequenceUpdateInfo(
           links_UnmarshallAction_unmarshallAction_compose_result_OutputPin _,
-          ops.UnmarshallAction_result)) :+
-        ( "unmarshallType" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_UnmarshallAction_unmarshallAction_reference_unmarshallType_Classifier _,
-          ops.UnmarshallAction_unmarshallType))
+          ops.UnmarshallAction_result))
 
   // All parents: {Usage, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Usage
@@ -12663,18 +10131,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
-          ops.NamedElement_nameExpression)) :+
-        ( "client" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_clientDependency_reference_client_NamedElement _,
-          ops.Dependency_client)) :+
-        ( "supplier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Dependency_supplierDependency_reference_supplier_NamedElement _,
-          ops.Dependency_supplier))
+          ops.NamedElement_nameExpression))
 
   // All parents: {UseCase, BehavioredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_UseCase
@@ -12683,9 +10142,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedComment" -> AssociationMetaPropertySetUpdateInfo(
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
@@ -12716,27 +10172,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedUseCase" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_classifier_compose_ownedUseCase_UseCase _,
           ops.Classifier_ownedUseCase)) :+
-        ( "powertypeExtent" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_powertype_reference_powertypeExtent_GeneralizationSet _,
-          ops.Classifier_powertypeExtent)) :+
-        ( "redefinedClassifier" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_classifier_reference_redefinedClassifier_Classifier _,
-          ops.Classifier_redefinedClassifier)) :+
-        ( "representation" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_classifier_reference_representation_CollaborationUse _,
-          ops.Classifier_representation)) :+
         ( "substitution" -> AssociationMetaPropertySetUpdateInfo(
           links_Classifier_substitutingClassifier_compose_substitution_Substitution _,
           ops.Classifier_substitution)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_Classifier_parameteredElement_reference_templateParameter_ClassifierTemplateParameter _,
-          ops.Classifier_templateParameter)) :+
-        ( "useCase" -> AssociationMetaPropertySetUpdateInfo(
-          links_Classifier_subject_reference_useCase_UseCase _,
-          ops.Classifier_useCase)) :+
-        ( "classifierBehavior" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_BehavioredClassifier_behavioredClassifier_reference_classifierBehavior_Behavior _,
-          ops.BehavioredClassifier_classifierBehavior)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
@@ -12751,10 +10189,7 @@ with UMLPropertyUpdater[Uml] {
           ops.UseCase_extensionPoint)) :+
         ( "include" -> AssociationMetaPropertySetUpdateInfo(
           links_UseCase_includingCase_compose_include_Include _,
-          ops.UseCase_include)) :+
-        ( "subject" -> AssociationMetaPropertySetUpdateInfo(
-          links_UseCase_useCase_reference_subject_Classifier _,
-          ops.UseCase_subject))
+          ops.UseCase_include))
 
   // All parents: {ValuePin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ValuePin
@@ -12766,30 +10201,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
-        ( "inState" -> AssociationMetaPropertySetUpdateInfo(
-          links_ObjectNode_objectNode_reference_inState_State _,
-          ops.ObjectNode_inState)) :+
-        ( "selection" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ObjectNode_objectNode_reference_selection_Behavior _,
-          ops.ObjectNode_selection)) :+
         ( "upperBound" -> AssociationMetaPropertyOptionUpdateInfo(
           links_ObjectNode_objectNode_compose_upperBound_ValueSpecification _,
           ops.ObjectNode_upperBound)) :+
@@ -12813,21 +10224,6 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "inInterruptibleRegion" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inInterruptibleRegion_InterruptibleActivityRegion _,
-          ops.ActivityNode_inInterruptibleRegion)) :+
-        ( "inPartition" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_node_reference_inPartition_ActivityPartition _,
-          ops.ActivityNode_inPartition)) :+
-        ( "incoming" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_target_reference_incoming_ActivityEdge _,
-          ops.ActivityNode_incoming)) :+
-        ( "outgoing" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_source_reference_outgoing_ActivityEdge _,
-          ops.ActivityNode_outgoing)) :+
-        ( "redefinedNode" -> AssociationMetaPropertySetUpdateInfo(
-          links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
-          ops.ActivityNode_redefinedNode)) :+
         ( "handler" -> AssociationMetaPropertySetUpdateInfo(
           links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler _,
           ops.ExecutableNode_handler)) :+
@@ -12854,21 +10250,12 @@ with UMLPropertyUpdater[Uml] {
         ( "nameExpression" -> AssociationMetaPropertyOptionUpdateInfo(
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression)) :+
-        ( "type" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_TypedElement_typedElement_reference_type_Type _,
-          ops.TypedElement_type)) :+
         ( "lowerValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningLower_compose_lowerValue_ValueSpecification _,
           ops.MultiplicityElement_lowerValue)) :+
         ( "upperValue" -> AssociationMetaPropertyOptionUpdateInfo(
           links_MultiplicityElement_owningUpper_compose_upperValue_ValueSpecification _,
-          ops.MultiplicityElement_upperValue)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
-          ops.ParameterableElement_templateParameter)) :+
-        ( "templateParameter" -> AssociationMetaPropertyOptionUpdateInfo(
-          links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter _,
-          ops.ConnectableElement_templateParameter))
+          ops.MultiplicityElement_upperValue))
 
   /** Maps the name of each concrete metaclass to a map of reference property name to meta-information.
     * Note: Reference properties in these maps are metaclass-owned properties typed by a metaclass
