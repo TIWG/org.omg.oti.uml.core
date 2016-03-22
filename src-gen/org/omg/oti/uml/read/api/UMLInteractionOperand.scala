@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * An InteractionOperand is contained in a CombinedFragment. An InteractionOperand represents one operand of the expression given by the enclosing CombinedFragment.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInteractionOperand[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The fragments of the operand.
 	 *
 	 * <!-- Start of user code doc for fragment -->
-   * <!-- End of user code doc for fragment -->
+	 * <!-- End of user code doc for fragment -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionFragment.enclosingOperand
@@ -77,7 +79,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interactionOperand_metaAttributes
@@ -86,7 +88,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInteractionOperand
 	 *
 	 * <!-- Start of user code doc for interactionOperand_metaAttributes -->
-   * <!-- End of user code doc for interactionOperand_metaAttributes -->
+	 * <!-- End of user code doc for interactionOperand_metaAttributes -->
 	 */
 	def interactionOperand_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -98,7 +100,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interactionOperand_compositeMetaProperties
@@ -107,7 +109,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInteractionOperand
 	 *
 	 * <!-- Start of user code doc for interactionOperand_compositeMetaProperties -->
-   * <!-- End of user code doc for interactionOperand_compositeMetaProperties -->
+	 * <!-- End of user code doc for interactionOperand_compositeMetaProperties -->
 	 */
 	def interactionOperand_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -120,7 +122,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interactionOperand_referenceMetaProperties
@@ -129,7 +131,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInteractionOperand
 	 *
 	 * <!-- Start of user code doc for interactionOperand_referenceMetaProperties -->
-   * <!-- End of user code doc for interactionOperand_referenceMetaProperties -->
+	 * <!-- End of user code doc for interactionOperand_referenceMetaProperties -->
 	 */
 	def interactionOperand_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -141,7 +143,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interactionOperand_forwardReferencesFromMetamodelAssociations
@@ -150,7 +152,7 @@ trait UMLInteractionOperand[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInteractionOperand
 	 *
 	 * <!-- Start of user code doc for interactionOperand_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interactionOperand_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interactionOperand_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interactionOperand_forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations ++
@@ -158,5 +160,5 @@ trait UMLInteractionOperand[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInteractionOperand

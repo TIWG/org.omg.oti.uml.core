@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -68,7 +70,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * If true, then any object used by an Action within the StructuredActivityNode cannot be accessed by any Action outside the node until the StructuredActivityNode as a whole completes. Any concurrent Actions that would result in accessing such objects are required to have their execution deferred until the completion of the StructuredActivityNode.
 	 *
 	 * <!-- Start of user code doc for mustIsolate -->
-   * <!-- End of user code doc for mustIsolate -->
+	 * <!-- End of user code doc for mustIsolate -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		structuredActivityNode_metaAttributes
@@ -87,7 +89,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLStructuredActivityNode
 	 *
 	 * <!-- Start of user code doc for structuredActivityNode_metaAttributes -->
-   * <!-- End of user code doc for structuredActivityNode_metaAttributes -->
+	 * <!-- End of user code doc for structuredActivityNode_metaAttributes -->
 	 */
 	def structuredActivityNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -100,7 +102,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_compositeMetaProperties
@@ -109,7 +111,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLStructuredActivityNode
 	 *
 	 * <!-- Start of user code doc for structuredActivityNode_compositeMetaProperties -->
-   * <!-- End of user code doc for structuredActivityNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for structuredActivityNode_compositeMetaProperties -->
 	 */
 	def structuredActivityNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -126,7 +128,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		structuredActivityNode_referenceMetaProperties
@@ -135,7 +137,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLStructuredActivityNode
 	 *
 	 * <!-- Start of user code doc for structuredActivityNode_referenceMetaProperties -->
-   * <!-- End of user code doc for structuredActivityNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for structuredActivityNode_referenceMetaProperties -->
 	 */
 	def structuredActivityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		structuredActivityNode_forwardReferencesFromMetamodelAssociations
@@ -157,7 +159,7 @@ trait UMLStructuredActivityNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLStructuredActivityNode
 	 *
 	 * <!-- Start of user code doc for structuredActivityNode_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for structuredActivityNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for structuredActivityNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def structuredActivityNode_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
@@ -166,5 +168,5 @@ trait UMLStructuredActivityNode[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLStructuredActivityNode

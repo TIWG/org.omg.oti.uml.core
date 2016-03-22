@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * An InputPin is a Pin that holds input values to be consumed by an Action.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInputPin[Uml <: UML]
@@ -63,7 +65,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for argument_invocationAction -->
-   * <!-- End of user code doc for argument_invocationAction -->
+	 * <!-- End of user code doc for argument_invocationAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInvocationAction.argument
@@ -72,7 +74,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for destroyAt_linkEndDestructionData -->
-   * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
+	 * <!-- End of user code doc for destroyAt_linkEndDestructionData -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndDestructionData.destroyAt
@@ -81,7 +83,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for first_testIdentityAction -->
-   * <!-- End of user code doc for first_testIdentityAction -->
+	 * <!-- End of user code doc for first_testIdentityAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTestIdentityAction.first
@@ -90,7 +92,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for input_action -->
-   * <!-- End of user code doc for input_action -->
+	 * <!-- End of user code doc for input_action -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.input
@@ -99,7 +101,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for insertAt_linkEndCreationData -->
-   * <!-- End of user code doc for insertAt_linkEndCreationData -->
+	 * <!-- End of user code doc for insertAt_linkEndCreationData -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndCreationData.insertAt
@@ -108,7 +110,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for object_structuralFeatureAction -->
-   * <!-- End of user code doc for object_structuralFeatureAction -->
+	 * <!-- End of user code doc for object_structuralFeatureAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeatureAction._object
@@ -117,7 +119,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for replyValue_replyAction -->
-   * <!-- End of user code doc for replyValue_replyAction -->
+	 * <!-- End of user code doc for replyValue_replyAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReplyAction.replyValue
@@ -126,7 +128,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for returnInformation_replyAction -->
-   * <!-- End of user code doc for returnInformation_replyAction -->
+	 * <!-- End of user code doc for returnInformation_replyAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReplyAction.returnInformation
@@ -135,7 +137,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for second_testIdentityAction -->
-   * <!-- End of user code doc for second_testIdentityAction -->
+	 * <!-- End of user code doc for second_testIdentityAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTestIdentityAction.second
@@ -144,7 +146,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for target_sendObjectAction -->
-   * <!-- End of user code doc for target_sendObjectAction -->
+	 * <!-- End of user code doc for target_sendObjectAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSendObjectAction.target
@@ -153,7 +155,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for value_linkEndData -->
-   * <!-- End of user code doc for value_linkEndData -->
+	 * <!-- End of user code doc for value_linkEndData -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndData.value
@@ -162,7 +164,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for value_qualifierValue -->
-   * <!-- End of user code doc for value_qualifierValue -->
+	 * <!-- End of user code doc for value_qualifierValue -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLQualifierValue.value
@@ -171,7 +173,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for value_writeStructuralFeatureAction -->
-   * <!-- End of user code doc for value_writeStructuralFeatureAction -->
+	 * <!-- End of user code doc for value_writeStructuralFeatureAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLWriteStructuralFeatureAction.value
@@ -180,7 +182,7 @@ trait UMLInputPin[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for value_writeVariableAction -->
-   * <!-- End of user code doc for value_writeVariableAction -->
+	 * <!-- End of user code doc for value_writeVariableAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLWriteVariableAction.value
@@ -191,7 +193,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		inputPin_metaAttributes
@@ -200,7 +202,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInputPin
 	 *
 	 * <!-- Start of user code doc for inputPin_metaAttributes -->
-   * <!-- End of user code doc for inputPin_metaAttributes -->
+	 * <!-- End of user code doc for inputPin_metaAttributes -->
 	 */
 	def inputPin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -211,7 +213,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		inputPin_compositeMetaProperties
@@ -220,7 +222,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInputPin
 	 *
 	 * <!-- Start of user code doc for inputPin_compositeMetaProperties -->
-   * <!-- End of user code doc for inputPin_compositeMetaProperties -->
+	 * <!-- End of user code doc for inputPin_compositeMetaProperties -->
 	 */
 	def inputPin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -231,7 +233,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		inputPin_referenceMetaProperties
@@ -240,7 +242,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInputPin
 	 *
 	 * <!-- Start of user code doc for inputPin_referenceMetaProperties -->
-   * <!-- End of user code doc for inputPin_referenceMetaProperties -->
+	 * <!-- End of user code doc for inputPin_referenceMetaProperties -->
 	 */
 	def inputPin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -251,7 +253,7 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		inputPin_forwardReferencesFromMetamodelAssociations
@@ -260,12 +262,12 @@ trait UMLInputPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInputPin
 	 *
 	 * <!-- Start of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for inputPin_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def inputPin_forwardReferencesFromMetamodelAssociations: Elements =
 		pin_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInputPin

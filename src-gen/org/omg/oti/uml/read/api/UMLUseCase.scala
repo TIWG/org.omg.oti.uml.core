@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A UseCase specifies a set of actions performed by its subjects, which yields an observable result that is of value for one or more Actors or other stakeholders of each subject.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLUseCase[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The subjects to which this UseCase applies. Each subject or its parts realize all the UseCases that apply to it.
 	 *
 	 * <!-- Start of user code doc for subject -->
-   * <!-- End of user code doc for subject -->
+	 * <!-- End of user code doc for subject -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.useCase
@@ -75,7 +77,7 @@ trait UMLUseCase[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for ownedUseCase_classifier -->
-   * <!-- End of user code doc for ownedUseCase_classifier -->
+	 * <!-- End of user code doc for ownedUseCase_classifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.ownedUseCase
@@ -86,7 +88,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		useCase_metaAttributes
@@ -95,7 +97,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLUseCase
 	 *
 	 * <!-- Start of user code doc for useCase_metaAttributes -->
-   * <!-- End of user code doc for useCase_metaAttributes -->
+	 * <!-- End of user code doc for useCase_metaAttributes -->
 	 */
 	def useCase_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -106,7 +108,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		useCase_compositeMetaProperties
@@ -115,7 +117,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLUseCase
 	 *
 	 * <!-- Start of user code doc for useCase_compositeMetaProperties -->
-   * <!-- End of user code doc for useCase_compositeMetaProperties -->
+	 * <!-- End of user code doc for useCase_compositeMetaProperties -->
 	 */
 	def useCase_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		useCase_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLUseCase
 	 *
 	 * <!-- Start of user code doc for useCase_referenceMetaProperties -->
-   * <!-- End of user code doc for useCase_referenceMetaProperties -->
+	 * <!-- End of user code doc for useCase_referenceMetaProperties -->
 	 */
 	def useCase_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		useCase_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLUseCase[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLUseCase
 	 *
 	 * <!-- Start of user code doc for useCase_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for useCase_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for useCase_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def useCase_forwardReferencesFromMetamodelAssociations: Elements =
 		behavioredClassifier_forwardReferencesFromMetamodelAssociations ++
 		subject
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLUseCase

@@ -89,7 +89,7 @@ trait UMLAction[Uml <: UML]
 	 * A Constraint that must be satisfied when execution of the Action is completed.
 	 *
 	 * <!-- Start of user code doc for localPostcondition -->
-   * <!-- End of user code doc for localPostcondition -->
+	 * <!-- End of user code doc for localPostcondition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.localPostcondition_action
@@ -100,7 +100,7 @@ trait UMLAction[Uml <: UML]
 	 * A Constraint that must be satisfied when execution of the Action is started.
 	 *
 	 * <!-- Start of user code doc for localPrecondition -->
-   * <!-- End of user code doc for localPrecondition -->
+	 * <!-- End of user code doc for localPrecondition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.localPrecondition_action

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * VariableAction is an abstract class for Actions that operate on a specified Variable.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLVariableAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The Variable to be read or written.
 	 *
 	 * <!-- Start of user code doc for variable -->
-   * <!-- End of user code doc for variable -->
+	 * <!-- End of user code doc for variable -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLVariable.variable_variableAction
@@ -79,7 +81,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		variableAction_metaAttributes
@@ -88,7 +90,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLVariableAction
 	 *
 	 * <!-- Start of user code doc for variableAction_metaAttributes -->
-   * <!-- End of user code doc for variableAction_metaAttributes -->
+	 * <!-- End of user code doc for variableAction_metaAttributes -->
 	 */
 	def variableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		variableAction_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLVariableAction
 	 *
 	 * <!-- Start of user code doc for variableAction_compositeMetaProperties -->
-   * <!-- End of user code doc for variableAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for variableAction_compositeMetaProperties -->
 	 */
 	def variableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		variableAction_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLVariableAction
 	 *
 	 * <!-- Start of user code doc for variableAction_referenceMetaProperties -->
-   * <!-- End of user code doc for variableAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for variableAction_referenceMetaProperties -->
 	 */
 	def variableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		variableAction_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLVariableAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLVariableAction
 	 *
 	 * <!-- Start of user code doc for variableAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for variableAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for variableAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def variableAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		variable
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLVariableAction

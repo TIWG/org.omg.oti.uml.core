@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * InteractionFragment is an abstract notion of the most general interaction unit. An InteractionFragment is a piece of an Interaction. Each InteractionFragment is conceptually like an Interaction by itself.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInteractionFragment[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * References the Lifelines that the InteractionFragment involves.
 	 *
 	 * <!-- Start of user code doc for covered -->
-   * <!-- End of user code doc for covered -->
+	 * <!-- End of user code doc for covered -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.coveredBy
@@ -76,7 +78,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interactionFragment_metaAttributes
@@ -85,7 +87,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInteractionFragment
 	 *
 	 * <!-- Start of user code doc for interactionFragment_metaAttributes -->
-   * <!-- End of user code doc for interactionFragment_metaAttributes -->
+	 * <!-- End of user code doc for interactionFragment_metaAttributes -->
 	 */
 	def interactionFragment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -96,7 +98,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interactionFragment_compositeMetaProperties
@@ -105,7 +107,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInteractionFragment
 	 *
 	 * <!-- Start of user code doc for interactionFragment_compositeMetaProperties -->
-   * <!-- End of user code doc for interactionFragment_compositeMetaProperties -->
+	 * <!-- End of user code doc for interactionFragment_compositeMetaProperties -->
 	 */
 	def interactionFragment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,7 +118,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interactionFragment_referenceMetaProperties
@@ -125,7 +127,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInteractionFragment
 	 *
 	 * <!-- Start of user code doc for interactionFragment_referenceMetaProperties -->
-   * <!-- End of user code doc for interactionFragment_referenceMetaProperties -->
+	 * <!-- End of user code doc for interactionFragment_referenceMetaProperties -->
 	 */
 	def interactionFragment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -136,7 +138,7 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations
@@ -145,12 +147,12 @@ trait UMLInteractionFragment[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInteractionFragment
 	 *
 	 * <!-- Start of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interactionFragment_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interactionFragment_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		covered
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInteractionFragment

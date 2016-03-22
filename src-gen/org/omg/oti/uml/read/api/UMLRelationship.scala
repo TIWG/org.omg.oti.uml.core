@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * Relationship is an abstract concept that specifies some kind of relationship between Elements.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLRelationship[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLRelationship[Uml <: UML]
 	 * Specifies the elements related by the Relationship.
 	 *
 	 * <!-- Start of user code doc for relatedElement -->
-   * <!-- End of user code doc for relatedElement -->
+	 * <!-- End of user code doc for relatedElement -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.relatedElement_relationship
@@ -73,7 +75,7 @@ trait UMLRelationship[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for realization_abstraction -->
-   * <!-- End of user code doc for realization_abstraction -->
+	 * <!-- End of user code doc for realization_abstraction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realization
@@ -84,7 +86,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		relationship_metaAttributes
@@ -93,7 +95,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLRelationship
 	 *
 	 * <!-- Start of user code doc for relationship_metaAttributes -->
-   * <!-- End of user code doc for relationship_metaAttributes -->
+	 * <!-- End of user code doc for relationship_metaAttributes -->
 	 */
 	def relationship_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		relationship_compositeMetaProperties
@@ -113,7 +115,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLRelationship
 	 *
 	 * <!-- Start of user code doc for relationship_compositeMetaProperties -->
-   * <!-- End of user code doc for relationship_compositeMetaProperties -->
+	 * <!-- End of user code doc for relationship_compositeMetaProperties -->
 	 */
 	def relationship_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		relationship_referenceMetaProperties
@@ -133,7 +135,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLRelationship
 	 *
 	 * <!-- Start of user code doc for relationship_referenceMetaProperties -->
-   * <!-- End of user code doc for relationship_referenceMetaProperties -->
+	 * <!-- End of user code doc for relationship_referenceMetaProperties -->
 	 */
 	def relationship_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -144,7 +146,7 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		relationship_forwardReferencesFromMetamodelAssociations
@@ -153,12 +155,12 @@ trait UMLRelationship[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLRelationship
 	 *
 	 * <!-- Start of user code doc for relationship_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for relationship_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for relationship_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def relationship_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLRelationship

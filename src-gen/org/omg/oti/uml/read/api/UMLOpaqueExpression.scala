@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -54,7 +56,7 @@ import scala.collection.immutable.Seq
 /**
  * An OpaqueExpression is a ValueSpecification that specifies the computation of a collection of values either in terms of a UML Behavior or based on a textual statement in a language other than UML
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLOpaqueExpression[Uml <: UML]
@@ -69,7 +71,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * Specifies the behavior of the OpaqueExpression as a UML Behavior.
 	 *
 	 * <!-- Start of user code doc for behavior -->
-   * <!-- End of user code doc for behavior -->
+	 * <!-- End of user code doc for behavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.behavior_opaqueExpression
@@ -80,7 +82,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * A textual definition of the behavior of the OpaqueExpression, possibly in multiple languages.
 	 *
 	 * <!-- Start of user code doc for body -->
-   * <!-- End of user code doc for body -->
+	 * <!-- End of user code doc for body -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
@@ -90,7 +92,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * Specifies the languages used to express the textual bodies of the OpaqueExpression.  Languages are matched to body Strings by order. The interpretation of the body depends on the languages. If the languages are unspecified, they may be implicit from the expression body or the context.
 	 *
 	 * <!-- Start of user code doc for language -->
-   * <!-- End of user code doc for language -->
+	 * <!-- End of user code doc for language -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
@@ -100,7 +102,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		opaqueExpression_metaAttributes
@@ -109,7 +111,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLOpaqueExpression
 	 *
 	 * <!-- Start of user code doc for opaqueExpression_metaAttributes -->
-   * <!-- End of user code doc for opaqueExpression_metaAttributes -->
+	 * <!-- End of user code doc for opaqueExpression_metaAttributes -->
 	 */
 	def opaqueExpression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -121,7 +123,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		opaqueExpression_compositeMetaProperties
@@ -130,7 +132,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLOpaqueExpression
 	 *
 	 * <!-- Start of user code doc for opaqueExpression_compositeMetaProperties -->
-   * <!-- End of user code doc for opaqueExpression_compositeMetaProperties -->
+	 * <!-- End of user code doc for opaqueExpression_compositeMetaProperties -->
 	 */
 	def opaqueExpression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -141,7 +143,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		opaqueExpression_referenceMetaProperties
@@ -150,7 +152,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLOpaqueExpression
 	 *
 	 * <!-- Start of user code doc for opaqueExpression_referenceMetaProperties -->
-   * <!-- End of user code doc for opaqueExpression_referenceMetaProperties -->
+	 * <!-- End of user code doc for opaqueExpression_referenceMetaProperties -->
 	 */
 	def opaqueExpression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -161,7 +163,7 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		opaqueExpression_forwardReferencesFromMetamodelAssociations
@@ -170,12 +172,12 @@ trait UMLOpaqueExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLOpaqueExpression
 	 *
 	 * <!-- Start of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for opaqueExpression_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def opaqueExpression_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		behavior
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLOpaqueExpression

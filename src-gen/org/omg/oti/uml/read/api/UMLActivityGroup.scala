@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * ActivityGroup is an abstract class for defining sets of ActivityNodes and ActivityEdges in an Activity.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActivityGroup[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * ActivityEdges immediately contained in the ActivityGroup.
 	 *
 	 * <!-- Start of user code doc for containedEdge -->
-   * <!-- End of user code doc for containedEdge -->
+	 * <!-- End of user code doc for containedEdge -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.inGroup
@@ -75,7 +77,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * ActivityNodes immediately contained in the ActivityGroup.
 	 *
 	 * <!-- Start of user code doc for containedNode -->
-   * <!-- End of user code doc for containedNode -->
+	 * <!-- End of user code doc for containedNode -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inGroup
@@ -86,7 +88,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activityGroup_metaAttributes
@@ -95,7 +97,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActivityGroup
 	 *
 	 * <!-- Start of user code doc for activityGroup_metaAttributes -->
-   * <!-- End of user code doc for activityGroup_metaAttributes -->
+	 * <!-- End of user code doc for activityGroup_metaAttributes -->
 	 */
 	def activityGroup_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -106,7 +108,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activityGroup_compositeMetaProperties
@@ -115,7 +117,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActivityGroup
 	 *
 	 * <!-- Start of user code doc for activityGroup_compositeMetaProperties -->
-   * <!-- End of user code doc for activityGroup_compositeMetaProperties -->
+	 * <!-- End of user code doc for activityGroup_compositeMetaProperties -->
 	 */
 	def activityGroup_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -126,7 +128,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activityGroup_referenceMetaProperties
@@ -135,7 +137,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActivityGroup
 	 *
 	 * <!-- Start of user code doc for activityGroup_referenceMetaProperties -->
-   * <!-- End of user code doc for activityGroup_referenceMetaProperties -->
+	 * <!-- End of user code doc for activityGroup_referenceMetaProperties -->
 	 */
 	def activityGroup_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -146,7 +148,7 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activityGroup_forwardReferencesFromMetamodelAssociations
@@ -155,12 +157,12 @@ trait UMLActivityGroup[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActivityGroup
 	 *
 	 * <!-- Start of user code doc for activityGroup_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for activityGroup_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activityGroup_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activityGroup_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivityGroup

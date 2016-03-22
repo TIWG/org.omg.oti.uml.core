@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A package can have one or more profile applications to indicate which profiles have been applied. Because a profile is a package, it is possible to apply a profile not only to packages, but also to profiles.Package specializes TemplateableElement and PackageableElement specializes ParameterableElement to specify that a package can be used as a template and a PackageableElement as a template parameter.A package is used to group elements, and provides a namespace for the grouped elements.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLPackage[Uml <: UML]
@@ -69,7 +71,7 @@ trait UMLPackage[Uml <: UML]
 	 * Provides an identifier for the package that can be used for many purposes. A URI is the universally unique identification of the package following the IETF URI specification, RFC 2396 http://www.ietf.org/rfc/rfc2396.txt and it must comply with those syntax rules.
 	 *
 	 * <!-- Start of user code doc for URI -->
-   * <!-- End of user code doc for URI -->
+	 * <!-- End of user code doc for URI -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -79,7 +81,7 @@ trait UMLPackage[Uml <: UML]
 	 * References the Package that owns this Package.
 	 *
 	 * <!-- Start of user code doc for nestingPackage -->
-   * <!-- End of user code doc for nestingPackage -->
+	 * <!-- End of user code doc for nestingPackage -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.nestedPackage
@@ -90,7 +92,7 @@ trait UMLPackage[Uml <: UML]
 	 * Specifies the packageable elements that are owned by this Package.
 	 *
 	 * <!-- Start of user code doc for packagedElement -->
-   * <!-- End of user code doc for packagedElement -->
+	 * <!-- End of user code doc for packagedElement -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.packagedElement_owningPackage
@@ -101,7 +103,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		package_metaAttributes
@@ -110,7 +112,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLPackage
 	 *
 	 * <!-- Start of user code doc for package_metaAttributes -->
-   * <!-- End of user code doc for package_metaAttributes -->
+	 * <!-- End of user code doc for package_metaAttributes -->
 	 */
 	def package_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -123,7 +125,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		package_compositeMetaProperties
@@ -132,7 +134,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLPackage
 	 *
 	 * <!-- Start of user code doc for package_compositeMetaProperties -->
-   * <!-- End of user code doc for package_compositeMetaProperties -->
+	 * <!-- End of user code doc for package_compositeMetaProperties -->
 	 */
 	def package_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -147,7 +149,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		package_referenceMetaProperties
@@ -156,7 +158,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLPackage
 	 *
 	 * <!-- Start of user code doc for package_referenceMetaProperties -->
-   * <!-- End of user code doc for package_referenceMetaProperties -->
+	 * <!-- End of user code doc for package_referenceMetaProperties -->
 	 */
 	def package_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -169,7 +171,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		package_forwardReferencesFromMetamodelAssociations
@@ -178,7 +180,7 @@ trait UMLPackage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLPackage
 	 *
 	 * <!-- Start of user code doc for package_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for package_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for package_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def package_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -187,5 +189,5 @@ trait UMLPackage[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLPackage

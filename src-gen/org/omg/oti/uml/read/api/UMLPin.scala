@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A Pin is an ObjectNode and MultiplicityElement that provides input values to an Action or accepts output values from an Action.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLPin[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLPin[Uml <: UML]
 	 * Indicates whether the Pin provides data to the Action or just controls how the Action executes.
 	 *
 	 * <!-- Start of user code doc for isControl -->
-   * <!-- End of user code doc for isControl -->
+	 * <!-- End of user code doc for isControl -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		pin_metaAttributes
@@ -86,7 +88,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLPin
 	 *
 	 * <!-- Start of user code doc for pin_metaAttributes -->
-   * <!-- End of user code doc for pin_metaAttributes -->
+	 * <!-- End of user code doc for pin_metaAttributes -->
 	 */
 	def pin_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -98,7 +100,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		pin_compositeMetaProperties
@@ -107,7 +109,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLPin
 	 *
 	 * <!-- Start of user code doc for pin_compositeMetaProperties -->
-   * <!-- End of user code doc for pin_compositeMetaProperties -->
+	 * <!-- End of user code doc for pin_compositeMetaProperties -->
 	 */
 	def pin_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		pin_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLPin
 	 *
 	 * <!-- Start of user code doc for pin_referenceMetaProperties -->
-   * <!-- End of user code doc for pin_referenceMetaProperties -->
+	 * <!-- End of user code doc for pin_referenceMetaProperties -->
 	 */
 	def pin_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		pin_forwardReferencesFromMetamodelAssociations
@@ -149,7 +151,7 @@ trait UMLPin[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLPin
 	 *
 	 * <!-- Start of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for pin_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def pin_forwardReferencesFromMetamodelAssociations: Elements =
 		multiplicityElement_forwardReferencesFromMetamodelAssociations ++
@@ -157,5 +159,5 @@ trait UMLPin[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLPin

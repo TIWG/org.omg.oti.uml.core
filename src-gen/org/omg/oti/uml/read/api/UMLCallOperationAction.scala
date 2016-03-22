@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A CallOperationAction is a CallAction that transmits an Operation call request to the target object, where it may cause the invocation of associated Behavior. The argument values of the CallOperationAction are passed on the input Parameters of the Operation. If call is synchronous, the execution of the CallOperationAction waits until the execution of the invoked Operation completes and the values of output Parameters of the Operation are placed on the result OutputPins. If the call is asynchronous, the CallOperationAction completes immediately and no results values can be provided.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLCallOperationAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The Operation being invoked.
 	 *
 	 * <!-- Start of user code doc for operation -->
-   * <!-- End of user code doc for operation -->
+	 * <!-- End of user code doc for operation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.operation_callOperationAction
@@ -79,7 +81,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The InputPin that provides the target object to which the Operation call request is sent.
 	 *
 	 * <!-- Start of user code doc for target -->
-   * <!-- End of user code doc for target -->
+	 * <!-- End of user code doc for target -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.target_callOperationAction
@@ -90,7 +92,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		callOperationAction_metaAttributes
@@ -99,7 +101,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLCallOperationAction
 	 *
 	 * <!-- Start of user code doc for callOperationAction_metaAttributes -->
-   * <!-- End of user code doc for callOperationAction_metaAttributes -->
+	 * <!-- End of user code doc for callOperationAction_metaAttributes -->
 	 */
 	def callOperationAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		callOperationAction_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLCallOperationAction
 	 *
 	 * <!-- Start of user code doc for callOperationAction_compositeMetaProperties -->
-   * <!-- End of user code doc for callOperationAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for callOperationAction_compositeMetaProperties -->
 	 */
 	def callOperationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		callOperationAction_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLCallOperationAction
 	 *
 	 * <!-- Start of user code doc for callOperationAction_referenceMetaProperties -->
-   * <!-- End of user code doc for callOperationAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for callOperationAction_referenceMetaProperties -->
 	 */
 	def callOperationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		callOperationAction_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLCallOperationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLCallOperationAction
 	 *
 	 * <!-- Start of user code doc for callOperationAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for callOperationAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for callOperationAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def callOperationAction_forwardReferencesFromMetamodelAssociations: Elements =
 		callAction_forwardReferencesFromMetamodelAssociations ++
 		operation
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLCallOperationAction

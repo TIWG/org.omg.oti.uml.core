@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLAggregationKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLAggregationKind = Value
 
@@ -61,7 +63,7 @@ object UMLAggregationKind extends Enumeration {
  	 * Indicates that the Property is aggregated compositely, i.e., the composite object has responsibility for the existence and storage of the composed objects (parts).
 	 *
 	 * <!-- Start of user code doc for composite -->
-   * <!-- End of user code doc for composite -->
+	 * <!-- End of user code doc for composite -->
  	 */
 	val composite = Value
 
@@ -69,7 +71,7 @@ object UMLAggregationKind extends Enumeration {
  	 * Indicates that the Property has no aggregation.
 	 *
 	 * <!-- Start of user code doc for none -->
-   * <!-- End of user code doc for none -->
+	 * <!-- End of user code doc for none -->
  	 */
 	val none = Value
 
@@ -77,7 +79,7 @@ object UMLAggregationKind extends Enumeration {
  	 * Indicates that the Property has shared aggregation.
 	 *
 	 * <!-- Start of user code doc for shared -->
-   * <!-- End of user code doc for shared -->
+	 * <!-- End of user code doc for shared -->
  	 */
 	val shared = Value
 }

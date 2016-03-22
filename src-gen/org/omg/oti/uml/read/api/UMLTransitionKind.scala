@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLTransitionKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLTransitionKind = Value
 
@@ -61,7 +63,7 @@ object UMLTransitionKind extends Enumeration {
  	 * Implies that the Transition, if triggered, will exit the composite (source) State.
 	 *
 	 * <!-- Start of user code doc for external -->
-   * <!-- End of user code doc for external -->
+	 * <!-- End of user code doc for external -->
  	 */
 	val external = Value
 
@@ -69,7 +71,7 @@ object UMLTransitionKind extends Enumeration {
  	 * Implies that the Transition, if triggered, occurs without exiting or entering the source State (i.e., it does not cause a state change). This means that the entry or exit condition of the source State will not be invoked. An internal Transition can be taken even if the SateMachine is in one or more Regions nested within the associated State.
 	 *
 	 * <!-- Start of user code doc for internal -->
-   * <!-- End of user code doc for internal -->
+	 * <!-- End of user code doc for internal -->
  	 */
 	val internal = Value
 
@@ -77,7 +79,7 @@ object UMLTransitionKind extends Enumeration {
  	 * Implies that the Transition, if triggered, will not exit the composite (source) State, but it will exit and re-enter any state within the composite State that is in the current state configuration.
 	 *
 	 * <!-- Start of user code doc for local -->
-   * <!-- End of user code doc for local -->
+	 * <!-- End of user code doc for local -->
  	 */
 	val local = Value
 }

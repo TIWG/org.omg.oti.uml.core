@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * An Interaction is a unit of Behavior that focuses on the observable exchange of information between connectable elements.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInteraction[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The ordered set of fragments in the Interaction.
 	 *
 	 * <!-- Start of user code doc for fragment -->
-   * <!-- End of user code doc for fragment -->
+	 * <!-- End of user code doc for fragment -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionFragment.enclosingInteraction
@@ -75,7 +77,7 @@ trait UMLInteraction[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for refersTo_interactionUse -->
-   * <!-- End of user code doc for refersTo_interactionUse -->
+	 * <!-- End of user code doc for refersTo_interactionUse -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.refersTo
@@ -86,7 +88,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interaction_metaAttributes
@@ -95,7 +97,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInteraction
 	 *
 	 * <!-- Start of user code doc for interaction_metaAttributes -->
-   * <!-- End of user code doc for interaction_metaAttributes -->
+	 * <!-- End of user code doc for interaction_metaAttributes -->
 	 */
 	def interaction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -107,7 +109,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interaction_compositeMetaProperties
@@ -116,7 +118,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInteraction
 	 *
 	 * <!-- Start of user code doc for interaction_compositeMetaProperties -->
-   * <!-- End of user code doc for interaction_compositeMetaProperties -->
+	 * <!-- End of user code doc for interaction_compositeMetaProperties -->
 	 */
 	def interaction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -132,7 +134,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interaction_referenceMetaProperties
@@ -141,7 +143,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInteraction
 	 *
 	 * <!-- Start of user code doc for interaction_referenceMetaProperties -->
-   * <!-- End of user code doc for interaction_referenceMetaProperties -->
+	 * <!-- End of user code doc for interaction_referenceMetaProperties -->
 	 */
 	def interaction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -153,7 +155,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interaction_forwardReferencesFromMetamodelAssociations
@@ -162,7 +164,7 @@ trait UMLInteraction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInteraction
 	 *
 	 * <!-- Start of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interaction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interaction_forwardReferencesFromMetamodelAssociations: Elements =
 		behavior_forwardReferencesFromMetamodelAssociations ++
@@ -170,5 +172,5 @@ trait UMLInteraction[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInteraction

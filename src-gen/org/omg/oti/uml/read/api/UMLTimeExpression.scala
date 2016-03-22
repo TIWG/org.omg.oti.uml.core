@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A TimeExpression is a ValueSpecification that represents a time value.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLTimeExpression[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * A ValueSpecification that evaluates to the value of the TimeExpression.
 	 *
 	 * <!-- Start of user code doc for expr -->
-   * <!-- End of user code doc for expr -->
+	 * <!-- End of user code doc for expr -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.expr_timeExpression
@@ -77,7 +79,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * Refers to the Observations that are involved in the computation of the TimeExpression value.
 	 *
 	 * <!-- Start of user code doc for observation -->
-   * <!-- End of user code doc for observation -->
+	 * <!-- End of user code doc for observation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObservation.observation_timeExpression
@@ -88,7 +90,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		timeExpression_metaAttributes
@@ -97,7 +99,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLTimeExpression
 	 *
 	 * <!-- Start of user code doc for timeExpression_metaAttributes -->
-   * <!-- End of user code doc for timeExpression_metaAttributes -->
+	 * <!-- End of user code doc for timeExpression_metaAttributes -->
 	 */
 	def timeExpression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -108,7 +110,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		timeExpression_compositeMetaProperties
@@ -117,7 +119,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLTimeExpression
 	 *
 	 * <!-- Start of user code doc for timeExpression_compositeMetaProperties -->
-   * <!-- End of user code doc for timeExpression_compositeMetaProperties -->
+	 * <!-- End of user code doc for timeExpression_compositeMetaProperties -->
 	 */
 	def timeExpression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		timeExpression_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLTimeExpression
 	 *
 	 * <!-- Start of user code doc for timeExpression_referenceMetaProperties -->
-   * <!-- End of user code doc for timeExpression_referenceMetaProperties -->
+	 * <!-- End of user code doc for timeExpression_referenceMetaProperties -->
 	 */
 	def timeExpression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		timeExpression_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLTimeExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLTimeExpression
 	 *
 	 * <!-- Start of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for timeExpression_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def timeExpression_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		observation
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLTimeExpression

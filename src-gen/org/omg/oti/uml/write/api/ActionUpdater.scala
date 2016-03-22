@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -39,11 +41,11 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.Set
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -55,18 +57,18 @@ class ActionUpdater[Uml <: UML](val domain: UMLAction[Uml]) extends AnyVal {
   def links_Action_action_compose_localPostcondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Action_action_compose_localPostcondition_Constraint(domain, range)
 
   def links_Action_action_compose_localPrecondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Action_action_compose_localPrecondition_Constraint(domain, range)
 
   def setIsLocallyReentrant
   (isLocallyReentrant: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_Action_isLocallyReentrant(domain, isLocallyReentrant)
 }

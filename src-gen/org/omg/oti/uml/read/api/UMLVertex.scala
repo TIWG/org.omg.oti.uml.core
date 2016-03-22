@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A Vertex is an abstraction of a node in a StateMachine graph. It can be the source or destination of any number of Transitions.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLVertex[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		vertex_metaAttributes
@@ -73,7 +75,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLVertex
 	 *
 	 * <!-- Start of user code doc for vertex_metaAttributes -->
-   * <!-- End of user code doc for vertex_metaAttributes -->
+	 * <!-- End of user code doc for vertex_metaAttributes -->
 	 */
 	def vertex_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -84,7 +86,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		vertex_compositeMetaProperties
@@ -93,7 +95,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLVertex
 	 *
 	 * <!-- Start of user code doc for vertex_compositeMetaProperties -->
-   * <!-- End of user code doc for vertex_compositeMetaProperties -->
+	 * <!-- End of user code doc for vertex_compositeMetaProperties -->
 	 */
 	def vertex_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		vertex_referenceMetaProperties
@@ -113,7 +115,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLVertex
 	 *
 	 * <!-- Start of user code doc for vertex_referenceMetaProperties -->
-   * <!-- End of user code doc for vertex_referenceMetaProperties -->
+	 * <!-- End of user code doc for vertex_referenceMetaProperties -->
 	 */
 	def vertex_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		vertex_forwardReferencesFromMetamodelAssociations
@@ -133,12 +135,12 @@ trait UMLVertex[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLVertex
 	 *
 	 * <!-- Start of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for vertex_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def vertex_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLVertex

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A NamedElement is an Element in a model that may have a name. The name may be given directly and/or via the use of a StringExpression.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLNamedElement[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The name of the NamedElement.
 	 *
 	 * <!-- Start of user code doc for name -->
-   * <!-- End of user code doc for name -->
+	 * <!-- End of user code doc for name -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * Determines whether and how the NamedElement is visible outside its owning Namespace.
 	 *
 	 * <!-- Start of user code doc for visibility -->
-   * <!-- End of user code doc for visibility -->
+	 * <!-- End of user code doc for visibility -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -85,7 +87,7 @@ trait UMLNamedElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for event_durationObservation -->
-   * <!-- End of user code doc for event_durationObservation -->
+	 * <!-- End of user code doc for event_durationObservation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationObservation.event
@@ -94,7 +96,7 @@ trait UMLNamedElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for event_timeObservation -->
-   * <!-- End of user code doc for event_timeObservation -->
+	 * <!-- End of user code doc for event_timeObservation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeObservation.event
@@ -103,7 +105,7 @@ trait UMLNamedElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for member_memberNamespace -->
-   * <!-- End of user code doc for member_memberNamespace -->
+	 * <!-- End of user code doc for member_memberNamespace -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.member
@@ -112,7 +114,7 @@ trait UMLNamedElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for message_considerIgnoreFragment -->
-   * <!-- End of user code doc for message_considerIgnoreFragment -->
+	 * <!-- End of user code doc for message_considerIgnoreFragment -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConsiderIgnoreFragment.message
@@ -121,7 +123,7 @@ trait UMLNamedElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for signature_message -->
-   * <!-- End of user code doc for signature_message -->
+	 * <!-- End of user code doc for signature_message -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.signature
@@ -132,7 +134,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		namedElement_metaAttributes
@@ -141,7 +143,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLNamedElement
 	 *
 	 * <!-- Start of user code doc for namedElement_metaAttributes -->
-   * <!-- End of user code doc for namedElement_metaAttributes -->
+	 * <!-- End of user code doc for namedElement_metaAttributes -->
 	 */
 	def namedElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -152,7 +154,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		namedElement_compositeMetaProperties
@@ -161,7 +163,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLNamedElement
 	 *
 	 * <!-- Start of user code doc for namedElement_compositeMetaProperties -->
-   * <!-- End of user code doc for namedElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for namedElement_compositeMetaProperties -->
 	 */
 	def namedElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -172,7 +174,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		namedElement_referenceMetaProperties
@@ -181,7 +183,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLNamedElement
 	 *
 	 * <!-- Start of user code doc for namedElement_referenceMetaProperties -->
-   * <!-- End of user code doc for namedElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for namedElement_referenceMetaProperties -->
 	 */
 	def namedElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -192,7 +194,7 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations
@@ -201,12 +203,12 @@ trait UMLNamedElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLNamedElement
 	 *
 	 * <!-- Start of user code doc for namedElement_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for namedElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for namedElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def namedElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLNamedElement

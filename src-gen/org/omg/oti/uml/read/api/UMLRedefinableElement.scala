@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A RedefinableElement is an element that, when defined in the context of a Classifier, can be redefined more specifically or differently in the context of another Classifier that specializes (directly or indirectly) the context Classifier.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLRedefinableElement[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * Indicates whether it is possible to further redefine a RedefinableElement. If the value is true, then it is not possible to further redefine the RedefinableElement.
 	 *
 	 * <!-- Start of user code doc for isLeaf -->
-   * <!-- End of user code doc for isLeaf -->
+	 * <!-- End of user code doc for isLeaf -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The RedefinableElement that is being redefined by this element.
 	 *
 	 * <!-- Start of user code doc for redefinedElement -->
-   * <!-- End of user code doc for redefinedElement -->
+	 * <!-- End of user code doc for redefinedElement -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement_redefinableElement
@@ -88,7 +90,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The contexts that this element may be redefined from.
 	 *
 	 * <!-- Start of user code doc for redefinitionContext -->
-   * <!-- End of user code doc for redefinitionContext -->
+	 * <!-- End of user code doc for redefinitionContext -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinitionContext_redefinableElement
@@ -97,7 +99,7 @@ trait UMLRedefinableElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for redefinedElement_redefinableElement -->
-   * <!-- End of user code doc for redefinedElement_redefinableElement -->
+	 * <!-- End of user code doc for redefinedElement_redefinableElement -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinedElement
@@ -108,7 +110,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		redefinableElement_metaAttributes
@@ -117,7 +119,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLRedefinableElement
 	 *
 	 * <!-- Start of user code doc for redefinableElement_metaAttributes -->
-   * <!-- End of user code doc for redefinableElement_metaAttributes -->
+	 * <!-- End of user code doc for redefinableElement_metaAttributes -->
 	 */
 	def redefinableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		redefinableElement_compositeMetaProperties
@@ -137,7 +139,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLRedefinableElement
 	 *
 	 * <!-- Start of user code doc for redefinableElement_compositeMetaProperties -->
-   * <!-- End of user code doc for redefinableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for redefinableElement_compositeMetaProperties -->
 	 */
 	def redefinableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		redefinableElement_referenceMetaProperties
@@ -157,7 +159,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLRedefinableElement
 	 *
 	 * <!-- Start of user code doc for redefinableElement_referenceMetaProperties -->
-   * <!-- End of user code doc for redefinableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for redefinableElement_referenceMetaProperties -->
 	 */
 	def redefinableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -168,7 +170,7 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations
@@ -177,12 +179,12 @@ trait UMLRedefinableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLRedefinableElement
 	 *
 	 * <!-- Start of user code doc for redefinableElement_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for redefinableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for redefinableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def redefinableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLRedefinableElement

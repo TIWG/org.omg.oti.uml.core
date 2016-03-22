@@ -55,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ActionExecutionSpecification is a kind of ExecutionSpecification representing the execution of an Action.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActionExecutionSpecification[Uml <: UML]

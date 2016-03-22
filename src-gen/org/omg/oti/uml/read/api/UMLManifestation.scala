@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A manifestation is the concrete physical rendering of one or more model elements by an artifact.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLManifestation[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The model element that is utilized in the manifestation in an Artifact.
 	 *
 	 * <!-- Start of user code doc for utilizedElement -->
-   * <!-- End of user code doc for utilizedElement -->
+	 * <!-- End of user code doc for utilizedElement -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.utilizedElement_manifestation
@@ -79,7 +81,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		manifestation_metaAttributes
@@ -88,7 +90,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLManifestation
 	 *
 	 * <!-- Start of user code doc for manifestation_metaAttributes -->
-   * <!-- End of user code doc for manifestation_metaAttributes -->
+	 * <!-- End of user code doc for manifestation_metaAttributes -->
 	 */
 	def manifestation_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		manifestation_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLManifestation
 	 *
 	 * <!-- Start of user code doc for manifestation_compositeMetaProperties -->
-   * <!-- End of user code doc for manifestation_compositeMetaProperties -->
+	 * <!-- End of user code doc for manifestation_compositeMetaProperties -->
 	 */
 	def manifestation_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		manifestation_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLManifestation
 	 *
 	 * <!-- Start of user code doc for manifestation_referenceMetaProperties -->
-   * <!-- End of user code doc for manifestation_referenceMetaProperties -->
+	 * <!-- End of user code doc for manifestation_referenceMetaProperties -->
 	 */
 	def manifestation_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		manifestation_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLManifestation[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLManifestation
 	 *
 	 * <!-- Start of user code doc for manifestation_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for manifestation_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for manifestation_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def manifestation_forwardReferencesFromMetamodelAssociations: Elements =
 		abstraction_forwardReferencesFromMetamodelAssociations ++
 		utilizedElement
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLManifestation

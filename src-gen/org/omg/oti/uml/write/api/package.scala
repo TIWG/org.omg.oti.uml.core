@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -39,10 +41,10 @@
  */
 package org.omg.oti.uml.write
 
+// Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.{Option,Unit}
 import scala.collection.immutable.Set
-// Start of user code for imports
 // End of user code
 
 /**

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -39,10 +41,10 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -54,6 +56,6 @@ class ActionInputPinUpdater[Uml <: UML](val domain: UMLActionInputPin[Uml]) exte
   def links_ActionInputPin_actionInputPin_compose_fromAction_Action
   (range: Option[UMLAction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ActionInputPin_actionInputPin_compose_fromAction_Action(domain, range)
 }

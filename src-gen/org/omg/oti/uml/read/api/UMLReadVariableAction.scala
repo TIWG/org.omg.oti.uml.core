@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReadVariableAction is a VariableAction that retrieves the values of a Variable.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReadVariableAction[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readVariableAction_metaAttributes
@@ -74,7 +76,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReadVariableAction
 	 *
 	 * <!-- Start of user code doc for readVariableAction_metaAttributes -->
-   * <!-- End of user code doc for readVariableAction_metaAttributes -->
+	 * <!-- End of user code doc for readVariableAction_metaAttributes -->
 	 */
 	def readVariableAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -85,7 +87,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readVariableAction_compositeMetaProperties
@@ -94,7 +96,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReadVariableAction
 	 *
 	 * <!-- Start of user code doc for readVariableAction_compositeMetaProperties -->
-   * <!-- End of user code doc for readVariableAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readVariableAction_compositeMetaProperties -->
 	 */
 	def readVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,7 +107,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readVariableAction_referenceMetaProperties
@@ -114,7 +116,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReadVariableAction
 	 *
 	 * <!-- Start of user code doc for readVariableAction_referenceMetaProperties -->
-   * <!-- End of user code doc for readVariableAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readVariableAction_referenceMetaProperties -->
 	 */
 	def readVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,7 +127,7 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readVariableAction_forwardReferencesFromMetamodelAssociations
@@ -134,12 +136,12 @@ trait UMLReadVariableAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReadVariableAction
 	 *
 	 * <!-- Start of user code doc for readVariableAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for readVariableAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readVariableAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
 		variableAction_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReadVariableAction

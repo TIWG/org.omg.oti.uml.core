@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
@@ -66,7 +68,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * The Activity containing the ActivityNode, if it is directly owned by an Activity.
 	 *
 	 * <!-- Start of user code doc for activity -->
-   * <!-- End of user code doc for activity -->
+	 * <!-- End of user code doc for activity -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.node
@@ -77,7 +79,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * InterruptibleActivityRegions containing the ActivityNode.
 	 *
 	 * <!-- Start of user code doc for inInterruptibleRegion -->
-   * <!-- End of user code doc for inInterruptibleRegion -->
+	 * <!-- End of user code doc for inInterruptibleRegion -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterruptibleActivityRegion.node
@@ -88,7 +90,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * ActivityPartitions containing the ActivityNode.
 	 *
 	 * <!-- Start of user code doc for inPartition -->
-   * <!-- End of user code doc for inPartition -->
+	 * <!-- End of user code doc for inPartition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.node
@@ -99,7 +101,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * The StructuredActivityNode containing the ActvityNode, if it is directly owned by a StructuredActivityNode.
 	 *
 	 * <!-- Start of user code doc for inStructuredNode -->
-   * <!-- End of user code doc for inStructuredNode -->
+	 * <!-- End of user code doc for inStructuredNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.node
@@ -110,7 +112,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * ActivityNodes from a generalization of the Activity containining this ActivityNode that are redefined by this ActivityNode.
 	 *
 	 * <!-- Start of user code doc for redefinedNode -->
-   * <!-- End of user code doc for redefinedNode -->
+	 * <!-- End of user code doc for redefinedNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.redefinedNode_activityNode
@@ -119,7 +121,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 
 	/**
 	 * <!-- Start of user code doc for redefinedNode_activityNode -->
-   * <!-- End of user code doc for redefinedNode_activityNode -->
+	 * <!-- End of user code doc for redefinedNode_activityNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.redefinedNode
@@ -130,7 +132,7 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
 	 * The Activity that directly or indirectly contains this ActivityNode.
 	 *
 	 * <!-- Start of user code doc for containingActivity -->
-   * <!-- End of user code doc for containingActivity -->
+	 * <!-- End of user code doc for containingActivity -->
 	 *
 	 * UML Operation ordered="false" unique="true" multiplicity="0..1"
 	 * {{{
@@ -145,12 +147,12 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
       inStructuredNode.get.containingActivity
     else
       activity
-    // End of user code
+		// End of user code
 	}
 
 	/**
 	 * <!-- Start of user code doc for isConsistentWith -->
-   * <!-- End of user code doc for isConsistentWith -->
+	 * <!-- End of user code doc for isConsistentWith -->
 	 *
 	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
 	 * {{{
@@ -163,9 +165,9 @@ trait UMLActivityNodeOps[Uml <: UML] { self: UMLActivityNode[Uml] =>
       case Some(_: UMLActivityNode[Uml]) => true
       case _                             => false
     }
-    // End of user code
+		// End of user code
 	}
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivityNodeOps

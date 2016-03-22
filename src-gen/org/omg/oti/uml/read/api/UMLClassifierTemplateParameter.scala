@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A ClassifierTemplateParameter exposes a Classifier as a formal template parameter.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLClassifierTemplateParameter[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * Constrains the required relationship between an actual parameter and the parameteredElement for this formal parameter.
 	 *
 	 * <!-- Start of user code doc for allowSubstitutable -->
-   * <!-- End of user code doc for allowSubstitutable -->
+	 * <!-- End of user code doc for allowSubstitutable -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The classifiers that constrain the argument that can be used for the parameter. If the allowSubstitutable attribute is true, then any Classifier that is compatible with this constraining Classifier can be substituted; otherwise, it must be either this Classifier or one of its specializations. If this property is empty, there are no constraints on the Classifier that can be used as an argument.
 	 *
 	 * <!-- Start of user code doc for constrainingClassifier -->
-   * <!-- End of user code doc for constrainingClassifier -->
+	 * <!-- End of user code doc for constrainingClassifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.constrainingClassifier_classifierTemplateParameter
@@ -89,7 +91,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The Classifier exposed by this ClassifierTemplateParameter.
 	 *
 	 * <!-- Start of user code doc for parameteredElement -->
-   * <!-- End of user code doc for parameteredElement -->
+	 * <!-- End of user code doc for parameteredElement -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.templateParameter
@@ -100,7 +102,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		classifierTemplateParameter_metaAttributes
@@ -109,7 +111,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLClassifierTemplateParameter
 	 *
 	 * <!-- Start of user code doc for classifierTemplateParameter_metaAttributes -->
-   * <!-- End of user code doc for classifierTemplateParameter_metaAttributes -->
+	 * <!-- End of user code doc for classifierTemplateParameter_metaAttributes -->
 	 */
 	def classifierTemplateParameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -120,7 +122,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		classifierTemplateParameter_compositeMetaProperties
@@ -129,7 +131,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLClassifierTemplateParameter
 	 *
 	 * <!-- Start of user code doc for classifierTemplateParameter_compositeMetaProperties -->
-   * <!-- End of user code doc for classifierTemplateParameter_compositeMetaProperties -->
+	 * <!-- End of user code doc for classifierTemplateParameter_compositeMetaProperties -->
 	 */
 	def classifierTemplateParameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		classifierTemplateParameter_referenceMetaProperties
@@ -149,7 +151,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLClassifierTemplateParameter
 	 *
 	 * <!-- Start of user code doc for classifierTemplateParameter_referenceMetaProperties -->
-   * <!-- End of user code doc for classifierTemplateParameter_referenceMetaProperties -->
+	 * <!-- End of user code doc for classifierTemplateParameter_referenceMetaProperties -->
 	 */
 	def classifierTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -161,7 +163,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		classifierTemplateParameter_forwardReferencesFromMetamodelAssociations
@@ -170,7 +172,7 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLClassifierTemplateParameter
 	 *
 	 * <!-- Start of user code doc for classifierTemplateParameter_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for classifierTemplateParameter_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for classifierTemplateParameter_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def classifierTemplateParameter_forwardReferencesFromMetamodelAssociations: Elements =
 		templateParameter_forwardReferencesFromMetamodelAssociations ++
@@ -178,5 +180,5 @@ trait UMLClassifierTemplateParameter[Uml <: UML]
 		parameteredElement
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLClassifierTemplateParameter

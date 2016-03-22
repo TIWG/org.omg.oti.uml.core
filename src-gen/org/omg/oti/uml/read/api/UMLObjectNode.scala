@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ObjectNode is an abstract ActivityNode that may hold tokens within the object flow in an Activity. ObjectNodes also support token selection, limitation on the number of tokens held, specification of the state required for tokens being held, and carrying control values.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLObjectNode[Uml <: UML]
@@ -69,7 +71,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The States required to be associated with the values held by tokens on this ObjectNode.
 	 *
 	 * <!-- Start of user code doc for inState -->
-   * <!-- End of user code doc for inState -->
+	 * <!-- End of user code doc for inState -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.inState_objectNode
@@ -80,7 +82,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * Indicates whether the type of the ObjectNode is to be treated as representing control values that may traverse ControlFlows.
 	 *
 	 * <!-- Start of user code doc for isControlType -->
-   * <!-- End of user code doc for isControlType -->
+	 * <!-- End of user code doc for isControlType -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -90,7 +92,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * Indicates how the tokens held by the ObjectNode are ordered for selection to traverse ActivityEdges outgoing from the ObjectNode.
 	 *
 	 * <!-- Start of user code doc for ordering -->
-   * <!-- End of user code doc for ordering -->
+	 * <!-- End of user code doc for ordering -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -100,7 +102,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * A Behavior used to select tokens to be offered on outgoing ActivityEdges.
 	 *
 	 * <!-- Start of user code doc for selection -->
-   * <!-- End of user code doc for selection -->
+	 * <!-- End of user code doc for selection -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.selection_objectNode
@@ -111,7 +113,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The maximum number of tokens that may be held by this ObjectNode. Tokens cannot flow into the ObjectNode if the upperBound is reached. If no upperBound is specified, then there is no limit on how many tokens the ObjectNode can hold.
 	 *
 	 * <!-- Start of user code doc for upperBound -->
-   * <!-- End of user code doc for upperBound -->
+	 * <!-- End of user code doc for upperBound -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.upperBound_objectNode
@@ -120,7 +122,7 @@ trait UMLObjectNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for exceptionInput_exceptionHandler -->
-   * <!-- End of user code doc for exceptionInput_exceptionHandler -->
+	 * <!-- End of user code doc for exceptionInput_exceptionHandler -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionInput
@@ -131,7 +133,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		objectNode_metaAttributes
@@ -140,7 +142,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLObjectNode
 	 *
 	 * <!-- Start of user code doc for objectNode_metaAttributes -->
-   * <!-- End of user code doc for objectNode_metaAttributes -->
+	 * <!-- End of user code doc for objectNode_metaAttributes -->
 	 */
 	def objectNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -152,7 +154,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		objectNode_compositeMetaProperties
@@ -161,7 +163,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLObjectNode
 	 *
 	 * <!-- Start of user code doc for objectNode_compositeMetaProperties -->
-   * <!-- End of user code doc for objectNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for objectNode_compositeMetaProperties -->
 	 */
 	def objectNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -173,7 +175,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		objectNode_referenceMetaProperties
@@ -182,7 +184,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLObjectNode
 	 *
 	 * <!-- Start of user code doc for objectNode_referenceMetaProperties -->
-   * <!-- End of user code doc for objectNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for objectNode_referenceMetaProperties -->
 	 */
 	def objectNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -195,7 +197,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		objectNode_forwardReferencesFromMetamodelAssociations
@@ -204,7 +206,7 @@ trait UMLObjectNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLObjectNode
 	 *
 	 * <!-- Start of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for objectNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def objectNode_forwardReferencesFromMetamodelAssociations: Elements =
 		activityNode_forwardReferencesFromMetamodelAssociations ++
@@ -213,5 +215,5 @@ trait UMLObjectNode[Uml <: UML]
 		selection
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLObjectNode

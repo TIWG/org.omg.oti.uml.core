@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An Interval defines the range between two ValueSpecifications.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInterval[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLInterval[Uml <: UML]
 	 * Refers to the ValueSpecification denoting the maximum value of the range.
 	 *
 	 * <!-- Start of user code doc for max -->
-   * <!-- End of user code doc for max -->
+	 * <!-- End of user code doc for max -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.max_interval
@@ -79,7 +81,7 @@ trait UMLInterval[Uml <: UML]
 	 * Refers to the ValueSpecification denoting the minimum value of the range.
 	 *
 	 * <!-- Start of user code doc for min -->
-   * <!-- End of user code doc for min -->
+	 * <!-- End of user code doc for min -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.min_interval
@@ -90,7 +92,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interval_metaAttributes
@@ -99,7 +101,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInterval
 	 *
 	 * <!-- Start of user code doc for interval_metaAttributes -->
-   * <!-- End of user code doc for interval_metaAttributes -->
+	 * <!-- End of user code doc for interval_metaAttributes -->
 	 */
 	def interval_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interval_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInterval
 	 *
 	 * <!-- Start of user code doc for interval_compositeMetaProperties -->
-   * <!-- End of user code doc for interval_compositeMetaProperties -->
+	 * <!-- End of user code doc for interval_compositeMetaProperties -->
 	 */
 	def interval_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interval_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInterval
 	 *
 	 * <!-- Start of user code doc for interval_referenceMetaProperties -->
-   * <!-- End of user code doc for interval_referenceMetaProperties -->
+	 * <!-- End of user code doc for interval_referenceMetaProperties -->
 	 */
 	def interval_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -151,7 +153,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interval_forwardReferencesFromMetamodelAssociations
@@ -160,7 +162,7 @@ trait UMLInterval[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInterval
 	 *
 	 * <!-- Start of user code doc for interval_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interval_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interval_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interval_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
@@ -168,5 +170,5 @@ trait UMLInterval[Uml <: UML]
 		min
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInterval

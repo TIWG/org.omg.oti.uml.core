@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -56,7 +58,7 @@ import scalaz._, Scalaz._
 /**
  * A PackageableElement is a NamedElement that may be owned directly by a Package. A PackageableElement is also able to serve as the parameteredElement of a TemplateParameter.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
@@ -68,7 +70,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 
 	/**
 	 * <!-- Start of user code doc for importedElement_import -->
-   * <!-- End of user code doc for importedElement_import -->
+	 * <!-- End of user code doc for importedElement_import -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importedElement
@@ -77,7 +79,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 
 	/**
 	 * <!-- Start of user code doc for packagedElement_component -->
-   * <!-- End of user code doc for packagedElement_component -->
+	 * <!-- End of user code doc for packagedElement_component -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.packagedElement
@@ -86,7 +88,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 
 	/**
 	 * <!-- Start of user code doc for packagedElement_owningPackage -->
-   * <!-- End of user code doc for packagedElement_owningPackage -->
+	 * <!-- End of user code doc for packagedElement_owningPackage -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.packagedElement
@@ -97,7 +99,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
 	 * A PackageableElement owned by a Namespace must have a visibility.
 	 *
 	 * <!-- Start of user code doc for validate_namespace_needs_visibility -->
-   * <!-- End of user code doc for validate_namespace_needs_visibility -->
+	 * <!-- End of user code doc for validate_namespace_needs_visibility -->
 	 *
 	 * {{{
 	 * OCL Body visibility = null implies namespace = null
@@ -108,7 +110,7 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
     if (visibility.isEmpty) {
       namespace.isEmpty 
     } else true     
-    // End of user code
+		// End of user code
 	}
 
 	// Start of user code for additional features
@@ -121,5 +123,5 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
   : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     Set( this ).right
 
-  // End of user code
+	// End of user code
 } //UMLPackageableElementOps

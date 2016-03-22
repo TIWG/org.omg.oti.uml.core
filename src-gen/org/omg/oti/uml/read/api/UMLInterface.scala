@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * Interfaces declare coherent services that are implemented by BehavioredClassifiers that implement the Interfaces via InterfaceRealizations.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInterface[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLInterface[Uml <: UML]
 	 * References all the Classifiers that are defined (nested) within the Interface.
 	 *
 	 * <!-- Start of user code doc for nestedClassifier -->
-   * <!-- End of user code doc for nestedClassifier -->
+	 * <!-- End of user code doc for nestedClassifier -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.nestedClassifier_interface
@@ -76,7 +78,7 @@ trait UMLInterface[Uml <: UML]
 	 * The attributes (i.e., the Properties) owned by the Interface.
 	 *
 	 * <!-- Start of user code doc for ownedAttribute -->
-   * <!-- End of user code doc for ownedAttribute -->
+	 * <!-- End of user code doc for ownedAttribute -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.interface
@@ -87,7 +89,7 @@ trait UMLInterface[Uml <: UML]
 	 * The Operations owned by the Interface.
 	 *
 	 * <!-- Start of user code doc for ownedOperation -->
-   * <!-- End of user code doc for ownedOperation -->
+	 * <!-- End of user code doc for ownedOperation -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.interface
@@ -98,7 +100,7 @@ trait UMLInterface[Uml <: UML]
 	 * References all the Interfaces redefined by this Interface.
 	 *
 	 * <!-- Start of user code doc for redefinedInterface -->
-   * <!-- End of user code doc for redefinedInterface -->
+	 * <!-- End of user code doc for redefinedInterface -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.redefinedInterface_interface
@@ -107,7 +109,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for contract_interfaceRealization -->
-   * <!-- End of user code doc for contract_interfaceRealization -->
+	 * <!-- End of user code doc for contract_interfaceRealization -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterfaceRealization.contract
@@ -116,7 +118,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for provided_component -->
-   * <!-- End of user code doc for provided_component -->
+	 * <!-- End of user code doc for provided_component -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.provided
@@ -125,7 +127,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for provided_port -->
-   * <!-- End of user code doc for provided_port -->
+	 * <!-- End of user code doc for provided_port -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.provided
@@ -134,7 +136,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for redefinedInterface_interface -->
-   * <!-- End of user code doc for redefinedInterface_interface -->
+	 * <!-- End of user code doc for redefinedInterface_interface -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.redefinedInterface
@@ -143,7 +145,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for required_component -->
-   * <!-- End of user code doc for required_component -->
+	 * <!-- End of user code doc for required_component -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponent.required
@@ -152,7 +154,7 @@ trait UMLInterface[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for required_port -->
-   * <!-- End of user code doc for required_port -->
+	 * <!-- End of user code doc for required_port -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.required
@@ -163,7 +165,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interface_metaAttributes
@@ -172,7 +174,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInterface
 	 *
 	 * <!-- Start of user code doc for interface_metaAttributes -->
-   * <!-- End of user code doc for interface_metaAttributes -->
+	 * <!-- End of user code doc for interface_metaAttributes -->
 	 */
 	def interface_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -183,7 +185,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interface_compositeMetaProperties
@@ -192,7 +194,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInterface
 	 *
 	 * <!-- Start of user code doc for interface_compositeMetaProperties -->
-   * <!-- End of user code doc for interface_compositeMetaProperties -->
+	 * <!-- End of user code doc for interface_compositeMetaProperties -->
 	 */
 	def interface_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -207,7 +209,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interface_referenceMetaProperties
@@ -216,7 +218,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInterface
 	 *
 	 * <!-- Start of user code doc for interface_referenceMetaProperties -->
-   * <!-- End of user code doc for interface_referenceMetaProperties -->
+	 * <!-- End of user code doc for interface_referenceMetaProperties -->
 	 */
 	def interface_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -227,7 +229,7 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interface_forwardReferencesFromMetamodelAssociations
@@ -236,12 +238,12 @@ trait UMLInterface[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInterface
 	 *
 	 * <!-- Start of user code doc for interface_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interface_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interface_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interface_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
 		redefinedInterface
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInterface

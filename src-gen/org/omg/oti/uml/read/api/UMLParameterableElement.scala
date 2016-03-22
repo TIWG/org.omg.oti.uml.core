@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A ParameterableElement is an Element that can be exposed as a formal TemplateParameter for a template, or specified as an actual parameter in a binding of a template.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLParameterableElement[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The formal TemplateParameter that owns this ParameterableElement.
 	 *
 	 * <!-- Start of user code doc for owningTemplateParameter -->
-   * <!-- End of user code doc for owningTemplateParameter -->
+	 * <!-- End of user code doc for owningTemplateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.ownedParameteredElement
@@ -79,7 +81,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The TemplateParameter that exposes this ParameterableElement as a formal parameter.
 	 *
 	 * <!-- Start of user code doc for templateParameter -->
-   * <!-- End of user code doc for templateParameter -->
+	 * <!-- End of user code doc for templateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.parameteredElement
@@ -88,7 +90,7 @@ trait UMLParameterableElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for actual_templateParameterSubstitution -->
-   * <!-- End of user code doc for actual_templateParameterSubstitution -->
+	 * <!-- End of user code doc for actual_templateParameterSubstitution -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameterSubstitution.actual
@@ -97,7 +99,7 @@ trait UMLParameterableElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for default_templateParameter -->
-   * <!-- End of user code doc for default_templateParameter -->
+	 * <!-- End of user code doc for default_templateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.default
@@ -108,7 +110,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		parameterableElement_metaAttributes
@@ -117,7 +119,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLParameterableElement
 	 *
 	 * <!-- Start of user code doc for parameterableElement_metaAttributes -->
-   * <!-- End of user code doc for parameterableElement_metaAttributes -->
+	 * <!-- End of user code doc for parameterableElement_metaAttributes -->
 	 */
 	def parameterableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		parameterableElement_compositeMetaProperties
@@ -137,7 +139,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLParameterableElement
 	 *
 	 * <!-- Start of user code doc for parameterableElement_compositeMetaProperties -->
-   * <!-- End of user code doc for parameterableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for parameterableElement_compositeMetaProperties -->
 	 */
 	def parameterableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		parameterableElement_referenceMetaProperties
@@ -157,7 +159,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLParameterableElement
 	 *
 	 * <!-- Start of user code doc for parameterableElement_referenceMetaProperties -->
-   * <!-- End of user code doc for parameterableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for parameterableElement_referenceMetaProperties -->
 	 */
 	def parameterableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -168,7 +170,7 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		parameterableElement_forwardReferencesFromMetamodelAssociations
@@ -177,12 +179,12 @@ trait UMLParameterableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLParameterableElement
 	 *
 	 * <!-- Start of user code doc for parameterableElement_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for parameterableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for parameterableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def parameterableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		templateParameter
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLParameterableElement

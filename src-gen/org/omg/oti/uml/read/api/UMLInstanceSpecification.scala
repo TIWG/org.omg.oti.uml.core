@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * An InstanceSpecification is a model element that represents an instance in a modeled system. An InstanceSpecification can act as a DeploymentTarget in a Deployment relationship, in the case that it represents an instance of a Node. It can also act as a DeployedArtifact, if it represents an instance of an Artifact.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInstanceSpecification[Uml <: UML]
@@ -69,7 +71,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The Classifier or Classifiers of the represented instance. If multiple Classifiers are specified, the instance is classified by all of them.
 	 *
 	 * <!-- Start of user code doc for classifier -->
-   * <!-- End of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.classifier_instanceSpecification
@@ -80,7 +82,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * A specification of how to compute, derive, or construct the instance.
 	 *
 	 * <!-- Start of user code doc for specification -->
-   * <!-- End of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningInstanceSpec
@@ -89,7 +91,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for instance_instanceValue -->
-   * <!-- End of user code doc for instance_instanceValue -->
+	 * <!-- End of user code doc for instance_instanceValue -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceValue.instance
@@ -100,7 +102,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		instanceSpecification_metaAttributes
@@ -109,7 +111,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInstanceSpecification
 	 *
 	 * <!-- Start of user code doc for instanceSpecification_metaAttributes -->
-   * <!-- End of user code doc for instanceSpecification_metaAttributes -->
+	 * <!-- End of user code doc for instanceSpecification_metaAttributes -->
 	 */
 	def instanceSpecification_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -122,7 +124,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		instanceSpecification_compositeMetaProperties
@@ -131,7 +133,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInstanceSpecification
 	 *
 	 * <!-- Start of user code doc for instanceSpecification_compositeMetaProperties -->
-   * <!-- End of user code doc for instanceSpecification_compositeMetaProperties -->
+	 * <!-- End of user code doc for instanceSpecification_compositeMetaProperties -->
 	 */
 	def instanceSpecification_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -145,7 +147,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		instanceSpecification_referenceMetaProperties
@@ -154,7 +156,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInstanceSpecification
 	 *
 	 * <!-- Start of user code doc for instanceSpecification_referenceMetaProperties -->
-   * <!-- End of user code doc for instanceSpecification_referenceMetaProperties -->
+	 * <!-- End of user code doc for instanceSpecification_referenceMetaProperties -->
 	 */
 	def instanceSpecification_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -167,7 +169,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		instanceSpecification_forwardReferencesFromMetamodelAssociations
@@ -176,7 +178,7 @@ trait UMLInstanceSpecification[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInstanceSpecification
 	 *
 	 * <!-- Start of user code doc for instanceSpecification_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for instanceSpecification_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for instanceSpecification_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def instanceSpecification_forwardReferencesFromMetamodelAssociations: Elements =
 		deployedArtifact_forwardReferencesFromMetamodelAssociations ++
@@ -185,5 +187,5 @@ trait UMLInstanceSpecification[Uml <: UML]
 		classifier
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInstanceSpecification

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * An ExecutableNode is an abstract class for ActivityNodes whose execution may be controlled using ControlFlows and to which ExceptionHandlers may be attached.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLExecutableNode[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for bodyPart_loopNode -->
-   * <!-- End of user code doc for bodyPart_loopNode -->
+	 * <!-- End of user code doc for bodyPart_loopNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.bodyPart
@@ -73,7 +75,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for body_clause -->
-   * <!-- End of user code doc for body_clause -->
+	 * <!-- End of user code doc for body_clause -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.body
@@ -82,7 +84,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for handlerBody_exceptionHandler -->
-   * <!-- End of user code doc for handlerBody_exceptionHandler -->
+	 * <!-- End of user code doc for handlerBody_exceptionHandler -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.handlerBody
@@ -91,7 +93,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for setupPart_loopNode -->
-   * <!-- End of user code doc for setupPart_loopNode -->
+	 * <!-- End of user code doc for setupPart_loopNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.setupPart
@@ -100,7 +102,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for test_clause -->
-   * <!-- End of user code doc for test_clause -->
+	 * <!-- End of user code doc for test_clause -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClause.test
@@ -109,7 +111,7 @@ trait UMLExecutableNode[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for test_loopNode -->
-   * <!-- End of user code doc for test_loopNode -->
+	 * <!-- End of user code doc for test_loopNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLoopNode.test
@@ -120,7 +122,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		executableNode_metaAttributes
@@ -129,7 +131,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLExecutableNode
 	 *
 	 * <!-- Start of user code doc for executableNode_metaAttributes -->
-   * <!-- End of user code doc for executableNode_metaAttributes -->
+	 * <!-- End of user code doc for executableNode_metaAttributes -->
 	 */
 	def executableNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		executableNode_compositeMetaProperties
@@ -149,7 +151,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLExecutableNode
 	 *
 	 * <!-- Start of user code doc for executableNode_compositeMetaProperties -->
-   * <!-- End of user code doc for executableNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for executableNode_compositeMetaProperties -->
 	 */
 	def executableNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -160,7 +162,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		executableNode_referenceMetaProperties
@@ -169,7 +171,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLExecutableNode
 	 *
 	 * <!-- Start of user code doc for executableNode_referenceMetaProperties -->
-   * <!-- End of user code doc for executableNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for executableNode_referenceMetaProperties -->
 	 */
 	def executableNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -180,7 +182,7 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		executableNode_forwardReferencesFromMetamodelAssociations
@@ -189,12 +191,12 @@ trait UMLExecutableNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLExecutableNode
 	 *
 	 * <!-- Start of user code doc for executableNode_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for executableNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for executableNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def executableNode_forwardReferencesFromMetamodelAssociations: Elements =
 		activityNode_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLExecutableNode

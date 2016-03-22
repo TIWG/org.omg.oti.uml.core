@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ObjectFlow is an ActivityEdge that is traversed by object tokens that may hold values. Object flows also support multicast/receive, token selection from object nodes, and transformation of tokens.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLObjectFlow[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * Indicates whether the objects in the ObjectFlow are passed by multicasting.
 	 *
 	 * <!-- Start of user code doc for isMulticast -->
-   * <!-- End of user code doc for isMulticast -->
+	 * <!-- End of user code doc for isMulticast -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * Indicates whether the objects in the ObjectFlow are gathered from respondents to multicasting.
 	 *
 	 * <!-- Start of user code doc for isMultireceive -->
-   * <!-- End of user code doc for isMultireceive -->
+	 * <!-- End of user code doc for isMultireceive -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -88,7 +90,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * A Behavior used to select tokens from a source ObjectNode.
 	 *
 	 * <!-- Start of user code doc for selection -->
-   * <!-- End of user code doc for selection -->
+	 * <!-- End of user code doc for selection -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.selection_objectFlow
@@ -99,7 +101,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * A Behavior used to change or replace object tokens flowing along the ObjectFlow.
 	 *
 	 * <!-- Start of user code doc for transformation -->
-   * <!-- End of user code doc for transformation -->
+	 * <!-- End of user code doc for transformation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.transformation_objectFlow
@@ -108,7 +110,7 @@ trait UMLObjectFlow[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for decisionInputFlow_decisionNode -->
-   * <!-- End of user code doc for decisionInputFlow_decisionNode -->
+	 * <!-- End of user code doc for decisionInputFlow_decisionNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDecisionNode.decisionInputFlow
@@ -119,7 +121,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		objectFlow_metaAttributes
@@ -128,7 +130,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLObjectFlow
 	 *
 	 * <!-- Start of user code doc for objectFlow_metaAttributes -->
-   * <!-- End of user code doc for objectFlow_metaAttributes -->
+	 * <!-- End of user code doc for objectFlow_metaAttributes -->
 	 */
 	def objectFlow_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		objectFlow_compositeMetaProperties
@@ -149,7 +151,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLObjectFlow
 	 *
 	 * <!-- Start of user code doc for objectFlow_compositeMetaProperties -->
-   * <!-- End of user code doc for objectFlow_compositeMetaProperties -->
+	 * <!-- End of user code doc for objectFlow_compositeMetaProperties -->
 	 */
 	def objectFlow_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -160,7 +162,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		objectFlow_referenceMetaProperties
@@ -169,7 +171,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLObjectFlow
 	 *
 	 * <!-- Start of user code doc for objectFlow_referenceMetaProperties -->
-   * <!-- End of user code doc for objectFlow_referenceMetaProperties -->
+	 * <!-- End of user code doc for objectFlow_referenceMetaProperties -->
 	 */
 	def objectFlow_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -181,7 +183,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		objectFlow_forwardReferencesFromMetamodelAssociations
@@ -190,7 +192,7 @@ trait UMLObjectFlow[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLObjectFlow
 	 *
 	 * <!-- Start of user code doc for objectFlow_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for objectFlow_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for objectFlow_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def objectFlow_forwardReferencesFromMetamodelAssociations: Elements =
 		activityEdge_forwardReferencesFromMetamodelAssociations ++
@@ -198,5 +200,5 @@ trait UMLObjectFlow[Uml <: UML]
 		transformation
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLObjectFlow

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReclassifyObjectAction[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * Specifies whether existing Classifiers should be removed before adding the new Classifiers.
 	 *
 	 * <!-- Start of user code doc for isReplaceAll -->
-   * <!-- End of user code doc for isReplaceAll -->
+	 * <!-- End of user code doc for isReplaceAll -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +78,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * A set of Classifiers to be added to the Classifiers of the given object.
 	 *
 	 * <!-- Start of user code doc for newClassifier -->
-   * <!-- End of user code doc for newClassifier -->
+	 * <!-- End of user code doc for newClassifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.newClassifier_reclassifyObjectAction
@@ -87,7 +89,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * A set of Classifiers to be removed from the Classifiers of the given object.
 	 *
 	 * <!-- Start of user code doc for oldClassifier -->
-   * <!-- End of user code doc for oldClassifier -->
+	 * <!-- End of user code doc for oldClassifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.oldClassifier_reclassifyObjectAction
@@ -98,7 +100,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		reclassifyObjectAction_metaAttributes
@@ -107,7 +109,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReclassifyObjectAction
 	 *
 	 * <!-- Start of user code doc for reclassifyObjectAction_metaAttributes -->
-   * <!-- End of user code doc for reclassifyObjectAction_metaAttributes -->
+	 * <!-- End of user code doc for reclassifyObjectAction_metaAttributes -->
 	 */
 	def reclassifyObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,7 +120,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		reclassifyObjectAction_compositeMetaProperties
@@ -127,7 +129,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReclassifyObjectAction
 	 *
 	 * <!-- Start of user code doc for reclassifyObjectAction_compositeMetaProperties -->
-   * <!-- End of user code doc for reclassifyObjectAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for reclassifyObjectAction_compositeMetaProperties -->
 	 */
 	def reclassifyObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -138,7 +140,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		reclassifyObjectAction_referenceMetaProperties
@@ -147,7 +149,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReclassifyObjectAction
 	 *
 	 * <!-- Start of user code doc for reclassifyObjectAction_referenceMetaProperties -->
-   * <!-- End of user code doc for reclassifyObjectAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for reclassifyObjectAction_referenceMetaProperties -->
 	 */
 	def reclassifyObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -159,7 +161,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		reclassifyObjectAction_forwardReferencesFromMetamodelAssociations
@@ -168,7 +170,7 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReclassifyObjectAction
 	 *
 	 * <!-- Start of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for reclassifyObjectAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def reclassifyObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
@@ -176,5 +178,5 @@ trait UMLReclassifyObjectAction[Uml <: UML]
 		oldClassifier
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReclassifyObjectAction

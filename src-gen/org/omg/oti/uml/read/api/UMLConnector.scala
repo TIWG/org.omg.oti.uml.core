@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A Connector specifies links that enables communication between two or more instances. In contrast to Associations, which specify links between any instance of the associated Classifiers, Connectors specify links between instances playing the connected parts only.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLConnector[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLConnector[Uml <: UML]
 	 * An optional Association that classifies links corresponding to this Connector.
 	 *
 	 * <!-- Start of user code doc for _type -->
-   * <!-- End of user code doc for _type -->
+	 * <!-- End of user code doc for _type -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.type_connector
@@ -79,7 +81,7 @@ trait UMLConnector[Uml <: UML]
 	 * The set of Behaviors that specify the valid interaction patterns across the Connector.
 	 *
 	 * <!-- Start of user code doc for contract -->
-   * <!-- End of user code doc for contract -->
+	 * <!-- End of user code doc for contract -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.contract_connector
@@ -90,7 +92,7 @@ trait UMLConnector[Uml <: UML]
 	 * A Connector has at least two ConnectorEnds, each representing the participation of instances of the Classifiers typing the ConnectableElements attached to the end. The set of ConnectorEnds is ordered.
 	 *
 	 * <!-- Start of user code doc for end -->
-   * <!-- End of user code doc for end -->
+	 * <!-- End of user code doc for end -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="2..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectorEnd.end_connector
@@ -99,7 +101,7 @@ trait UMLConnector[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for connector_message -->
-   * <!-- End of user code doc for connector_message -->
+	 * <!-- End of user code doc for connector_message -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.connector
@@ -108,7 +110,7 @@ trait UMLConnector[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for realizingConnector_informationFlow -->
-   * <!-- End of user code doc for realizingConnector_informationFlow -->
+	 * <!-- End of user code doc for realizingConnector_informationFlow -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realizingConnector
@@ -119,7 +121,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		connector_metaAttributes
@@ -128,7 +130,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLConnector
 	 *
 	 * <!-- Start of user code doc for connector_metaAttributes -->
-   * <!-- End of user code doc for connector_metaAttributes -->
+	 * <!-- End of user code doc for connector_metaAttributes -->
 	 */
 	def connector_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		connector_compositeMetaProperties
@@ -148,7 +150,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLConnector
 	 *
 	 * <!-- Start of user code doc for connector_compositeMetaProperties -->
-   * <!-- End of user code doc for connector_compositeMetaProperties -->
+	 * <!-- End of user code doc for connector_compositeMetaProperties -->
 	 */
 	def connector_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -159,7 +161,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		connector_referenceMetaProperties
@@ -168,7 +170,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLConnector
 	 *
 	 * <!-- Start of user code doc for connector_referenceMetaProperties -->
-   * <!-- End of user code doc for connector_referenceMetaProperties -->
+	 * <!-- End of user code doc for connector_referenceMetaProperties -->
 	 */
 	def connector_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -181,7 +183,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		connector_forwardReferencesFromMetamodelAssociations
@@ -190,7 +192,7 @@ trait UMLConnector[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLConnector
 	 *
 	 * <!-- Start of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for connector_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def connector_forwardReferencesFromMetamodelAssociations: Elements =
 		feature_forwardReferencesFromMetamodelAssociations ++
@@ -199,5 +201,5 @@ trait UMLConnector[Uml <: UML]
 		_type
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLConnector

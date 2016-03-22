@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLCallConcurrencyKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLCallConcurrencyKind = Value
 
@@ -61,7 +63,7 @@ object UMLCallConcurrencyKind extends Enumeration {
  	 * Multiple invocations of a BehavioralFeature that overlap in time may occur to one instance and all of them may proceed concurrently.
 	 *
 	 * <!-- Start of user code doc for concurrent -->
-   * <!-- End of user code doc for concurrent -->
+	 * <!-- End of user code doc for concurrent -->
  	 */
 	val concurrent = Value
 
@@ -69,7 +71,7 @@ object UMLCallConcurrencyKind extends Enumeration {
  	 * Multiple invocations of a BehavioralFeature that overlap in time may occur to one instance, but only one is allowed to commence. The others are blocked until the performance of the currently executing BehavioralFeature is complete. It is the responsibility of the system designer to ensure that deadlocks do not occur due to simultaneous blocking.
 	 *
 	 * <!-- Start of user code doc for guarded -->
-   * <!-- End of user code doc for guarded -->
+	 * <!-- End of user code doc for guarded -->
  	 */
 	val guarded = Value
 
@@ -77,7 +79,7 @@ object UMLCallConcurrencyKind extends Enumeration {
  	 * No concurrency management mechanism is associated with the BehavioralFeature and, therefore, concurrency conflicts may occur. Instances that invoke a BehavioralFeature need to coordinate so that only one invocation to a target on any BehavioralFeature occurs at once.
 	 *
 	 * <!-- Start of user code doc for sequential -->
-   * <!-- End of user code doc for sequential -->
+	 * <!-- End of user code doc for sequential -->
  	 */
 	val sequential = Value
 }

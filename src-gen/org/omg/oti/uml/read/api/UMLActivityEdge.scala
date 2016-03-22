@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActivityEdge[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * A ValueSpecification that is evaluated to determine if a token can traverse the ActivityEdge. If an ActivityEdge has no guard, then there is no restriction on tokens traversing the edge.
 	 *
 	 * <!-- Start of user code doc for guard -->
-   * <!-- End of user code doc for guard -->
+	 * <!-- End of user code doc for guard -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.guard_activityEdge
@@ -79,7 +81,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * ActivityGroups containing the ActivityEdge.
 	 *
 	 * <!-- Start of user code doc for inGroup -->
-   * <!-- End of user code doc for inGroup -->
+	 * <!-- End of user code doc for inGroup -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.containedEdge
@@ -90,7 +92,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The InterruptibleActivityRegion for which this ActivityEdge is an interruptingEdge.
 	 *
 	 * <!-- Start of user code doc for interrupts -->
-   * <!-- End of user code doc for interrupts -->
+	 * <!-- End of user code doc for interrupts -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterruptibleActivityRegion.interruptingEdge
@@ -101,7 +103,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The ActivityNode from which tokens are taken when they traverse the ActivityEdge.
 	 *
 	 * <!-- Start of user code doc for source -->
-   * <!-- End of user code doc for source -->
+	 * <!-- End of user code doc for source -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.outgoing
@@ -112,7 +114,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The ActivityNode to which tokens are put when they traverse the ActivityEdge.
 	 *
 	 * <!-- Start of user code doc for target -->
-   * <!-- End of user code doc for target -->
+	 * <!-- End of user code doc for target -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.incoming
@@ -123,7 +125,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The minimum number of tokens that must traverse the ActivityEdge at the same time. If no weight is specified, this is equivalent to specifying a constant value of 1.
 	 *
 	 * <!-- Start of user code doc for weight -->
-   * <!-- End of user code doc for weight -->
+	 * <!-- End of user code doc for weight -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.weight_activityEdge
@@ -132,7 +134,7 @@ trait UMLActivityEdge[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for realizingActivityEdge_informationFlow -->
-   * <!-- End of user code doc for realizingActivityEdge_informationFlow -->
+	 * <!-- End of user code doc for realizingActivityEdge_informationFlow -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.realizingActivityEdge
@@ -143,7 +145,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activityEdge_metaAttributes
@@ -152,7 +154,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActivityEdge
 	 *
 	 * <!-- Start of user code doc for activityEdge_metaAttributes -->
-   * <!-- End of user code doc for activityEdge_metaAttributes -->
+	 * <!-- End of user code doc for activityEdge_metaAttributes -->
 	 */
 	def activityEdge_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -163,7 +165,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activityEdge_compositeMetaProperties
@@ -172,7 +174,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActivityEdge
 	 *
 	 * <!-- Start of user code doc for activityEdge_compositeMetaProperties -->
-   * <!-- End of user code doc for activityEdge_compositeMetaProperties -->
+	 * <!-- End of user code doc for activityEdge_compositeMetaProperties -->
 	 */
 	def activityEdge_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -184,7 +186,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activityEdge_referenceMetaProperties
@@ -193,7 +195,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActivityEdge
 	 *
 	 * <!-- Start of user code doc for activityEdge_referenceMetaProperties -->
-   * <!-- End of user code doc for activityEdge_referenceMetaProperties -->
+	 * <!-- End of user code doc for activityEdge_referenceMetaProperties -->
 	 */
 	def activityEdge_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -208,7 +210,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activityEdge_forwardReferencesFromMetamodelAssociations
@@ -217,7 +219,7 @@ trait UMLActivityEdge[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActivityEdge
 	 *
 	 * <!-- Start of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activityEdge_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activityEdge_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
@@ -228,5 +230,5 @@ trait UMLActivityEdge[Uml <: UML]
 		target
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivityEdge

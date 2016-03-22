@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -49,7 +51,7 @@ import scala.collection.immutable.Seq
 /**
  * A Template Signature bundles the set of formal TemplateParameters for a template.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLTemplateSignature[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The formal parameters that are owned by this TemplateSignature.
 	 *
 	 * <!-- Start of user code doc for ownedParameter -->
-   * <!-- End of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.signature
@@ -75,7 +77,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The ordered set of all formal TemplateParameters for this TemplateSignature.
 	 *
 	 * <!-- Start of user code doc for parameter -->
-   * <!-- End of user code doc for parameter -->
+	 * <!-- End of user code doc for parameter -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="1..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateParameter.parameter_templateSignature
@@ -86,7 +88,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		templateSignature_metaAttributes
@@ -95,7 +97,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLTemplateSignature
 	 *
 	 * <!-- Start of user code doc for templateSignature_metaAttributes -->
-   * <!-- End of user code doc for templateSignature_metaAttributes -->
+	 * <!-- End of user code doc for templateSignature_metaAttributes -->
 	 */
 	def templateSignature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -106,7 +108,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		templateSignature_compositeMetaProperties
@@ -115,7 +117,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLTemplateSignature
 	 *
 	 * <!-- Start of user code doc for templateSignature_compositeMetaProperties -->
-   * <!-- End of user code doc for templateSignature_compositeMetaProperties -->
+	 * <!-- End of user code doc for templateSignature_compositeMetaProperties -->
 	 */
 	def templateSignature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -126,7 +128,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		templateSignature_referenceMetaProperties
@@ -135,7 +137,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLTemplateSignature
 	 *
 	 * <!-- Start of user code doc for templateSignature_referenceMetaProperties -->
-   * <!-- End of user code doc for templateSignature_referenceMetaProperties -->
+	 * <!-- End of user code doc for templateSignature_referenceMetaProperties -->
 	 */
 	def templateSignature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -146,7 +148,7 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		templateSignature_forwardReferencesFromMetamodelAssociations
@@ -155,12 +157,12 @@ trait UMLTemplateSignature[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLTemplateSignature
 	 *
 	 * <!-- Start of user code doc for templateSignature_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for templateSignature_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for templateSignature_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def templateSignature_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		parameter
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLTemplateSignature

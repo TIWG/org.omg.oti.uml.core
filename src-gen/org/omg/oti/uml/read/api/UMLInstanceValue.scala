@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An InstanceValue is a ValueSpecification that identifies an instance.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInstanceValue[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The InstanceSpecification that represents the specified value.
 	 *
 	 * <!-- Start of user code doc for instance -->
-   * <!-- End of user code doc for instance -->
+	 * <!-- End of user code doc for instance -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.instance_instanceValue
@@ -79,7 +81,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		instanceValue_metaAttributes
@@ -88,7 +90,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInstanceValue
 	 *
 	 * <!-- Start of user code doc for instanceValue_metaAttributes -->
-   * <!-- End of user code doc for instanceValue_metaAttributes -->
+	 * <!-- End of user code doc for instanceValue_metaAttributes -->
 	 */
 	def instanceValue_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		instanceValue_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInstanceValue
 	 *
 	 * <!-- Start of user code doc for instanceValue_compositeMetaProperties -->
-   * <!-- End of user code doc for instanceValue_compositeMetaProperties -->
+	 * <!-- End of user code doc for instanceValue_compositeMetaProperties -->
 	 */
 	def instanceValue_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		instanceValue_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInstanceValue
 	 *
 	 * <!-- Start of user code doc for instanceValue_referenceMetaProperties -->
-   * <!-- End of user code doc for instanceValue_referenceMetaProperties -->
+	 * <!-- End of user code doc for instanceValue_referenceMetaProperties -->
 	 */
 	def instanceValue_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		instanceValue_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLInstanceValue[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInstanceValue
 	 *
 	 * <!-- Start of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for instanceValue_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def instanceValue_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		instance
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInstanceValue

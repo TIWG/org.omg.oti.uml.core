@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A Usage is a Dependency in which the client Element requires the supplier Element (or set of Elements) for its full implementation or operation.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLUsage[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		usage_metaAttributes
@@ -73,7 +75,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLUsage
 	 *
 	 * <!-- Start of user code doc for usage_metaAttributes -->
-   * <!-- End of user code doc for usage_metaAttributes -->
+	 * <!-- End of user code doc for usage_metaAttributes -->
 	 */
 	def usage_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -84,7 +86,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		usage_compositeMetaProperties
@@ -93,7 +95,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLUsage
 	 *
 	 * <!-- Start of user code doc for usage_compositeMetaProperties -->
-   * <!-- End of user code doc for usage_compositeMetaProperties -->
+	 * <!-- End of user code doc for usage_compositeMetaProperties -->
 	 */
 	def usage_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		usage_referenceMetaProperties
@@ -113,7 +115,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLUsage
 	 *
 	 * <!-- Start of user code doc for usage_referenceMetaProperties -->
-   * <!-- End of user code doc for usage_referenceMetaProperties -->
+	 * <!-- End of user code doc for usage_referenceMetaProperties -->
 	 */
 	def usage_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		usage_forwardReferencesFromMetamodelAssociations
@@ -133,12 +135,12 @@ trait UMLUsage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLUsage
 	 *
 	 * <!-- Start of user code doc for usage_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for usage_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for usage_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def usage_forwardReferencesFromMetamodelAssociations: Elements =
 		dependency_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLUsage

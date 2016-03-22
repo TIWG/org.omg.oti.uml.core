@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A Classifier represents a classification of instances according to their Features.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLClassifier[Uml <: UML]
@@ -71,7 +73,7 @@ trait UMLClassifier[Uml <: UML]
 	 * All of the Properties that are direct (i.e., not inherited or imported) attributes of the Classifier.
 	 *
 	 * <!-- Start of user code doc for attribute -->
-   * <!-- End of user code doc for attribute -->
+	 * <!-- End of user code doc for attribute -->
 	 *
 	 * UML Property derived="true" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.attribute_classifier
@@ -82,7 +84,7 @@ trait UMLClassifier[Uml <: UML]
 	 * If true, the Classifier can only be instantiated by instantiating one of its specializations. An abstract Classifier is intended to be used by other Classifiers e.g., as the target of Associations or Generalizations.
 	 *
 	 * <!-- Start of user code doc for isAbstract -->
-   * <!-- End of user code doc for isAbstract -->
+	 * <!-- End of user code doc for isAbstract -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -92,7 +94,7 @@ trait UMLClassifier[Uml <: UML]
 	 * If true, the Classifier cannot be specialized.
 	 *
 	 * <!-- Start of user code doc for isFinalSpecialization -->
-   * <!-- End of user code doc for isFinalSpecialization -->
+	 * <!-- End of user code doc for isFinalSpecialization -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -102,7 +104,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The GeneralizationSet of which this Classifier is a power type.
 	 *
 	 * <!-- Start of user code doc for powertypeExtent -->
-   * <!-- End of user code doc for powertypeExtent -->
+	 * <!-- End of user code doc for powertypeExtent -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralizationSet.powertype
@@ -113,7 +115,7 @@ trait UMLClassifier[Uml <: UML]
 	 * TheClassifierTemplateParameter that exposes this element as a formal parameter.
 	 *
 	 * <!-- Start of user code doc for templateParameter -->
-   * <!-- End of user code doc for templateParameter -->
+	 * <!-- End of user code doc for templateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.parameteredElement
@@ -124,7 +126,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The set of UseCases for which this Classifier is the subject.
 	 *
 	 * <!-- Start of user code doc for useCase -->
-   * <!-- End of user code doc for useCase -->
+	 * <!-- End of user code doc for useCase -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.subject
@@ -133,7 +135,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for classifier_createObjectAction -->
-   * <!-- End of user code doc for classifier_createObjectAction -->
+	 * <!-- End of user code doc for classifier_createObjectAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCreateObjectAction.classifier
@@ -142,7 +144,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for classifier_instanceSpecification -->
-   * <!-- End of user code doc for classifier_instanceSpecification -->
+	 * <!-- End of user code doc for classifier_instanceSpecification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.classifier
@@ -151,7 +153,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for classifier_readExtentAction -->
-   * <!-- End of user code doc for classifier_readExtentAction -->
+	 * <!-- End of user code doc for classifier_readExtentAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadExtentAction.classifier
@@ -160,7 +162,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for classifier_readIsClassifiedObjectAction -->
-   * <!-- End of user code doc for classifier_readIsClassifiedObjectAction -->
+	 * <!-- End of user code doc for classifier_readIsClassifiedObjectAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReadIsClassifiedObjectAction.classifier
@@ -169,7 +171,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for constrainingClassifier_classifierTemplateParameter -->
-   * <!-- End of user code doc for constrainingClassifier_classifierTemplateParameter -->
+	 * <!-- End of user code doc for constrainingClassifier_classifierTemplateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifierTemplateParameter.constrainingClassifier
@@ -178,7 +180,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for context_action -->
-   * <!-- End of user code doc for context_action -->
+	 * <!-- End of user code doc for context_action -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.context
@@ -187,7 +189,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for contract_substitution -->
-   * <!-- End of user code doc for contract_substitution -->
+	 * <!-- End of user code doc for contract_substitution -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSubstitution.contract
@@ -196,7 +198,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for conveyed_conveyingFlow -->
-   * <!-- End of user code doc for conveyed_conveyingFlow -->
+	 * <!-- End of user code doc for conveyed_conveyingFlow -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationFlow.conveyed
@@ -205,7 +207,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for exceptionType_exceptionHandler -->
-   * <!-- End of user code doc for exceptionType_exceptionHandler -->
+	 * <!-- End of user code doc for exceptionType_exceptionHandler -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExceptionHandler.exceptionType
@@ -214,7 +216,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for general_classifier -->
-   * <!-- End of user code doc for general_classifier -->
+	 * <!-- End of user code doc for general_classifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general
@@ -223,7 +225,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for newClassifier_reclassifyObjectAction -->
-   * <!-- End of user code doc for newClassifier_reclassifyObjectAction -->
+	 * <!-- End of user code doc for newClassifier_reclassifyObjectAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReclassifyObjectAction.newClassifier
@@ -232,7 +234,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for oldClassifier_reclassifyObjectAction -->
-   * <!-- End of user code doc for oldClassifier_reclassifyObjectAction -->
+	 * <!-- End of user code doc for oldClassifier_reclassifyObjectAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReclassifyObjectAction.oldClassifier
@@ -241,7 +243,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for realizingClassifier_componentRealization -->
-   * <!-- End of user code doc for realizingClassifier_componentRealization -->
+	 * <!-- End of user code doc for realizingClassifier_componentRealization -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLComponentRealization.realizingClassifier
@@ -250,7 +252,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for redefinitionContext_redefinableElement -->
-   * <!-- End of user code doc for redefinitionContext_redefinableElement -->
+	 * <!-- End of user code doc for redefinitionContext_redefinableElement -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableElement.redefinitionContext
@@ -259,7 +261,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for represented_representation -->
-   * <!-- End of user code doc for represented_representation -->
+	 * <!-- End of user code doc for represented_representation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInformationItem.represented
@@ -268,7 +270,7 @@ trait UMLClassifier[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for unmarshallType_unmarshallAction -->
-   * <!-- End of user code doc for unmarshallType_unmarshallAction -->
+	 * <!-- End of user code doc for unmarshallType_unmarshallAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUnmarshallAction.unmarshallType
@@ -279,7 +281,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		classifier_metaAttributes
@@ -288,7 +290,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLClassifier
 	 *
 	 * <!-- Start of user code doc for classifier_metaAttributes -->
-   * <!-- End of user code doc for classifier_metaAttributes -->
+	 * <!-- End of user code doc for classifier_metaAttributes -->
 	 */
 	def classifier_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -303,7 +305,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		classifier_compositeMetaProperties
@@ -312,7 +314,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLClassifier
 	 *
 	 * <!-- Start of user code doc for classifier_compositeMetaProperties -->
-   * <!-- End of user code doc for classifier_compositeMetaProperties -->
+	 * <!-- End of user code doc for classifier_compositeMetaProperties -->
 	 */
 	def classifier_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -330,7 +332,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		classifier_referenceMetaProperties
@@ -339,7 +341,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLClassifier
 	 *
 	 * <!-- Start of user code doc for classifier_referenceMetaProperties -->
-   * <!-- End of user code doc for classifier_referenceMetaProperties -->
+	 * <!-- End of user code doc for classifier_referenceMetaProperties -->
 	 */
 	def classifier_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -357,7 +359,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations
@@ -366,7 +368,7 @@ trait UMLClassifier[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLClassifier
 	 *
 	 * <!-- Start of user code doc for classifier_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for classifier_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for classifier_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def classifier_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -380,5 +382,5 @@ trait UMLClassifier[Uml <: UML]
 		useCase
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLClassifier

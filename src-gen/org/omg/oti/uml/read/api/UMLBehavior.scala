@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * Behavior is a specification of how its context BehavioredClassifier changes state over time. This specification may be either a definition of possible behavior execution or emergent behavior, or a selective illustration of an interesting subset of possible executions. The latter form is typically used for capturing examples, such as a trace of a particular execution.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLBehavior[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLBehavior[Uml <: UML]
 	 * Tells whether the Behavior can be invoked while it is still executing from a previous invocation.
 	 *
 	 * <!-- Start of user code doc for isReentrant -->
-   * <!-- End of user code doc for isReentrant -->
+	 * <!-- End of user code doc for isReentrant -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLBehavior[Uml <: UML]
 	 * References a list of Parameters to the Behavior which describes the order and type of arguments that can be given when the Behavior is invoked and of the values which will be returned when the Behavior completes its execution.
 	 *
 	 * <!-- Start of user code doc for ownedParameter -->
-   * <!-- End of user code doc for ownedParameter -->
+	 * <!-- End of user code doc for ownedParameter -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameter.ownedParameter_behavior
@@ -89,7 +91,7 @@ trait UMLBehavior[Uml <: UML]
 	 * An optional set of Constraints specifying what is fulfilled after the execution of the Behavior is completed, if its precondition was fulfilled before its invocation.
 	 *
 	 * <!-- Start of user code doc for postcondition -->
-   * <!-- End of user code doc for postcondition -->
+	 * <!-- End of user code doc for postcondition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.postcondition_behavior
@@ -100,7 +102,7 @@ trait UMLBehavior[Uml <: UML]
 	 * An optional set of Constraints specifying what must be fulfilled before the Behavior is invoked.
 	 *
 	 * <!-- Start of user code doc for precondition -->
-   * <!-- End of user code doc for precondition -->
+	 * <!-- End of user code doc for precondition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.precondition_behavior
@@ -111,7 +113,7 @@ trait UMLBehavior[Uml <: UML]
 	 * References the Behavior that this Behavior redefines. A subtype of Behavior may redefine any other subtype of Behavior. If the Behavior implements a BehavioralFeature, it replaces the redefined Behavior. If the Behavior is a classifierBehavior, it extends the redefined Behavior.
 	 *
 	 * <!-- Start of user code doc for redefinedBehavior -->
-   * <!-- End of user code doc for redefinedBehavior -->
+	 * <!-- End of user code doc for redefinedBehavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior_behavior
@@ -122,7 +124,7 @@ trait UMLBehavior[Uml <: UML]
 	 * Designates a BehavioralFeature that the Behavior implements. The BehavioralFeature must be owned by the BehavioredClassifier that owns the Behavior or be inherited by it. The Parameters of the BehavioralFeature and the implementing Behavior must match. A Behavior does not need to have a specification, in which case it either is the classifierBehavior of a BehavioredClassifier or it can only be invoked by another Behavior of the Classifier.
 	 *
 	 * <!-- Start of user code doc for specification -->
-   * <!-- End of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioralFeature.method
@@ -131,7 +133,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for behavior_behaviorExecutionSpecification -->
-   * <!-- End of user code doc for behavior_behaviorExecutionSpecification -->
+	 * <!-- End of user code doc for behavior_behaviorExecutionSpecification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehaviorExecutionSpecification.behavior
@@ -140,7 +142,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for behavior_callBehaviorAction -->
-   * <!-- End of user code doc for behavior_callBehaviorAction -->
+	 * <!-- End of user code doc for behavior_callBehaviorAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLCallBehaviorAction.behavior
@@ -149,7 +151,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for behavior_opaqueExpression -->
-   * <!-- End of user code doc for behavior_opaqueExpression -->
+	 * <!-- End of user code doc for behavior_opaqueExpression -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.behavior
@@ -158,7 +160,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for contract_connector -->
-   * <!-- End of user code doc for contract_connector -->
+	 * <!-- End of user code doc for contract_connector -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.contract
@@ -167,7 +169,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for decisionInput_decisionNode -->
-   * <!-- End of user code doc for decisionInput_decisionNode -->
+	 * <!-- End of user code doc for decisionInput_decisionNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDecisionNode.decisionInput
@@ -176,7 +178,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for doActivity_state -->
-   * <!-- End of user code doc for doActivity_state -->
+	 * <!-- End of user code doc for doActivity_state -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.doActivity
@@ -185,7 +187,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for entry_state -->
-   * <!-- End of user code doc for entry_state -->
+	 * <!-- End of user code doc for entry_state -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.entry
@@ -194,7 +196,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for exit_state -->
-   * <!-- End of user code doc for exit_state -->
+	 * <!-- End of user code doc for exit_state -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.exit
@@ -203,7 +205,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for ownedBehavior_behavioredClassifier -->
-   * <!-- End of user code doc for ownedBehavior_behavioredClassifier -->
+	 * <!-- End of user code doc for ownedBehavior_behavioredClassifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.ownedBehavior
@@ -212,7 +214,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for redefinedBehavior_behavior -->
-   * <!-- End of user code doc for redefinedBehavior_behavior -->
+	 * <!-- End of user code doc for redefinedBehavior_behavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.redefinedBehavior
@@ -221,7 +223,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for reducer_reduceAction -->
-   * <!-- End of user code doc for reducer_reduceAction -->
+	 * <!-- End of user code doc for reducer_reduceAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLReduceAction.reducer
@@ -230,7 +232,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for selection_objectFlow -->
-   * <!-- End of user code doc for selection_objectFlow -->
+	 * <!-- End of user code doc for selection_objectFlow -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectFlow.selection
@@ -239,7 +241,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for selection_objectNode -->
-   * <!-- End of user code doc for selection_objectNode -->
+	 * <!-- End of user code doc for selection_objectNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.selection
@@ -248,7 +250,7 @@ trait UMLBehavior[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for transformation_objectFlow -->
-   * <!-- End of user code doc for transformation_objectFlow -->
+	 * <!-- End of user code doc for transformation_objectFlow -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectFlow.transformation
@@ -259,7 +261,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		behavior_metaAttributes
@@ -268,7 +270,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLBehavior
 	 *
 	 * <!-- Start of user code doc for behavior_metaAttributes -->
-   * <!-- End of user code doc for behavior_metaAttributes -->
+	 * <!-- End of user code doc for behavior_metaAttributes -->
 	 */
 	def behavior_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -279,7 +281,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		behavior_compositeMetaProperties
@@ -288,7 +290,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLBehavior
 	 *
 	 * <!-- Start of user code doc for behavior_compositeMetaProperties -->
-   * <!-- End of user code doc for behavior_compositeMetaProperties -->
+	 * <!-- End of user code doc for behavior_compositeMetaProperties -->
 	 */
 	def behavior_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -302,7 +304,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		behavior_referenceMetaProperties
@@ -311,7 +313,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLBehavior
 	 *
 	 * <!-- Start of user code doc for behavior_referenceMetaProperties -->
-   * <!-- End of user code doc for behavior_referenceMetaProperties -->
+	 * <!-- End of user code doc for behavior_referenceMetaProperties -->
 	 */
 	def behavior_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -323,7 +325,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		behavior_forwardReferencesFromMetamodelAssociations
@@ -332,7 +334,7 @@ trait UMLBehavior[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLBehavior
 	 *
 	 * <!-- Start of user code doc for behavior_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for behavior_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for behavior_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def behavior_forwardReferencesFromMetamodelAssociations: Elements =
 		class_forwardReferencesFromMetamodelAssociations ++
@@ -340,5 +342,5 @@ trait UMLBehavior[Uml <: UML]
 		specification
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLBehavior

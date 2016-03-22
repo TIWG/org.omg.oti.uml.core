@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A CombinedFragment defines an expression of InteractionFragments. A CombinedFragment is defined by an interaction operator and corresponding InteractionOperands. Through the use of CombinedFragments the user will be able to describe a number of traces in a compact and concise manner.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLCombinedFragment[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * Specifies the operation which defines the semantics of this combination of InteractionFragments.
 	 *
 	 * <!-- Start of user code doc for interactionOperator -->
-   * <!-- End of user code doc for interactionOperator -->
+	 * <!-- End of user code doc for interactionOperator -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +78,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The set of operands of the combined fragment.
 	 *
 	 * <!-- Start of user code doc for operand -->
-   * <!-- End of user code doc for operand -->
+	 * <!-- End of user code doc for operand -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="1..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionOperand.operand_combinedFragment
@@ -87,7 +89,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		combinedFragment_metaAttributes
@@ -96,7 +98,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLCombinedFragment
 	 *
 	 * <!-- Start of user code doc for combinedFragment_metaAttributes -->
-   * <!-- End of user code doc for combinedFragment_metaAttributes -->
+	 * <!-- End of user code doc for combinedFragment_metaAttributes -->
 	 */
 	def combinedFragment_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -107,7 +109,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		combinedFragment_compositeMetaProperties
@@ -116,7 +118,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLCombinedFragment
 	 *
 	 * <!-- Start of user code doc for combinedFragment_compositeMetaProperties -->
-   * <!-- End of user code doc for combinedFragment_compositeMetaProperties -->
+	 * <!-- End of user code doc for combinedFragment_compositeMetaProperties -->
 	 */
 	def combinedFragment_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		combinedFragment_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLCombinedFragment
 	 *
 	 * <!-- Start of user code doc for combinedFragment_referenceMetaProperties -->
-   * <!-- End of user code doc for combinedFragment_referenceMetaProperties -->
+	 * <!-- End of user code doc for combinedFragment_referenceMetaProperties -->
 	 */
 	def combinedFragment_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		combinedFragment_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLCombinedFragment[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLCombinedFragment
 	 *
 	 * <!-- Start of user code doc for combinedFragment_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for combinedFragment_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for combinedFragment_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def combinedFragment_forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLCombinedFragment

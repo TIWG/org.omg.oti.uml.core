@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReadLinkObjectEndQualifierAction is an Action that retrieves a qualifier end value from a link object.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The qualifier Property to be read.
 	 *
 	 * <!-- Start of user code doc for qualifier -->
-   * <!-- End of user code doc for qualifier -->
+	 * <!-- End of user code doc for qualifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.qualifier_readLinkObjectEndQualifierAction
@@ -79,7 +81,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readLinkObjectEndQualifierAction_metaAttributes
@@ -88,7 +90,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReadLinkObjectEndQualifierAction
 	 *
 	 * <!-- Start of user code doc for readLinkObjectEndQualifierAction_metaAttributes -->
-   * <!-- End of user code doc for readLinkObjectEndQualifierAction_metaAttributes -->
+	 * <!-- End of user code doc for readLinkObjectEndQualifierAction_metaAttributes -->
 	 */
 	def readLinkObjectEndQualifierAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readLinkObjectEndQualifierAction_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReadLinkObjectEndQualifierAction
 	 *
 	 * <!-- Start of user code doc for readLinkObjectEndQualifierAction_compositeMetaProperties -->
-   * <!-- End of user code doc for readLinkObjectEndQualifierAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readLinkObjectEndQualifierAction_compositeMetaProperties -->
 	 */
 	def readLinkObjectEndQualifierAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -120,7 +122,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readLinkObjectEndQualifierAction_referenceMetaProperties
@@ -129,7 +131,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReadLinkObjectEndQualifierAction
 	 *
 	 * <!-- Start of user code doc for readLinkObjectEndQualifierAction_referenceMetaProperties -->
-   * <!-- End of user code doc for readLinkObjectEndQualifierAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readLinkObjectEndQualifierAction_referenceMetaProperties -->
 	 */
 	def readLinkObjectEndQualifierAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readLinkObjectEndQualifierAction_forwardReferencesFromMetamodelAssociations
@@ -149,12 +151,12 @@ trait UMLReadLinkObjectEndQualifierAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReadLinkObjectEndQualifierAction
 	 *
 	 * <!-- Start of user code doc for readLinkObjectEndQualifierAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for readLinkObjectEndQualifierAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readLinkObjectEndQualifierAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readLinkObjectEndQualifierAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		qualifier
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReadLinkObjectEndQualifierAction

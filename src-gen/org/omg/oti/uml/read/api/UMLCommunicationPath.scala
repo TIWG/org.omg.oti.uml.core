@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLCommunicationPath[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		communicationPath_metaAttributes
@@ -73,7 +75,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLCommunicationPath
 	 *
 	 * <!-- Start of user code doc for communicationPath_metaAttributes -->
-   * <!-- End of user code doc for communicationPath_metaAttributes -->
+	 * <!-- End of user code doc for communicationPath_metaAttributes -->
 	 */
 	def communicationPath_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -84,7 +86,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		communicationPath_compositeMetaProperties
@@ -93,7 +95,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLCommunicationPath
 	 *
 	 * <!-- Start of user code doc for communicationPath_compositeMetaProperties -->
-   * <!-- End of user code doc for communicationPath_compositeMetaProperties -->
+	 * <!-- End of user code doc for communicationPath_compositeMetaProperties -->
 	 */
 	def communicationPath_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		communicationPath_referenceMetaProperties
@@ -113,7 +115,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLCommunicationPath
 	 *
 	 * <!-- Start of user code doc for communicationPath_referenceMetaProperties -->
-   * <!-- End of user code doc for communicationPath_referenceMetaProperties -->
+	 * <!-- End of user code doc for communicationPath_referenceMetaProperties -->
 	 */
 	def communicationPath_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		communicationPath_forwardReferencesFromMetamodelAssociations
@@ -133,12 +135,12 @@ trait UMLCommunicationPath[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLCommunicationPath
 	 *
 	 * <!-- Start of user code doc for communicationPath_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for communicationPath_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for communicationPath_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def communicationPath_forwardReferencesFromMetamodelAssociations: Elements =
 		association_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLCommunicationPath

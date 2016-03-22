@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -39,10 +41,10 @@
  */
 package org.omg.oti.uml.write.api
 
+// Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
-// Start of user code for imports
 // End of user code
 
 /**
@@ -54,12 +56,12 @@ class AddVariableValueActionUpdater[Uml <: UML](val domain: UMLAddVariableValueA
   def links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Unit =
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.set_AddVariableValueAction_isReplaceAll(domain, isReplaceAll)
 }

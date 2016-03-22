@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReadIsClassifiedObjectAction is an Action that determines whether an object is classified by a given Classifier.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReadIsClassifiedObjectAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The Classifier against which the classification of the input object is tested.
 	 *
 	 * <!-- Start of user code doc for classifier -->
-   * <!-- End of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.classifier_readIsClassifiedObjectAction
@@ -79,7 +81,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * Indicates whether the input object must be directly classified by the given Classifier or whether it may also be an instance of a specialization of the given Classifier.
 	 *
 	 * <!-- Start of user code doc for isDirect -->
-   * <!-- End of user code doc for isDirect -->
+	 * <!-- End of user code doc for isDirect -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -89,7 +91,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readIsClassifiedObjectAction_metaAttributes
@@ -98,7 +100,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReadIsClassifiedObjectAction
 	 *
 	 * <!-- Start of user code doc for readIsClassifiedObjectAction_metaAttributes -->
-   * <!-- End of user code doc for readIsClassifiedObjectAction_metaAttributes -->
+	 * <!-- End of user code doc for readIsClassifiedObjectAction_metaAttributes -->
 	 */
 	def readIsClassifiedObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,7 +111,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readIsClassifiedObjectAction_compositeMetaProperties
@@ -118,7 +120,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReadIsClassifiedObjectAction
 	 *
 	 * <!-- Start of user code doc for readIsClassifiedObjectAction_compositeMetaProperties -->
-   * <!-- End of user code doc for readIsClassifiedObjectAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readIsClassifiedObjectAction_compositeMetaProperties -->
 	 */
 	def readIsClassifiedObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readIsClassifiedObjectAction_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReadIsClassifiedObjectAction
 	 *
 	 * <!-- Start of user code doc for readIsClassifiedObjectAction_referenceMetaProperties -->
-   * <!-- End of user code doc for readIsClassifiedObjectAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readIsClassifiedObjectAction_referenceMetaProperties -->
 	 */
 	def readIsClassifiedObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readIsClassifiedObjectAction_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLReadIsClassifiedObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReadIsClassifiedObjectAction
 	 *
 	 * <!-- Start of user code doc for readIsClassifiedObjectAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for readIsClassifiedObjectAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readIsClassifiedObjectAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readIsClassifiedObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		classifier
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReadIsClassifiedObjectAction

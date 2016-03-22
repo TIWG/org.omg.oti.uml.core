@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLSlot[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLSlot[Uml <: UML]
 	 * The StructuralFeature that specifies the values that may be held by the Slot.
 	 *
 	 * <!-- Start of user code doc for definingFeature -->
-   * <!-- End of user code doc for definingFeature -->
+	 * <!-- End of user code doc for definingFeature -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeature.definingFeature_slot
@@ -79,7 +81,7 @@ trait UMLSlot[Uml <: UML]
 	 * The value or values held by the Slot.
 	 *
 	 * <!-- Start of user code doc for value -->
-   * <!-- End of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.value_owningSlot
@@ -90,7 +92,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		slot_metaAttributes
@@ -99,7 +101,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLSlot
 	 *
 	 * <!-- Start of user code doc for slot_metaAttributes -->
-   * <!-- End of user code doc for slot_metaAttributes -->
+	 * <!-- End of user code doc for slot_metaAttributes -->
 	 */
 	def slot_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		slot_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLSlot
 	 *
 	 * <!-- Start of user code doc for slot_compositeMetaProperties -->
-   * <!-- End of user code doc for slot_compositeMetaProperties -->
+	 * <!-- End of user code doc for slot_compositeMetaProperties -->
 	 */
 	def slot_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		slot_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLSlot
 	 *
 	 * <!-- Start of user code doc for slot_referenceMetaProperties -->
-   * <!-- End of user code doc for slot_referenceMetaProperties -->
+	 * <!-- End of user code doc for slot_referenceMetaProperties -->
 	 */
 	def slot_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		slot_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLSlot[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLSlot
 	 *
 	 * <!-- Start of user code doc for slot_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for slot_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for slot_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def slot_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		definingFeature
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLSlot

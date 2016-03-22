@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,6 +54,12 @@ import scalaz._
  * <!-- End of user code documentation -->
  */
 class DependencyUpdater[Uml <: UML](val domain: UMLDependency[Uml]) extends AnyVal {
+
+  def links_Dependency_clientDependency_reference_client_NamedElement
+  (range: Set[UMLNamedElement[Uml]])
+  (implicit umlU: UMLUpdate[Uml])
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+    umlU.links_Dependency_clientDependency_reference_client_NamedElement(domain, range)
 
   def links_Dependency_supplierDependency_reference_supplier_NamedElement
   (range: Set[UMLNamedElement[Uml]])

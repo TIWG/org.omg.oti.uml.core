@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ExpansionNode is an ObjectNode used to indicate a collection input or output for an ExpansionRegion. A collection input of an ExpansionRegion contains a collection that is broken into its individual elements inside the region, whose content is executed once per element. A collection output of an ExpansionRegion combines individual elements produced by the execution of the region into a collection for use outside the region.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLExpansionNode[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The ExpansionRegion for which the ExpansionNode is an input.
 	 *
 	 * <!-- Start of user code doc for regionAsInput -->
-   * <!-- End of user code doc for regionAsInput -->
+	 * <!-- End of user code doc for regionAsInput -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExpansionRegion.inputElement
@@ -79,7 +81,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The ExpansionRegion for which the ExpansionNode is an output.
 	 *
 	 * <!-- Start of user code doc for regionAsOutput -->
-   * <!-- End of user code doc for regionAsOutput -->
+	 * <!-- End of user code doc for regionAsOutput -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExpansionRegion.outputElement
@@ -90,7 +92,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		expansionNode_metaAttributes
@@ -99,7 +101,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLExpansionNode
 	 *
 	 * <!-- Start of user code doc for expansionNode_metaAttributes -->
-   * <!-- End of user code doc for expansionNode_metaAttributes -->
+	 * <!-- End of user code doc for expansionNode_metaAttributes -->
 	 */
 	def expansionNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		expansionNode_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLExpansionNode
 	 *
 	 * <!-- Start of user code doc for expansionNode_compositeMetaProperties -->
-   * <!-- End of user code doc for expansionNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for expansionNode_compositeMetaProperties -->
 	 */
 	def expansionNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		expansionNode_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLExpansionNode
 	 *
 	 * <!-- Start of user code doc for expansionNode_referenceMetaProperties -->
-   * <!-- End of user code doc for expansionNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for expansionNode_referenceMetaProperties -->
 	 */
 	def expansionNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -151,7 +153,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		expansionNode_forwardReferencesFromMetamodelAssociations
@@ -160,7 +162,7 @@ trait UMLExpansionNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLExpansionNode
 	 *
 	 * <!-- Start of user code doc for expansionNode_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for expansionNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for expansionNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def expansionNode_forwardReferencesFromMetamodelAssociations: Elements =
 		objectNode_forwardReferencesFromMetamodelAssociations ++
@@ -168,5 +170,5 @@ trait UMLExpansionNode[Uml <: UML]
 		regionAsOutput
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLExpansionNode

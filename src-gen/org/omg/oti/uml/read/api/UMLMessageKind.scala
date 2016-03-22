@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLMessageKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLMessageKind = Value
 
@@ -61,7 +63,7 @@ object UMLMessageKind extends Enumeration {
  	 * sendEvent and receiveEvent are present
 	 *
 	 * <!-- Start of user code doc for complete -->
-   * <!-- End of user code doc for complete -->
+	 * <!-- End of user code doc for complete -->
  	 */
 	val complete = Value
 
@@ -69,7 +71,7 @@ object UMLMessageKind extends Enumeration {
  	 * sendEvent absent and receiveEvent present
 	 *
 	 * <!-- Start of user code doc for found -->
-   * <!-- End of user code doc for found -->
+	 * <!-- End of user code doc for found -->
  	 */
 	val found = Value
 
@@ -77,7 +79,7 @@ object UMLMessageKind extends Enumeration {
  	 * sendEvent present and receiveEvent absent
 	 *
 	 * <!-- Start of user code doc for lost -->
-   * <!-- End of user code doc for lost -->
+	 * <!-- End of user code doc for lost -->
  	 */
 	val lost = Value
 
@@ -85,7 +87,7 @@ object UMLMessageKind extends Enumeration {
  	 * sendEvent and receiveEvent absent (should not appear)
 	 *
 	 * <!-- Start of user code doc for unknown -->
-   * <!-- End of user code doc for unknown -->
+	 * <!-- End of user code doc for unknown -->
  	 */
 	val unknown = Value
 }

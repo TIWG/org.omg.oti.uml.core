@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * InvocationAction is an abstract class for the various actions that request Behavior invocation.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInvocationAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The InputPins that provide the argument values passed in the invocation request.
 	 *
 	 * <!-- Start of user code doc for argument -->
-   * <!-- End of user code doc for argument -->
+	 * <!-- End of user code doc for argument -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.argument_invocationAction
@@ -79,7 +81,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * For CallOperationActions, SendSignalActions, and SendObjectActions, an optional Port of the target object through which the invocation request is sent.
 	 *
 	 * <!-- Start of user code doc for onPort -->
-   * <!-- End of user code doc for onPort -->
+	 * <!-- End of user code doc for onPort -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.onPort_invocationAction
@@ -90,7 +92,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		invocationAction_metaAttributes
@@ -99,7 +101,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInvocationAction
 	 *
 	 * <!-- Start of user code doc for invocationAction_metaAttributes -->
-   * <!-- End of user code doc for invocationAction_metaAttributes -->
+	 * <!-- End of user code doc for invocationAction_metaAttributes -->
 	 */
 	def invocationAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		invocationAction_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInvocationAction
 	 *
 	 * <!-- Start of user code doc for invocationAction_compositeMetaProperties -->
-   * <!-- End of user code doc for invocationAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for invocationAction_compositeMetaProperties -->
 	 */
 	def invocationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		invocationAction_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInvocationAction
 	 *
 	 * <!-- Start of user code doc for invocationAction_referenceMetaProperties -->
-   * <!-- End of user code doc for invocationAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for invocationAction_referenceMetaProperties -->
 	 */
 	def invocationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		invocationAction_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLInvocationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInvocationAction
 	 *
 	 * <!-- Start of user code doc for invocationAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for invocationAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for invocationAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def invocationAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		onPort
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInvocationAction

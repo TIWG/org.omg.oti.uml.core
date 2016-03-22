@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A CreateObjectAction is an Action that creates an instance of the specified Classifier.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLCreateObjectAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The Classifier to be instantiated.
 	 *
 	 * <!-- Start of user code doc for classifier -->
-   * <!-- End of user code doc for classifier -->
+	 * <!-- End of user code doc for classifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.classifier_createObjectAction
@@ -79,7 +81,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		createObjectAction_metaAttributes
@@ -88,7 +90,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLCreateObjectAction
 	 *
 	 * <!-- Start of user code doc for createObjectAction_metaAttributes -->
-   * <!-- End of user code doc for createObjectAction_metaAttributes -->
+	 * <!-- End of user code doc for createObjectAction_metaAttributes -->
 	 */
 	def createObjectAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		createObjectAction_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLCreateObjectAction
 	 *
 	 * <!-- Start of user code doc for createObjectAction_compositeMetaProperties -->
-   * <!-- End of user code doc for createObjectAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for createObjectAction_compositeMetaProperties -->
 	 */
 	def createObjectAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		createObjectAction_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLCreateObjectAction
 	 *
 	 * <!-- Start of user code doc for createObjectAction_referenceMetaProperties -->
-   * <!-- End of user code doc for createObjectAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for createObjectAction_referenceMetaProperties -->
 	 */
 	def createObjectAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		createObjectAction_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLCreateObjectAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLCreateObjectAction
 	 *
 	 * <!-- Start of user code doc for createObjectAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for createObjectAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for createObjectAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def createObjectAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		classifier
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLCreateObjectAction

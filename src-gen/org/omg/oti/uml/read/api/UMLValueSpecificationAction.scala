@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A ValueSpecificationAction is an Action that evaluates a ValueSpecification and provides a result.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLValueSpecificationAction[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The ValueSpecification to be evaluated.
 	 *
 	 * <!-- Start of user code doc for value -->
-   * <!-- End of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.value_valueSpecificationAction
@@ -77,7 +79,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		valueSpecificationAction_metaAttributes
@@ -86,7 +88,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLValueSpecificationAction
 	 *
 	 * <!-- Start of user code doc for valueSpecificationAction_metaAttributes -->
-   * <!-- End of user code doc for valueSpecificationAction_metaAttributes -->
+	 * <!-- End of user code doc for valueSpecificationAction_metaAttributes -->
 	 */
 	def valueSpecificationAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -97,7 +99,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		valueSpecificationAction_compositeMetaProperties
@@ -106,7 +108,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLValueSpecificationAction
 	 *
 	 * <!-- Start of user code doc for valueSpecificationAction_compositeMetaProperties -->
-   * <!-- End of user code doc for valueSpecificationAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for valueSpecificationAction_compositeMetaProperties -->
 	 */
 	def valueSpecificationAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -118,7 +120,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		valueSpecificationAction_referenceMetaProperties
@@ -127,7 +129,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLValueSpecificationAction
 	 *
 	 * <!-- Start of user code doc for valueSpecificationAction_referenceMetaProperties -->
-   * <!-- End of user code doc for valueSpecificationAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for valueSpecificationAction_referenceMetaProperties -->
 	 */
 	def valueSpecificationAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -138,7 +140,7 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecificationAction_forwardReferencesFromMetamodelAssociations
@@ -147,12 +149,12 @@ trait UMLValueSpecificationAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLValueSpecificationAction
 	 *
 	 * <!-- Start of user code doc for valueSpecificationAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for valueSpecificationAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for valueSpecificationAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def valueSpecificationAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLValueSpecificationAction

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -70,6 +72,18 @@ class TransitionUpdater[Uml <: UML](val domain: UMLTransition[Uml]) extends AnyV
   (implicit umlU: UMLUpdate[Uml])
   : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_Transition_transition_reference_redefinedTransition_Transition(domain, range)
+
+  def links_Transition_outgoing_reference_source_Vertex
+  (range: Option[UMLVertex[Uml]])
+  (implicit umlU: UMLUpdate[Uml])
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+    umlU.links_Transition_outgoing_reference_source_Vertex(domain, range)
+
+  def links_Transition_incoming_reference_target_Vertex
+  (range: Option[UMLVertex[Uml]])
+  (implicit umlU: UMLUpdate[Uml])
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+    umlU.links_Transition_incoming_reference_target_Vertex(domain, range)
 
   def links_Transition_transition_compose_trigger_Trigger
   (range: Set[UMLTrigger[Uml]])

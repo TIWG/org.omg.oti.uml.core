@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * LinkEndData is an Element that identifies on end of a link to be read or written by a LinkAction. As a link (that is not a link object) cannot be passed as a runtime value to or from an Action, it is instead identified by its end objects and qualifier values, if any. A LinkEndData instance provides these values for a single Association end.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLLinkEndData[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The Association?end?for?which?this?LinkEndData?specifies?values.
 	 *
 	 * <!-- Start of user code doc for end -->
-   * <!-- End of user code doc for end -->
+	 * <!-- End of user code doc for end -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.end_linkEndData
@@ -79,7 +81,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The InputPin that provides the specified value for the given end. This InputPin is omitted if the LinkEndData specifies the "open" end for a ReadLinkAction.
 	 *
 	 * <!-- Start of user code doc for value -->
-   * <!-- End of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.value_linkEndData
@@ -90,7 +92,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		linkEndData_metaAttributes
@@ -99,7 +101,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLLinkEndData
 	 *
 	 * <!-- Start of user code doc for linkEndData_metaAttributes -->
-   * <!-- End of user code doc for linkEndData_metaAttributes -->
+	 * <!-- End of user code doc for linkEndData_metaAttributes -->
 	 */
 	def linkEndData_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		linkEndData_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLLinkEndData
 	 *
 	 * <!-- Start of user code doc for linkEndData_compositeMetaProperties -->
-   * <!-- End of user code doc for linkEndData_compositeMetaProperties -->
+	 * <!-- End of user code doc for linkEndData_compositeMetaProperties -->
 	 */
 	def linkEndData_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		linkEndData_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLLinkEndData
 	 *
 	 * <!-- Start of user code doc for linkEndData_referenceMetaProperties -->
-   * <!-- End of user code doc for linkEndData_referenceMetaProperties -->
+	 * <!-- End of user code doc for linkEndData_referenceMetaProperties -->
 	 */
 	def linkEndData_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -151,7 +153,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		linkEndData_forwardReferencesFromMetamodelAssociations
@@ -160,7 +162,7 @@ trait UMLLinkEndData[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLLinkEndData
 	 *
 	 * <!-- Start of user code doc for linkEndData_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for linkEndData_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for linkEndData_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def linkEndData_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
@@ -168,5 +170,5 @@ trait UMLLinkEndData[Uml <: UML]
 		value
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLLinkEndData

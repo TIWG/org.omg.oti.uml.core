@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A CallBehaviorAction is a CallAction that invokes a Behavior directly. The argument values of the CallBehaviorAction are passed on the input Parameters of the invoked Behavior. If the call is synchronous, the execution of the CallBehaviorAction waits until the execution of the invoked Behavior completes and the values of output Parameters of the Behavior are placed on the result OutputPins. If the call is asynchronous, the CallBehaviorAction completes immediately and no results values can be provided.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLCallBehaviorAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The Behavior being invoked.
 	 *
 	 * <!-- Start of user code doc for behavior -->
-   * <!-- End of user code doc for behavior -->
+	 * <!-- End of user code doc for behavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.behavior_callBehaviorAction
@@ -79,7 +81,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		callBehaviorAction_metaAttributes
@@ -88,7 +90,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLCallBehaviorAction
 	 *
 	 * <!-- Start of user code doc for callBehaviorAction_metaAttributes -->
-   * <!-- End of user code doc for callBehaviorAction_metaAttributes -->
+	 * <!-- End of user code doc for callBehaviorAction_metaAttributes -->
 	 */
 	def callBehaviorAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		callBehaviorAction_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLCallBehaviorAction
 	 *
 	 * <!-- Start of user code doc for callBehaviorAction_compositeMetaProperties -->
-   * <!-- End of user code doc for callBehaviorAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for callBehaviorAction_compositeMetaProperties -->
 	 */
 	def callBehaviorAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		callBehaviorAction_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLCallBehaviorAction
 	 *
 	 * <!-- Start of user code doc for callBehaviorAction_referenceMetaProperties -->
-   * <!-- End of user code doc for callBehaviorAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for callBehaviorAction_referenceMetaProperties -->
 	 */
 	def callBehaviorAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		callBehaviorAction_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLCallBehaviorAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLCallBehaviorAction
 	 *
 	 * <!-- Start of user code doc for callBehaviorAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for callBehaviorAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for callBehaviorAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def callBehaviorAction_forwardReferencesFromMetamodelAssociations: Elements =
 		callAction_forwardReferencesFromMetamodelAssociations ++
 		behavior
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLCallBehaviorAction

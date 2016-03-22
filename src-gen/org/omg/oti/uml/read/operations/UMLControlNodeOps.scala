@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -46,7 +48,7 @@ import org.omg.oti.uml.read.api._
 /**
  * A ControlNode is an abstract ActivityNode that coordinates flows in an Activity.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLControlNodeOps[Uml <: UML] { self: UMLControlNode[Uml] =>
@@ -56,5 +58,5 @@ trait UMLControlNodeOps[Uml <: UML] { self: UMLControlNode[Uml] =>
 
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLControlNodeOps

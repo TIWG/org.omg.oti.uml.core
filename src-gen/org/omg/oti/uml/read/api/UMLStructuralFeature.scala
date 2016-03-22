@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A StructuralFeature is a typed feature of a Classifier that specifies the structure of instances of the Classifier.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLStructuralFeature[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * If isReadOnly is true, the StructuralFeature may not be written to after initialization.
 	 *
 	 * <!-- Start of user code doc for isReadOnly -->
-   * <!-- End of user code doc for isReadOnly -->
+	 * <!-- End of user code doc for isReadOnly -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +78,7 @@ trait UMLStructuralFeature[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for definingFeature_slot -->
-   * <!-- End of user code doc for definingFeature_slot -->
+	 * <!-- End of user code doc for definingFeature_slot -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSlot.definingFeature
@@ -85,7 +87,7 @@ trait UMLStructuralFeature[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for structuralFeature_structuralFeatureAction -->
-   * <!-- End of user code doc for structuralFeature_structuralFeatureAction -->
+	 * <!-- End of user code doc for structuralFeature_structuralFeatureAction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeatureAction.structuralFeature
@@ -96,7 +98,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		structuralFeature_metaAttributes
@@ -105,7 +107,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLStructuralFeature
 	 *
 	 * <!-- Start of user code doc for structuralFeature_metaAttributes -->
-   * <!-- End of user code doc for structuralFeature_metaAttributes -->
+	 * <!-- End of user code doc for structuralFeature_metaAttributes -->
 	 */
 	def structuralFeature_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,7 +120,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		structuralFeature_compositeMetaProperties
@@ -127,7 +129,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLStructuralFeature
 	 *
 	 * <!-- Start of user code doc for structuralFeature_compositeMetaProperties -->
-   * <!-- End of user code doc for structuralFeature_compositeMetaProperties -->
+	 * <!-- End of user code doc for structuralFeature_compositeMetaProperties -->
 	 */
 	def structuralFeature_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -140,7 +142,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		structuralFeature_referenceMetaProperties
@@ -149,7 +151,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLStructuralFeature
 	 *
 	 * <!-- Start of user code doc for structuralFeature_referenceMetaProperties -->
-   * <!-- End of user code doc for structuralFeature_referenceMetaProperties -->
+	 * <!-- End of user code doc for structuralFeature_referenceMetaProperties -->
 	 */
 	def structuralFeature_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -162,7 +164,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		structuralFeature_forwardReferencesFromMetamodelAssociations
@@ -171,7 +173,7 @@ trait UMLStructuralFeature[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLStructuralFeature
 	 *
 	 * <!-- Start of user code doc for structuralFeature_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for structuralFeature_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for structuralFeature_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def structuralFeature_forwardReferencesFromMetamodelAssociations: Elements =
 		feature_forwardReferencesFromMetamodelAssociations ++
@@ -180,5 +182,5 @@ trait UMLStructuralFeature[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLStructuralFeature

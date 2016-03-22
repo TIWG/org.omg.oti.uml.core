@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLStateInvariant[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * References the Lifeline on which the StateInvariant appears.
 	 *
 	 * <!-- Start of user code doc for covered -->
-   * <!-- End of user code doc for covered -->
+	 * <!-- End of user code doc for covered -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.covered_stateInvariant
@@ -76,7 +78,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		stateInvariant_metaAttributes
@@ -85,7 +87,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLStateInvariant
 	 *
 	 * <!-- Start of user code doc for stateInvariant_metaAttributes -->
-   * <!-- End of user code doc for stateInvariant_metaAttributes -->
+	 * <!-- End of user code doc for stateInvariant_metaAttributes -->
 	 */
 	def stateInvariant_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -96,7 +98,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		stateInvariant_compositeMetaProperties
@@ -105,7 +107,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLStateInvariant
 	 *
 	 * <!-- Start of user code doc for stateInvariant_compositeMetaProperties -->
-   * <!-- End of user code doc for stateInvariant_compositeMetaProperties -->
+	 * <!-- End of user code doc for stateInvariant_compositeMetaProperties -->
 	 */
 	def stateInvariant_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,7 +118,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		stateInvariant_referenceMetaProperties
@@ -125,7 +127,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLStateInvariant
 	 *
 	 * <!-- Start of user code doc for stateInvariant_referenceMetaProperties -->
-   * <!-- End of user code doc for stateInvariant_referenceMetaProperties -->
+	 * <!-- End of user code doc for stateInvariant_referenceMetaProperties -->
 	 */
 	def stateInvariant_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -136,7 +138,7 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		stateInvariant_forwardReferencesFromMetamodelAssociations
@@ -145,12 +147,12 @@ trait UMLStateInvariant[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLStateInvariant
 	 *
 	 * <!-- Start of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def stateInvariant_forwardReferencesFromMetamodelAssociations: Elements =
 		interactionFragment_forwardReferencesFromMetamodelAssociations ++
 		covered
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLStateInvariant

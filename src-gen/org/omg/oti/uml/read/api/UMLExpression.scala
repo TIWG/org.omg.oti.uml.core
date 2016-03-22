@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLExpression[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLExpression[Uml <: UML]
 	 * Specifies a sequence of operand ValueSpecifications.
 	 *
 	 * <!-- Start of user code doc for operand -->
-   * <!-- End of user code doc for operand -->
+	 * <!-- End of user code doc for operand -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.operand_expression
@@ -78,7 +80,7 @@ trait UMLExpression[Uml <: UML]
 	 * The symbol associated with this node in the expression tree.
 	 *
 	 * <!-- Start of user code doc for symbol -->
-   * <!-- End of user code doc for symbol -->
+	 * <!-- End of user code doc for symbol -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -88,7 +90,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		expression_metaAttributes
@@ -97,7 +99,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLExpression
 	 *
 	 * <!-- Start of user code doc for expression_metaAttributes -->
-   * <!-- End of user code doc for expression_metaAttributes -->
+	 * <!-- End of user code doc for expression_metaAttributes -->
 	 */
 	def expression_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -108,7 +110,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		expression_compositeMetaProperties
@@ -117,7 +119,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLExpression
 	 *
 	 * <!-- Start of user code doc for expression_compositeMetaProperties -->
-   * <!-- End of user code doc for expression_compositeMetaProperties -->
+	 * <!-- End of user code doc for expression_compositeMetaProperties -->
 	 */
 	def expression_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		expression_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLExpression
 	 *
 	 * <!-- Start of user code doc for expression_referenceMetaProperties -->
-   * <!-- End of user code doc for expression_referenceMetaProperties -->
+	 * <!-- End of user code doc for expression_referenceMetaProperties -->
 	 */
 	def expression_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		expression_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLExpression[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLExpression
 	 *
 	 * <!-- Start of user code doc for expression_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for expression_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for expression_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def expression_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLExpression

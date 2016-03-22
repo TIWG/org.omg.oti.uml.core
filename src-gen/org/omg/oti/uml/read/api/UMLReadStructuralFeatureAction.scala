@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReadStructuralFeatureAction is a StructuralFeatureAction that retrieves the values of a StructuralFeature.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReadStructuralFeatureAction[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		readStructuralFeatureAction_metaAttributes
@@ -74,7 +76,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReadStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for readStructuralFeatureAction_metaAttributes -->
-   * <!-- End of user code doc for readStructuralFeatureAction_metaAttributes -->
+	 * <!-- End of user code doc for readStructuralFeatureAction_metaAttributes -->
 	 */
 	def readStructuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -85,7 +87,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		readStructuralFeatureAction_compositeMetaProperties
@@ -94,7 +96,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReadStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
-   * <!-- End of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for readStructuralFeatureAction_compositeMetaProperties -->
 	 */
 	def readStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,7 +107,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		readStructuralFeatureAction_referenceMetaProperties
@@ -114,7 +116,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReadStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
-   * <!-- End of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for readStructuralFeatureAction_referenceMetaProperties -->
 	 */
 	def readStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,7 +127,7 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations
@@ -134,12 +136,12 @@ trait UMLReadStructuralFeatureAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReadStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def readStructuralFeatureAction_forwardReferencesFromMetamodelAssociations: Elements =
 		structuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReadStructuralFeatureAction

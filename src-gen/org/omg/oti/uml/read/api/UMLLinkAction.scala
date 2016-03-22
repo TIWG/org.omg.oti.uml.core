@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * LinkAction is an abstract class for all Actions that identify the links to be acted on using LinkEndData.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLLinkAction[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		linkAction_metaAttributes
@@ -74,7 +76,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLLinkAction
 	 *
 	 * <!-- Start of user code doc for linkAction_metaAttributes -->
-   * <!-- End of user code doc for linkAction_metaAttributes -->
+	 * <!-- End of user code doc for linkAction_metaAttributes -->
 	 */
 	def linkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -85,7 +87,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		linkAction_compositeMetaProperties
@@ -94,7 +96,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLLinkAction
 	 *
 	 * <!-- Start of user code doc for linkAction_compositeMetaProperties -->
-   * <!-- End of user code doc for linkAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for linkAction_compositeMetaProperties -->
 	 */
 	def linkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -106,7 +108,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		linkAction_referenceMetaProperties
@@ -115,7 +117,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLLinkAction
 	 *
 	 * <!-- Start of user code doc for linkAction_referenceMetaProperties -->
-   * <!-- End of user code doc for linkAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for linkAction_referenceMetaProperties -->
 	 */
 	def linkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -126,7 +128,7 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		linkAction_forwardReferencesFromMetamodelAssociations
@@ -135,12 +137,12 @@ trait UMLLinkAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLLinkAction
 	 *
 	 * <!-- Start of user code doc for linkAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for linkAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for linkAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def linkAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLLinkAction

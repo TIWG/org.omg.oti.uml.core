@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLNamespace[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLNamespace[Uml <: UML]
 	 * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.
 	 *
 	 * <!-- Start of user code doc for member -->
-   * <!-- End of user code doc for member -->
+	 * <!-- End of user code doc for member -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.member_memberNamespace
@@ -76,7 +78,7 @@ trait UMLNamespace[Uml <: UML]
 	 * A collection of NamedElements owned by the Namespace.
 	 *
 	 * <!-- Start of user code doc for ownedMember -->
-   * <!-- End of user code doc for ownedMember -->
+	 * <!-- End of user code doc for ownedMember -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.namespace
@@ -87,7 +89,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		namespace_metaAttributes
@@ -96,7 +98,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLNamespace
 	 *
 	 * <!-- Start of user code doc for namespace_metaAttributes -->
-   * <!-- End of user code doc for namespace_metaAttributes -->
+	 * <!-- End of user code doc for namespace_metaAttributes -->
 	 */
 	def namespace_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -107,7 +109,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		namespace_compositeMetaProperties
@@ -116,7 +118,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLNamespace
 	 *
 	 * <!-- Start of user code doc for namespace_compositeMetaProperties -->
-   * <!-- End of user code doc for namespace_compositeMetaProperties -->
+	 * <!-- End of user code doc for namespace_compositeMetaProperties -->
 	 */
 	def namespace_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -129,7 +131,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		namespace_referenceMetaProperties
@@ -138,7 +140,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLNamespace
 	 *
 	 * <!-- Start of user code doc for namespace_referenceMetaProperties -->
-   * <!-- End of user code doc for namespace_referenceMetaProperties -->
+	 * <!-- End of user code doc for namespace_referenceMetaProperties -->
 	 */
 	def namespace_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -149,7 +151,7 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations
@@ -158,12 +160,12 @@ trait UMLNamespace[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLNamespace
 	 *
 	 * <!-- Start of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def namespace_forwardReferencesFromMetamodelAssociations: Elements =
 		namedElement_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLNamespace

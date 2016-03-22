@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * InformationFlows describe circulation of information through a system in a general manner. They do not specify the nature of the information, mechanisms by which it is conveyed, sequences of exchange or any control conditions. During more detailed modeling, representation and realization links may be added to specify which model elements implement an InformationFlow and to show how information is conveyed.  InformationFlows require some kind of ?information channel? for unidirectional transmission of information items from sources to targets.? They specify the information channel?s realizations, if any, and identify the information that flows along them.? Information moving along the information channel may be represented by abstract InformationItems and by concrete Classifiers.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInformationFlow[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * Specifies the information items that may circulate on this information flow.
 	 *
 	 * <!-- Start of user code doc for conveyed -->
-   * <!-- End of user code doc for conveyed -->
+	 * <!-- End of user code doc for conveyed -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.conveyed_conveyingFlow
@@ -77,7 +79,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * Determines which Relationship will realize the specified flow.
 	 *
 	 * <!-- Start of user code doc for realization -->
-   * <!-- End of user code doc for realization -->
+	 * <!-- End of user code doc for realization -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLRelationship.realization_abstraction
@@ -88,7 +90,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * Determines which ActivityEdges will realize the specified flow.
 	 *
 	 * <!-- Start of user code doc for realizingActivityEdge -->
-   * <!-- End of user code doc for realizingActivityEdge -->
+	 * <!-- End of user code doc for realizingActivityEdge -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.realizingActivityEdge_informationFlow
@@ -99,7 +101,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * Determines which Connectors will realize the specified flow.
 	 *
 	 * <!-- Start of user code doc for realizingConnector -->
-   * <!-- End of user code doc for realizingConnector -->
+	 * <!-- End of user code doc for realizingConnector -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnector.realizingConnector_informationFlow
@@ -110,7 +112,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * Determines which Messages will realize the specified flow.
 	 *
 	 * <!-- Start of user code doc for realizingMessage -->
-   * <!-- End of user code doc for realizingMessage -->
+	 * <!-- End of user code doc for realizingMessage -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLMessage.realizingMessage_informationFlow
@@ -121,7 +123,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		informationFlow_metaAttributes
@@ -130,7 +132,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInformationFlow
 	 *
 	 * <!-- Start of user code doc for informationFlow_metaAttributes -->
-   * <!-- End of user code doc for informationFlow_metaAttributes -->
+	 * <!-- End of user code doc for informationFlow_metaAttributes -->
 	 */
 	def informationFlow_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -142,7 +144,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		informationFlow_compositeMetaProperties
@@ -151,7 +153,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInformationFlow
 	 *
 	 * <!-- Start of user code doc for informationFlow_compositeMetaProperties -->
-   * <!-- End of user code doc for informationFlow_compositeMetaProperties -->
+	 * <!-- End of user code doc for informationFlow_compositeMetaProperties -->
 	 */
 	def informationFlow_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -163,7 +165,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		informationFlow_referenceMetaProperties
@@ -172,7 +174,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInformationFlow
 	 *
 	 * <!-- Start of user code doc for informationFlow_referenceMetaProperties -->
-   * <!-- End of user code doc for informationFlow_referenceMetaProperties -->
+	 * <!-- End of user code doc for informationFlow_referenceMetaProperties -->
 	 */
 	def informationFlow_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -190,7 +192,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		informationFlow_forwardReferencesFromMetamodelAssociations
@@ -199,7 +201,7 @@ trait UMLInformationFlow[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInformationFlow
 	 *
 	 * <!-- Start of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for informationFlow_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def informationFlow_forwardReferencesFromMetamodelAssociations: Elements =
 		directedRelationship_forwardReferencesFromMetamodelAssociations ++
@@ -213,5 +215,5 @@ trait UMLInformationFlow[Uml <: UML]
 		realizingMessage
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInformationFlow

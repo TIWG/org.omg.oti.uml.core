@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An InterfaceRealization is a specialized realization relationship between a BehavioredClassifier and an Interface. This relationship signifies that the realizing BehavioredClassifier conforms to the contract specified by the Interface.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLInterfaceRealization[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * References the Interface specifying the conformance contract.
 	 *
 	 * <!-- Start of user code doc for contract -->
-   * <!-- End of user code doc for contract -->
+	 * <!-- End of user code doc for contract -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.contract_interfaceRealization
@@ -79,7 +81,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * References the BehavioredClassifier that owns this InterfaceRealization, i.e., the BehavioredClassifier that realizes the Interface to which it refers.
 	 *
 	 * <!-- Start of user code doc for implementingClassifier -->
-   * <!-- End of user code doc for implementingClassifier -->
+	 * <!-- End of user code doc for implementingClassifier -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioredClassifier.interfaceRealization
@@ -90,7 +92,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		interfaceRealization_metaAttributes
@@ -99,7 +101,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLInterfaceRealization
 	 *
 	 * <!-- Start of user code doc for interfaceRealization_metaAttributes -->
-   * <!-- End of user code doc for interfaceRealization_metaAttributes -->
+	 * <!-- End of user code doc for interfaceRealization_metaAttributes -->
 	 */
 	def interfaceRealization_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		interfaceRealization_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLInterfaceRealization
 	 *
 	 * <!-- Start of user code doc for interfaceRealization_compositeMetaProperties -->
-   * <!-- End of user code doc for interfaceRealization_compositeMetaProperties -->
+	 * <!-- End of user code doc for interfaceRealization_compositeMetaProperties -->
 	 */
 	def interfaceRealization_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		interfaceRealization_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLInterfaceRealization
 	 *
 	 * <!-- Start of user code doc for interfaceRealization_referenceMetaProperties -->
-   * <!-- End of user code doc for interfaceRealization_referenceMetaProperties -->
+	 * <!-- End of user code doc for interfaceRealization_referenceMetaProperties -->
 	 */
 	def interfaceRealization_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		interfaceRealization_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLInterfaceRealization[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLInterfaceRealization
 	 *
 	 * <!-- Start of user code doc for interfaceRealization_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for interfaceRealization_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for interfaceRealization_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def interfaceRealization_forwardReferencesFromMetamodelAssociations: Elements =
 		realization_forwardReferencesFromMetamodelAssociations ++
 		contract
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLInterfaceRealization

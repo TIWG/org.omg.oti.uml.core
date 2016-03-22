@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * ConnectableElement is an abstract metaclass representing a set of instances that play roles of a StructuredClassifier. ConnectableElements may be joined by attached Connectors and specify configurations of linked instances to be created within an instance of the containing StructuredClassifier.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLConnectableElement[Uml <: UML]
@@ -69,7 +71,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The ConnectableElementTemplateParameter for this ConnectableElement parameter.
 	 *
 	 * <!-- Start of user code doc for templateParameter -->
-   * <!-- End of user code doc for templateParameter -->
+	 * <!-- End of user code doc for templateParameter -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConnectableElementTemplateParameter.parameteredElement
@@ -78,7 +80,7 @@ trait UMLConnectableElement[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for represents_lifeline -->
-   * <!-- End of user code doc for represents_lifeline -->
+	 * <!-- End of user code doc for represents_lifeline -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.represents
@@ -89,7 +91,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		connectableElement_metaAttributes
@@ -98,7 +100,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLConnectableElement
 	 *
 	 * <!-- Start of user code doc for connectableElement_metaAttributes -->
-   * <!-- End of user code doc for connectableElement_metaAttributes -->
+	 * <!-- End of user code doc for connectableElement_metaAttributes -->
 	 */
 	def connectableElement_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -110,7 +112,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		connectableElement_compositeMetaProperties
@@ -119,7 +121,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLConnectableElement
 	 *
 	 * <!-- Start of user code doc for connectableElement_compositeMetaProperties -->
-   * <!-- End of user code doc for connectableElement_compositeMetaProperties -->
+	 * <!-- End of user code doc for connectableElement_compositeMetaProperties -->
 	 */
 	def connectableElement_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -131,7 +133,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		connectableElement_referenceMetaProperties
@@ -140,7 +142,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLConnectableElement
 	 *
 	 * <!-- Start of user code doc for connectableElement_referenceMetaProperties -->
-   * <!-- End of user code doc for connectableElement_referenceMetaProperties -->
+	 * <!-- End of user code doc for connectableElement_referenceMetaProperties -->
 	 */
 	def connectableElement_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -152,7 +154,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		connectableElement_forwardReferencesFromMetamodelAssociations
@@ -161,7 +163,7 @@ trait UMLConnectableElement[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLConnectableElement
 	 *
 	 * <!-- Start of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for connectableElement_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def connectableElement_forwardReferencesFromMetamodelAssociations: Elements =
 		parameterableElement_forwardReferencesFromMetamodelAssociations ++
@@ -169,5 +171,5 @@ trait UMLConnectableElement[Uml <: UML]
 		templateParameter
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLConnectableElement

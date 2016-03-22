@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * WriteLinkAction is an abstract class for LinkActions that create and destroy links.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLWriteLinkAction[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		writeLinkAction_metaAttributes
@@ -73,7 +75,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLWriteLinkAction
 	 *
 	 * <!-- Start of user code doc for writeLinkAction_metaAttributes -->
-   * <!-- End of user code doc for writeLinkAction_metaAttributes -->
+	 * <!-- End of user code doc for writeLinkAction_metaAttributes -->
 	 */
 	def writeLinkAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -84,7 +86,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		writeLinkAction_compositeMetaProperties
@@ -93,7 +95,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLWriteLinkAction
 	 *
 	 * <!-- Start of user code doc for writeLinkAction_compositeMetaProperties -->
-   * <!-- End of user code doc for writeLinkAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for writeLinkAction_compositeMetaProperties -->
 	 */
 	def writeLinkAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		writeLinkAction_referenceMetaProperties
@@ -113,7 +115,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLWriteLinkAction
 	 *
 	 * <!-- Start of user code doc for writeLinkAction_referenceMetaProperties -->
-   * <!-- End of user code doc for writeLinkAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for writeLinkAction_referenceMetaProperties -->
 	 */
 	def writeLinkAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		writeLinkAction_forwardReferencesFromMetamodelAssociations
@@ -133,12 +135,12 @@ trait UMLWriteLinkAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLWriteLinkAction
 	 *
 	 * <!-- Start of user code doc for writeLinkAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for writeLinkAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for writeLinkAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def writeLinkAction_forwardReferencesFromMetamodelAssociations: Elements =
 		linkAction_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLWriteLinkAction

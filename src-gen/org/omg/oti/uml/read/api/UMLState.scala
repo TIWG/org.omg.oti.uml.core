@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A State models a situation during which some (usually implicit) invariant condition holds.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLState[Uml <: UML]
@@ -70,7 +72,7 @@ trait UMLState[Uml <: UML]
 	 * An optional Behavior that is executed while being in the State. The execution starts when this State is entered, and ceases either by itself when done, or when the State is exited, whichever comes first.
 	 *
 	 * <!-- Start of user code doc for doActivity -->
-   * <!-- End of user code doc for doActivity -->
+	 * <!-- End of user code doc for doActivity -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.doActivity_state
@@ -81,7 +83,7 @@ trait UMLState[Uml <: UML]
 	 * An optional Behavior that is executed whenever this State is entered regardless of the Transition taken to reach the State. If defined, entry Behaviors are always executed to completion prior to any internal Behavior or Transitions performed within the State.
 	 *
 	 * <!-- Start of user code doc for entry -->
-   * <!-- End of user code doc for entry -->
+	 * <!-- End of user code doc for entry -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.entry_state
@@ -92,7 +94,7 @@ trait UMLState[Uml <: UML]
 	 * An optional Behavior that is executed whenever this State is exited regardless of which Transition was taken out of the State. If defined, exit Behaviors are always executed to completion only after all internal and transition Behaviors have completed execution.
 	 *
 	 * <!-- Start of user code doc for exit -->
-   * <!-- End of user code doc for exit -->
+	 * <!-- End of user code doc for exit -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.exit_state
@@ -103,7 +105,7 @@ trait UMLState[Uml <: UML]
 	 * Specifies conditions that are always true when this State is the current State. In ProtocolStateMachines state invariants are additional conditions to the preconditions of the outgoing Transitions, and to the postcondition of the incoming Transitions.
 	 *
 	 * <!-- Start of user code doc for stateInvariant -->
-   * <!-- End of user code doc for stateInvariant -->
+	 * <!-- End of user code doc for stateInvariant -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.stateInvariant_owningState
@@ -114,7 +116,7 @@ trait UMLState[Uml <: UML]
 	 * The StateMachine that is to be inserted in place of the (submachine) State.
 	 *
 	 * <!-- Start of user code doc for submachine -->
-   * <!-- End of user code doc for submachine -->
+	 * <!-- End of user code doc for submachine -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStateMachine.submachineState
@@ -123,7 +125,7 @@ trait UMLState[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for inState_objectNode -->
-   * <!-- End of user code doc for inState_objectNode -->
+	 * <!-- End of user code doc for inState_objectNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObjectNode.inState
@@ -134,7 +136,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		state_metaAttributes
@@ -143,7 +145,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLState
 	 *
 	 * <!-- Start of user code doc for state_metaAttributes -->
-   * <!-- End of user code doc for state_metaAttributes -->
+	 * <!-- End of user code doc for state_metaAttributes -->
 	 */
 	def state_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -156,7 +158,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		state_compositeMetaProperties
@@ -165,7 +167,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLState
 	 *
 	 * <!-- Start of user code doc for state_compositeMetaProperties -->
-   * <!-- End of user code doc for state_compositeMetaProperties -->
+	 * <!-- End of user code doc for state_compositeMetaProperties -->
 	 */
 	def state_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -185,7 +187,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		state_referenceMetaProperties
@@ -194,7 +196,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLState
 	 *
 	 * <!-- Start of user code doc for state_referenceMetaProperties -->
-   * <!-- End of user code doc for state_referenceMetaProperties -->
+	 * <!-- End of user code doc for state_referenceMetaProperties -->
 	 */
 	def state_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -208,7 +210,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		state_forwardReferencesFromMetamodelAssociations
@@ -217,7 +219,7 @@ trait UMLState[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLState
 	 *
 	 * <!-- Start of user code doc for state_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for state_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for state_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def state_forwardReferencesFromMetamodelAssociations: Elements =
 		namespace_forwardReferencesFromMetamodelAssociations ++
@@ -227,5 +229,5 @@ trait UMLState[Uml <: UML]
 		submachine
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLState

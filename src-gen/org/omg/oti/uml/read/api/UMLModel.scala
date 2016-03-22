@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A model captures a view of a physical system. It is an abstraction of the physical system, with a certain purpose. This purpose determines what is to be included in the model and what is irrelevant. Thus the model completely describes those aspects of the physical system that are relevant to the purpose of the model, at the appropriate level of detail.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLModel[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLModel[Uml <: UML]
 	 * The name of the viewpoint that is expressed by a model (this name may refer to a profile definition).
 	 *
 	 * <!-- Start of user code doc for viewpoint -->
-   * <!-- End of user code doc for viewpoint -->
+	 * <!-- End of user code doc for viewpoint -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		model_metaAttributes
@@ -86,7 +88,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLModel
 	 *
 	 * <!-- Start of user code doc for model_metaAttributes -->
-   * <!-- End of user code doc for model_metaAttributes -->
+	 * <!-- End of user code doc for model_metaAttributes -->
 	 */
 	def model_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -97,7 +99,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		model_compositeMetaProperties
@@ -106,7 +108,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLModel
 	 *
 	 * <!-- Start of user code doc for model_compositeMetaProperties -->
-   * <!-- End of user code doc for model_compositeMetaProperties -->
+	 * <!-- End of user code doc for model_compositeMetaProperties -->
 	 */
 	def model_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -117,7 +119,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		model_referenceMetaProperties
@@ -126,7 +128,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLModel
 	 *
 	 * <!-- Start of user code doc for model_referenceMetaProperties -->
-   * <!-- End of user code doc for model_referenceMetaProperties -->
+	 * <!-- End of user code doc for model_referenceMetaProperties -->
 	 */
 	def model_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,7 +139,7 @@ trait UMLModel[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		model_forwardReferencesFromMetamodelAssociations
@@ -146,12 +148,12 @@ trait UMLModel[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLModel
 	 *
 	 * <!-- Start of user code doc for model_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for model_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for model_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def model_forwardReferencesFromMetamodelAssociations: Elements =
 		package_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLModel

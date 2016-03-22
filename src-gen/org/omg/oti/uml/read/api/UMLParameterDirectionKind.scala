@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLParameterDirectionKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLParameterDirectionKind = Value
 
@@ -61,7 +63,7 @@ object UMLParameterDirectionKind extends Enumeration {
  	 * Indicates that Parameter values are passed as return values back to the caller.
 	 *
 	 * <!-- Start of user code doc for _return -->
-   * <!-- End of user code doc for _return -->
+	 * <!-- End of user code doc for _return -->
  	 */
 	val _return = Value
 
@@ -69,7 +71,7 @@ object UMLParameterDirectionKind extends Enumeration {
  	 * Indicates that Parameter values are passed in by the caller. 
 	 *
 	 * <!-- Start of user code doc for in -->
-   * <!-- End of user code doc for in -->
+	 * <!-- End of user code doc for in -->
  	 */
 	val in = Value
 
@@ -77,7 +79,7 @@ object UMLParameterDirectionKind extends Enumeration {
  	 * Indicates that Parameter values are passed in by the caller and (possibly different) values passed out to the caller.
 	 *
 	 * <!-- Start of user code doc for inout -->
-   * <!-- End of user code doc for inout -->
+	 * <!-- End of user code doc for inout -->
  	 */
 	val inout = Value
 
@@ -85,7 +87,7 @@ object UMLParameterDirectionKind extends Enumeration {
  	 * Indicates that Parameter values are passed out to the caller.
 	 *
 	 * <!-- Start of user code doc for out -->
-   * <!-- End of user code doc for out -->
+	 * <!-- End of user code doc for out -->
  	 */
 	val out = Value
 }

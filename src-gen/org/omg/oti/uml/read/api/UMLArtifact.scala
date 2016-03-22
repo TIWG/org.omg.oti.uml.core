@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * An artifact is the specification of a physical piece of information that is used or produced by a software development process, or by deployment and operation of a system. Examples of artifacts include model files, source files, scripts, and binary executable files, a table in a database system, a development deliverable, or a word-processing document, a mail message.An artifact is the source of a deployment to a node.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLArtifact[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLArtifact[Uml <: UML]
 	 * A concrete name that is used to refer to the Artifact in a physical context. Example: file system name, universal resource locator.
 	 *
 	 * <!-- Start of user code doc for fileName -->
-   * <!-- End of user code doc for fileName -->
+	 * <!-- End of user code doc for fileName -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The attributes or association ends defined for the Artifact. The association is a specialization of the ownedMember association.
 	 *
 	 * <!-- Start of user code doc for ownedAttribute -->
-   * <!-- End of user code doc for ownedAttribute -->
+	 * <!-- End of user code doc for ownedAttribute -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.ownedAttribute_artifact
@@ -89,7 +91,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The Operations defined for the Artifact. The association is a specialization of the ownedMember association.
 	 *
 	 * <!-- Start of user code doc for ownedOperation -->
-   * <!-- End of user code doc for ownedOperation -->
+	 * <!-- End of user code doc for ownedOperation -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="composite" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.ownedOperation_artifact
@@ -100,7 +102,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		artifact_metaAttributes
@@ -109,7 +111,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLArtifact
 	 *
 	 * <!-- Start of user code doc for artifact_metaAttributes -->
-   * <!-- End of user code doc for artifact_metaAttributes -->
+	 * <!-- End of user code doc for artifact_metaAttributes -->
 	 */
 	def artifact_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -121,7 +123,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		artifact_compositeMetaProperties
@@ -130,7 +132,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLArtifact
 	 *
 	 * <!-- Start of user code doc for artifact_compositeMetaProperties -->
-   * <!-- End of user code doc for artifact_compositeMetaProperties -->
+	 * <!-- End of user code doc for artifact_compositeMetaProperties -->
 	 */
 	def artifact_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -145,7 +147,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		artifact_referenceMetaProperties
@@ -154,7 +156,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLArtifact
 	 *
 	 * <!-- Start of user code doc for artifact_referenceMetaProperties -->
-   * <!-- End of user code doc for artifact_referenceMetaProperties -->
+	 * <!-- End of user code doc for artifact_referenceMetaProperties -->
 	 */
 	def artifact_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -166,7 +168,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		artifact_forwardReferencesFromMetamodelAssociations
@@ -175,7 +177,7 @@ trait UMLArtifact[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLArtifact
 	 *
 	 * <!-- Start of user code doc for artifact_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for artifact_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for artifact_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def artifact_forwardReferencesFromMetamodelAssociations: Elements =
 		classifier_forwardReferencesFromMetamodelAssociations ++
@@ -183,5 +185,5 @@ trait UMLArtifact[Uml <: UML]
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLArtifact

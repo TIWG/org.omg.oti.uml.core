@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A Type constrains the values represented by a TypedElement.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLType[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLType[Uml <: UML]
 	 * Specifies the owning Package of this Type, if any.
 	 *
 	 * <!-- Start of user code doc for _package -->
-   * <!-- End of user code doc for _package -->
+	 * <!-- End of user code doc for _package -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.ownedType
@@ -74,7 +76,7 @@ trait UMLType[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for raisedException_behavioralFeature -->
-   * <!-- End of user code doc for raisedException_behavioralFeature -->
+	 * <!-- End of user code doc for raisedException_behavioralFeature -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavioralFeature.raisedException
@@ -83,7 +85,7 @@ trait UMLType[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for type_operation -->
-   * <!-- End of user code doc for type_operation -->
+	 * <!-- End of user code doc for type_operation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation._type
@@ -92,7 +94,7 @@ trait UMLType[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for type_typedElement -->
-   * <!-- End of user code doc for type_typedElement -->
+	 * <!-- End of user code doc for type_typedElement -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTypedElement._type
@@ -103,7 +105,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		type_metaAttributes
@@ -112,7 +114,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLType
 	 *
 	 * <!-- Start of user code doc for type_metaAttributes -->
-   * <!-- End of user code doc for type_metaAttributes -->
+	 * <!-- End of user code doc for type_metaAttributes -->
 	 */
 	def type_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -123,7 +125,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		type_compositeMetaProperties
@@ -132,7 +134,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLType
 	 *
 	 * <!-- Start of user code doc for type_compositeMetaProperties -->
-   * <!-- End of user code doc for type_compositeMetaProperties -->
+	 * <!-- End of user code doc for type_compositeMetaProperties -->
 	 */
 	def type_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -143,7 +145,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		type_referenceMetaProperties
@@ -152,7 +154,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLType
 	 *
 	 * <!-- Start of user code doc for type_referenceMetaProperties -->
-   * <!-- End of user code doc for type_referenceMetaProperties -->
+	 * <!-- End of user code doc for type_referenceMetaProperties -->
 	 */
 	def type_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -163,7 +165,7 @@ trait UMLType[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		type_forwardReferencesFromMetamodelAssociations
@@ -172,12 +174,12 @@ trait UMLType[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLType
 	 *
 	 * <!-- Start of user code doc for type_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for type_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for type_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def type_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLType

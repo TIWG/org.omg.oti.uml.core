@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * An ActivityPartition is a kind of ActivityGroup for identifying ActivityNodes that have some characteristic in common.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActivityPartition[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * Indicates whether the ActivityPartition groups other ActivityPartitions along a dimension.
 	 *
 	 * <!-- Start of user code doc for isDimension -->
-   * <!-- End of user code doc for isDimension -->
+	 * <!-- End of user code doc for isDimension -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * Indicates whether the ActivityPartition represents an entity to which the partitioning structure does not apply.
 	 *
 	 * <!-- Start of user code doc for isExternal -->
-   * <!-- End of user code doc for isExternal -->
+	 * <!-- End of user code doc for isExternal -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -88,7 +90,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * An Element represented by the functionality modeled within the ActivityPartition.
 	 *
 	 * <!-- Start of user code doc for represents -->
-   * <!-- End of user code doc for represents -->
+	 * <!-- End of user code doc for represents -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.represents_activityPartition
@@ -97,7 +99,7 @@ trait UMLActivityPartition[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for partition_activity -->
-   * <!-- End of user code doc for partition_activity -->
+	 * <!-- End of user code doc for partition_activity -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.partition
@@ -108,7 +110,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activityPartition_metaAttributes
@@ -117,7 +119,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActivityPartition
 	 *
 	 * <!-- Start of user code doc for activityPartition_metaAttributes -->
-   * <!-- End of user code doc for activityPartition_metaAttributes -->
+	 * <!-- End of user code doc for activityPartition_metaAttributes -->
 	 */
 	def activityPartition_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -129,7 +131,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activityPartition_compositeMetaProperties
@@ -138,7 +140,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActivityPartition
 	 *
 	 * <!-- Start of user code doc for activityPartition_compositeMetaProperties -->
-   * <!-- End of user code doc for activityPartition_compositeMetaProperties -->
+	 * <!-- End of user code doc for activityPartition_compositeMetaProperties -->
 	 */
 	def activityPartition_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -149,7 +151,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activityPartition_referenceMetaProperties
@@ -158,7 +160,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActivityPartition
 	 *
 	 * <!-- Start of user code doc for activityPartition_referenceMetaProperties -->
-   * <!-- End of user code doc for activityPartition_referenceMetaProperties -->
+	 * <!-- End of user code doc for activityPartition_referenceMetaProperties -->
 	 */
 	def activityPartition_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -171,7 +173,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activityPartition_forwardReferencesFromMetamodelAssociations
@@ -180,7 +182,7 @@ trait UMLActivityPartition[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActivityPartition
 	 *
 	 * <!-- Start of user code doc for activityPartition_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for activityPartition_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activityPartition_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activityPartition_forwardReferencesFromMetamodelAssociations: Elements =
 		activityGroup_forwardReferencesFromMetamodelAssociations ++
@@ -189,5 +191,5 @@ trait UMLActivityPartition[Uml <: UML]
 		represents
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivityPartition

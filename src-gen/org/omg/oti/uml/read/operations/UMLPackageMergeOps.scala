@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -57,7 +59,7 @@ import scalaz._, Scalaz._
 /**
  * A package merge defines how the contents of one package are extended by the contents of another package.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
@@ -71,7 +73,7 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 	 * References the Package that is to be merged with the receiving package of the PackageMerge.
 	 *
 	 * <!-- Start of user code doc for mergedPackage -->
-   * <!-- End of user code doc for mergedPackage -->
+	 * <!-- End of user code doc for mergedPackage -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.mergedPackage_packageMerge
@@ -82,7 +84,7 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 	 * References the Package that is being extended with the contents of the merged package of the PackageMerge.
 	 *
 	 * <!-- Start of user code doc for receivingPackage -->
-   * <!-- End of user code doc for receivingPackage -->
+	 * <!-- End of user code doc for receivingPackage -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.packageMerge
@@ -103,5 +105,5 @@ trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 				}
     } yield key + i
 
-  // End of user code
+	// End of user code
 } //UMLPackageMergeOps

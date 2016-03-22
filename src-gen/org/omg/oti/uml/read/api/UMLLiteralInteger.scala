@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import java.lang.Integer
 /**
  * A LiteralInteger is a specification of an Integer value.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLLiteralInteger[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The specified Integer value.
 	 *
 	 * <!-- Start of user code doc for value -->
-   * <!-- End of user code doc for value -->
+	 * <!-- End of user code doc for value -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -76,7 +78,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		literalInteger_metaAttributes
@@ -85,7 +87,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLLiteralInteger
 	 *
 	 * <!-- Start of user code doc for literalInteger_metaAttributes -->
-   * <!-- End of user code doc for literalInteger_metaAttributes -->
+	 * <!-- End of user code doc for literalInteger_metaAttributes -->
 	 */
 	def literalInteger_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -96,7 +98,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		literalInteger_compositeMetaProperties
@@ -105,7 +107,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLLiteralInteger
 	 *
 	 * <!-- Start of user code doc for literalInteger_compositeMetaProperties -->
-   * <!-- End of user code doc for literalInteger_compositeMetaProperties -->
+	 * <!-- End of user code doc for literalInteger_compositeMetaProperties -->
 	 */
 	def literalInteger_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,7 +118,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		literalInteger_referenceMetaProperties
@@ -125,7 +127,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLLiteralInteger
 	 *
 	 * <!-- Start of user code doc for literalInteger_referenceMetaProperties -->
-   * <!-- End of user code doc for literalInteger_referenceMetaProperties -->
+	 * <!-- End of user code doc for literalInteger_referenceMetaProperties -->
 	 */
 	def literalInteger_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -136,7 +138,7 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		literalInteger_forwardReferencesFromMetamodelAssociations
@@ -145,12 +147,12 @@ trait UMLLiteralInteger[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLLiteralInteger
 	 *
 	 * <!-- Start of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for literalInteger_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def literalInteger_forwardReferencesFromMetamodelAssociations: Elements =
 		literalSpecification_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLLiteralInteger

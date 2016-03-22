@@ -155,6 +155,14 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     _ <: MetaPropertyFunction[Uml,
       _ <: UMLElement[Uml],
       _ <: UMLElement[Uml]]]
+   
+  /**
+    *
+    */
+  val subsettingMetaProperties: Set[
+    _ <: MetaPropertyFunction[Uml,
+      _ <: UMLElement[Uml],
+      _ <: UMLElement[Uml]]]
 
   def getReferenceFunction: Option[MetaPropertyReference[Uml, U, V]]
 
@@ -174,6 +182,9 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
  override val isUnique: Boolean,
  override val isOrdered: Boolean,
  override val redefinedMetaProperties:
+ Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
+ Set(),
+ override val subsettingMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
 (implicit val uType: ClassTag[U], vType: ClassTag[V])
@@ -254,6 +265,9 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
  override val isUnique: Boolean,
  override val isOrdered: Boolean,
  override val redefinedMetaProperties:
+ Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
+ Set(),
+ override val subsettingMetaProperties:
  Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
  Set())
 (implicit val uType: ClassTag[U], vType: ClassTag[V])

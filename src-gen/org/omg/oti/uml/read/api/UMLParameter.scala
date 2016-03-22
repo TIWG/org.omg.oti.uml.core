@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A Parameter is a specification of an argument used to pass information into or out of an invocation of a BehavioralFeature.  Parameters can be treated as ConnectableElements within Collaborations.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLParameter[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLParameter[Uml <: UML]
 	 * Specifies a ValueSpecification that represents a value to be used when no argument is supplied for the Parameter.
 	 *
 	 * <!-- Start of user code doc for defaultValue -->
-   * <!-- End of user code doc for defaultValue -->
+	 * <!-- End of user code doc for defaultValue -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.defaultValue_owningParameter
@@ -79,7 +81,7 @@ trait UMLParameter[Uml <: UML]
 	 * Indicates whether a parameter is being sent into or out of a behavioral element.
 	 *
 	 * <!-- Start of user code doc for direction -->
-   * <!-- End of user code doc for direction -->
+	 * <!-- End of user code doc for direction -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -89,7 +91,7 @@ trait UMLParameter[Uml <: UML]
 	 * Specifies the effect that executions of the owner of the Parameter have on objects passed in or out of the parameter.
 	 *
 	 * <!-- Start of user code doc for effect -->
-   * <!-- End of user code doc for effect -->
+	 * <!-- End of user code doc for effect -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -99,7 +101,7 @@ trait UMLParameter[Uml <: UML]
 	 * Tells whether an output parameter may emit a value to the exclusion of the other outputs.
 	 *
 	 * <!-- Start of user code doc for isException -->
-   * <!-- End of user code doc for isException -->
+	 * <!-- End of user code doc for isException -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -109,7 +111,7 @@ trait UMLParameter[Uml <: UML]
 	 * Tells whether an input parameter may accept values while its behavior is executing, or whether an output parameter may post values while the behavior is executing.
 	 *
 	 * <!-- Start of user code doc for isStream -->
-   * <!-- End of user code doc for isStream -->
+	 * <!-- End of user code doc for isStream -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -119,7 +121,7 @@ trait UMLParameter[Uml <: UML]
 	 * The ParameterSets containing the parameter. See ParameterSet.
 	 *
 	 * <!-- Start of user code doc for parameterSet -->
-   * <!-- End of user code doc for parameterSet -->
+	 * <!-- End of user code doc for parameterSet -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterSet.parameter
@@ -128,7 +130,7 @@ trait UMLParameter[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for parameter_activityParameterNode -->
-   * <!-- End of user code doc for parameter_activityParameterNode -->
+	 * <!-- End of user code doc for parameter_activityParameterNode -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityParameterNode.parameter
@@ -137,7 +139,7 @@ trait UMLParameter[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for result_opaqueExpression -->
-   * <!-- End of user code doc for result_opaqueExpression -->
+	 * <!-- End of user code doc for result_opaqueExpression -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.result
@@ -148,7 +150,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		parameter_metaAttributes
@@ -157,7 +159,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLParameter
 	 *
 	 * <!-- Start of user code doc for parameter_metaAttributes -->
-   * <!-- End of user code doc for parameter_metaAttributes -->
+	 * <!-- End of user code doc for parameter_metaAttributes -->
 	 */
 	def parameter_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -170,7 +172,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		parameter_compositeMetaProperties
@@ -179,7 +181,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLParameter
 	 *
 	 * <!-- Start of user code doc for parameter_compositeMetaProperties -->
-   * <!-- End of user code doc for parameter_compositeMetaProperties -->
+	 * <!-- End of user code doc for parameter_compositeMetaProperties -->
 	 */
 	def parameter_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -191,7 +193,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		parameter_referenceMetaProperties
@@ -200,7 +202,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLParameter
 	 *
 	 * <!-- Start of user code doc for parameter_referenceMetaProperties -->
-   * <!-- End of user code doc for parameter_referenceMetaProperties -->
+	 * <!-- End of user code doc for parameter_referenceMetaProperties -->
 	 */
 	def parameter_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -212,7 +214,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		parameter_forwardReferencesFromMetamodelAssociations
@@ -221,7 +223,7 @@ trait UMLParameter[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLParameter
 	 *
 	 * <!-- Start of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for parameter_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def parameter_forwardReferencesFromMetamodelAssociations: Elements =
 		connectableElement_forwardReferencesFromMetamodelAssociations ++
@@ -229,5 +231,5 @@ trait UMLParameter[Uml <: UML]
 		parameterSet
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLParameter

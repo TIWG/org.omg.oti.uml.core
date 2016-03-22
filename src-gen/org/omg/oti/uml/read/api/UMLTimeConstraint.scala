@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * A TimeConstraint is a Constraint that refers to a TimeInterval.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLTimeConstraint[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The value of firstEvent is related to the constrainedElement. If firstEvent is true, then the corresponding observation event is the first time instant the execution enters the constrainedElement. If firstEvent is false, then the corresponding observation event is the last time instant the execution is within the constrainedElement.
 	 *
 	 * <!-- Start of user code doc for firstEvent -->
-   * <!-- End of user code doc for firstEvent -->
+	 * <!-- End of user code doc for firstEvent -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		timeConstraint_metaAttributes
@@ -86,7 +88,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLTimeConstraint
 	 *
 	 * <!-- Start of user code doc for timeConstraint_metaAttributes -->
-   * <!-- End of user code doc for timeConstraint_metaAttributes -->
+	 * <!-- End of user code doc for timeConstraint_metaAttributes -->
 	 */
 	def timeConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -97,7 +99,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		timeConstraint_compositeMetaProperties
@@ -106,7 +108,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLTimeConstraint
 	 *
 	 * <!-- Start of user code doc for timeConstraint_compositeMetaProperties -->
-   * <!-- End of user code doc for timeConstraint_compositeMetaProperties -->
+	 * <!-- End of user code doc for timeConstraint_compositeMetaProperties -->
 	 */
 	def timeConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -117,7 +119,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		timeConstraint_referenceMetaProperties
@@ -126,7 +128,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLTimeConstraint
 	 *
 	 * <!-- Start of user code doc for timeConstraint_referenceMetaProperties -->
-   * <!-- End of user code doc for timeConstraint_referenceMetaProperties -->
+	 * <!-- End of user code doc for timeConstraint_referenceMetaProperties -->
 	 */
 	def timeConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -137,7 +139,7 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		timeConstraint_forwardReferencesFromMetamodelAssociations
@@ -146,12 +148,12 @@ trait UMLTimeConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLTimeConstraint
 	 *
 	 * <!-- Start of user code doc for timeConstraint_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for timeConstraint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for timeConstraint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def timeConstraint_forwardReferencesFromMetamodelAssociations: Elements =
 		intervalConstraint_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLTimeConstraint

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A ReduceAction is an Action that reduces a collection to a single value by repeatedly combining the elements of the collection using a reducer Behavior.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLReduceAction[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * Indicates whether the order of the input collection should determine the order in which the reducer Behavior is applied to its elements.
 	 *
 	 * <!-- Start of user code doc for isOrdered -->
-   * <!-- End of user code doc for isOrdered -->
+	 * <!-- End of user code doc for isOrdered -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 */
@@ -78,7 +80,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * A Behavior that is repreatedly applied to two elements of the input collection to produce a value that is of the same type as elements of the collection.
 	 *
 	 * <!-- Start of user code doc for reducer -->
-   * <!-- End of user code doc for reducer -->
+	 * <!-- End of user code doc for reducer -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.reducer_reduceAction
@@ -89,7 +91,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		reduceAction_metaAttributes
@@ -98,7 +100,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLReduceAction
 	 *
 	 * <!-- Start of user code doc for reduceAction_metaAttributes -->
-   * <!-- End of user code doc for reduceAction_metaAttributes -->
+	 * <!-- End of user code doc for reduceAction_metaAttributes -->
 	 */
 	def reduceAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -109,7 +111,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		reduceAction_compositeMetaProperties
@@ -118,7 +120,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLReduceAction
 	 *
 	 * <!-- Start of user code doc for reduceAction_compositeMetaProperties -->
-   * <!-- End of user code doc for reduceAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for reduceAction_compositeMetaProperties -->
 	 */
 	def reduceAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -130,7 +132,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		reduceAction_referenceMetaProperties
@@ -139,7 +141,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLReduceAction
 	 *
 	 * <!-- Start of user code doc for reduceAction_referenceMetaProperties -->
-   * <!-- End of user code doc for reduceAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for reduceAction_referenceMetaProperties -->
 	 */
 	def reduceAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -150,7 +152,7 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		reduceAction_forwardReferencesFromMetamodelAssociations
@@ -159,12 +161,12 @@ trait UMLReduceAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLReduceAction
 	 *
 	 * <!-- Start of user code doc for reduceAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for reduceAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for reduceAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def reduceAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		reducer
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLReduceAction

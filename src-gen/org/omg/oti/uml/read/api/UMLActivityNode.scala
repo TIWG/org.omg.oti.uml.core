@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * ActivityNode is an abstract class for points in the flow of an Activity connected by ActivityEdges.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLActivityNode[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * ActivityGroups containing the ActivityNode.
 	 *
 	 * <!-- Start of user code doc for inGroup -->
-   * <!-- End of user code doc for inGroup -->
+	 * <!-- End of user code doc for inGroup -->
 	 *
 	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityGroup.containedNode
@@ -76,7 +78,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * ActivityEdges that have the ActivityNode as their target.
 	 *
 	 * <!-- Start of user code doc for incoming -->
-   * <!-- End of user code doc for incoming -->
+	 * <!-- End of user code doc for incoming -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.target
@@ -87,7 +89,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * ActivityEdges that have the ActivityNode as their source.
 	 *
 	 * <!-- Start of user code doc for outgoing -->
-   * <!-- End of user code doc for outgoing -->
+	 * <!-- End of user code doc for outgoing -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.source
@@ -98,7 +100,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		activityNode_metaAttributes
@@ -107,7 +109,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLActivityNode
 	 *
 	 * <!-- Start of user code doc for activityNode_metaAttributes -->
-   * <!-- End of user code doc for activityNode_metaAttributes -->
+	 * <!-- End of user code doc for activityNode_metaAttributes -->
 	 */
 	def activityNode_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -118,7 +120,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		activityNode_compositeMetaProperties
@@ -127,7 +129,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLActivityNode
 	 *
 	 * <!-- Start of user code doc for activityNode_compositeMetaProperties -->
-   * <!-- End of user code doc for activityNode_compositeMetaProperties -->
+	 * <!-- End of user code doc for activityNode_compositeMetaProperties -->
 	 */
 	def activityNode_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -138,7 +140,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		activityNode_referenceMetaProperties
@@ -147,7 +149,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLActivityNode
 	 *
 	 * <!-- Start of user code doc for activityNode_referenceMetaProperties -->
-   * <!-- End of user code doc for activityNode_referenceMetaProperties -->
+	 * <!-- End of user code doc for activityNode_referenceMetaProperties -->
 	 */
 	def activityNode_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -162,7 +164,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		activityNode_forwardReferencesFromMetamodelAssociations
@@ -171,7 +173,7 @@ trait UMLActivityNode[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLActivityNode
 	 *
 	 * <!-- Start of user code doc for activityNode_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for activityNode_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for activityNode_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def activityNode_forwardReferencesFromMetamodelAssociations: Elements =
 		redefinableElement_forwardReferencesFromMetamodelAssociations ++
@@ -182,5 +184,5 @@ trait UMLActivityNode[Uml <: UML]
 		redefinedNode
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLActivityNode

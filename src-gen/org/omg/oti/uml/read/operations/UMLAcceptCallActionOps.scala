@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -40,7 +42,6 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
@@ -54,20 +55,20 @@ import scala.collection.immutable.Nil
 /**
  * An AcceptCallAction is an AcceptEventAction that handles the receipt of a synchronous call request. In addition to the values from the Operation input parameters, the Action produces an output that is needed later to supply the information to the ReplyAction necessary to return control to the caller. An AcceptCallAction is for synchronous calls. If it is used to handle an asynchronous call, execution of the subsequent ReplyAction will complete immediately with no effect.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 
 // Start of user code for class imports
-  // End of user code
+// End of user code
 
 
 	/**
 	 * The number of result OutputPins must be the same as the number of input (in and inout) ownedParameters of the Operation specified by the trigger Event. The type, ordering and multiplicity of each result OutputPin must be consistent with the corresponding input Parameter.
 	 *
 	 * <!-- Start of user code doc for validate_result_pins -->
-   * <!-- End of user code doc for validate_result_pins -->
+	 * <!-- End of user code doc for validate_result_pins -->
 	 *
 	 * {{{
 	 * OCL Body let parameter: OrderedSet(Parameter) = trigger.event->asSequence()->first().oclAsType(CallEvent).operation.inputParameters() in
@@ -101,14 +102,14 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
           }
         case _ => true
       })
-    // End of user code
+		// End of user code
 	}
 
 	/**
 	 * The action must have exactly one trigger, which must be for a CallEvent.
 	 *
 	 * <!-- Start of user code doc for validate_trigger_call_event -->
-   * <!-- End of user code doc for validate_trigger_call_event -->
+	 * <!-- End of user code doc for validate_trigger_call_event -->
 	 *
 	 * {{{
 	 * OCL Body trigger->size()=1 and
@@ -125,14 +126,14 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
         }
       case _ => false
     }
-    // End of user code
+		// End of user code
 	}
 
 	/**
 	 * isUnmrashall must be true for an AcceptCallAction.
 	 *
 	 * <!-- Start of user code doc for validate_unmarshall -->
-   * <!-- End of user code doc for validate_unmarshall -->
+	 * <!-- End of user code doc for validate_unmarshall -->
 	 *
 	 * {{{
 	 * OCL Body isUnmarshall = true
@@ -141,9 +142,9 @@ trait UMLAcceptCallActionOps[Uml <: UML] { self: UMLAcceptCallAction[Uml] =>
 	def validate_unmarshall: Boolean = {
 		// Start of user code for "unmarshall"
     isUnmarshall
-    // End of user code
+		// End of user code
 	}
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLAcceptCallActionOps

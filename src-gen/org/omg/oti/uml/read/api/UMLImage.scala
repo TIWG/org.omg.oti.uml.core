@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -52,7 +54,7 @@ import scala.collection.immutable.Seq
 /**
  * Physical definition of a graphical image.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLImage[Uml <: UML]
@@ -67,7 +69,7 @@ trait UMLImage[Uml <: UML]
 	 * This contains the serialization of the image according to the format. The value could represent a bitmap, image such as a GIF file, or drawing 'instructions' using a standard such as Scalable Vector Graphic (SVG) (which is XML based).
 	 *
 	 * <!-- Start of user code doc for content -->
-   * <!-- End of user code doc for content -->
+	 * <!-- End of user code doc for content -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -77,7 +79,7 @@ trait UMLImage[Uml <: UML]
 	 * This indicates the format of the content, which is how the string content should be interpreted. The following values are reserved: SVG, GIF, PNG, JPG, WMF, EMF, BMP. In addition the prefix 'MIME: ' is also reserved. This option can be used as an alternative to express the reserved values above, for example "SVG" could instead be expressed as "MIME: image/svg+xml".
 	 *
 	 * <!-- Start of user code doc for format -->
-   * <!-- End of user code doc for format -->
+	 * <!-- End of user code doc for format -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -87,7 +89,7 @@ trait UMLImage[Uml <: UML]
 	 * This contains a location that can be used by a tool to locate the image as an alternative to embedding it in the stereotype.
 	 *
 	 * <!-- Start of user code doc for location -->
-   * <!-- End of user code doc for location -->
+	 * <!-- End of user code doc for location -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 */
@@ -97,7 +99,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		image_metaAttributes
@@ -106,7 +108,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLImage
 	 *
 	 * <!-- Start of user code doc for image_metaAttributes -->
-   * <!-- End of user code doc for image_metaAttributes -->
+	 * <!-- End of user code doc for image_metaAttributes -->
 	 */
 	def image_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		image_compositeMetaProperties
@@ -128,7 +130,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLImage
 	 *
 	 * <!-- Start of user code doc for image_compositeMetaProperties -->
-   * <!-- End of user code doc for image_compositeMetaProperties -->
+	 * <!-- End of user code doc for image_compositeMetaProperties -->
 	 */
 	def image_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		image_referenceMetaProperties
@@ -148,7 +150,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLImage
 	 *
 	 * <!-- Start of user code doc for image_referenceMetaProperties -->
-   * <!-- End of user code doc for image_referenceMetaProperties -->
+	 * <!-- End of user code doc for image_referenceMetaProperties -->
 	 */
 	def image_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -159,7 +161,7 @@ trait UMLImage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		image_forwardReferencesFromMetamodelAssociations
@@ -168,12 +170,12 @@ trait UMLImage[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLImage
 	 *
 	 * <!-- Start of user code doc for image_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for image_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for image_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def image_forwardReferencesFromMetamodelAssociations: Elements =
 		element_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLImage

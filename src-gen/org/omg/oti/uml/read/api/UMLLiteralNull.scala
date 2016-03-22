@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A LiteralNull specifies the lack of a value.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLLiteralNull[Uml <: UML]
@@ -64,7 +66,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		literalNull_metaAttributes
@@ -73,7 +75,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLLiteralNull
 	 *
 	 * <!-- Start of user code doc for literalNull_metaAttributes -->
-   * <!-- End of user code doc for literalNull_metaAttributes -->
+	 * <!-- End of user code doc for literalNull_metaAttributes -->
 	 */
 	def literalNull_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -84,7 +86,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		literalNull_compositeMetaProperties
@@ -93,7 +95,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLLiteralNull
 	 *
 	 * <!-- Start of user code doc for literalNull_compositeMetaProperties -->
-   * <!-- End of user code doc for literalNull_compositeMetaProperties -->
+	 * <!-- End of user code doc for literalNull_compositeMetaProperties -->
 	 */
 	def literalNull_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -104,7 +106,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		literalNull_referenceMetaProperties
@@ -113,7 +115,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLLiteralNull
 	 *
 	 * <!-- Start of user code doc for literalNull_referenceMetaProperties -->
-   * <!-- End of user code doc for literalNull_referenceMetaProperties -->
+	 * <!-- End of user code doc for literalNull_referenceMetaProperties -->
 	 */
 	def literalNull_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -124,7 +126,7 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		literalNull_forwardReferencesFromMetamodelAssociations
@@ -133,12 +135,12 @@ trait UMLLiteralNull[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLLiteralNull
 	 *
 	 * <!-- Start of user code doc for literalNull_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for literalNull_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for literalNull_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def literalNull_forwardReferencesFromMetamodelAssociations: Elements =
 		literalSpecification_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLLiteralNull

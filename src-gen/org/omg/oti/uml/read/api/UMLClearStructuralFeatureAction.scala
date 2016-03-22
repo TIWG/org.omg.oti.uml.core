@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A ClearStructuralFeatureAction is a StructuralFeatureAction that removes all values of a StructuralFeature.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLClearStructuralFeatureAction[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		clearStructuralFeatureAction_metaAttributes
@@ -74,7 +76,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLClearStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for clearStructuralFeatureAction_metaAttributes -->
-   * <!-- End of user code doc for clearStructuralFeatureAction_metaAttributes -->
+	 * <!-- End of user code doc for clearStructuralFeatureAction_metaAttributes -->
 	 */
 	def clearStructuralFeatureAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -85,7 +87,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		clearStructuralFeatureAction_compositeMetaProperties
@@ -94,7 +96,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLClearStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for clearStructuralFeatureAction_compositeMetaProperties -->
-   * <!-- End of user code doc for clearStructuralFeatureAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for clearStructuralFeatureAction_compositeMetaProperties -->
 	 */
 	def clearStructuralFeatureAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -105,7 +107,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		clearStructuralFeatureAction_referenceMetaProperties
@@ -114,7 +116,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLClearStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for clearStructuralFeatureAction_referenceMetaProperties -->
-   * <!-- End of user code doc for clearStructuralFeatureAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for clearStructuralFeatureAction_referenceMetaProperties -->
 	 */
 	def clearStructuralFeatureAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -125,7 +127,7 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		clearStructuralFeatureAction_forwardReferencesFromMetamodelAssociations
@@ -134,12 +136,12 @@ trait UMLClearStructuralFeatureAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLClearStructuralFeatureAction
 	 *
 	 * <!-- Start of user code doc for clearStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for clearStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for clearStructuralFeatureAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def clearStructuralFeatureAction_forwardReferencesFromMetamodelAssociations: Elements =
 		structuralFeatureAction_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLClearStructuralFeatureAction

@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -40,21 +42,16 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
 import scala.Boolean
 import scala.Option
-import scala.None
-import scala.Some
-import scala.Predef.String
-import scala.collection.Iterable
+import scala.collection.immutable.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scalaz._, Scalaz._
-
+import scalaz.{\/,NonEmptyList}
+import scalaz.Scalaz._
 // End of user code
 
 /**

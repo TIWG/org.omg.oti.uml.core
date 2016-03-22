@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -46,7 +48,7 @@ import org.omg.oti.uml.read.api._
 /**
  * A FlowFinalNode is a FinalNode that terminates a flow by consuming the tokens offered to it.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
 trait UMLFlowFinalNodeOps[Uml <: UML] { self: UMLFlowFinalNode[Uml] =>
@@ -56,5 +58,5 @@ trait UMLFlowFinalNodeOps[Uml <: UML] { self: UMLFlowFinalNode[Uml] =>
 
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLFlowFinalNodeOps

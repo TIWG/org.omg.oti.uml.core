@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * An OpaqueAction is an Action whose functionality is not specified within UML.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLOpaqueAction[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * Provides a textual specification of the functionality of the Action, in one or more languages other than UML.
 	 *
 	 * <!-- Start of user code doc for body -->
-   * <!-- End of user code doc for body -->
+	 * <!-- End of user code doc for body -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
@@ -76,7 +78,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * If provided, a specification of the language used for each of the body Strings.
 	 *
 	 * <!-- Start of user code doc for language -->
-   * <!-- End of user code doc for language -->
+	 * <!-- End of user code doc for language -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 */
@@ -86,7 +88,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		opaqueAction_metaAttributes
@@ -95,7 +97,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLOpaqueAction
 	 *
 	 * <!-- Start of user code doc for opaqueAction_metaAttributes -->
-   * <!-- End of user code doc for opaqueAction_metaAttributes -->
+	 * <!-- End of user code doc for opaqueAction_metaAttributes -->
 	 */
 	def opaqueAction_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -107,7 +109,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		opaqueAction_compositeMetaProperties
@@ -116,7 +118,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLOpaqueAction
 	 *
 	 * <!-- Start of user code doc for opaqueAction_compositeMetaProperties -->
-   * <!-- End of user code doc for opaqueAction_compositeMetaProperties -->
+	 * <!-- End of user code doc for opaqueAction_compositeMetaProperties -->
 	 */
 	def opaqueAction_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		opaqueAction_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLOpaqueAction
 	 *
 	 * <!-- Start of user code doc for opaqueAction_referenceMetaProperties -->
-   * <!-- End of user code doc for opaqueAction_referenceMetaProperties -->
+	 * <!-- End of user code doc for opaqueAction_referenceMetaProperties -->
 	 */
 	def opaqueAction_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		opaqueAction_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLOpaqueAction[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLOpaqueAction
 	 *
 	 * <!-- Start of user code doc for opaqueAction_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for opaqueAction_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for opaqueAction_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def opaqueAction_forwardReferencesFromMetamodelAssociations: Elements =
 		action_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLOpaqueAction

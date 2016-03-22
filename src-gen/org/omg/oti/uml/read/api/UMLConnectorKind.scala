@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLConnectorKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLConnectorKind = Value
 
@@ -61,7 +63,7 @@ object UMLConnectorKind extends Enumeration {
  	 * Indicates that the Connector is an assembly Connector.
 	 *
 	 * <!-- Start of user code doc for assembly -->
-   * <!-- End of user code doc for assembly -->
+	 * <!-- End of user code doc for assembly -->
  	 */
 	val assembly = Value
 
@@ -69,7 +71,7 @@ object UMLConnectorKind extends Enumeration {
  	 * Indicates that the Connector is a delegation Connector.
 	 *
 	 * <!-- Start of user code doc for delegation -->
-   * <!-- End of user code doc for delegation -->
+	 * <!-- End of user code doc for delegation -->
  	 */
 	val delegation = Value
 }

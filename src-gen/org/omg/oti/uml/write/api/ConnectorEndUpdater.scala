@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -57,4 +59,10 @@ class ConnectorEndUpdater[Uml <: UML](val domain: UMLConnectorEnd[Uml]) extends 
   (implicit umlU: UMLUpdate[Uml])
   : \/[NonEmptyList[java.lang.Throwable],Unit] =
     umlU.links_ConnectorEnd_connectorEnd_reference_partWithPort_Property(domain, range)
+
+  def links_ConnectorEnd_end_reference_role_ConnectableElement
+  (range: Option[UMLConnectableElement[Uml]])
+  (implicit umlU: UMLUpdate[Uml])
+  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+    umlU.links_ConnectorEnd_end_reference_role_ConnectableElement(domain, range)
 }

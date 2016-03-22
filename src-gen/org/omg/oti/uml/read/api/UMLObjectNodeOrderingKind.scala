@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ object UMLObjectNodeOrderingKind extends Enumeration {
 	 * The enumeration type
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	type UMLObjectNodeOrderingKind = Value
 
@@ -61,7 +63,7 @@ object UMLObjectNodeOrderingKind extends Enumeration {
  	 * Indicates that tokens are queued in a first in, first out manner.
 	 *
 	 * <!-- Start of user code doc for FIFO -->
-   * <!-- End of user code doc for FIFO -->
+	 * <!-- End of user code doc for FIFO -->
  	 */
 	val FIFO = Value
 
@@ -69,7 +71,7 @@ object UMLObjectNodeOrderingKind extends Enumeration {
  	 * Indicates that tokens are queued in a last in, first out manner.
 	 *
 	 * <!-- Start of user code doc for LIFO -->
-   * <!-- End of user code doc for LIFO -->
+	 * <!-- End of user code doc for LIFO -->
  	 */
 	val LIFO = Value
 
@@ -77,7 +79,7 @@ object UMLObjectNodeOrderingKind extends Enumeration {
  	 * Indicates that tokens are ordered.
 	 *
 	 * <!-- Start of user code doc for ordered -->
-   * <!-- End of user code doc for ordered -->
+	 * <!-- End of user code doc for ordered -->
  	 */
 	val ordered = Value
 
@@ -85,7 +87,7 @@ object UMLObjectNodeOrderingKind extends Enumeration {
  	 * Indicates that tokens are unordered.
 	 *
 	 * <!-- Start of user code doc for unordered -->
-   * <!-- End of user code doc for unordered -->
+	 * <!-- End of user code doc for unordered -->
  	 */
 	val unordered = Value
 }

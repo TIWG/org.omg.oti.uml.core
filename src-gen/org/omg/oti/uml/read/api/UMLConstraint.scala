@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -50,7 +52,7 @@ import scala.collection.immutable.Seq
 /**
  * A Constraint is a condition or restriction expressed in natural language text or in a machine readable language for the purpose of declaring some of the semantics of an Element or set of Elements.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLConstraint[Uml <: UML]
@@ -65,7 +67,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The ordered set of Elements referenced by this Constraint.
 	 *
 	 * <!-- Start of user code doc for constrainedElement -->
-   * <!-- End of user code doc for constrainedElement -->
+	 * <!-- End of user code doc for constrainedElement -->
 	 *
 	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.constrainedElement_constraint
@@ -76,7 +78,7 @@ trait UMLConstraint[Uml <: UML]
 	 * Specifies the Namespace that owns the Constraint.
 	 *
 	 * <!-- Start of user code doc for context -->
-   * <!-- End of user code doc for context -->
+	 * <!-- End of user code doc for context -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.ownedRule
@@ -87,7 +89,7 @@ trait UMLConstraint[Uml <: UML]
 	 * A condition that must be true when evaluated in order for the Constraint to be satisfied.
 	 *
 	 * <!-- Start of user code doc for specification -->
-   * <!-- End of user code doc for specification -->
+	 * <!-- End of user code doc for specification -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.specification_owningConstraint
@@ -96,7 +98,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for bodyCondition_bodyContext -->
-   * <!-- End of user code doc for bodyCondition_bodyContext -->
+	 * <!-- End of user code doc for bodyCondition_bodyContext -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.bodyCondition
@@ -105,7 +107,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for guard_transition -->
-   * <!-- End of user code doc for guard_transition -->
+	 * <!-- End of user code doc for guard_transition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.guard
@@ -114,7 +116,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for localPostcondition_action -->
-   * <!-- End of user code doc for localPostcondition_action -->
+	 * <!-- End of user code doc for localPostcondition_action -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.localPostcondition
@@ -123,7 +125,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for localPrecondition_action -->
-   * <!-- End of user code doc for localPrecondition_action -->
+	 * <!-- End of user code doc for localPrecondition_action -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLAction.localPrecondition
@@ -132,7 +134,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for postCondition_owningTransition -->
-   * <!-- End of user code doc for postCondition_owningTransition -->
+	 * <!-- End of user code doc for postCondition_owningTransition -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLProtocolTransition.postCondition
@@ -141,7 +143,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for postcondition_behavior -->
-   * <!-- End of user code doc for postcondition_behavior -->
+	 * <!-- End of user code doc for postcondition_behavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.postcondition
@@ -150,7 +152,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for postcondition_postContext -->
-   * <!-- End of user code doc for postcondition_postContext -->
+	 * <!-- End of user code doc for postcondition_postContext -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.postcondition
@@ -159,7 +161,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for precondition_behavior -->
-   * <!-- End of user code doc for precondition_behavior -->
+	 * <!-- End of user code doc for precondition_behavior -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLBehavior.precondition
@@ -168,7 +170,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for precondition_preContext -->
-   * <!-- End of user code doc for precondition_preContext -->
+	 * <!-- End of user code doc for precondition_preContext -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.precondition
@@ -177,7 +179,7 @@ trait UMLConstraint[Uml <: UML]
 
 	/**
 	 * <!-- Start of user code doc for stateInvariant_owningState -->
-   * <!-- End of user code doc for stateInvariant_owningState -->
+	 * <!-- End of user code doc for stateInvariant_owningState -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLState.stateInvariant
@@ -188,7 +190,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		constraint_metaAttributes
@@ -197,7 +199,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLConstraint
 	 *
 	 * <!-- Start of user code doc for constraint_metaAttributes -->
-   * <!-- End of user code doc for constraint_metaAttributes -->
+	 * <!-- End of user code doc for constraint_metaAttributes -->
 	 */
 	def constraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -208,7 +210,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		constraint_compositeMetaProperties
@@ -217,7 +219,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLConstraint
 	 *
 	 * <!-- Start of user code doc for constraint_compositeMetaProperties -->
-   * <!-- End of user code doc for constraint_compositeMetaProperties -->
+	 * <!-- End of user code doc for constraint_compositeMetaProperties -->
 	 */
 	def constraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -228,7 +230,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		constraint_referenceMetaProperties
@@ -237,7 +239,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLConstraint
 	 *
 	 * <!-- Start of user code doc for constraint_referenceMetaProperties -->
-   * <!-- End of user code doc for constraint_referenceMetaProperties -->
+	 * <!-- End of user code doc for constraint_referenceMetaProperties -->
 	 */
 	def constraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -248,7 +250,7 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		constraint_forwardReferencesFromMetamodelAssociations
@@ -257,12 +259,12 @@ trait UMLConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLConstraint
 	 *
 	 * <!-- Start of user code doc for constraint_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for constraint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for constraint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def constraint_forwardReferencesFromMetamodelAssociations: Elements =
 		packageableElement_forwardReferencesFromMetamodelAssociations ++
 		constrainedElement
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLConstraint

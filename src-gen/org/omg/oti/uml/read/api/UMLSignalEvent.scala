@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -53,7 +55,7 @@ import scala.collection.immutable.Seq
 /**
  * A SignalEvent represents the receipt of an asynchronous Signal instance.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLSignalEvent[Uml <: UML]
@@ -68,7 +70,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The specific Signal that is associated with this SignalEvent.
 	 *
 	 * <!-- Start of user code doc for signal -->
-   * <!-- End of user code doc for signal -->
+	 * <!-- End of user code doc for signal -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLSignal.signal_signalEvent
@@ -79,7 +81,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		signalEvent_metaAttributes
@@ -88,7 +90,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLSignalEvent
 	 *
 	 * <!-- Start of user code doc for signalEvent_metaAttributes -->
-   * <!-- End of user code doc for signalEvent_metaAttributes -->
+	 * <!-- End of user code doc for signalEvent_metaAttributes -->
 	 */
 	def signalEvent_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -99,7 +101,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		signalEvent_compositeMetaProperties
@@ -108,7 +110,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLSignalEvent
 	 *
 	 * <!-- Start of user code doc for signalEvent_compositeMetaProperties -->
-   * <!-- End of user code doc for signalEvent_compositeMetaProperties -->
+	 * <!-- End of user code doc for signalEvent_compositeMetaProperties -->
 	 */
 	def signalEvent_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -119,7 +121,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		signalEvent_referenceMetaProperties
@@ -128,7 +130,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLSignalEvent
 	 *
 	 * <!-- Start of user code doc for signalEvent_referenceMetaProperties -->
-   * <!-- End of user code doc for signalEvent_referenceMetaProperties -->
+	 * <!-- End of user code doc for signalEvent_referenceMetaProperties -->
 	 */
 	def signalEvent_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -139,7 +141,7 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		signalEvent_forwardReferencesFromMetamodelAssociations
@@ -148,12 +150,12 @@ trait UMLSignalEvent[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLSignalEvent
 	 *
 	 * <!-- Start of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for signalEvent_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def signalEvent_forwardReferencesFromMetamodelAssociations: Elements =
 		messageEvent_forwardReferencesFromMetamodelAssociations ++
 		signal
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLSignalEvent

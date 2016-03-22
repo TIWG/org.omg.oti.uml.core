@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLDuration[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLDuration[Uml <: UML]
 	 * A ValueSpecification that evaluates to the value of the Duration.
 	 *
 	 * <!-- Start of user code doc for expr -->
-   * <!-- End of user code doc for expr -->
+	 * <!-- End of user code doc for expr -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.expr_duration
@@ -77,7 +79,7 @@ trait UMLDuration[Uml <: UML]
 	 * Refers to the Observations that are involved in the computation of the Duration value
 	 *
 	 * <!-- Start of user code doc for observation -->
-   * <!-- End of user code doc for observation -->
+	 * <!-- End of user code doc for observation -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
 	 * UML opposite Property: org.omg.oti.uml.read.api.UMLObservation.observation_duration
@@ -88,7 +90,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		duration_metaAttributes
@@ -97,7 +99,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLDuration
 	 *
 	 * <!-- Start of user code doc for duration_metaAttributes -->
-   * <!-- End of user code doc for duration_metaAttributes -->
+	 * <!-- End of user code doc for duration_metaAttributes -->
 	 */
 	def duration_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -108,7 +110,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		duration_compositeMetaProperties
@@ -117,7 +119,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLDuration
 	 *
 	 * <!-- Start of user code doc for duration_compositeMetaProperties -->
-   * <!-- End of user code doc for duration_compositeMetaProperties -->
+	 * <!-- End of user code doc for duration_compositeMetaProperties -->
 	 */
 	def duration_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -128,7 +130,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		duration_referenceMetaProperties
@@ -137,7 +139,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLDuration
 	 *
 	 * <!-- Start of user code doc for duration_referenceMetaProperties -->
-   * <!-- End of user code doc for duration_referenceMetaProperties -->
+	 * <!-- End of user code doc for duration_referenceMetaProperties -->
 	 */
 	def duration_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -148,7 +150,7 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		duration_forwardReferencesFromMetamodelAssociations
@@ -157,12 +159,12 @@ trait UMLDuration[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLDuration
 	 *
 	 * <!-- Start of user code doc for duration_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for duration_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for duration_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def duration_forwardReferencesFromMetamodelAssociations: Elements =
 		valueSpecification_forwardReferencesFromMetamodelAssociations ++
 		observation
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLDuration

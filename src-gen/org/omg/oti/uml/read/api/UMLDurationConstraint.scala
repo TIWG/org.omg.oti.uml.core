@@ -5,6 +5,8 @@
  *  Copyright (c) 2015, California Institute of Technology ("Caltech").
  *  U.S. Government sponsorship acknowledged.
  *
+ *  Copyright (c) 2015, Airbus Operations S.A.S.
+ *
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -51,7 +53,7 @@ import scala.collection.immutable.Seq
 /**
  * A DurationConstraint is a Constraint that refers to a DurationInterval.
  *
- * <!-- Start of user code documentation --> 
+ * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
 */
 trait UMLDurationConstraint[Uml <: UML]
@@ -66,7 +68,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The value of firstEvent[i] is related to constrainedElement[i] (where i is 1 or 2). If firstEvent[i] is true, then the corresponding observation event is the first time instant the execution enters constrainedElement[i]. If firstEvent[i] is false, then the corresponding observation event is the last time instant the execution is within constrainedElement[i].
 	 *
 	 * <!-- Start of user code doc for firstEvent -->
-   * <!-- End of user code doc for firstEvent -->
+	 * <!-- End of user code doc for firstEvent -->
 	 *
 	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
 	 */
@@ -76,7 +78,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to this object
 	 *
 	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
+	 * <!-- End of user code doc for metaAttributes -->
 	 */
 	override def metaAttributes: MetaAttributeFunctions =
 		durationConstraint_metaAttributes
@@ -85,7 +87,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI meta-attributes relevant to class UMLDurationConstraint
 	 *
 	 * <!-- Start of user code doc for durationConstraint_metaAttributes -->
-   * <!-- End of user code doc for durationConstraint_metaAttributes -->
+	 * <!-- End of user code doc for durationConstraint_metaAttributes -->
 	 */
 	def durationConstraint_metaAttributes: MetaAttributeFunctions = 
 		appendUnique(
@@ -96,7 +98,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
+	 * <!-- End of user code doc for compositeMetaProperties -->
 	 */
 	override def compositeMetaProperties: MetaPropertyFunctions =
 		durationConstraint_compositeMetaProperties
@@ -105,7 +107,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI composite meta-properties relevant to class UMLDurationConstraint
 	 *
 	 * <!-- Start of user code doc for durationConstraint_compositeMetaProperties -->
-   * <!-- End of user code doc for durationConstraint_compositeMetaProperties -->
+	 * <!-- End of user code doc for durationConstraint_compositeMetaProperties -->
 	 */
 	def durationConstraint_compositeMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -116,7 +118,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to this object
 	 *
 	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
+	 * <!-- End of user code doc for referenceMetaProperties -->
 	 */
 	override def referenceMetaProperties: MetaPropertyFunctions =
 		durationConstraint_referenceMetaProperties
@@ -125,7 +127,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI reference meta-properties relevant to class UMLDurationConstraint
 	 *
 	 * <!-- Start of user code doc for durationConstraint_referenceMetaProperties -->
-   * <!-- End of user code doc for durationConstraint_referenceMetaProperties -->
+	 * <!-- End of user code doc for durationConstraint_referenceMetaProperties -->
 	 */
 	def durationConstraint_referenceMetaProperties: MetaPropertyFunctions = 
 		appendUnique(
@@ -136,7 +138,7 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to this object
 	 *
 	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
 	 */
 	override def forwardReferencesFromMetamodelAssociations: Elements =
 		durationConstraint_forwardReferencesFromMetamodelAssociations
@@ -145,12 +147,12 @@ trait UMLDurationConstraint[Uml <: UML]
 	 * The XMI forward references from metamodel associations relevant to class UMLDurationConstraint
 	 *
 	 * <!-- Start of user code doc for durationConstraint_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for durationConstraint_forwardReferencesFromMetamodelAssociations -->
+	 * <!-- End of user code doc for durationConstraint_forwardReferencesFromMetamodelAssociations -->
 	 */
 	def durationConstraint_forwardReferencesFromMetamodelAssociations: Elements =
 		intervalConstraint_forwardReferencesFromMetamodelAssociations ++
 		Set ()
 
 	// Start of user code for additional features
-  // End of user code
+	// End of user code
 } //UMLDurationConstraint
