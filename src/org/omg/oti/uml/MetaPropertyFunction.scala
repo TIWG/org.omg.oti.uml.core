@@ -157,7 +157,9 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
       _ <: UMLElement[Uml]]]
    
   /**
-    *
+    * For serialization, if an object is a value of a property P, then check P's subsettingMetaProperties, PS.
+    * If that object is also a value of any of the subsettingMetaProperties PS, then the object should not be serialized
+    * as a value of P because the object will be instead serialized as a value of one of the PS.
     */
   val subsettingMetaProperties: Set[
     _ <: MetaPropertyFunction[Uml,
