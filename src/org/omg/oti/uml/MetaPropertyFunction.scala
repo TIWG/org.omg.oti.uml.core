@@ -183,12 +183,8 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
  override val isSerializedAsReference: Boolean=false,
  override val isUnique: Boolean,
  override val isOrdered: Boolean,
- override val redefinedMetaProperties:
- Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
- Set(),
- override val subsettingMetaProperties:
- Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
- Set())
+ override val redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]],
+ override val subsettingMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]])
 (implicit val uType: ClassTag[U], vType: ClassTag[V])
   extends MetaPropertyFunction[Uml, U, V] {
 
@@ -266,12 +262,8 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
  override val isSerializedAsReference: Boolean=false,
  override val isUnique: Boolean,
  override val isOrdered: Boolean,
- override val redefinedMetaProperties:
- Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
- Set(),
- override val subsettingMetaProperties:
- Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]] =
- Set())
+ override val redefinedMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]],
+ override val subsettingMetaProperties: Set[_ <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]])
 (implicit val uType: ClassTag[U], vType: ClassTag[V])
   extends MetaPropertyFunction[Uml, U, V] {
 

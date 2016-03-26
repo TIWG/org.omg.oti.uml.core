@@ -1547,7 +1547,7 @@ import Option._
 	implicit def umlWriteVariableAction(c: Seq[Uml#WriteVariableAction]): Seq[UMLWriteVariableAction[Uml]] = for {e <- c} yield umlWriteVariableAction(e)
 	implicit def umlWriteVariableAction(c: Set[Uml#WriteVariableAction]): Set[UMLWriteVariableAction[Uml]] = for {e <- c} yield umlWriteVariableAction(e)
 
-	val Abstraction_mapping =
+	lazy val Abstraction_mapping =
 		MetaPropertyReference[Uml, UMLAbstraction[Uml], UMLOpaqueExpression[Uml]](
 		"mapping",
 		_.mapping,
@@ -1559,7 +1559,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AcceptCallAction_returnInformation =
+	lazy val AcceptCallAction_returnInformation =
 		MetaPropertyReference[Uml, UMLAcceptCallAction[Uml], UMLOutputPin[Uml]](
 		"returnInformation",
 		_.returnInformation,
@@ -1571,11 +1571,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AcceptEventAction_isUnmarshall =
+	lazy val AcceptEventAction_isUnmarshall =
 		new MetaAttributeBooleanFunction[Uml, UMLAcceptEventAction[Uml]](None, "isUnmarshall",
 		(x: UMLAcceptEventAction[Uml]) => booleanToIterable(x.isUnmarshall, false))
 
-	val AcceptEventAction_result =
+	lazy val AcceptEventAction_result =
 		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -1587,7 +1587,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AcceptEventAction_trigger =
+	lazy val AcceptEventAction_trigger =
 		MetaPropertyCollection[Uml, UMLAcceptEventAction[Uml], UMLTrigger[Uml]](
 		"trigger",
 		_.trigger,
@@ -1599,11 +1599,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Action_isLocallyReentrant =
+	lazy val Action_isLocallyReentrant =
 		new MetaAttributeBooleanFunction[Uml, UMLAction[Uml]](None, "isLocallyReentrant",
 		(x: UMLAction[Uml]) => booleanToIterable(x.isLocallyReentrant, false))
 
-	val Action_localPostcondition =
+	lazy val Action_localPostcondition =
 		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
 		"localPostcondition",
 		_.localPostcondition,
@@ -1615,7 +1615,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Action_localPrecondition =
+	lazy val Action_localPrecondition =
 		MetaPropertyCollection[Uml, UMLAction[Uml], UMLConstraint[Uml]](
 		"localPrecondition",
 		_.localPrecondition,
@@ -1627,7 +1627,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActionExecutionSpecification_action =
+	lazy val ActionExecutionSpecification_action =
 		MetaPropertyReference[Uml, UMLActionExecutionSpecification[Uml], UMLAction[Uml]](
 		"action",
 		_.action,
@@ -1639,7 +1639,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActionInputPin_fromAction =
+	lazy val ActionInputPin_fromAction =
 		MetaPropertyReference[Uml, UMLActionInputPin[Uml], UMLAction[Uml]](
 		"fromAction",
 		_.fromAction,
@@ -1651,7 +1651,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Activity_edge =
+	lazy val Activity_edge =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityEdge[Uml]](
 		"edge",
 		_.edge,
@@ -1663,7 +1663,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Activity_group =
+	lazy val Activity_group =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityGroup[Uml]](
 		"group",
 		_.group,
@@ -1675,15 +1675,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Activity_structuredNode))
 
-	val Activity_isReadOnly =
+	lazy val Activity_isReadOnly =
 		new MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isReadOnly",
 		(x: UMLActivity[Uml]) => booleanToIterable(x.isReadOnly, false))
 
-	val Activity_isSingleExecution =
+	lazy val Activity_isSingleExecution =
 		new MetaAttributeBooleanFunction[Uml, UMLActivity[Uml]](None, "isSingleExecution",
 		(x: UMLActivity[Uml]) => booleanToIterable(x.isSingleExecution, false))
 
-	val Activity_node =
+	lazy val Activity_node =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityNode[Uml]](
 		"node",
 		_.node,
@@ -1695,7 +1695,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Activity_structuredNode))
 
-	val Activity_partition =
+	lazy val Activity_partition =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLActivityPartition[Uml]](
 		"partition",
 		_.partition,
@@ -1707,7 +1707,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Activity_structuredNode =
+	lazy val Activity_structuredNode =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLStructuredActivityNode[Uml]](
 		"structuredNode",
 		_.structuredNode,
@@ -1719,7 +1719,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Activity_variable =
+	lazy val Activity_variable =
 		MetaPropertyCollection[Uml, UMLActivity[Uml], UMLVariable[Uml]](
 		"variable",
 		_.variable,
@@ -1731,7 +1731,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_guard =
+	lazy val ActivityEdge_guard =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
 		"guard",
 		_.guard,
@@ -1743,7 +1743,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_inPartition =
+	lazy val ActivityEdge_inPartition =
 		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityPartition[Uml]](
 		"inPartition",
 		_.inPartition,
@@ -1755,7 +1755,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_interrupts =
+	lazy val ActivityEdge_interrupts =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLInterruptibleActivityRegion[Uml]](
 		"interrupts",
 		_.interrupts,
@@ -1767,7 +1767,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_redefinedEdge =
+	lazy val ActivityEdge_redefinedEdge =
 		MetaPropertyCollection[Uml, UMLActivityEdge[Uml], UMLActivityEdge[Uml]](
 		"redefinedEdge",
 		_.redefinedEdge,
@@ -1779,7 +1779,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_source =
+	lazy val ActivityEdge_source =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
 		"source",
 		_.source,
@@ -1791,7 +1791,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_target =
+	lazy val ActivityEdge_target =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLActivityNode[Uml]](
 		"target",
 		_.target,
@@ -1803,7 +1803,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityEdge_weight =
+	lazy val ActivityEdge_weight =
 		MetaPropertyReference[Uml, UMLActivityEdge[Uml], UMLValueSpecification[Uml]](
 		"weight",
 		_.weight,
@@ -1815,7 +1815,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityNode_inInterruptibleRegion =
+	lazy val ActivityNode_inInterruptibleRegion =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLInterruptibleActivityRegion[Uml]](
 		"inInterruptibleRegion",
 		_.inInterruptibleRegion,
@@ -1827,7 +1827,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityNode_inPartition =
+	lazy val ActivityNode_inPartition =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityPartition[Uml]](
 		"inPartition",
 		_.inPartition,
@@ -1839,7 +1839,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityNode_incoming =
+	lazy val ActivityNode_incoming =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
 		"incoming",
 		_.incoming,
@@ -1851,7 +1851,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityNode_outgoing =
+	lazy val ActivityNode_outgoing =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityEdge[Uml]](
 		"outgoing",
 		_.outgoing,
@@ -1863,7 +1863,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityNode_redefinedNode =
+	lazy val ActivityNode_redefinedNode =
 		MetaPropertyCollection[Uml, UMLActivityNode[Uml], UMLActivityNode[Uml]](
 		"redefinedNode",
 		_.redefinedNode,
@@ -1875,7 +1875,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityParameterNode_parameter =
+	lazy val ActivityParameterNode_parameter =
 		MetaPropertyReference[Uml, UMLActivityParameterNode[Uml], UMLParameter[Uml]](
 		"parameter",
 		_.parameter,
@@ -1887,7 +1887,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityPartition_edge =
+	lazy val ActivityPartition_edge =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityEdge[Uml]](
 		"edge",
 		_.edge,
@@ -1899,15 +1899,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityPartition_isDimension =
+	lazy val ActivityPartition_isDimension =
 		new MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isDimension",
 		(x: UMLActivityPartition[Uml]) => booleanToIterable(x.isDimension, false))
 
-	val ActivityPartition_isExternal =
+	lazy val ActivityPartition_isExternal =
 		new MetaAttributeBooleanFunction[Uml, UMLActivityPartition[Uml]](None, "isExternal",
 		(x: UMLActivityPartition[Uml]) => booleanToIterable(x.isExternal, false))
 
-	val ActivityPartition_node =
+	lazy val ActivityPartition_node =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityNode[Uml]](
 		"node",
 		_.node,
@@ -1919,7 +1919,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityPartition_represents =
+	lazy val ActivityPartition_represents =
 		MetaPropertyReference[Uml, UMLActivityPartition[Uml], UMLElement[Uml]](
 		"represents",
 		_.represents,
@@ -1931,7 +1931,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ActivityPartition_subpartition =
+	lazy val ActivityPartition_subpartition =
 		MetaPropertyCollection[Uml, UMLActivityPartition[Uml], UMLActivityPartition[Uml]](
 		"subpartition",
 		_.subpartition,
@@ -1943,7 +1943,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AddStructuralFeatureValueAction_insertAt =
+	lazy val AddStructuralFeatureValueAction_insertAt =
 		MetaPropertyReference[Uml, UMLAddStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
 		"insertAt",
 		_.insertAt,
@@ -1955,11 +1955,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AddStructuralFeatureValueAction_isReplaceAll =
+	lazy val AddStructuralFeatureValueAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLAddStructuralFeatureValueAction[Uml]](None, "isReplaceAll",
 		(x: UMLAddStructuralFeatureValueAction[Uml]) => booleanToIterable(x.isReplaceAll, false))
 
-	val AddVariableValueAction_insertAt =
+	lazy val AddVariableValueAction_insertAt =
 		MetaPropertyReference[Uml, UMLAddVariableValueAction[Uml], UMLInputPin[Uml]](
 		"insertAt",
 		_.insertAt,
@@ -1971,15 +1971,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val AddVariableValueAction_isReplaceAll =
+	lazy val AddVariableValueAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLAddVariableValueAction[Uml]](None, "isReplaceAll",
 		(x: UMLAddVariableValueAction[Uml]) => booleanToIterable(x.isReplaceAll, false))
 
-	val Artifact_fileName =
+	lazy val Artifact_fileName =
 		new MetaAttributeStringFunction[Uml, UMLArtifact[Uml]](OptionConstructor(), None, "fileName",
 		(x: UMLArtifact[Uml]) => x.fileName)
 
-	val Artifact_manifestation =
+	lazy val Artifact_manifestation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLManifestation[Uml]](
 		"manifestation",
 		_.manifestation,
@@ -1991,7 +1991,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Artifact_nestedArtifact =
+	lazy val Artifact_nestedArtifact =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLArtifact[Uml]](
 		"nestedArtifact",
 		_.nestedArtifact,
@@ -2003,7 +2003,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Artifact_ownedAttribute =
+	lazy val Artifact_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -2015,7 +2015,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Artifact_ownedOperation =
+	lazy val Artifact_ownedOperation =
 		MetaPropertyCollection[Uml, UMLArtifact[Uml], UMLOperation[Uml]](
 		"ownedOperation",
 		_.ownedOperation,
@@ -2027,11 +2027,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Association_isDerived =
+	lazy val Association_isDerived =
 		new MetaAttributeBooleanFunction[Uml, UMLAssociation[Uml]](None, "isDerived",
 		(x: UMLAssociation[Uml]) => booleanToIterable(x.isDerived, false))
 
-	val Association_memberEnd =
+	lazy val Association_memberEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
 		"memberEnd",
 		_.memberEnd,
@@ -2043,7 +2043,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Association_navigableOwnedEnd, Association_ownedEnd))
 
-	val Association_navigableOwnedEnd =
+	lazy val Association_navigableOwnedEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
 		"navigableOwnedEnd",
 		_.navigableOwnedEnd,
@@ -2055,7 +2055,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Association_ownedEnd =
+	lazy val Association_ownedEnd =
 		MetaPropertyCollection[Uml, UMLAssociation[Uml], UMLProperty[Uml]](
 		"ownedEnd",
 		_.ownedEnd,
@@ -2067,11 +2067,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_isReentrant =
+	lazy val Behavior_isReentrant =
 		new MetaAttributeBooleanFunction[Uml, UMLBehavior[Uml]](None, "isReentrant",
 		(x: UMLBehavior[Uml]) => booleanToIterable(x.isReentrant, true))
 
-	val Behavior_ownedParameter =
+	lazy val Behavior_ownedParameter =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameter[Uml]](
 		"ownedParameter",
 		_.ownedParameter,
@@ -2083,7 +2083,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_ownedParameterSet =
+	lazy val Behavior_ownedParameterSet =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLParameterSet[Uml]](
 		"ownedParameterSet",
 		_.ownedParameterSet,
@@ -2095,7 +2095,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_postcondition =
+	lazy val Behavior_postcondition =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
 		"postcondition",
 		_.postcondition,
@@ -2107,7 +2107,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_precondition =
+	lazy val Behavior_precondition =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLConstraint[Uml]](
 		"precondition",
 		_.precondition,
@@ -2119,7 +2119,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_redefinedBehavior =
+	lazy val Behavior_redefinedBehavior =
 		MetaPropertyCollection[Uml, UMLBehavior[Uml], UMLBehavior[Uml]](
 		"redefinedBehavior",
 		_.redefinedBehavior,
@@ -2131,7 +2131,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Behavior_specification =
+	lazy val Behavior_specification =
 		MetaPropertyReference[Uml, UMLBehavior[Uml], UMLBehavioralFeature[Uml]](
 		"specification",
 		_.specification,
@@ -2143,7 +2143,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehaviorExecutionSpecification_behavior =
+	lazy val BehaviorExecutionSpecification_behavior =
 		MetaPropertyReference[Uml, UMLBehaviorExecutionSpecification[Uml], UMLBehavior[Uml]](
 		"behavior",
 		_.behavior,
@@ -2155,16 +2155,16 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioralFeature_concurrency =
+	lazy val BehavioralFeature_concurrency =
 		new MetaAttributeEnumerationFunction[Uml, UMLBehavioralFeature[Uml], UMLCallConcurrencyKind.Value, UMLCallConcurrencyKind.ValueSet](
 		OptionConstructor(), None, "concurrency",
 		(x: UMLBehavioralFeature[Uml]) => x.concurrency, UMLCallConcurrencyKind.values)
 
-	val BehavioralFeature_isAbstract =
+	lazy val BehavioralFeature_isAbstract =
 		new MetaAttributeBooleanFunction[Uml, UMLBehavioralFeature[Uml]](None, "isAbstract",
 		(x: UMLBehavioralFeature[Uml]) => booleanToIterable(x.isAbstract, false))
 
-	val BehavioralFeature_method =
+	lazy val BehavioralFeature_method =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLBehavior[Uml]](
 		"method",
 		_.method,
@@ -2176,7 +2176,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioralFeature_ownedParameter =
+	lazy val BehavioralFeature_ownedParameter =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameter[Uml]](
 		"ownedParameter",
 		_.ownedParameter,
@@ -2188,7 +2188,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioralFeature_ownedParameterSet =
+	lazy val BehavioralFeature_ownedParameterSet =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLParameterSet[Uml]](
 		"ownedParameterSet",
 		_.ownedParameterSet,
@@ -2200,7 +2200,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioralFeature_raisedException =
+	lazy val BehavioralFeature_raisedException =
 		MetaPropertyCollection[Uml, UMLBehavioralFeature[Uml], UMLType[Uml]](
 		"raisedException",
 		_.raisedException,
@@ -2212,7 +2212,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioredClassifier_classifierBehavior =
+	lazy val BehavioredClassifier_classifierBehavior =
 		MetaPropertyReference[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
 		"classifierBehavior",
 		_.classifierBehavior,
@@ -2224,7 +2224,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioredClassifier_interfaceRealization =
+	lazy val BehavioredClassifier_interfaceRealization =
 		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLInterfaceRealization[Uml]](
 		"interfaceRealization",
 		_.interfaceRealization,
@@ -2236,7 +2236,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BehavioredClassifier_ownedBehavior =
+	lazy val BehavioredClassifier_ownedBehavior =
 		MetaPropertyCollection[Uml, UMLBehavioredClassifier[Uml], UMLBehavior[Uml]](
 		"ownedBehavior",
 		_.ownedBehavior,
@@ -2248,7 +2248,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val BroadcastSignalAction_signal =
+	lazy val BroadcastSignalAction_signal =
 		MetaPropertyReference[Uml, UMLBroadcastSignalAction[Uml], UMLSignal[Uml]](
 		"signal",
 		_.signal,
@@ -2260,11 +2260,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CallAction_isSynchronous =
+	lazy val CallAction_isSynchronous =
 		new MetaAttributeBooleanFunction[Uml, UMLCallAction[Uml]](None, "isSynchronous",
 		(x: UMLCallAction[Uml]) => booleanToIterable(x.isSynchronous, true))
 
-	val CallAction_result =
+	lazy val CallAction_result =
 		MetaPropertyCollection[Uml, UMLCallAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -2276,7 +2276,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CallBehaviorAction_behavior =
+	lazy val CallBehaviorAction_behavior =
 		MetaPropertyReference[Uml, UMLCallBehaviorAction[Uml], UMLBehavior[Uml]](
 		"behavior",
 		_.behavior,
@@ -2288,7 +2288,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CallEvent_operation =
+	lazy val CallEvent_operation =
 		MetaPropertyReference[Uml, UMLCallEvent[Uml], UMLOperation[Uml]](
 		"operation",
 		_.operation,
@@ -2300,7 +2300,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CallOperationAction_operation =
+	lazy val CallOperationAction_operation =
 		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLOperation[Uml]](
 		"operation",
 		_.operation,
@@ -2312,7 +2312,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CallOperationAction_target =
+	lazy val CallOperationAction_target =
 		MetaPropertyReference[Uml, UMLCallOperationAction[Uml], UMLInputPin[Uml]](
 		"target",
 		_.target,
@@ -2324,7 +2324,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ChangeEvent_changeExpression =
+	lazy val ChangeEvent_changeExpression =
 		MetaPropertyReference[Uml, UMLChangeEvent[Uml], UMLValueSpecification[Uml]](
 		"changeExpression",
 		_.changeExpression,
@@ -2336,15 +2336,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Class_isAbstract =
+	lazy val Class_isAbstract =
 		new MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isAbstract",
 		(x: UMLClass[Uml]) => booleanToIterable(x.isAbstract, false))
 
-	val Class_isActive =
+	lazy val Class_isActive =
 		new MetaAttributeBooleanFunction[Uml, UMLClass[Uml]](None, "isActive",
 		(x: UMLClass[Uml]) => booleanToIterable(x.isActive, false))
 
-	val Class_nestedClassifier =
+	lazy val Class_nestedClassifier =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLClassifier[Uml]](
 		"nestedClassifier",
 		_.nestedClassifier,
@@ -2356,7 +2356,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Class_ownedAttribute =
+	lazy val Class_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -2368,7 +2368,7 @@ import Option._
 		redefinedMetaProperties=Set(StructuredClassifier_ownedAttribute),
 		subsettingMetaProperties=Set())
 
-	val Class_ownedOperation =
+	lazy val Class_ownedOperation =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLOperation[Uml]](
 		"ownedOperation",
 		_.ownedOperation,
@@ -2380,7 +2380,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Class_ownedReception =
+	lazy val Class_ownedReception =
 		MetaPropertyCollection[Uml, UMLClass[Uml], UMLReception[Uml]](
 		"ownedReception",
 		_.ownedReception,
@@ -2392,7 +2392,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_collaborationUse =
+	lazy val Classifier_collaborationUse =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
 		"collaborationUse",
 		_.collaborationUse,
@@ -2404,7 +2404,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_generalization =
+	lazy val Classifier_generalization =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralization[Uml]](
 		"generalization",
 		_.generalization,
@@ -2416,15 +2416,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_isAbstract =
+	lazy val Classifier_isAbstract =
 		new MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isAbstract",
 		(x: UMLClassifier[Uml]) => booleanToIterable(x.isAbstract, false))
 
-	val Classifier_isFinalSpecialization =
+	lazy val Classifier_isFinalSpecialization =
 		new MetaAttributeBooleanFunction[Uml, UMLClassifier[Uml]](None, "isFinalSpecialization",
 		(x: UMLClassifier[Uml]) => booleanToIterable(x.isFinalSpecialization, false))
 
-	val Classifier_ownedTemplateSignature =
+	lazy val Classifier_ownedTemplateSignature =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLRedefinableTemplateSignature[Uml]](
 		"ownedTemplateSignature",
 		_.ownedTemplateSignature,
@@ -2436,7 +2436,7 @@ import Option._
 		redefinedMetaProperties=Set(TemplateableElement_ownedTemplateSignature),
 		subsettingMetaProperties=Set())
 
-	val Classifier_ownedUseCase =
+	lazy val Classifier_ownedUseCase =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
 		"ownedUseCase",
 		_.ownedUseCase,
@@ -2448,7 +2448,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_powertypeExtent =
+	lazy val Classifier_powertypeExtent =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLGeneralizationSet[Uml]](
 		"powertypeExtent",
 		_.powertypeExtent,
@@ -2460,7 +2460,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_redefinedClassifier =
+	lazy val Classifier_redefinedClassifier =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLClassifier[Uml]](
 		"redefinedClassifier",
 		_.redefinedClassifier,
@@ -2472,7 +2472,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Behavior_redefinedBehavior, Interface_redefinedInterface))
 
-	val Classifier_representation =
+	lazy val Classifier_representation =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLCollaborationUse[Uml]](
 		"representation",
 		_.representation,
@@ -2484,7 +2484,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_substitution =
+	lazy val Classifier_substitution =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLSubstitution[Uml]](
 		"substitution",
 		_.substitution,
@@ -2496,7 +2496,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Classifier_templateParameter =
+	lazy val Classifier_templateParameter =
 		MetaPropertyReference[Uml, UMLClassifier[Uml], UMLClassifierTemplateParameter[Uml]](
 		"templateParameter",
 		_.templateParameter,
@@ -2508,7 +2508,7 @@ import Option._
 		redefinedMetaProperties=Set(ParameterableElement_templateParameter),
 		subsettingMetaProperties=Set())
 
-	val Classifier_useCase =
+	lazy val Classifier_useCase =
 		MetaPropertyCollection[Uml, UMLClassifier[Uml], UMLUseCase[Uml]](
 		"useCase",
 		_.useCase,
@@ -2520,11 +2520,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ClassifierTemplateParameter_allowSubstitutable =
+	lazy val ClassifierTemplateParameter_allowSubstitutable =
 		new MetaAttributeBooleanFunction[Uml, UMLClassifierTemplateParameter[Uml]](None, "allowSubstitutable",
 		(x: UMLClassifierTemplateParameter[Uml]) => booleanToIterable(x.allowSubstitutable, true))
 
-	val ClassifierTemplateParameter_constrainingClassifier =
+	lazy val ClassifierTemplateParameter_constrainingClassifier =
 		MetaPropertyCollection[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
 		"constrainingClassifier",
 		_.constrainingClassifier,
@@ -2536,7 +2536,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ClassifierTemplateParameter_parameteredElement =
+	lazy val ClassifierTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLClassifierTemplateParameter[Uml], UMLClassifier[Uml]](
 		"parameteredElement",
 		_.parameteredElement,
@@ -2548,7 +2548,7 @@ import Option._
 		redefinedMetaProperties=Set(TemplateParameter_parameteredElement),
 		subsettingMetaProperties=Set())
 
-	val Clause_body =
+	lazy val Clause_body =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
 		"body",
 		_.body,
@@ -2560,7 +2560,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Clause_bodyOutput =
+	lazy val Clause_bodyOutput =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
 		"bodyOutput",
 		_.bodyOutput,
@@ -2572,7 +2572,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Clause_decider =
+	lazy val Clause_decider =
 		MetaPropertyReference[Uml, UMLClause[Uml], UMLOutputPin[Uml]](
 		"decider",
 		_.decider,
@@ -2584,7 +2584,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Clause_predecessorClause =
+	lazy val Clause_predecessorClause =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
 		"predecessorClause",
 		_.predecessorClause,
@@ -2596,7 +2596,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Clause_successorClause =
+	lazy val Clause_successorClause =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLClause[Uml]](
 		"successorClause",
 		_.successorClause,
@@ -2608,7 +2608,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Clause_test =
+	lazy val Clause_test =
 		MetaPropertyCollection[Uml, UMLClause[Uml], UMLExecutableNode[Uml]](
 		"test",
 		_.test,
@@ -2620,7 +2620,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ClearAssociationAction_association =
+	lazy val ClearAssociationAction_association =
 		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLAssociation[Uml]](
 		"association",
 		_.association,
@@ -2632,7 +2632,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ClearAssociationAction_object =
+	lazy val ClearAssociationAction_object =
 		MetaPropertyReference[Uml, UMLClearAssociationAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -2644,7 +2644,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ClearStructuralFeatureAction_result =
+	lazy val ClearStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLClearStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -2656,7 +2656,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Collaboration_collaborationRole =
+	lazy val Collaboration_collaborationRole =
 		MetaPropertyCollection[Uml, UMLCollaboration[Uml], UMLConnectableElement[Uml]](
 		"collaborationRole",
 		_.collaborationRole,
@@ -2668,7 +2668,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CollaborationUse_roleBinding =
+	lazy val CollaborationUse_roleBinding =
 		MetaPropertyCollection[Uml, UMLCollaborationUse[Uml], UMLDependency[Uml]](
 		"roleBinding",
 		_.roleBinding,
@@ -2680,7 +2680,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CollaborationUse_type =
+	lazy val CollaborationUse_type =
 		MetaPropertyReference[Uml, UMLCollaborationUse[Uml], UMLCollaboration[Uml]](
 		"type",
 		_._type,
@@ -2692,7 +2692,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CombinedFragment_cfragmentGate =
+	lazy val CombinedFragment_cfragmentGate =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLGate[Uml]](
 		"cfragmentGate",
 		_.cfragmentGate,
@@ -2704,12 +2704,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CombinedFragment_interactionOperator =
+	lazy val CombinedFragment_interactionOperator =
 		new MetaAttributeEnumerationFunction[Uml, UMLCombinedFragment[Uml], UMLInteractionOperatorKind.Value, UMLInteractionOperatorKind.ValueSet](
 		OptionConstructor(), None, "interactionOperator",
 		(x: UMLCombinedFragment[Uml]) => x.interactionOperator, UMLInteractionOperatorKind.values)
 
-	val CombinedFragment_operand =
+	lazy val CombinedFragment_operand =
 		MetaPropertyCollection[Uml, UMLCombinedFragment[Uml], UMLInteractionOperand[Uml]](
 		"operand",
 		_.operand,
@@ -2721,7 +2721,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Comment_annotatedElement =
+	lazy val Comment_annotatedElement =
 		MetaPropertyCollection[Uml, UMLComment[Uml], UMLElement[Uml]](
 		"annotatedElement",
 		_.annotatedElement,
@@ -2733,15 +2733,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Comment_body =
+	lazy val Comment_body =
 		new MetaAttributeStringFunction[Uml, UMLComment[Uml]](OptionConstructor(), None, "body",
 		(x: UMLComment[Uml]) => x.body)
 
-	val Component_isIndirectlyInstantiated =
+	lazy val Component_isIndirectlyInstantiated =
 		new MetaAttributeBooleanFunction[Uml, UMLComponent[Uml]](None, "isIndirectlyInstantiated",
 		(x: UMLComponent[Uml]) => booleanToIterable(x.isIndirectlyInstantiated, true))
 
-	val Component_packagedElement =
+	lazy val Component_packagedElement =
 		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLPackageableElement[Uml]](
 		"packagedElement",
 		_.packagedElement,
@@ -2753,7 +2753,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Component_realization =
+	lazy val Component_realization =
 		MetaPropertyCollection[Uml, UMLComponent[Uml], UMLComponentRealization[Uml]](
 		"realization",
 		_.realization,
@@ -2765,7 +2765,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ComponentRealization_realizingClassifier =
+	lazy val ComponentRealization_realizingClassifier =
 		MetaPropertyCollection[Uml, UMLComponentRealization[Uml], UMLClassifier[Uml]](
 		"realizingClassifier",
 		_.realizingClassifier,
@@ -2777,7 +2777,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConditionalNode_clause =
+	lazy val ConditionalNode_clause =
 		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLClause[Uml]](
 		"clause",
 		_.clause,
@@ -2789,15 +2789,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConditionalNode_isAssured =
+	lazy val ConditionalNode_isAssured =
 		new MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isAssured",
 		(x: UMLConditionalNode[Uml]) => booleanToIterable(x.isAssured, false))
 
-	val ConditionalNode_isDeterminate =
+	lazy val ConditionalNode_isDeterminate =
 		new MetaAttributeBooleanFunction[Uml, UMLConditionalNode[Uml]](None, "isDeterminate",
 		(x: UMLConditionalNode[Uml]) => booleanToIterable(x.isDeterminate, false))
 
-	val ConditionalNode_result =
+	lazy val ConditionalNode_result =
 		MetaPropertyCollection[Uml, UMLConditionalNode[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -2809,7 +2809,7 @@ import Option._
 		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeOutput),
 		subsettingMetaProperties=Set())
 
-	val ConnectableElement_templateParameter =
+	lazy val ConnectableElement_templateParameter =
 		MetaPropertyReference[Uml, UMLConnectableElement[Uml], UMLConnectableElementTemplateParameter[Uml]](
 		"templateParameter",
 		_.templateParameter,
@@ -2821,7 +2821,7 @@ import Option._
 		redefinedMetaProperties=Set(ParameterableElement_templateParameter),
 		subsettingMetaProperties=Set())
 
-	val ConnectableElementTemplateParameter_parameteredElement =
+	lazy val ConnectableElementTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLConnectableElementTemplateParameter[Uml], UMLConnectableElement[Uml]](
 		"parameteredElement",
 		_.parameteredElement,
@@ -2833,7 +2833,7 @@ import Option._
 		redefinedMetaProperties=Set(TemplateParameter_parameteredElement),
 		subsettingMetaProperties=Set())
 
-	val ConnectionPointReference_entry =
+	lazy val ConnectionPointReference_entry =
 		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
 		"entry",
 		_.entry,
@@ -2845,7 +2845,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConnectionPointReference_exit =
+	lazy val ConnectionPointReference_exit =
 		MetaPropertyCollection[Uml, UMLConnectionPointReference[Uml], UMLPseudostate[Uml]](
 		"exit",
 		_.exit,
@@ -2857,7 +2857,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Connector_contract =
+	lazy val Connector_contract =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLBehavior[Uml]](
 		"contract",
 		_.contract,
@@ -2869,7 +2869,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Connector_end =
+	lazy val Connector_end =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnectorEnd[Uml]](
 		"end",
 		_.end,
@@ -2881,7 +2881,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Connector_redefinedConnector =
+	lazy val Connector_redefinedConnector =
 		MetaPropertyCollection[Uml, UMLConnector[Uml], UMLConnector[Uml]](
 		"redefinedConnector",
 		_.redefinedConnector,
@@ -2893,7 +2893,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Connector_type =
+	lazy val Connector_type =
 		MetaPropertyReference[Uml, UMLConnector[Uml], UMLAssociation[Uml]](
 		"type",
 		_._type,
@@ -2905,7 +2905,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConnectorEnd_partWithPort =
+	lazy val ConnectorEnd_partWithPort =
 		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLProperty[Uml]](
 		"partWithPort",
 		_.partWithPort,
@@ -2917,7 +2917,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConnectorEnd_role =
+	lazy val ConnectorEnd_role =
 		MetaPropertyReference[Uml, UMLConnectorEnd[Uml], UMLConnectableElement[Uml]](
 		"role",
 		_.role,
@@ -2929,7 +2929,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ConsiderIgnoreFragment_message =
+	lazy val ConsiderIgnoreFragment_message =
 		MetaPropertyCollection[Uml, UMLConsiderIgnoreFragment[Uml], UMLNamedElement[Uml]](
 		"message",
 		_.message,
@@ -2941,7 +2941,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Constraint_constrainedElement =
+	lazy val Constraint_constrainedElement =
 		MetaPropertyCollection[Uml, UMLConstraint[Uml], UMLElement[Uml]](
 		"constrainedElement",
 		_.constrainedElement,
@@ -2953,7 +2953,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Constraint_specification =
+	lazy val Constraint_specification =
 		MetaPropertyReference[Uml, UMLConstraint[Uml], UMLValueSpecification[Uml]](
 		"specification",
 		_.specification,
@@ -2965,11 +2965,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Continuation_setting =
+	lazy val Continuation_setting =
 		new MetaAttributeBooleanFunction[Uml, UMLContinuation[Uml]](None, "setting",
 		(x: UMLContinuation[Uml]) => booleanToIterable(x.setting, true))
 
-	val CreateLinkAction_endData =
+	lazy val CreateLinkAction_endData =
 		MetaPropertyCollection[Uml, UMLCreateLinkAction[Uml], UMLLinkEndCreationData[Uml]](
 		"endData",
 		_.endData,
@@ -2981,7 +2981,7 @@ import Option._
 		redefinedMetaProperties=Set(LinkAction_endData),
 		subsettingMetaProperties=Set())
 
-	val CreateLinkObjectAction_result =
+	lazy val CreateLinkObjectAction_result =
 		MetaPropertyReference[Uml, UMLCreateLinkObjectAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -2993,7 +2993,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CreateObjectAction_classifier =
+	lazy val CreateObjectAction_classifier =
 		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLClassifier[Uml]](
 		"classifier",
 		_.classifier,
@@ -3005,7 +3005,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val CreateObjectAction_result =
+	lazy val CreateObjectAction_result =
 		MetaPropertyReference[Uml, UMLCreateObjectAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -3017,7 +3017,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DataType_ownedAttribute =
+	lazy val DataType_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -3029,7 +3029,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DataType_ownedOperation =
+	lazy val DataType_ownedOperation =
 		MetaPropertyCollection[Uml, UMLDataType[Uml], UMLOperation[Uml]](
 		"ownedOperation",
 		_.ownedOperation,
@@ -3041,7 +3041,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DecisionNode_decisionInput =
+	lazy val DecisionNode_decisionInput =
 		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLBehavior[Uml]](
 		"decisionInput",
 		_.decisionInput,
@@ -3053,7 +3053,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DecisionNode_decisionInputFlow =
+	lazy val DecisionNode_decisionInputFlow =
 		MetaPropertyReference[Uml, UMLDecisionNode[Uml], UMLObjectFlow[Uml]](
 		"decisionInputFlow",
 		_.decisionInputFlow,
@@ -3065,7 +3065,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Dependency_client =
+	lazy val Dependency_client =
 		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
 		"client",
 		_.client,
@@ -3077,7 +3077,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(ComponentRealization_realizingClassifier))
 
-	val Dependency_supplier =
+	lazy val Dependency_supplier =
 		MetaPropertyCollection[Uml, UMLDependency[Uml], UMLNamedElement[Uml]](
 		"supplier",
 		_.supplier,
@@ -3089,7 +3089,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Deployment_deployedArtifact, InterfaceRealization_contract, Manifestation_utilizedElement, Substitution_contract))
 
-	val Deployment_configuration =
+	lazy val Deployment_configuration =
 		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeploymentSpecification[Uml]](
 		"configuration",
 		_.configuration,
@@ -3101,7 +3101,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Deployment_deployedArtifact =
+	lazy val Deployment_deployedArtifact =
 		MetaPropertyCollection[Uml, UMLDeployment[Uml], UMLDeployedArtifact[Uml]](
 		"deployedArtifact",
 		_.deployedArtifact,
@@ -3113,15 +3113,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DeploymentSpecification_deploymentLocation =
+	lazy val DeploymentSpecification_deploymentLocation =
 		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](OptionConstructor(), None, "deploymentLocation",
 		(x: UMLDeploymentSpecification[Uml]) => x.deploymentLocation)
 
-	val DeploymentSpecification_executionLocation =
+	lazy val DeploymentSpecification_executionLocation =
 		new MetaAttributeStringFunction[Uml, UMLDeploymentSpecification[Uml]](OptionConstructor(), None, "executionLocation",
 		(x: UMLDeploymentSpecification[Uml]) => x.executionLocation)
 
-	val DeploymentTarget_deployment =
+	lazy val DeploymentTarget_deployment =
 		MetaPropertyCollection[Uml, UMLDeploymentTarget[Uml], UMLDeployment[Uml]](
 		"deployment",
 		_.deployment,
@@ -3133,7 +3133,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DestroyLinkAction_endData =
+	lazy val DestroyLinkAction_endData =
 		MetaPropertyCollection[Uml, UMLDestroyLinkAction[Uml], UMLLinkEndDestructionData[Uml]](
 		"endData",
 		_.endData,
@@ -3145,15 +3145,15 @@ import Option._
 		redefinedMetaProperties=Set(LinkAction_endData),
 		subsettingMetaProperties=Set())
 
-	val DestroyObjectAction_isDestroyLinks =
+	lazy val DestroyObjectAction_isDestroyLinks =
 		new MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyLinks",
 		(x: UMLDestroyObjectAction[Uml]) => booleanToIterable(x.isDestroyLinks, false))
 
-	val DestroyObjectAction_isDestroyOwnedObjects =
+	lazy val DestroyObjectAction_isDestroyOwnedObjects =
 		new MetaAttributeBooleanFunction[Uml, UMLDestroyObjectAction[Uml]](None, "isDestroyOwnedObjects",
 		(x: UMLDestroyObjectAction[Uml]) => booleanToIterable(x.isDestroyOwnedObjects, false))
 
-	val DestroyObjectAction_target =
+	lazy val DestroyObjectAction_target =
 		MetaPropertyReference[Uml, UMLDestroyObjectAction[Uml], UMLInputPin[Uml]](
 		"target",
 		_.target,
@@ -3165,7 +3165,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Duration_expr =
+	lazy val Duration_expr =
 		MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]](
 		"expr",
 		_.expr,
@@ -3177,7 +3177,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Duration_observation =
+	lazy val Duration_observation =
 		MetaPropertyCollection[Uml, UMLDuration[Uml], UMLObservation[Uml]](
 		"observation",
 		_.observation,
@@ -3189,11 +3189,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DurationConstraint_firstEvent =
+	lazy val DurationConstraint_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLDurationConstraint[Uml]](IterableConstructor(), None, "firstEvent",
 		(x: UMLDurationConstraint[Uml]) => x.firstEvent)
 
-	val DurationConstraint_specification =
+	lazy val DurationConstraint_specification =
 		MetaPropertyReference[Uml, UMLDurationConstraint[Uml], UMLDurationInterval[Uml]](
 		"specification",
 		_.specification,
@@ -3205,7 +3205,7 @@ import Option._
 		redefinedMetaProperties=Set(IntervalConstraint_specification),
 		subsettingMetaProperties=Set())
 
-	val DurationInterval_max =
+	lazy val DurationInterval_max =
 		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
 		"max",
 		_.max,
@@ -3217,7 +3217,7 @@ import Option._
 		redefinedMetaProperties=Set(Interval_max),
 		subsettingMetaProperties=Set())
 
-	val DurationInterval_min =
+	lazy val DurationInterval_min =
 		MetaPropertyReference[Uml, UMLDurationInterval[Uml], UMLDuration[Uml]](
 		"min",
 		_.min,
@@ -3229,7 +3229,7 @@ import Option._
 		redefinedMetaProperties=Set(Interval_min),
 		subsettingMetaProperties=Set())
 
-	val DurationObservation_event =
+	lazy val DurationObservation_event =
 		MetaPropertyCollection[Uml, UMLDurationObservation[Uml], UMLNamedElement[Uml]](
 		"event",
 		_.event,
@@ -3241,11 +3241,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val DurationObservation_firstEvent =
+	lazy val DurationObservation_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLDurationObservation[Uml]](IterableConstructor(), None, "firstEvent",
 		(x: UMLDurationObservation[Uml]) => x.firstEvent)
 
-	val Element_ownedComment =
+	lazy val Element_ownedComment =
 		MetaPropertyCollection[Uml, UMLElement[Uml], UMLComment[Uml]](
 		"ownedComment",
 		_.ownedComment,
@@ -3257,11 +3257,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ElementImport_alias =
+	lazy val ElementImport_alias =
 		new MetaAttributeStringFunction[Uml, UMLElementImport[Uml]](OptionConstructor(), None, "alias",
 		(x: UMLElementImport[Uml]) => x.alias)
 
-	val ElementImport_importedElement =
+	lazy val ElementImport_importedElement =
 		MetaPropertyReference[Uml, UMLElementImport[Uml], UMLPackageableElement[Uml]](
 		"importedElement",
 		_.importedElement,
@@ -3273,12 +3273,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ElementImport_visibility =
+	lazy val ElementImport_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
 		OptionConstructor(), None, "visibility",
 		(x: UMLElementImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
-	val Enumeration_ownedLiteral =
+	lazy val Enumeration_ownedLiteral =
 		MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
 		"ownedLiteral",
 		_.ownedLiteral,
@@ -3290,7 +3290,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExceptionHandler_exceptionInput =
+	lazy val ExceptionHandler_exceptionInput =
 		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLObjectNode[Uml]](
 		"exceptionInput",
 		_.exceptionInput,
@@ -3302,7 +3302,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExceptionHandler_exceptionType =
+	lazy val ExceptionHandler_exceptionType =
 		MetaPropertyCollection[Uml, UMLExceptionHandler[Uml], UMLClassifier[Uml]](
 		"exceptionType",
 		_.exceptionType,
@@ -3314,7 +3314,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExceptionHandler_handlerBody =
+	lazy val ExceptionHandler_handlerBody =
 		MetaPropertyReference[Uml, UMLExceptionHandler[Uml], UMLExecutableNode[Uml]](
 		"handlerBody",
 		_.handlerBody,
@@ -3326,7 +3326,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExecutableNode_handler =
+	lazy val ExecutableNode_handler =
 		MetaPropertyCollection[Uml, UMLExecutableNode[Uml], UMLExceptionHandler[Uml]](
 		"handler",
 		_.handler,
@@ -3338,7 +3338,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExecutionOccurrenceSpecification_execution =
+	lazy val ExecutionOccurrenceSpecification_execution =
 		MetaPropertyReference[Uml, UMLExecutionOccurrenceSpecification[Uml], UMLExecutionSpecification[Uml]](
 		"execution",
 		_.execution,
@@ -3350,7 +3350,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExecutionSpecification_finish =
+	lazy val ExecutionSpecification_finish =
 		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
 		"finish",
 		_.finish,
@@ -3362,7 +3362,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExecutionSpecification_start =
+	lazy val ExecutionSpecification_start =
 		MetaPropertyReference[Uml, UMLExecutionSpecification[Uml], UMLOccurrenceSpecification[Uml]](
 		"start",
 		_.start,
@@ -3374,7 +3374,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExpansionNode_regionAsInput =
+	lazy val ExpansionNode_regionAsInput =
 		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
 		"regionAsInput",
 		_.regionAsInput,
@@ -3386,7 +3386,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExpansionNode_regionAsOutput =
+	lazy val ExpansionNode_regionAsOutput =
 		MetaPropertyReference[Uml, UMLExpansionNode[Uml], UMLExpansionRegion[Uml]](
 		"regionAsOutput",
 		_.regionAsOutput,
@@ -3398,7 +3398,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExpansionRegion_inputElement =
+	lazy val ExpansionRegion_inputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
 		"inputElement",
 		_.inputElement,
@@ -3410,12 +3410,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ExpansionRegion_mode =
+	lazy val ExpansionRegion_mode =
 		new MetaAttributeEnumerationFunction[Uml, UMLExpansionRegion[Uml], UMLExpansionKind.Value, UMLExpansionKind.ValueSet](
 		OptionConstructor(), None, "mode",
 		(x: UMLExpansionRegion[Uml]) => x.mode, UMLExpansionKind.values)
 
-	val ExpansionRegion_outputElement =
+	lazy val ExpansionRegion_outputElement =
 		MetaPropertyCollection[Uml, UMLExpansionRegion[Uml], UMLExpansionNode[Uml]](
 		"outputElement",
 		_.outputElement,
@@ -3427,7 +3427,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Expression_operand =
+	lazy val Expression_operand =
 		MetaPropertyCollection[Uml, UMLExpression[Uml], UMLValueSpecification[Uml]](
 		"operand",
 		_.operand,
@@ -3439,11 +3439,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Expression_symbol =
+	lazy val Expression_symbol =
 		new MetaAttributeStringFunction[Uml, UMLExpression[Uml]](OptionConstructor(), None, "symbol",
 		(x: UMLExpression[Uml]) => x.symbol)
 
-	val Extend_condition =
+	lazy val Extend_condition =
 		MetaPropertyReference[Uml, UMLExtend[Uml], UMLConstraint[Uml]](
 		"condition",
 		_.condition,
@@ -3455,7 +3455,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Extend_extendedCase =
+	lazy val Extend_extendedCase =
 		MetaPropertyReference[Uml, UMLExtend[Uml], UMLUseCase[Uml]](
 		"extendedCase",
 		_.extendedCase,
@@ -3467,7 +3467,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Extend_extensionLocation =
+	lazy val Extend_extensionLocation =
 		MetaPropertyCollection[Uml, UMLExtend[Uml], UMLExtensionPoint[Uml]](
 		"extensionLocation",
 		_.extensionLocation,
@@ -3479,7 +3479,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Extension_ownedEnd =
+	lazy val Extension_ownedEnd =
 		MetaPropertyCollection[Uml, UMLExtension[Uml], UMLExtensionEnd[Uml]](
 		"ownedEnd",
 		_.ownedEnd,
@@ -3491,7 +3491,7 @@ import Option._
 		redefinedMetaProperties=Set(Association_ownedEnd),
 		subsettingMetaProperties=Set())
 
-	val ExtensionEnd_type =
+	lazy val ExtensionEnd_type =
 		MetaPropertyReference[Uml, UMLExtensionEnd[Uml], UMLStereotype[Uml]](
 		"type",
 		_._type,
@@ -3503,11 +3503,11 @@ import Option._
 		redefinedMetaProperties=Set(TypedElement_type),
 		subsettingMetaProperties=Set())
 
-	val Feature_isStatic =
+	lazy val Feature_isStatic =
 		new MetaAttributeBooleanFunction[Uml, UMLFeature[Uml]](None, "isStatic",
 		(x: UMLFeature[Uml]) => booleanToIterable(x.isStatic, false))
 
-	val GeneralOrdering_after =
+	lazy val GeneralOrdering_after =
 		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
 		"after",
 		_.after,
@@ -3519,7 +3519,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val GeneralOrdering_before =
+	lazy val GeneralOrdering_before =
 		MetaPropertyReference[Uml, UMLGeneralOrdering[Uml], UMLOccurrenceSpecification[Uml]](
 		"before",
 		_.before,
@@ -3531,7 +3531,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Generalization_general =
+	lazy val Generalization_general =
 		MetaPropertyReference[Uml, UMLGeneralization[Uml], UMLClassifier[Uml]](
 		"general",
 		_.general,
@@ -3543,7 +3543,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Generalization_generalizationSet =
+	lazy val Generalization_generalizationSet =
 		MetaPropertyCollection[Uml, UMLGeneralization[Uml], UMLGeneralizationSet[Uml]](
 		"generalizationSet",
 		_.generalizationSet,
@@ -3555,11 +3555,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Generalization_isSubstitutable =
+	lazy val Generalization_isSubstitutable =
 		new MetaAttributeBooleanFunction[Uml, UMLGeneralization[Uml]](None, "isSubstitutable",
 		(x: UMLGeneralization[Uml]) => booleanToIterable(x.isSubstitutable.getOrElse(true), true))
 
-	val GeneralizationSet_generalization =
+	lazy val GeneralizationSet_generalization =
 		MetaPropertyCollection[Uml, UMLGeneralizationSet[Uml], UMLGeneralization[Uml]](
 		"generalization",
 		_.generalization,
@@ -3571,15 +3571,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val GeneralizationSet_isCovering =
+	lazy val GeneralizationSet_isCovering =
 		new MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isCovering",
 		(x: UMLGeneralizationSet[Uml]) => booleanToIterable(x.isCovering, false))
 
-	val GeneralizationSet_isDisjoint =
+	lazy val GeneralizationSet_isDisjoint =
 		new MetaAttributeBooleanFunction[Uml, UMLGeneralizationSet[Uml]](None, "isDisjoint",
 		(x: UMLGeneralizationSet[Uml]) => booleanToIterable(x.isDisjoint, false))
 
-	val GeneralizationSet_powertype =
+	lazy val GeneralizationSet_powertype =
 		MetaPropertyReference[Uml, UMLGeneralizationSet[Uml], UMLClassifier[Uml]](
 		"powertype",
 		_.powertype,
@@ -3591,19 +3591,19 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Image_content =
+	lazy val Image_content =
 		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(), None, "content",
 		(x: UMLImage[Uml]) => x.content)
 
-	val Image_format =
+	lazy val Image_format =
 		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(), None, "format",
 		(x: UMLImage[Uml]) => x.format)
 
-	val Image_location =
+	lazy val Image_location =
 		new MetaAttributeStringFunction[Uml, UMLImage[Uml]](OptionConstructor(), None, "location",
 		(x: UMLImage[Uml]) => x.location)
 
-	val Include_addition =
+	lazy val Include_addition =
 		MetaPropertyReference[Uml, UMLInclude[Uml], UMLUseCase[Uml]](
 		"addition",
 		_.addition,
@@ -3615,7 +3615,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_conveyed =
+	lazy val InformationFlow_conveyed =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLClassifier[Uml]](
 		"conveyed",
 		_.conveyed,
@@ -3627,7 +3627,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_informationSource =
+	lazy val InformationFlow_informationSource =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
 		"informationSource",
 		_.informationSource,
@@ -3639,7 +3639,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_informationTarget =
+	lazy val InformationFlow_informationTarget =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLNamedElement[Uml]](
 		"informationTarget",
 		_.informationTarget,
@@ -3651,7 +3651,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_realization =
+	lazy val InformationFlow_realization =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLRelationship[Uml]](
 		"realization",
 		_.realization,
@@ -3663,7 +3663,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_realizingActivityEdge =
+	lazy val InformationFlow_realizingActivityEdge =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLActivityEdge[Uml]](
 		"realizingActivityEdge",
 		_.realizingActivityEdge,
@@ -3675,7 +3675,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_realizingConnector =
+	lazy val InformationFlow_realizingConnector =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLConnector[Uml]](
 		"realizingConnector",
 		_.realizingConnector,
@@ -3687,7 +3687,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationFlow_realizingMessage =
+	lazy val InformationFlow_realizingMessage =
 		MetaPropertyCollection[Uml, UMLInformationFlow[Uml], UMLMessage[Uml]](
 		"realizingMessage",
 		_.realizingMessage,
@@ -3699,7 +3699,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InformationItem_represented =
+	lazy val InformationItem_represented =
 		MetaPropertyCollection[Uml, UMLInformationItem[Uml], UMLClassifier[Uml]](
 		"represented",
 		_.represented,
@@ -3711,7 +3711,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InstanceSpecification_classifier =
+	lazy val InstanceSpecification_classifier =
 		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLClassifier[Uml]](
 		"classifier",
 		_.classifier,
@@ -3723,7 +3723,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InstanceSpecification_slot =
+	lazy val InstanceSpecification_slot =
 		MetaPropertyCollection[Uml, UMLInstanceSpecification[Uml], UMLSlot[Uml]](
 		"slot",
 		_.slot,
@@ -3735,7 +3735,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InstanceSpecification_specification =
+	lazy val InstanceSpecification_specification =
 		MetaPropertyReference[Uml, UMLInstanceSpecification[Uml], UMLValueSpecification[Uml]](
 		"specification",
 		_.specification,
@@ -3747,7 +3747,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InstanceValue_instance =
+	lazy val InstanceValue_instance =
 		MetaPropertyReference[Uml, UMLInstanceValue[Uml], UMLInstanceSpecification[Uml]](
 		"instance",
 		_.instance,
@@ -3759,7 +3759,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interaction_action =
+	lazy val Interaction_action =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLAction[Uml]](
 		"action",
 		_.action,
@@ -3771,7 +3771,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interaction_formalGate =
+	lazy val Interaction_formalGate =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLGate[Uml]](
 		"formalGate",
 		_.formalGate,
@@ -3783,7 +3783,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interaction_fragment =
+	lazy val Interaction_fragment =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLInteractionFragment[Uml]](
 		"fragment",
 		_.fragment,
@@ -3795,7 +3795,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interaction_lifeline =
+	lazy val Interaction_lifeline =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLLifeline[Uml]](
 		"lifeline",
 		_.lifeline,
@@ -3807,7 +3807,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interaction_message =
+	lazy val Interaction_message =
 		MetaPropertyCollection[Uml, UMLInteraction[Uml], UMLMessage[Uml]](
 		"message",
 		_.message,
@@ -3819,7 +3819,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionConstraint_maxint =
+	lazy val InteractionConstraint_maxint =
 		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
 		"maxint",
 		_.maxint,
@@ -3831,7 +3831,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionConstraint_minint =
+	lazy val InteractionConstraint_minint =
 		MetaPropertyReference[Uml, UMLInteractionConstraint[Uml], UMLValueSpecification[Uml]](
 		"minint",
 		_.minint,
@@ -3843,7 +3843,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionFragment_covered =
+	lazy val InteractionFragment_covered =
 		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLLifeline[Uml]](
 		"covered",
 		_.covered,
@@ -3855,7 +3855,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionFragment_generalOrdering =
+	lazy val InteractionFragment_generalOrdering =
 		MetaPropertyCollection[Uml, UMLInteractionFragment[Uml], UMLGeneralOrdering[Uml]](
 		"generalOrdering",
 		_.generalOrdering,
@@ -3867,7 +3867,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionOperand_fragment =
+	lazy val InteractionOperand_fragment =
 		MetaPropertyCollection[Uml, UMLInteractionOperand[Uml], UMLInteractionFragment[Uml]](
 		"fragment",
 		_.fragment,
@@ -3879,7 +3879,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionOperand_guard =
+	lazy val InteractionOperand_guard =
 		MetaPropertyReference[Uml, UMLInteractionOperand[Uml], UMLInteractionConstraint[Uml]](
 		"guard",
 		_.guard,
@@ -3891,7 +3891,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionUse_actualGate =
+	lazy val InteractionUse_actualGate =
 		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLGate[Uml]](
 		"actualGate",
 		_.actualGate,
@@ -3903,7 +3903,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionUse_argument =
+	lazy val InteractionUse_argument =
 		MetaPropertyCollection[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
 		"argument",
 		_.argument,
@@ -3915,7 +3915,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionUse_refersTo =
+	lazy val InteractionUse_refersTo =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLInteraction[Uml]](
 		"refersTo",
 		_.refersTo,
@@ -3927,7 +3927,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionUse_returnValue =
+	lazy val InteractionUse_returnValue =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLValueSpecification[Uml]](
 		"returnValue",
 		_.returnValue,
@@ -3939,7 +3939,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InteractionUse_returnValueRecipient =
+	lazy val InteractionUse_returnValueRecipient =
 		MetaPropertyReference[Uml, UMLInteractionUse[Uml], UMLProperty[Uml]](
 		"returnValueRecipient",
 		_.returnValueRecipient,
@@ -3951,7 +3951,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_nestedClassifier =
+	lazy val Interface_nestedClassifier =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLClassifier[Uml]](
 		"nestedClassifier",
 		_.nestedClassifier,
@@ -3963,7 +3963,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_ownedAttribute =
+	lazy val Interface_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -3975,7 +3975,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_ownedOperation =
+	lazy val Interface_ownedOperation =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLOperation[Uml]](
 		"ownedOperation",
 		_.ownedOperation,
@@ -3987,7 +3987,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_ownedReception =
+	lazy val Interface_ownedReception =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLReception[Uml]](
 		"ownedReception",
 		_.ownedReception,
@@ -3999,7 +3999,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_protocol =
+	lazy val Interface_protocol =
 		MetaPropertyReference[Uml, UMLInterface[Uml], UMLProtocolStateMachine[Uml]](
 		"protocol",
 		_.protocol,
@@ -4011,7 +4011,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interface_redefinedInterface =
+	lazy val Interface_redefinedInterface =
 		MetaPropertyCollection[Uml, UMLInterface[Uml], UMLInterface[Uml]](
 		"redefinedInterface",
 		_.redefinedInterface,
@@ -4023,7 +4023,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InterfaceRealization_contract =
+	lazy val InterfaceRealization_contract =
 		MetaPropertyReference[Uml, UMLInterfaceRealization[Uml], UMLInterface[Uml]](
 		"contract",
 		_.contract,
@@ -4035,7 +4035,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InterruptibleActivityRegion_interruptingEdge =
+	lazy val InterruptibleActivityRegion_interruptingEdge =
 		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityEdge[Uml]](
 		"interruptingEdge",
 		_.interruptingEdge,
@@ -4047,7 +4047,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InterruptibleActivityRegion_node =
+	lazy val InterruptibleActivityRegion_node =
 		MetaPropertyCollection[Uml, UMLInterruptibleActivityRegion[Uml], UMLActivityNode[Uml]](
 		"node",
 		_.node,
@@ -4059,7 +4059,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interval_max =
+	lazy val Interval_max =
 		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
 		"max",
 		_.max,
@@ -4071,7 +4071,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Interval_min =
+	lazy val Interval_min =
 		MetaPropertyReference[Uml, UMLInterval[Uml], UMLValueSpecification[Uml]](
 		"min",
 		_.min,
@@ -4083,7 +4083,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val IntervalConstraint_specification =
+	lazy val IntervalConstraint_specification =
 		MetaPropertyReference[Uml, UMLIntervalConstraint[Uml], UMLInterval[Uml]](
 		"specification",
 		_.specification,
@@ -4095,7 +4095,7 @@ import Option._
 		redefinedMetaProperties=Set(Constraint_specification),
 		subsettingMetaProperties=Set())
 
-	val InvocationAction_argument =
+	lazy val InvocationAction_argument =
 		MetaPropertyCollection[Uml, UMLInvocationAction[Uml], UMLInputPin[Uml]](
 		"argument",
 		_.argument,
@@ -4107,7 +4107,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val InvocationAction_onPort =
+	lazy val InvocationAction_onPort =
 		MetaPropertyReference[Uml, UMLInvocationAction[Uml], UMLPort[Uml]](
 		"onPort",
 		_.onPort,
@@ -4119,11 +4119,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val JoinNode_isCombineDuplicate =
+	lazy val JoinNode_isCombineDuplicate =
 		new MetaAttributeBooleanFunction[Uml, UMLJoinNode[Uml]](None, "isCombineDuplicate",
 		(x: UMLJoinNode[Uml]) => booleanToIterable(x.isCombineDuplicate, true))
 
-	val JoinNode_joinSpec =
+	lazy val JoinNode_joinSpec =
 		MetaPropertyReference[Uml, UMLJoinNode[Uml], UMLValueSpecification[Uml]](
 		"joinSpec",
 		_.joinSpec,
@@ -4135,7 +4135,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Lifeline_coveredBy =
+	lazy val Lifeline_coveredBy =
 		MetaPropertyCollection[Uml, UMLLifeline[Uml], UMLInteractionFragment[Uml]](
 		"coveredBy",
 		_.coveredBy,
@@ -4147,7 +4147,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Lifeline_decomposedAs =
+	lazy val Lifeline_decomposedAs =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLPartDecomposition[Uml]](
 		"decomposedAs",
 		_.decomposedAs,
@@ -4159,7 +4159,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Lifeline_represents =
+	lazy val Lifeline_represents =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLConnectableElement[Uml]](
 		"represents",
 		_.represents,
@@ -4171,7 +4171,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Lifeline_selector =
+	lazy val Lifeline_selector =
 		MetaPropertyReference[Uml, UMLLifeline[Uml], UMLValueSpecification[Uml]](
 		"selector",
 		_.selector,
@@ -4183,7 +4183,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkAction_endData =
+	lazy val LinkAction_endData =
 		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLLinkEndData[Uml]](
 		"endData",
 		_.endData,
@@ -4195,7 +4195,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkAction_inputValue =
+	lazy val LinkAction_inputValue =
 		MetaPropertyCollection[Uml, UMLLinkAction[Uml], UMLInputPin[Uml]](
 		"inputValue",
 		_.inputValue,
@@ -4207,7 +4207,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndCreationData_insertAt =
+	lazy val LinkEndCreationData_insertAt =
 		MetaPropertyReference[Uml, UMLLinkEndCreationData[Uml], UMLInputPin[Uml]](
 		"insertAt",
 		_.insertAt,
@@ -4219,11 +4219,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndCreationData_isReplaceAll =
+	lazy val LinkEndCreationData_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLLinkEndCreationData[Uml]](None, "isReplaceAll",
 		(x: UMLLinkEndCreationData[Uml]) => booleanToIterable(x.isReplaceAll, false))
 
-	val LinkEndData_end =
+	lazy val LinkEndData_end =
 		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLProperty[Uml]](
 		"end",
 		_.end,
@@ -4235,7 +4235,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndData_qualifier =
+	lazy val LinkEndData_qualifier =
 		MetaPropertyCollection[Uml, UMLLinkEndData[Uml], UMLQualifierValue[Uml]](
 		"qualifier",
 		_.qualifier,
@@ -4247,7 +4247,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndData_value =
+	lazy val LinkEndData_value =
 		MetaPropertyReference[Uml, UMLLinkEndData[Uml], UMLInputPin[Uml]](
 		"value",
 		_.value,
@@ -4259,7 +4259,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndDestructionData_destroyAt =
+	lazy val LinkEndDestructionData_destroyAt =
 		MetaPropertyReference[Uml, UMLLinkEndDestructionData[Uml], UMLInputPin[Uml]](
 		"destroyAt",
 		_.destroyAt,
@@ -4271,31 +4271,31 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LinkEndDestructionData_isDestroyDuplicates =
+	lazy val LinkEndDestructionData_isDestroyDuplicates =
 		new MetaAttributeBooleanFunction[Uml, UMLLinkEndDestructionData[Uml]](None, "isDestroyDuplicates",
 		(x: UMLLinkEndDestructionData[Uml]) => booleanToIterable(x.isDestroyDuplicates, false))
 
-	val LiteralBoolean_value =
+	lazy val LiteralBoolean_value =
 		new MetaAttributeBooleanFunction[Uml, UMLLiteralBoolean[Uml]](None, "value",
 		(x: UMLLiteralBoolean[Uml]) => booleanToIterable(x.value, false))
 
-	val LiteralInteger_value =
+	lazy val LiteralInteger_value =
 		new MetaAttributeIntegerFunction[Uml, UMLLiteralInteger[Uml]](None, "value",
 		(x: UMLLiteralInteger[Uml]) => integerToIterable(x.value, 0))
 
-	val LiteralReal_value =
+	lazy val LiteralReal_value =
 		new MetaAttributeRealFunction[Uml, UMLLiteralReal[Uml]](None, "value",
 		(x: UMLLiteralReal[Uml]) => realToIterable(x.value, 0.0))
 
-	val LiteralString_value =
+	lazy val LiteralString_value =
 		new MetaAttributeStringFunction[Uml, UMLLiteralString[Uml]](OptionConstructor(), None, "value",
 		(x: UMLLiteralString[Uml]) => x.value)
 
-	val LiteralUnlimitedNatural_value =
+	lazy val LiteralUnlimitedNatural_value =
 		new MetaAttributeUnlimitedNaturalFunction[Uml, UMLLiteralUnlimitedNatural[Uml]](None, "value",
 		(x: UMLLiteralUnlimitedNatural[Uml]) => unlimitedNaturalToIterable(x.value, 0))
 
-	val LoopNode_bodyOutput =
+	lazy val LoopNode_bodyOutput =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
 		"bodyOutput",
 		_.bodyOutput,
@@ -4307,7 +4307,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_bodyPart =
+	lazy val LoopNode_bodyPart =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
 		"bodyPart",
 		_.bodyPart,
@@ -4319,7 +4319,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_decider =
+	lazy val LoopNode_decider =
 		MetaPropertyReference[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
 		"decider",
 		_.decider,
@@ -4331,11 +4331,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_isTestedFirst =
+	lazy val LoopNode_isTestedFirst =
 		new MetaAttributeBooleanFunction[Uml, UMLLoopNode[Uml]](None, "isTestedFirst",
 		(x: UMLLoopNode[Uml]) => booleanToIterable(x.isTestedFirst, false))
 
-	val LoopNode_loopVariable =
+	lazy val LoopNode_loopVariable =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
 		"loopVariable",
 		_.loopVariable,
@@ -4347,7 +4347,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_loopVariableInput =
+	lazy val LoopNode_loopVariableInput =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLInputPin[Uml]](
 		"loopVariableInput",
 		_.loopVariableInput,
@@ -4359,7 +4359,7 @@ import Option._
 		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeInput),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_result =
+	lazy val LoopNode_result =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -4371,7 +4371,7 @@ import Option._
 		redefinedMetaProperties=Set(StructuredActivityNode_structuredNodeOutput),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_setupPart =
+	lazy val LoopNode_setupPart =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
 		"setupPart",
 		_.setupPart,
@@ -4383,7 +4383,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val LoopNode_test =
+	lazy val LoopNode_test =
 		MetaPropertyCollection[Uml, UMLLoopNode[Uml], UMLExecutableNode[Uml]](
 		"test",
 		_.test,
@@ -4395,7 +4395,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Manifestation_utilizedElement =
+	lazy val Manifestation_utilizedElement =
 		MetaPropertyReference[Uml, UMLManifestation[Uml], UMLPackageableElement[Uml]](
 		"utilizedElement",
 		_.utilizedElement,
@@ -4407,7 +4407,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Message_argument =
+	lazy val Message_argument =
 		MetaPropertyCollection[Uml, UMLMessage[Uml], UMLValueSpecification[Uml]](
 		"argument",
 		_.argument,
@@ -4419,7 +4419,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Message_connector =
+	lazy val Message_connector =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLConnector[Uml]](
 		"connector",
 		_.connector,
@@ -4431,12 +4431,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Message_messageSort =
+	lazy val Message_messageSort =
 		new MetaAttributeEnumerationFunction[Uml, UMLMessage[Uml], UMLMessageSort.Value, UMLMessageSort.ValueSet](
 		OptionConstructor(), None, "messageSort",
 		(x: UMLMessage[Uml]) => x.messageSort, UMLMessageSort.values)
 
-	val Message_receiveEvent =
+	lazy val Message_receiveEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
 		"receiveEvent",
 		_.receiveEvent,
@@ -4448,7 +4448,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Message_sendEvent =
+	lazy val Message_sendEvent =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLMessageEnd[Uml]](
 		"sendEvent",
 		_.sendEvent,
@@ -4460,7 +4460,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Message_signature =
+	lazy val Message_signature =
 		MetaPropertyReference[Uml, UMLMessage[Uml], UMLNamedElement[Uml]](
 		"signature",
 		_.signature,
@@ -4472,7 +4472,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val MessageEnd_message =
+	lazy val MessageEnd_message =
 		MetaPropertyReference[Uml, UMLMessageEnd[Uml], UMLMessage[Uml]](
 		"message",
 		_.message,
@@ -4484,19 +4484,19 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Model_viewpoint =
+	lazy val Model_viewpoint =
 		new MetaAttributeStringFunction[Uml, UMLModel[Uml]](OptionConstructor(), None, "viewpoint",
 		(x: UMLModel[Uml]) => x.viewpoint)
 
-	val MultiplicityElement_isOrdered =
+	lazy val MultiplicityElement_isOrdered =
 		new MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isOrdered",
 		(x: UMLMultiplicityElement[Uml]) => booleanToIterable(x.isOrdered, false))
 
-	val MultiplicityElement_isUnique =
+	lazy val MultiplicityElement_isUnique =
 		new MetaAttributeBooleanFunction[Uml, UMLMultiplicityElement[Uml]](None, "isUnique",
 		(x: UMLMultiplicityElement[Uml]) => booleanToIterable(x.isUnique, true))
 
-	val MultiplicityElement_lowerValue =
+	lazy val MultiplicityElement_lowerValue =
 		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
 		"lowerValue",
 		_.lowerValue,
@@ -4508,7 +4508,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val MultiplicityElement_upperValue =
+	lazy val MultiplicityElement_upperValue =
 		MetaPropertyReference[Uml, UMLMultiplicityElement[Uml], UMLValueSpecification[Uml]](
 		"upperValue",
 		_.upperValue,
@@ -4520,11 +4520,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val NamedElement_name =
+	lazy val NamedElement_name =
 		new MetaAttributeStringFunction[Uml, UMLNamedElement[Uml]](OptionConstructor(), None, "name",
 		(x: UMLNamedElement[Uml]) => x.name)
 
-	val NamedElement_nameExpression =
+	lazy val NamedElement_nameExpression =
 		MetaPropertyReference[Uml, UMLNamedElement[Uml], UMLStringExpression[Uml]](
 		"nameExpression",
 		_.nameExpression,
@@ -4536,12 +4536,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val NamedElement_visibility =
+	lazy val NamedElement_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLNamedElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
 		OptionConstructor(), None, "visibility",
 		(x: UMLNamedElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
-	val Namespace_elementImport =
+	lazy val Namespace_elementImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLElementImport[Uml]](
 		"elementImport",
 		_.elementImport,
@@ -4553,7 +4553,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Profile_metaclassReference))
 
-	val Namespace_ownedRule =
+	lazy val Namespace_ownedRule =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLConstraint[Uml]](
 		"ownedRule",
 		_.ownedRule,
@@ -4565,7 +4565,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Behavior_postcondition, Behavior_precondition, Operation_bodyCondition, Operation_postcondition, Operation_precondition, ProtocolTransition_postCondition, ProtocolTransition_preCondition, State_stateInvariant, Transition_guard))
 
-	val Namespace_packageImport =
+	lazy val Namespace_packageImport =
 		MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLPackageImport[Uml]](
 		"packageImport",
 		_.packageImport,
@@ -4577,7 +4577,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Profile_metamodelReference))
 
-	val Node_nestedNode =
+	lazy val Node_nestedNode =
 		MetaPropertyCollection[Uml, UMLNode[Uml], UMLNode[Uml]](
 		"nestedNode",
 		_.nestedNode,
@@ -4589,15 +4589,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ObjectFlow_isMulticast =
+	lazy val ObjectFlow_isMulticast =
 		new MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMulticast",
 		(x: UMLObjectFlow[Uml]) => booleanToIterable(x.isMulticast, false))
 
-	val ObjectFlow_isMultireceive =
+	lazy val ObjectFlow_isMultireceive =
 		new MetaAttributeBooleanFunction[Uml, UMLObjectFlow[Uml]](None, "isMultireceive",
 		(x: UMLObjectFlow[Uml]) => booleanToIterable(x.isMultireceive, false))
 
-	val ObjectFlow_selection =
+	lazy val ObjectFlow_selection =
 		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
 		"selection",
 		_.selection,
@@ -4609,7 +4609,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ObjectFlow_transformation =
+	lazy val ObjectFlow_transformation =
 		MetaPropertyReference[Uml, UMLObjectFlow[Uml], UMLBehavior[Uml]](
 		"transformation",
 		_.transformation,
@@ -4621,7 +4621,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ObjectNode_inState =
+	lazy val ObjectNode_inState =
 		MetaPropertyCollection[Uml, UMLObjectNode[Uml], UMLState[Uml]](
 		"inState",
 		_.inState,
@@ -4633,16 +4633,16 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ObjectNode_isControlType =
+	lazy val ObjectNode_isControlType =
 		new MetaAttributeBooleanFunction[Uml, UMLObjectNode[Uml]](None, "isControlType",
 		(x: UMLObjectNode[Uml]) => booleanToIterable(x.isControlType, false))
 
-	val ObjectNode_ordering =
+	lazy val ObjectNode_ordering =
 		new MetaAttributeEnumerationFunction[Uml, UMLObjectNode[Uml], UMLObjectNodeOrderingKind.Value, UMLObjectNodeOrderingKind.ValueSet](
 		OptionConstructor(), None, "ordering",
 		(x: UMLObjectNode[Uml]) => x.ordering, UMLObjectNodeOrderingKind.values)
 
-	val ObjectNode_selection =
+	lazy val ObjectNode_selection =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLBehavior[Uml]](
 		"selection",
 		_.selection,
@@ -4654,7 +4654,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ObjectNode_upperBound =
+	lazy val ObjectNode_upperBound =
 		MetaPropertyReference[Uml, UMLObjectNode[Uml], UMLValueSpecification[Uml]](
 		"upperBound",
 		_.upperBound,
@@ -4666,7 +4666,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OccurrenceSpecification_covered =
+	lazy val OccurrenceSpecification_covered =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLLifeline[Uml]](
 		"covered",
 		_.covered,
@@ -4678,7 +4678,7 @@ import Option._
 		redefinedMetaProperties=Set(InteractionFragment_covered),
 		subsettingMetaProperties=Set())
 
-	val OccurrenceSpecification_toAfter =
+	lazy val OccurrenceSpecification_toAfter =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
 		"toAfter",
 		_.toAfter,
@@ -4690,7 +4690,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OccurrenceSpecification_toBefore =
+	lazy val OccurrenceSpecification_toBefore =
 		MetaPropertyCollection[Uml, UMLOccurrenceSpecification[Uml], UMLGeneralOrdering[Uml]](
 		"toBefore",
 		_.toBefore,
@@ -4702,11 +4702,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OpaqueAction_body =
+	lazy val OpaqueAction_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](IterableConstructor(), None, "body",
 		(x: UMLOpaqueAction[Uml]) => x.body)
 
-	val OpaqueAction_inputValue =
+	lazy val OpaqueAction_inputValue =
 		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLInputPin[Uml]](
 		"inputValue",
 		_.inputValue,
@@ -4718,11 +4718,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OpaqueAction_language =
+	lazy val OpaqueAction_language =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueAction[Uml]](IterableConstructor(), None, "language",
 		(x: UMLOpaqueAction[Uml]) => x.language)
 
-	val OpaqueAction_outputValue =
+	lazy val OpaqueAction_outputValue =
 		MetaPropertyCollection[Uml, UMLOpaqueAction[Uml], UMLOutputPin[Uml]](
 		"outputValue",
 		_.outputValue,
@@ -4734,15 +4734,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OpaqueBehavior_body =
+	lazy val OpaqueBehavior_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](IterableConstructor(), None, "body",
 		(x: UMLOpaqueBehavior[Uml]) => x.body)
 
-	val OpaqueBehavior_language =
+	lazy val OpaqueBehavior_language =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueBehavior[Uml]](IterableConstructor(), None, "language",
 		(x: UMLOpaqueBehavior[Uml]) => x.language)
 
-	val OpaqueExpression_behavior =
+	lazy val OpaqueExpression_behavior =
 		MetaPropertyReference[Uml, UMLOpaqueExpression[Uml], UMLBehavior[Uml]](
 		"behavior",
 		_.behavior,
@@ -4754,15 +4754,15 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val OpaqueExpression_body =
+	lazy val OpaqueExpression_body =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](IterableConstructor(), None, "body",
 		(x: UMLOpaqueExpression[Uml]) => x.body)
 
-	val OpaqueExpression_language =
+	lazy val OpaqueExpression_language =
 		new MetaAttributeStringFunction[Uml, UMLOpaqueExpression[Uml]](IterableConstructor(), None, "language",
 		(x: UMLOpaqueExpression[Uml]) => x.language)
 
-	val Operation_bodyCondition =
+	lazy val Operation_bodyCondition =
 		MetaPropertyReference[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
 		"bodyCondition",
 		_.bodyCondition,
@@ -4774,11 +4774,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Operation_isQuery =
+	lazy val Operation_isQuery =
 		new MetaAttributeBooleanFunction[Uml, UMLOperation[Uml]](None, "isQuery",
 		(x: UMLOperation[Uml]) => booleanToIterable(x.isQuery, false))
 
-	val Operation_ownedParameter =
+	lazy val Operation_ownedParameter =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLParameter[Uml]](
 		"ownedParameter",
 		_.ownedParameter,
@@ -4790,7 +4790,7 @@ import Option._
 		redefinedMetaProperties=Set(BehavioralFeature_ownedParameter),
 		subsettingMetaProperties=Set())
 
-	val Operation_postcondition =
+	lazy val Operation_postcondition =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
 		"postcondition",
 		_.postcondition,
@@ -4802,7 +4802,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Operation_precondition =
+	lazy val Operation_precondition =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLConstraint[Uml]](
 		"precondition",
 		_.precondition,
@@ -4814,7 +4814,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Operation_raisedException =
+	lazy val Operation_raisedException =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLType[Uml]](
 		"raisedException",
 		_.raisedException,
@@ -4826,7 +4826,7 @@ import Option._
 		redefinedMetaProperties=Set(BehavioralFeature_raisedException),
 		subsettingMetaProperties=Set())
 
-	val Operation_redefinedOperation =
+	lazy val Operation_redefinedOperation =
 		MetaPropertyCollection[Uml, UMLOperation[Uml], UMLOperation[Uml]](
 		"redefinedOperation",
 		_.redefinedOperation,
@@ -4838,7 +4838,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Operation_templateParameter =
+	lazy val Operation_templateParameter =
 		MetaPropertyReference[Uml, UMLOperation[Uml], UMLOperationTemplateParameter[Uml]](
 		"templateParameter",
 		_.templateParameter,
@@ -4850,7 +4850,7 @@ import Option._
 		redefinedMetaProperties=Set(ParameterableElement_templateParameter),
 		subsettingMetaProperties=Set())
 
-	val OperationTemplateParameter_parameteredElement =
+	lazy val OperationTemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLOperationTemplateParameter[Uml], UMLOperation[Uml]](
 		"parameteredElement",
 		_.parameteredElement,
@@ -4862,11 +4862,11 @@ import Option._
 		redefinedMetaProperties=Set(TemplateParameter_parameteredElement),
 		subsettingMetaProperties=Set())
 
-	val Package_URI =
+	lazy val Package_URI =
 		new MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
 		    (x: UMLPackage[Uml]) => \/-(x.URI.toIterable))
 
-	val Package_packageMerge =
+	lazy val Package_packageMerge =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](
 		"packageMerge",
 		_.packageMerge,
@@ -4878,7 +4878,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Package_packagedElement =
+	lazy val Package_packagedElement =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageableElement[Uml]](
 		"packagedElement",
 		_.packagedElement,
@@ -4890,7 +4890,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Package_profileApplication =
+	lazy val Package_profileApplication =
 		MetaPropertyCollection[Uml, UMLPackage[Uml], UMLProfileApplication[Uml]](
 		"profileApplication",
 		_.profileApplication,
@@ -4902,7 +4902,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val PackageImport_importedPackage =
+	lazy val PackageImport_importedPackage =
 		MetaPropertyReference[Uml, UMLPackageImport[Uml], UMLPackage[Uml]](
 		"importedPackage",
 		_.importedPackage,
@@ -4914,12 +4914,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val PackageImport_visibility =
+	lazy val PackageImport_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLPackageImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
 		OptionConstructor(), None, "visibility",
 		(x: UMLPackageImport[Uml]) => x.visibility, UMLVisibilityKind.values)
 
-	val PackageMerge_mergedPackage =
+	lazy val PackageMerge_mergedPackage =
 		MetaPropertyReference[Uml, UMLPackageMerge[Uml], UMLPackage[Uml]](
 		"mergedPackage",
 		_.mergedPackage,
@@ -4931,12 +4931,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val PackageableElement_visibility =
+	lazy val PackageableElement_visibility =
 		new MetaAttributeEnumerationFunction[Uml, UMLPackageableElement[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
 		OptionConstructor(), None, "visibility",
 		(x: UMLPackageableElement[Uml]) => x.visibility, UMLVisibilityKind.values)
 
-	val Parameter_defaultValue =
+	lazy val Parameter_defaultValue =
 		MetaPropertyReference[Uml, UMLParameter[Uml], UMLValueSpecification[Uml]](
 		"defaultValue",
 		_.defaultValue,
@@ -4948,25 +4948,25 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Parameter_direction =
+	lazy val Parameter_direction =
 		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterDirectionKind.Value, UMLParameterDirectionKind.ValueSet](
 		OptionConstructor(), None, "direction",
 		(x: UMLParameter[Uml]) => x.direction, UMLParameterDirectionKind.values)
 
-	val Parameter_effect =
+	lazy val Parameter_effect =
 		new MetaAttributeEnumerationFunction[Uml, UMLParameter[Uml], UMLParameterEffectKind.Value, UMLParameterEffectKind.ValueSet](
 		OptionConstructor(), None, "effect",
 		(x: UMLParameter[Uml]) => x.effect, UMLParameterEffectKind.values)
 
-	val Parameter_isException =
+	lazy val Parameter_isException =
 		new MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isException",
 		(x: UMLParameter[Uml]) => booleanToIterable(x.isException, false))
 
-	val Parameter_isStream =
+	lazy val Parameter_isStream =
 		new MetaAttributeBooleanFunction[Uml, UMLParameter[Uml]](None, "isStream",
 		(x: UMLParameter[Uml]) => booleanToIterable(x.isStream, false))
 
-	val Parameter_parameterSet =
+	lazy val Parameter_parameterSet =
 		MetaPropertyCollection[Uml, UMLParameter[Uml], UMLParameterSet[Uml]](
 		"parameterSet",
 		_.parameterSet,
@@ -4978,7 +4978,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ParameterSet_condition =
+	lazy val ParameterSet_condition =
 		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLConstraint[Uml]](
 		"condition",
 		_.condition,
@@ -4990,7 +4990,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ParameterSet_parameter =
+	lazy val ParameterSet_parameter =
 		MetaPropertyCollection[Uml, UMLParameterSet[Uml], UMLParameter[Uml]](
 		"parameter",
 		_.parameter,
@@ -5002,7 +5002,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ParameterableElement_templateParameter =
+	lazy val ParameterableElement_templateParameter =
 		MetaPropertyReference[Uml, UMLParameterableElement[Uml], UMLTemplateParameter[Uml]](
 		"templateParameter",
 		_.templateParameter,
@@ -5014,23 +5014,23 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Pin_isControl =
+	lazy val Pin_isControl =
 		new MetaAttributeBooleanFunction[Uml, UMLPin[Uml]](None, "isControl",
 		(x: UMLPin[Uml]) => booleanToIterable(x.isControl, false))
 
-	val Port_isBehavior =
+	lazy val Port_isBehavior =
 		new MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isBehavior",
 		(x: UMLPort[Uml]) => booleanToIterable(x.isBehavior, false))
 
-	val Port_isConjugated =
+	lazy val Port_isConjugated =
 		new MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isConjugated",
 		(x: UMLPort[Uml]) => booleanToIterable(x.isConjugated, false))
 
-	val Port_isService =
+	lazy val Port_isService =
 		new MetaAttributeBooleanFunction[Uml, UMLPort[Uml]](None, "isService",
 		(x: UMLPort[Uml]) => booleanToIterable(x.isService, true))
 
-	val Port_protocol =
+	lazy val Port_protocol =
 		MetaPropertyReference[Uml, UMLPort[Uml], UMLProtocolStateMachine[Uml]](
 		"protocol",
 		_.protocol,
@@ -5042,7 +5042,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Port_redefinedPort =
+	lazy val Port_redefinedPort =
 		MetaPropertyCollection[Uml, UMLPort[Uml], UMLPort[Uml]](
 		"redefinedPort",
 		_.redefinedPort,
@@ -5054,7 +5054,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Profile_metaclassReference =
+	lazy val Profile_metaclassReference =
 		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLElementImport[Uml]](
 		"metaclassReference",
 		_.metaclassReference,
@@ -5066,7 +5066,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Profile_metamodelReference =
+	lazy val Profile_metamodelReference =
 		MetaPropertyCollection[Uml, UMLProfile[Uml], UMLPackageImport[Uml]](
 		"metamodelReference",
 		_.metamodelReference,
@@ -5078,7 +5078,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProfileApplication_appliedProfile =
+	lazy val ProfileApplication_appliedProfile =
 		MetaPropertyReference[Uml, UMLProfileApplication[Uml], UMLProfile[Uml]](
 		"appliedProfile",
 		_.appliedProfile,
@@ -5090,16 +5090,16 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProfileApplication_isStrict =
+	lazy val ProfileApplication_isStrict =
 		new MetaAttributeBooleanFunction[Uml, UMLProfileApplication[Uml]](None, "isStrict",
 		(x: UMLProfileApplication[Uml]) => booleanToIterable(x.isStrict, false))
 
-	val Property_aggregation =
+	lazy val Property_aggregation =
 		new MetaAttributeEnumerationFunction[Uml, UMLProperty[Uml], UMLAggregationKind.Value, UMLAggregationKind.ValueSet](
 		OptionConstructor(), None, "aggregation",
 		(x: UMLProperty[Uml]) => x.aggregation, UMLAggregationKind.values)
 
-	val Property_association =
+	lazy val Property_association =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLAssociation[Uml]](
 		"association",
 		_.association,
@@ -5111,7 +5111,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Property_defaultValue =
+	lazy val Property_defaultValue =
 		MetaPropertyReference[Uml, UMLProperty[Uml], UMLValueSpecification[Uml]](
 		"defaultValue",
 		_.defaultValue,
@@ -5123,19 +5123,19 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Property_isDerived =
+	lazy val Property_isDerived =
 		new MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerived",
 		(x: UMLProperty[Uml]) => booleanToIterable(x.isDerived, false))
 
-	val Property_isDerivedUnion =
+	lazy val Property_isDerivedUnion =
 		new MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isDerivedUnion",
 		(x: UMLProperty[Uml]) => booleanToIterable(x.isDerivedUnion, false))
 
-	val Property_isID =
+	lazy val Property_isID =
 		new MetaAttributeBooleanFunction[Uml, UMLProperty[Uml]](None, "isID",
 		(x: UMLProperty[Uml]) => booleanToIterable(x.isID, false))
 
-	val Property_qualifier =
+	lazy val Property_qualifier =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
 		"qualifier",
 		_.qualifier,
@@ -5147,7 +5147,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Property_redefinedProperty =
+	lazy val Property_redefinedProperty =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
 		"redefinedProperty",
 		_.redefinedProperty,
@@ -5159,7 +5159,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(Port_redefinedPort))
 
-	val Property_subsettedProperty =
+	lazy val Property_subsettedProperty =
 		MetaPropertyCollection[Uml, UMLProperty[Uml], UMLProperty[Uml]](
 		"subsettedProperty",
 		_.subsettedProperty,
@@ -5171,7 +5171,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProtocolConformance_generalMachine =
+	lazy val ProtocolConformance_generalMachine =
 		MetaPropertyReference[Uml, UMLProtocolConformance[Uml], UMLProtocolStateMachine[Uml]](
 		"generalMachine",
 		_.generalMachine,
@@ -5183,7 +5183,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProtocolStateMachine_conformance =
+	lazy val ProtocolStateMachine_conformance =
 		MetaPropertyCollection[Uml, UMLProtocolStateMachine[Uml], UMLProtocolConformance[Uml]](
 		"conformance",
 		_.conformance,
@@ -5195,7 +5195,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProtocolTransition_postCondition =
+	lazy val ProtocolTransition_postCondition =
 		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
 		"postCondition",
 		_.postCondition,
@@ -5207,7 +5207,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ProtocolTransition_preCondition =
+	lazy val ProtocolTransition_preCondition =
 		MetaPropertyReference[Uml, UMLProtocolTransition[Uml], UMLConstraint[Uml]](
 		"preCondition",
 		_.preCondition,
@@ -5219,12 +5219,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Pseudostate_kind =
+	lazy val Pseudostate_kind =
 		new MetaAttributeEnumerationFunction[Uml, UMLPseudostate[Uml], UMLPseudostateKind.Value, UMLPseudostateKind.ValueSet](
 		OptionConstructor(), None, "kind",
 		(x: UMLPseudostate[Uml]) => x.kind, UMLPseudostateKind.values)
 
-	val QualifierValue_qualifier =
+	lazy val QualifierValue_qualifier =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLProperty[Uml]](
 		"qualifier",
 		_.qualifier,
@@ -5236,7 +5236,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val QualifierValue_value =
+	lazy val QualifierValue_value =
 		MetaPropertyReference[Uml, UMLQualifierValue[Uml], UMLInputPin[Uml]](
 		"value",
 		_.value,
@@ -5248,7 +5248,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val RaiseExceptionAction_exception =
+	lazy val RaiseExceptionAction_exception =
 		MetaPropertyReference[Uml, UMLRaiseExceptionAction[Uml], UMLInputPin[Uml]](
 		"exception",
 		_.exception,
@@ -5260,7 +5260,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadExtentAction_classifier =
+	lazy val ReadExtentAction_classifier =
 		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLClassifier[Uml]](
 		"classifier",
 		_.classifier,
@@ -5272,7 +5272,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadExtentAction_result =
+	lazy val ReadExtentAction_result =
 		MetaPropertyReference[Uml, UMLReadExtentAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5284,7 +5284,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadIsClassifiedObjectAction_classifier =
+	lazy val ReadIsClassifiedObjectAction_classifier =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLClassifier[Uml]](
 		"classifier",
 		_.classifier,
@@ -5296,11 +5296,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadIsClassifiedObjectAction_isDirect =
+	lazy val ReadIsClassifiedObjectAction_isDirect =
 		new MetaAttributeBooleanFunction[Uml, UMLReadIsClassifiedObjectAction[Uml]](None, "isDirect",
 		(x: UMLReadIsClassifiedObjectAction[Uml]) => booleanToIterable(x.isDirect, false))
 
-	val ReadIsClassifiedObjectAction_object =
+	lazy val ReadIsClassifiedObjectAction_object =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5312,7 +5312,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadIsClassifiedObjectAction_result =
+	lazy val ReadIsClassifiedObjectAction_result =
 		MetaPropertyReference[Uml, UMLReadIsClassifiedObjectAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5324,7 +5324,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkAction_result =
+	lazy val ReadLinkAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5336,7 +5336,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndAction_end =
+	lazy val ReadLinkObjectEndAction_end =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLProperty[Uml]](
 		"end",
 		_.end,
@@ -5348,7 +5348,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndAction_object =
+	lazy val ReadLinkObjectEndAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5360,7 +5360,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndAction_result =
+	lazy val ReadLinkObjectEndAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5372,7 +5372,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndQualifierAction_object =
+	lazy val ReadLinkObjectEndQualifierAction_object =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5384,7 +5384,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndQualifierAction_qualifier =
+	lazy val ReadLinkObjectEndQualifierAction_qualifier =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLProperty[Uml]](
 		"qualifier",
 		_.qualifier,
@@ -5396,7 +5396,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadLinkObjectEndQualifierAction_result =
+	lazy val ReadLinkObjectEndQualifierAction_result =
 		MetaPropertyReference[Uml, UMLReadLinkObjectEndQualifierAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5408,7 +5408,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadSelfAction_result =
+	lazy val ReadSelfAction_result =
 		MetaPropertyReference[Uml, UMLReadSelfAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5420,7 +5420,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadStructuralFeatureAction_result =
+	lazy val ReadStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLReadStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5432,7 +5432,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReadVariableAction_result =
+	lazy val ReadVariableAction_result =
 		MetaPropertyReference[Uml, UMLReadVariableAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5444,7 +5444,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Reception_signal =
+	lazy val Reception_signal =
 		MetaPropertyReference[Uml, UMLReception[Uml], UMLSignal[Uml]](
 		"signal",
 		_.signal,
@@ -5456,11 +5456,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReclassifyObjectAction_isReplaceAll =
+	lazy val ReclassifyObjectAction_isReplaceAll =
 		new MetaAttributeBooleanFunction[Uml, UMLReclassifyObjectAction[Uml]](None, "isReplaceAll",
 		(x: UMLReclassifyObjectAction[Uml]) => booleanToIterable(x.isReplaceAll, false))
 
-	val ReclassifyObjectAction_newClassifier =
+	lazy val ReclassifyObjectAction_newClassifier =
 		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
 		"newClassifier",
 		_.newClassifier,
@@ -5472,7 +5472,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReclassifyObjectAction_object =
+	lazy val ReclassifyObjectAction_object =
 		MetaPropertyReference[Uml, UMLReclassifyObjectAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5484,7 +5484,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReclassifyObjectAction_oldClassifier =
+	lazy val ReclassifyObjectAction_oldClassifier =
 		MetaPropertyCollection[Uml, UMLReclassifyObjectAction[Uml], UMLClassifier[Uml]](
 		"oldClassifier",
 		_.oldClassifier,
@@ -5496,11 +5496,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val RedefinableElement_isLeaf =
+	lazy val RedefinableElement_isLeaf =
 		new MetaAttributeBooleanFunction[Uml, UMLRedefinableElement[Uml]](None, "isLeaf",
 		(x: UMLRedefinableElement[Uml]) => booleanToIterable(x.isLeaf, false))
 
-	val RedefinableTemplateSignature_extendedSignature =
+	lazy val RedefinableTemplateSignature_extendedSignature =
 		MetaPropertyCollection[Uml, UMLRedefinableTemplateSignature[Uml], UMLRedefinableTemplateSignature[Uml]](
 		"extendedSignature",
 		_.extendedSignature,
@@ -5512,7 +5512,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReduceAction_collection =
+	lazy val ReduceAction_collection =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLInputPin[Uml]](
 		"collection",
 		_.collection,
@@ -5524,11 +5524,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReduceAction_isOrdered =
+	lazy val ReduceAction_isOrdered =
 		new MetaAttributeBooleanFunction[Uml, UMLReduceAction[Uml]](None, "isOrdered",
 		(x: UMLReduceAction[Uml]) => booleanToIterable(x.isOrdered, false))
 
-	val ReduceAction_reducer =
+	lazy val ReduceAction_reducer =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLBehavior[Uml]](
 		"reducer",
 		_.reducer,
@@ -5540,7 +5540,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReduceAction_result =
+	lazy val ReduceAction_result =
 		MetaPropertyReference[Uml, UMLReduceAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -5552,7 +5552,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Region_extendedRegion =
+	lazy val Region_extendedRegion =
 		MetaPropertyReference[Uml, UMLRegion[Uml], UMLRegion[Uml]](
 		"extendedRegion",
 		_.extendedRegion,
@@ -5564,7 +5564,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Region_subvertex =
+	lazy val Region_subvertex =
 		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLVertex[Uml]](
 		"subvertex",
 		_.subvertex,
@@ -5576,7 +5576,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Region_transition =
+	lazy val Region_transition =
 		MetaPropertyCollection[Uml, UMLRegion[Uml], UMLTransition[Uml]](
 		"transition",
 		_.transition,
@@ -5588,11 +5588,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val RemoveStructuralFeatureValueAction_isRemoveDuplicates =
+	lazy val RemoveStructuralFeatureValueAction_isRemoveDuplicates =
 		new MetaAttributeBooleanFunction[Uml, UMLRemoveStructuralFeatureValueAction[Uml]](None, "isRemoveDuplicates",
 		(x: UMLRemoveStructuralFeatureValueAction[Uml]) => booleanToIterable(x.isRemoveDuplicates, false))
 
-	val RemoveStructuralFeatureValueAction_removeAt =
+	lazy val RemoveStructuralFeatureValueAction_removeAt =
 		MetaPropertyReference[Uml, UMLRemoveStructuralFeatureValueAction[Uml], UMLInputPin[Uml]](
 		"removeAt",
 		_.removeAt,
@@ -5604,11 +5604,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val RemoveVariableValueAction_isRemoveDuplicates =
+	lazy val RemoveVariableValueAction_isRemoveDuplicates =
 		new MetaAttributeBooleanFunction[Uml, UMLRemoveVariableValueAction[Uml]](None, "isRemoveDuplicates",
 		(x: UMLRemoveVariableValueAction[Uml]) => booleanToIterable(x.isRemoveDuplicates, false))
 
-	val RemoveVariableValueAction_removeAt =
+	lazy val RemoveVariableValueAction_removeAt =
 		MetaPropertyReference[Uml, UMLRemoveVariableValueAction[Uml], UMLInputPin[Uml]](
 		"removeAt",
 		_.removeAt,
@@ -5620,7 +5620,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReplyAction_replyToCall =
+	lazy val ReplyAction_replyToCall =
 		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLTrigger[Uml]](
 		"replyToCall",
 		_.replyToCall,
@@ -5632,7 +5632,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReplyAction_replyValue =
+	lazy val ReplyAction_replyValue =
 		MetaPropertyCollection[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
 		"replyValue",
 		_.replyValue,
@@ -5644,7 +5644,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ReplyAction_returnInformation =
+	lazy val ReplyAction_returnInformation =
 		MetaPropertyReference[Uml, UMLReplyAction[Uml], UMLInputPin[Uml]](
 		"returnInformation",
 		_.returnInformation,
@@ -5656,7 +5656,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val SendObjectAction_request =
+	lazy val SendObjectAction_request =
 		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
 		"request",
 		_.request,
@@ -5668,7 +5668,7 @@ import Option._
 		redefinedMetaProperties=Set(InvocationAction_argument),
 		subsettingMetaProperties=Set())
 
-	val SendObjectAction_target =
+	lazy val SendObjectAction_target =
 		MetaPropertyReference[Uml, UMLSendObjectAction[Uml], UMLInputPin[Uml]](
 		"target",
 		_.target,
@@ -5680,7 +5680,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val SendSignalAction_signal =
+	lazy val SendSignalAction_signal =
 		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLSignal[Uml]](
 		"signal",
 		_.signal,
@@ -5692,7 +5692,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val SendSignalAction_target =
+	lazy val SendSignalAction_target =
 		MetaPropertyReference[Uml, UMLSendSignalAction[Uml], UMLInputPin[Uml]](
 		"target",
 		_.target,
@@ -5704,7 +5704,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val SequenceNode_executableNode =
+	lazy val SequenceNode_executableNode =
 		MetaPropertyCollection[Uml, UMLSequenceNode[Uml], UMLExecutableNode[Uml]](
 		"executableNode",
 		_.executableNode,
@@ -5716,7 +5716,7 @@ import Option._
 		redefinedMetaProperties=Set(StructuredActivityNode_node),
 		subsettingMetaProperties=Set())
 
-	val Signal_ownedAttribute =
+	lazy val Signal_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLSignal[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -5728,7 +5728,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val SignalEvent_signal =
+	lazy val SignalEvent_signal =
 		MetaPropertyReference[Uml, UMLSignalEvent[Uml], UMLSignal[Uml]](
 		"signal",
 		_.signal,
@@ -5740,7 +5740,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Slot_definingFeature =
+	lazy val Slot_definingFeature =
 		MetaPropertyReference[Uml, UMLSlot[Uml], UMLStructuralFeature[Uml]](
 		"definingFeature",
 		_.definingFeature,
@@ -5752,7 +5752,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Slot_value =
+	lazy val Slot_value =
 		MetaPropertyCollection[Uml, UMLSlot[Uml], UMLValueSpecification[Uml]](
 		"value",
 		_.value,
@@ -5764,7 +5764,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StartClassifierBehaviorAction_object =
+	lazy val StartClassifierBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartClassifierBehaviorAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5776,7 +5776,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StartObjectBehaviorAction_object =
+	lazy val StartObjectBehaviorAction_object =
 		MetaPropertyReference[Uml, UMLStartObjectBehaviorAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -5788,7 +5788,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_connection =
+	lazy val State_connection =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLConnectionPointReference[Uml]](
 		"connection",
 		_.connection,
@@ -5800,7 +5800,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_connectionPoint =
+	lazy val State_connectionPoint =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLPseudostate[Uml]](
 		"connectionPoint",
 		_.connectionPoint,
@@ -5812,7 +5812,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_deferrableTrigger =
+	lazy val State_deferrableTrigger =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLTrigger[Uml]](
 		"deferrableTrigger",
 		_.deferrableTrigger,
@@ -5824,7 +5824,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_doActivity =
+	lazy val State_doActivity =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
 		"doActivity",
 		_.doActivity,
@@ -5836,7 +5836,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_entry =
+	lazy val State_entry =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
 		"entry",
 		_.entry,
@@ -5848,7 +5848,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_exit =
+	lazy val State_exit =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLBehavior[Uml]](
 		"exit",
 		_.exit,
@@ -5860,7 +5860,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_redefinedState =
+	lazy val State_redefinedState =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLState[Uml]](
 		"redefinedState",
 		_.redefinedState,
@@ -5872,7 +5872,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_region =
+	lazy val State_region =
 		MetaPropertyCollection[Uml, UMLState[Uml], UMLRegion[Uml]](
 		"region",
 		_.region,
@@ -5884,7 +5884,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_stateInvariant =
+	lazy val State_stateInvariant =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLConstraint[Uml]](
 		"stateInvariant",
 		_.stateInvariant,
@@ -5896,7 +5896,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val State_submachine =
+	lazy val State_submachine =
 		MetaPropertyReference[Uml, UMLState[Uml], UMLStateMachine[Uml]](
 		"submachine",
 		_.submachine,
@@ -5908,7 +5908,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StateInvariant_covered =
+	lazy val StateInvariant_covered =
 		MetaPropertyCollection[Uml, UMLStateInvariant[Uml], UMLLifeline[Uml]](
 		"covered",
 		_.covered,
@@ -5920,7 +5920,7 @@ import Option._
 		redefinedMetaProperties=Set(InteractionFragment_covered),
 		subsettingMetaProperties=Set())
 
-	val StateInvariant_invariant =
+	lazy val StateInvariant_invariant =
 		MetaPropertyReference[Uml, UMLStateInvariant[Uml], UMLConstraint[Uml]](
 		"invariant",
 		_.invariant,
@@ -5932,7 +5932,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StateMachine_connectionPoint =
+	lazy val StateMachine_connectionPoint =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLPseudostate[Uml]](
 		"connectionPoint",
 		_.connectionPoint,
@@ -5944,7 +5944,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StateMachine_extendedStateMachine =
+	lazy val StateMachine_extendedStateMachine =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLStateMachine[Uml]](
 		"extendedStateMachine",
 		_.extendedStateMachine,
@@ -5956,7 +5956,7 @@ import Option._
 		redefinedMetaProperties=Set(Behavior_redefinedBehavior),
 		subsettingMetaProperties=Set())
 
-	val StateMachine_region =
+	lazy val StateMachine_region =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLRegion[Uml]](
 		"region",
 		_.region,
@@ -5968,7 +5968,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StateMachine_submachineState =
+	lazy val StateMachine_submachineState =
 		MetaPropertyCollection[Uml, UMLStateMachine[Uml], UMLState[Uml]](
 		"submachineState",
 		_.submachineState,
@@ -5980,7 +5980,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Stereotype_icon =
+	lazy val Stereotype_icon =
 		MetaPropertyCollection[Uml, UMLStereotype[Uml], UMLImage[Uml]](
 		"icon",
 		_.icon,
@@ -5992,7 +5992,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StringExpression_subExpression =
+	lazy val StringExpression_subExpression =
 		MetaPropertyCollection[Uml, UMLStringExpression[Uml], UMLStringExpression[Uml]](
 		"subExpression",
 		_.subExpression,
@@ -6004,11 +6004,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuralFeature_isReadOnly =
+	lazy val StructuralFeature_isReadOnly =
 		new MetaAttributeBooleanFunction[Uml, UMLStructuralFeature[Uml]](None, "isReadOnly",
 		(x: UMLStructuralFeature[Uml]) => booleanToIterable(x.isReadOnly, false))
 
-	val StructuralFeatureAction_object =
+	lazy val StructuralFeatureAction_object =
 		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -6020,7 +6020,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuralFeatureAction_structuralFeature =
+	lazy val StructuralFeatureAction_structuralFeature =
 		MetaPropertyReference[Uml, UMLStructuralFeatureAction[Uml], UMLStructuralFeature[Uml]](
 		"structuralFeature",
 		_.structuralFeature,
@@ -6032,7 +6032,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredActivityNode_edge =
+	lazy val StructuredActivityNode_edge =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityEdge[Uml]](
 		"edge",
 		_.edge,
@@ -6044,11 +6044,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredActivityNode_mustIsolate =
+	lazy val StructuredActivityNode_mustIsolate =
 		new MetaAttributeBooleanFunction[Uml, UMLStructuredActivityNode[Uml]](None, "mustIsolate",
 		(x: UMLStructuredActivityNode[Uml]) => booleanToIterable(x.mustIsolate, false))
 
-	val StructuredActivityNode_node =
+	lazy val StructuredActivityNode_node =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLActivityNode[Uml]](
 		"node",
 		_.node,
@@ -6060,7 +6060,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredActivityNode_structuredNodeInput =
+	lazy val StructuredActivityNode_structuredNodeInput =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLInputPin[Uml]](
 		"structuredNodeInput",
 		_.structuredNodeInput,
@@ -6072,7 +6072,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredActivityNode_structuredNodeOutput =
+	lazy val StructuredActivityNode_structuredNodeOutput =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLOutputPin[Uml]](
 		"structuredNodeOutput",
 		_.structuredNodeOutput,
@@ -6084,7 +6084,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredActivityNode_variable =
+	lazy val StructuredActivityNode_variable =
 		MetaPropertyCollection[Uml, UMLStructuredActivityNode[Uml], UMLVariable[Uml]](
 		"variable",
 		_.variable,
@@ -6096,7 +6096,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredClassifier_ownedAttribute =
+	lazy val StructuredClassifier_ownedAttribute =
 		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLProperty[Uml]](
 		"ownedAttribute",
 		_.ownedAttribute,
@@ -6108,7 +6108,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val StructuredClassifier_ownedConnector =
+	lazy val StructuredClassifier_ownedConnector =
 		MetaPropertyCollection[Uml, UMLStructuredClassifier[Uml], UMLConnector[Uml]](
 		"ownedConnector",
 		_.ownedConnector,
@@ -6120,7 +6120,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Substitution_contract =
+	lazy val Substitution_contract =
 		MetaPropertyReference[Uml, UMLSubstitution[Uml], UMLClassifier[Uml]](
 		"contract",
 		_.contract,
@@ -6132,7 +6132,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateBinding_parameterSubstitution =
+	lazy val TemplateBinding_parameterSubstitution =
 		MetaPropertyCollection[Uml, UMLTemplateBinding[Uml], UMLTemplateParameterSubstitution[Uml]](
 		"parameterSubstitution",
 		_.parameterSubstitution,
@@ -6144,7 +6144,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateBinding_signature =
+	lazy val TemplateBinding_signature =
 		MetaPropertyReference[Uml, UMLTemplateBinding[Uml], UMLTemplateSignature[Uml]](
 		"signature",
 		_.signature,
@@ -6156,7 +6156,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateParameter_default =
+	lazy val TemplateParameter_default =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
 		"default",
 		_.default,
@@ -6168,7 +6168,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(TemplateParameter_ownedDefault))
 
-	val TemplateParameter_ownedDefault =
+	lazy val TemplateParameter_ownedDefault =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
 		"ownedDefault",
 		_.ownedDefault,
@@ -6180,7 +6180,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateParameter_ownedParameteredElement =
+	lazy val TemplateParameter_ownedParameteredElement =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
 		"ownedParameteredElement",
 		_.ownedParameteredElement,
@@ -6192,7 +6192,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateParameter_parameteredElement =
+	lazy val TemplateParameter_parameteredElement =
 		MetaPropertyReference[Uml, UMLTemplateParameter[Uml], UMLParameterableElement[Uml]](
 		"parameteredElement",
 		_.parameteredElement,
@@ -6204,7 +6204,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(TemplateParameter_ownedParameteredElement))
 
-	val TemplateParameterSubstitution_actual =
+	lazy val TemplateParameterSubstitution_actual =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
 		"actual",
 		_.actual,
@@ -6216,7 +6216,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(TemplateParameterSubstitution_ownedActual))
 
-	val TemplateParameterSubstitution_formal =
+	lazy val TemplateParameterSubstitution_formal =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLTemplateParameter[Uml]](
 		"formal",
 		_.formal,
@@ -6228,7 +6228,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateParameterSubstitution_ownedActual =
+	lazy val TemplateParameterSubstitution_ownedActual =
 		MetaPropertyReference[Uml, UMLTemplateParameterSubstitution[Uml], UMLParameterableElement[Uml]](
 		"ownedActual",
 		_.ownedActual,
@@ -6240,7 +6240,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateSignature_ownedParameter =
+	lazy val TemplateSignature_ownedParameter =
 		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
 		"ownedParameter",
 		_.ownedParameter,
@@ -6252,7 +6252,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateSignature_parameter =
+	lazy val TemplateSignature_parameter =
 		MetaPropertyCollection[Uml, UMLTemplateSignature[Uml], UMLTemplateParameter[Uml]](
 		"parameter",
 		_.parameter,
@@ -6264,7 +6264,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(TemplateSignature_ownedParameter))
 
-	val TemplateableElement_ownedTemplateSignature =
+	lazy val TemplateableElement_ownedTemplateSignature =
 		MetaPropertyReference[Uml, UMLTemplateableElement[Uml], UMLTemplateSignature[Uml]](
 		"ownedTemplateSignature",
 		_.ownedTemplateSignature,
@@ -6276,7 +6276,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TemplateableElement_templateBinding =
+	lazy val TemplateableElement_templateBinding =
 		MetaPropertyCollection[Uml, UMLTemplateableElement[Uml], UMLTemplateBinding[Uml]](
 		"templateBinding",
 		_.templateBinding,
@@ -6288,7 +6288,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TestIdentityAction_first =
+	lazy val TestIdentityAction_first =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
 		"first",
 		_.first,
@@ -6300,7 +6300,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TestIdentityAction_result =
+	lazy val TestIdentityAction_result =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -6312,7 +6312,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TestIdentityAction_second =
+	lazy val TestIdentityAction_second =
 		MetaPropertyReference[Uml, UMLTestIdentityAction[Uml], UMLInputPin[Uml]](
 		"second",
 		_.second,
@@ -6324,11 +6324,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TimeConstraint_firstEvent =
+	lazy val TimeConstraint_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeConstraint[Uml]](None, "firstEvent",
 		(x: UMLTimeConstraint[Uml]) => booleanToIterable(x.firstEvent.getOrElse(true), true))
 
-	val TimeConstraint_specification =
+	lazy val TimeConstraint_specification =
 		MetaPropertyReference[Uml, UMLTimeConstraint[Uml], UMLTimeInterval[Uml]](
 		"specification",
 		_.specification,
@@ -6340,11 +6340,11 @@ import Option._
 		redefinedMetaProperties=Set(IntervalConstraint_specification),
 		subsettingMetaProperties=Set())
 
-	val TimeEvent_isRelative =
+	lazy val TimeEvent_isRelative =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeEvent[Uml]](None, "isRelative",
 		(x: UMLTimeEvent[Uml]) => booleanToIterable(x.isRelative, false))
 
-	val TimeEvent_when =
+	lazy val TimeEvent_when =
 		MetaPropertyReference[Uml, UMLTimeEvent[Uml], UMLTimeExpression[Uml]](
 		"when",
 		_.when,
@@ -6356,7 +6356,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TimeExpression_expr =
+	lazy val TimeExpression_expr =
 		MetaPropertyReference[Uml, UMLTimeExpression[Uml], UMLValueSpecification[Uml]](
 		"expr",
 		_.expr,
@@ -6368,7 +6368,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TimeExpression_observation =
+	lazy val TimeExpression_observation =
 		MetaPropertyCollection[Uml, UMLTimeExpression[Uml], UMLObservation[Uml]](
 		"observation",
 		_.observation,
@@ -6380,7 +6380,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TimeInterval_max =
+	lazy val TimeInterval_max =
 		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
 		"max",
 		_.max,
@@ -6392,7 +6392,7 @@ import Option._
 		redefinedMetaProperties=Set(Interval_max),
 		subsettingMetaProperties=Set())
 
-	val TimeInterval_min =
+	lazy val TimeInterval_min =
 		MetaPropertyReference[Uml, UMLTimeInterval[Uml], UMLTimeExpression[Uml]](
 		"min",
 		_.min,
@@ -6404,7 +6404,7 @@ import Option._
 		redefinedMetaProperties=Set(Interval_min),
 		subsettingMetaProperties=Set())
 
-	val TimeObservation_event =
+	lazy val TimeObservation_event =
 		MetaPropertyReference[Uml, UMLTimeObservation[Uml], UMLNamedElement[Uml]](
 		"event",
 		_.event,
@@ -6416,11 +6416,11 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TimeObservation_firstEvent =
+	lazy val TimeObservation_firstEvent =
 		new MetaAttributeBooleanFunction[Uml, UMLTimeObservation[Uml]](None, "firstEvent",
 		(x: UMLTimeObservation[Uml]) => booleanToIterable(x.firstEvent, true))
 
-	val Transition_effect =
+	lazy val Transition_effect =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLBehavior[Uml]](
 		"effect",
 		_.effect,
@@ -6432,7 +6432,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Transition_guard =
+	lazy val Transition_guard =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLConstraint[Uml]](
 		"guard",
 		_.guard,
@@ -6444,12 +6444,12 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set(ProtocolTransition_preCondition))
 
-	val Transition_kind =
+	lazy val Transition_kind =
 		new MetaAttributeEnumerationFunction[Uml, UMLTransition[Uml], UMLTransitionKind.Value, UMLTransitionKind.ValueSet](
 		OptionConstructor(), None, "kind",
 		(x: UMLTransition[Uml]) => x.kind, UMLTransitionKind.values)
 
-	val Transition_redefinedTransition =
+	lazy val Transition_redefinedTransition =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLTransition[Uml]](
 		"redefinedTransition",
 		_.redefinedTransition,
@@ -6461,7 +6461,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Transition_source =
+	lazy val Transition_source =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
 		"source",
 		_.source,
@@ -6473,7 +6473,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Transition_target =
+	lazy val Transition_target =
 		MetaPropertyReference[Uml, UMLTransition[Uml], UMLVertex[Uml]](
 		"target",
 		_.target,
@@ -6485,7 +6485,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Transition_trigger =
+	lazy val Transition_trigger =
 		MetaPropertyCollection[Uml, UMLTransition[Uml], UMLTrigger[Uml]](
 		"trigger",
 		_.trigger,
@@ -6497,7 +6497,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Trigger_event =
+	lazy val Trigger_event =
 		MetaPropertyReference[Uml, UMLTrigger[Uml], UMLEvent[Uml]](
 		"event",
 		_.event,
@@ -6509,7 +6509,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val Trigger_port =
+	lazy val Trigger_port =
 		MetaPropertyCollection[Uml, UMLTrigger[Uml], UMLPort[Uml]](
 		"port",
 		_.port,
@@ -6521,7 +6521,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val TypedElement_type =
+	lazy val TypedElement_type =
 		MetaPropertyReference[Uml, UMLTypedElement[Uml], UMLType[Uml]](
 		"type",
 		_._type,
@@ -6533,7 +6533,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UnmarshallAction_object =
+	lazy val UnmarshallAction_object =
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLInputPin[Uml]](
 		"object",
 		_._object,
@@ -6545,7 +6545,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UnmarshallAction_result =
+	lazy val UnmarshallAction_result =
 		MetaPropertyCollection[Uml, UMLUnmarshallAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -6557,7 +6557,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UnmarshallAction_unmarshallType =
+	lazy val UnmarshallAction_unmarshallType =
 		MetaPropertyReference[Uml, UMLUnmarshallAction[Uml], UMLClassifier[Uml]](
 		"unmarshallType",
 		_.unmarshallType,
@@ -6569,7 +6569,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UseCase_extend =
+	lazy val UseCase_extend =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtend[Uml]](
 		"extend",
 		_.extend,
@@ -6581,7 +6581,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UseCase_extensionPoint =
+	lazy val UseCase_extensionPoint =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLExtensionPoint[Uml]](
 		"extensionPoint",
 		_.extensionPoint,
@@ -6593,7 +6593,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UseCase_include =
+	lazy val UseCase_include =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLInclude[Uml]](
 		"include",
 		_.include,
@@ -6605,7 +6605,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val UseCase_subject =
+	lazy val UseCase_subject =
 		MetaPropertyCollection[Uml, UMLUseCase[Uml], UMLClassifier[Uml]](
 		"subject",
 		_.subject,
@@ -6617,7 +6617,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ValuePin_value =
+	lazy val ValuePin_value =
 		MetaPropertyReference[Uml, UMLValuePin[Uml], UMLValueSpecification[Uml]](
 		"value",
 		_.value,
@@ -6629,7 +6629,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ValueSpecificationAction_result =
+	lazy val ValueSpecificationAction_result =
 		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -6641,7 +6641,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val ValueSpecificationAction_value =
+	lazy val ValueSpecificationAction_value =
 		MetaPropertyReference[Uml, UMLValueSpecificationAction[Uml], UMLValueSpecification[Uml]](
 		"value",
 		_.value,
@@ -6653,7 +6653,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val VariableAction_variable =
+	lazy val VariableAction_variable =
 		MetaPropertyReference[Uml, UMLVariableAction[Uml], UMLVariable[Uml]](
 		"variable",
 		_.variable,
@@ -6665,7 +6665,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val WriteStructuralFeatureAction_result =
+	lazy val WriteStructuralFeatureAction_result =
 		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLOutputPin[Uml]](
 		"result",
 		_.result,
@@ -6677,7 +6677,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val WriteStructuralFeatureAction_value =
+	lazy val WriteStructuralFeatureAction_value =
 		MetaPropertyReference[Uml, UMLWriteStructuralFeatureAction[Uml], UMLInputPin[Uml]](
 		"value",
 		_.value,
@@ -6689,7 +6689,7 @@ import Option._
 		redefinedMetaProperties=Set(),
 		subsettingMetaProperties=Set())
 
-	val WriteVariableAction_value =
+	lazy val WriteVariableAction_value =
 		MetaPropertyReference[Uml, UMLWriteVariableAction[Uml], UMLInputPin[Uml]](
 		"value",
 		_.value,
