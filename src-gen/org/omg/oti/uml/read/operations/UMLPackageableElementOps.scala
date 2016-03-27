@@ -107,7 +107,10 @@ trait UMLPackageableElementOps[Uml <: UML] { self: UMLPackageableElement[Uml] =>
     */
   def validate_namespace_needs_visibility: Boolean = {
     // Start of user code for "namespace_needs_visibility"
-    ???
+    if (visibility.isEmpty) {
+      namespace.isEmpty 
+    } else 
+      true  
     // End of user code
   }
 
