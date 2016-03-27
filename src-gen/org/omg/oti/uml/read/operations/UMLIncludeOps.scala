@@ -52,40 +52,40 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLIncludeOps[Uml <: UML] { self: UMLInclude[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The UseCase that is to be included.
-	 *
-	 * <!-- Start of user code doc for addition -->
-   * <!-- End of user code doc for addition -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.addition_include
-	 */
-	def addition: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
+  /**
+    * The UseCase that is to be included.
+    *
+    * <!-- Start of user code doc for addition -->
+    * <!-- End of user code doc for addition -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.addition_include
+    */
+  def addition: Option[UMLUseCase[Uml]] = target.selectByKindOf { case x: UMLUseCase[Uml] => x } headOption
 
-	/**
-	 * The UseCase which includes the addition and owns the Include relationship.
-	 *
-	 * <!-- Start of user code doc for includingCase -->
-   * <!-- End of user code doc for includingCase -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.include
-	 */
-	def includingCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
+  /**
+    * The UseCase which includes the addition and owns the Include relationship.
+    *
+    * <!-- Start of user code doc for includingCase -->
+    * <!-- End of user code doc for includingCase -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.include
+    */
+  def includingCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLIncludeOps

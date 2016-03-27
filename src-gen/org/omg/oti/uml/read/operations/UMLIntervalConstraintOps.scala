@@ -52,29 +52,29 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An IntervalConstraint is a Constraint that is specified by an Interval.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An IntervalConstraint is a Constraint that is specified by an Interval.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLIntervalConstraintOps[Uml <: UML] { self: UMLIntervalConstraint[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The Interval that specifies the condition of the IntervalConstraint.
-	 *
-	 * <!-- Start of user code doc for specification -->
-   * <!-- End of user code doc for specification -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInterval.specification_intervalConstraint
-	 */
-	override def specification: Option[UMLInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLInterval[Uml] => x } headOption
+  /**
+    * The Interval that specifies the condition of the IntervalConstraint.
+    *
+    * <!-- Start of user code doc for specification -->
+    * <!-- End of user code doc for specification -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLInterval.specification_intervalConstraint
+    */
+  override def specification: Option[UMLInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLInterval[Uml] => x } headOption
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLIntervalConstraintOps

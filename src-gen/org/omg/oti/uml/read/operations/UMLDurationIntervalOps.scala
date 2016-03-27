@@ -52,27 +52,27 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A DurationInterval defines the range between two Durations.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A DurationInterval defines the range between two Durations.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDurationIntervalOps[Uml <: UML] { self: UMLDurationInterval[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for specification_durationConstraint -->
-   * <!-- End of user code doc for specification_durationConstraint -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationConstraint.specification
-	 */
-	def specification_durationConstraint: Option[UMLDurationConstraint[Uml]] = specification_intervalConstraint.selectByKindOf { case x: UMLDurationConstraint[Uml] => x }
+  /**
+    * <!-- Start of user code doc for specification_durationConstraint -->
+    * <!-- End of user code doc for specification_durationConstraint -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationConstraint.specification
+    */
+  def specification_durationConstraint: Option[UMLDurationConstraint[Uml]] = specification_intervalConstraint.selectByKindOf { case x: UMLDurationConstraint[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDurationIntervalOps

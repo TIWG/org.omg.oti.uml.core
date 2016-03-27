@@ -51,119 +51,119 @@ import scala.collection.immutable.Seq
 
 
 /**
- * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLOpaqueBehavior[Uml <: UML]
-	extends UMLBehavior[Uml]
-	with UMLOpaqueBehaviorOps[Uml] {
-	
+  extends UMLBehavior[Uml]
+  with UMLOpaqueBehaviorOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * Specifies the behavior in one or more languages.
-	 *
-	 * <!-- Start of user code doc for body -->
-	 * <!-- End of user code doc for body -->
-	 *
-	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 */
-	def body: Seq[String]
+  /**
+    * Specifies the behavior in one or more languages.
+    *
+    * <!-- Start of user code doc for body -->
+    * <!-- End of user code doc for body -->
+    *
+    * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+    */
+  def body: Seq[String]
 
-	/**
-	 * Languages the body strings use in the same order as the body strings.
-	 *
-	 * <!-- Start of user code doc for language -->
-	 * <!-- End of user code doc for language -->
-	 *
-	 * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
-	 */
-	def language: Seq[String]
+  /**
+    * Languages the body strings use in the same order as the body strings.
+    *
+    * <!-- Start of user code doc for language -->
+    * <!-- End of user code doc for language -->
+    *
+    * UML Property derived="false" ordered="true" unique="true" aggregation="none" multiplicity="0..*"
+    */
+  def language: Seq[String]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		opaqueBehavior_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      opaqueBehavior_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLOpaqueBehavior
-	 *
-	 * <!-- Start of user code doc for opaqueBehavior_metaAttributes -->
-	 * <!-- End of user code doc for opaqueBehavior_metaAttributes -->
-	 */
-	def opaqueBehavior_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			behavior_metaAttributes,
-			Seq[MetaAttributeFunction](OpaqueBehavior_body,
-				OpaqueBehavior_language))
+  /**
+    * The XMI meta-attributes relevant to class UMLOpaqueBehavior
+    *
+    * <!-- Start of user code doc for opaqueBehavior_metaAttributes -->
+    * <!-- End of user code doc for opaqueBehavior_metaAttributes -->
+    */
+  def opaqueBehavior_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     behavior_metaAttributes,
+     Seq[MetaAttributeFunction](OpaqueBehavior_body,
+     	OpaqueBehavior_language))
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		opaqueBehavior_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    opaqueBehavior_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLOpaqueBehavior
-	 *
-	 * <!-- Start of user code doc for opaqueBehavior_compositeMetaProperties -->
-	 * <!-- End of user code doc for opaqueBehavior_compositeMetaProperties -->
-	 */
-	def opaqueBehavior_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			behavior_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLOpaqueBehavior
+    *
+    * <!-- Start of user code doc for opaqueBehavior_compositeMetaProperties -->
+    * <!-- End of user code doc for opaqueBehavior_compositeMetaProperties -->
+    */
+  def opaqueBehavior_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      behavior_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		opaqueBehavior_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    opaqueBehavior_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLOpaqueBehavior
-	 *
-	 * <!-- Start of user code doc for opaqueBehavior_referenceMetaProperties -->
-	 * <!-- End of user code doc for opaqueBehavior_referenceMetaProperties -->
-	 */
-	def opaqueBehavior_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			behavior_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLOpaqueBehavior
+    *
+    * <!-- Start of user code doc for opaqueBehavior_referenceMetaProperties -->
+    * <!-- End of user code doc for opaqueBehavior_referenceMetaProperties -->
+    */
+  def opaqueBehavior_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      behavior_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		opaqueBehavior_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    opaqueBehavior_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLOpaqueBehavior
-	 *
-	 * <!-- Start of user code doc for opaqueBehavior_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for opaqueBehavior_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def opaqueBehavior_forwardReferencesFromMetamodelAssociations: Elements =
-		behavior_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLOpaqueBehavior
+    *
+    * <!-- Start of user code doc for opaqueBehavior_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for opaqueBehavior_forwardReferencesFromMetamodelAssociations -->
+    */
+  def opaqueBehavior_forwardReferencesFromMetamodelAssociations: Elements =
+    behavior_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLOpaqueBehavior

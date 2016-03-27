@@ -49,105 +49,105 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A Dependency is a Relationship that signifies that a single model Element or a set of model Elements requires other model Elements for their specification or implementation. This means that the complete semantics of the client Element(s) are either semantically or structurally dependent on the definition of the supplier Element(s).
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A Dependency is a Relationship that signifies that a single model Element or a set of model Elements requires other model Elements for their specification or implementation. This means that the complete semantics of the client Element(s) are either semantically or structurally dependent on the definition of the supplier Element(s).
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDependency[Uml <: UML]
-	extends UMLDirectedRelationship[Uml]
+  extends UMLDirectedRelationship[Uml]
 	with UMLPackageableElement[Uml]
-	with UMLDependencyOps[Uml] {
-	
+  with UMLDependencyOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		dependency_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      dependency_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLDependency
-	 *
-	 * <!-- Start of user code doc for dependency_metaAttributes -->
-	 * <!-- End of user code doc for dependency_metaAttributes -->
-	 */
-	def dependency_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			directedRelationship_metaAttributes,
-			packageableElement_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLDependency
+    *
+    * <!-- Start of user code doc for dependency_metaAttributes -->
+    * <!-- End of user code doc for dependency_metaAttributes -->
+    */
+  def dependency_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     directedRelationship_metaAttributes,
+     packageableElement_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		dependency_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    dependency_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLDependency
-	 *
-	 * <!-- Start of user code doc for dependency_compositeMetaProperties -->
-	 * <!-- End of user code doc for dependency_compositeMetaProperties -->
-	 */
-	def dependency_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_compositeMetaProperties,
-			packageableElement_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLDependency
+    *
+    * <!-- Start of user code doc for dependency_compositeMetaProperties -->
+    * <!-- End of user code doc for dependency_compositeMetaProperties -->
+    */
+  def dependency_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_compositeMetaProperties,
+      packageableElement_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		dependency_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    dependency_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLDependency
-	 *
-	 * <!-- Start of user code doc for dependency_referenceMetaProperties -->
-	 * <!-- End of user code doc for dependency_referenceMetaProperties -->
-	 */
-	def dependency_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_referenceMetaProperties,
-			packageableElement_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](Dependency_client,
-				Dependency_supplier))
+  /**
+    * The XMI reference meta-properties relevant to class UMLDependency
+    *
+    * <!-- Start of user code doc for dependency_referenceMetaProperties -->
+    * <!-- End of user code doc for dependency_referenceMetaProperties -->
+    */
+  def dependency_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_referenceMetaProperties,
+      packageableElement_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](Dependency_client,
+      	Dependency_supplier))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		dependency_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    dependency_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLDependency
-	 *
-	 * <!-- Start of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def dependency_forwardReferencesFromMetamodelAssociations: Elements =
-		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		packageableElement_forwardReferencesFromMetamodelAssociations ++
-		client ++
-		supplier
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLDependency
+    *
+    * <!-- Start of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for dependency_forwardReferencesFromMetamodelAssociations -->
+    */
+  def dependency_forwardReferencesFromMetamodelAssociations: Elements =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    packageableElement_forwardReferencesFromMetamodelAssociations ++
+    client ++
+    supplier
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLDependency

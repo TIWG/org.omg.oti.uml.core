@@ -53,45 +53,45 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An ExtensionPoint identifies a point in the behavior of a UseCase where that behavior can be extended by the behavior of some other (extending) UseCase, as specified by an Extend relationship.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLExtensionPointOps[Uml <: UML] { self: UMLExtensionPoint[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The UseCase that owns this ExtensionPoint.
-	 *
-	 * <!-- Start of user code doc for useCase -->
-   * <!-- End of user code doc for useCase -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.extensionPoint
-	 */
-	def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
+  /**
+    * The UseCase that owns this ExtensionPoint.
+    *
+    * <!-- Start of user code doc for useCase -->
+    * <!-- End of user code doc for useCase -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.extensionPoint
+    */
+  def useCase: Option[UMLUseCase[Uml]] = namespace.selectByKindOf { case x: UMLUseCase[Uml] => x }
 
-	/**
-	 * An ExtensionPoint must have a name.
-	 *
-	 * <!-- Start of user code doc for validate_must_have_name -->
-   * <!-- End of user code doc for validate_must_have_name -->
-	 *
-	 * {{{
-	 * OCL Body name->notEmpty ()
-	 * }}}
-	 */
-	def validate_must_have_name: Boolean = {
-		// Start of user code for "must_have_name"
-      ???
-      // End of user code
-	}
+  /**
+    * An ExtensionPoint must have a name.
+    *
+    * <!-- Start of user code doc for validate_must_have_name -->
+    * <!-- End of user code doc for validate_must_have_name -->
+    *
+    * {{{
+    * OCL Body name->notEmpty ()
+    * }}}
+    */
+  def validate_must_have_name: Boolean = {
+    // Start of user code for "must_have_name"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLExtensionPointOps

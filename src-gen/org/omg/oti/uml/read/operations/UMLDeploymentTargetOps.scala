@@ -53,47 +53,47 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A deployment target is the location for a deployed artifact.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A deployment target is the location for a deployed artifact.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDeploymentTargetOps[Uml <: UML] { self: UMLDeploymentTarget[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The set of elements that are manifested in an Artifact that is involved in Deployment to a DeploymentTarget.
-	 *
-	 * <!-- Start of user code doc for deployedElement -->
-   * <!-- End of user code doc for deployedElement -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.deployedElement_deploymentTarget
-	 * {{{
-	 * OCL Body result = (deployment.deployedArtifact->select(oclIsKindOf(Artifact))->collect(oclAsType(Artifact).manifestation)->collect(utilizedElement)->asSet())
-	 * }}}
-	 */
-	def deployedElement: Set[UMLPackageableElement[Uml]] = {
-		// Start of user code for "deployedElement"
-      ???
-      // End of user code
-	}
+  /**
+    * The set of elements that are manifested in an Artifact that is involved in Deployment to a DeploymentTarget.
+    *
+    * <!-- Start of user code doc for deployedElement -->
+    * <!-- End of user code doc for deployedElement -->
+    *
+    * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.deployedElement_deploymentTarget
+    * {{{
+    * OCL Body result = (deployment.deployedArtifact->select(oclIsKindOf(Artifact))->collect(oclAsType(Artifact).manifestation)->collect(utilizedElement)->asSet())
+    * }}}
+    */
+  def deployedElement: Set[UMLPackageableElement[Uml]] = {
+    // Start of user code for "deployedElement"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The set of Deployments for a DeploymentTarget.
-	 *
-	 * <!-- Start of user code doc for deployment -->
-   * <!-- End of user code doc for deployment -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeployment.location
-	 */
-	def deployment: Set[UMLDeployment[Uml]] = ownedElement.selectByKindOf { case x: UMLDeployment[Uml] => x }
+  /**
+    * The set of Deployments for a DeploymentTarget.
+    *
+    * <!-- Start of user code doc for deployment -->
+    * <!-- End of user code doc for deployment -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDeployment.location
+    */
+  def deployment: Set[UMLDeployment[Uml]] = ownedElement.selectByKindOf { case x: UMLDeployment[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDeploymentTargetOps

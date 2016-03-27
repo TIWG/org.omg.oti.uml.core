@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A MessageOccurrenceSpecification specifies the occurrence of Message events, such as sending and receiving of Signals or invoking or receiving of Operation calls. A MessageOccurrenceSpecification is a kind of MessageEnd. Messages are generated either by synchronous Operation calls or asynchronous Signal sends. They are received by the execution of corresponding AcceptEventActions.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A MessageOccurrenceSpecification specifies the occurrence of Message events, such as sending and receiving of Signals or invoking or receiving of Operation calls. A MessageOccurrenceSpecification is a kind of MessageEnd. Messages are generated either by synchronous Operation calls or asynchronous Signal sends. They are received by the execution of corresponding AcceptEventActions.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLMessageOccurrenceSpecificationOps[Uml <: UML] { self: UMLMessageOccurrenceSpecification[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLMessageOccurrenceSpecificationOps

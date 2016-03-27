@@ -53,103 +53,103 @@ import scala.collection.immutable.Seq
 
 
 /**
- * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * An Include relationship specifies that a UseCase contains the behavior defined in another UseCase.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLInclude[Uml <: UML]
-	extends UMLDirectedRelationship[Uml]
+  extends UMLDirectedRelationship[Uml]
 	with UMLNamedElement[Uml]
-	with UMLIncludeOps[Uml] {
-	
+  with UMLIncludeOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		include_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      include_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLInclude
-	 *
-	 * <!-- Start of user code doc for include_metaAttributes -->
-	 * <!-- End of user code doc for include_metaAttributes -->
-	 */
-	def include_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			directedRelationship_metaAttributes,
-			namedElement_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLInclude
+    *
+    * <!-- Start of user code doc for include_metaAttributes -->
+    * <!-- End of user code doc for include_metaAttributes -->
+    */
+  def include_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     directedRelationship_metaAttributes,
+     namedElement_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		include_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    include_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLInclude
-	 *
-	 * <!-- Start of user code doc for include_compositeMetaProperties -->
-	 * <!-- End of user code doc for include_compositeMetaProperties -->
-	 */
-	def include_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_compositeMetaProperties,
-			namedElement_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLInclude
+    *
+    * <!-- Start of user code doc for include_compositeMetaProperties -->
+    * <!-- End of user code doc for include_compositeMetaProperties -->
+    */
+  def include_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_compositeMetaProperties,
+      namedElement_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		include_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    include_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLInclude
-	 *
-	 * <!-- Start of user code doc for include_referenceMetaProperties -->
-	 * <!-- End of user code doc for include_referenceMetaProperties -->
-	 */
-	def include_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_referenceMetaProperties,
-			namedElement_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](Include_addition))
+  /**
+    * The XMI reference meta-properties relevant to class UMLInclude
+    *
+    * <!-- Start of user code doc for include_referenceMetaProperties -->
+    * <!-- End of user code doc for include_referenceMetaProperties -->
+    */
+  def include_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_referenceMetaProperties,
+      namedElement_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](Include_addition))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		include_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    include_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLInclude
-	 *
-	 * <!-- Start of user code doc for include_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for include_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def include_forwardReferencesFromMetamodelAssociations: Elements =
-		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		namedElement_forwardReferencesFromMetamodelAssociations ++
-		addition
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLInclude
+    *
+    * <!-- Start of user code doc for include_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for include_forwardReferencesFromMetamodelAssociations -->
+    */
+  def include_forwardReferencesFromMetamodelAssociations: Elements =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    namedElement_forwardReferencesFromMetamodelAssociations ++
+    addition
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLInclude

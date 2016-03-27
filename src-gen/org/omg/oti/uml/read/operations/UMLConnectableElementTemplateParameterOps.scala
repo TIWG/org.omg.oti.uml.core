@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A ConnectableElementTemplateParameter exposes a ConnectableElement as a formal parameter for a template.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A ConnectableElementTemplateParameter exposes a ConnectableElement as a formal parameter for a template.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLConnectableElementTemplateParameterOps[Uml <: UML] { self: UMLConnectableElementTemplateParameter[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLConnectableElementTemplateParameterOps

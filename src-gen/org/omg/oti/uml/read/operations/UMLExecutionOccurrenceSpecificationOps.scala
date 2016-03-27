@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * An ExecutionOccurrenceSpecification represents moments in time at which Actions or Behaviors start or finish.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An ExecutionOccurrenceSpecification represents moments in time at which Actions or Behaviors start or finish.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLExecutionOccurrenceSpecificationOps[Uml <: UML] { self: UMLExecutionOccurrenceSpecification[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLExecutionOccurrenceSpecificationOps

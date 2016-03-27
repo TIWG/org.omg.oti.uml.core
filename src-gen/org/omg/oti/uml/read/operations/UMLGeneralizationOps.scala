@@ -52,40 +52,40 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A Generalization is a taxonomic relationship between a more general Classifier and a more specific Classifier. Each instance of the specific Classifier is also an instance of the general Classifier. The specific Classifier inherits the features of the more general Classifier. A Generalization is owned by the specific Classifier.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Generalization is a taxonomic relationship between a more general Classifier and a more specific Classifier. Each instance of the specific Classifier is also an instance of the general Classifier. The specific Classifier inherits the features of the more general Classifier. A Generalization is owned by the specific Classifier.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLGeneralizationOps[Uml <: UML] { self: UMLGeneralization[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The general classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for general -->
-   * <!-- End of user code doc for general -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general_generalization
-	 */
-	def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
+  /**
+    * The general classifier in the Generalization relationship.
+    *
+    * <!-- Start of user code doc for general -->
+    * <!-- End of user code doc for general -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general_generalization
+    */
+  def general: Option[UMLClassifier[Uml]] = target.selectByKindOf { case x: UMLClassifier[Uml] => x } headOption
 
-	/**
-	 * The specializing Classifier in the Generalization relationship.
-	 *
-	 * <!-- Start of user code doc for specific -->
-   * <!-- End of user code doc for specific -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.generalization
-	 */
-	def specific: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
+  /**
+    * The specializing Classifier in the Generalization relationship.
+    *
+    * <!-- Start of user code doc for specific -->
+    * <!-- End of user code doc for specific -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.generalization
+    */
+  def specific: Option[UMLClassifier[Uml]] = owner.selectByKindOf { case x: UMLClassifier[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLGeneralizationOps

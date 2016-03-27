@@ -52,27 +52,27 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A manifestation is the concrete physical rendering of one or more model elements by an artifact.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A manifestation is the concrete physical rendering of one or more model elements by an artifact.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLManifestationOps[Uml <: UML] { self: UMLManifestation[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for manifestation_artifact -->
-   * <!-- End of user code doc for manifestation_artifact -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.manifestation
-	 */
-	def manifestation_artifact: Option[UMLArtifact[Uml]] = owner.selectByKindOf { case x: UMLArtifact[Uml] => x }
+  /**
+    * <!-- Start of user code doc for manifestation_artifact -->
+    * <!-- End of user code doc for manifestation_artifact -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.manifestation
+    */
+  def manifestation_artifact: Option[UMLArtifact[Uml]] = owner.selectByKindOf { case x: UMLArtifact[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLManifestationOps

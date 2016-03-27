@@ -53,76 +53,76 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A ReclassifyObjectAction is an Action that changes the Classifiers that classify an object.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLReclassifyObjectActionOps[Uml <: UML] { self: UMLReclassifyObjectAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The InputPin that holds the object to be reclassified.
-	 *
-	 * <!-- Start of user code doc for _object -->
-   * <!-- End of user code doc for _object -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_reclassifyObjectAction
-	 */
-	def _object: Option[UMLInputPin[Uml]] = input headOption
+  /**
+    * The InputPin that holds the object to be reclassified.
+    *
+    * <!-- Start of user code doc for _object -->
+    * <!-- End of user code doc for _object -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_reclassifyObjectAction
+    */
+  def _object: Option[UMLInputPin[Uml]] = input headOption
 
-	/**
-	 * None of the newClassifiers may be abstract.
-	 *
-	 * <!-- Start of user code doc for validate_classifier_not_abstract -->
-   * <!-- End of user code doc for validate_classifier_not_abstract -->
-	 *
-	 * {{{
-	 * OCL Body not newClassifier->exists(isAbstract)
-	 * }}}
-	 */
-	def validate_classifier_not_abstract: Boolean = {
-		// Start of user code for "classifier_not_abstract"
-      ???
-      // End of user code
-	}
+  /**
+    * None of the newClassifiers may be abstract.
+    *
+    * <!-- Start of user code doc for validate_classifier_not_abstract -->
+    * <!-- End of user code doc for validate_classifier_not_abstract -->
+    *
+    * {{{
+    * OCL Body not newClassifier->exists(isAbstract)
+    * }}}
+    */
+  def validate_classifier_not_abstract: Boolean = {
+    // Start of user code for "classifier_not_abstract"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The object InputPin has no type.
-	 *
-	 * <!-- Start of user code doc for validate_input_pin -->
-   * <!-- End of user code doc for validate_input_pin -->
-	 *
-	 * {{{
-	 * OCL Body object.type = null
-	 * }}}
-	 */
-	def validate_input_pin: Boolean = {
-		// Start of user code for "input_pin"
-      ???
-      // End of user code
-	}
+  /**
+    * The object InputPin has no type.
+    *
+    * <!-- Start of user code doc for validate_input_pin -->
+    * <!-- End of user code doc for validate_input_pin -->
+    *
+    * {{{
+    * OCL Body object.type = null
+    * }}}
+    */
+  def validate_input_pin: Boolean = {
+    // Start of user code for "input_pin"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The multiplicity of the object InputPin is 1..1.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity -->
-   * <!-- End of user code doc for validate_multiplicity -->
-	 *
-	 * {{{
-	 * OCL Body object.is(1,1)
-	 * }}}
-	 */
-	def validate_multiplicity: Boolean = {
-		// Start of user code for "multiplicity"
-      ???
-      // End of user code
-	}
+  /**
+    * The multiplicity of the object InputPin is 1..1.
+    *
+    * <!-- Start of user code doc for validate_multiplicity -->
+    * <!-- End of user code doc for validate_multiplicity -->
+    *
+    * {{{
+    * OCL Body object.is(1,1)
+    * }}}
+    */
+  def validate_multiplicity: Boolean = {
+    // Start of user code for "multiplicity"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLReclassifyObjectActionOps

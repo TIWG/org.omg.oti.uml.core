@@ -57,53 +57,53 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Duration is a ValueSpecification that specifies the temporal distance between two time instants.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDurationOps[Uml <: UML] { self: UMLDuration[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for max_durationInterval -->
-   * <!-- End of user code doc for max_durationInterval -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.max
-	 */
-	def max_durationInterval: Set[UMLDurationInterval[Uml]] = max_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
+  /**
+    * <!-- Start of user code doc for max_durationInterval -->
+    * <!-- End of user code doc for max_durationInterval -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.max
+    */
+  def max_durationInterval: Set[UMLDurationInterval[Uml]] = max_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for min_durationInterval -->
-   * <!-- End of user code doc for min_durationInterval -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.min
-	 */
-	def min_durationInterval: Set[UMLDurationInterval[Uml]] = min_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
+  /**
+    * <!-- Start of user code doc for min_durationInterval -->
+    * <!-- End of user code doc for min_durationInterval -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDurationInterval.min
+    */
+  def min_durationInterval: Set[UMLDurationInterval[Uml]] = min_interval.selectByKindOf { case x: UMLDurationInterval[Uml] => x }
 
-	/**
-	 * If a Duration has no expr, then it must have a single observation that is a DurationObservation.
-	 *
-	 * <!-- Start of user code doc for validate_no_expr_requires_observation -->
-   * <!-- End of user code doc for validate_no_expr_requires_observation -->
-	 *
-	 * {{{
-	 * OCL Body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
-	 * }}}
-	 */
-	def validate_no_expr_requires_observation: Boolean = {
-		// Start of user code for "no_expr_requires_observation"
-      ???
-      // End of user code
-	}
+  /**
+    * If a Duration has no expr, then it must have a single observation that is a DurationObservation.
+    *
+    * <!-- Start of user code doc for validate_no_expr_requires_observation -->
+    * <!-- End of user code doc for validate_no_expr_requires_observation -->
+    *
+    * {{{
+    * OCL Body expr = null implies (observation->size() = 1 and observation->forAll(oclIsKindOf(DurationObservation)))
+    * }}}
+    */
+  def validate_no_expr_requires_observation: Boolean = {
+    // Start of user code for "no_expr_requires_observation"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
 	: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =

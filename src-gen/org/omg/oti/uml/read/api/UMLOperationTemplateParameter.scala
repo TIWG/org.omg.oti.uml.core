@@ -53,109 +53,109 @@ import scala.collection.immutable.Seq
 
 
 /**
- * An OperationTemplateParameter exposes an Operation as a formal parameter for a template.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * An OperationTemplateParameter exposes an Operation as a formal parameter for a template.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLOperationTemplateParameter[Uml <: UML]
-	extends UMLTemplateParameter[Uml]
-	with UMLOperationTemplateParameterOps[Uml] {
-	
+  extends UMLTemplateParameter[Uml]
+  with UMLOperationTemplateParameterOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The Operation exposed by this OperationTemplateParameter.
-	 *
-	 * <!-- Start of user code doc for parameteredElement -->
-	 * <!-- End of user code doc for parameteredElement -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.templateParameter
-	 */
-	override def parameteredElement: Option[UMLOperation[Uml]]
+  /**
+    * The Operation exposed by this OperationTemplateParameter.
+    *
+    * <!-- Start of user code doc for parameteredElement -->
+    * <!-- End of user code doc for parameteredElement -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLOperation.templateParameter
+    */
+  override def parameteredElement: Option[UMLOperation[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		operationTemplateParameter_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      operationTemplateParameter_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLOperationTemplateParameter
-	 *
-	 * <!-- Start of user code doc for operationTemplateParameter_metaAttributes -->
-	 * <!-- End of user code doc for operationTemplateParameter_metaAttributes -->
-	 */
-	def operationTemplateParameter_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			templateParameter_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLOperationTemplateParameter
+    *
+    * <!-- Start of user code doc for operationTemplateParameter_metaAttributes -->
+    * <!-- End of user code doc for operationTemplateParameter_metaAttributes -->
+    */
+  def operationTemplateParameter_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     templateParameter_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		operationTemplateParameter_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    operationTemplateParameter_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLOperationTemplateParameter
-	 *
-	 * <!-- Start of user code doc for operationTemplateParameter_compositeMetaProperties -->
-	 * <!-- End of user code doc for operationTemplateParameter_compositeMetaProperties -->
-	 */
-	def operationTemplateParameter_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			templateParameter_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLOperationTemplateParameter
+    *
+    * <!-- Start of user code doc for operationTemplateParameter_compositeMetaProperties -->
+    * <!-- End of user code doc for operationTemplateParameter_compositeMetaProperties -->
+    */
+  def operationTemplateParameter_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      templateParameter_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		operationTemplateParameter_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    operationTemplateParameter_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLOperationTemplateParameter
-	 *
-	 * <!-- Start of user code doc for operationTemplateParameter_referenceMetaProperties -->
-	 * <!-- End of user code doc for operationTemplateParameter_referenceMetaProperties -->
-	 */
-	def operationTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			templateParameter_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](OperationTemplateParameter_parameteredElement))
+  /**
+    * The XMI reference meta-properties relevant to class UMLOperationTemplateParameter
+    *
+    * <!-- Start of user code doc for operationTemplateParameter_referenceMetaProperties -->
+    * <!-- End of user code doc for operationTemplateParameter_referenceMetaProperties -->
+    */
+  def operationTemplateParameter_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      templateParameter_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](OperationTemplateParameter_parameteredElement))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		operationTemplateParameter_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    operationTemplateParameter_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLOperationTemplateParameter
-	 *
-	 * <!-- Start of user code doc for operationTemplateParameter_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for operationTemplateParameter_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def operationTemplateParameter_forwardReferencesFromMetamodelAssociations: Elements =
-		templateParameter_forwardReferencesFromMetamodelAssociations ++
-		parameteredElement
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLOperationTemplateParameter
+    *
+    * <!-- Start of user code doc for operationTemplateParameter_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for operationTemplateParameter_forwardReferencesFromMetamodelAssociations -->
+    */
+  def operationTemplateParameter_forwardReferencesFromMetamodelAssociations: Elements =
+    templateParameter_forwardReferencesFromMetamodelAssociations ++
+    parameteredElement
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLOperationTemplateParameter

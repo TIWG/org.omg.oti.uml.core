@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A trigger for an AnyReceiveEvent is triggered by the receipt of any message that is not explicitly handled by any related trigger.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A trigger for an AnyReceiveEvent is triggered by the receipt of any message that is not explicitly handled by any related trigger.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLAnyReceiveEventOps[Uml <: UML] { self: UMLAnyReceiveEvent[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLAnyReceiveEventOps

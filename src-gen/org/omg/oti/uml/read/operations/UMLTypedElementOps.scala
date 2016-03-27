@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A TypedElement is a NamedElement that may have a Type specified for it.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A TypedElement is a NamedElement that may have a Type specified for it.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLTypedElementOps[Uml <: UML] { self: UMLTypedElement[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLTypedElementOps

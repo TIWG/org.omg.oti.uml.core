@@ -50,97 +50,97 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A ForkNode is a ControlNode that splits a flow into multiple concurrent flows.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A ForkNode is a ControlNode that splits a flow into multiple concurrent flows.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLForkNode[Uml <: UML]
-	extends UMLControlNode[Uml]
-	with UMLForkNodeOps[Uml] {
-	
+  extends UMLControlNode[Uml]
+  with UMLForkNodeOps[Uml] {
+
   // Start of user code for class imports
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		forkNode_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      forkNode_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLForkNode
-	 *
-	 * <!-- Start of user code doc for forkNode_metaAttributes -->
-	 * <!-- End of user code doc for forkNode_metaAttributes -->
-	 */
-	def forkNode_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			controlNode_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLForkNode
+    *
+    * <!-- Start of user code doc for forkNode_metaAttributes -->
+    * <!-- End of user code doc for forkNode_metaAttributes -->
+    */
+  def forkNode_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     controlNode_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		forkNode_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    forkNode_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLForkNode
-	 *
-	 * <!-- Start of user code doc for forkNode_compositeMetaProperties -->
-	 * <!-- End of user code doc for forkNode_compositeMetaProperties -->
-	 */
-	def forkNode_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			controlNode_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLForkNode
+    *
+    * <!-- Start of user code doc for forkNode_compositeMetaProperties -->
+    * <!-- End of user code doc for forkNode_compositeMetaProperties -->
+    */
+  def forkNode_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      controlNode_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		forkNode_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    forkNode_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLForkNode
-	 *
-	 * <!-- Start of user code doc for forkNode_referenceMetaProperties -->
-	 * <!-- End of user code doc for forkNode_referenceMetaProperties -->
-	 */
-	def forkNode_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			controlNode_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLForkNode
+    *
+    * <!-- Start of user code doc for forkNode_referenceMetaProperties -->
+    * <!-- End of user code doc for forkNode_referenceMetaProperties -->
+    */
+  def forkNode_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      controlNode_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		forkNode_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    forkNode_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLForkNode
-	 *
-	 * <!-- Start of user code doc for forkNode_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forkNode_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def forkNode_forwardReferencesFromMetamodelAssociations: Elements =
-		controlNode_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLForkNode
+    *
+    * <!-- Start of user code doc for forkNode_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forkNode_forwardReferencesFromMetamodelAssociations -->
+    */
+  def forkNode_forwardReferencesFromMetamodelAssociations: Elements =
+    controlNode_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLForkNode

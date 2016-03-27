@@ -50,52 +50,52 @@ import scala.Predef.String
 // End of user code
 
 /**
- * A LiteralReal is a specification of a Real value.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A LiteralReal is a specification of a Real value.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralRealOps[Uml <: UML] { self: UMLLiteralReal[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-   * <!-- End of user code doc for isComputable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
+  /**
+    * The query isComputable() is redefined to be true.
+    *
+    * <!-- Start of user code doc for isComputable -->
+    * <!-- End of user code doc for isComputable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
     true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * The query realValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for realValue -->
-   * <!-- End of user code doc for realValue -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (value)
-	 * }}}
-	 */
-	override def realValue: Option[Double] = {
-		// Start of user code for "realValue"
+  /**
+    * The query realValue() gives the value.
+    *
+    * <!-- Start of user code doc for realValue -->
+    * <!-- End of user code doc for realValue -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (value)
+    * }}}
+    */
+  override def realValue: Option[Double] = {
+    // Start of user code for "realValue"
     Option.apply(value)
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
   // End of user code
 } //UMLLiteralRealOps

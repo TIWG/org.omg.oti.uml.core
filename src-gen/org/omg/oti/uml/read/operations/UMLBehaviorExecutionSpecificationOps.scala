@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A BehaviorExecutionSpecification is a kind of ExecutionSpecification representing the execution of a Behavior.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A BehaviorExecutionSpecification is a kind of ExecutionSpecification representing the execution of a Behavior.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLBehaviorExecutionSpecificationOps[Uml <: UML] { self: UMLBehaviorExecutionSpecification[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLBehaviorExecutionSpecificationOps

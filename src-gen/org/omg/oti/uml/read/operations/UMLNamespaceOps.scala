@@ -58,9 +58,9 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
- *
- * <!-- Start of user code documentation --> 
+  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
+  *
+  * <!-- Start of user code documentation -->
  * In UML, a PackageImport is a relationship between a Namespace and a Package.
  * It means that the members of the imported package can be "referred by name" from
  * the context of the importing namespace. What does "referred by name" really means in UML
@@ -153,40 +153,40 @@ import scalaz._, Scalaz._
  * The semantics of importation involves (1) per 7.4.3
  * The semantics of profile application involves both (1) and (2) per 12.3.3
  * The semantics of namespaces involves (1) and (3) per 7.4.3
- * <!-- End of user code documentation -->
- */
+  * <!-- End of user code documentation -->
+  */
 trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * References the ElementImports owned by the Namespace.
-	 *
-	 * <!-- Start of user code doc for elementImport -->
-   * <!-- End of user code doc for elementImport -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importingNamespace
-	 */
-	def elementImport: Set[UMLElementImport[Uml]] = ownedElement.selectByKindOf { case x: UMLElementImport[Uml] => x }
+  /**
+    * References the ElementImports owned by the Namespace.
+    *
+    * <!-- Start of user code doc for elementImport -->
+    * <!-- End of user code doc for elementImport -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importingNamespace
+    */
+  def elementImport: Set[UMLElementImport[Uml]] = ownedElement.selectByKindOf { case x: UMLElementImport[Uml] => x }
 
-	/**
-	 * References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.
-	 *
-	 * <!-- Start of user code doc for importedMember -->
-   * <!-- End of user code doc for importedMember -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.importedMember_namespace
-	 * {{{
-	 * OCL Body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
-	 * }}}
-	 */
-	def importedMember: Set[UMLPackageableElement[Uml]] = {
-		// Start of user code for "importedMember"
+  /**
+    * References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.
+    *
+    * <!-- Start of user code doc for importedMember -->
+    * <!-- End of user code doc for importedMember -->
+    *
+    * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.importedMember_namespace
+    * {{{
+    * OCL Body result = (self.importMembers(elementImport.importedElement->asSet()->union(packageImport.importedPackage->collect(p | p.visibleMembers()))->asSet()))
+    * }}}
+    */
+  def importedMember: Set[UMLPackageableElement[Uml]] = {
+    // Start of user code for "importedMember"
     val visibleMembersByImport = for {
       pi <- packageImport
       v <- pi.importedPackage match {
@@ -202,70 +202,70 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
 
     importedMembers ++ visibleMembersByImport
     // End of user code
-	}
+  }
 
-	/**
-	 * Specifies a set of Constraints owned by this Namespace.
-	 *
-	 * <!-- Start of user code doc for ownedRule -->
-   * <!-- End of user code doc for ownedRule -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.context
-	 */
-	def ownedRule: Set[UMLConstraint[Uml]] = ownedMember.selectByKindOf { case x: UMLConstraint[Uml] => x }
+  /**
+    * Specifies a set of Constraints owned by this Namespace.
+    *
+    * <!-- Start of user code doc for ownedRule -->
+    * <!-- End of user code doc for ownedRule -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.context
+    */
+  def ownedRule: Set[UMLConstraint[Uml]] = ownedMember.selectByKindOf { case x: UMLConstraint[Uml] => x }
 
-	/**
-	 * References the PackageImports owned by the Namespace.
-	 *
-	 * <!-- Start of user code doc for packageImport -->
-   * <!-- End of user code doc for packageImport -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importingNamespace
-	 */
-	def packageImport: Set[UMLPackageImport[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageImport[Uml] => x }
+  /**
+    * References the PackageImports owned by the Namespace.
+    *
+    * <!-- Start of user code doc for packageImport -->
+    * <!-- End of user code doc for packageImport -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importingNamespace
+    */
+  def packageImport: Set[UMLPackageImport[Uml]] = ownedElement.selectByKindOf { case x: UMLPackageImport[Uml] => x }
 
-	/**
-	 * The query excludeCollisions() excludes from a set of PackageableElements any that would not be distinguishable from each other in this Namespace.
-	 *
-	 * <!-- Start of user code doc for excludeCollisions -->
-   * <!-- End of user code doc for excludeCollisions -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (imps->reject(imp1  | imps->exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))
-	 * }}}
-	 */
-	def excludeCollisions(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
-		// Start of user code for "excludeCollisions"
+  /**
+    * The query excludeCollisions() excludes from a set of PackageableElements any that would not be distinguishable from each other in this Namespace.
+    *
+    * <!-- Start of user code doc for excludeCollisions -->
+    * <!-- End of user code doc for excludeCollisions -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="0..*"
+    * {{{
+    * OCL Body result = (imps->reject(imp1  | imps->exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))
+    * }}}
+    */
+  def excludeCollisions(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
+    // Start of user code for "excludeCollisions"
     imps
     .filter(imp1 => imps.exists(imp2 => !imp1.isDistinguishableFrom(Some(imp2), Some(self))))
     // End of user code
-	}
+  }
 
-	/**
-	 * The query getNamesOfMember() gives a set of all of the names that a member would have in a Namespace, taking importing into account. In general a member can have multiple names in a Namespace if it is imported more than once with different aliases.
-	 *
-	 * <!-- Start of user code doc for getNamesOfMember -->
-   * <!-- End of user code doc for getNamesOfMember -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (if self.ownedMember ->includes(element)
-	 * then Set{element.name}
-	 * else let elementImports : Set(ElementImport) = self.elementImport->select(ei | ei.importedElement = element) in
-	 *   if elementImports->notEmpty()
-	 *   then
-	 *      elementImports->collect(el | el.getName())->asSet()
-	 *   else 
-	 *      self.packageImport->select(pi | pi.importedPackage.visibleMembers().oclAsType(NamedElement)->includes(element))-> collect(pi | pi.importedPackage.getNamesOfMember(element))->asSet()
-	 *   endif
-	 * endif)
-	 * }}}
-	 */
-	def getNamesOfMember(element: Option[UMLNamedElement[Uml]]): Set[String] = {
-		// Start of user code for "getNamesOfMember"
+  /**
+    * The query getNamesOfMember() gives a set of all of the names that a member would have in a Namespace, taking importing into account. In general a member can have multiple names in a Namespace if it is imported more than once with different aliases.
+    *
+    * <!-- Start of user code doc for getNamesOfMember -->
+    * <!-- End of user code doc for getNamesOfMember -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="0..*"
+    * {{{
+    * OCL Body result = (if self.ownedMember ->includes(element)
+    * then Set{element.name}
+    * else let elementImports : Set(ElementImport) = self.elementImport->select(ei | ei.importedElement = element) in
+    *   if elementImports->notEmpty()
+    *   then
+    *      elementImports->collect(el | el.getName())->asSet()
+    *   else 
+    *      self.packageImport->select(pi | pi.importedPackage.visibleMembers().oclAsType(NamedElement)->includes(element))-> collect(pi | pi.importedPackage.getNamesOfMember(element))->asSet()
+    *   endif
+    * endif)
+    * }}}
+    */
+  def getNamesOfMember(element: Option[UMLNamedElement[Uml]]): Set[String] = {
+    // Start of user code for "getNamesOfMember"
     element match {
       case Some(ne) =>
         if (ownedMember.contains(ne))
@@ -286,41 +286,41 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
         Set()
     }
     // End of user code
-	}
+  }
 
-	/**
-	 * The query importMembers() defines which of a set of PackageableElements are actually imported into the Namespace. This excludes hidden ones, i.e., those which have names that conflict with names of ownedMembers, and it also excludes PackageableElements that would have the indistinguishable names when imported.
-	 *
-	 * <!-- Start of user code doc for importMembers -->
-   * <!-- End of user code doc for importMembers -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
-	 * }}}
-	 */
-	def importMembers(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
-		// Start of user code for "importMembers"
+  /**
+    * The query importMembers() defines which of a set of PackageableElements are actually imported into the Namespace. This excludes hidden ones, i.e., those which have names that conflict with names of ownedMembers, and it also excludes PackageableElements that would have the indistinguishable names when imported.
+    *
+    * <!-- Start of user code doc for importMembers -->
+    * <!-- End of user code doc for importMembers -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="0..*"
+    * {{{
+    * OCL Body result = (self.excludeCollisions(imps)->select(imp | self.ownedMember->forAll(mem | imp.isDistinguishableFrom(mem, self))))
+    * }}}
+    */
+  def importMembers(imps: Set[UMLPackageableElement[Uml]]): Set[UMLPackageableElement[Uml]] = {
+    // Start of user code for "importMembers"
     self.excludeCollisions(imps)
     .filter(imp => self.ownedMember.forall(mem => imp.isDistinguishableFrom(Some(mem), Some(self))))
     // End of user code
-	}
+  }
 
-	/**
-	 * The query makesVisible() defines whether a Package makes an element visible outside itself. Elements with no visibility and elements with public visibility are made visible.
-	 *
-	 * <!-- Start of user code doc for makesVisible -->
-   * <!-- End of user code doc for makesVisible -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (ownedMember->includes(el) or
-	 * (elementImport->select(ei|ei.importedElement = VisibilityKind::public)->collect(importedElement.oclAsType(NamedElement))->includes(el)) or
-	 * (packageImport->select(visibility = VisibilityKind::public)->collect(importedPackage.member->includes(el))->notEmpty()))
-	 * }}}
-	 */
-	def makesVisible(el: Option[UMLNamedElement[Uml]]): Boolean = {
-		// Start of user code for "makesVisible"
+  /**
+    * The query makesVisible() defines whether a Package makes an element visible outside itself. Elements with no visibility and elements with public visibility are made visible.
+    *
+    * <!-- Start of user code doc for makesVisible -->
+    * <!-- End of user code doc for makesVisible -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (ownedMember->includes(el) or
+    * (elementImport->select(ei|ei.importedElement = VisibilityKind::public)->collect(importedElement.oclAsType(NamedElement))->includes(el)) or
+    * (packageImport->select(visibility = VisibilityKind::public)->collect(importedPackage.member->includes(el))->notEmpty()))
+    * }}}
+    */
+  def makesVisible(el: Option[UMLNamedElement[Uml]]): Boolean = {
+    // Start of user code for "makesVisible"
     el match {
       case None     =>
         false
@@ -350,23 +350,23 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
                   }
     }
     // End of user code
-	}
+  }
 
-	/**
-	 * The Boolean query membersAreDistinguishable() determines whether all of the Namespace's members are distinguishable within it.
-	 *
-	 * <!-- Start of user code doc for membersAreDistinguishable -->
-   * <!-- End of user code doc for membersAreDistinguishable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (member->forAll( memb |
-	 *    member->excluding(memb)->forAll(other |
-	 *        memb.isDistinguishableFrom(other, self))))
-	 * }}}
-	 */
-	def membersAreDistinguishable: Boolean = {
-		// Start of user code for "membersAreDistinguishable"
+  /**
+    * The Boolean query membersAreDistinguishable() determines whether all of the Namespace's members are distinguishable within it.
+    *
+    * <!-- Start of user code doc for membersAreDistinguishable -->
+    * <!-- End of user code doc for membersAreDistinguishable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (member->forAll( memb |
+    *    member->excluding(memb)->forAll(other |
+    *        memb.isDistinguishableFrom(other, self))))
+    * }}}
+    */
+  def membersAreDistinguishable: Boolean = {
+    // Start of user code for "membersAreDistinguishable"
     member.forall {
                     mem => member
                            .filterNot(_ == mem)
@@ -376,56 +376,56 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
                                    }
                   }
     // End of user code
-	}
+  }
 
-	/**
-	 * The query visibleMembers() defines which members of a Package can be accessed outside it.
-	 *
-	 * <!-- Start of user code doc for visibleMembers -->
-   * <!-- End of user code doc for visibleMembers -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))->collect(oclAsType(PackageableElement))->asSet())
-	 * }}}
-	 */
-	def visibleMembers: Set[UMLPackageableElement[Uml]] = {
-		// Start of user code for "visibleMembers"
+  /**
+    * The query visibleMembers() defines which members of a Package can be accessed outside it.
+    *
+    * <!-- Start of user code doc for visibleMembers -->
+    * <!-- End of user code doc for visibleMembers -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="0..*"
+    * {{{
+    * OCL Body result = (member->select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))->collect(oclAsType(PackageableElement))->asSet())
+    * }}}
+    */
+  def visibleMembers: Set[UMLPackageableElement[Uml]] = {
+    // Start of user code for "visibleMembers"
     member
     .selectByKindOf { case pe: UMLPackageableElement[Uml] => pe }
     .filter(pe => makesVisible(Some(pe)))
     // End of user code
-	}
+  }
 
-	/**
-	 * A Namespace cannot have an ElementImport to one of its ownedMembers.
-	 *
-	 * <!-- Start of user code doc for validate_cannot_import_ownedMembers -->
-   * <!-- End of user code doc for validate_cannot_import_ownedMembers -->
-	 *
-	 * {{{
-	 * OCL Body elementImport.importedElement.oclAsType(Element)->excludesAll(ownedMember)
-	 * }}}
-	 */
-	def validate_cannot_import_ownedMembers: Boolean = {
-		// Start of user code for "cannot_import_ownedMembers"
+  /**
+    * A Namespace cannot have an ElementImport to one of its ownedMembers.
+    *
+    * <!-- Start of user code doc for validate_cannot_import_ownedMembers -->
+    * <!-- End of user code doc for validate_cannot_import_ownedMembers -->
+    *
+    * {{{
+    * OCL Body elementImport.importedElement.oclAsType(Element)->excludesAll(ownedMember)
+    * }}}
+    */
+  def validate_cannot_import_ownedMembers: Boolean = {
+    // Start of user code for "cannot_import_ownedMembers"
     elementImport
     .forall( ei => ei.importedElement.fold[Boolean](true){ ie => !ownedMember.contains(ie) } )
     // End of user code
-	}
+  }
 
-	/**
-	 * A Namespace cannot have a PackageImport to itself.
-	 *
-	 * <!-- Start of user code doc for validate_cannot_import_self -->
-   * <!-- End of user code doc for validate_cannot_import_self -->
-	 *
-	 * {{{
-	 * OCL Body packageImport.importedPackage.oclAsType(Namespace)->excludes(self)
-	 * }}}
-	 */
-	def validate_cannot_import_self: Boolean = {
-		// Start of user code for "cannot_import_self"
+  /**
+    * A Namespace cannot have a PackageImport to itself.
+    *
+    * <!-- Start of user code doc for validate_cannot_import_self -->
+    * <!-- End of user code doc for validate_cannot_import_self -->
+    *
+    * {{{
+    * OCL Body packageImport.importedPackage.oclAsType(Namespace)->excludes(self)
+    * }}}
+    */
+  def validate_cannot_import_self: Boolean = {
+    // Start of user code for "cannot_import_self"
     packageImport.forall {
                            pi =>
                              pi.importedPackage match {
@@ -434,25 +434,25 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
                              }
                          }
     // End of user code
-	}
+  }
 
-	/**
-	 * All the members of a Namespace are distinguishable within it.
-	 *
-	 * <!-- Start of user code doc for validate_members_distinguishable -->
-   * <!-- End of user code doc for validate_members_distinguishable -->
-	 *
-	 * {{{
-	 * OCL Body membersAreDistinguishable()
-	 * }}}
-	 */
-	def validate_members_distinguishable: Boolean = {
-		// Start of user code for "members_distinguishable"
+  /**
+    * All the members of a Namespace are distinguishable within it.
+    *
+    * <!-- Start of user code doc for validate_members_distinguishable -->
+    * <!-- End of user code doc for validate_members_distinguishable -->
+    *
+    * {{{
+    * OCL Body membersAreDistinguishable()
+    * }}}
+    */
+  def validate_members_distinguishable: Boolean = {
+    // Start of user code for "members_distinguishable"
     membersAreDistinguishable
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   /**
    * A namespace NS directly imports a package P if there is a PackageImport(NS, P)

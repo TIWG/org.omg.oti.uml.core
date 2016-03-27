@@ -48,54 +48,54 @@ import scala.Predef.???
 // End of user code
 
 /**
- * A ReplyAction is an Action that accepts a set of reply values and a value containing return information produced by a previous AcceptCallAction. The ReplyAction returns the values to the caller of the previous call, completing execution of the call.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A ReplyAction is an Action that accepts a set of reply values and a value containing return information produced by a previous AcceptCallAction. The ReplyAction returns the values to the caller of the previous call, completing execution of the call.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLReplyActionOps[Uml <: UML] { self: UMLReplyAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The event of the replyToCall Trigger must be a CallEvent.
-	 *
-	 * <!-- Start of user code doc for validate_event_on_reply_to_call_trigger -->
-   * <!-- End of user code doc for validate_event_on_reply_to_call_trigger -->
-	 *
-	 * {{{
-	 * OCL Body replyToCall.event.oclIsKindOf(CallEvent)
-	 * }}}
-	 */
-	def validate_event_on_reply_to_call_trigger: Boolean = {
-		// Start of user code for "event_on_reply_to_call_trigger"
-      ???
-      // End of user code
-	}
+  /**
+    * The event of the replyToCall Trigger must be a CallEvent.
+    *
+    * <!-- Start of user code doc for validate_event_on_reply_to_call_trigger -->
+    * <!-- End of user code doc for validate_event_on_reply_to_call_trigger -->
+    *
+    * {{{
+    * OCL Body replyToCall.event.oclIsKindOf(CallEvent)
+    * }}}
+    */
+  def validate_event_on_reply_to_call_trigger: Boolean = {
+    // Start of user code for "event_on_reply_to_call_trigger"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The replyValue InputPins must match the output (return, out, and inout) parameters of the operation of the event of the replyToCall Trigger in number, type, ordering, and multiplicity.
-	 *
-	 * <!-- Start of user code doc for validate_pins_match_parameter -->
-   * <!-- End of user code doc for validate_pins_match_parameter -->
-	 *
-	 * {{{
-	 * OCL Body let parameter:OrderedSet(Parameter) = replyToCall.event.oclAsType(CallEvent).operation.outputParameters() in
-	 * replyValue->size()=parameter->size() and
-	 * Sequence{1..replyValue->size()}->forAll(i |
-	 * 	replyValue->at(i).type.conformsTo(parameter->at(i).type) and
-	 * 	replyValue->at(i).isOrdered=parameter->at(i).isOrdered and
-	 * 	replyValue->at(i).compatibleWith(parameter->at(i)))
-	 * }}}
-	 */
-	def validate_pins_match_parameter: Boolean = {
-		// Start of user code for "pins_match_parameter"
-      ???
-      // End of user code
-	}
+  /**
+    * The replyValue InputPins must match the output (return, out, and inout) parameters of the operation of the event of the replyToCall Trigger in number, type, ordering, and multiplicity.
+    *
+    * <!-- Start of user code doc for validate_pins_match_parameter -->
+    * <!-- End of user code doc for validate_pins_match_parameter -->
+    *
+    * {{{
+    * OCL Body let parameter:OrderedSet(Parameter) = replyToCall.event.oclAsType(CallEvent).operation.outputParameters() in
+    * replyValue->size()=parameter->size() and
+    * Sequence{1..replyValue->size()}->forAll(i |
+    * 	replyValue->at(i).type.conformsTo(parameter->at(i).type) and
+    * 	replyValue->at(i).isOrdered=parameter->at(i).isOrdered and
+    * 	replyValue->at(i).compatibleWith(parameter->at(i)))
+    * }}}
+    */
+  def validate_pins_match_parameter: Boolean = {
+    // Start of user code for "pins_match_parameter"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLReplyActionOps

@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A ClearVariableAction is a VariableAction that removes all values of a Variable.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A ClearVariableAction is a VariableAction that removes all values of a Variable.
+  *
+  * <!-- Start of user code documentation --> 
+  * <!-- End of user code documentation -->
+  */
 trait UMLClearVariableActionOps[Uml <: UML] { self: UMLClearVariableAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLClearVariableActionOps

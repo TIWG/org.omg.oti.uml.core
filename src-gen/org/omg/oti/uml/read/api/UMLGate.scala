@@ -50,97 +50,97 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A Gate is a MessageEnd which serves as a connection point for relating a Message which has a MessageEnd (sendEvent / receiveEvent) outside an InteractionFragment with another Message which has a MessageEnd (receiveEvent / sendEvent)  inside that InteractionFragment.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A Gate is a MessageEnd which serves as a connection point for relating a Message which has a MessageEnd (sendEvent / receiveEvent) outside an InteractionFragment with another Message which has a MessageEnd (receiveEvent / sendEvent)  inside that InteractionFragment.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLGate[Uml <: UML]
-	extends UMLMessageEnd[Uml]
-	with UMLGateOps[Uml] {
-	
+  extends UMLMessageEnd[Uml]
+  with UMLGateOps[Uml] {
+
   // Start of user code for class imports
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		gate_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      gate_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLGate
-	 *
-	 * <!-- Start of user code doc for gate_metaAttributes -->
-	 * <!-- End of user code doc for gate_metaAttributes -->
-	 */
-	def gate_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			messageEnd_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLGate
+    *
+    * <!-- Start of user code doc for gate_metaAttributes -->
+    * <!-- End of user code doc for gate_metaAttributes -->
+    */
+  def gate_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     messageEnd_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		gate_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    gate_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLGate
-	 *
-	 * <!-- Start of user code doc for gate_compositeMetaProperties -->
-	 * <!-- End of user code doc for gate_compositeMetaProperties -->
-	 */
-	def gate_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			messageEnd_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLGate
+    *
+    * <!-- Start of user code doc for gate_compositeMetaProperties -->
+    * <!-- End of user code doc for gate_compositeMetaProperties -->
+    */
+  def gate_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      messageEnd_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		gate_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    gate_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLGate
-	 *
-	 * <!-- Start of user code doc for gate_referenceMetaProperties -->
-	 * <!-- End of user code doc for gate_referenceMetaProperties -->
-	 */
-	def gate_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			messageEnd_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLGate
+    *
+    * <!-- Start of user code doc for gate_referenceMetaProperties -->
+    * <!-- End of user code doc for gate_referenceMetaProperties -->
+    */
+  def gate_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      messageEnd_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		gate_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    gate_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLGate
-	 *
-	 * <!-- Start of user code doc for gate_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for gate_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def gate_forwardReferencesFromMetamodelAssociations: Elements =
-		messageEnd_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLGate
+    *
+    * <!-- Start of user code doc for gate_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for gate_forwardReferencesFromMetamodelAssociations -->
+    */
+  def gate_forwardReferencesFromMetamodelAssociations: Elements =
+    messageEnd_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLGate

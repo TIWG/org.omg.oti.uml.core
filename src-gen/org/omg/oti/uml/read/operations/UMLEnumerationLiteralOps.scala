@@ -51,47 +51,47 @@ import scala.collection.immutable._
 // End of user code
 
 /**
- * An EnumerationLiteral is a user-defined data value for an Enumeration.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An EnumerationLiteral is a user-defined data value for an Enumeration.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLEnumerationLiteralOps[Uml <: UML] { self: UMLEnumerationLiteral[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The classifier of this EnumerationLiteral derived to be equal to its Enumeration.
-	 *
-	 * <!-- Start of user code doc for classifier -->
-   * <!-- End of user code doc for classifier -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumeration.classifier_enumerationLiteral
-	 * {{{
-	 * OCL Body result = (enumeration)
-	 * }}}
-	 */
-	override def classifier: Iterable[UMLEnumeration[Uml]] = {
-		// Start of user code for "classifier"
+  /**
+    * The classifier of this EnumerationLiteral derived to be equal to its Enumeration.
+    *
+    * <!-- Start of user code doc for classifier -->
+    * <!-- End of user code doc for classifier -->
+    *
+    * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumeration.classifier_enumerationLiteral
+    * {{{
+    * OCL Body result = (enumeration)
+    * }}}
+    */
+  override def classifier: Iterable[UMLEnumeration[Uml]] = {
+    // Start of user code for "classifier"
     enumeration
     // End of user code
-	}
+  }
 
-	/**
-	 * The Enumeration that this EnumerationLiteral is a member of.
-	 *
-	 * <!-- Start of user code doc for enumeration -->
-   * <!-- End of user code doc for enumeration -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumeration.ownedLiteral
-	 */
-	def enumeration: Option[UMLEnumeration[Uml]] = namespace.selectByKindOf { case x: UMLEnumeration[Uml] => x }
+  /**
+    * The Enumeration that this EnumerationLiteral is a member of.
+    *
+    * <!-- Start of user code doc for enumeration -->
+    * <!-- End of user code doc for enumeration -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumeration.ownedLiteral
+    */
+  def enumeration: Option[UMLEnumeration[Uml]] = namespace.selectByKindOf { case x: UMLEnumeration[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLEnumerationLiteralOps

@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An OpaqueBehavior is a Behavior whose specification is given in a textual language other than UML.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLOpaqueBehaviorOps[Uml <: UML] { self: UMLOpaqueBehavior[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLOpaqueBehaviorOps

@@ -50,52 +50,52 @@ import scala.Predef.String
 // End of user code
 
 /**
- * A LiteralNull specifies the lack of a value.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A LiteralNull specifies the lack of a value.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-   * <!-- End of user code doc for isComputable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
+  /**
+    * The query isComputable() is redefined to be true.
+    *
+    * <!-- Start of user code doc for isComputable -->
+    * <!-- End of user code doc for isComputable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
       true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * The query isNull() returns true.
-	 *
-	 * <!-- Start of user code doc for isNull -->
-   * <!-- End of user code doc for isNull -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isNull: Boolean = {
-		// Start of user code for "isNull"
+  /**
+    * The query isNull() returns true.
+    *
+    * <!-- Start of user code doc for isNull -->
+    * <!-- End of user code doc for isNull -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isNull: Boolean = {
+    // Start of user code for "isNull"
       true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Some("***NULL***")  
   // End of user code
 } //UMLLiteralNullOps

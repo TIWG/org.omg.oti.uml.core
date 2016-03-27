@@ -52,40 +52,40 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A deployment is the allocation of an artifact or artifact instance to a deployment target.A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A deployment is the allocation of an artifact or artifact instance to a deployment target.A component deployment is the deployment of one or more artifacts or artifact instances to a deployment target, optionally parameterized by a deployment specification. Examples are executables and configuration files.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDeploymentOps[Uml <: UML] { self: UMLDeployment[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The specification of properties that parameterize the deployment and execution of one or more Artifacts.
-	 *
-	 * <!-- Start of user code doc for configuration -->
-   * <!-- End of user code doc for configuration -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentSpecification.deployment
-	 */
-	def configuration: Set[UMLDeploymentSpecification[Uml]] = ownedElement.selectByKindOf { case x: UMLDeploymentSpecification[Uml] => x }
+  /**
+    * The specification of properties that parameterize the deployment and execution of one or more Artifacts.
+    *
+    * <!-- Start of user code doc for configuration -->
+    * <!-- End of user code doc for configuration -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentSpecification.deployment
+    */
+  def configuration: Set[UMLDeploymentSpecification[Uml]] = ownedElement.selectByKindOf { case x: UMLDeploymentSpecification[Uml] => x }
 
-	/**
-	 * The DeployedTarget which is the target of a Deployment.
-	 *
-	 * <!-- Start of user code doc for location -->
-   * <!-- End of user code doc for location -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentTarget.deployment
-	 */
-	def location: Option[UMLDeploymentTarget[Uml]] = owner.selectByKindOf { case x: UMLDeploymentTarget[Uml] => x }
+  /**
+    * The DeployedTarget which is the target of a Deployment.
+    *
+    * <!-- Start of user code doc for location -->
+    * <!-- End of user code doc for location -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDeploymentTarget.deployment
+    */
+  def location: Option[UMLDeploymentTarget[Uml]] = owner.selectByKindOf { case x: UMLDeploymentTarget[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDeploymentOps

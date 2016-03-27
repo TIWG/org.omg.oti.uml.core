@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A DataStoreNode is a CentralBufferNode for persistent data.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * A DataStoreNode is a CentralBufferNode for persistent data.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDataStoreNodeOps[Uml <: UML] { self: UMLDataStoreNode[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLDataStoreNodeOps

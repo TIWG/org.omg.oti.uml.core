@@ -48,35 +48,35 @@ import scala.Predef.???
 // End of user code
 
 /**
- * A DestructionOccurenceSpecification models the destruction of an object.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A DestructionOccurenceSpecification models the destruction of an object.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDestructionOccurrenceSpecificationOps[Uml <: UML] { self: UMLDestructionOccurrenceSpecification[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * No other OccurrenceSpecifications on a given Lifeline in an InteractionOperand may appear below a DestructionOccurrenceSpecification.
-	 *
-	 * <!-- Start of user code doc for validate_no_occurrence_specifications_below -->
-   * <!-- End of user code doc for validate_no_occurrence_specifications_below -->
-	 *
-	 * {{{
-	 * OCL Body let o : InteractionOperand = enclosingOperand in o->notEmpty() and 
-	 * let peerEvents : OrderedSet(OccurrenceSpecification) = covered.events->select(enclosingOperand = o)
-	 * in peerEvents->last() = self
-	 * }}}
-	 */
-	def validate_no_occurrence_specifications_below: Boolean = {
-		// Start of user code for "no_occurrence_specifications_below"
-      ???
-      // End of user code
-	}
+  /**
+    * No other OccurrenceSpecifications on a given Lifeline in an InteractionOperand may appear below a DestructionOccurrenceSpecification.
+    *
+    * <!-- Start of user code doc for validate_no_occurrence_specifications_below -->
+    * <!-- End of user code doc for validate_no_occurrence_specifications_below -->
+    *
+    * {{{
+    * OCL Body let o : InteractionOperand = enclosingOperand in o->notEmpty() and 
+    * let peerEvents : OrderedSet(OccurrenceSpecification) = covered.events->select(enclosingOperand = o)
+    * in peerEvents->last() = self
+    * }}}
+    */
+  def validate_no_occurrence_specifications_below: Boolean = {
+    // Start of user code for "no_occurrence_specifications_below"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDestructionOccurrenceSpecificationOps

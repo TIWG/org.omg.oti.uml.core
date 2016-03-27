@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A FlowFinalNode is a FinalNode that terminates a flow by consuming the tokens offered to it.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * A FlowFinalNode is a FinalNode that terminates a flow by consuming the tokens offered to it.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLFlowFinalNodeOps[Uml <: UML] { self: UMLFlowFinalNode[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLFlowFinalNodeOps

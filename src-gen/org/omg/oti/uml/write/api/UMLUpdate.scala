@@ -4398,9 +4398,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) :+
         ( "visibility" -> MetaEnumerationAttributeUpdater_NamedElement_visibility ) :+
-        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) :+
+        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) :+
         ( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> MetaEnumerationAttributeUpdater_Property_aggregation ) :+
@@ -4836,9 +4836,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) :+
         ( "visibility" -> MetaEnumerationAttributeUpdater_NamedElement_visibility ) :+
+        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) :+
-        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) :+
         ( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> MetaEnumerationAttributeUpdater_Property_aggregation ) :+
@@ -4875,9 +4875,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> MetaOptionAttributeUpdater_NamedElement_name ) :+
         ( "visibility" -> MetaEnumerationAttributeUpdater_NamedElement_visibility ) :+
-        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MetaScalarAttributeUpdater_MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MetaScalarAttributeUpdater_MultiplicityElement_isUnique ) :+
+        ( "isLeaf" -> MetaScalarAttributeUpdater_RedefinableElement_isLeaf ) :+
         ( "isStatic" -> MetaScalarAttributeUpdater_Feature_isStatic ) :+
         ( "isReadOnly" -> MetaScalarAttributeUpdater_StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> MetaEnumerationAttributeUpdater_Property_aggregation ) :+
@@ -5506,7 +5506,7 @@ with UMLPropertyUpdater[Uml] {
     ("ValueSpecificationAction" -> metaclass_composite_updater_table_ValueSpecificationAction) +
     ("Variable" -> metaclass_composite_updater_table_Variable)
 
-  // All parents: {Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Abstraction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6512,7 +6512,7 @@ with UMLPropertyUpdater[Uml] {
           links_Component_abstraction_compose_realization_ComponentRealization _,
           ops.Component_realization))
 
-  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_ComponentRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6526,7 +6526,7 @@ with UMLPropertyUpdater[Uml] {
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
           ops.Abstraction_mapping))
 
-  // All parents: {ConditionalNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {ConditionalNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ConditionalNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6850,7 +6850,7 @@ with UMLPropertyUpdater[Uml] {
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
 
-  // All parents: {Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Dependency
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6861,7 +6861,7 @@ with UMLPropertyUpdater[Uml] {
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
 
-  // All parents: {Deployment, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Deployment, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Deployment
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6994,7 +6994,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering))
 
-  // All parents: {Device, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Device, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Device
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7040,15 +7040,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
-        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
-          links_DeploymentTarget_location_compose_deployment_Deployment _,
-          ops.DeploymentTarget_deployment)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
         ( "ownedBehavior" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
           ops.BehavioredClassifier_ownedBehavior)) :+
+        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
+          links_DeploymentTarget_location_compose_deployment_Deployment _,
+          ops.DeploymentTarget_deployment)) :+
         ( "nestedClassifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Class_nestingClass_compose_nestedClassifier_Classifier _,
           ops.Class_nestedClassifier)) :+
@@ -7207,7 +7207,7 @@ with UMLPropertyUpdater[Uml] {
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment))
 
-  // All parents: {ExecutionEnvironment, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {ExecutionEnvironment, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_ExecutionEnvironment
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7253,15 +7253,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
+        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
+          links_DeploymentTarget_location_compose_deployment_Deployment _,
+          ops.DeploymentTarget_deployment)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
         ( "ownedBehavior" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
           ops.BehavioredClassifier_ownedBehavior)) :+
-        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
-          links_DeploymentTarget_location_compose_deployment_Deployment _,
-          ops.DeploymentTarget_deployment)) :+
         ( "nestedClassifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Class_nestingClass_compose_nestedClassifier_Classifier _,
           ops.Class_nestedClassifier)) :+
@@ -7292,7 +7292,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
           ops.InteractionFragment_generalOrdering))
 
-  // All parents: {ExpansionNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ExpansionNode, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExpansionNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7364,7 +7364,7 @@ with UMLPropertyUpdater[Uml] {
           links_Expression_expression_compose_operand_ValueSpecification _,
           ops.Expression_operand))
 
-  // All parents: {Extend, DirectedRelationship, Relationship, NamedElement, Element}
+  // All parents: {Extend, DirectedRelationship, NamedElement, Relationship, Element}
   lazy val metaclass_composite_updater_table_Extend
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7425,7 +7425,7 @@ with UMLPropertyUpdater[Uml] {
           links_Extension_extension_compose_ownedEnd_ExtensionEnd _,
           ops.Extension_ownedEnd))
 
-  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExtensionEnd
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7770,7 +7770,7 @@ with UMLPropertyUpdater[Uml] {
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
 
-  // All parents: {Interaction, Behavior, InteractionFragment, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Interaction, Behavior, Class, InteractionFragment, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Interaction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7822,6 +7822,9 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedBehavior" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
           ops.BehavioredClassifier_ownedBehavior)) :+
+        ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
+          links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
+          ops.InteractionFragment_generalOrdering)) :+
         ( "nestedClassifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Class_nestingClass_compose_nestedClassifier_Classifier _,
           ops.Class_nestedClassifier)) :+
@@ -7834,9 +7837,6 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedReception" -> AssociationMetaPropertySetUpdateInfo(
           links_Class_class_compose_ownedReception_Reception _,
           ops.Class_ownedReception)) :+
-        ( "generalOrdering" -> AssociationMetaPropertySetUpdateInfo(
-          links_InteractionFragment_interactionFragment_compose_generalOrdering_GeneralOrdering _,
-          ops.InteractionFragment_generalOrdering)) :+
         ( "ownedParameter" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Behavior_behavior_compose_ownedParameter_Parameter _,
           ops.Behavior_ownedParameter)) :+
@@ -7987,7 +7987,7 @@ with UMLPropertyUpdater[Uml] {
           links_Interface_interface_compose_protocol_ProtocolStateMachine _,
           ops.Interface_protocol))
 
-  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_InterfaceRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8167,7 +8167,7 @@ with UMLPropertyUpdater[Uml] {
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
 
-  // All parents: {LoopNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {LoopNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_LoopNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8220,7 +8220,7 @@ with UMLPropertyUpdater[Uml] {
           links_LoopNode_loopNode_compose_result_OutputPin _,
           ops.LoopNode_result))
 
-  // All parents: {Manifestation, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Manifestation, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Manifestation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8308,7 +8308,7 @@ with UMLPropertyUpdater[Uml] {
           links_Package_applyingPackage_compose_profileApplication_ProfileApplication _,
           ops.Package_profileApplication))
 
-  // All parents: {Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Node
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8354,15 +8354,15 @@ with UMLPropertyUpdater[Uml] {
         ( "ownedConnector" -> AssociationMetaPropertySetUpdateInfo(
           links_StructuredClassifier_structuredClassifier_compose_ownedConnector_Connector _,
           ops.StructuredClassifier_ownedConnector)) :+
+        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
+          links_DeploymentTarget_location_compose_deployment_Deployment _,
+          ops.DeploymentTarget_deployment)) :+
         ( "interfaceRealization" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_implementingClassifier_compose_interfaceRealization_InterfaceRealization _,
           ops.BehavioredClassifier_interfaceRealization)) :+
         ( "ownedBehavior" -> AssociationMetaPropertySetUpdateInfo(
           links_BehavioredClassifier_behavioredClassifier_compose_ownedBehavior_Behavior _,
           ops.BehavioredClassifier_ownedBehavior)) :+
-        ( "deployment" -> AssociationMetaPropertySetUpdateInfo(
-          links_DeploymentTarget_location_compose_deployment_Deployment _,
-          ops.DeploymentTarget_deployment)) :+
         ( "nestedClassifier" -> AssociationMetaPropertySequenceUpdateInfo(
           links_Class_nestingClass_compose_nestedClassifier_Classifier _,
           ops.Class_nestedClassifier)) :+
@@ -8518,7 +8518,7 @@ with UMLPropertyUpdater[Uml] {
           links_NamedElement_namedElement_compose_nameExpression_StringExpression _,
           ops.NamedElement_nameExpression))
 
-  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, RedefinableElement, Namespace, TemplateableElement, NamedElement, Element}
+  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, Namespace, RedefinableElement, TemplateableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Operation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8567,7 +8567,7 @@ with UMLPropertyUpdater[Uml] {
           links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement _,
           ops.TemplateParameter_ownedParameteredElement))
 
-  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
+  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_OutputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8638,7 +8638,7 @@ with UMLPropertyUpdater[Uml] {
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment))
 
-  // All parents: {Parameter, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Parameter, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Parameter
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8695,7 +8695,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification _,
           ops.InteractionUse_returnValue))
 
-  // All parents: {Port, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Port, Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Port
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8811,7 +8811,7 @@ with UMLPropertyUpdater[Uml] {
           links_Element_owningElement_compose_ownedComment_Comment _,
           ops.Element_ownedComment))
 
-  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Property
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9198,7 +9198,7 @@ with UMLPropertyUpdater[Uml] {
           links_ReadVariableAction_readVariableAction_compose_result_OutputPin _,
           ops.ReadVariableAction_result))
 
-  // All parents: {Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Realization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9212,7 +9212,7 @@ with UMLPropertyUpdater[Uml] {
           links_Abstraction_abstraction_compose_mapping_OpaqueExpression _,
           ops.Abstraction_mapping))
 
-  // All parents: {Reception, BehavioralFeature, Feature, Namespace, RedefinableElement, NamedElement, Element}
+  // All parents: {Reception, BehavioralFeature, Feature, RedefinableElement, Namespace, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Reception
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9834,7 +9834,7 @@ with UMLPropertyUpdater[Uml] {
           links_Stereotype_stereotype_compose_icon_Image _,
           ops.Stereotype_icon))
 
-  // All parents: {StringExpression, Expression, TemplateableElement, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
+  // All parents: {StringExpression, Expression, ValueSpecification, TemplateableElement, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_StringExpression
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9857,7 +9857,7 @@ with UMLPropertyUpdater[Uml] {
           links_StringExpression_owningExpression_compose_subExpression_StringExpression _,
           ops.StringExpression_subExpression))
 
-  // All parents: {StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_StructuredActivityNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9901,7 +9901,7 @@ with UMLPropertyUpdater[Uml] {
           links_StructuredActivityNode_scope_compose_variable_Variable _,
           ops.StructuredActivityNode_variable))
 
-  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Substitution
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10191,7 +10191,7 @@ with UMLPropertyUpdater[Uml] {
           links_UseCase_includingCase_compose_include_Include _,
           ops.UseCase_include))
 
-  // All parents: {ValuePin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ValuePin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ValuePin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10240,7 +10240,7 @@ with UMLPropertyUpdater[Uml] {
           links_ValueSpecificationAction_valueSpecificationAction_compose_value_ValueSpecification _,
           ops.ValueSpecificationAction_value))
 
-  // All parents: {Variable, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Variable, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Variable
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10458,7 +10458,7 @@ with UMLPropertyUpdater[Uml] {
    ("ValueSpecificationAction" -> metaclass_reference_updater_table_ValueSpecificationAction) +
    ("Variable" -> metaclass_reference_updater_table_Variable)
 
-  // All parents: {Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Abstraction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11218,7 +11218,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_ComponentRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11235,7 +11235,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {ConditionalNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {ConditionalNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ConditionalNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11496,7 +11496,7 @@ with UMLPropertyUpdater[Uml] {
           links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
           ops.ActivityNode_redefinedNode))
 
-  // All parents: {Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Dependency
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11510,7 +11510,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Deployment, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Deployment, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Deployment
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11610,7 +11610,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
           ops.InteractionFragment_covered))
 
-  // All parents: {Device, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Device, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Device
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11751,7 +11751,7 @@ with UMLPropertyUpdater[Uml] {
           links_ExceptionHandler_exceptionHandler_reference_handlerBody_ExecutableNode _,
           ops.ExceptionHandler_handlerBody))
 
-  // All parents: {ExecutionEnvironment, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {ExecutionEnvironment, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_ExecutionEnvironment
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11797,7 +11797,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
           ops.InteractionFragment_covered))
 
-  // All parents: {ExpansionNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ExpansionNode, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ExpansionNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11869,7 +11869,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Extend, DirectedRelationship, Relationship, NamedElement, Element}
+  // All parents: {Extend, DirectedRelationship, NamedElement, Relationship, Element}
   lazy val metaclass_reference_updater_table_Extend
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11909,7 +11909,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ExtensionEnd
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12218,7 +12218,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Interaction, Behavior, InteractionFragment, Class, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Interaction, Behavior, Class, InteractionFragment, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Interaction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12318,7 +12318,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_InterfaceRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12513,7 +12513,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {LoopNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {LoopNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_LoopNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12548,7 +12548,7 @@ with UMLPropertyUpdater[Uml] {
           links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
           ops.ActivityNode_redefinedNode))
 
-  // All parents: {Manifestation, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Manifestation, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Manifestation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12630,7 +12630,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Node
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12771,7 +12771,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, RedefinableElement, Namespace, TemplateableElement, NamedElement, Element}
+  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, Namespace, RedefinableElement, TemplateableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Operation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12817,7 +12817,7 @@ with UMLPropertyUpdater[Uml] {
           links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement _,
           ops.TemplateParameter_parameteredElement))
 
-  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
+  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_OutputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12870,7 +12870,7 @@ with UMLPropertyUpdater[Uml] {
           links_PackageMerge_packageMerge_reference_mergedPackage_Package _,
           ops.PackageMerge_mergedPackage))
 
-  // All parents: {Parameter, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Parameter, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Parameter
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12909,7 +12909,7 @@ with UMLPropertyUpdater[Uml] {
           links_InteractionFragment_coveredBy_reference_covered_Lifeline _,
           ops.InteractionFragment_covered))
 
-  // All parents: {Port, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Port, Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Port
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -12983,7 +12983,7 @@ with UMLPropertyUpdater[Uml] {
           links_ProfileApplication_profileApplication_reference_appliedProfile_Profile _,
           ops.ProfileApplication_appliedProfile))
 
-  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Property
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13292,7 +13292,7 @@ with UMLPropertyUpdater[Uml] {
           links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
           ops.ActivityNode_redefinedNode))
 
-  // All parents: {Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Realization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13306,7 +13306,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {Reception, BehavioralFeature, Feature, Namespace, RedefinableElement, NamedElement, Element}
+  // All parents: {Reception, BehavioralFeature, Feature, RedefinableElement, Namespace, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Reception
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13706,7 +13706,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {StringExpression, Expression, TemplateableElement, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
+  // All parents: {StringExpression, Expression, ValueSpecification, TemplateableElement, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_StringExpression
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13717,7 +13717,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_StructuredActivityNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13737,7 +13737,7 @@ with UMLPropertyUpdater[Uml] {
           links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
           ops.ActivityNode_redefinedNode))
 
-  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Substitution
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -13973,7 +13973,7 @@ with UMLPropertyUpdater[Uml] {
           links_ParameterableElement_parameteredElement_reference_templateParameter_TemplateParameter _,
           ops.ParameterableElement_templateParameter))
 
-  // All parents: {ValuePin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ValuePin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ValuePin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -14022,7 +14022,7 @@ with UMLPropertyUpdater[Uml] {
           links_ActivityNode_activityNode_reference_redefinedNode_ActivityNode _,
           ops.ActivityNode_redefinedNode))
 
-  // All parents: {Variable, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Variable, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Variable
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -14036,6 +14036,6 @@ with UMLPropertyUpdater[Uml] {
           links_TypedElement_typedElement_reference_type_Type _,
           ops.TypedElement_type))
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 }

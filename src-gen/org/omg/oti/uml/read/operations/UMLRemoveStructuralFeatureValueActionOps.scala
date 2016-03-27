@@ -48,40 +48,40 @@ import scala.Predef.???
 // End of user code
 
 /**
- * A RemoveStructuralFeatureValueAction is a WriteStructuralFeatureAction that removes values from a StructuralFeature.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A RemoveStructuralFeatureValueAction is a WriteStructuralFeatureAction that removes values from a StructuralFeature.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLRemoveStructuralFeatureValueActionOps[Uml <: UML] { self: UMLRemoveStructuralFeatureValueAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * RemoveStructuralFeatureValueActions removing a value from ordered, non-unique StructuralFeatures must have a single removeAt InputPin and no value InputPin, if isRemoveDuplicates is false. The removeAt InputPin must be of type Unlimited Natural with multiplicity 1..1. Otherwise, the Action has a value InputPin and no removeAt InputPin.
-	 *
-	 * <!-- Start of user code doc for validate_removeAt_and_value -->
-   * <!-- End of user code doc for validate_removeAt_and_value -->
-	 *
-	 * {{{
-	 * OCL Body if structuralFeature.isOrdered and not structuralFeature.isUnique and  not isRemoveDuplicates then
-	 *   value = null and
-	 *   removeAt <> null and
-	 *   removeAt.type = UnlimitedNatural and
-	 *   removeAt.is(1,1)
-	 * else
-	 *   removeAt = null and value <> null
-	 * endif
-	 * }}}
-	 */
-	def validate_removeAt_and_value: Boolean = {
-		// Start of user code for "removeAt_and_value"
-      ???
-      // End of user code
-	}
+  /**
+    * RemoveStructuralFeatureValueActions removing a value from ordered, non-unique StructuralFeatures must have a single removeAt InputPin and no value InputPin, if isRemoveDuplicates is false. The removeAt InputPin must be of type Unlimited Natural with multiplicity 1..1. Otherwise, the Action has a value InputPin and no removeAt InputPin.
+    *
+    * <!-- Start of user code doc for validate_removeAt_and_value -->
+    * <!-- End of user code doc for validate_removeAt_and_value -->
+    *
+    * {{{
+    * OCL Body if structuralFeature.isOrdered and not structuralFeature.isUnique and  not isRemoveDuplicates then
+    *   value = null and
+    *   removeAt <> null and
+    *   removeAt.type = UnlimitedNatural and
+    *   removeAt.is(1,1)
+    * else
+    *   removeAt = null and value <> null
+    * endif
+    * }}}
+    */
+  def validate_removeAt_and_value: Boolean = {
+    // Start of user code for "removeAt_and_value"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLRemoveStructuralFeatureValueActionOps

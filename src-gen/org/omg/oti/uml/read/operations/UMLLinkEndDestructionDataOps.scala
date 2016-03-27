@@ -53,65 +53,65 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * LinkEndDestructionData is LinkEndData used to provide values for one end of a link to be destroyed by a DestroyLinkAction.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * LinkEndDestructionData is LinkEndData used to provide values for one end of a link to be destroyed by a DestroyLinkAction.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLinkEndDestructionDataOps[Uml <: UML] { self: UMLLinkEndDestructionData[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for endData_destroyLinkAction -->
-   * <!-- End of user code doc for endData_destroyLinkAction -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLDestroyLinkAction.endData
-	 */
-	def endData_destroyLinkAction: Option[UMLDestroyLinkAction[Uml]] = endData_linkAction.selectByKindOf { case x: UMLDestroyLinkAction[Uml] => x }
+  /**
+    * <!-- Start of user code doc for endData_destroyLinkAction -->
+    * <!-- End of user code doc for endData_destroyLinkAction -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDestroyLinkAction.endData
+    */
+  def endData_destroyLinkAction: Option[UMLDestroyLinkAction[Uml]] = endData_linkAction.selectByKindOf { case x: UMLDestroyLinkAction[Uml] => x }
 
-	/**
-	 * Adds the destroyAt InputPin (if any) to the set of all Pins.
-	 *
-	 * <!-- Start of user code doc for allPins -->
-   * <!-- End of user code doc for allPins -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="0..*"
-	 * {{{
-	 * OCL Body result = (self.LinkEndData::allPins()->including(destroyAt))
-	 * }}}
-	 */
-	override def allPins: Set[UMLInputPin[Uml]] = {
-		// Start of user code for "allPins"
-      ???
-      // End of user code
-	}
+  /**
+    * Adds the destroyAt InputPin (if any) to the set of all Pins.
+    *
+    * <!-- Start of user code doc for allPins -->
+    * <!-- End of user code doc for allPins -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="0..*"
+    * {{{
+    * OCL Body result = (self.LinkEndData::allPins()->including(destroyAt))
+    * }}}
+    */
+  override def allPins: Set[UMLInputPin[Uml]] = {
+    // Start of user code for "allPins"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * LinkEndDestructionData for ordered, nonunique Association ends must have a single destroyAt InputPin if isDestroyDuplicates is false, which must be of type UnlimitedNatural and have a multiplicity of 1..1. Otherwise, the action has no destroyAt input pin.
-	 *
-	 * <!-- Start of user code doc for validate_destroyAt_pin -->
-   * <!-- End of user code doc for validate_destroyAt_pin -->
-	 *
-	 * {{{
-	 * OCL Body if  not end.isOrdered or end.isUnique or isDestroyDuplicates
-	 * then destroyAt = null
-	 * else
-	 * 	destroyAt <> null and 
-	 * 	destroyAt->forAll(type=UnlimitedNatural and is(1,1))
-	 * endif
-	 * }}}
-	 */
-	def validate_destroyAt_pin: Boolean = {
-		// Start of user code for "destroyAt_pin"
-      ???
-      // End of user code
-	}
+  /**
+    * LinkEndDestructionData for ordered, nonunique Association ends must have a single destroyAt InputPin if isDestroyDuplicates is false, which must be of type UnlimitedNatural and have a multiplicity of 1..1. Otherwise, the action has no destroyAt input pin.
+    *
+    * <!-- Start of user code doc for validate_destroyAt_pin -->
+    * <!-- End of user code doc for validate_destroyAt_pin -->
+    *
+    * {{{
+    * OCL Body if  not end.isOrdered or end.isUnique or isDestroyDuplicates
+    * then destroyAt = null
+    * else
+    * 	destroyAt <> null and 
+    * 	destroyAt->forAll(type=UnlimitedNatural and is(1,1))
+    * endif
+    * }}}
+    */
+  def validate_destroyAt_pin: Boolean = {
+    // Start of user code for "destroyAt_pin"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLLinkEndDestructionDataOps

@@ -56,28 +56,28 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * An Interval defines the range between two ValueSpecifications.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An Interval defines the range between two ValueSpecifications.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLIntervalOps[Uml <: UML] { self: UMLInterval[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for specification_intervalConstraint -->
-   * <!-- End of user code doc for specification_intervalConstraint -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLIntervalConstraint.specification
-	 */
-	def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] = specification_owningConstraint.selectByKindOf { case x: UMLIntervalConstraint[Uml] => x }
+  /**
+    * <!-- Start of user code doc for specification_intervalConstraint -->
+    * <!-- End of user code doc for specification_intervalConstraint -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLIntervalConstraint.specification
+    */
+  def specification_intervalConstraint: Option[UMLIntervalConstraint[Uml]] = specification_owningConstraint.selectByKindOf { case x: UMLIntervalConstraint[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
 	: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =

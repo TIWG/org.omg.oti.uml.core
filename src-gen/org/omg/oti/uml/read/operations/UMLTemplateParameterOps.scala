@@ -52,59 +52,59 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A TemplateParameter exposes a ParameterableElement as a formal parameter of a template.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLTemplateParameterOps[Uml <: UML] { self: UMLTemplateParameter[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
-	 *
-	 * <!-- Start of user code doc for ownedDefault -->
-   * <!-- End of user code doc for ownedDefault -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.ownedDefault_templateParameter
-	 */
-	def ownedDefault: Option[UMLParameterableElement[Uml]] = default
+  /**
+    * The ParameterableElement that is owned by this TemplateParameter for the purpose of providing a default.
+    *
+    * <!-- Start of user code doc for ownedDefault -->
+    * <!-- End of user code doc for ownedDefault -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLParameterableElement.ownedDefault_templateParameter
+    */
+  def ownedDefault: Option[UMLParameterableElement[Uml]] = default
 
-	/**
-	 * The TemplateSignature that owns this TemplateParameter.
-	 *
-	 * <!-- Start of user code doc for signature -->
-   * <!-- End of user code doc for signature -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.ownedParameter
-	 */
-	def signature: Option[UMLTemplateSignature[Uml]] = owner.selectByKindOf { case x: UMLTemplateSignature[Uml] => x }
+  /**
+    * The TemplateSignature that owns this TemplateParameter.
+    *
+    * <!-- Start of user code doc for signature -->
+    * <!-- End of user code doc for signature -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLTemplateSignature.ownedParameter
+    */
+  def signature: Option[UMLTemplateSignature[Uml]] = owner.selectByKindOf { case x: UMLTemplateSignature[Uml] => x }
 
-	/**
-	 * The default must be compatible with the formal TemplateParameter.
-	 *
-	 * <!-- Start of user code doc for validate_must_be_compatible -->
-   * <!-- End of user code doc for validate_must_be_compatible -->
-	 *
-	 * {{{
-	 * OCL Body default <> null implies default.isCompatibleWith(parameteredElement)
-	 * }}}
-	 */
-	def validate_must_be_compatible: Boolean = {
-		// Start of user code for "must_be_compatible"
+  /**
+    * The default must be compatible with the formal TemplateParameter.
+    *
+    * <!-- Start of user code doc for validate_must_be_compatible -->
+    * <!-- End of user code doc for validate_must_be_compatible -->
+    *
+    * {{{
+    * OCL Body default <> null implies default.isCompatibleWith(parameteredElement)
+    * }}}
+    */
+  def validate_must_be_compatible: Boolean = {
+    // Start of user code for "must_be_compatible"
     default.fold[Boolean](true) {
       d => d.isCompatibleWith(parameteredElement)
     }
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   /**
    * Helper for UML 2.5, 7.8 NamedElement::allNamespaces

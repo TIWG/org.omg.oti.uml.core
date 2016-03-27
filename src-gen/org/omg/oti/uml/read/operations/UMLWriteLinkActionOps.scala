@@ -48,38 +48,38 @@ import scala.Predef.???
 // End of user code
 
 /**
- * WriteLinkAction is an abstract class for LinkActions that create and destroy links.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * WriteLinkAction is an abstract class for LinkActions that create and destroy links.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLWriteLinkActionOps[Uml <: UML] { self: UMLWriteLinkAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The visibility of at least one end must allow access from the context Classifier of the WriteLinkAction.
-	 *
-	 * <!-- Start of user code doc for validate_allow_access -->
-   * <!-- End of user code doc for validate_allow_access -->
-	 *
-	 * {{{
-	 * OCL Body endData.end->exists(end |
-	 *   end.type=_'context' or
-	 *   end.visibility=VisibilityKind::public or 
-	 *   end.visibility=VisibilityKind::protected and
-	 *   endData.end->exists(other | 
-	 *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
-	 * }}}
-	 */
-	def validate_allow_access: Boolean = {
-		// Start of user code for "allow_access"
-      ???
-      // End of user code
-	}
+  /**
+    * The visibility of at least one end must allow access from the context Classifier of the WriteLinkAction.
+    *
+    * <!-- Start of user code doc for validate_allow_access -->
+    * <!-- End of user code doc for validate_allow_access -->
+    *
+    * {{{
+    * OCL Body endData.end->exists(end |
+    *   end.type=_'context' or
+    *   end.visibility=VisibilityKind::public or 
+    *   end.visibility=VisibilityKind::protected and
+    *   endData.end->exists(other | 
+    *     other<>end and _'context'.conformsTo(other.type.oclAsType(Classifier))))
+    * }}}
+    */
+  def validate_allow_access: Boolean = {
+    // Start of user code for "allow_access"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLWriteLinkActionOps

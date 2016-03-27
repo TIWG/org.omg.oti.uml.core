@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * An ActivityFinalNode is a FinalNode that terminates the execution of its owning Activity or StructuredActivityNode.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An ActivityFinalNode is a FinalNode that terminates the execution of its owning Activity or StructuredActivityNode.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLActivityFinalNodeOps[Uml <: UML] { self: UMLActivityFinalNode[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLActivityFinalNodeOps

@@ -52,37 +52,37 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An EncapsulatedClassifier may own Ports to specify typed interaction points.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An EncapsulatedClassifier may own Ports to specify typed interaction points.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLEncapsulatedClassifierOps[Uml <: UML] { self: UMLEncapsulatedClassifier[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The Ports owned by the EncapsulatedClassifier.
-	 *
-	 * <!-- Start of user code doc for ownedPort -->
-   * <!-- End of user code doc for ownedPort -->
-	 *
-	 * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.ownedPort_encapsulatedClassifier
-	 * {{{
-	 * OCL Body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
-	 * }}}
-	 */
-	def ownedPort: Set[UMLPort[Uml]] = {
-		// Start of user code for "ownedPort"
+  /**
+    * The Ports owned by the EncapsulatedClassifier.
+    *
+    * <!-- Start of user code doc for ownedPort -->
+    * <!-- End of user code doc for ownedPort -->
+    *
+    * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPort.ownedPort_encapsulatedClassifier
+    * {{{
+    * OCL Body result = (ownedAttribute->select(oclIsKindOf(Port))->collect(oclAsType(Port))->asOrderedSet())
+    * }}}
+    */
+  def ownedPort: Set[UMLPort[Uml]] = {
+    // Start of user code for "ownedPort"
     ownedAttribute
     .selectByKindOf { case x: UMLPort[Uml] => x }.toSet[UMLPort[Uml]]
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLEncapsulatedClassifierOps

@@ -48,49 +48,49 @@ import scala.Predef.???
 // End of user code
 
 /**
- * An InitialNode is a ControlNode that offers a single control token when initially enabled.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An InitialNode is a ControlNode that offers a single control token when initially enabled.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLInitialNodeOps[Uml <: UML] { self: UMLInitialNode[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * All the outgoing ActivityEdges from an InitialNode must be ControlFlows.
-	 *
-	 * <!-- Start of user code doc for validate_control_edges -->
-   * <!-- End of user code doc for validate_control_edges -->
-	 *
-	 * {{{
-	 * OCL Body outgoing->forAll(oclIsKindOf(ControlFlow))
-	 * }}}
-	 */
-	def validate_control_edges: Boolean = {
-		// Start of user code for "control_edges"
-      ???
-      // End of user code
-	}
+  /**
+    * All the outgoing ActivityEdges from an InitialNode must be ControlFlows.
+    *
+    * <!-- Start of user code doc for validate_control_edges -->
+    * <!-- End of user code doc for validate_control_edges -->
+    *
+    * {{{
+    * OCL Body outgoing->forAll(oclIsKindOf(ControlFlow))
+    * }}}
+    */
+  def validate_control_edges: Boolean = {
+    // Start of user code for "control_edges"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * An InitialNode has no incoming ActivityEdges.
-	 *
-	 * <!-- Start of user code doc for validate_no_incoming_edges -->
-   * <!-- End of user code doc for validate_no_incoming_edges -->
-	 *
-	 * {{{
-	 * OCL Body incoming->isEmpty()
-	 * }}}
-	 */
-	def validate_no_incoming_edges: Boolean = {
-		// Start of user code for "no_incoming_edges"
-      ???
-      // End of user code
-	}
+  /**
+    * An InitialNode has no incoming ActivityEdges.
+    *
+    * <!-- Start of user code doc for validate_no_incoming_edges -->
+    * <!-- End of user code doc for validate_no_incoming_edges -->
+    *
+    * {{{
+    * OCL Body incoming->isEmpty()
+    * }}}
+    */
+  def validate_no_incoming_edges: Boolean = {
+    // Start of user code for "no_incoming_edges"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLInitialNodeOps

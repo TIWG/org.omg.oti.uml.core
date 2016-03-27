@@ -55,18 +55,18 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An Expression represents a node in an expression tree, which may be non-terminal or terminal. It defines a symbol, and has a possibly empty sequence of operands that are ValueSpecifications. It denotes a (possibly empty) set of values when evaluated in a context.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
   : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =

@@ -48,33 +48,33 @@ import scala.Predef.???
 // End of user code
 
 /**
- * VariableAction is an abstract class for Actions that operate on a specified Variable.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * VariableAction is an abstract class for Actions that operate on a specified Variable.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLVariableActionOps[Uml <: UML] { self: UMLVariableAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The VariableAction must be in the scope of the variable.
-	 *
-	 * <!-- Start of user code doc for validate_scope_of_variable -->
-   * <!-- End of user code doc for validate_scope_of_variable -->
-	 *
-	 * {{{
-	 * OCL Body variable.isAccessibleBy(self)
-	 * }}}
-	 */
-	def validate_scope_of_variable: Boolean = {
-		// Start of user code for "scope_of_variable"
-      ???
-      // End of user code
-	}
+  /**
+    * The VariableAction must be in the scope of the variable.
+    *
+    * <!-- Start of user code doc for validate_scope_of_variable -->
+    * <!-- End of user code doc for validate_scope_of_variable -->
+    *
+    * {{{
+    * OCL Body variable.isAccessibleBy(self)
+    * }}}
+    */
+  def validate_scope_of_variable: Boolean = {
+    // Start of user code for "scope_of_variable"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLVariableActionOps

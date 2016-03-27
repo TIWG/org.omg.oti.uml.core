@@ -50,52 +50,52 @@ import java.lang.Integer
 // End of user code
 
 /**
- * A LiteralInteger is a specification of an Integer value.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A LiteralInteger is a specification of an Integer value.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralIntegerOps[Uml <: UML] { self: UMLLiteralInteger[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The query integerValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for integerValue -->
-   * <!-- End of user code doc for integerValue -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (value)
-	 * }}}
-	 */
-	override def integerValue: Option[Integer] = {
-		// Start of user code for "integerValue"
+  /**
+    * The query integerValue() gives the value.
+    *
+    * <!-- Start of user code doc for integerValue -->
+    * <!-- End of user code doc for integerValue -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (value)
+    * }}}
+    */
+  override def integerValue: Option[Integer] = {
+    // Start of user code for "integerValue"
       Option.apply(value)
-      // End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-   * <!-- End of user code doc for isComputable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
+  /**
+    * The query isComputable() is redefined to be true.
+    *
+    * <!-- Start of user code doc for isComputable -->
+    * <!-- End of user code doc for isComputable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
       true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
   // End of user code
 } //UMLLiteralIntegerOps

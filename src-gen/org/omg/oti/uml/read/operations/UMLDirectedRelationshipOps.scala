@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A DirectedRelationship represents a relationship between a collection of source model Elements and a collection of target model Elements.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A DirectedRelationship represents a relationship between a collection of source model Elements and a collection of target model Elements.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDirectedRelationshipOps[Uml <: UML] { self: UMLDirectedRelationship[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDirectedRelationshipOps

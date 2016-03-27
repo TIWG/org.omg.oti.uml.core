@@ -50,98 +50,98 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A deployment target is the location for a deployed artifact.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A deployment target is the location for a deployed artifact.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDeploymentTarget[Uml <: UML]
-	extends UMLNamedElement[Uml]
-	with UMLDeploymentTargetOps[Uml] {
-	
+  extends UMLNamedElement[Uml]
+  with UMLDeploymentTargetOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		deploymentTarget_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      deploymentTarget_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLDeploymentTarget
-	 *
-	 * <!-- Start of user code doc for deploymentTarget_metaAttributes -->
-	 * <!-- End of user code doc for deploymentTarget_metaAttributes -->
-	 */
-	def deploymentTarget_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			namedElement_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLDeploymentTarget
+    *
+    * <!-- Start of user code doc for deploymentTarget_metaAttributes -->
+    * <!-- End of user code doc for deploymentTarget_metaAttributes -->
+    */
+  def deploymentTarget_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     namedElement_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		deploymentTarget_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    deploymentTarget_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLDeploymentTarget
-	 *
-	 * <!-- Start of user code doc for deploymentTarget_compositeMetaProperties -->
-	 * <!-- End of user code doc for deploymentTarget_compositeMetaProperties -->
-	 */
-	def deploymentTarget_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator](DeploymentTarget_deployment))
+  /**
+    * The XMI composite meta-properties relevant to class UMLDeploymentTarget
+    *
+    * <!-- Start of user code doc for deploymentTarget_compositeMetaProperties -->
+    * <!-- End of user code doc for deploymentTarget_compositeMetaProperties -->
+    */
+  def deploymentTarget_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      namedElement_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator](DeploymentTarget_deployment))
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		deploymentTarget_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    deploymentTarget_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLDeploymentTarget
-	 *
-	 * <!-- Start of user code doc for deploymentTarget_referenceMetaProperties -->
-	 * <!-- End of user code doc for deploymentTarget_referenceMetaProperties -->
-	 */
-	def deploymentTarget_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			namedElement_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLDeploymentTarget
+    *
+    * <!-- Start of user code doc for deploymentTarget_referenceMetaProperties -->
+    * <!-- End of user code doc for deploymentTarget_referenceMetaProperties -->
+    */
+  def deploymentTarget_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      namedElement_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		deploymentTarget_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    deploymentTarget_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLDeploymentTarget
-	 *
-	 * <!-- Start of user code doc for deploymentTarget_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for deploymentTarget_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def deploymentTarget_forwardReferencesFromMetamodelAssociations: Elements =
-		namedElement_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLDeploymentTarget
+    *
+    * <!-- Start of user code doc for deploymentTarget_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for deploymentTarget_forwardReferencesFromMetamodelAssociations -->
+    */
+  def deploymentTarget_forwardReferencesFromMetamodelAssociations: Elements =
+    namedElement_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLDeploymentTarget

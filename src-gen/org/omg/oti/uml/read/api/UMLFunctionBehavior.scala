@@ -50,97 +50,97 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A FunctionBehavior is an OpaqueBehavior that does not access or modify any objects or other external data.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A FunctionBehavior is an OpaqueBehavior that does not access or modify any objects or other external data.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLFunctionBehavior[Uml <: UML]
-	extends UMLOpaqueBehavior[Uml]
-	with UMLFunctionBehaviorOps[Uml] {
-	
+  extends UMLOpaqueBehavior[Uml]
+  with UMLFunctionBehaviorOps[Uml] {
+
   // Start of user code for class imports
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		functionBehavior_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      functionBehavior_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLFunctionBehavior
-	 *
-	 * <!-- Start of user code doc for functionBehavior_metaAttributes -->
-	 * <!-- End of user code doc for functionBehavior_metaAttributes -->
-	 */
-	def functionBehavior_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			opaqueBehavior_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLFunctionBehavior
+    *
+    * <!-- Start of user code doc for functionBehavior_metaAttributes -->
+    * <!-- End of user code doc for functionBehavior_metaAttributes -->
+    */
+  def functionBehavior_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     opaqueBehavior_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		functionBehavior_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    functionBehavior_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLFunctionBehavior
-	 *
-	 * <!-- Start of user code doc for functionBehavior_compositeMetaProperties -->
-	 * <!-- End of user code doc for functionBehavior_compositeMetaProperties -->
-	 */
-	def functionBehavior_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			opaqueBehavior_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLFunctionBehavior
+    *
+    * <!-- Start of user code doc for functionBehavior_compositeMetaProperties -->
+    * <!-- End of user code doc for functionBehavior_compositeMetaProperties -->
+    */
+  def functionBehavior_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      opaqueBehavior_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		functionBehavior_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    functionBehavior_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLFunctionBehavior
-	 *
-	 * <!-- Start of user code doc for functionBehavior_referenceMetaProperties -->
-	 * <!-- End of user code doc for functionBehavior_referenceMetaProperties -->
-	 */
-	def functionBehavior_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			opaqueBehavior_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLFunctionBehavior
+    *
+    * <!-- Start of user code doc for functionBehavior_referenceMetaProperties -->
+    * <!-- End of user code doc for functionBehavior_referenceMetaProperties -->
+    */
+  def functionBehavior_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      opaqueBehavior_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		functionBehavior_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    functionBehavior_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLFunctionBehavior
-	 *
-	 * <!-- Start of user code doc for functionBehavior_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for functionBehavior_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def functionBehavior_forwardReferencesFromMetamodelAssociations: Elements =
-		opaqueBehavior_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLFunctionBehavior
+    *
+    * <!-- Start of user code doc for functionBehavior_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for functionBehavior_forwardReferencesFromMetamodelAssociations -->
+    */
+  def functionBehavior_forwardReferencesFromMetamodelAssociations: Elements =
+    opaqueBehavior_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLFunctionBehavior

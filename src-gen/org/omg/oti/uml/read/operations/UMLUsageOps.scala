@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A Usage is a Dependency in which the client Element requires the supplier Element (or set of Elements) for its full implementation or operation.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Usage is a Dependency in which the client Element requires the supplier Element (or set of Elements) for its full implementation or operation.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLUsageOps[Uml <: UML] { self: UMLUsage[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLUsageOps

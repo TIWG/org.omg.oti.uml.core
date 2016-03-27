@@ -49,52 +49,52 @@ import scala.Predef.String
 // End of user code
 
 /**
- * A LiteralBoolean is a specification of a Boolean value.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A LiteralBoolean is a specification of a Boolean value.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralBooleanOps[Uml <: UML] { self: UMLLiteralBoolean[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The query booleanValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for booleanValue -->
-   * <!-- End of user code doc for booleanValue -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (value)
-	 * }}}
-	 */
-	override def booleanValue: Option[Boolean] = {
-		// Start of user code for "booleanValue"
+  /**
+    * The query booleanValue() gives the value.
+    *
+    * <!-- Start of user code doc for booleanValue -->
+    * <!-- End of user code doc for booleanValue -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (value)
+    * }}}
+    */
+  override def booleanValue: Option[Boolean] = {
+    // Start of user code for "booleanValue"
       Option.apply(self.value)
-      // End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-   * <!-- End of user code doc for isComputable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
+  /**
+    * The query isComputable() is redefined to be true.
+    *
+    * <!-- Start of user code doc for isComputable -->
+    * <!-- End of user code doc for isComputable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
       true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   override def stringValue: Option[String]  = Option.apply(value.toString)  
   // End of user code
 } //UMLLiteralBooleanOps

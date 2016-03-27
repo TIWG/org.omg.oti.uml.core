@@ -52,29 +52,29 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An Abstraction is a Relationship that relates two Elements or sets of Elements that represent the same concept at different levels of abstraction or from different viewpoints.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * An Abstraction is a Relationship that relates two Elements or sets of Elements that represent the same concept at different levels of abstraction or from different viewpoints.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLAbstractionOps[Uml <: UML] { self: UMLAbstraction[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * An OpaqueExpression that states the abstraction relationship between the supplier(s) and the client(s). In some cases, such as derivation, it is usually formal and unidirectional; in other cases, such as trace, it is usually informal and bidirectional. The mapping expression is optional and may be omitted if the precise relationship between the Elements is not specified.
-	 *
-	 * <!-- Start of user code doc for mapping -->
-	 * <!-- End of user code doc for mapping -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.mapping_abstraction
-	 */
-	def mapping: Option[UMLOpaqueExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLOpaqueExpression[Uml] => x } headOption
+  /**
+    * An OpaqueExpression that states the abstraction relationship between the supplier(s) and the client(s). In some cases, such as derivation, it is usually formal and unidirectional; in other cases, such as trace, it is usually informal and bidirectional. The mapping expression is optional and may be omitted if the precise relationship between the Elements is not specified.
+    *
+    * <!-- Start of user code doc for mapping -->
+    * <!-- End of user code doc for mapping -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLOpaqueExpression.mapping_abstraction
+    */
+  def mapping: Option[UMLOpaqueExpression[Uml]] = ownedElement.selectByKindOf { case x: UMLOpaqueExpression[Uml] => x } headOption
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLAbstractionOps

@@ -52,28 +52,28 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A RaiseExceptionAction is an Action that causes an exception to occur. The input value becomes the exception object.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A RaiseExceptionAction is an Action that causes an exception to occur. The input value becomes the exception object.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLRaiseExceptionActionOps[Uml <: UML] { self: UMLRaiseExceptionAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * An InputPin whose value becomes the exception object.
-	 *
-	 * <!-- Start of user code doc for exception -->
-   * <!-- End of user code doc for exception -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.exception_raiseExceptionAction
-	 */
-	def exception: Option[UMLInputPin[Uml]] = input headOption
+  /**
+    * An InputPin whose value becomes the exception object.
+    *
+    * <!-- Start of user code doc for exception -->
+    * <!-- End of user code doc for exception -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.exception_raiseExceptionAction
+    */
+  def exception: Option[UMLInputPin[Uml]] = input headOption
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLRaiseExceptionActionOps

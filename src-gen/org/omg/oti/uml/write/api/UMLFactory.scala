@@ -647,14 +647,12 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLVariable: \/[NonEmptyList[java.lang.Throwable],UMLVariable[Uml]]
 
-	// Start of user code for additional features
-
+  // Start of user code for additional features
   val reflectivePackageFactoryLookup
   : Map[String, (UMLFactory[Uml] => \/[NonEmptyList[java.lang.Throwable], _ <: UMLPackage[Uml]])] =
     Map(
       "Package" -> (f => f.createUMLPackage),
       "Model" -> (f => f.createUMLModel),
       "Profile" -> (f => f.createUMLProfile))
-
-	// End of user code
+  // End of user code
 }

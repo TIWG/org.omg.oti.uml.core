@@ -53,131 +53,131 @@ import scala.collection.immutable.Seq
 
 
 /**
- * An ExecutionSpecification is a specification of the execution of a unit of Behavior or Action within the Lifeline. The duration of an ExecutionSpecification is represented by two OccurrenceSpecifications, the start OccurrenceSpecification and the finish OccurrenceSpecification.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * An ExecutionSpecification is a specification of the execution of a unit of Behavior or Action within the Lifeline. The duration of an ExecutionSpecification is represented by two OccurrenceSpecifications, the start OccurrenceSpecification and the finish OccurrenceSpecification.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLExecutionSpecification[Uml <: UML]
-	extends UMLInteractionFragment[Uml]
-	with UMLExecutionSpecificationOps[Uml] {
-	
+  extends UMLInteractionFragment[Uml]
+  with UMLExecutionSpecificationOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * References the OccurrenceSpecification that designates the finish of the Action or Behavior.
-	 *
-	 * <!-- Start of user code doc for finish -->
-	 * <!-- End of user code doc for finish -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.finish_executionSpecification
-	 */
-	def finish: Option[UMLOccurrenceSpecification[Uml]]
+  /**
+    * References the OccurrenceSpecification that designates the finish of the Action or Behavior.
+    *
+    * <!-- Start of user code doc for finish -->
+    * <!-- End of user code doc for finish -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.finish_executionSpecification
+    */
+  def finish: Option[UMLOccurrenceSpecification[Uml]]
 
-	/**
-	 * References the OccurrenceSpecification that designates the start of the Action or Behavior.
-	 *
-	 * <!-- Start of user code doc for start -->
-	 * <!-- End of user code doc for start -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.start_executionSpecification
-	 */
-	def start: Option[UMLOccurrenceSpecification[Uml]]
+  /**
+    * References the OccurrenceSpecification that designates the start of the Action or Behavior.
+    *
+    * <!-- Start of user code doc for start -->
+    * <!-- End of user code doc for start -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLOccurrenceSpecification.start_executionSpecification
+    */
+  def start: Option[UMLOccurrenceSpecification[Uml]]
 
-	/**
-	 * <!-- Start of user code doc for execution_executionOccurrenceSpecification -->
-	 * <!-- End of user code doc for execution_executionOccurrenceSpecification -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionOccurrenceSpecification.execution
-	 */
-	def execution_executionOccurrenceSpecification: Set[UMLExecutionOccurrenceSpecification[Uml]]
+  /**
+    * <!-- Start of user code doc for execution_executionOccurrenceSpecification -->
+    * <!-- End of user code doc for execution_executionOccurrenceSpecification -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..2"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLExecutionOccurrenceSpecification.execution
+    */
+  def execution_executionOccurrenceSpecification: Set[UMLExecutionOccurrenceSpecification[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		executionSpecification_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      executionSpecification_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for executionSpecification_metaAttributes -->
-	 * <!-- End of user code doc for executionSpecification_metaAttributes -->
-	 */
-	def executionSpecification_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			interactionFragment_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLExecutionSpecification
+    *
+    * <!-- Start of user code doc for executionSpecification_metaAttributes -->
+    * <!-- End of user code doc for executionSpecification_metaAttributes -->
+    */
+  def executionSpecification_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     interactionFragment_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		executionSpecification_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    executionSpecification_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for executionSpecification_compositeMetaProperties -->
-	 * <!-- End of user code doc for executionSpecification_compositeMetaProperties -->
-	 */
-	def executionSpecification_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			interactionFragment_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLExecutionSpecification
+    *
+    * <!-- Start of user code doc for executionSpecification_compositeMetaProperties -->
+    * <!-- End of user code doc for executionSpecification_compositeMetaProperties -->
+    */
+  def executionSpecification_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      interactionFragment_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		executionSpecification_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    executionSpecification_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for executionSpecification_referenceMetaProperties -->
-	 * <!-- End of user code doc for executionSpecification_referenceMetaProperties -->
-	 */
-	def executionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			interactionFragment_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](ExecutionSpecification_finish,
-				ExecutionSpecification_start))
+  /**
+    * The XMI reference meta-properties relevant to class UMLExecutionSpecification
+    *
+    * <!-- Start of user code doc for executionSpecification_referenceMetaProperties -->
+    * <!-- End of user code doc for executionSpecification_referenceMetaProperties -->
+    */
+  def executionSpecification_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      interactionFragment_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](ExecutionSpecification_finish,
+      	ExecutionSpecification_start))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		executionSpecification_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    executionSpecification_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLExecutionSpecification
-	 *
-	 * <!-- Start of user code doc for executionSpecification_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for executionSpecification_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def executionSpecification_forwardReferencesFromMetamodelAssociations: Elements =
-		interactionFragment_forwardReferencesFromMetamodelAssociations ++
-		finish ++
-		start
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLExecutionSpecification
+    *
+    * <!-- Start of user code doc for executionSpecification_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for executionSpecification_forwardReferencesFromMetamodelAssociations -->
+    */
+  def executionSpecification_forwardReferencesFromMetamodelAssociations: Elements =
+    interactionFragment_forwardReferencesFromMetamodelAssociations ++
+    finish ++
+    start
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLExecutionSpecification

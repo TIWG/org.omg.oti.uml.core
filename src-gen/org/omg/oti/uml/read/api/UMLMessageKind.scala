@@ -44,50 +44,50 @@ package org.omg.oti.uml.read.api
 import scala.Enumeration
 
 /**
- * This is an enumerated type that identifies the type of Message.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * This is an enumerated type that identifies the type of Message.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 object UMLMessageKind extends Enumeration {
-	
-	/**
-	 * The enumeration type
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	type UMLMessageKind = Value
+  
+  /**
+    * The enumeration type
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+  type UMLMessageKind = Value
 
-	/**
- 	 * sendEvent and receiveEvent are present
-	 *
-	 * <!-- Start of user code doc for complete -->
-	 * <!-- End of user code doc for complete -->
- 	 */
-	val complete = Value
+  /**
+    * sendEvent and receiveEvent are present
+    *
+    * <!-- Start of user code doc for complete -->
+    * <!-- End of user code doc for complete -->
+    */
+  val complete = Value
 
-	/**
- 	 * sendEvent absent and receiveEvent present
-	 *
-	 * <!-- Start of user code doc for found -->
-	 * <!-- End of user code doc for found -->
- 	 */
-	val found = Value
+  /**
+    * sendEvent absent and receiveEvent present
+    *
+    * <!-- Start of user code doc for found -->
+    * <!-- End of user code doc for found -->
+    */
+  val found = Value
 
-	/**
- 	 * sendEvent present and receiveEvent absent
-	 *
-	 * <!-- Start of user code doc for lost -->
-	 * <!-- End of user code doc for lost -->
- 	 */
-	val lost = Value
+  /**
+    * sendEvent present and receiveEvent absent
+    *
+    * <!-- Start of user code doc for lost -->
+    * <!-- End of user code doc for lost -->
+    */
+  val lost = Value
 
-	/**
- 	 * sendEvent and receiveEvent absent (should not appear)
-	 *
-	 * <!-- Start of user code doc for unknown -->
-	 * <!-- End of user code doc for unknown -->
- 	 */
-	val unknown = Value
+  /**
+    * sendEvent and receiveEvent absent (should not appear)
+    *
+    * <!-- Start of user code doc for unknown -->
+    * <!-- End of user code doc for unknown -->
+    */
+  val unknown = Value
 }

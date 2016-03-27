@@ -53,98 +53,98 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A TemplateBinding is a DirectedRelationship between a TemplateableElement and a template. A TemplateBinding specifies the TemplateParameterSubstitutions of actual parameters for the formal parameters of the template.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLTemplateBinding[Uml <: UML]
-	extends UMLDirectedRelationship[Uml]
-	with UMLTemplateBindingOps[Uml] {
-	
+  extends UMLDirectedRelationship[Uml]
+  with UMLTemplateBindingOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		templateBinding_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      templateBinding_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLTemplateBinding
-	 *
-	 * <!-- Start of user code doc for templateBinding_metaAttributes -->
-	 * <!-- End of user code doc for templateBinding_metaAttributes -->
-	 */
-	def templateBinding_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			directedRelationship_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLTemplateBinding
+    *
+    * <!-- Start of user code doc for templateBinding_metaAttributes -->
+    * <!-- End of user code doc for templateBinding_metaAttributes -->
+    */
+  def templateBinding_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     directedRelationship_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		templateBinding_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    templateBinding_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLTemplateBinding
-	 *
-	 * <!-- Start of user code doc for templateBinding_compositeMetaProperties -->
-	 * <!-- End of user code doc for templateBinding_compositeMetaProperties -->
-	 */
-	def templateBinding_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator](TemplateBinding_parameterSubstitution))
+  /**
+    * The XMI composite meta-properties relevant to class UMLTemplateBinding
+    *
+    * <!-- Start of user code doc for templateBinding_compositeMetaProperties -->
+    * <!-- End of user code doc for templateBinding_compositeMetaProperties -->
+    */
+  def templateBinding_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator](TemplateBinding_parameterSubstitution))
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		templateBinding_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    templateBinding_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLTemplateBinding
-	 *
-	 * <!-- Start of user code doc for templateBinding_referenceMetaProperties -->
-	 * <!-- End of user code doc for templateBinding_referenceMetaProperties -->
-	 */
-	def templateBinding_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			directedRelationship_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](TemplateBinding_signature))
+  /**
+    * The XMI reference meta-properties relevant to class UMLTemplateBinding
+    *
+    * <!-- Start of user code doc for templateBinding_referenceMetaProperties -->
+    * <!-- End of user code doc for templateBinding_referenceMetaProperties -->
+    */
+  def templateBinding_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      directedRelationship_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](TemplateBinding_signature))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		templateBinding_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    templateBinding_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLTemplateBinding
-	 *
-	 * <!-- Start of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def templateBinding_forwardReferencesFromMetamodelAssociations: Elements =
-		directedRelationship_forwardReferencesFromMetamodelAssociations ++
-		signature
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLTemplateBinding
+    *
+    * <!-- Start of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for templateBinding_forwardReferencesFromMetamodelAssociations -->
+    */
+  def templateBinding_forwardReferencesFromMetamodelAssociations: Elements =
+    directedRelationship_forwardReferencesFromMetamodelAssociations ++
+    signature
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLTemplateBinding

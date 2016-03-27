@@ -53,112 +53,112 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An UnmarshallAction is an Action that retrieves the values of the StructuralFeatures of an object and places them on OutputPins. 
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLUnmarshallActionOps[Uml <: UML] { self: UMLUnmarshallAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The InputPin that gives the object to be unmarshalled.
-	 *
-	 * <!-- Start of user code doc for _object -->
-   * <!-- End of user code doc for _object -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_unmarshallAction
-	 */
-	def _object: Option[UMLInputPin[Uml]] = input headOption
+  /**
+    * The InputPin that gives the object to be unmarshalled.
+    *
+    * <!-- Start of user code doc for _object -->
+    * <!-- End of user code doc for _object -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.object_unmarshallAction
+    */
+  def _object: Option[UMLInputPin[Uml]] = input headOption
 
-	/**
-	 * The multiplicity of the object InputPin is 1..1
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity_of_object -->
-   * <!-- End of user code doc for validate_multiplicity_of_object -->
-	 *
-	 * {{{
-	 * OCL Body object.is(1,1)
-	 * }}}
-	 */
-	def validate_multiplicity_of_object: Boolean = {
-		// Start of user code for "multiplicity_of_object"
-      ???
-      // End of user code
-	}
+  /**
+    * The multiplicity of the object InputPin is 1..1
+    *
+    * <!-- Start of user code doc for validate_multiplicity_of_object -->
+    * <!-- End of user code doc for validate_multiplicity_of_object -->
+    *
+    * {{{
+    * OCL Body object.is(1,1)
+    * }}}
+    */
+  def validate_multiplicity_of_object: Boolean = {
+    // Start of user code for "multiplicity_of_object"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The number of result outputPins must be the same as the number of attributes of the unmarshallType.
-	 *
-	 * <!-- Start of user code doc for validate_number_of_result -->
-   * <!-- End of user code doc for validate_number_of_result -->
-	 *
-	 * {{{
-	 * OCL Body unmarshallType.allAttributes()->size() = result->size()
-	 * }}}
-	 */
-	def validate_number_of_result: Boolean = {
-		// Start of user code for "number_of_result"
-      ???
-      // End of user code
-	}
+  /**
+    * The number of result outputPins must be the same as the number of attributes of the unmarshallType.
+    *
+    * <!-- Start of user code doc for validate_number_of_result -->
+    * <!-- End of user code doc for validate_number_of_result -->
+    *
+    * {{{
+    * OCL Body unmarshallType.allAttributes()->size() = result->size()
+    * }}}
+    */
+  def validate_number_of_result: Boolean = {
+    // Start of user code for "number_of_result"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The type of the object InputPin conform to the unmarshallType.
-	 *
-	 * <!-- Start of user code doc for validate_object_type -->
-   * <!-- End of user code doc for validate_object_type -->
-	 *
-	 * {{{
-	 * OCL Body object.type.conformsTo(unmarshallType)
-	 * }}}
-	 */
-	def validate_object_type: Boolean = {
-		// Start of user code for "object_type"
-      ???
-      // End of user code
-	}
+  /**
+    * The type of the object InputPin conform to the unmarshallType.
+    *
+    * <!-- Start of user code doc for validate_object_type -->
+    * <!-- End of user code doc for validate_object_type -->
+    *
+    * {{{
+    * OCL Body object.type.conformsTo(unmarshallType)
+    * }}}
+    */
+  def validate_object_type: Boolean = {
+    // Start of user code for "object_type"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The unmarshallType must have at least one StructuralFeature.
-	 *
-	 * <!-- Start of user code doc for validate_structural_feature -->
-   * <!-- End of user code doc for validate_structural_feature -->
-	 *
-	 * {{{
-	 * OCL Body unmarshallType.allAttributes()->size() >= 1
-	 * }}}
-	 */
-	def validate_structural_feature: Boolean = {
-		// Start of user code for "structural_feature"
-      ???
-      // End of user code
-	}
+  /**
+    * The unmarshallType must have at least one StructuralFeature.
+    *
+    * <!-- Start of user code doc for validate_structural_feature -->
+    * <!-- End of user code doc for validate_structural_feature -->
+    *
+    * {{{
+    * OCL Body unmarshallType.allAttributes()->size() >= 1
+    * }}}
+    */
+  def validate_structural_feature: Boolean = {
+    // Start of user code for "structural_feature"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The type, ordering and multiplicity of each attribute of the unmarshallType must be compatible with the type, ordering and multiplicity of the corresponding result OutputPin.
-	 *
-	 * <!-- Start of user code doc for validate_type_ordering_and_multiplicity -->
-   * <!-- End of user code doc for validate_type_ordering_and_multiplicity -->
-	 *
-	 * {{{
-	 * OCL Body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
-	 * Sequence{1..result->size()}->forAll(i | 
-	 * 	attribute->at(i).type.conformsTo(result->at(i).type) and
-	 * 	attribute->at(i).isOrdered=result->at(i).isOrdered and
-	 * 	attribute->at(i).compatibleWith(result->at(i)))
-	 * }}}
-	 */
-	def validate_type_ordering_and_multiplicity: Boolean = {
-		// Start of user code for "type_ordering_and_multiplicity"
-      ???
-      // End of user code
-	}
+  /**
+    * The type, ordering and multiplicity of each attribute of the unmarshallType must be compatible with the type, ordering and multiplicity of the corresponding result OutputPin.
+    *
+    * <!-- Start of user code doc for validate_type_ordering_and_multiplicity -->
+    * <!-- End of user code doc for validate_type_ordering_and_multiplicity -->
+    *
+    * {{{
+    * OCL Body let attribute:OrderedSet(Property) = unmarshallType.allAttributes() in
+    * Sequence{1..result->size()}->forAll(i | 
+    * 	attribute->at(i).type.conformsTo(result->at(i).type) and
+    * 	attribute->at(i).isOrdered=result->at(i).isOrdered and
+    * 	attribute->at(i).compatibleWith(result->at(i)))
+    * }}}
+    */
+  def validate_type_ordering_and_multiplicity: Boolean = {
+    // Start of user code for "type_ordering_and_multiplicity"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLUnmarshallActionOps

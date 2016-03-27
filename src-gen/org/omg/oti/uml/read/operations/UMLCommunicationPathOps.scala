@@ -48,33 +48,33 @@ import scala.Predef.???
 // End of user code
 
 /**
- * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A communication path is an association between two deployment targets, through which they are able to exchange signals and messages.
+  *
+  * <!-- Start of user code documentation --> 
+  * <!-- End of user code documentation -->
+  */
 trait UMLCommunicationPathOps[Uml <: UML] { self: UMLCommunicationPath[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The association ends of a CommunicationPath are typed by DeploymentTargets.
-	 *
-	 * <!-- Start of user code doc for validate_communication_path_ends -->
-   * <!-- End of user code doc for validate_communication_path_ends -->
-	 *
-	 * {{{
-	 * OCL Body endType->forAll (oclIsKindOf(DeploymentTarget))
-	 * }}}
-	 */
-	def validate_communication_path_ends: Boolean = {
-		// Start of user code for "communication_path_ends"
+  /**
+    * The association ends of a CommunicationPath are typed by DeploymentTargets.
+    *
+    * <!-- Start of user code doc for validate_communication_path_ends -->
+    * <!-- End of user code doc for validate_communication_path_ends -->
+    *
+    * {{{
+    * OCL Body endType->forAll (oclIsKindOf(DeploymentTarget))
+    * }}}
+    */
+  def validate_communication_path_ends: Boolean = {
+    // Start of user code for "communication_path_ends"
       ???
       // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLCommunicationPathOps

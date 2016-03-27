@@ -56,18 +56,18 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * An InstanceValue is a ValueSpecification that identifies an instance.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An InstanceValue is a ValueSpecification that identifies an instance.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLInstanceValueOps[Uml <: UML] { self: UMLInstanceValue[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
   : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =

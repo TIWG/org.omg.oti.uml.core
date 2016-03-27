@@ -50,97 +50,97 @@ import scala.collection.immutable.Seq
 
 
 /**
- * An EncapsulatedClassifier may own Ports to specify typed interaction points.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * An EncapsulatedClassifier may own Ports to specify typed interaction points.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLEncapsulatedClassifier[Uml <: UML]
-	extends UMLStructuredClassifier[Uml]
-	with UMLEncapsulatedClassifierOps[Uml] {
-	
+  extends UMLStructuredClassifier[Uml]
+  with UMLEncapsulatedClassifierOps[Uml] {
+
   // Start of user code for class imports
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		encapsulatedClassifier_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      encapsulatedClassifier_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLEncapsulatedClassifier
-	 *
-	 * <!-- Start of user code doc for encapsulatedClassifier_metaAttributes -->
-	 * <!-- End of user code doc for encapsulatedClassifier_metaAttributes -->
-	 */
-	def encapsulatedClassifier_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			structuredClassifier_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLEncapsulatedClassifier
+    *
+    * <!-- Start of user code doc for encapsulatedClassifier_metaAttributes -->
+    * <!-- End of user code doc for encapsulatedClassifier_metaAttributes -->
+    */
+  def encapsulatedClassifier_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     structuredClassifier_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		encapsulatedClassifier_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    encapsulatedClassifier_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLEncapsulatedClassifier
-	 *
-	 * <!-- Start of user code doc for encapsulatedClassifier_compositeMetaProperties -->
-	 * <!-- End of user code doc for encapsulatedClassifier_compositeMetaProperties -->
-	 */
-	def encapsulatedClassifier_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			structuredClassifier_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLEncapsulatedClassifier
+    *
+    * <!-- Start of user code doc for encapsulatedClassifier_compositeMetaProperties -->
+    * <!-- End of user code doc for encapsulatedClassifier_compositeMetaProperties -->
+    */
+  def encapsulatedClassifier_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      structuredClassifier_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		encapsulatedClassifier_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    encapsulatedClassifier_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLEncapsulatedClassifier
-	 *
-	 * <!-- Start of user code doc for encapsulatedClassifier_referenceMetaProperties -->
-	 * <!-- End of user code doc for encapsulatedClassifier_referenceMetaProperties -->
-	 */
-	def encapsulatedClassifier_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			structuredClassifier_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLEncapsulatedClassifier
+    *
+    * <!-- Start of user code doc for encapsulatedClassifier_referenceMetaProperties -->
+    * <!-- End of user code doc for encapsulatedClassifier_referenceMetaProperties -->
+    */
+  def encapsulatedClassifier_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      structuredClassifier_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		encapsulatedClassifier_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    encapsulatedClassifier_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLEncapsulatedClassifier
-	 *
-	 * <!-- Start of user code doc for encapsulatedClassifier_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for encapsulatedClassifier_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def encapsulatedClassifier_forwardReferencesFromMetamodelAssociations: Elements =
-		structuredClassifier_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLEncapsulatedClassifier
+    *
+    * <!-- Start of user code doc for encapsulatedClassifier_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for encapsulatedClassifier_forwardReferencesFromMetamodelAssociations -->
+    */
+  def encapsulatedClassifier_forwardReferencesFromMetamodelAssociations: Elements =
+    structuredClassifier_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLEncapsulatedClassifier

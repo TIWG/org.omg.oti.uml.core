@@ -44,50 +44,50 @@ package org.omg.oti.uml.read.api
 import scala.Enumeration
 
 /**
- * ParameterEffectKind is an Enumeration that indicates the effect of a Behavior on values passed in or out of its parameters.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * ParameterEffectKind is an Enumeration that indicates the effect of a Behavior on values passed in or out of its parameters.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 object UMLParameterEffectKind extends Enumeration {
-	
-	/**
-	 * The enumeration type
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	type UMLParameterEffectKind = Value
+  
+  /**
+    * The enumeration type
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+  type UMLParameterEffectKind = Value
 
-	/**
- 	 * Indicates that the behavior creates values.
-	 *
-	 * <!-- Start of user code doc for create -->
-	 * <!-- End of user code doc for create -->
- 	 */
-	val create = Value
+  /**
+    * Indicates that the behavior creates values.
+    *
+    * <!-- Start of user code doc for create -->
+    * <!-- End of user code doc for create -->
+    */
+  val create = Value
 
-	/**
- 	 * Indicates objects that are values of the parameter do not exist after executions of the behavior are finished.
-	 *
-	 * <!-- Start of user code doc for delete -->
-	 * <!-- End of user code doc for delete -->
- 	 */
-	val delete = Value
+  /**
+    * Indicates objects that are values of the parameter do not exist after executions of the behavior are finished.
+    *
+    * <!-- Start of user code doc for delete -->
+    * <!-- End of user code doc for delete -->
+    */
+  val delete = Value
 
-	/**
- 	 * Indicates objects that are values of the parameter have values of their properties, or links in which they participate, or their classifiers retrieved during executions of the behavior.
-	 *
-	 * <!-- Start of user code doc for read -->
-	 * <!-- End of user code doc for read -->
- 	 */
-	val read = Value
+  /**
+    * Indicates objects that are values of the parameter have values of their properties, or links in which they participate, or their classifiers retrieved during executions of the behavior.
+    *
+    * <!-- Start of user code doc for read -->
+    * <!-- End of user code doc for read -->
+    */
+  val read = Value
 
-	/**
- 	 * Indicates objects that are values of the parameter have values of their properties, or links in which they participate, or their classification changed during executions of the behavior.
-	 *
-	 * <!-- Start of user code doc for update -->
-	 * <!-- End of user code doc for update -->
- 	 */
-	val update = Value
+  /**
+    * Indicates objects that are values of the parameter have values of their properties, or links in which they participate, or their classification changed during executions of the behavior.
+    *
+    * <!-- Start of user code doc for update -->
+    * <!-- End of user code doc for update -->
+    */
+  val update = Value
 }

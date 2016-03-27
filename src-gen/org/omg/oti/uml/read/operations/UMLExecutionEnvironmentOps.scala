@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * An execution environment is a node that offers an execution environment for specific types of components that are deployed on it in the form of executable artifacts.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An execution environment is a node that offers an execution environment for specific types of components that are deployed on it in the form of executable artifacts.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLExecutionEnvironmentOps[Uml <: UML] { self: UMLExecutionEnvironment[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLExecutionEnvironmentOps

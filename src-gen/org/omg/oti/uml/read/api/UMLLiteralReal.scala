@@ -51,108 +51,108 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A LiteralReal is a specification of a Real value.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
-*/
+  * A LiteralReal is a specification of a Real value.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralReal[Uml <: UML]
-	extends UMLLiteralSpecification[Uml]
-	with UMLLiteralRealOps[Uml] {
-	
+  extends UMLLiteralSpecification[Uml]
+  with UMLLiteralRealOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The specified Real value.
-	 *
-	 * <!-- Start of user code doc for value -->
-   * <!-- End of user code doc for value -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 */
-	def value: Double
+  /**
+    * The specified Real value.
+    *
+    * <!-- Start of user code doc for value -->
+    * <!-- End of user code doc for value -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    */
+  def value: Double
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-   * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		literalReal_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      literalReal_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLLiteralReal
-	 *
-	 * <!-- Start of user code doc for literalReal_metaAttributes -->
-   * <!-- End of user code doc for literalReal_metaAttributes -->
-	 */
-	def literalReal_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			literalSpecification_metaAttributes,
-			Seq[MetaAttributeFunction](LiteralReal_value))
+  /**
+    * The XMI meta-attributes relevant to class UMLLiteralReal
+    *
+    * <!-- Start of user code doc for literalReal_metaAttributes -->
+    * <!-- End of user code doc for literalReal_metaAttributes -->
+    */
+  def literalReal_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     literalSpecification_metaAttributes,
+     Seq[MetaAttributeFunction](LiteralReal_value))
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-   * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		literalReal_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    literalReal_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLLiteralReal
-	 *
-	 * <!-- Start of user code doc for literalReal_compositeMetaProperties -->
-   * <!-- End of user code doc for literalReal_compositeMetaProperties -->
-	 */
-	def literalReal_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			literalSpecification_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI composite meta-properties relevant to class UMLLiteralReal
+    *
+    * <!-- Start of user code doc for literalReal_compositeMetaProperties -->
+    * <!-- End of user code doc for literalReal_compositeMetaProperties -->
+    */
+  def literalReal_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      literalSpecification_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-   * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		literalReal_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    literalReal_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLLiteralReal
-	 *
-	 * <!-- Start of user code doc for literalReal_referenceMetaProperties -->
-   * <!-- End of user code doc for literalReal_referenceMetaProperties -->
-	 */
-	def literalReal_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			literalSpecification_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLLiteralReal
+    *
+    * <!-- Start of user code doc for literalReal_referenceMetaProperties -->
+    * <!-- End of user code doc for literalReal_referenceMetaProperties -->
+    */
+  def literalReal_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      literalSpecification_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		literalReal_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    literalReal_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLLiteralReal
-	 *
-	 * <!-- Start of user code doc for literalReal_forwardReferencesFromMetamodelAssociations -->
-   * <!-- End of user code doc for literalReal_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def literalReal_forwardReferencesFromMetamodelAssociations: Elements =
-		literalSpecification_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLLiteralReal
+    *
+    * <!-- Start of user code doc for literalReal_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for literalReal_forwardReferencesFromMetamodelAssociations -->
+    */
+  def literalReal_forwardReferencesFromMetamodelAssociations: Elements =
+    literalSpecification_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLLiteralReal

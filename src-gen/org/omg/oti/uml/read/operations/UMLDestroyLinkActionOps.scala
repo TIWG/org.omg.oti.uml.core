@@ -52,29 +52,29 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A DestroyLinkAction is a WriteLinkAction that destroys links (including link objects).
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A DestroyLinkAction is a WriteLinkAction that destroys links (including link objects).
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLDestroyLinkActionOps[Uml <: UML] { self: UMLDestroyLinkAction[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The LinkEndData that the values of the Association ends for the links to be destroyed.
-	 *
-	 * <!-- Start of user code doc for endData -->
-   * <!-- End of user code doc for endData -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndDestructionData.endData_destroyLinkAction
-	 */
-	override def endData: Iterable[UMLLinkEndDestructionData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndDestructionData[Uml] => x }
+  /**
+    * The LinkEndData that the values of the Association ends for the links to be destroyed.
+    *
+    * <!-- Start of user code doc for endData -->
+    * <!-- End of user code doc for endData -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="2..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLLinkEndDestructionData.endData_destroyLinkAction
+    */
+  override def endData: Iterable[UMLLinkEndDestructionData[Uml]] = ownedElement.selectByKindOf { case x: UMLLinkEndDestructionData[Uml] => x }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLDestroyLinkActionOps

@@ -52,41 +52,41 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An Enumeration is a DataType whose values are enumerated in the model as EnumerationLiterals.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLEnumerationOps[Uml <: UML] { self: UMLEnumeration[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for classifier_enumerationLiteral -->
-   * <!-- End of user code doc for classifier_enumerationLiteral -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumerationLiteral.classifier
-	 */
-	def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]] = classifier_instanceSpecification.selectByKindOf { case x: UMLEnumerationLiteral[Uml] => x }
+  /**
+    * <!-- Start of user code doc for classifier_enumerationLiteral -->
+    * <!-- End of user code doc for classifier_enumerationLiteral -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLEnumerationLiteral.classifier
+    */
+  def classifier_enumerationLiteral: Set[UMLEnumerationLiteral[Uml]] = classifier_instanceSpecification.selectByKindOf { case x: UMLEnumerationLiteral[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for validate_immutable -->
-   * <!-- End of user code doc for validate_immutable -->
-	 *
-	 * {{{
-	 * OCL Body ownedAttribute->forAll(isReadOnly)
-	 * }}}
-	 */
-	def validate_immutable: Boolean = {
-		// Start of user code for "immutable"
+  /**
+    * <!-- Start of user code doc for validate_immutable -->
+    * <!-- End of user code doc for validate_immutable -->
+    *
+    * {{{
+    * OCL Body ownedAttribute->forAll(isReadOnly)
+    * }}}
+    */
+  def validate_immutable: Boolean = {
+    // Start of user code for "immutable"
       ownedAttribute.forall(_.isReadOnly)
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLEnumerationOps

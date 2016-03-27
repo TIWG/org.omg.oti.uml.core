@@ -49,51 +49,51 @@ import java.lang.Integer
 // End of user code
 
 /**
- * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A LiteralUnlimitedNatural is a specification of an UnlimitedNatural number.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatural[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The query isComputable() is redefined to be true.
-	 *
-	 * <!-- Start of user code doc for isComputable -->
-   * <!-- End of user code doc for isComputable -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (true)
-	 * }}}
-	 */
-	override def isComputable: Boolean = {
-		// Start of user code for "isComputable"
+  /**
+    * The query isComputable() is redefined to be true.
+    *
+    * <!-- Start of user code doc for isComputable -->
+    * <!-- End of user code doc for isComputable -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (true)
+    * }}}
+    */
+  override def isComputable: Boolean = {
+    // Start of user code for "isComputable"
       true
-      // End of user code
-	}
+    // End of user code
+  }
 
-	/**
-	 * The query unlimitedValue() gives the value.
-	 *
-	 * <!-- Start of user code doc for unlimitedValue -->
-   * <!-- End of user code doc for unlimitedValue -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (value)
-	 * }}}
-	 */
-	override def unlimitedValue: Option[Integer] = {
-		// Start of user code for "unlimitedValue"
+  /**
+    * The query unlimitedValue() gives the value.
+    *
+    * <!-- Start of user code doc for unlimitedValue -->
+    * <!-- End of user code doc for unlimitedValue -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (value)
+    * }}}
+    */
+  override def unlimitedValue: Option[Integer] = {
+    // Start of user code for "unlimitedValue"
       Option.apply(value)
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLLiteralUnlimitedNaturalOps

@@ -48,34 +48,34 @@ import scala.Predef.???
 // End of user code
 
 /**
- * A ControlFlow is an ActivityEdge traversed by control tokens or object tokens of control type, which are use to control the execution of ExecutableNodes.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * A ControlFlow is an ActivityEdge traversed by control tokens or object tokens of control type, which are use to control the execution of ExecutableNodes.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLControlFlowOps[Uml <: UML] { self: UMLControlFlow[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * ControlFlows may not have ObjectNodes at either end, except for ObjectNodes with control type.
-	 *
-	 * <!-- Start of user code doc for validate_object_nodes -->
-	 * <!-- End of user code doc for validate_object_nodes -->
-	 *
-	 * {{{
-	 * OCL Body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
-	 * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
-	 * }}}
-	 */
-	def validate_object_nodes: Boolean = {
-		// Start of user code for "object_nodes"
-		???
-		// End of user code
-	}
+  /**
+    * ControlFlows may not have ObjectNodes at either end, except for ObjectNodes with control type.
+    *
+    * <!-- Start of user code doc for validate_object_nodes -->
+    * <!-- End of user code doc for validate_object_nodes -->
+    *
+    * {{{
+    * OCL Body (source.oclIsKindOf(ObjectNode) implies source.oclAsType(ObjectNode).isControlType) and 
+    * (target.oclIsKindOf(ObjectNode) implies target.oclAsType(ObjectNode).isControlType)
+    * }}}
+    */
+  def validate_object_nodes: Boolean = {
+    // Start of user code for "object_nodes"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLControlFlowOps

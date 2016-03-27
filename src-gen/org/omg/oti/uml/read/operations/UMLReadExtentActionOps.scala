@@ -53,60 +53,60 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A ReadExtentAction is an Action that retrieves the current instances of a Classifier.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLReadExtentActionOps[Uml <: UML] { self: UMLReadExtentAction[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * The OutputPin on which the Classifier instances are placed.
-	 *
-	 * <!-- Start of user code doc for result -->
-   * <!-- End of user code doc for result -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readExtentAction
-	 */
-	def result: Option[UMLOutputPin[Uml]] = output headOption
+  /**
+    * The OutputPin on which the Classifier instances are placed.
+    *
+    * <!-- Start of user code doc for result -->
+    * <!-- End of user code doc for result -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.result_readExtentAction
+    */
+  def result: Option[UMLOutputPin[Uml]] = output headOption
 
-	/**
-	 * The multiplicity of the result OutputPin is 0..*.
-	 *
-	 * <!-- Start of user code doc for validate_multiplicity_of_result -->
-   * <!-- End of user code doc for validate_multiplicity_of_result -->
-	 *
-	 * {{{
-	 * OCL Body result.is(0,*)
-	 * }}}
-	 */
-	def validate_multiplicity_of_result: Boolean = {
-		// Start of user code for "multiplicity_of_result"
-      ???
-      // End of user code
-	}
+  /**
+    * The multiplicity of the result OutputPin is 0..*.
+    *
+    * <!-- Start of user code doc for validate_multiplicity_of_result -->
+    * <!-- End of user code doc for validate_multiplicity_of_result -->
+    *
+    * {{{
+    * OCL Body result.is(0,*)
+    * }}}
+    */
+  def validate_multiplicity_of_result: Boolean = {
+    // Start of user code for "multiplicity_of_result"
+    ???
+    // End of user code
+  }
 
-	/**
-	 * The type of the result OutputPin is the classifier.
-	 *
-	 * <!-- Start of user code doc for validate_type_is_classifier -->
-   * <!-- End of user code doc for validate_type_is_classifier -->
-	 *
-	 * {{{
-	 * OCL Body result.type = classifier
-	 * }}}
-	 */
-	def validate_type_is_classifier: Boolean = {
-		// Start of user code for "type_is_classifier"
-      ???
-      // End of user code
-	}
+  /**
+    * The type of the result OutputPin is the classifier.
+    *
+    * <!-- Start of user code doc for validate_type_is_classifier -->
+    * <!-- End of user code doc for validate_type_is_classifier -->
+    *
+    * {{{
+    * OCL Body result.type = classifier
+    * }}}
+    */
+  def validate_type_is_classifier: Boolean = {
+    // Start of user code for "type_is_classifier"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLReadExtentActionOps

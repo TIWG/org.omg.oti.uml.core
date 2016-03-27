@@ -46,17 +46,17 @@ import org.omg.oti.uml.read.api._
 // End of user code
 
 /**
- * A StructuralFeature is a typed feature of a Classifier that specifies the structure of instances of the Classifier.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A StructuralFeature is a typed feature of a Classifier that specifies the structure of instances of the Classifier.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLStructuralFeatureOps[Uml <: UML] { self: UMLStructuralFeature[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLStructuralFeatureOps

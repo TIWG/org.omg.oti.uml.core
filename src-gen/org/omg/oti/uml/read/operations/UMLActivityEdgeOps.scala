@@ -52,98 +52,98 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * An ActivityEdge is an abstract class for directed connections between two ActivityNodes.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The Activity containing the ActivityEdge, if it is directly owned by an Activity.
-	 *
-	 * <!-- Start of user code doc for activity -->
-   * <!-- End of user code doc for activity -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.edge
-	 */
-	def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
+  /**
+    * The Activity containing the ActivityEdge, if it is directly owned by an Activity.
+    *
+    * <!-- Start of user code doc for activity -->
+    * <!-- End of user code doc for activity -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.edge
+    */
+  def activity: Option[UMLActivity[Uml]] = owner.selectByKindOf { case x: UMLActivity[Uml] => x }
 
-	/**
-	 * ActivityPartitions containing the ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for inPartition -->
-   * <!-- End of user code doc for inPartition -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.edge
-	 */
-	def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
+  /**
+    * ActivityPartitions containing the ActivityEdge.
+    *
+    * <!-- Start of user code doc for inPartition -->
+    * <!-- End of user code doc for inPartition -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.edge
+    */
+  def inPartition: Set[UMLActivityPartition[Uml]] = inGroup.selectByKindOf { case x: UMLActivityPartition[Uml] => x }
 
-	/**
-	 * The StructuredActivityNode containing the ActivityEdge, if it is owned by a StructuredActivityNode.
-	 *
-	 * <!-- Start of user code doc for inStructuredNode -->
-   * <!-- End of user code doc for inStructuredNode -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.edge
-	 */
-	def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
+  /**
+    * The StructuredActivityNode containing the ActivityEdge, if it is owned by a StructuredActivityNode.
+    *
+    * <!-- Start of user code doc for inStructuredNode -->
+    * <!-- End of user code doc for inStructuredNode -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredActivityNode.edge
+    */
+  def inStructuredNode: Option[UMLStructuredActivityNode[Uml]] = inGroup.selectByKindOf { case x: UMLStructuredActivityNode[Uml] => x } headOption
 
-	/**
-	 * ActivityEdges from a generalization of the Activity containing this ActivityEdge that are redefined by this ActivityEdge.
-	 *
-	 * <!-- Start of user code doc for redefinedEdge -->
-   * <!-- End of user code doc for redefinedEdge -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge_activityEdge
-	 */
-	def redefinedEdge: Set[UMLActivityEdge[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
+  /**
+    * ActivityEdges from a generalization of the Activity containing this ActivityEdge that are redefined by this ActivityEdge.
+    *
+    * <!-- Start of user code doc for redefinedEdge -->
+    * <!-- End of user code doc for redefinedEdge -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge_activityEdge
+    */
+  def redefinedEdge: Set[UMLActivityEdge[Uml]] = redefinedElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for redefinedEdge_activityEdge -->
-   * <!-- End of user code doc for redefinedEdge_activityEdge -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge
-	 */
-	def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
+  /**
+    * <!-- Start of user code doc for redefinedEdge_activityEdge -->
+    * <!-- End of user code doc for redefinedEdge_activityEdge -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.redefinedEdge
+    */
+  def redefinedEdge_activityEdge: Set[UMLActivityEdge[Uml]] = redefinedElement_redefinableElement.selectByKindOf { case x: UMLActivityEdge[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for isConsistentWith -->
-   * <!-- End of user code doc for isConsistentWith -->
-	 *
-	 * UML Operation ordered="false" unique="true" multiplicity="1..1"
-	 * {{{
-	 * OCL Body result = (redefiningElement.oclIsKindOf(ActivityEdge))
-	 * }}}
-	 */
-	override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
-		// Start of user code for "isConsistentWith"
+  /**
+    * <!-- Start of user code doc for isConsistentWith -->
+    * <!-- End of user code doc for isConsistentWith -->
+    *
+    * UML Operation ordered="false" unique="true" multiplicity="1..1"
+    * {{{
+    * OCL Body result = (redefiningElement.oclIsKindOf(ActivityEdge))
+    * }}}
+    */
+  override def isConsistentWith(redefiningElement: Option[UMLRedefinableElement[Uml]]): Boolean = {
+    // Start of user code for "isConsistentWith"
     redefiningElement.isInstanceOf[UMLActivityEdge[Uml]]
     // End of user code
-	}
+  }
 
-	/**
-	 * If an ActivityEdge is directly owned by an Activity, then its source and target must be directly or indirectly contained in the same Activity.
-	 *
-	 * <!-- Start of user code doc for validate_source_and_target -->
-   * <!-- End of user code doc for validate_source_and_target -->
-	 *
-	 * {{{
-	 * OCL Body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
-	 * }}}
-	 */
-	def validate_source_and_target: Boolean = {
-		// Start of user code for "source_and_target"
+  /**
+    * If an ActivityEdge is directly owned by an Activity, then its source and target must be directly or indirectly contained in the same Activity.
+    *
+    * <!-- Start of user code doc for validate_source_and_target -->
+    * <!-- End of user code doc for validate_source_and_target -->
+    *
+    * {{{
+    * OCL Body activity<>null implies source.containingActivity() = activity and target.containingActivity() = activity
+    * }}}
+    */
+  def validate_source_and_target: Boolean = {
+    // Start of user code for "source_and_target"
     if (activity.isDefined)
       (source, target) match {
         case (Some(s), Some(t)) => s.containingActivity == activity && t.containingActivity == activity
@@ -152,8 +152,8 @@ trait UMLActivityEdgeOps[Uml <: UML] { self: UMLActivityEdge[Uml] =>
     else
       true
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLActivityEdgeOps

@@ -53,45 +53,45 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A TimeConstraint is a Constraint that refers to a TimeInterval.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A TimeConstraint is a Constraint that refers to a TimeInterval.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLTimeConstraintOps[Uml <: UML] { self: UMLTimeConstraint[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * TheTimeInterval constraining the duration.
-	 *
-	 * <!-- Start of user code doc for specification -->
-   * <!-- End of user code doc for specification -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeInterval.specification_timeConstraint
-	 */
-	override def specification: Option[UMLTimeInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeInterval[Uml] => x } headOption
+  /**
+    * TheTimeInterval constraining the duration.
+    *
+    * <!-- Start of user code doc for specification -->
+    * <!-- End of user code doc for specification -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLTimeInterval.specification_timeConstraint
+    */
+  override def specification: Option[UMLTimeInterval[Uml]] = ownedElement.selectByKindOf { case x: UMLTimeInterval[Uml] => x } headOption
 
-	/**
-	 * A TimeConstraint has one constrainedElement.
-	 *
-	 * <!-- Start of user code doc for validate_has_one_constrainedElement -->
-   * <!-- End of user code doc for validate_has_one_constrainedElement -->
-	 *
-	 * {{{
-	 * OCL Body constrainedElement->size() = 1
-	 * }}}
-	 */
-	def validate_has_one_constrainedElement: Boolean = {
-		// Start of user code for "has_one_constrainedElement"
-      ???
-      // End of user code
-	}
+  /**
+    * A TimeConstraint has one constrainedElement.
+    *
+    * <!-- Start of user code doc for validate_has_one_constrainedElement -->
+    * <!-- End of user code doc for validate_has_one_constrainedElement -->
+    *
+    * {{{
+    * OCL Body constrainedElement->size() = 1
+    * }}}
+    */
+  def validate_has_one_constrainedElement: Boolean = {
+    // Start of user code for "has_one_constrainedElement"
+    ???
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLTimeConstraintOps

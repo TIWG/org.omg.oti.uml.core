@@ -47,33 +47,33 @@ import scala.Boolean
 // End of user code
 
 /**
- * A FinalNode is an abstract ControlNode at which a flow in an Activity stops.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A FinalNode is an abstract ControlNode at which a flow in an Activity stops.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLFinalNodeOps[Uml <: UML] { self: UMLFinalNode[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * A FinalNode has no outgoing ActivityEdges.
-	 *
-	 * <!-- Start of user code doc for validate_no_outgoing_edges -->
-   * <!-- End of user code doc for validate_no_outgoing_edges -->
-	 *
-	 * {{{
-	 * OCL Body outgoing->isEmpty()
-	 * }}}
-	 */
-	def validate_no_outgoing_edges: Boolean = {
-		// Start of user code for "no_outgoing_edges"
+  /**
+    * A FinalNode has no outgoing ActivityEdges.
+    *
+    * <!-- Start of user code doc for validate_no_outgoing_edges -->
+    * <!-- End of user code doc for validate_no_outgoing_edges -->
+    *
+    * {{{
+    * OCL Body outgoing->isEmpty()
+    * }}}
+    */
+  def validate_no_outgoing_edges: Boolean = {
+    // Start of user code for "no_outgoing_edges"
       outgoing.isEmpty
-      // End of user code
-	}
+    // End of user code
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLFinalNodeOps

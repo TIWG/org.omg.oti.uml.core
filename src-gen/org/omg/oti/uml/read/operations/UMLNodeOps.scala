@@ -52,57 +52,57 @@ import scala.collection.immutable.Seq
 // End of user code
 
 /**
- * A Node is computational resource upon which artifacts may be deployed for execution. Nodes can be interconnected through communication paths to define network structures.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Node is computational resource upon which artifacts may be deployed for execution. Nodes can be interconnected through communication paths to define network structures.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLNodeOps[Uml <: UML] { self: UMLNode[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The Nodes that are defined (nested) within the Node.
-	 *
-	 * <!-- Start of user code doc for nestedNode -->
-   * <!-- End of user code doc for nestedNode -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNode.nestedNode_node
-	 */
-	def nestedNode: Set[UMLNode[Uml]] = ownedMember.selectByKindOf { case x: UMLNode[Uml] => x }
+  /**
+    * The Nodes that are defined (nested) within the Node.
+    *
+    * <!-- Start of user code doc for nestedNode -->
+    * <!-- End of user code doc for nestedNode -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLNode.nestedNode_node
+    */
+  def nestedNode: Set[UMLNode[Uml]] = ownedMember.selectByKindOf { case x: UMLNode[Uml] => x }
 
-	/**
-	 * <!-- Start of user code doc for nestedNode_node -->
-   * <!-- End of user code doc for nestedNode_node -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLNode.nestedNode
-	 */
-	def nestedNode_node: Option[UMLNode[Uml]] = namespace.selectByKindOf { case x: UMLNode[Uml] => x }
+  /**
+    * <!-- Start of user code doc for nestedNode_node -->
+    * <!-- End of user code doc for nestedNode_node -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLNode.nestedNode
+    */
+  def nestedNode_node: Option[UMLNode[Uml]] = namespace.selectByKindOf { case x: UMLNode[Uml] => x }
 
-	/**
-	 * The internal structure of a Node (if defined) consists solely of parts of type Node.
-	 *
-	 * <!-- Start of user code doc for validate_internal_structure -->
-   * <!-- End of user code doc for validate_internal_structure -->
-	 *
-	 * {{{
-	 * OCL Body part->forAll(oclIsKindOf(Node))
-	 * }}}
-	 */
-	def validate_internal_structure: Boolean = {
-		// Start of user code for "internal_structure"
+  /**
+    * The internal structure of a Node (if defined) consists solely of parts of type Node.
+    *
+    * <!-- Start of user code doc for validate_internal_structure -->
+    * <!-- End of user code doc for validate_internal_structure -->
+    *
+    * {{{
+    * OCL Body part->forAll(oclIsKindOf(Node))
+    * }}}
+    */
+  def validate_internal_structure: Boolean = {
+    // Start of user code for "internal_structure"
     part.forall {
                   case _: UMLNode[Uml] => true
                   case _               => false
                 }
     // End of user code
-	}
+  }
 
-	// Start of user code for additional features
+  // Start of user code for additional features
   // End of user code
 } //UMLNodeOps

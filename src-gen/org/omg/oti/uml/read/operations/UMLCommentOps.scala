@@ -50,27 +50,27 @@ import scala.Option
 // End of user code
 
 /**
- * A Comment is a textual annotation that can be attached to a set of Elements.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Comment is a textual annotation that can be attached to a set of Elements.
+  *
+  * <!-- Start of user code documentation --> 
+  * <!-- End of user code documentation -->
+  */
 trait UMLCommentOps[Uml <: UML] { self: UMLComment[Uml] =>
 
 // Start of user code for class imports
 // End of user code
 
 
-	/**
-	 * <!-- Start of user code doc for ownedComment_owningElement -->
-   * <!-- End of user code doc for ownedComment_owningElement -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.ownedComment
-	 */
-	def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
+  /**
+    * <!-- Start of user code doc for ownedComment_owningElement -->
+    * <!-- End of user code doc for ownedComment_owningElement -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.ownedComment
+    */
+  def ownedComment_owningElement: Option[UMLElement[Uml]] = owner
 
-	// Start of user code for additional features
+  // Start of user code for additional features
 
   def getCommentOwnerIndex: Int
 

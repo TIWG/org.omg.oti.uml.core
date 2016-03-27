@@ -50,109 +50,109 @@ import scala.collection.immutable.Seq
 
 
 /**
- * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * A StateInvariant is a runtime constraint on the participants of the Interaction. It may be used to specify a variety of different kinds of Constraints, such as values of Attributes or Variables, internal or external States, and so on. A StateInvariant is an InteractionFragment and it is placed on a Lifeline.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLStateInvariant[Uml <: UML]
-	extends UMLInteractionFragment[Uml]
-	with UMLStateInvariantOps[Uml] {
-	
+  extends UMLInteractionFragment[Uml]
+  with UMLStateInvariantOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * References the Lifeline on which the StateInvariant appears.
-	 *
-	 * <!-- Start of user code doc for covered -->
-	 * <!-- End of user code doc for covered -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.covered_stateInvariant
-	 */
-	override def covered: Iterable[UMLLifeline[Uml]]
+  /**
+    * References the Lifeline on which the StateInvariant appears.
+    *
+    * <!-- Start of user code doc for covered -->
+    * <!-- End of user code doc for covered -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLLifeline.covered_stateInvariant
+    */
+  override def covered: Iterable[UMLLifeline[Uml]]
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		stateInvariant_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      stateInvariant_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLStateInvariant
-	 *
-	 * <!-- Start of user code doc for stateInvariant_metaAttributes -->
-	 * <!-- End of user code doc for stateInvariant_metaAttributes -->
-	 */
-	def stateInvariant_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			interactionFragment_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLStateInvariant
+    *
+    * <!-- Start of user code doc for stateInvariant_metaAttributes -->
+    * <!-- End of user code doc for stateInvariant_metaAttributes -->
+    */
+  def stateInvariant_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     interactionFragment_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		stateInvariant_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    stateInvariant_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLStateInvariant
-	 *
-	 * <!-- Start of user code doc for stateInvariant_compositeMetaProperties -->
-	 * <!-- End of user code doc for stateInvariant_compositeMetaProperties -->
-	 */
-	def stateInvariant_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			interactionFragment_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator](StateInvariant_invariant))
+  /**
+    * The XMI composite meta-properties relevant to class UMLStateInvariant
+    *
+    * <!-- Start of user code doc for stateInvariant_compositeMetaProperties -->
+    * <!-- End of user code doc for stateInvariant_compositeMetaProperties -->
+    */
+  def stateInvariant_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      interactionFragment_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator](StateInvariant_invariant))
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		stateInvariant_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    stateInvariant_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLStateInvariant
-	 *
-	 * <!-- Start of user code doc for stateInvariant_referenceMetaProperties -->
-	 * <!-- End of user code doc for stateInvariant_referenceMetaProperties -->
-	 */
-	def stateInvariant_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			interactionFragment_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator](StateInvariant_covered))
+  /**
+    * The XMI reference meta-properties relevant to class UMLStateInvariant
+    *
+    * <!-- Start of user code doc for stateInvariant_referenceMetaProperties -->
+    * <!-- End of user code doc for stateInvariant_referenceMetaProperties -->
+    */
+  def stateInvariant_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      interactionFragment_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](StateInvariant_covered))
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		stateInvariant_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    stateInvariant_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLStateInvariant
-	 *
-	 * <!-- Start of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def stateInvariant_forwardReferencesFromMetamodelAssociations: Elements =
-		interactionFragment_forwardReferencesFromMetamodelAssociations ++
-		covered
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLStateInvariant
+    *
+    * <!-- Start of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for stateInvariant_forwardReferencesFromMetamodelAssociations -->
+    */
+  def stateInvariant_forwardReferencesFromMetamodelAssociations: Elements =
+    interactionFragment_forwardReferencesFromMetamodelAssociations ++
+    covered
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLStateInvariant

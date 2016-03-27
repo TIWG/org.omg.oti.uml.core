@@ -50,98 +50,98 @@ import scala.collection.immutable.Seq
 
 
 /**
- * WriteVariableAction is an abstract class for VariableActions that change Variable values.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
-*/
+  * WriteVariableAction is an abstract class for VariableActions that change Variable values.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLWriteVariableAction[Uml <: UML]
-	extends UMLVariableAction[Uml]
-	with UMLWriteVariableActionOps[Uml] {
-	
+  extends UMLVariableAction[Uml]
+  with UMLWriteVariableActionOps[Uml] {
+
   // Start of user code for class imports
-	import ops._
+  import ops._
   // End of user code
 
-	/**
-	 * The XMI meta-attributes relevant to this object
-	 *
-	 * <!-- Start of user code doc for metaAttributes -->
-	 * <!-- End of user code doc for metaAttributes -->
-	 */
-	override def metaAttributes: MetaAttributeFunctions =
-		writeVariableAction_metaAttributes
+  /**
+    * The XMI meta-attributes relevant to this object
+    *
+    * <!-- Start of user code doc for metaAttributes -->
+    * <!-- End of user code doc for metaAttributes -->
+    */
+    override def metaAttributes: MetaAttributeFunctions =
+      writeVariableAction_metaAttributes
 
-	/**
-	 * The XMI meta-attributes relevant to class UMLWriteVariableAction
-	 *
-	 * <!-- Start of user code doc for writeVariableAction_metaAttributes -->
-	 * <!-- End of user code doc for writeVariableAction_metaAttributes -->
-	 */
-	def writeVariableAction_metaAttributes: MetaAttributeFunctions = 
-		appendUnique(
-			variableAction_metaAttributes,
-			Seq[MetaAttributeFunction]())
+  /**
+    * The XMI meta-attributes relevant to class UMLWriteVariableAction
+    *
+    * <!-- Start of user code doc for writeVariableAction_metaAttributes -->
+    * <!-- End of user code doc for writeVariableAction_metaAttributes -->
+    */
+  def writeVariableAction_metaAttributes: MetaAttributeFunctions = 
+   appendUnique(
+     variableAction_metaAttributes,
+     Seq[MetaAttributeFunction]())
 
-	/**
-	 * The XMI composite meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for compositeMetaProperties -->
-	 * <!-- End of user code doc for compositeMetaProperties -->
-	 */
-	override def compositeMetaProperties: MetaPropertyFunctions =
-		writeVariableAction_compositeMetaProperties
+  /**
+    * The XMI composite meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for compositeMetaProperties -->
+    * <!-- End of user code doc for compositeMetaProperties -->
+    */
+  override def compositeMetaProperties: MetaPropertyFunctions =
+    writeVariableAction_compositeMetaProperties
 
-	/**
-	 * The XMI composite meta-properties relevant to class UMLWriteVariableAction
-	 *
-	 * <!-- Start of user code doc for writeVariableAction_compositeMetaProperties -->
-	 * <!-- End of user code doc for writeVariableAction_compositeMetaProperties -->
-	 */
-	def writeVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			variableAction_compositeMetaProperties,
-			Seq[MetaPropertyEvaluator](WriteVariableAction_value))
+  /**
+    * The XMI composite meta-properties relevant to class UMLWriteVariableAction
+    *
+    * <!-- Start of user code doc for writeVariableAction_compositeMetaProperties -->
+    * <!-- End of user code doc for writeVariableAction_compositeMetaProperties -->
+    */
+  def writeVariableAction_compositeMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      variableAction_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator](WriteVariableAction_value))
 
-	/**
-	 * The XMI reference meta-properties relevant to this object
-	 *
-	 * <!-- Start of user code doc for referenceMetaProperties -->
-	 * <!-- End of user code doc for referenceMetaProperties -->
-	 */
-	override def referenceMetaProperties: MetaPropertyFunctions =
-		writeVariableAction_referenceMetaProperties
+  /**
+    * The XMI reference meta-properties relevant to this object
+    *
+    * <!-- Start of user code doc for referenceMetaProperties -->
+    * <!-- End of user code doc for referenceMetaProperties -->
+    */
+  override def referenceMetaProperties: MetaPropertyFunctions =
+    writeVariableAction_referenceMetaProperties
 
-	/**
-	 * The XMI reference meta-properties relevant to class UMLWriteVariableAction
-	 *
-	 * <!-- Start of user code doc for writeVariableAction_referenceMetaProperties -->
-	 * <!-- End of user code doc for writeVariableAction_referenceMetaProperties -->
-	 */
-	def writeVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
-		appendUnique(
-			variableAction_referenceMetaProperties,
-			Seq[MetaPropertyEvaluator]())
+  /**
+    * The XMI reference meta-properties relevant to class UMLWriteVariableAction
+    *
+    * <!-- Start of user code doc for writeVariableAction_referenceMetaProperties -->
+    * <!-- End of user code doc for writeVariableAction_referenceMetaProperties -->
+    */
+  def writeVariableAction_referenceMetaProperties: MetaPropertyFunctions = 
+    appendUnique(
+      variableAction_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to this object
-	 *
-	 * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
-	 */
-	override def forwardReferencesFromMetamodelAssociations: Elements =
-		writeVariableAction_forwardReferencesFromMetamodelAssociations
+  /**
+    * The XMI forward references from metamodel associations relevant to this object
+    *
+    * <!-- Start of user code doc for forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
+    */
+  override def forwardReferencesFromMetamodelAssociations: Elements =
+    writeVariableAction_forwardReferencesFromMetamodelAssociations
 
-	/**
-	 * The XMI forward references from metamodel associations relevant to class UMLWriteVariableAction
-	 *
-	 * <!-- Start of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
-	 * <!-- End of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
-	 */
-	def writeVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
-		variableAction_forwardReferencesFromMetamodelAssociations ++
-		Set ()
+  /**
+    * The XMI forward references from metamodel associations relevant to class UMLWriteVariableAction
+    *
+    * <!-- Start of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for writeVariableAction_forwardReferencesFromMetamodelAssociations -->
+    */
+  def writeVariableAction_forwardReferencesFromMetamodelAssociations: Elements =
+    variableAction_forwardReferencesFromMetamodelAssociations ++
+    Set ()
 
-	// Start of user code for additional features
-	// End of user code
+  // Start of user code for additional features
+  // End of user code
 } //UMLWriteVariableAction

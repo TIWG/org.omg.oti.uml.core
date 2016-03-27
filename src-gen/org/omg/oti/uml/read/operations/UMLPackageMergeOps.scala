@@ -57,53 +57,50 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * A package merge defines how the contents of one package are extended by the contents of another package.
- *
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
+  * A package merge defines how the contents of one package are extended by the contents of another package.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLPackageMergeOps[Uml <: UML] { self: UMLPackageMerge[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * References the Package that is to be merged with the receiving package of the PackageMerge.
-	 *
-	 * <!-- Start of user code doc for mergedPackage -->
-	 * <!-- End of user code doc for mergedPackage -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.mergedPackage_packageMerge
-	 */
-	def mergedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
-
-	/**
-	 * References the Package that is being extended with the contents of the merged package of the PackageMerge.
-	 *
-	 * <!-- Start of user code doc for receivingPackage -->
-	 * <!-- End of user code doc for receivingPackage -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.packageMerge
-	 */
-	def receivingPackage: Option[UMLPackage[Uml]] = owner.selectByKindOf { case x: UMLPackage[Uml] => x }
-
-	// Start of user code for additional features
+  /**
+    * References the Package that is to be merged with the receiving package of the PackageMerge.
+    *
+    * <!-- Start of user code doc for mergedPackage -->
+    * <!-- End of user code doc for mergedPackage -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.mergedPackage_packageMerge
+    */
+  def mergedPackage: Option[UMLPackage[Uml]] = target.selectByKindOf { case x: UMLPackage[Uml] => x } headOption
 
   /**
-   * TIWG: see UMLUtil, Rule #3
-   */
-  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: NonEmptyList[java.lang.Throwable] \/ String =
-			for {
-				key <- element_xmiOrderingKey
-				i <- mergedPackage.fold[NonEmptyList[java.lang.Throwable] \/ String]("_".right){ mp =>
-				  mp.xmiOrderingKey.map("_" + _)
-				}
-    } yield key + i
+    * References the Package that is being extended with the contents of the merged package of the PackageMerge.
+    *
+    * <!-- Start of user code doc for receivingPackage -->
+    * <!-- End of user code doc for receivingPackage -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLPackage.packageMerge
+    */
+  def receivingPackage: Option[UMLPackage[Uml]] = owner.selectByKindOf { case x: UMLPackage[Uml] => x }
 
-	// End of user code
+  // Start of user code for additional features
+
+  override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
+  : NonEmptyList[java.lang.Throwable] \/ String
+  = for {
+	key <- element_xmiOrderingKey
+	i <- mergedPackage.fold[NonEmptyList[java.lang.Throwable] \/ String]("_".right){ mp =>
+		mp.xmiOrderingKey.map("_" + _)
+	}
+  } yield key + i
+
+  // End of user code
 } //UMLPackageMergeOps

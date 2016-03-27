@@ -58,31 +58,30 @@ import scalaz._, Scalaz._
 // End of user code
 
 /**
- * A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.
- *
- * <!-- Start of user code documentation --> 
- * <!-- End of user code documentation -->
- */
+  * A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
 trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
 
 // Start of user code for class imports
-	import self.ops._
+  import self.ops._
 // End of user code
 
 
-	/**
-	 * The InstanceSpecification that owns this Slot.
-	 *
-	 * <!-- Start of user code doc for owningInstance -->
-   * <!-- End of user code doc for owningInstance -->
-	 *
-	 * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
-	 * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.slot
-	 */
-	def owningInstance: Option[UMLInstanceSpecification[Uml]] = owner.selectByKindOf { case x: UMLInstanceSpecification[Uml] => x }
+  /**
+    * The InstanceSpecification that owns this Slot.
+    *
+    * <!-- Start of user code doc for owningInstance -->
+    * <!-- End of user code doc for owningInstance -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.slot
+    */
+  def owningInstance: Option[UMLInstanceSpecification[Uml]] = owner.selectByKindOf { case x: UMLInstanceSpecification[Uml] => x }
 
-	// Start of user code for additional features
-
+  // Start of user code for additional features
   /**
    * TIWG: see UMLUtil, Rule #4
    */
@@ -96,6 +95,5 @@ trait UMLSlotOps[Uml <: UML] { self: UMLSlot[Uml] =>
              sf.xmiOrderingKey.map("_" + _)
            }
     } yield key + f
-
   // End of user code
 } //UMLSlotOps
