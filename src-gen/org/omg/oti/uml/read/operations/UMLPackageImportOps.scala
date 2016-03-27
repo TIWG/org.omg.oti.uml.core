@@ -45,8 +45,8 @@ package org.omg.oti.uml.read.operations
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
-import scala.Boolean
-import scala.Option
+import scala.{Boolean,Option}
+import scala.Predef.String
 import scala.collection.immutable.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq

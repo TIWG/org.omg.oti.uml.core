@@ -46,6 +46,7 @@ import org.omg.oti.uml.read.operations.UMLProtocolTransitionOps
 
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
+import scala.Option
 // End of user code
 
 
