@@ -58,12 +58,12 @@ class DeploymentUpdater[Uml <: UML](val domain: UMLDeployment[Uml]) extends AnyV
   def links_Deployment_deployment_compose_configuration_DeploymentSpecification
   (range: Set[UMLDeploymentSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Deployment_deployment_compose_configuration_DeploymentSpecification(domain, range)
 
   def links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact
   (range: Set[UMLDeployedArtifact[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Deployment_deploymentForArtifact_reference_deployedArtifact_DeployedArtifact(domain, range)
 }

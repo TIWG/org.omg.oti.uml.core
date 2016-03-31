@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scala.Predef.String
 import scalaz._
@@ -59,12 +59,12 @@ class DeploymentSpecificationUpdater[Uml <: UML](val domain: UMLDeploymentSpecif
   def setDeploymentLocation
   (deploymentLocation: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_DeploymentSpecification_deploymentLocation(domain, deploymentLocation)
 
   def setExecutionLocation
   (executionLocation: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_DeploymentSpecification_executionLocation(domain, executionLocation)
 }

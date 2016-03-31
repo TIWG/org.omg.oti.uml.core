@@ -43,6 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
 // End of user code
@@ -56,12 +57,12 @@ class AddVariableValueActionUpdater[Uml <: UML](val domain: UMLAddVariableValueA
   def links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_AddVariableValueAction_addVariableValueAction_compose_insertAt_InputPin(domain, range)
 
   def setIsReplaceAll
   (isReplaceAll: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_AddVariableValueAction_isReplaceAll(domain, isReplaceAll)
 }

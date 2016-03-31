@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class GeneralOrderingUpdater[Uml <: UML](val domain: UMLGeneralOrdering[Uml]) ex
   def links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_GeneralOrdering_toBefore_reference_after_OccurrenceSpecification(domain, range)
 
   def links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification
   (range: Option[UMLOccurrenceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_GeneralOrdering_toAfter_reference_before_OccurrenceSpecification(domain, range)
 }

@@ -60,17 +60,17 @@ object UMLAttributeUpdater {
   
   sealed abstract trait ValueConverter[DT] {
     def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ DT
+    : Set[java.lang.Throwable] \/ DT
   }
   
   object BooleanValueConverter 
   extends ValueConverter[Boolean] {
     override def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ Boolean =
-      nonFatalCatch[NonEmptyList[java.lang.Throwable] \/ Boolean]
+    : Set[java.lang.Throwable] \/ Boolean =
+      nonFatalCatch[Set[java.lang.Throwable] \/ Boolean]
       .withApply{
       (cause: java.lang.Throwable) =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
             .UMLAdaptationException(
             s"Error parsing a Boolean value: ${cause.getMessage}",
@@ -82,11 +82,11 @@ object UMLAttributeUpdater {
   object IntegerValueConverter 
   extends ValueConverter[Integer] {
     override def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ Integer =
-      nonFatalCatch[NonEmptyList[java.lang.Throwable] \/ Integer]
+    : Set[java.lang.Throwable] \/ Integer =
+      nonFatalCatch[Set[java.lang.Throwable] \/ Integer]
       .withApply{
       (cause: java.lang.Throwable) =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
             .UMLAdaptationException(
             s"Error parsing an Integer value: ${cause.getMessage}",
@@ -98,11 +98,11 @@ object UMLAttributeUpdater {
   object UnlimitedNaturalValueConverter 
   extends ValueConverter[Integer] {
     override def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ Integer =
-      nonFatalCatch[NonEmptyList[java.lang.Throwable] \/ Integer]
+    : Set[java.lang.Throwable] \/ Integer =
+      nonFatalCatch[Set[java.lang.Throwable] \/ Integer]
       .withApply{
       (cause: java.lang.Throwable) =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
             .UMLAdaptationException(
             s"Error parsing an Integer value: ${cause.getMessage}",
@@ -121,11 +121,11 @@ object UMLAttributeUpdater {
   object DoubleValueConverter 
   extends ValueConverter[Double] {
     override def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ Double =
-      nonFatalCatch[NonEmptyList[java.lang.Throwable] \/ Double]
+    : Set[java.lang.Throwable] \/ Double =
+      nonFatalCatch[Set[java.lang.Throwable] \/ Double]
       .withApply{
       (cause: java.lang.Throwable) =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
             .UMLAdaptationException(
             s"Error parsing a Double value: ${cause.getMessage}",
@@ -137,7 +137,7 @@ object UMLAttributeUpdater {
   object StringValueConverter 
   extends ValueConverter[String] {
     override def convert(valueRepresentation: String)
-    : NonEmptyList[java.lang.Throwable] \/ String =
+    : Set[java.lang.Throwable] \/ String =
       \/-(valueRepresentation)
   }
   
@@ -158,14 +158,14 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-    : NonEmptyList[java.lang.Throwable] \/ Unit
+    : Set[java.lang.Throwable] \/ Unit
 	  
 	}
   
   case class MetaScalarAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, DT) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, DT) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
-    valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT)
+    valueConverter: String => Set[java.lang.Throwable] \/ DT)
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT])
   extends MetaAttributeUpdate[U] {
         
@@ -174,7 +174,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-    : NonEmptyList[java.lang.Throwable] \/ Unit = 
+    : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -185,7 +185,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	      }
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",
@@ -198,7 +198,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
   MetaScalarAttributeUpdater[_ <: UMLElement[Uml], _]
 
   case class MetaEnumerationAttributeUpdater[U <: UMLElement[Uml], DT <: Enumeration#Value, DTSet <: Enumeration#ValueSet]
-  ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, Option[DT]) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeEnumerationFunction[Uml, U, DT, DTSet],
     enumerationValues: Iterable[DT] )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
@@ -209,14 +209,14 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      enumerationValues.find { eValue: DT =>
 	        eValue.toString == v
 	      } match {
 	        case None =>
-	          -\/(NonEmptyList(
+	          -\/(Set(
 	              UMLError
 	              .illegalElementError[Uml, UMLElement[Uml]](
 	                  s"MetaOptionAttributeUpdater: unrecognized enumeration value "+
@@ -227,7 +227,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	      }
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",
@@ -239,9 +239,9 @@ trait UMLAttributeUpdater[Uml <: UML] {
   MetaEnumerationAttributeUpdater[_ <: UMLElement[Uml], _, _]
 
   case class MetaOptionAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Option[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, Option[DT]) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
-    valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )
+    valueConverter: String => Set[java.lang.Throwable] \/ DT )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
@@ -250,7 +250,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      for {
@@ -259,7 +259,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	      } yield ()
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",
@@ -271,9 +271,9 @@ trait UMLAttributeUpdater[Uml <: UML] {
   MetaOptionAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaIterableAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Iterable[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, Iterable[DT]) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
-    valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )
+    valueConverter: String => Set[java.lang.Throwable] \/ DT )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
@@ -282,7 +282,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -300,14 +300,14 @@ trait UMLAttributeUpdater[Uml <: UML] {
                  }
                case _ =>
                  -\/(
-                     NonEmptyList(
+                     Set(
                          UMLError
                          .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
             }
 	      }
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",
@@ -319,9 +319,9 @@ trait UMLAttributeUpdater[Uml <: UML] {
   MetaIterableAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaSetAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Set[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, Set[DT]) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
-    valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )  
+    valueConverter: String => Set[java.lang.Throwable] \/ DT )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
@@ -330,7 +330,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -348,14 +348,14 @@ trait UMLAttributeUpdater[Uml <: UML] {
                  }
                case _ =>
                  -\/(
-                     NonEmptyList(
+                     Set(
                          UMLError
                          .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
             }
 	      }
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",
@@ -367,9 +367,9 @@ trait UMLAttributeUpdater[Uml <: UML] {
   MetaSetAttributeUpdater[_ <: UMLElement[Uml], _]
   
   case class MetaSeqAttributeUpdater[U <: UMLElement[Uml], DT]
-  ( attributeUpdate: (U, Seq[DT]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( attributeUpdate: (U, Seq[DT]) => \/[Set[java.lang.Throwable], Unit],
     attributeQuery: MetaAttributeAbstractFunction[Uml, U, DT],
-    valueConverter: String => NonEmptyList[java.lang.Throwable] \/ DT )
+    valueConverter: String => Set[java.lang.Throwable] \/ DT )
   ( implicit utag: ClassTag[U], dtag: ClassTag[DT] )
   extends MetaAttributeUpdate[U] {
         
@@ -378,7 +378,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
     ( implicit 
       idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
-	  : NonEmptyList[java.lang.Throwable] \/ Unit = 
+	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
 	    case aU: U =>
 	      valueConverter(v) match {
@@ -396,14 +396,14 @@ trait UMLAttributeUpdater[Uml <: UML] {
                  }
                case _ =>
                  -\/(
-                     NonEmptyList(
+                     Set(
                          UMLError
                          .illegalMetaAttributeEvaluation[Uml, U, U, DT](aU, attributeQuery)))
             }
 	      }
 	    
       case _ =>
-        -\/(NonEmptyList(
+        -\/(Set(
           UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"MetaOptionAttributeUpdater: error type mismatch",

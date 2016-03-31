@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class OperationTemplateParameterUpdater[Uml <: UML](val domain: UMLOperationTemp
   def links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation
   (range: Option[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_OperationTemplateParameter_templateParameter_reference_parameteredElement_Operation(domain, range)
 }

@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class ExpansionNodeUpdater[Uml <: UML](val domain: UMLExpansionNode[Uml]) extend
   def links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion
   (range: Option[UMLExpansionRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ExpansionNode_inputElement_reference_regionAsInput_ExpansionRegion(domain, range)
 
   def links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion
   (range: Option[UMLExpansionRegion[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ExpansionNode_outputElement_reference_regionAsOutput_ExpansionRegion(domain, range)
 }

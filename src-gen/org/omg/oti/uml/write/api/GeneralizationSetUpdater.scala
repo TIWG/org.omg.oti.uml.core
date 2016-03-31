@@ -58,24 +58,24 @@ class GeneralizationSetUpdater[Uml <: UML](val domain: UMLGeneralizationSet[Uml]
   def links_GeneralizationSet_generalizationSet_reference_generalization_Generalization
   (range: Set[UMLGeneralization[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_GeneralizationSet_generalizationSet_reference_generalization_Generalization(domain, range)
 
   def links_GeneralizationSet_powertypeExtent_reference_powertype_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_GeneralizationSet_powertypeExtent_reference_powertype_Classifier(domain, range)
 
   def setIsCovering
   (isCovering: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_GeneralizationSet_isCovering(domain, isCovering)
 
   def setIsDisjoint
   (isDisjoint: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_GeneralizationSet_isDisjoint(domain, isDisjoint)
 }

@@ -58,6 +58,6 @@ class ComponentRealizationUpdater[Uml <: UML](val domain: UMLComponentRealizatio
   def links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ComponentRealization_componentRealization_reference_realizingClassifier_Classifier(domain, range)
 }

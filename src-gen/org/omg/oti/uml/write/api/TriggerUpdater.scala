@@ -58,12 +58,12 @@ class TriggerUpdater[Uml <: UML](val domain: UMLTrigger[Uml]) extends AnyVal {
   def links_Trigger_trigger_reference_event_Event
   (range: Option[UMLEvent[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Trigger_trigger_reference_event_Event(domain, range)
 
   def links_Trigger_trigger_reference_port_Port
   (range: Set[UMLPort[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Trigger_trigger_reference_port_Port(domain, range)
 }

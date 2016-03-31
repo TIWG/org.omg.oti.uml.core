@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,24 +57,24 @@ class ObjectFlowUpdater[Uml <: UML](val domain: UMLObjectFlow[Uml]) extends AnyV
   def links_ObjectFlow_objectFlow_reference_selection_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ObjectFlow_objectFlow_reference_selection_Behavior(domain, range)
 
   def links_ObjectFlow_objectFlow_reference_transformation_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ObjectFlow_objectFlow_reference_transformation_Behavior(domain, range)
 
   def setIsMulticast
   (isMulticast: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ObjectFlow_isMulticast(domain, isMulticast)
 
   def setIsMultireceive
   (isMultireceive: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ObjectFlow_isMultireceive(domain, isMultireceive)
 }

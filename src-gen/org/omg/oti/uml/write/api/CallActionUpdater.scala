@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.Seq
 import scalaz._
@@ -58,12 +58,12 @@ class CallActionUpdater[Uml <: UML](val domain: UMLCallAction[Uml]) extends AnyV
   def links_CallAction_callAction_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CallAction_callAction_compose_result_OutputPin(domain, range)
 
   def setIsSynchronous
   (isSynchronous: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_CallAction_isSynchronous(domain, isSynchronous)
 }

@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Unit}
 import scala.collection.immutable.Seq
 import scalaz._
@@ -58,12 +58,12 @@ class DurationObservationUpdater[Uml <: UML](val domain: UMLDurationObservation[
   def links_DurationObservation_durationObservation_reference_event_NamedElement
   (range: Seq[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_DurationObservation_durationObservation_reference_event_NamedElement(domain, range)
 
   def setFirstEvent
   (firstEvent: Seq[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_DurationObservation_firstEvent(domain, firstEvent)
 }

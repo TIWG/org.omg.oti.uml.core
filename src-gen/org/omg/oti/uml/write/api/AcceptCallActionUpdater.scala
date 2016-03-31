@@ -43,6 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -56,6 +57,6 @@ class AcceptCallActionUpdater[Uml <: UML](val domain: UMLAcceptCallAction[Uml]) 
   def links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_AcceptCallAction_acceptCallAction_compose_returnInformation_OutputPin(domain, range)
 }

@@ -170,13 +170,13 @@ trait UMLInstanceSpecificationOps[Uml <: UML] { self: UMLInstanceSpecification[U
   }
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+	: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
 
   def instanceSpecification_asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     owner
-    .fold[NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]](Set().right) {
+    .fold[Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]](Set().right) {
       case p: UMLPackage[Uml] =>
         Set[UMLPackageableElement[Uml]]( p ).right
       case e =>

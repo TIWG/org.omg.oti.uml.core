@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scala.Predef.String
 import scalaz._
@@ -58,18 +58,18 @@ class ElementImportUpdater[Uml <: UML](val domain: UMLElementImport[Uml]) extend
   def links_ElementImport_import_reference_importedElement_PackageableElement
   (range: Option[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ElementImport_import_reference_importedElement_PackageableElement(domain, range)
 
   def setAlias
   (alias: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ElementImport_alias(domain, alias)
 
   def setVisibility
   (visibility: Option[UMLVisibilityKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ElementImport_visibility(domain, visibility)
 }

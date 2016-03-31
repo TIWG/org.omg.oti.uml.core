@@ -58,12 +58,12 @@ class TemplateableElementUpdater[Uml <: UML](val domain: UMLTemplateableElement[
   def links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature
   (range: Option[UMLTemplateSignature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateableElement_template_compose_ownedTemplateSignature_TemplateSignature(domain, range)
 
   def links_TemplateableElement_boundElement_compose_templateBinding_TemplateBinding
   (range: Set[UMLTemplateBinding[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateableElement_boundElement_compose_templateBinding_TemplateBinding(domain, range)
 }

@@ -50,7 +50,7 @@ import scala.Predef.String
 import scala.collection.immutable.Iterable
 import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
-import scalaz.{\/,NonEmptyList}
+import scalaz._
 import scalaz.Scalaz._
 // End of user code
 
@@ -111,10 +111,10 @@ trait UMLPackageImportOps[Uml <: UML] { self: UMLPackageImport[Uml] =>
     * TIWG: see UMLUtil, Rule #3
     */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String
+  : Set[java.lang.Throwable] \/ String
   = for {
 		key <- element_xmiOrderingKey
-		i <- importedPackage.fold[NonEmptyList[java.lang.Throwable] \/ String]("_".right){ ip =>
+		i <- importedPackage.fold[Set[java.lang.Throwable] \/ String]("_".right){ ip =>
 			ip.xmiOrderingKey.map("_" + _)
     }
   } yield key + i

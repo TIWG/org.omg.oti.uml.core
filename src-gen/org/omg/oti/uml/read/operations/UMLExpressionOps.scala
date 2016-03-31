@@ -69,11 +69,11 @@ trait UMLExpressionOps[Uml <: UML] { self: UMLExpression[Uml] =>
   // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     expression_asForwardReferencesToImportableOuterPackageableElements
 
   def expression_asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     (Set[UMLPackageableElement[Uml]](this) ++ operand.toSet).right
 
   // End of user code

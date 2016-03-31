@@ -58,24 +58,24 @@ class AssociationUpdater[Uml <: UML](val domain: UMLAssociation[Uml]) extends An
   def links_Association_association_reference_memberEnd_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Association_association_reference_memberEnd_Property(domain, range)
 
   def links_Association_association_reference_navigableOwnedEnd_Property
   (range: Set[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Association_association_reference_navigableOwnedEnd_Property(domain, range)
 
   def links_Association_owningAssociation_compose_ownedEnd_Property
   (range: Iterable[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Association_owningAssociation_compose_ownedEnd_Property(domain, range)
 
   def setIsDerived
   (isDerived: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Association_isDerived(domain, isDerived)
 }

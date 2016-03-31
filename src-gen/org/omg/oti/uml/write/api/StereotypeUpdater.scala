@@ -58,6 +58,6 @@ class StereotypeUpdater[Uml <: UML](val domain: UMLStereotype[Uml]) extends AnyV
   def links_Stereotype_stereotype_compose_icon_Image
   (range: Set[UMLImage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Stereotype_stereotype_compose_icon_Image(domain, range)
 }

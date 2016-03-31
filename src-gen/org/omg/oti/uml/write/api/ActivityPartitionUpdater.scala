@@ -58,36 +58,36 @@ class ActivityPartitionUpdater[Uml <: UML](val domain: UMLActivityPartition[Uml]
   def links_ActivityPartition_inPartition_reference_edge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ActivityPartition_inPartition_reference_edge_ActivityEdge(domain, range)
 
   def links_ActivityPartition_inPartition_reference_node_ActivityNode
   (range: Set[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ActivityPartition_inPartition_reference_node_ActivityNode(domain, range)
 
   def links_ActivityPartition_activityPartition_reference_represents_Element
   (range: Option[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ActivityPartition_activityPartition_reference_represents_Element(domain, range)
 
   def links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition
   (range: Set[UMLActivityPartition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ActivityPartition_superPartition_compose_subpartition_ActivityPartition(domain, range)
 
   def setIsDimension
   (isDimension: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ActivityPartition_isDimension(domain, isDimension)
 
   def setIsExternal
   (isExternal: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ActivityPartition_isExternal(domain, isExternal)
 }

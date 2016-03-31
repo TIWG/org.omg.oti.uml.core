@@ -58,6 +58,6 @@ class ElementUpdater[Uml <: UML](val domain: UMLElement[Uml]) extends AnyVal {
   def links_Element_owningElement_compose_ownedComment_Comment
   (range: Set[UMLComment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Element_owningElement_compose_ownedComment_Comment(domain, range)
 }

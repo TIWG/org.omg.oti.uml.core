@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scala.Predef.String
 import scalaz._
@@ -59,18 +59,18 @@ class ImageUpdater[Uml <: UML](val domain: UMLImage[Uml]) extends AnyVal {
   def setContent
   (content: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Image_content(domain, content)
 
   def setFormat
   (format: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Image_format(domain, format)
 
   def setLocation
   (location: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Image_location(domain, location)
 }

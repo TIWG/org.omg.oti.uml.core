@@ -170,7 +170,7 @@ sealed trait MetaPropertyFunction[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
 
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]]
 
-  def evaluateTriples(e: UMLElement[Uml]): NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]]
+  def evaluateTriples(e: UMLElement[Uml]): Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]]
 }
 
 
@@ -198,13 +198,13 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = None
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
     e match {
       case u: U =>
         evaluate(u)
         .flatMap { ov: Option[UMLElement[Uml]] =>
           ov
-          .fold[NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]]](
+          .fold[Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]]](
             Set[RelationTriple[Uml]]().right
           ){ v =>
               if (u.owner.contains(v))
@@ -215,7 +215,7 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
         }
       case x =>
         -\/(
-          NonEmptyList(
+          Set(
             UMLError
             .illegalElementError[Uml, UMLElement[Uml]](
               s"Type mismatch for evaluating $this on $x (should have been ${domainType.runtimeClass.getName})",
@@ -223,13 +223,13 @@ case class MetaPropertyReference[Uml <: UML, U <: UMLElement[Uml], V <: UMLEleme
     }
 
   def evaluate(e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[UMLElement[Uml]] =
+  : Set[java.lang.Throwable] \/ Option[UMLElement[Uml]] =
     e match {
       case u: U =>
         f(u).right
       case _ =>
         -\/(
-          NonEmptyList(
+          Set(
             UMLError
             .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)))
     }
@@ -277,7 +277,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
   def getCollectionFunction: Option[MetaPropertyCollection[Uml, U, V]] = Some(this)
 
   override def evaluateTriples(e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
     e match {
       case u: U =>
         evaluate(u)
@@ -289,7 +289,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     }
 
   def evaluate(e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ List[UMLElement[Uml]] = {
+  : Set[java.lang.Throwable] \/ List[UMLElement[Uml]] = {
     require(e != null)
     e match {
       case u: U =>
@@ -303,7 +303,7 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
           v.toList.right
       case _ =>
         -\/(
-          NonEmptyList(
+          Set(
             UMLError
             .illegalMetaPropertyEvaluation[Uml, UMLElement[Uml], this.type](e, this)))
     }

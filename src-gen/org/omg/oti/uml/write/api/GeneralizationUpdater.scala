@@ -58,18 +58,18 @@ class GeneralizationUpdater[Uml <: UML](val domain: UMLGeneralization[Uml]) exte
   def links_Generalization_generalization_reference_general_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Generalization_generalization_reference_general_Classifier(domain, range)
 
   def links_Generalization_generalization_reference_generalizationSet_GeneralizationSet
   (range: Set[UMLGeneralizationSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Generalization_generalization_reference_generalizationSet_GeneralizationSet(domain, range)
 
   def setIsSubstitutable
   (isSubstitutable: Option[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Generalization_isSubstitutable(domain, isSubstitutable)
 }

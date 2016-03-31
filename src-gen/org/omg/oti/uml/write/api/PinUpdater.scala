@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Unit}
 import scalaz._
 // End of user code
@@ -58,6 +58,6 @@ class PinUpdater[Uml <: UML](val domain: UMLPin[Uml]) extends AnyVal {
   def setIsControl
   (isControl: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Pin_isControl(domain, isControl)
 }

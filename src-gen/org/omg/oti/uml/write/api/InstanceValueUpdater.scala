@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class InstanceValueUpdater[Uml <: UML](val domain: UMLInstanceValue[Uml]) extend
   def links_InstanceValue_instanceValue_reference_instance_InstanceSpecification
   (range: Option[UMLInstanceSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InstanceValue_instanceValue_reference_instance_InstanceSpecification(domain, range)
 }

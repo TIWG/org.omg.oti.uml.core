@@ -58,12 +58,12 @@ class InterruptibleActivityRegionUpdater[Uml <: UML](val domain: UMLInterruptibl
   def links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge
   (range: Set[UMLActivityEdge[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InterruptibleActivityRegion_interrupts_reference_interruptingEdge_ActivityEdge(domain, range)
 
   def links_InterruptibleActivityRegion_inInterruptibleRegion_reference_node_ActivityNode
   (range: Set[UMLActivityNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InterruptibleActivityRegion_inInterruptibleRegion_reference_node_ActivityNode(domain, range)
 }

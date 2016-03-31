@@ -58,18 +58,18 @@ class ComponentUpdater[Uml <: UML](val domain: UMLComponent[Uml]) extends AnyVal
   def links_Component_component_compose_packagedElement_PackageableElement
   (range: Set[UMLPackageableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Component_component_compose_packagedElement_PackageableElement(domain, range)
 
   def links_Component_abstraction_compose_realization_ComponentRealization
   (range: Set[UMLComponentRealization[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Component_abstraction_compose_realization_ComponentRealization(domain, range)
 
   def setIsIndirectlyInstantiated
   (isIndirectlyInstantiated: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Component_isIndirectlyInstantiated(domain, isIndirectlyInstantiated)
 }

@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class WriteStructuralFeatureActionUpdater[Uml <: UML](val domain: UMLWriteStruct
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_result_OutputPin(domain, range)
 
   def links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_WriteStructuralFeatureAction_writeStructuralFeatureAction_compose_value_InputPin(domain, range)
 }

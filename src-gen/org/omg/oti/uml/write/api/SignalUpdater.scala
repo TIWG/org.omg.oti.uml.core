@@ -45,7 +45,7 @@ package org.omg.oti.uml.write.api
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Unit}
-import scala.collection.immutable.Seq
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
 // End of user code
 
@@ -58,6 +58,6 @@ class SignalUpdater[Uml <: UML](val domain: UMLSignal[Uml]) extends AnyVal {
   def links_Signal_owningSignal_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Signal_owningSignal_compose_ownedAttribute_Property(domain, range)
 }

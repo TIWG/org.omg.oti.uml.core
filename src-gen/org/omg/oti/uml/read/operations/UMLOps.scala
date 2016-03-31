@@ -6804,15 +6804,26 @@ import Option._
   val UML_PRIMITIVE_TYPES_STRING: UMLPrimitiveType[Uml]
 
   type Element2IDHashMap =
-  scala.collection.mutable.HashMap[UMLElement[Uml], \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
+  scala.collection.mutable.HashMap[UMLElement[Uml], \/[Set[java.lang.Throwable], (String @@ OTI_ID)]]
 
   type Element2IDRule = PartialFunction[
     UMLElement[Uml],
-    \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
+    \/[Set[java.lang.Throwable], (String @@ OTI_ID)]]
 
   type ContainedElement2IDRule = PartialFunction[
     (UMLElement[Uml], String @@ OTI_ID, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
-    \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
+    \/[Set[java.lang.Throwable], (String @@ OTI_ID)]]
+
+  type Element2UUIDHashMap =
+  scala.collection.mutable.HashMap[UMLElement[Uml], \/[Set[java.lang.Throwable], (String @@ OTI_UUID)]]
+
+  type Element2UUIDRule = PartialFunction[
+    UMLElement[Uml],
+    \/[Set[java.lang.Throwable], (String @@ OTI_UUID)]]
+
+  type ContainedElement2UUIDRule = PartialFunction[
+    (UMLElement[Uml], String @@ OTI_UUID, UMLElement[Uml]#MetaPropertyEvaluator, UMLElement[Uml]),
+    \/[Set[java.lang.Throwable], (String @@ OTI_UUID)]]
 
   class FilterableUMLOption[U](o: Option[U]) {
 

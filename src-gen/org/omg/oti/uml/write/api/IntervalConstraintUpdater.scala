@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class IntervalConstraintUpdater[Uml <: UML](val domain: UMLIntervalConstraint[Um
   def links_IntervalConstraint_intervalConstraint_compose_specification_Interval
   (range: Option[UMLInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_IntervalConstraint_intervalConstraint_compose_specification_Interval(domain, range)
 }

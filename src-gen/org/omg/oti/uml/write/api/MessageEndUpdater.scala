@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class MessageEndUpdater[Uml <: UML](val domain: UMLMessageEnd[Uml]) extends AnyV
   def links_MessageEnd_messageEnd_reference_message_Message
   (range: Option[UMLMessage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_MessageEnd_messageEnd_reference_message_Message(domain, range)
 }

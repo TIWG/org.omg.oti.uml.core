@@ -58,36 +58,36 @@ class InterfaceUpdater[Uml <: UML](val domain: UMLInterface[Uml]) extends AnyVal
   def links_Interface_interface_compose_nestedClassifier_Classifier
   (range: Seq[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_compose_nestedClassifier_Classifier(domain, range)
 
   def links_Interface_interface_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_compose_ownedAttribute_Property(domain, range)
 
   def links_Interface_interface_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_compose_ownedOperation_Operation(domain, range)
 
   def links_Interface_interface_compose_ownedReception_Reception
   (range: Set[UMLReception[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_compose_ownedReception_Reception(domain, range)
 
   def links_Interface_interface_compose_protocol_ProtocolStateMachine
   (range: Option[UMLProtocolStateMachine[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_compose_protocol_ProtocolStateMachine(domain, range)
 
   def links_Interface_interface_reference_redefinedInterface_Interface
   (range: Set[UMLInterface[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interface_interface_reference_redefinedInterface_Interface(domain, range)
 }

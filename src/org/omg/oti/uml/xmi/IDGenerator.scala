@@ -47,7 +47,7 @@ import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.Predef.String
 import scala.{Array,Byte,Boolean,Char,Int,Option,Unit}
-import scala.Predef.{Map => _,_}
+import scala.Predef.{Map => _,Set => _,_}
 import scala.collection.immutable._
 import scala.language.postfixOps
 
@@ -75,7 +75,15 @@ trait IDGenerator[Uml <: UML] {
    * @return The current mapping of elements to their xmi:ID
    */
   def getElement2IDMap
-  : Map[UMLElement[Uml], \/[NonEmptyList[java.lang.Throwable], (String @@ OTI_ID)]]
+  : Map[UMLElement[Uml], \/[Set[java.lang.Throwable], (String @@ OTI_ID)]]
+
+  /**
+    * Get the current element/xmi:UUID map state of this ID Generator
+    *
+    * @return The current mapping of elements to their xmi:UUID
+    */
+  def getElement2UUIDMap
+  : Map[UMLElement[Uml], \/[Set[java.lang.Throwable], (String @@ OTI_UUID)]]
 
   /**
    * Lookup the current element/xmi:ID map state
@@ -84,7 +92,16 @@ trait IDGenerator[Uml <: UML] {
    * @return The xmi:ID of `e`, if available
    */
   def lookupElementXMI_ID( e: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+
+  /**
+    * Lookup the current element/xmi:UUID map state
+    *
+    * @param e The element to lookup
+    * @return The xmi:UUID of `e`, if available
+    */
+  def lookupElementXMI_UUID( e: UMLElement[Uml] )
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
 
   /**
    * Lookup the current element/document map state
@@ -93,7 +110,7 @@ trait IDGenerator[Uml <: UML] {
    * @return The document that contains `e`, if any
    */
   def element2mappedDocument(e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[Document[Uml]]
+  : Set[java.lang.Throwable] \/ Option[Document[Uml]]
   
   /**
    * Computes the xmi:ID for each element in the domain of the element2document map of the ResolvedDocumentSet
@@ -101,7 +118,15 @@ trait IDGenerator[Uml <: UML] {
    * @param pkg The scope of the elements and their applied stereotype instances to compute their xmi:ID
    */
   def computePackageExtentXMI_ID( pkg: UMLPackage[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Unit
+  : Set[java.lang.Throwable] \/ Unit
+
+  /**
+    * Computes the xmi:UUID for each element in the domain of the element2document map of the ResolvedDocumentSet
+    *
+    * @param pkg The scope of the elements and their applied stereotype instances to compute their xmi:UUID
+    */
+  def computePackageExtentXMI_UUID( pkg: UMLPackage[Uml] )
+  : Set[java.lang.Throwable] \/ Unit
 
   /**
    * Map an element to itself or to the tool-specific element it stands for
@@ -119,8 +144,8 @@ trait IDGenerator[Uml <: UML] {
    * The default implementation is to return ref (i.e., no mapping).
    */
   def getMappedOrReferencedElement( ref: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ UMLElement[Uml] =
-    \/.right(ref)
+  : Set[java.lang.Throwable] \/ UMLElement[Uml]
+  = \/.right(ref)
 
   /**
    * Get the xmi:ID of an element or compute it if necessary
@@ -134,7 +159,21 @@ trait IDGenerator[Uml <: UML] {
    * @return id, the xmi:ID of `self` such that getELement2IDMap(`self`) == Success(id)
    */
   def getXMI_ID( self: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID)
+  : Set[java.lang.Throwable] \/ (String @@ OTI_ID)
+
+  /**
+    * Get the xmi:UUID of an element or compute it if necessary
+    *
+    * 1) it may have been computed already, `getElement2UUIDMap`\
+    * 2) otherwise, check for the document scope of the element:
+    * - for a BuiltInDocument, use the element's toolSpecific_uuid
+    * - for a SerializableDocument, use the element's oti_xmiUUID, if any or calculate it, see `computeUUID`
+    *
+    * @param self A UML Element
+    * @return uuid, the xmi:UUID of `self` such that getELement2UUIDMap(`self`) == Success(uuid)
+    */
+  def getXMI_UUID( self: UMLElement[Uml] )
+  : Set[java.lang.Throwable] \/ (String @@ OTI_UUID)
 
   /**
    * Compute the canonical xmi:ID for a UML Element according to the OTI canonical XMI:ID generation rules
@@ -142,8 +181,17 @@ trait IDGenerator[Uml <: UML] {
    * @param self a UML Element that is in scope of a SerializableDocument
    * @return the xmi:ID computed according to the OTI canonical XMI:ID generation rules
    */
-  def computeID( self: UMLElement[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_ID)
+  def computeSingleElementXMI_ID(self: UMLElement[Uml] )
+  : Set[java.lang.Throwable] \/ (String @@ OTI_ID)
+
+  /**
+    * Compute the canonical xmi:UUID for a UML Element according to the OTI canonical XMI:UUID generation rules
+    *
+    * @param self a UML Element that is in scope of a SerializableDocument
+    * @return the xmi:UUID computed according to the OTI canonical XMI:UUID generation rules
+    */
+  def computeSingleElementXMI_UUID( self: UMLElement[Uml] )
+  : Set[java.lang.Throwable] \/ (String @@ OTI_UUID)
 
   /**
    * Compute the legal fragment for an xmi:ID of a UML Image based on its location string interpreted as a URL
@@ -152,7 +200,7 @@ trait IDGenerator[Uml <: UML] {
    * @return A legal fragment for an xmi:ID corresponding to the image's location interpreted as a URL
    */
   def getImageLocationURL( i: UMLImage[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ (String @@ OTI_URL)
+  : Set[java.lang.Throwable] \/ (String @@ OTI_URL)
 }
 
 object IDGenerator {

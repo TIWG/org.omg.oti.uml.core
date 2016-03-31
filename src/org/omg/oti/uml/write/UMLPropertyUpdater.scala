@@ -66,12 +66,12 @@ import scalaz._, Scalaz._
  * For (1)
  * links_<metaclass1>_<end1>_compose_<end2>_<metaclass2>
  *   (from: <metaclass1>,
- *    to: <metaclass2TypeOrCollection>): NonEmptyList[java.lang.Throwable] \/ Unit
+ *    to: <metaclass2TypeOrCollection>): Set[java.lang.Throwable] \/ Unit
  *
  * For (3)
  * links_<metaclass1>_<end1>_reference_<end2>_<metaclass2>
  *   (from: <metaclass1>,
- *    to: <metaclass2TypeOrCollection>): NonEmptyList[java.lang.Throwable] \/ Unit
+ *    to: <metaclass2TypeOrCollection>): Set[java.lang.Throwable] \/ Unit
  *
  * This is done for all non-derived, non-abstract associations whose member ends have each an upper bound > 0
  *
@@ -115,46 +115,46 @@ extends UMLAttributeUpdater[Uml] {
   // was: CompositeReferenceSingleUpdate
   trait AssociationMetaPropertyUpdater {
 
-    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): NonEmptyList[java.lang.Throwable] \/ Unit
+    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeReferenceUpdater
   trait AssociationMetaPropertyOptionUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyReferenceQuery
-    def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): NonEmptyList[java.lang.Throwable] \/ Unit
+    def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]]): Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeReferenceUpdate
   case class AssociationMetaPropertyOptionUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Option[V]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( links_composes: (U, Option[V]) => \/[Set[java.lang.Throwable], Unit],
     override val links_query: AssociationMetaPropertyReferenceQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyOptionUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       owner match {
         case u: U =>
-          owned.fold[NonEmptyList[java.lang.Throwable] \/ Unit]{
+          owned.fold[Set[java.lang.Throwable] \/ Unit]{
             links_composes(u, None)
           }{
             case v: V =>
               links_composes(u, Some(v))
             case _ =>
-              NonEmptyList(
+              Set(
                 UMLError.illegalElementError[Uml, UMLElement[Uml]](
                   s"setLinks update for $links_query: error type mismatch",
                   Iterable(owner) ++ owned.toIterable)).left
           }
         case _ =>
-          NonEmptyList(
+          Set(
             UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
             Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       setLinks(owner, Some(owned))
   }
 
@@ -166,30 +166,30 @@ extends UMLAttributeUpdater[Uml] {
   trait AssociationMetaPropertyIterableUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit
+    : Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeIterableUpdate
   case class AssociationMetaPropertyIterableUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Iterable[V]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( links_composes: (U, Iterable[V]) => \/[Set[java.lang.Throwable], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertyIterableUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v)
         case _ =>
-          NonEmptyList(
+          Set(
             UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
             Iterable(owner) ++ owned.toIterable)).left
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       links_query.evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
@@ -202,23 +202,23 @@ extends UMLAttributeUpdater[Uml] {
   trait AssociationMetaPropertySequenceUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit
+    : Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeSequenceUpdate
   case class AssociationMetaPropertySequenceUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Seq[V]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( links_composes: (U, Seq[V]) => \/[Set[java.lang.Throwable], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery )
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySequenceUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       (owner, owned) match {
         case (u: U, v: Seq[V]) =>
           links_composes(u, v)
         case _ =>
-          NonEmptyList(
+          Set(
             UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
@@ -226,7 +226,7 @@ extends UMLAttributeUpdater[Uml] {
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       links_query
       .evaluate(owner)
       .flatMap { composed =>
@@ -240,23 +240,23 @@ extends UMLAttributeUpdater[Uml] {
   trait AssociationMetaPropertySetUpdater extends AssociationMetaPropertyUpdater {
     val links_query: AssociationMetaPropertyCollectionQuery
     def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit
+    : Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeSetUpdate
   case class AssociationMetaPropertySetUpdateInfo[U <: UMLElement[Uml], V <: UMLElement[Uml]]
-  ( links_composes: (U, Set[V]) => \/[NonEmptyList[java.lang.Throwable], Unit],
+  ( links_composes: (U, Set[V]) => \/[Set[java.lang.Throwable], Unit],
     override val links_query: AssociationMetaPropertyCollectionQuery)
   ( implicit utag: ClassTag[U], vtag: ClassTag[V])
     extends AssociationMetaPropertySetUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v.toSet)
         case _ =>
-          NonEmptyList(
+          Set(
             UMLError
           .illegalElementError[Uml, UMLElement[Uml]](
             s"setLinks update for $links_query: error type mismatch",
@@ -264,7 +264,7 @@ extends UMLAttributeUpdater[Uml] {
       }
 
     override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : NonEmptyList[java.lang.Throwable] \/ Unit =
+    : Set[java.lang.Throwable] \/ Unit =
       links_query
       .evaluate(owner)
       .flatMap { composed =>
@@ -278,11 +278,11 @@ extends UMLAttributeUpdater[Uml] {
   (e: E,
    message: String,
    action: => Unit)
-  : NonEmptyList[java.lang.Throwable] \/ Unit
+  : Set[java.lang.Throwable] \/ Unit
   = nonFatalCatch[Unit]
     .withApply{
       (cause: java.lang.Throwable) =>
-        NonEmptyList(
+        Set(
           UMLError
             .umlUpdateException[Uml, UMLElement[Uml]](
             this, Iterable(e),

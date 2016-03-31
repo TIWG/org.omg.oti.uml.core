@@ -278,37 +278,37 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getSpecificationRootCharacteristics
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
+  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
     otiCharacteristicsProvider.getSpecificationRootCharacteristics(self)
 
   def oti_packageURI
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     otiCharacteristicsProvider.packageURI(self)
 
   def oti_documentURL
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     otiCharacteristicsProvider.documentURL(self)
 
   def oti_nsPrefix
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
     otiCharacteristicsProvider.nsPrefix(self)
 
   def oti_uuidPrefix
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
     otiCharacteristicsProvider.uuidPrefix(self)
 
   def oti_artifactKind
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind] =
+  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind] =
     otiCharacteristicsProvider.artifactKind(self)
 
   def nonImportedNestedPackages: Set[UMLPackage[Uml]] = nestedPackage -- importedPackages
@@ -346,15 +346,15 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getDocumentURL
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     oti_documentURL
     .flatMap { ourl: Option[String @@ OTI_URL] =>
       ourl
-      .fold[NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
+      .fold[Set[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
         getEffectiveURI
         .flatMap { ouri: Option[String @@ OTI_URI] =>
           ouri
-          .fold[NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
+          .fold[Set[java.lang.Throwable] \/ Option[String @@ OTI_URL]](
             Option.empty[String @@ OTI_URL].right
           ) { uri: String @@ OTI_URI =>
             val _uri = OTI_URI.unwrap(uri)
@@ -381,7 +381,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def getEffectiveURI
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     oti_packageURI
     .map {
       ouri =>
@@ -453,13 +453,13 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     * the set of elements on which the stereotype is applied.
     */
   def allAppliedStereotypesByProfile
-  : NonEmptyList[java.lang.Throwable] \/ UMLStereotypedElementsByAppliedProfile = {
+  : Set[java.lang.Throwable] \/ UMLStereotypedElementsByAppliedProfile = {
 
     type PF_S_P_E = (Option[UMLProfile[Uml]], UMLStereotype[Uml], UMLProperty[Uml], UMLElement[Uml])
 
     val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
-    val t0: NonEmptyList[java.lang.Throwable] \/ Set[PF_S_P_E] = Set().right
-    val tn: NonEmptyList[java.lang.Throwable] \/ Set[PF_S_P_E] = ( t0 /: pkgContents ) { ( ti, e) =>
+    val t0: Set[java.lang.Throwable] \/ Set[PF_S_P_E] = Set().right
+    val tn: Set[java.lang.Throwable] \/ Set[PF_S_P_E] = ( t0 /: pkgContents ) { ( ti, e) =>
       (ti |@| e.getAppliedStereotypes) { (_ti, _appliedStereotypes) =>
         val pf2spMap = _appliedStereotypes groupBy (_._1.profile)
         val tuples = pf2spMap flatMap { case (pf, sps) => sps map { case (s, p) => (pf, s, p, e) } }
@@ -499,11 +499,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     * @return all forward references from the contents of this package to outside importable packageable elements
     */
   def allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = {
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = {
     val pkgContents: Set[UMLElement[Uml]] = allOwnedElements + self
 
-    val a0: NonEmptyList[java.lang.Throwable] \/ Set[UMLElement[Uml]] = Set().right
-    val aN: NonEmptyList[java.lang.Throwable] \/ Set[UMLElement[Uml]] = (a0 /: pkgContents) {
+    val a0: Set[java.lang.Throwable] \/ Set[UMLElement[Uml]] = Set().right
+    val aN: Set[java.lang.Throwable] \/ Set[UMLElement[Uml]] = (a0 /: pkgContents) {
       (ai, e) =>
         (ai |@| e.allForwardReferencesFromStereotypeTagProperties) { (_ai, eRefs) =>
           _ai ++ Set(e) ++ eRefs
@@ -513,8 +513,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     val result =
       aN.flatMap { refs =>
 
-      val b0: NonEmptyList[java.lang.Throwable] \/ Set[UMLElement[Uml]] = Set().right
-      val bN: NonEmptyList[java.lang.Throwable] \/ Set[UMLElement[Uml]] = (b0 /: refs) {
+      val b0: Set[java.lang.Throwable] \/ Set[UMLElement[Uml]] = Set().right
+      val bN: Set[java.lang.Throwable] \/ Set[UMLElement[Uml]] = (b0 /: refs) {
         (bi, e) =>
           (bi |@| e.allForwardReferencesToElements) { (_bi, eRefs) =>
             _bi ++ Set(e) ++ eRefs
@@ -523,12 +523,12 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
       bN.flatMap { refs =>
 
-        val c0: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = Set().right
-        val cN: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = (c0 /: refs) {
+        val c0: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = Set().right
+        val cN: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = (c0 /: refs) {
           (ci, e) =>
             e.allForwardReferencesToImportablePackageableElements.flatMap { peRefs =>
-              val r0: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = ci
-              val rN: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = (r0 /: peRefs) {
+              val r0: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = ci
+              val rN: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] = (r0 /: peRefs) {
                 (ri, peRef) =>
                   ri +++ (this.isAncestorOf(peRef).map(within => if (within) Set() else Set(peRef)))
               }
@@ -550,7 +550,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def forwardReferencesToPackagesOrProfiles
   ()
   (implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackage[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[UMLPackage[Uml]] =
     forwardReferencesBeyondPackageScope.map { triples =>
       triples.map(_.obj).flatMap(getPackageOrProfileOwner(_))
     }
@@ -564,7 +564,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   def forwardReferencesBeyondPackageScope
   ()
   (implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
+  : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 
     val scope = self.allOwnedElementsWithinPackageScope
 
@@ -573,7 +573,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
     /* @annotation.tailrec */ def followReferencesUntilPackageScopeBoundary
     ( acc: Set[RelationTriple[Uml]],
       triples: Set[RelationTriple[Uml]])
-    : NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
+    : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
       if (triples.isEmpty)
         acc.right
       else {
@@ -593,8 +593,8 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         }
       }
 
-    val triples0: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = Set().right
-    val triplesN: NonEmptyList[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = ( triples0 /: scope ) {
+    val triples0: Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = Set().right
+    val triplesN: Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = ( triples0 /: scope ) {
       ( ti, e ) =>
 
       for {

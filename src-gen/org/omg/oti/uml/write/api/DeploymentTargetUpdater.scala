@@ -58,6 +58,6 @@ class DeploymentTargetUpdater[Uml <: UML](val domain: UMLDeploymentTarget[Uml]) 
   def links_DeploymentTarget_location_compose_deployment_Deployment
   (range: Set[UMLDeployment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_DeploymentTarget_location_compose_deployment_Deployment(domain, range)
 }

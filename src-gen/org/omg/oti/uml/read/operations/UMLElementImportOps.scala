@@ -162,10 +162,10 @@ trait UMLElementImportOps[Uml <: UML] { self: UMLElementImport[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ String =
+  : Set[java.lang.Throwable] \/ String =
 	for {
 		key <- element_xmiOrderingKey
-		i <- importedElement.fold[NonEmptyList[java.lang.Throwable] \/ String](
+		i <- importedElement.fold[Set[java.lang.Throwable] \/ String](
 			"_".right
 		){ ie =>
 			ie.xmiOrderingKey.map("_" + _)

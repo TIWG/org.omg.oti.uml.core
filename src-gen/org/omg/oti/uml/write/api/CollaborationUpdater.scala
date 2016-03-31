@@ -58,6 +58,6 @@ class CollaborationUpdater[Uml <: UML](val domain: UMLCollaboration[Uml]) extend
   def links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement
   (range: Set[UMLConnectableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Collaboration_collaboration_reference_collaborationRole_ConnectableElement(domain, range)
 }

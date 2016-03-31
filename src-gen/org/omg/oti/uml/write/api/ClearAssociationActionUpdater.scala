@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class ClearAssociationActionUpdater[Uml <: UML](val domain: UMLClearAssociationA
   def links_ClearAssociationAction_clearAssociationAction_reference_association_Association
   (range: Option[UMLAssociation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ClearAssociationAction_clearAssociationAction_reference_association_Association(domain, range)
 
   def links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ClearAssociationAction_clearAssociationAction_compose_object_InputPin(domain, range)
 }

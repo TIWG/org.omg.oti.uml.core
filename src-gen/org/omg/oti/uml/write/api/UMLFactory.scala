@@ -64,7 +64,7 @@ import scalaz._
  */
 trait UMLFactory[Uml <: UML] {
 
-  val reflectiveFactoryLookup: Map[String, (UMLFactory[Uml] => \/[NonEmptyList[java.lang.Throwable], _ <: UMLElement[Uml]])] =
+  val reflectiveFactoryLookup: Map[String, (UMLFactory[Uml] => \/[Set[java.lang.Throwable], _ <: UMLElement[Uml]])] =
     Map(
       "Abstraction" -> (f => f.createUMLAbstraction),
       "AcceptCallAction" -> (f => f.createUMLAcceptCallAction),
@@ -261,395 +261,395 @@ trait UMLFactory[Uml <: UML] {
       "Variable" -> (f => f.createUMLVariable)
     )
 
-  def createUMLAbstraction: \/[NonEmptyList[java.lang.Throwable],UMLAbstraction[Uml]]
+  def createUMLAbstraction: \/[Set[java.lang.Throwable],UMLAbstraction[Uml]]
 
-  def createUMLAcceptCallAction: \/[NonEmptyList[java.lang.Throwable],UMLAcceptCallAction[Uml]]
+  def createUMLAcceptCallAction: \/[Set[java.lang.Throwable],UMLAcceptCallAction[Uml]]
 
-  def createUMLAcceptEventAction: \/[NonEmptyList[java.lang.Throwable],UMLAcceptEventAction[Uml]]
+  def createUMLAcceptEventAction: \/[Set[java.lang.Throwable],UMLAcceptEventAction[Uml]]
 
-  def createUMLActionExecutionSpecification: \/[NonEmptyList[java.lang.Throwable],UMLActionExecutionSpecification[Uml]]
+  def createUMLActionExecutionSpecification: \/[Set[java.lang.Throwable],UMLActionExecutionSpecification[Uml]]
 
-  def createUMLActionInputPin: \/[NonEmptyList[java.lang.Throwable],UMLActionInputPin[Uml]]
+  def createUMLActionInputPin: \/[Set[java.lang.Throwable],UMLActionInputPin[Uml]]
 
-  def createUMLActivity: \/[NonEmptyList[java.lang.Throwable],UMLActivity[Uml]]
+  def createUMLActivity: \/[Set[java.lang.Throwable],UMLActivity[Uml]]
 
-  def createUMLActivityFinalNode: \/[NonEmptyList[java.lang.Throwable],UMLActivityFinalNode[Uml]]
+  def createUMLActivityFinalNode: \/[Set[java.lang.Throwable],UMLActivityFinalNode[Uml]]
 
-  def createUMLActivityParameterNode: \/[NonEmptyList[java.lang.Throwable],UMLActivityParameterNode[Uml]]
+  def createUMLActivityParameterNode: \/[Set[java.lang.Throwable],UMLActivityParameterNode[Uml]]
 
-  def createUMLActivityPartition: \/[NonEmptyList[java.lang.Throwable],UMLActivityPartition[Uml]]
+  def createUMLActivityPartition: \/[Set[java.lang.Throwable],UMLActivityPartition[Uml]]
 
-  def createUMLActor: \/[NonEmptyList[java.lang.Throwable],UMLActor[Uml]]
+  def createUMLActor: \/[Set[java.lang.Throwable],UMLActor[Uml]]
 
-  def createUMLAddStructuralFeatureValueAction: \/[NonEmptyList[java.lang.Throwable],UMLAddStructuralFeatureValueAction[Uml]]
+  def createUMLAddStructuralFeatureValueAction: \/[Set[java.lang.Throwable],UMLAddStructuralFeatureValueAction[Uml]]
 
-  def createUMLAddVariableValueAction: \/[NonEmptyList[java.lang.Throwable],UMLAddVariableValueAction[Uml]]
+  def createUMLAddVariableValueAction: \/[Set[java.lang.Throwable],UMLAddVariableValueAction[Uml]]
 
-  def createUMLAnyReceiveEvent: \/[NonEmptyList[java.lang.Throwable],UMLAnyReceiveEvent[Uml]]
+  def createUMLAnyReceiveEvent: \/[Set[java.lang.Throwable],UMLAnyReceiveEvent[Uml]]
 
-  def createUMLArtifact: \/[NonEmptyList[java.lang.Throwable],UMLArtifact[Uml]]
+  def createUMLArtifact: \/[Set[java.lang.Throwable],UMLArtifact[Uml]]
 
-  def createUMLAssociation: \/[NonEmptyList[java.lang.Throwable],UMLAssociation[Uml]]
+  def createUMLAssociation: \/[Set[java.lang.Throwable],UMLAssociation[Uml]]
 
-  def createUMLAssociationClass: \/[NonEmptyList[java.lang.Throwable],UMLAssociationClass[Uml]]
+  def createUMLAssociationClass: \/[Set[java.lang.Throwable],UMLAssociationClass[Uml]]
 
-  def createUMLBehaviorExecutionSpecification: \/[NonEmptyList[java.lang.Throwable],UMLBehaviorExecutionSpecification[Uml]]
+  def createUMLBehaviorExecutionSpecification: \/[Set[java.lang.Throwable],UMLBehaviorExecutionSpecification[Uml]]
 
-  def createUMLBroadcastSignalAction: \/[NonEmptyList[java.lang.Throwable],UMLBroadcastSignalAction[Uml]]
+  def createUMLBroadcastSignalAction: \/[Set[java.lang.Throwable],UMLBroadcastSignalAction[Uml]]
 
-  def createUMLCallBehaviorAction: \/[NonEmptyList[java.lang.Throwable],UMLCallBehaviorAction[Uml]]
+  def createUMLCallBehaviorAction: \/[Set[java.lang.Throwable],UMLCallBehaviorAction[Uml]]
 
-  def createUMLCallEvent: \/[NonEmptyList[java.lang.Throwable],UMLCallEvent[Uml]]
+  def createUMLCallEvent: \/[Set[java.lang.Throwable],UMLCallEvent[Uml]]
 
-  def createUMLCallOperationAction: \/[NonEmptyList[java.lang.Throwable],UMLCallOperationAction[Uml]]
+  def createUMLCallOperationAction: \/[Set[java.lang.Throwable],UMLCallOperationAction[Uml]]
 
-  def createUMLCentralBufferNode: \/[NonEmptyList[java.lang.Throwable],UMLCentralBufferNode[Uml]]
+  def createUMLCentralBufferNode: \/[Set[java.lang.Throwable],UMLCentralBufferNode[Uml]]
 
-  def createUMLChangeEvent: \/[NonEmptyList[java.lang.Throwable],UMLChangeEvent[Uml]]
+  def createUMLChangeEvent: \/[Set[java.lang.Throwable],UMLChangeEvent[Uml]]
 
-  def createUMLClass: \/[NonEmptyList[java.lang.Throwable],UMLClass[Uml]]
+  def createUMLClass: \/[Set[java.lang.Throwable],UMLClass[Uml]]
 
-  def createUMLClassifierTemplateParameter: \/[NonEmptyList[java.lang.Throwable],UMLClassifierTemplateParameter[Uml]]
+  def createUMLClassifierTemplateParameter: \/[Set[java.lang.Throwable],UMLClassifierTemplateParameter[Uml]]
 
-  def createUMLClause: \/[NonEmptyList[java.lang.Throwable],UMLClause[Uml]]
+  def createUMLClause: \/[Set[java.lang.Throwable],UMLClause[Uml]]
 
-  def createUMLClearAssociationAction: \/[NonEmptyList[java.lang.Throwable],UMLClearAssociationAction[Uml]]
+  def createUMLClearAssociationAction: \/[Set[java.lang.Throwable],UMLClearAssociationAction[Uml]]
 
-  def createUMLClearStructuralFeatureAction: \/[NonEmptyList[java.lang.Throwable],UMLClearStructuralFeatureAction[Uml]]
+  def createUMLClearStructuralFeatureAction: \/[Set[java.lang.Throwable],UMLClearStructuralFeatureAction[Uml]]
 
-  def createUMLClearVariableAction: \/[NonEmptyList[java.lang.Throwable],UMLClearVariableAction[Uml]]
+  def createUMLClearVariableAction: \/[Set[java.lang.Throwable],UMLClearVariableAction[Uml]]
 
-  def createUMLCollaboration: \/[NonEmptyList[java.lang.Throwable],UMLCollaboration[Uml]]
+  def createUMLCollaboration: \/[Set[java.lang.Throwable],UMLCollaboration[Uml]]
 
-  def createUMLCollaborationUse: \/[NonEmptyList[java.lang.Throwable],UMLCollaborationUse[Uml]]
+  def createUMLCollaborationUse: \/[Set[java.lang.Throwable],UMLCollaborationUse[Uml]]
 
-  def createUMLCombinedFragment: \/[NonEmptyList[java.lang.Throwable],UMLCombinedFragment[Uml]]
+  def createUMLCombinedFragment: \/[Set[java.lang.Throwable],UMLCombinedFragment[Uml]]
 
-  def createUMLComment: \/[NonEmptyList[java.lang.Throwable],UMLComment[Uml]]
+  def createUMLComment: \/[Set[java.lang.Throwable],UMLComment[Uml]]
 
-  def createUMLCommunicationPath: \/[NonEmptyList[java.lang.Throwable],UMLCommunicationPath[Uml]]
+  def createUMLCommunicationPath: \/[Set[java.lang.Throwable],UMLCommunicationPath[Uml]]
 
-  def createUMLComponent: \/[NonEmptyList[java.lang.Throwable],UMLComponent[Uml]]
+  def createUMLComponent: \/[Set[java.lang.Throwable],UMLComponent[Uml]]
 
-  def createUMLComponentRealization: \/[NonEmptyList[java.lang.Throwable],UMLComponentRealization[Uml]]
+  def createUMLComponentRealization: \/[Set[java.lang.Throwable],UMLComponentRealization[Uml]]
 
-  def createUMLConditionalNode: \/[NonEmptyList[java.lang.Throwable],UMLConditionalNode[Uml]]
+  def createUMLConditionalNode: \/[Set[java.lang.Throwable],UMLConditionalNode[Uml]]
 
-  def createUMLConnectableElementTemplateParameter: \/[NonEmptyList[java.lang.Throwable],UMLConnectableElementTemplateParameter[Uml]]
+  def createUMLConnectableElementTemplateParameter: \/[Set[java.lang.Throwable],UMLConnectableElementTemplateParameter[Uml]]
 
-  def createUMLConnectionPointReference: \/[NonEmptyList[java.lang.Throwable],UMLConnectionPointReference[Uml]]
+  def createUMLConnectionPointReference: \/[Set[java.lang.Throwable],UMLConnectionPointReference[Uml]]
 
-  def createUMLConnector: \/[NonEmptyList[java.lang.Throwable],UMLConnector[Uml]]
+  def createUMLConnector: \/[Set[java.lang.Throwable],UMLConnector[Uml]]
 
-  def createUMLConnectorEnd: \/[NonEmptyList[java.lang.Throwable],UMLConnectorEnd[Uml]]
+  def createUMLConnectorEnd: \/[Set[java.lang.Throwable],UMLConnectorEnd[Uml]]
 
-  def createUMLConsiderIgnoreFragment: \/[NonEmptyList[java.lang.Throwable],UMLConsiderIgnoreFragment[Uml]]
+  def createUMLConsiderIgnoreFragment: \/[Set[java.lang.Throwable],UMLConsiderIgnoreFragment[Uml]]
 
-  def createUMLConstraint: \/[NonEmptyList[java.lang.Throwable],UMLConstraint[Uml]]
+  def createUMLConstraint: \/[Set[java.lang.Throwable],UMLConstraint[Uml]]
 
-  def createUMLContinuation: \/[NonEmptyList[java.lang.Throwable],UMLContinuation[Uml]]
+  def createUMLContinuation: \/[Set[java.lang.Throwable],UMLContinuation[Uml]]
 
-  def createUMLControlFlow: \/[NonEmptyList[java.lang.Throwable],UMLControlFlow[Uml]]
+  def createUMLControlFlow: \/[Set[java.lang.Throwable],UMLControlFlow[Uml]]
 
-  def createUMLCreateLinkAction: \/[NonEmptyList[java.lang.Throwable],UMLCreateLinkAction[Uml]]
+  def createUMLCreateLinkAction: \/[Set[java.lang.Throwable],UMLCreateLinkAction[Uml]]
 
-  def createUMLCreateLinkObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLCreateLinkObjectAction[Uml]]
+  def createUMLCreateLinkObjectAction: \/[Set[java.lang.Throwable],UMLCreateLinkObjectAction[Uml]]
 
-  def createUMLCreateObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLCreateObjectAction[Uml]]
+  def createUMLCreateObjectAction: \/[Set[java.lang.Throwable],UMLCreateObjectAction[Uml]]
 
-  def createUMLDataStoreNode: \/[NonEmptyList[java.lang.Throwable],UMLDataStoreNode[Uml]]
+  def createUMLDataStoreNode: \/[Set[java.lang.Throwable],UMLDataStoreNode[Uml]]
 
-  def createUMLDataType: \/[NonEmptyList[java.lang.Throwable],UMLDataType[Uml]]
+  def createUMLDataType: \/[Set[java.lang.Throwable],UMLDataType[Uml]]
 
-  def createUMLDecisionNode: \/[NonEmptyList[java.lang.Throwable],UMLDecisionNode[Uml]]
+  def createUMLDecisionNode: \/[Set[java.lang.Throwable],UMLDecisionNode[Uml]]
 
-  def createUMLDependency: \/[NonEmptyList[java.lang.Throwable],UMLDependency[Uml]]
+  def createUMLDependency: \/[Set[java.lang.Throwable],UMLDependency[Uml]]
 
-  def createUMLDeployment: \/[NonEmptyList[java.lang.Throwable],UMLDeployment[Uml]]
+  def createUMLDeployment: \/[Set[java.lang.Throwable],UMLDeployment[Uml]]
 
-  def createUMLDeploymentSpecification: \/[NonEmptyList[java.lang.Throwable],UMLDeploymentSpecification[Uml]]
+  def createUMLDeploymentSpecification: \/[Set[java.lang.Throwable],UMLDeploymentSpecification[Uml]]
 
-  def createUMLDestroyLinkAction: \/[NonEmptyList[java.lang.Throwable],UMLDestroyLinkAction[Uml]]
+  def createUMLDestroyLinkAction: \/[Set[java.lang.Throwable],UMLDestroyLinkAction[Uml]]
 
-  def createUMLDestroyObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLDestroyObjectAction[Uml]]
+  def createUMLDestroyObjectAction: \/[Set[java.lang.Throwable],UMLDestroyObjectAction[Uml]]
 
-  def createUMLDestructionOccurrenceSpecification: \/[NonEmptyList[java.lang.Throwable],UMLDestructionOccurrenceSpecification[Uml]]
+  def createUMLDestructionOccurrenceSpecification: \/[Set[java.lang.Throwable],UMLDestructionOccurrenceSpecification[Uml]]
 
-  def createUMLDevice: \/[NonEmptyList[java.lang.Throwable],UMLDevice[Uml]]
+  def createUMLDevice: \/[Set[java.lang.Throwable],UMLDevice[Uml]]
 
-  def createUMLDuration: \/[NonEmptyList[java.lang.Throwable],UMLDuration[Uml]]
+  def createUMLDuration: \/[Set[java.lang.Throwable],UMLDuration[Uml]]
 
-  def createUMLDurationConstraint: \/[NonEmptyList[java.lang.Throwable],UMLDurationConstraint[Uml]]
+  def createUMLDurationConstraint: \/[Set[java.lang.Throwable],UMLDurationConstraint[Uml]]
 
-  def createUMLDurationInterval: \/[NonEmptyList[java.lang.Throwable],UMLDurationInterval[Uml]]
+  def createUMLDurationInterval: \/[Set[java.lang.Throwable],UMLDurationInterval[Uml]]
 
-  def createUMLDurationObservation: \/[NonEmptyList[java.lang.Throwable],UMLDurationObservation[Uml]]
+  def createUMLDurationObservation: \/[Set[java.lang.Throwable],UMLDurationObservation[Uml]]
 
-  def createUMLElementImport: \/[NonEmptyList[java.lang.Throwable],UMLElementImport[Uml]]
+  def createUMLElementImport: \/[Set[java.lang.Throwable],UMLElementImport[Uml]]
 
-  def createUMLEnumeration: \/[NonEmptyList[java.lang.Throwable],UMLEnumeration[Uml]]
+  def createUMLEnumeration: \/[Set[java.lang.Throwable],UMLEnumeration[Uml]]
 
-  def createUMLEnumerationLiteral: \/[NonEmptyList[java.lang.Throwable],UMLEnumerationLiteral[Uml]]
+  def createUMLEnumerationLiteral: \/[Set[java.lang.Throwable],UMLEnumerationLiteral[Uml]]
 
-  def createUMLExceptionHandler: \/[NonEmptyList[java.lang.Throwable],UMLExceptionHandler[Uml]]
+  def createUMLExceptionHandler: \/[Set[java.lang.Throwable],UMLExceptionHandler[Uml]]
 
-  def createUMLExecutionEnvironment: \/[NonEmptyList[java.lang.Throwable],UMLExecutionEnvironment[Uml]]
+  def createUMLExecutionEnvironment: \/[Set[java.lang.Throwable],UMLExecutionEnvironment[Uml]]
 
-  def createUMLExecutionOccurrenceSpecification: \/[NonEmptyList[java.lang.Throwable],UMLExecutionOccurrenceSpecification[Uml]]
+  def createUMLExecutionOccurrenceSpecification: \/[Set[java.lang.Throwable],UMLExecutionOccurrenceSpecification[Uml]]
 
-  def createUMLExpansionNode: \/[NonEmptyList[java.lang.Throwable],UMLExpansionNode[Uml]]
+  def createUMLExpansionNode: \/[Set[java.lang.Throwable],UMLExpansionNode[Uml]]
 
-  def createUMLExpansionRegion: \/[NonEmptyList[java.lang.Throwable],UMLExpansionRegion[Uml]]
+  def createUMLExpansionRegion: \/[Set[java.lang.Throwable],UMLExpansionRegion[Uml]]
 
-  def createUMLExpression: \/[NonEmptyList[java.lang.Throwable],UMLExpression[Uml]]
+  def createUMLExpression: \/[Set[java.lang.Throwable],UMLExpression[Uml]]
 
-  def createUMLExtend: \/[NonEmptyList[java.lang.Throwable],UMLExtend[Uml]]
+  def createUMLExtend: \/[Set[java.lang.Throwable],UMLExtend[Uml]]
 
-  def createUMLExtension: \/[NonEmptyList[java.lang.Throwable],UMLExtension[Uml]]
+  def createUMLExtension: \/[Set[java.lang.Throwable],UMLExtension[Uml]]
 
-  def createUMLExtensionEnd: \/[NonEmptyList[java.lang.Throwable],UMLExtensionEnd[Uml]]
+  def createUMLExtensionEnd: \/[Set[java.lang.Throwable],UMLExtensionEnd[Uml]]
 
-  def createUMLExtensionPoint: \/[NonEmptyList[java.lang.Throwable],UMLExtensionPoint[Uml]]
+  def createUMLExtensionPoint: \/[Set[java.lang.Throwable],UMLExtensionPoint[Uml]]
 
-  def createUMLFinalState: \/[NonEmptyList[java.lang.Throwable],UMLFinalState[Uml]]
+  def createUMLFinalState: \/[Set[java.lang.Throwable],UMLFinalState[Uml]]
 
-  def createUMLFlowFinalNode: \/[NonEmptyList[java.lang.Throwable],UMLFlowFinalNode[Uml]]
+  def createUMLFlowFinalNode: \/[Set[java.lang.Throwable],UMLFlowFinalNode[Uml]]
 
-  def createUMLForkNode: \/[NonEmptyList[java.lang.Throwable],UMLForkNode[Uml]]
+  def createUMLForkNode: \/[Set[java.lang.Throwable],UMLForkNode[Uml]]
 
-  def createUMLFunctionBehavior: \/[NonEmptyList[java.lang.Throwable],UMLFunctionBehavior[Uml]]
+  def createUMLFunctionBehavior: \/[Set[java.lang.Throwable],UMLFunctionBehavior[Uml]]
 
-  def createUMLGate: \/[NonEmptyList[java.lang.Throwable],UMLGate[Uml]]
+  def createUMLGate: \/[Set[java.lang.Throwable],UMLGate[Uml]]
 
-  def createUMLGeneralOrdering: \/[NonEmptyList[java.lang.Throwable],UMLGeneralOrdering[Uml]]
+  def createUMLGeneralOrdering: \/[Set[java.lang.Throwable],UMLGeneralOrdering[Uml]]
 
-  def createUMLGeneralization: \/[NonEmptyList[java.lang.Throwable],UMLGeneralization[Uml]]
+  def createUMLGeneralization: \/[Set[java.lang.Throwable],UMLGeneralization[Uml]]
 
-  def createUMLGeneralizationSet: \/[NonEmptyList[java.lang.Throwable],UMLGeneralizationSet[Uml]]
+  def createUMLGeneralizationSet: \/[Set[java.lang.Throwable],UMLGeneralizationSet[Uml]]
 
-  def createUMLImage: \/[NonEmptyList[java.lang.Throwable],UMLImage[Uml]]
+  def createUMLImage: \/[Set[java.lang.Throwable],UMLImage[Uml]]
 
-  def createUMLInclude: \/[NonEmptyList[java.lang.Throwable],UMLInclude[Uml]]
+  def createUMLInclude: \/[Set[java.lang.Throwable],UMLInclude[Uml]]
 
-  def createUMLInformationFlow: \/[NonEmptyList[java.lang.Throwable],UMLInformationFlow[Uml]]
+  def createUMLInformationFlow: \/[Set[java.lang.Throwable],UMLInformationFlow[Uml]]
 
-  def createUMLInformationItem: \/[NonEmptyList[java.lang.Throwable],UMLInformationItem[Uml]]
+  def createUMLInformationItem: \/[Set[java.lang.Throwable],UMLInformationItem[Uml]]
 
-  def createUMLInitialNode: \/[NonEmptyList[java.lang.Throwable],UMLInitialNode[Uml]]
+  def createUMLInitialNode: \/[Set[java.lang.Throwable],UMLInitialNode[Uml]]
 
-  def createUMLInputPin: \/[NonEmptyList[java.lang.Throwable],UMLInputPin[Uml]]
+  def createUMLInputPin: \/[Set[java.lang.Throwable],UMLInputPin[Uml]]
 
-  def createUMLInstanceSpecification: \/[NonEmptyList[java.lang.Throwable],UMLInstanceSpecification[Uml]]
+  def createUMLInstanceSpecification: \/[Set[java.lang.Throwable],UMLInstanceSpecification[Uml]]
 
-  def createUMLInstanceValue: \/[NonEmptyList[java.lang.Throwable],UMLInstanceValue[Uml]]
+  def createUMLInstanceValue: \/[Set[java.lang.Throwable],UMLInstanceValue[Uml]]
 
-  def createUMLInteraction: \/[NonEmptyList[java.lang.Throwable],UMLInteraction[Uml]]
+  def createUMLInteraction: \/[Set[java.lang.Throwable],UMLInteraction[Uml]]
 
-  def createUMLInteractionConstraint: \/[NonEmptyList[java.lang.Throwable],UMLInteractionConstraint[Uml]]
+  def createUMLInteractionConstraint: \/[Set[java.lang.Throwable],UMLInteractionConstraint[Uml]]
 
-  def createUMLInteractionOperand: \/[NonEmptyList[java.lang.Throwable],UMLInteractionOperand[Uml]]
+  def createUMLInteractionOperand: \/[Set[java.lang.Throwable],UMLInteractionOperand[Uml]]
 
-  def createUMLInteractionUse: \/[NonEmptyList[java.lang.Throwable],UMLInteractionUse[Uml]]
+  def createUMLInteractionUse: \/[Set[java.lang.Throwable],UMLInteractionUse[Uml]]
 
-  def createUMLInterface: \/[NonEmptyList[java.lang.Throwable],UMLInterface[Uml]]
+  def createUMLInterface: \/[Set[java.lang.Throwable],UMLInterface[Uml]]
 
-  def createUMLInterfaceRealization: \/[NonEmptyList[java.lang.Throwable],UMLInterfaceRealization[Uml]]
+  def createUMLInterfaceRealization: \/[Set[java.lang.Throwable],UMLInterfaceRealization[Uml]]
 
-  def createUMLInterruptibleActivityRegion: \/[NonEmptyList[java.lang.Throwable],UMLInterruptibleActivityRegion[Uml]]
+  def createUMLInterruptibleActivityRegion: \/[Set[java.lang.Throwable],UMLInterruptibleActivityRegion[Uml]]
 
-  def createUMLInterval: \/[NonEmptyList[java.lang.Throwable],UMLInterval[Uml]]
+  def createUMLInterval: \/[Set[java.lang.Throwable],UMLInterval[Uml]]
 
-  def createUMLIntervalConstraint: \/[NonEmptyList[java.lang.Throwable],UMLIntervalConstraint[Uml]]
+  def createUMLIntervalConstraint: \/[Set[java.lang.Throwable],UMLIntervalConstraint[Uml]]
 
-  def createUMLJoinNode: \/[NonEmptyList[java.lang.Throwable],UMLJoinNode[Uml]]
+  def createUMLJoinNode: \/[Set[java.lang.Throwable],UMLJoinNode[Uml]]
 
-  def createUMLLifeline: \/[NonEmptyList[java.lang.Throwable],UMLLifeline[Uml]]
+  def createUMLLifeline: \/[Set[java.lang.Throwable],UMLLifeline[Uml]]
 
-  def createUMLLinkEndCreationData: \/[NonEmptyList[java.lang.Throwable],UMLLinkEndCreationData[Uml]]
+  def createUMLLinkEndCreationData: \/[Set[java.lang.Throwable],UMLLinkEndCreationData[Uml]]
 
-  def createUMLLinkEndData: \/[NonEmptyList[java.lang.Throwable],UMLLinkEndData[Uml]]
+  def createUMLLinkEndData: \/[Set[java.lang.Throwable],UMLLinkEndData[Uml]]
 
-  def createUMLLinkEndDestructionData: \/[NonEmptyList[java.lang.Throwable],UMLLinkEndDestructionData[Uml]]
+  def createUMLLinkEndDestructionData: \/[Set[java.lang.Throwable],UMLLinkEndDestructionData[Uml]]
 
-  def createUMLLiteralBoolean: \/[NonEmptyList[java.lang.Throwable],UMLLiteralBoolean[Uml]]
+  def createUMLLiteralBoolean: \/[Set[java.lang.Throwable],UMLLiteralBoolean[Uml]]
 
-  def createUMLLiteralInteger: \/[NonEmptyList[java.lang.Throwable],UMLLiteralInteger[Uml]]
+  def createUMLLiteralInteger: \/[Set[java.lang.Throwable],UMLLiteralInteger[Uml]]
 
-  def createUMLLiteralNull: \/[NonEmptyList[java.lang.Throwable],UMLLiteralNull[Uml]]
+  def createUMLLiteralNull: \/[Set[java.lang.Throwable],UMLLiteralNull[Uml]]
 
-  def createUMLLiteralReal: \/[NonEmptyList[java.lang.Throwable],UMLLiteralReal[Uml]]
+  def createUMLLiteralReal: \/[Set[java.lang.Throwable],UMLLiteralReal[Uml]]
 
-  def createUMLLiteralString: \/[NonEmptyList[java.lang.Throwable],UMLLiteralString[Uml]]
+  def createUMLLiteralString: \/[Set[java.lang.Throwable],UMLLiteralString[Uml]]
 
-  def createUMLLiteralUnlimitedNatural: \/[NonEmptyList[java.lang.Throwable],UMLLiteralUnlimitedNatural[Uml]]
+  def createUMLLiteralUnlimitedNatural: \/[Set[java.lang.Throwable],UMLLiteralUnlimitedNatural[Uml]]
 
-  def createUMLLoopNode: \/[NonEmptyList[java.lang.Throwable],UMLLoopNode[Uml]]
+  def createUMLLoopNode: \/[Set[java.lang.Throwable],UMLLoopNode[Uml]]
 
-  def createUMLManifestation: \/[NonEmptyList[java.lang.Throwable],UMLManifestation[Uml]]
+  def createUMLManifestation: \/[Set[java.lang.Throwable],UMLManifestation[Uml]]
 
-  def createUMLMergeNode: \/[NonEmptyList[java.lang.Throwable],UMLMergeNode[Uml]]
+  def createUMLMergeNode: \/[Set[java.lang.Throwable],UMLMergeNode[Uml]]
 
-  def createUMLMessage: \/[NonEmptyList[java.lang.Throwable],UMLMessage[Uml]]
+  def createUMLMessage: \/[Set[java.lang.Throwable],UMLMessage[Uml]]
 
-  def createUMLMessageOccurrenceSpecification: \/[NonEmptyList[java.lang.Throwable],UMLMessageOccurrenceSpecification[Uml]]
+  def createUMLMessageOccurrenceSpecification: \/[Set[java.lang.Throwable],UMLMessageOccurrenceSpecification[Uml]]
 
-  def createUMLModel: \/[NonEmptyList[java.lang.Throwable],UMLModel[Uml]]
+  def createUMLModel: \/[Set[java.lang.Throwable],UMLModel[Uml]]
 
-  def createUMLNode: \/[NonEmptyList[java.lang.Throwable],UMLNode[Uml]]
+  def createUMLNode: \/[Set[java.lang.Throwable],UMLNode[Uml]]
 
-  def createUMLObjectFlow: \/[NonEmptyList[java.lang.Throwable],UMLObjectFlow[Uml]]
+  def createUMLObjectFlow: \/[Set[java.lang.Throwable],UMLObjectFlow[Uml]]
 
-  def createUMLOccurrenceSpecification: \/[NonEmptyList[java.lang.Throwable],UMLOccurrenceSpecification[Uml]]
+  def createUMLOccurrenceSpecification: \/[Set[java.lang.Throwable],UMLOccurrenceSpecification[Uml]]
 
-  def createUMLOpaqueAction: \/[NonEmptyList[java.lang.Throwable],UMLOpaqueAction[Uml]]
+  def createUMLOpaqueAction: \/[Set[java.lang.Throwable],UMLOpaqueAction[Uml]]
 
-  def createUMLOpaqueBehavior: \/[NonEmptyList[java.lang.Throwable],UMLOpaqueBehavior[Uml]]
+  def createUMLOpaqueBehavior: \/[Set[java.lang.Throwable],UMLOpaqueBehavior[Uml]]
 
-  def createUMLOpaqueExpression: \/[NonEmptyList[java.lang.Throwable],UMLOpaqueExpression[Uml]]
+  def createUMLOpaqueExpression: \/[Set[java.lang.Throwable],UMLOpaqueExpression[Uml]]
 
-  def createUMLOperation: \/[NonEmptyList[java.lang.Throwable],UMLOperation[Uml]]
+  def createUMLOperation: \/[Set[java.lang.Throwable],UMLOperation[Uml]]
 
-  def createUMLOperationTemplateParameter: \/[NonEmptyList[java.lang.Throwable],UMLOperationTemplateParameter[Uml]]
+  def createUMLOperationTemplateParameter: \/[Set[java.lang.Throwable],UMLOperationTemplateParameter[Uml]]
 
-  def createUMLOutputPin: \/[NonEmptyList[java.lang.Throwable],UMLOutputPin[Uml]]
+  def createUMLOutputPin: \/[Set[java.lang.Throwable],UMLOutputPin[Uml]]
 
-  def createUMLPackage: \/[NonEmptyList[java.lang.Throwable],UMLPackage[Uml]]
+  def createUMLPackage: \/[Set[java.lang.Throwable],UMLPackage[Uml]]
 
-  def createUMLPackageImport: \/[NonEmptyList[java.lang.Throwable],UMLPackageImport[Uml]]
+  def createUMLPackageImport: \/[Set[java.lang.Throwable],UMLPackageImport[Uml]]
 
-  def createUMLPackageMerge: \/[NonEmptyList[java.lang.Throwable],UMLPackageMerge[Uml]]
+  def createUMLPackageMerge: \/[Set[java.lang.Throwable],UMLPackageMerge[Uml]]
 
-  def createUMLParameter: \/[NonEmptyList[java.lang.Throwable],UMLParameter[Uml]]
+  def createUMLParameter: \/[Set[java.lang.Throwable],UMLParameter[Uml]]
 
-  def createUMLParameterSet: \/[NonEmptyList[java.lang.Throwable],UMLParameterSet[Uml]]
+  def createUMLParameterSet: \/[Set[java.lang.Throwable],UMLParameterSet[Uml]]
 
-  def createUMLPartDecomposition: \/[NonEmptyList[java.lang.Throwable],UMLPartDecomposition[Uml]]
+  def createUMLPartDecomposition: \/[Set[java.lang.Throwable],UMLPartDecomposition[Uml]]
 
-  def createUMLPort: \/[NonEmptyList[java.lang.Throwable],UMLPort[Uml]]
+  def createUMLPort: \/[Set[java.lang.Throwable],UMLPort[Uml]]
 
-  def createUMLPrimitiveType: \/[NonEmptyList[java.lang.Throwable],UMLPrimitiveType[Uml]]
+  def createUMLPrimitiveType: \/[Set[java.lang.Throwable],UMLPrimitiveType[Uml]]
 
-  def createUMLProfile: \/[NonEmptyList[java.lang.Throwable],UMLProfile[Uml]]
+  def createUMLProfile: \/[Set[java.lang.Throwable],UMLProfile[Uml]]
 
-  def createUMLProfileApplication: \/[NonEmptyList[java.lang.Throwable],UMLProfileApplication[Uml]]
+  def createUMLProfileApplication: \/[Set[java.lang.Throwable],UMLProfileApplication[Uml]]
 
-  def createUMLProperty: \/[NonEmptyList[java.lang.Throwable],UMLProperty[Uml]]
+  def createUMLProperty: \/[Set[java.lang.Throwable],UMLProperty[Uml]]
 
-  def createUMLProtocolConformance: \/[NonEmptyList[java.lang.Throwable],UMLProtocolConformance[Uml]]
+  def createUMLProtocolConformance: \/[Set[java.lang.Throwable],UMLProtocolConformance[Uml]]
 
-  def createUMLProtocolStateMachine: \/[NonEmptyList[java.lang.Throwable],UMLProtocolStateMachine[Uml]]
+  def createUMLProtocolStateMachine: \/[Set[java.lang.Throwable],UMLProtocolStateMachine[Uml]]
 
-  def createUMLProtocolTransition: \/[NonEmptyList[java.lang.Throwable],UMLProtocolTransition[Uml]]
+  def createUMLProtocolTransition: \/[Set[java.lang.Throwable],UMLProtocolTransition[Uml]]
 
-  def createUMLPseudostate: \/[NonEmptyList[java.lang.Throwable],UMLPseudostate[Uml]]
+  def createUMLPseudostate: \/[Set[java.lang.Throwable],UMLPseudostate[Uml]]
 
-  def createUMLQualifierValue: \/[NonEmptyList[java.lang.Throwable],UMLQualifierValue[Uml]]
+  def createUMLQualifierValue: \/[Set[java.lang.Throwable],UMLQualifierValue[Uml]]
 
-  def createUMLRaiseExceptionAction: \/[NonEmptyList[java.lang.Throwable],UMLRaiseExceptionAction[Uml]]
+  def createUMLRaiseExceptionAction: \/[Set[java.lang.Throwable],UMLRaiseExceptionAction[Uml]]
 
-  def createUMLReadExtentAction: \/[NonEmptyList[java.lang.Throwable],UMLReadExtentAction[Uml]]
+  def createUMLReadExtentAction: \/[Set[java.lang.Throwable],UMLReadExtentAction[Uml]]
 
-  def createUMLReadIsClassifiedObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLReadIsClassifiedObjectAction[Uml]]
+  def createUMLReadIsClassifiedObjectAction: \/[Set[java.lang.Throwable],UMLReadIsClassifiedObjectAction[Uml]]
 
-  def createUMLReadLinkAction: \/[NonEmptyList[java.lang.Throwable],UMLReadLinkAction[Uml]]
+  def createUMLReadLinkAction: \/[Set[java.lang.Throwable],UMLReadLinkAction[Uml]]
 
-  def createUMLReadLinkObjectEndAction: \/[NonEmptyList[java.lang.Throwable],UMLReadLinkObjectEndAction[Uml]]
+  def createUMLReadLinkObjectEndAction: \/[Set[java.lang.Throwable],UMLReadLinkObjectEndAction[Uml]]
 
-  def createUMLReadLinkObjectEndQualifierAction: \/[NonEmptyList[java.lang.Throwable],UMLReadLinkObjectEndQualifierAction[Uml]]
+  def createUMLReadLinkObjectEndQualifierAction: \/[Set[java.lang.Throwable],UMLReadLinkObjectEndQualifierAction[Uml]]
 
-  def createUMLReadSelfAction: \/[NonEmptyList[java.lang.Throwable],UMLReadSelfAction[Uml]]
+  def createUMLReadSelfAction: \/[Set[java.lang.Throwable],UMLReadSelfAction[Uml]]
 
-  def createUMLReadStructuralFeatureAction: \/[NonEmptyList[java.lang.Throwable],UMLReadStructuralFeatureAction[Uml]]
+  def createUMLReadStructuralFeatureAction: \/[Set[java.lang.Throwable],UMLReadStructuralFeatureAction[Uml]]
 
-  def createUMLReadVariableAction: \/[NonEmptyList[java.lang.Throwable],UMLReadVariableAction[Uml]]
+  def createUMLReadVariableAction: \/[Set[java.lang.Throwable],UMLReadVariableAction[Uml]]
 
-  def createUMLRealization: \/[NonEmptyList[java.lang.Throwable],UMLRealization[Uml]]
+  def createUMLRealization: \/[Set[java.lang.Throwable],UMLRealization[Uml]]
 
-  def createUMLReception: \/[NonEmptyList[java.lang.Throwable],UMLReception[Uml]]
+  def createUMLReception: \/[Set[java.lang.Throwable],UMLReception[Uml]]
 
-  def createUMLReclassifyObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLReclassifyObjectAction[Uml]]
+  def createUMLReclassifyObjectAction: \/[Set[java.lang.Throwable],UMLReclassifyObjectAction[Uml]]
 
-  def createUMLRedefinableTemplateSignature: \/[NonEmptyList[java.lang.Throwable],UMLRedefinableTemplateSignature[Uml]]
+  def createUMLRedefinableTemplateSignature: \/[Set[java.lang.Throwable],UMLRedefinableTemplateSignature[Uml]]
 
-  def createUMLReduceAction: \/[NonEmptyList[java.lang.Throwable],UMLReduceAction[Uml]]
+  def createUMLReduceAction: \/[Set[java.lang.Throwable],UMLReduceAction[Uml]]
 
-  def createUMLRegion: \/[NonEmptyList[java.lang.Throwable],UMLRegion[Uml]]
+  def createUMLRegion: \/[Set[java.lang.Throwable],UMLRegion[Uml]]
 
-  def createUMLRemoveStructuralFeatureValueAction: \/[NonEmptyList[java.lang.Throwable],UMLRemoveStructuralFeatureValueAction[Uml]]
+  def createUMLRemoveStructuralFeatureValueAction: \/[Set[java.lang.Throwable],UMLRemoveStructuralFeatureValueAction[Uml]]
 
-  def createUMLRemoveVariableValueAction: \/[NonEmptyList[java.lang.Throwable],UMLRemoveVariableValueAction[Uml]]
+  def createUMLRemoveVariableValueAction: \/[Set[java.lang.Throwable],UMLRemoveVariableValueAction[Uml]]
 
-  def createUMLReplyAction: \/[NonEmptyList[java.lang.Throwable],UMLReplyAction[Uml]]
+  def createUMLReplyAction: \/[Set[java.lang.Throwable],UMLReplyAction[Uml]]
 
-  def createUMLSendObjectAction: \/[NonEmptyList[java.lang.Throwable],UMLSendObjectAction[Uml]]
+  def createUMLSendObjectAction: \/[Set[java.lang.Throwable],UMLSendObjectAction[Uml]]
 
-  def createUMLSendSignalAction: \/[NonEmptyList[java.lang.Throwable],UMLSendSignalAction[Uml]]
+  def createUMLSendSignalAction: \/[Set[java.lang.Throwable],UMLSendSignalAction[Uml]]
 
-  def createUMLSequenceNode: \/[NonEmptyList[java.lang.Throwable],UMLSequenceNode[Uml]]
+  def createUMLSequenceNode: \/[Set[java.lang.Throwable],UMLSequenceNode[Uml]]
 
-  def createUMLSignal: \/[NonEmptyList[java.lang.Throwable],UMLSignal[Uml]]
+  def createUMLSignal: \/[Set[java.lang.Throwable],UMLSignal[Uml]]
 
-  def createUMLSignalEvent: \/[NonEmptyList[java.lang.Throwable],UMLSignalEvent[Uml]]
+  def createUMLSignalEvent: \/[Set[java.lang.Throwable],UMLSignalEvent[Uml]]
 
-  def createUMLSlot: \/[NonEmptyList[java.lang.Throwable],UMLSlot[Uml]]
+  def createUMLSlot: \/[Set[java.lang.Throwable],UMLSlot[Uml]]
 
-  def createUMLStartClassifierBehaviorAction: \/[NonEmptyList[java.lang.Throwable],UMLStartClassifierBehaviorAction[Uml]]
+  def createUMLStartClassifierBehaviorAction: \/[Set[java.lang.Throwable],UMLStartClassifierBehaviorAction[Uml]]
 
-  def createUMLStartObjectBehaviorAction: \/[NonEmptyList[java.lang.Throwable],UMLStartObjectBehaviorAction[Uml]]
+  def createUMLStartObjectBehaviorAction: \/[Set[java.lang.Throwable],UMLStartObjectBehaviorAction[Uml]]
 
-  def createUMLState: \/[NonEmptyList[java.lang.Throwable],UMLState[Uml]]
+  def createUMLState: \/[Set[java.lang.Throwable],UMLState[Uml]]
 
-  def createUMLStateInvariant: \/[NonEmptyList[java.lang.Throwable],UMLStateInvariant[Uml]]
+  def createUMLStateInvariant: \/[Set[java.lang.Throwable],UMLStateInvariant[Uml]]
 
-  def createUMLStateMachine: \/[NonEmptyList[java.lang.Throwable],UMLStateMachine[Uml]]
+  def createUMLStateMachine: \/[Set[java.lang.Throwable],UMLStateMachine[Uml]]
 
-  def createUMLStereotype: \/[NonEmptyList[java.lang.Throwable],UMLStereotype[Uml]]
+  def createUMLStereotype: \/[Set[java.lang.Throwable],UMLStereotype[Uml]]
 
-  def createUMLStringExpression: \/[NonEmptyList[java.lang.Throwable],UMLStringExpression[Uml]]
+  def createUMLStringExpression: \/[Set[java.lang.Throwable],UMLStringExpression[Uml]]
 
-  def createUMLStructuredActivityNode: \/[NonEmptyList[java.lang.Throwable],UMLStructuredActivityNode[Uml]]
+  def createUMLStructuredActivityNode: \/[Set[java.lang.Throwable],UMLStructuredActivityNode[Uml]]
 
-  def createUMLSubstitution: \/[NonEmptyList[java.lang.Throwable],UMLSubstitution[Uml]]
+  def createUMLSubstitution: \/[Set[java.lang.Throwable],UMLSubstitution[Uml]]
 
-  def createUMLTemplateBinding: \/[NonEmptyList[java.lang.Throwable],UMLTemplateBinding[Uml]]
+  def createUMLTemplateBinding: \/[Set[java.lang.Throwable],UMLTemplateBinding[Uml]]
 
-  def createUMLTemplateParameter: \/[NonEmptyList[java.lang.Throwable],UMLTemplateParameter[Uml]]
+  def createUMLTemplateParameter: \/[Set[java.lang.Throwable],UMLTemplateParameter[Uml]]
 
-  def createUMLTemplateParameterSubstitution: \/[NonEmptyList[java.lang.Throwable],UMLTemplateParameterSubstitution[Uml]]
+  def createUMLTemplateParameterSubstitution: \/[Set[java.lang.Throwable],UMLTemplateParameterSubstitution[Uml]]
 
-  def createUMLTemplateSignature: \/[NonEmptyList[java.lang.Throwable],UMLTemplateSignature[Uml]]
+  def createUMLTemplateSignature: \/[Set[java.lang.Throwable],UMLTemplateSignature[Uml]]
 
-  def createUMLTestIdentityAction: \/[NonEmptyList[java.lang.Throwable],UMLTestIdentityAction[Uml]]
+  def createUMLTestIdentityAction: \/[Set[java.lang.Throwable],UMLTestIdentityAction[Uml]]
 
-  def createUMLTimeConstraint: \/[NonEmptyList[java.lang.Throwable],UMLTimeConstraint[Uml]]
+  def createUMLTimeConstraint: \/[Set[java.lang.Throwable],UMLTimeConstraint[Uml]]
 
-  def createUMLTimeEvent: \/[NonEmptyList[java.lang.Throwable],UMLTimeEvent[Uml]]
+  def createUMLTimeEvent: \/[Set[java.lang.Throwable],UMLTimeEvent[Uml]]
 
-  def createUMLTimeExpression: \/[NonEmptyList[java.lang.Throwable],UMLTimeExpression[Uml]]
+  def createUMLTimeExpression: \/[Set[java.lang.Throwable],UMLTimeExpression[Uml]]
 
-  def createUMLTimeInterval: \/[NonEmptyList[java.lang.Throwable],UMLTimeInterval[Uml]]
+  def createUMLTimeInterval: \/[Set[java.lang.Throwable],UMLTimeInterval[Uml]]
 
-  def createUMLTimeObservation: \/[NonEmptyList[java.lang.Throwable],UMLTimeObservation[Uml]]
+  def createUMLTimeObservation: \/[Set[java.lang.Throwable],UMLTimeObservation[Uml]]
 
-  def createUMLTransition: \/[NonEmptyList[java.lang.Throwable],UMLTransition[Uml]]
+  def createUMLTransition: \/[Set[java.lang.Throwable],UMLTransition[Uml]]
 
-  def createUMLTrigger: \/[NonEmptyList[java.lang.Throwable],UMLTrigger[Uml]]
+  def createUMLTrigger: \/[Set[java.lang.Throwable],UMLTrigger[Uml]]
 
-  def createUMLUnmarshallAction: \/[NonEmptyList[java.lang.Throwable],UMLUnmarshallAction[Uml]]
+  def createUMLUnmarshallAction: \/[Set[java.lang.Throwable],UMLUnmarshallAction[Uml]]
 
-  def createUMLUsage: \/[NonEmptyList[java.lang.Throwable],UMLUsage[Uml]]
+  def createUMLUsage: \/[Set[java.lang.Throwable],UMLUsage[Uml]]
 
-  def createUMLUseCase: \/[NonEmptyList[java.lang.Throwable],UMLUseCase[Uml]]
+  def createUMLUseCase: \/[Set[java.lang.Throwable],UMLUseCase[Uml]]
 
-  def createUMLValuePin: \/[NonEmptyList[java.lang.Throwable],UMLValuePin[Uml]]
+  def createUMLValuePin: \/[Set[java.lang.Throwable],UMLValuePin[Uml]]
 
-  def createUMLValueSpecificationAction: \/[NonEmptyList[java.lang.Throwable],UMLValueSpecificationAction[Uml]]
+  def createUMLValueSpecificationAction: \/[Set[java.lang.Throwable],UMLValueSpecificationAction[Uml]]
 
-  def createUMLVariable: \/[NonEmptyList[java.lang.Throwable],UMLVariable[Uml]]
+  def createUMLVariable: \/[Set[java.lang.Throwable],UMLVariable[Uml]]
 
   // Start of user code for additional features
   val reflectivePackageFactoryLookup
-  : Map[String, (UMLFactory[Uml] => \/[NonEmptyList[java.lang.Throwable], _ <: UMLPackage[Uml]])] =
+  : Map[String, (UMLFactory[Uml] => \/[Set[java.lang.Throwable], _ <: UMLPackage[Uml]])] =
     Map(
       "Package" -> (f => f.createUMLPackage),
       "Model" -> (f => f.createUMLModel),

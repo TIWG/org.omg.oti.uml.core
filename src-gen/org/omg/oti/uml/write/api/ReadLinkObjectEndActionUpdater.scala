@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,18 +57,18 @@ class ReadLinkObjectEndActionUpdater[Uml <: UML](val domain: UMLReadLinkObjectEn
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReadLinkObjectEndAction_readLinkObjectEndAction_reference_end_Property(domain, range)
 
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_object_InputPin(domain, range)
 
   def links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReadLinkObjectEndAction_readLinkObjectEndAction_compose_result_OutputPin(domain, range)
 }

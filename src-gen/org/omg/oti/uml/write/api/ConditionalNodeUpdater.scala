@@ -58,24 +58,24 @@ class ConditionalNodeUpdater[Uml <: UML](val domain: UMLConditionalNode[Uml]) ex
   def links_ConditionalNode_conditionalNode_compose_clause_Clause
   (range: Set[UMLClause[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ConditionalNode_conditionalNode_compose_clause_Clause(domain, range)
 
   def links_ConditionalNode_conditionalNode_compose_result_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ConditionalNode_conditionalNode_compose_result_OutputPin(domain, range)
 
   def setIsAssured
   (isAssured: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ConditionalNode_isAssured(domain, isAssured)
 
   def setIsDeterminate
   (isDeterminate: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ConditionalNode_isDeterminate(domain, isDeterminate)
 }

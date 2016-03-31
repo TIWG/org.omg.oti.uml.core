@@ -58,30 +58,30 @@ class InteractionUseUpdater[Uml <: UML](val domain: UMLInteractionUse[Uml]) exte
   def links_InteractionUse_interactionUse_compose_actualGate_Gate
   (range: Set[UMLGate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InteractionUse_interactionUse_compose_actualGate_Gate(domain, range)
 
   def links_InteractionUse_interactionUse_compose_argument_ValueSpecification
   (range: Seq[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InteractionUse_interactionUse_compose_argument_ValueSpecification(domain, range)
 
   def links_InteractionUse_interactionUse_reference_refersTo_Interaction
   (range: Option[UMLInteraction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InteractionUse_interactionUse_reference_refersTo_Interaction(domain, range)
 
   def links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InteractionUse_interactionUse_compose_returnValue_ValueSpecification(domain, range)
 
   def links_InteractionUse_interactionUse_reference_returnValueRecipient_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InteractionUse_interactionUse_reference_returnValueRecipient_Property(domain, range)
 }

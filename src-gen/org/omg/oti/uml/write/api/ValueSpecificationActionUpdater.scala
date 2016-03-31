@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class ValueSpecificationActionUpdater[Uml <: UML](val domain: UMLValueSpecificat
   def links_ValueSpecificationAction_valueSpecificationAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ValueSpecificationAction_valueSpecificationAction_compose_result_OutputPin(domain, range)
 
   def links_ValueSpecificationAction_valueSpecificationAction_compose_value_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ValueSpecificationAction_valueSpecificationAction_compose_value_ValueSpecification(domain, range)
 }

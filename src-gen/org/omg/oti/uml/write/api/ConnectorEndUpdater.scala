@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class ConnectorEndUpdater[Uml <: UML](val domain: UMLConnectorEnd[Uml]) extends 
   def links_ConnectorEnd_connectorEnd_reference_partWithPort_Property
   (range: Option[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ConnectorEnd_connectorEnd_reference_partWithPort_Property(domain, range)
 
   def links_ConnectorEnd_end_reference_role_ConnectableElement
   (range: Option[UMLConnectableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ConnectorEnd_end_reference_role_ConnectableElement(domain, range)
 }

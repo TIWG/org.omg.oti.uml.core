@@ -78,21 +78,21 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     */
   def oti_attributeValue[V]
   (self: UMLPackage[Uml],
-   pf: UMLPackage[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]],
-   cf: UMLComment[Uml] => \/[NonEmptyList[java.lang.Throwable], Option[V]])
-  : NonEmptyList[java.lang.Throwable] \/ Option[V] =
+   pf: UMLPackage[Uml] => \/[Set[java.lang.Throwable], Option[V]],
+   cf: UMLComment[Uml] => \/[Set[java.lang.Throwable], Option[V]])
+  : Set[java.lang.Throwable] \/ Option[V] =
     otiCharacterizations.getOrElse(Map.empty[UMLPackage[Uml], UMLComment[Uml]])
     .get(self)
-    .fold[NonEmptyList[java.lang.Throwable] \/ Option[V]](
+    .fold[Set[java.lang.Throwable] \/ Option[V]](
       getSpecificationRootAnnotatingComment(self)
       .flatMap { oc =>
-        oc.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({       
+        oc.fold[Set[java.lang.Throwable] \/ Option[V]]({
           // (1) no value because no SpecificationRoot-stereotyped Comment annotates the package
           // try (2)
           pf(self)
         }){ c =>
           cf(c).flatMap { ov =>
-            ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({
+            ov.fold[Set[java.lang.Throwable] \/ Option[V]]({
               // (1) no value because the SpecificationRoot-stereotype Comment annotating 
               //     the package does not have a value for the property
               // try (2)
@@ -106,7 +106,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
       }
     ){ c =>
       cf(c).flatMap { ov =>
-        ov.fold[NonEmptyList[java.lang.Throwable] \/ Option[V]]({
+        ov.fold[Set[java.lang.Throwable] \/ Option[V]]({
           // (1) no value because SpecificationRoot-stereotype Comment annotating 
           //     the package does not have a value for the property
           // try (2)
@@ -127,7 +127,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     */
   def getSpecificationRootCharacterizedPackage
   ( self: UMLComment[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
+  : Set[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
     OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
       .flatMap { s =>
         self.hasStereotype(s)
@@ -138,7 +138,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
             else
               self.annotatedElement
                 .headOption
-                .fold[NonEmptyList[java.lang.Throwable] \/  Option[UMLPackage[Uml]]](
+                .fold[Set[java.lang.Throwable] \/  Option[UMLPackage[Uml]]](
                 Option.empty[UMLPackage[Uml]].right
               ) {
                 case annotatedP: UMLPackage[Uml] =>
@@ -156,10 +156,10 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     */
   def getSpecificationRootAnnotatingComment
   ( self: UMLPackage[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Option[UMLComment[Uml]] = {
-    val c0: NonEmptyList[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
+  : Set[java.lang.Throwable] \/ Option[UMLComment[Uml]] = {
+    val c0: Set[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
       Seq().right
-    val cN: NonEmptyList[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
+    val cN: Set[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
       (c0 /: self.annotatedElement_comment) { (ci, c) =>
       ci.flatMap { _ci: Seq[UMLComment[Uml]] =>
         getSpecificationRootCharacterizedPackage(c).map { _p =>
@@ -180,7 +180,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def packageURI
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     for {
       oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
       oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
@@ -201,7 +201,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def documentURL
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     for {
       oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
       oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
@@ -221,7 +221,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def nsPrefix
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
     for {
       oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
       oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
@@ -242,7 +242,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def uuidPrefix
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
     for {
       oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
       oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
@@ -263,8 +263,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def artifactKind
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind] = {
-    val kind: NonEmptyList[java.lang.Throwable] \/ Option[UMLEnumerationLiteral[Uml]] =
+  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind] = {
+    val kind: Set[java.lang.Throwable] \/ Option[UMLEnumerationLiteral[Uml]] =
       for {
         oti_artifactKind <- OTI_SPECIFICATION_ROOT_artifactKind
         oti_ch_artifactKind <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
@@ -283,7 +283,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
         )
       } yield result
 
-    kind.flatMap( _.fold[NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind]](
+    kind.flatMap( _.fold[Set[java.lang.Throwable] \/ Option[OTIArtifactKind]](
       Option.empty[OTIArtifactKind].right
     ) { kind: UMLEnumerationLiteral[Uml] =>
       if (OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL.exists(_ == kind))
@@ -299,7 +299,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
       else if (OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY.exists(_ == kind))
         OTIBuiltInModelLibraryArtifactKind.some.right
       else
-        NonEmptyList(
+        Set(
           UMLError.illegalElementError[Uml, UMLElement[Uml]](
             s"Unrecognized OTI ArtifactKind: $kind",
             Iterable(self)
@@ -311,7 +311,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def getSpecificationRootCharacteristics
   (self: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] = {
+  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] = {
     for {
       ouri <- packageURI(self)
       ourl <- documentURL(self)
@@ -327,7 +327,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def xmiID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID]
   = for {
     idTagProperty <- OTI_IDENTITY_xmiID
     idTagValue <- self
@@ -337,7 +337,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def xmiUUID
   (self: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
   = for {
     uuidTagProperty <- OTI_IDENTITY_xmiUUID
     uuidTagValue <- self
@@ -350,7 +350,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * The tool-specific OTI adapter must provide the corresponding tool-specific OTI profile.
     */
   val OTI_PROFILE
-  : NonEmptyList[java.lang.Throwable] \/ UMLProfile[Uml]
+  : Set[java.lang.Throwable] \/ UMLProfile[Uml]
 
   /**
     * OTI::SpecificationRoot stereotype
@@ -360,7 +360,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * The kind of artifact is specified via the `artifactKind` tag property.
     */
   val OTI_SPECIFICATION_ROOT_S
-  : NonEmptyList[java.lang.Throwable] \/ UMLStereotype[Uml]
+  : Set[java.lang.Throwable] \/ UMLStereotype[Uml]
 
   /**
     * OTI::SpecificationRoot::packageURI property
@@ -372,7 +372,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * or that of Package::URI. It is an error if both are unspecified.
     */
   val OTI_SPECIFICATION_ROOT_packageURI
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRoot::documentURL property
@@ -382,7 +382,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * OTI::SpecificationRoot::documentURL
     */
   val OTI_SPECIFICATION_ROOT_documentURL
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRoot::nsPrefix property
@@ -391,7 +391,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * package
     */
   val OTI_SPECIFICATION_ROOT_nsPrefix
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRoot::uuidPrefix property
@@ -401,7 +401,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * package
     */
   val OTI_SPECIFICATION_ROOT_uuidPrefix
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRoot::artifactKind property
@@ -411,7 +411,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * - Metamodel, Profile, Model Library
     */
   val OTI_SPECIFICATION_ROOT_artifactKind
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization stereotype
@@ -421,7 +421,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * The kind of artifact is specified via the `artifactKind` tag property.
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
-  : NonEmptyList[java.lang.Throwable] \/ UMLStereotype[Uml]
+  : Set[java.lang.Throwable] \/ UMLStereotype[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization::packageURI property
@@ -433,7 +433,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * or that of Package::URI. It is an error if both are unspecified.
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization::documentURL property
@@ -443,7 +443,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * OTI::SpecificationRootCharacterization::documentURL
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization::nsPrefix property
@@ -452,7 +452,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * by an OTI::SpecificationRootCharacterization-stereotyped comment
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization::uuidPrefix property
@@ -462,7 +462,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * by an OTI::SpecificationRootCharacterization-stereotyped comment
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::SpecificationRootCharacterization::artifactKind property
@@ -472,31 +472,31 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * - Metamodel, Profile, Model Library
     */
   val OTI_SPECIFICATION_ROOT_CHARACTERIZATION_artifactKind
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     *
     */
   val OTI_ARTIFACT_KIND
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumeration[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumeration[Uml]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_METAMODEL
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_PROFILE
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   val OTI_ARTIFACT_KIND_SPECIFIED_MODEL_LIBRARY
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_METAMODEL
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_PROFILE
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   val OTI_ARTIFACT_KIND_IMPLEMENTED_MODEL_LIBRARY
-  : NonEmptyList[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
+  : Set[java.lang.Throwable] \/ UMLEnumerationLiteral[Uml]
 
   /**
     * OTI::Identity stereotype
@@ -506,7 +506,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * xmi:UUID generation or both
     */
   val OTI_IDENTITY_S
-  : NonEmptyList[java.lang.Throwable] \/ UMLStereotype[Uml]
+  : Set[java.lang.Throwable] \/ UMLStereotype[Uml]
 
   /**
     * OTI::Identity::xmiID property
@@ -515,7 +515,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * Instead of generating one
     */
   val OTI_IDENTITY_xmiID
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 
   /**
     * OTI::Identity::xmiUUID property
@@ -526,5 +526,5 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     * containing package and the element's xmi:ID
     */
   val OTI_IDENTITY_xmiUUID
-  : NonEmptyList[java.lang.Throwable] \/ UMLProperty[Uml]
+  : Set[java.lang.Throwable] \/ UMLProperty[Uml]
 }

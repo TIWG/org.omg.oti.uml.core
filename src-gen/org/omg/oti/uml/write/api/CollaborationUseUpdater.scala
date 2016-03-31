@@ -58,12 +58,12 @@ class CollaborationUseUpdater[Uml <: UML](val domain: UMLCollaborationUse[Uml]) 
   def links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency
   (range: Set[UMLDependency[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CollaborationUse_collaborationUse_compose_roleBinding_Dependency(domain, range)
 
   def links_CollaborationUse_collaborationUse_reference_type_Collaboration
   (range: Option[UMLCollaboration[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CollaborationUse_collaborationUse_reference_type_Collaboration(domain, range)
 }

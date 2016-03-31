@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.Predef.String
 import scala.{AnyVal,Option,Unit}
 import scalaz._
@@ -59,6 +59,6 @@ class LiteralStringUpdater[Uml <: UML](val domain: UMLLiteralString[Uml]) extend
   def setValue
   (value: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_LiteralString_value(domain, value)
 }

@@ -59,24 +59,24 @@ class OpaqueActionUpdater[Uml <: UML](val domain: UMLOpaqueAction[Uml]) extends 
   def links_OpaqueAction_opaqueAction_compose_inputValue_InputPin
   (range: Set[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_OpaqueAction_opaqueAction_compose_inputValue_InputPin(domain, range)
 
   def links_OpaqueAction_opaqueAction_compose_outputValue_OutputPin
   (range: Set[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_OpaqueAction_opaqueAction_compose_outputValue_OutputPin(domain, range)
 
   def setBody
   (body: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_OpaqueAction_body(domain, body)
 
   def setLanguage
   (language: Seq[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_OpaqueAction_language(domain, language)
 }

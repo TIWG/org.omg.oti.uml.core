@@ -98,10 +98,10 @@ trait UMLProfileApplicationOps[Uml <: UML] { self: UMLProfileApplication[Uml] =>
    * TIWG: see UMLUtil, Rule #3
    */
   override def xmiOrderingKey()(implicit idg: IDGenerator[Uml])
-	: NonEmptyList[java.lang.Throwable] \/ String =
+	: Set[java.lang.Throwable] \/ String =
 		for {
 			key <- element_xmiOrderingKey
-			i <- appliedProfile.fold[NonEmptyList[java.lang.Throwable] \/ String](
+			i <- appliedProfile.fold[Set[java.lang.Throwable] \/ String](
 				"_".right
 			){ ap =>
 				ap.xmiOrderingKey.map("_" + _)

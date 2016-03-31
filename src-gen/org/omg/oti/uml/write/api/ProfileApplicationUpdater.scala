@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class ProfileApplicationUpdater[Uml <: UML](val domain: UMLProfileApplication[Um
   def links_ProfileApplication_profileApplication_reference_appliedProfile_Profile
   (range: Option[UMLProfile[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ProfileApplication_profileApplication_reference_appliedProfile_Profile(domain, range)
 
   def setIsStrict
   (isStrict: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ProfileApplication_isStrict(domain, isStrict)
 }

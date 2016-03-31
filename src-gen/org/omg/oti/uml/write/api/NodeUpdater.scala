@@ -58,6 +58,6 @@ class NodeUpdater[Uml <: UML](val domain: UMLNode[Uml]) extends AnyVal {
   def links_Node_node_compose_nestedNode_Node
   (range: Set[UMLNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Node_node_compose_nestedNode_Node(domain, range)
 }

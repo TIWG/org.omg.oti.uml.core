@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Unit}
 import scalaz._
 import java.lang.Integer
@@ -59,6 +59,6 @@ class LiteralIntegerUpdater[Uml <: UML](val domain: UMLLiteralInteger[Uml]) exte
   def setValue
   (value: Integer)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_LiteralInteger_value(domain, value)
 }

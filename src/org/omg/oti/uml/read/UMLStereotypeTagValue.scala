@@ -46,7 +46,7 @@ import org.omg.oti.uml.read.api.UMLProperty
 import org.omg.oti.uml.read.api._
 
 import scala.collection.Iterable
-import scala.collection.immutable.StringOps
+import scala.collection.immutable.Set
 import scalaz._
 
 /**
@@ -154,7 +154,7 @@ trait UMLStereotypeTagValue[Uml <: UML] {
    */
   def serialize
   ( implicit xmiScopes: scala.xml.NamespaceBinding, idg: IDGenerator[Uml] )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[scala.xml.Elem]
+  : Set[java.lang.Throwable] \/ Iterable[scala.xml.Elem]
 }
 
 /**

@@ -58,6 +58,6 @@ class ProtocolStateMachineUpdater[Uml <: UML](val domain: UMLProtocolStateMachin
   def links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance
   (range: Set[UMLProtocolConformance[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ProtocolStateMachine_specificMachine_compose_conformance_ProtocolConformance(domain, range)
 }

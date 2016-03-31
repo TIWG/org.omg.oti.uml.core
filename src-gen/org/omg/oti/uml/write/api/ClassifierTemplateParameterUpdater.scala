@@ -58,18 +58,18 @@ class ClassifierTemplateParameterUpdater[Uml <: UML](val domain: UMLClassifierTe
   def links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ClassifierTemplateParameter_classifierTemplateParameter_reference_constrainingClassifier_Classifier(domain, range)
 
   def links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier
   (range: Option[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ClassifierTemplateParameter_templateParameter_reference_parameteredElement_Classifier(domain, range)
 
   def setAllowSubstitutable
   (allowSubstitutable: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_ClassifierTemplateParameter_allowSubstitutable(domain, allowSubstitutable)
 }

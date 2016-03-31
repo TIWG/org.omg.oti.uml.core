@@ -38,6 +38,7 @@
  */
 package org.omg.oti.uml.characteristics
 
+import org.omg.oti.uml._
 import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
@@ -47,7 +48,7 @@ import scala.{Option,Some}
 import scala.Predef.{Map => _, Set => _, _}
 import scala.reflect.runtime.universe._
 import scala.reflect.classTag
-import scalaz.{@@, \/, \&/, NonEmptyList, Semigroup}
+import scalaz.{@@, \/, \&/, Semigroup}
 
 trait OTICharacteristicsDataProvider[Uml <: UML]
 extends OTICharacteristicsProvider[Uml] {
@@ -78,15 +79,15 @@ extends OTICharacteristicsProvider[Uml] {
   }
 
   override def getAllOTIBuiltInDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] = {
+  : Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] = {
     val allPackages = umlOps.allInstances[UMLPackage[Uml]]("Package", Option.empty[UMLElement[Uml]]).getOrElse(Set())
 
-    val b0: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+    val b0: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
       \&/.That(Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]())
 
-    val bN: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+    val bN: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
       (b0 /: allPackages) { (bi, pkg) =>
-        val inc: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+        val inc: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
         pkg.toolSpecific_id_uuid.toThese.map { oti_id_uuid =>
           otiCharacteristicsData.get(oti_id_uuid).fold[Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]](
             Map()
@@ -106,15 +107,15 @@ extends OTICharacteristicsProvider[Uml] {
   }
 
   override def getAllOTISerializableDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] ={
+  : Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] ={
     val allPackages = umlOps.allInstances[UMLPackage[Uml]]("Package", Option.empty[UMLElement[Uml]]).getOrElse(Set())
 
-    val b0: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+    val b0: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
       \&/.That(Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]())
 
-    val bN: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+    val bN: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
       (b0 /: allPackages) { (bi, pkg) =>
-        val inc: NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
+        val inc: Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics] =
           pkg.toolSpecific_id_uuid.toThese.map { oti_id_uuid =>
             otiCharacteristicsData.get(oti_id_uuid).fold[Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]](
               Map()
@@ -135,12 +136,12 @@ extends OTICharacteristicsProvider[Uml] {
 
   override def getSpecificationRootCharacteristics
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
+  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] =
     e.toolSpecific_id_uuid.map(otiCharacteristicsData.get)
 
   override def packageURI
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
     getSpecificationRootCharacteristics(e)
       .map(_.fold[Option[String @@ OTI_URI]]( e.URI.map(_.trim).map(OTI_URI.apply) ){
       ch => Some(ch.packageURI)
@@ -149,32 +150,32 @@ extends OTICharacteristicsProvider[Uml] {
   override
   def documentURL
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
     getSpecificationRootCharacteristics(e).map(_.map(_.documentURL))
 
   override def artifactKind
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind] =
+  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind] =
     getSpecificationRootCharacteristics(e).map(_.map(_.artifactKind))
 
   override def nsPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
     getSpecificationRootCharacteristics(e).map(_.map(_.nsPrefix))
 
   override def uuidPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
     getSpecificationRootCharacteristics(e).map(_.map(_.uuidPrefix))
 
   override def xmiID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
     e.toolSpecific_id_uuid.map(toolSpecific2xmi_id_uuid.get).map(_.flatMap(_.a))
 
   override def xmiUUID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
     e.toolSpecific_id_uuid.map(toolSpecific2xmi_id_uuid.get).map(_.flatMap(_.b))
 
 }

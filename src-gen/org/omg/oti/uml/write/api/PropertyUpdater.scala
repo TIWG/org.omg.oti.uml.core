@@ -58,54 +58,54 @@ class PropertyUpdater[Uml <: UML](val domain: UMLProperty[Uml]) extends AnyVal {
   def links_Property_memberEnd_reference_association_Association
   (range: Option[UMLAssociation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Property_memberEnd_reference_association_Association(domain, range)
 
   def links_Property_owningProperty_compose_defaultValue_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Property_owningProperty_compose_defaultValue_ValueSpecification(domain, range)
 
   def links_Property_associationEnd_compose_qualifier_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Property_associationEnd_compose_qualifier_Property(domain, range)
 
   def links_Property_property_reference_redefinedProperty_Property
   (range: Set[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Property_property_reference_redefinedProperty_Property(domain, range)
 
   def links_Property_property_reference_subsettedProperty_Property
   (range: Set[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Property_property_reference_subsettedProperty_Property(domain, range)
 
   def setAggregation
   (aggregation: Option[UMLAggregationKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Property_aggregation(domain, aggregation)
 
   def setIsDerived
   (isDerived: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Property_isDerived(domain, isDerived)
 
   def setIsDerivedUnion
   (isDerivedUnion: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Property_isDerivedUnion(domain, isDerivedUnion)
 
   def setIsID
   (isID: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Property_isID(domain, isID)
 }

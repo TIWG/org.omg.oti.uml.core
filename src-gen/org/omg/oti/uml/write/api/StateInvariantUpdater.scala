@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scala.collection.Iterable
 import scalaz._
@@ -58,12 +58,12 @@ class StateInvariantUpdater[Uml <: UML](val domain: UMLStateInvariant[Uml]) exte
   def links_StateInvariant_stateInvariant_reference_covered_Lifeline
   (range: Iterable[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_StateInvariant_stateInvariant_reference_covered_Lifeline(domain, range)
 
   def links_StateInvariant_stateInvariant_compose_invariant_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_StateInvariant_stateInvariant_compose_invariant_Constraint(domain, range)
 }

@@ -44,6 +44,7 @@ import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.{Function2,Option,None,Some}
 import scala.collection.Iterable
+import scala.collection.immutable.Set
 import scalaz._
 
 /**
@@ -118,7 +119,7 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   def findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles
   ( context: UMLPackage[Uml] )
   ( implicit c: ReferencedButNotAccessibleConstructor )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[ReferencedButNotAccessibleViolation] =
+  : Set[java.lang.Throwable] \/ Iterable[ReferencedButNotAccessibleViolation] =
   for {
     s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
   } yield {
@@ -136,7 +137,7 @@ trait UMLPackageableElementRules[Uml <: UML, UmlOps <: UMLOps[Uml]] {
   def findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles
   ( context: UMLPackage[Uml] )
   ( implicit c: ReferencedButNotAccessibleConstructor )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[ReferencedButNotAccessibleViolation] =
+  : Set[java.lang.Throwable] \/ Iterable[ReferencedButNotAccessibleViolation] =
   for {
     s <- context.allForwardReferencesToImportablePackageableElementsFromAllOwnedElementsTransitively
   } yield {

@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scala.collection.immutable.Seq
 import scalaz._
@@ -58,12 +58,12 @@ class ConstraintUpdater[Uml <: UML](val domain: UMLConstraint[Uml]) extends AnyV
   def links_Constraint_constraint_reference_constrainedElement_Element
   (range: Seq[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Constraint_constraint_reference_constrainedElement_Element(domain, range)
 
   def links_Constraint_owningConstraint_compose_specification_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Constraint_owningConstraint_compose_specification_ValueSpecification(domain, range)
 }

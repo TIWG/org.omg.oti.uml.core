@@ -41,10 +41,10 @@ package org.omg.oti.uml.characteristics
 import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 
-import scala.collection.immutable.Map
+import scala.collection.immutable.{Map,Set}
 import scala.Option
 import scala.Predef.String
-import scalaz.{@@, NonEmptyList, \&/, \/}
+import scalaz.{@@, \&/, \/}
 
 /**
   * Tool-neutral interface to provide OTI Characteristics about UML Packages
@@ -65,7 +65,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def packageURI
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URI]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI]
 
   /**
     * Optionally provide a URL corresponding to the external resource published for a UML Package
@@ -75,7 +75,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def documentURL
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_URL]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL]
 
   /**
     * Optionally provide an OTI artifact kind categorizing the external resource published for a UML Package
@@ -85,7 +85,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def artifactKind
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTIArtifactKind]
+  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind]
 
   /**
     * Optionally provide an XML namespace prefix for the serialization of a UML Package as an external resource
@@ -95,7 +95,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def nsPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX]
 
   /**
     * Optionally provide an XMI UUID prefix for the serialization of a UML Package as an external resource
@@ -105,7 +105,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def uuidPrefix
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX]
 
   /**
     * If applicable, provide the characteristics of the OTI document artifact corresponding to a given UML Package.
@@ -115,13 +115,13 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def getSpecificationRootCharacteristics
   (e: UMLPackage[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
+  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
 
   def getAllOTIBuiltInDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
+  : Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
 
   def getAllOTISerializableDocumentPackages
-  : NonEmptyList[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
+  : Set[java.lang.Throwable] \&/ Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]
 
   /**
     * Optionally provide an xmi:ID overriding the xmi:ID of a UML Element for serialization purposes
@@ -131,7 +131,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def xmiID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID]
 
   /**
     * Optionally provide an xmi:UUID overriding the xmi:UUID of a UML Element for serialization purposes
@@ -141,7 +141,7 @@ trait OTICharacteristicsProvider[Uml <: UML] {
     */
   def xmiUUID
   (e: UMLElement[Uml])
-  : NonEmptyList[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
 }
 
 /**

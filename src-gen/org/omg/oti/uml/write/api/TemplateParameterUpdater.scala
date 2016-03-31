@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,24 +57,24 @@ class TemplateParameterUpdater[Uml <: UML](val domain: UMLTemplateParameter[Uml]
   def links_TemplateParameter_templateParameter_reference_default_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameter_templateParameter_reference_default_ParameterableElement(domain, range)
 
   def links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameter_templateParameter_compose_ownedDefault_ParameterableElement(domain, range)
 
   def links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameter_owningTemplateParameter_compose_ownedParameteredElement_ParameterableElement(domain, range)
 
   def links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement
   (range: Option[UMLParameterableElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateParameter_templateParameter_reference_parameteredElement_ParameterableElement(domain, range)
 }

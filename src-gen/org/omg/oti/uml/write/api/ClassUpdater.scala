@@ -58,36 +58,36 @@ class ClassUpdater[Uml <: UML](val domain: UMLClass[Uml]) extends AnyVal {
   def links_Class_nestingClass_compose_nestedClassifier_Classifier
   (range: Seq[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Class_nestingClass_compose_nestedClassifier_Classifier(domain, range)
 
   def links_Class_class_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Class_class_compose_ownedAttribute_Property(domain, range)
 
   def links_Class_class_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Class_class_compose_ownedOperation_Operation(domain, range)
 
   def links_Class_class_compose_ownedReception_Reception
   (range: Set[UMLReception[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Class_class_compose_ownedReception_Reception(domain, range)
 
   def setIsAbstract
   (isAbstract: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Class_isAbstract(domain, isAbstract)
 
   def setIsActive
   (isActive: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Class_isActive(domain, isActive)
 }

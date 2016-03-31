@@ -58,42 +58,42 @@ class BehaviorUpdater[Uml <: UML](val domain: UMLBehavior[Uml]) extends AnyVal {
   def links_Behavior_behavior_compose_ownedParameter_Parameter
   (range: Seq[UMLParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_behavior_compose_ownedParameter_Parameter(domain, range)
 
   def links_Behavior_behavior_compose_ownedParameterSet_ParameterSet
   (range: Set[UMLParameterSet[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_behavior_compose_ownedParameterSet_ParameterSet(domain, range)
 
   def links_Behavior_behavior_compose_postcondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_behavior_compose_postcondition_Constraint(domain, range)
 
   def links_Behavior_behavior_compose_precondition_Constraint
   (range: Set[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_behavior_compose_precondition_Constraint(domain, range)
 
   def links_Behavior_behavior_reference_redefinedBehavior_Behavior
   (range: Set[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_behavior_reference_redefinedBehavior_Behavior(domain, range)
 
   def links_Behavior_method_reference_specification_BehavioralFeature
   (range: Option[UMLBehavioralFeature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Behavior_method_reference_specification_BehavioralFeature(domain, range)
 
   def setIsReentrant
   (isReentrant: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Behavior_isReentrant(domain, isReentrant)
 }

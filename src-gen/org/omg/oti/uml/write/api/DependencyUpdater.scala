@@ -58,12 +58,12 @@ class DependencyUpdater[Uml <: UML](val domain: UMLDependency[Uml]) extends AnyV
   def links_Dependency_clientDependency_reference_client_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Dependency_clientDependency_reference_client_NamedElement(domain, range)
 
   def links_Dependency_supplierDependency_reference_supplier_NamedElement
   (range: Set[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Dependency_supplierDependency_reference_supplier_NamedElement(domain, range)
 }

@@ -58,30 +58,30 @@ class InteractionUpdater[Uml <: UML](val domain: UMLInteraction[Uml]) extends An
   def links_Interaction_interaction_compose_action_Action
   (range: Set[UMLAction[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interaction_interaction_compose_action_Action(domain, range)
 
   def links_Interaction_interaction_compose_formalGate_Gate
   (range: Set[UMLGate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interaction_interaction_compose_formalGate_Gate(domain, range)
 
   def links_Interaction_enclosingInteraction_compose_fragment_InteractionFragment
   (range: Seq[UMLInteractionFragment[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interaction_enclosingInteraction_compose_fragment_InteractionFragment(domain, range)
 
   def links_Interaction_interaction_compose_lifeline_Lifeline
   (range: Set[UMLLifeline[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interaction_interaction_compose_lifeline_Lifeline(domain, range)
 
   def links_Interaction_interaction_compose_message_Message
   (range: Set[UMLMessage[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Interaction_interaction_compose_message_Message(domain, range)
 }

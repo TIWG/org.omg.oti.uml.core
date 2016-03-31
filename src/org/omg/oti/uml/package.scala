@@ -71,6 +71,10 @@ import scalaz._, Scalaz._
  */
 package object uml {
 
+  implicit def setSemigroup[A]
+  : Semigroup[Set[A]]
+  = Semigroup.instance( _ ++ _ )
+
   /**
    * Minimal semantics from UML 2.5:
    * for an element E, getPackageOrProfileOwner(E) is
@@ -248,21 +252,21 @@ package object uml {
     }
 
   def booleanToIterable[Uml <: UML]( value: Boolean, default: Boolean )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[Boolean] =
+  : Set[java.lang.Throwable] \/ Iterable[Boolean] =
     if ( value != default )
       Iterable( value ).right
     else
       Iterable().right
 
   def integerToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[Integer] =
+  : Set[java.lang.Throwable] \/ Iterable[Integer] =
     if ( value != default )
       Iterable( value ).right
     else
       Iterable().right
 
   def unlimitedNaturalToIterable[Uml <: UML]( value: Integer, default: Integer )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
+  : Set[java.lang.Throwable] \/ Iterable[String] =
     if ( value == default )
       Iterable().right
     else if (value == -1)
@@ -271,15 +275,15 @@ package object uml {
       Iterable(value.toString).right
 
   def realToIterable[Uml <: UML]( value: Double, default: Double )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[Double] =
+  : Set[java.lang.Throwable] \/ Iterable[Double] =
     Iterable( value ).right
 
   def stringToIterable[Uml <: UML]( value: Option[String], default: String )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
+  : Set[java.lang.Throwable] \/ Iterable[String] =
     value.toIterable.right
 
   def stringToIterable[Uml <: UML]( value: String, default: String )
-  : NonEmptyList[java.lang.Throwable] \/ Iterable[String] =
+  : Set[java.lang.Throwable] \/ Iterable[String] =
     if ( value != default )
       Iterable( value ).right
     else

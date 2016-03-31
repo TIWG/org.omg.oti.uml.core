@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Boolean,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,12 +57,12 @@ class TimeEventUpdater[Uml <: UML](val domain: UMLTimeEvent[Uml]) extends AnyVal
   def links_TimeEvent_timeEvent_compose_when_TimeExpression
   (range: Option[UMLTimeExpression[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TimeEvent_timeEvent_compose_when_TimeExpression(domain, range)
 
   def setIsRelative
   (isRelative: Boolean)
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_TimeEvent_isRelative(domain, isRelative)
 }

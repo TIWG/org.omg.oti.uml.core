@@ -58,36 +58,36 @@ class ClauseUpdater[Uml <: UML](val domain: UMLClause[Uml]) extends AnyVal {
   def links_Clause_clause_reference_body_ExecutableNode
   (range: Set[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_clause_reference_body_ExecutableNode(domain, range)
 
   def links_Clause_clause_reference_bodyOutput_OutputPin
   (range: Seq[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_clause_reference_bodyOutput_OutputPin(domain, range)
 
   def links_Clause_clause_reference_decider_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_clause_reference_decider_OutputPin(domain, range)
 
   def links_Clause_successorClause_reference_predecessorClause_Clause
   (range: Set[UMLClause[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_successorClause_reference_predecessorClause_Clause(domain, range)
 
   def links_Clause_predecessorClause_reference_successorClause_Clause
   (range: Set[UMLClause[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_predecessorClause_reference_successorClause_Clause(domain, range)
 
   def links_Clause_clause_reference_test_ExecutableNode
   (range: Set[UMLExecutableNode[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Clause_clause_reference_test_ExecutableNode(domain, range)
 }

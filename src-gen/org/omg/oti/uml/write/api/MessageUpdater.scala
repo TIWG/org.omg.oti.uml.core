@@ -58,36 +58,36 @@ class MessageUpdater[Uml <: UML](val domain: UMLMessage[Uml]) extends AnyVal {
   def links_Message_message_compose_argument_ValueSpecification
   (range: Seq[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Message_message_compose_argument_ValueSpecification(domain, range)
 
   def links_Message_message_reference_connector_Connector
   (range: Option[UMLConnector[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Message_message_reference_connector_Connector(domain, range)
 
   def links_Message_endMessage_reference_receiveEvent_MessageEnd
   (range: Option[UMLMessageEnd[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Message_endMessage_reference_receiveEvent_MessageEnd(domain, range)
 
   def links_Message_endMessage_reference_sendEvent_MessageEnd
   (range: Option[UMLMessageEnd[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Message_endMessage_reference_sendEvent_MessageEnd(domain, range)
 
   def links_Message_message_reference_signature_NamedElement
   (range: Option[UMLNamedElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Message_message_reference_signature_NamedElement(domain, range)
 
   def setMessageSort
   (messageSort: Option[UMLMessageSort.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Message_messageSort(domain, messageSort)
 }

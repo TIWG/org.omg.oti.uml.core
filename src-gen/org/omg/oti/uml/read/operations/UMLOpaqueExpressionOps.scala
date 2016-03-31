@@ -222,11 +222,11 @@ trait UMLOpaqueExpressionOps[Uml <: UML] { self: UMLOpaqueExpression[Uml] =>
   // Start of user code for additional features
 
   override def asForwardReferencesToImportableOuterPackageableElements
-	: NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+	: Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
 
   def opaqueExpression_asForwardReferencesToImportableOuterPackageableElements
-  : NonEmptyList[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]] =
     (Set[UMLPackageableElement[Uml]](this) ++ behavior.toSet).right
 
   // End of user code

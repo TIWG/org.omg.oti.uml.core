@@ -58,6 +58,6 @@ class InformationItemUpdater[Uml <: UML](val domain: UMLInformationItem[Uml]) ex
   def links_InformationItem_representation_reference_represented_Classifier
   (range: Set[UMLClassifier[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_InformationItem_representation_reference_represented_Classifier(domain, range)
 }

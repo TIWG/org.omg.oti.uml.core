@@ -58,18 +58,18 @@ class CombinedFragmentUpdater[Uml <: UML](val domain: UMLCombinedFragment[Uml]) 
   def links_CombinedFragment_combinedFragment_compose_cfragmentGate_Gate
   (range: Set[UMLGate[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CombinedFragment_combinedFragment_compose_cfragmentGate_Gate(domain, range)
 
   def links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand
   (range: Seq[UMLInteractionOperand[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CombinedFragment_combinedFragment_compose_operand_InteractionOperand(domain, range)
 
   def setInteractionOperator
   (interactionOperator: Option[UMLInteractionOperatorKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_CombinedFragment_interactionOperator(domain, interactionOperator)
 }

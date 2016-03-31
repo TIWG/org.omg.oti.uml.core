@@ -58,12 +58,12 @@ class TemplateBindingUpdater[Uml <: UML](val domain: UMLTemplateBinding[Uml]) ex
   def links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution
   (range: Set[UMLTemplateParameterSubstitution[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateBinding_templateBinding_compose_parameterSubstitution_TemplateParameterSubstitution(domain, range)
 
   def links_TemplateBinding_templateBinding_reference_signature_TemplateSignature
   (range: Option[UMLTemplateSignature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_TemplateBinding_templateBinding_reference_signature_TemplateSignature(domain, range)
 }

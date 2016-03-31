@@ -58,12 +58,12 @@ class DurationUpdater[Uml <: UML](val domain: UMLDuration[Uml]) extends AnyVal {
   def links_Duration_duration_compose_expr_ValueSpecification
   (range: Option[UMLValueSpecification[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Duration_duration_compose_expr_ValueSpecification(domain, range)
 
   def links_Duration_duration_reference_observation_Observation
   (range: Set[UMLObservation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Duration_duration_reference_observation_Observation(domain, range)
 }

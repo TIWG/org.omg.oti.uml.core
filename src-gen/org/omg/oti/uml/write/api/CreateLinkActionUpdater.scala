@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Unit}
 import scala.collection.Iterable
 import scalaz._
@@ -58,6 +58,6 @@ class CreateLinkActionUpdater[Uml <: UML](val domain: UMLCreateLinkAction[Uml]) 
   def links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData
   (range: Iterable[UMLLinkEndCreationData[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_CreateLinkAction_createLinkAction_compose_endData_LinkEndCreationData(domain, range)
 }

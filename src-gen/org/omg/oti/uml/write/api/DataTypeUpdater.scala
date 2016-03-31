@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Unit}
 import scala.collection.immutable.Seq
 import scalaz._
@@ -58,12 +58,12 @@ class DataTypeUpdater[Uml <: UML](val domain: UMLDataType[Uml]) extends AnyVal {
   def links_DataType_datatype_compose_ownedAttribute_Property
   (range: Seq[UMLProperty[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_DataType_datatype_compose_ownedAttribute_Property(domain, range)
 
   def links_DataType_datatype_compose_ownedOperation_Operation
   (range: Seq[UMLOperation[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_DataType_datatype_compose_ownedOperation_Operation(domain, range)
 }

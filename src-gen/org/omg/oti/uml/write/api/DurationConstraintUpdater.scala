@@ -58,12 +58,12 @@ class DurationConstraintUpdater[Uml <: UML](val domain: UMLDurationConstraint[Um
   def links_DurationConstraint_durationConstraint_compose_specification_DurationInterval
   (range: Option[UMLDurationInterval[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_DurationConstraint_durationConstraint_compose_specification_DurationInterval(domain, range)
 
   def setFirstEvent
   (firstEvent: Set[Boolean])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_DurationConstraint_firstEvent(domain, firstEvent)
 }

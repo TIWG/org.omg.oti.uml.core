@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class ExtensionEndUpdater[Uml <: UML](val domain: UMLExtensionEnd[Uml]) extends 
   def links_ExtensionEnd_extensionEnd_reference_type_Stereotype
   (range: Option[UMLStereotype[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ExtensionEnd_extensionEnd_reference_type_Stereotype(domain, range)
 }

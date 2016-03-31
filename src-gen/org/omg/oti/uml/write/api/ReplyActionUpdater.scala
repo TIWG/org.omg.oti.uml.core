@@ -45,7 +45,7 @@ package org.omg.oti.uml.write.api
 import org.omg.oti.uml.read.api._
 
 import scala.{AnyVal,Option,Unit}
-import scala.collection.immutable.Seq
+import scala.collection.immutable.{Seq,Set}
 import scalaz._
 // End of user code
 
@@ -58,18 +58,18 @@ class ReplyActionUpdater[Uml <: UML](val domain: UMLReplyAction[Uml]) extends An
   def links_ReplyAction_replyAction_reference_replyToCall_Trigger
   (range: Option[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReplyAction_replyAction_reference_replyToCall_Trigger(domain, range)
 
   def links_ReplyAction_replyAction_compose_replyValue_InputPin
   (range: Seq[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReplyAction_replyAction_compose_replyValue_InputPin(domain, range)
 
   def links_ReplyAction_replyAction_compose_returnInformation_InputPin
   (range: Option[UMLInputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReplyAction_replyAction_compose_returnInformation_InputPin(domain, range)
 }

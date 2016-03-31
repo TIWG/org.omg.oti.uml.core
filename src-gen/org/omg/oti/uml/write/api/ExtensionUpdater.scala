@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Unit}
 import scala.collection.Iterable
 import scalaz._
@@ -58,6 +58,6 @@ class ExtensionUpdater[Uml <: UML](val domain: UMLExtension[Uml]) extends AnyVal
   def links_Extension_extension_compose_ownedEnd_ExtensionEnd
   (range: Iterable[UMLExtensionEnd[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Extension_extension_compose_ownedEnd_ExtensionEnd(domain, range)
 }

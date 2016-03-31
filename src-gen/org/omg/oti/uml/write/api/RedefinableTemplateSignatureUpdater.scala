@@ -58,6 +58,6 @@ class RedefinableTemplateSignatureUpdater[Uml <: UML](val domain: UMLRedefinable
   def links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature
   (range: Set[UMLRedefinableTemplateSignature[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_RedefinableTemplateSignature_redefinableTemplateSignature_reference_extendedSignature_RedefinableTemplateSignature(domain, range)
 }

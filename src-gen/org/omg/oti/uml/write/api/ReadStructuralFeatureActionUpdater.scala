@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class ReadStructuralFeatureActionUpdater[Uml <: UML](val domain: UMLReadStructur
   def links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin
   (range: Option[UMLOutputPin[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ReadStructuralFeatureAction_readStructuralFeatureAction_compose_result_OutputPin(domain, range)
 }

@@ -59,12 +59,12 @@ class CommentUpdater[Uml <: UML](val domain: UMLComment[Uml]) extends AnyVal {
   def links_Comment_comment_reference_annotatedElement_Element
   (range: Set[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Comment_comment_reference_annotatedElement_Element(domain, range)
 
   def setBody
   (body: Option[String])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Comment_body(domain, body)
 }

@@ -58,42 +58,42 @@ class TransitionUpdater[Uml <: UML](val domain: UMLTransition[Uml]) extends AnyV
   def links_Transition_transition_compose_effect_Behavior
   (range: Option[UMLBehavior[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_transition_compose_effect_Behavior(domain, range)
 
   def links_Transition_transition_compose_guard_Constraint
   (range: Option[UMLConstraint[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_transition_compose_guard_Constraint(domain, range)
 
   def links_Transition_transition_reference_redefinedTransition_Transition
   (range: Option[UMLTransition[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_transition_reference_redefinedTransition_Transition(domain, range)
 
   def links_Transition_outgoing_reference_source_Vertex
   (range: Option[UMLVertex[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_outgoing_reference_source_Vertex(domain, range)
 
   def links_Transition_incoming_reference_target_Vertex
   (range: Option[UMLVertex[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_incoming_reference_target_Vertex(domain, range)
 
   def links_Transition_transition_compose_trigger_Trigger
   (range: Set[UMLTrigger[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_Transition_transition_compose_trigger_Trigger(domain, range)
 
   def setKind
   (kind: Option[UMLTransitionKind.Value])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.set_Transition_kind(domain, kind)
 }

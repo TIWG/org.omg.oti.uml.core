@@ -58,6 +58,6 @@ class ExecutableNodeUpdater[Uml <: UML](val domain: UMLExecutableNode[Uml]) exte
   def links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler
   (range: Set[UMLExceptionHandler[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ExecutableNode_protectedNode_compose_handler_ExceptionHandler(domain, range)
 }

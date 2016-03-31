@@ -43,7 +43,7 @@ package org.omg.oti.uml.write.api
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-
+import scala.collection.immutable.Set
 import scala.{AnyVal,Option,Unit}
 import scalaz._
 // End of user code
@@ -57,6 +57,6 @@ class ConnectableElementUpdater[Uml <: UML](val domain: UMLConnectableElement[Um
   def links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter
   (range: Option[UMLConnectableElementTemplateParameter[Uml]])
   (implicit umlU: UMLUpdate[Uml])
-  : \/[NonEmptyList[java.lang.Throwable],Unit] =
+  : \/[Set[java.lang.Throwable],Unit] =
     umlU.links_ConnectableElement_parameteredElement_reference_templateParameter_ConnectableElementTemplateParameter(domain, range)
 }
