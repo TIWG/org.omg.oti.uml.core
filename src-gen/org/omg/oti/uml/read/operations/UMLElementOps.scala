@@ -285,26 +285,28 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]
   = asForwardReferencesToOwningElementImportableOuterPackageableElements
 
-  def mofXMI_metaAtttributes: MetaAttributeFunctions = {
-    val af1: MetaAttributeFunction =
+  val id_metaDocumentAttributeFunction =
       MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "id",
-        (e, idg, otiCharacteristicsProvider) => {
-          val _id = e.xmiID()(idg)
-          _id.map { id => Iterable(Tag.unwrap(id)) }
+        (e, otiCharacteristicsProvider) => {
+          val _id = e.toolSpecific_id.to[Iterable]
+          _id.map { id => Tag.unwrap(id) }.right
         })
-    val af2: MetaAttributeFunction =
-      MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
+        
+  val uuid_metaDocumentAttributeFunction =
+     MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "uuid",
-        (e, idg, otiCharacteristicsProvider) => {
-          val _id = e.xmiUUID()(idg)
-          _id.map { uuid => Iterable(Tag.unwrap(uuid)) }
+        (e, otiCharacteristicsProvider) => {
+          val _uuid = e.toolSpecific_uuid.to[Iterable]
+          _uuid.map { uuid => Tag.unwrap(uuid) }.right
         })
-    val af3: MetaAttributeFunction =
-      MetaAttributeStringFunction[Uml, UMLElement[Uml]](
+        
+  val type_metaAttributeFunction =
+     MetaAttributeStringFunction[Uml, UMLElement[Uml]](
         Some("xmi"), "type", _.xmiType.right)
-    Seq(af1, af2, af3)
-  }
+        
+  def mofXMI_metaAtttributes: MetaAttributeFunctions =
+    Seq(id_metaDocumentAttributeFunction, uuid_metaDocumentAttributeFunction, type_metaAttributeFunction)
 
   type MetaAttributeFunction = MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _]
 

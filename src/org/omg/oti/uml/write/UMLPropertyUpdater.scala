@@ -115,7 +115,9 @@ extends UMLAttributeUpdater[Uml] {
   // was: CompositeReferenceSingleUpdate
   trait AssociationMetaPropertyUpdater {
 
-    def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Set[java.lang.Throwable] \/ Unit
+    def link(owner: UMLElement[Uml], owned: UMLElement[Uml]): Set[java.lang.Throwable] \/ Unit
+    
+    def unlink(owner: UMLElement[Uml], owned: UMLElement[Uml]): Set[java.lang.Throwable] \/ Unit
   }
 
   // was: CompositeReferenceUpdater
@@ -132,8 +134,8 @@ extends UMLAttributeUpdater[Uml] {
     extends AssociationMetaPropertyOptionUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Option[UMLElement[Uml]])
-    : Set[java.lang.Throwable] \/ Unit =
-      owner match {
+    : Set[java.lang.Throwable] \/ Unit 
+    = owner match {
         case u: U =>
           owned.fold[Set[java.lang.Throwable] \/ Unit]{
             links_composes(u, None)
@@ -153,9 +155,23 @@ extends UMLAttributeUpdater[Uml] {
             Iterable(owner) ++ owned.toIterable)).left
       }
 
-    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : Set[java.lang.Throwable] \/ Unit =
-      setLinks(owner, Some(owned))
+    override def link(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit 
+    = setLinks(owner, Some(owned))
+    
+    override def unlink(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit 
+    = links_query
+      .evaluate(owner)
+      .flatMap { current =>
+        if (current.contains(owned))
+          setLinks(owner, None)
+        else
+          Set(UMLError.illegalElementError[Uml, UMLElement[Uml]](
+            s"unlink error for $links_query",
+            Seq(owner, owned))).left       
+      }
+    
   }
 
   // was: MetaPropertyCompositeCollectionQuery
@@ -177,8 +193,8 @@ extends UMLAttributeUpdater[Uml] {
     extends AssociationMetaPropertyIterableUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : Set[java.lang.Throwable] \/ Unit =
-      (owner, owned) match {
+    : Set[java.lang.Throwable] \/ Unit 
+    = (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v)
         case _ =>
@@ -188,14 +204,30 @@ extends UMLAttributeUpdater[Uml] {
             Iterable(owner) ++ owned.toIterable)).left
       }
 
-    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : Set[java.lang.Throwable] \/ Unit =
-      links_query.evaluate(owner)
+    override def link(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit
+    = links_query.evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         setLinks(owner, updated)
       }
 
+    override def unlink(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit
+    = links_query.evaluate(owner)
+      .flatMap { composed =>
+        val index = composed.indexOf(owned)
+        if (index < 0)
+          Set(
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
+            s"setLinks update for $links_query: error type mismatch",
+            Seq(owner, owned))).left
+        else {          
+          val (left, right) = composed.splitAt(index)
+          val updated = left ::: right.drop(1)
+          setLinks(owner, updated)
+        }
+      }
   }
 
   // was: CompositeSequenceUpdater
@@ -213,27 +245,43 @@ extends UMLAttributeUpdater[Uml] {
     extends AssociationMetaPropertySequenceUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Seq[UMLElement[Uml]])
-    : Set[java.lang.Throwable] \/ Unit =
-      (owner, owned) match {
+    : Set[java.lang.Throwable] \/ Unit 
+    = (owner, owned) match {
         case (u: U, v: Seq[V]) =>
           links_composes(u, v)
         case _ =>
           Set(
-            UMLError
-          .illegalElementError[Uml, UMLElement[Uml]](
-            s"setLinks update for $links_query: error type mismatch",
-            Iterable(owner) ++ owned.toIterable)).left
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
+              s"setLinks update for $links_query: error type mismatch",
+              Iterable(owner) ++ owned.toIterable)).left
       }
 
-    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : Set[java.lang.Throwable] \/ Unit =
-      links_query
+    override def link(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit
+    = links_query
       .evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         setLinks(owner, updated)
       }
 
+    override def unlink(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit
+    = links_query
+      .evaluate(owner)
+      .flatMap { composed =>
+        val index = composed.indexOf(owned)
+        if (index < 0)
+          Set(
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
+            s"setLinks update for $links_query: error type mismatch",
+            Seq(owner, owned))).left
+        else {          
+          val (left, right) = composed.splitAt(index)
+          val updated = left ::: right.drop(1)
+          setLinks(owner, updated)
+        }
+      }
   }
 
   // was: CompositeSetUpdater
@@ -251,8 +299,8 @@ extends UMLAttributeUpdater[Uml] {
     extends AssociationMetaPropertySetUpdater {
 
     override def setLinks(owner: UMLElement[Uml], owned: Iterable[UMLElement[Uml]])
-    : Set[java.lang.Throwable] \/ Unit =
-      (owner, owned) match {
+    : Set[java.lang.Throwable] \/ Unit
+    = (owner, owned) match {
         case (u: U, v: Iterable[V]) =>
           links_composes(u, v.toSet)
         case _ =>
@@ -263,14 +311,32 @@ extends UMLAttributeUpdater[Uml] {
             Iterable(owner) ++ owned.toIterable)).left
       }
 
-    override def update1Link(owner: UMLElement[Uml], owned: UMLElement[Uml])
-    : Set[java.lang.Throwable] \/ Unit =
-      links_query
+    override def link(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit 
+    = links_query
       .evaluate(owner)
       .flatMap { composed =>
         val updated = if (composed.contains(owned)) composed else composed :+ owned
         setLinks(owner, updated)
-    }
+      }
+
+    override def unlink(owner: UMLElement[Uml], owned: UMLElement[Uml])
+    : Set[java.lang.Throwable] \/ Unit 
+    = links_query
+      .evaluate(owner)
+      .flatMap { composed =>
+        val index = composed.indexOf(owned)
+        if (index < 0)
+          Set(
+            UMLError.illegalElementError[Uml, UMLElement[Uml]](
+            s"setLinks update for $links_query: error type mismatch",
+            Seq(owner, owned))).left
+        else {          
+          val (left, right) = composed.splitAt(index)
+          val updated = left ::: right.drop(1)
+          setLinks(owner, updated)
+        }
+      }
 
   }
 

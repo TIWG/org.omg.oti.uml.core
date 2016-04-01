@@ -4863,8 +4863,8 @@ import Option._
     subsettingMetaProperties=Set())
 
   lazy val Package_URI =
-    MetaAttributeStringFunction[Uml, UMLPackage[Uml]](None, "URI",
-    (x: UMLPackage[Uml]) => \/-(x.URI.toIterable))
+    new MetaAttributeStringFunction[Uml, UMLPackage[Uml]](OptionConstructor(), None, "URI",
+    (x: UMLPackage[Uml]) => x.URI)
 
   lazy val Package_packageMerge =
     MetaPropertyCollection[Uml, UMLPackage[Uml], UMLPackageMerge[Uml]](

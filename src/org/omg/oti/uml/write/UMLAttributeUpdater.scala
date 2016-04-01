@@ -44,7 +44,6 @@ import org.omg.oti.uml.{MetaAttributeAbstractFunction, MetaAttributeEnumerationF
 import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
-import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
 import scala.Predef.{???,String}
@@ -156,7 +155,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
     : Set[java.lang.Throwable] \/ Unit
 	  
@@ -172,7 +170,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
     : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -207,7 +204,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
 	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -248,7 +244,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
 	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -280,7 +275,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
 	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -295,7 +289,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	                 attributeUpdate(aU, ds ++ Iterable(aV))
 	               }
 	             case (None, Some(_df)) =>
-	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	               _df(aU, otiCharacteristicsProvider).flatMap { ds =>
 	                 attributeUpdate(aU, ds ++ Iterable(aV))
                  }
                case _ =>
@@ -328,7 +322,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
 	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -343,7 +336,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	                 attributeUpdate(aU, ds.toSet ++ Set(aV))
 	               }
 	             case (None, Some(_df)) =>
-	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	               _df(aU, otiCharacteristicsProvider).flatMap { ds =>
 	                 attributeUpdate(aU, ds.toSet ++ Set(aV))
                  }
                case _ =>
@@ -376,7 +369,6 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	  def update
 	  (u: UMLElement[Uml], v: String)
     ( implicit 
-      idg: IDGenerator[Uml], 
       otiCharacteristicsProvider: OTICharacteristicsProvider[Uml] )
 	  : Set[java.lang.Throwable] \/ Unit =
 	    u match {
@@ -391,7 +383,7 @@ trait UMLAttributeUpdater[Uml <: UML] {
 	                 attributeUpdate(aU, ds.to[Seq] ++ Seq(aV))
 	               }
 	             case (None, Some(_df)) =>
-	               _df(aU, idg, otiCharacteristicsProvider).flatMap { ds =>
+	               _df(aU, otiCharacteristicsProvider).flatMap { ds =>
 	                 attributeUpdate(aU, ds.to[Seq] ++ Seq(aV))
                  }
                case _ =>
