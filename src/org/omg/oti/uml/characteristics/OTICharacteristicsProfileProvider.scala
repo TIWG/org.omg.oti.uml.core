@@ -48,6 +48,26 @@ import scala.Predef.String
 import scalaz._
 import Scalaz._
 
+object OTICharacteristicsProfileProvider {
+  
+  val OTI_PROFILE_URI
+  : String @@ OTI_URI 
+  = OTI_URI("http://www.omg.org/TIWG/OTI/20160128/OTI.profile")
+  
+  val OTI_PROFILE_URL
+  : String @@ OTI_URL 
+  = OTI_URL("http://www.omg.org/TIWG/OTI/20160128/OTI.profile.xmi")
+  
+  val OTI_PROFILE_NS_PREFIX
+  : String @@ OTI_NS_PREFIX 
+  = OTI_NS_PREFIX("OTIProfile")
+  
+  val OTI_PROFILE_UUID_PREFIX
+  : String @@ OTI_UUID_PREFIX 
+  = OTI_UUID_PREFIX("org.omg.uml.OTIProfile")
+  
+}
+
 trait OTICharacteristicsProfileProvider[Uml <: UML]
   extends OTICharacteristicsProvider[Uml] {
 

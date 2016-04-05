@@ -38,12 +38,16 @@
  */
 package org.omg.oti
 
+import java.util.concurrent.TimeUnit
+
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.existentials
 import scala.{annotation,Boolean,Double,Int,Option,None,Some}
+import scala.concurrent.duration.Duration
+import scala.concurrent.duration.FiniteDuration
 import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
@@ -71,6 +75,28 @@ import scalaz._, Scalaz._
  */
 package object uml {
 
+  def prettyDuration(d: Duration)
+  : String = {
+
+    val (hours, minutes, seconds, millis) =
+      (d.toHours, d.toMinutes, d.toSeconds, d.toMillis)
+
+    val adjMinutes = minutes - hours * 60
+    val adjSeconds = seconds - minutes * 60
+    val adjMillis = millis - seconds * 1000
+
+    val r1 = if (hours > 0) s"$hours hours" else ""
+    val r2 = if (adjMinutes > 0) (if (!r1.isEmpty) r1+", " else "") + s"$adjMinutes minutes" else r1
+    val r3 = if (adjSeconds > 0) (if (!r2.isEmpty) r2+", " else "") + s"$adjSeconds seconds" else r2
+    val r4 = if (adjMillis > 0) (if (!r3.isEmpty) r3+", " else "") + s"$adjMillis millis" else r3
+    val r5 = if (r4.isEmpty) "<1 ms" else r4
+    r5
+  }
+  
+  def prettyFiniteDuration(length: Long, unit: TimeUnit)
+  : String 
+  = prettyDuration(FiniteDuration.apply(length, unit)) 
+  
   implicit def setSemigroup[A]
   : Semigroup[Set[A]]
   = Semigroup.instance( _ ++ _ )
