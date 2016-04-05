@@ -38,6 +38,7 @@
  */
 package org.omg.oti
 
+import java.lang.Integer
 import java.util.concurrent.TimeUnit
 
 import org.omg.oti.uml.read.api._
@@ -48,11 +49,10 @@ import scala.language.existentials
 import scala.{annotation,Boolean,Double,Int,Option,None,Some}
 import scala.concurrent.duration.Duration
 import scala.concurrent.duration.FiniteDuration
+import scala.{Long, StringContext}
 import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
-
-import java.lang.Integer
 
 import scalaz._, Scalaz._
 
