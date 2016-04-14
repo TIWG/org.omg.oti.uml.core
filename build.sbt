@@ -3,6 +3,7 @@ import sbt.Keys._
 import sbt._
 
 import gov.nasa.jpl.imce.sbt._
+import gov.nasa.jpl.imce.sbt.ProjectHelper._
 
 useGpg := true
 
@@ -85,6 +86,15 @@ lazy val core = Project("oti-uml-core", file("."))
        "https://cae-nexuspro.jpl.nasa.gov/nexus/service/local" -> "JPL"),
     IMCEKeys.pomRepositoryPathRegex := """\<repositoryPath\>\s*([^\"]*)\s*\<\/repositoryPath\>""".r
 
+  )
+  .dependsOnSourceProjectOrLibraryArtifacts(
+    "org-omg-oti-uml-json",
+    "org.omg.oti.uml.json",
+    Seq(
+      "org.omg.tiwg" %% "org-omg-oti-uml-json"
+        % Versions_oti_uml_json.version % "compile" withSources() withJavadoc() artifacts
+        Artifact("org-omg-oti-uml-json", "zip", "zip", Some("resource"), Seq(), None, Map())
+    )
   )
 
 def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = None): Seq[Setting[_]] = {
