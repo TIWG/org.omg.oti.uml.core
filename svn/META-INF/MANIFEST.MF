@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OMG Tool-neutral Interface (OTI) API for OMG UML 2.5-compatible modeling tools
+Bundle-SymbolicName: org.omg.oti;singleton:=true
+Bundle-Version: 0.19.0.qualifier
+Bundle-ClassPath: .
+Export-Package: org.omg.oti.uml,
+ org.omg.oti.uml.characteristics,
+ org.omg.oti.uml.read,
+ org.omg.oti.uml.read.api,
+ org.omg.oti.uml.read.operations,
+ org.omg.oti.uml.util,
+ org.omg.oti.uml.validation,
+ org.omg.oti.uml.write,
+ org.omg.oti.uml.write.api,
+ org.omg.oti.uml.xmi,
+ sext
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.omg.oti.uml.third_party_libraries;bundle-version="1.0.0";visibility:=reexport

@@ -1,0 +1,369 @@
+Version 0.12.0 May 6, 2015
+Reverting the type of UMLElementOps:id from Option[String] to String: this information must be provided by the UML implementation.
+Updates to the canonicalXMI serialization -- See TIWG-23, TIWG-4, TIWG-6
+Add metaclass-specific operations to support the composite structure analysis in the new 'org.omg.oti.trees' project.
+
+Version 0.11.0 May 04, 2015
+Rolled back to 729 before applying modification (the 730 had not finalized source code)
+Workaround implemented for TIWG-4 and TIWG-6 for UML::Profile and UML:Operation
+Workaround for dealing with package name duplication in UML2.5 (was resulting in ID duplication)
+
+Version 0.10.18 April 28, 2015 
+Improvement of error messages in case of unresolved references
+Adds a feature for serializing only one 1st level package at a time (normative file generation)
+
+Version 0.10.17 April 27, 2015 
+Minor adjustments:
+DocumentSet.scala -> fixes exception in case of unresolved (and not ignored) elements
+IDGenerator -> adds a generic method to list all computed IDs to the console
+
+Version 0.10.16 April 22, 2015
+Fixes issues:
+TIWG-5: closing tag indentation
+TIWG-22: Serialized files are not UTF-8 encoded
++ Improves the fix provided for TIWG-3 so that it applies to any tag value which are references to elements
+
+Version 0.10.15 April 20, 2015
+Fixes issues:
+TIWG-3: serialization of base_xxx properties
+TIWG-18: base_xxx properties are serialized twice
+TIWG-5: closing tag indentation
+
+Version 0.10.14 April 16, 2015
+Fixes issue with ordering of serialized tag values.
+Fixes:
+TIWG-15: Some of the rules for ID computation are not located in the IDGenerator class 
+TIWG-16: ID and UUID computation rules can be improved
+TIWG-17: ID and UUID should have the same type
+
+Known issue: extra tag value(s) generated in case of the OTI profile: to be investigated
+
+Version 0.10.13 April 16, 2015
+Fixes TIWG-3: the serialization of tag values is now delegated to ValueSpecification wrappers. Tag values which are references (i.e. "ElementValue") are now properly serialized assuming the tool specific implementation of "ElementValue":
+* redefines UMLValueSpecificationOps::stringValue so that it returns None
+* redefines UMLValueSpecificationOps::serializeAsRef so that it returns the xmi:id of the referenced element
+
+Version 0.10.12 April 15, 2015
+First step for fixing TIWG-3: the serialization of tag values is now delegated to ValueSpecification wrappers. 
+Remaining issue: the tag value which are references (i.e. "ElementValue") are not yet serialized
+Version 0.10.11 April 13, 2015 
+Adding fix for TIWG-13: ID computation algorithm shall not look over a specification root
+
+Version 0.10.11 April 13, 2015
+Adds a fix for TIWG-13: ID computation algorithm shall not look over a specification root
+
+Version 0.10.10 April 04, 2015
+ID generation algorithm was modified:
+* to avoid referring to UMLElement.id and to call getXMI_ID() directly (TIWG-8)
+* to fix the duplication of the target's root package name in the ID of DirectedRelationships 
+
+Version 0.10.9 April 03, 2015
+Adds a checkID(): Boolean operation to the IDGenerator class to check unicity of generated IDs and point out failures in ID computation if any registered.
+Adds a toWrappedObjectString : String operation to the UMLElementOps trait, defined with "???". Required to be implemented if checkID is used.
+
+Version 0.10.8 March 31, 2015
+
+Fixed the logic for serializing composite properties: 
+given a list of composite properties, if an owned element is the value of 2 composite properties p1, p2
+and p1 is before p2, then the owned element is serialized as the value of p2, not p1.
+
+Version 0.10.7 March 30, 2015
+
+Package.URI is serialized using Package.getEffectiveURI
+
+Version 0.10.6 March 28, 2015
+
+Updated ID generator (see the SVN history for changes)
+
+Version 0.10.5 March 25, 2015
+
+reference properties should not include opposites of composite properties
+Fix cases where the wrong subsetted property was chosen as a value in the tool neutral API
+Non derived composite properties that subset other non derived composite properties are serialized in XMI as attributes rather than nested elements.
+SysML 1.4
+
+Version 0.10.3 March 22, 2015
+
+SysML 1.4
+
+Version 0.10.2 March 4, 2015
+
+Comment out System.out.println statements in UMLPropertyOps.isLogicallyNavigable
+
+Version 0.10.1 March 4, 2015
+
+- new query: getGeneralStereotypes(UMLStereotype)
+- new query: getGeneralStereotypesOutsideProfile(UMLStereotype)
+- new query: getGeneralStereotypesWithinProfile(UMLStereotype)
+- new query: getAllGeneralStereotypes(UMLStereotype)
+- new query: getAllGeneralStereotypesWithinProfile(UMLStereotype)
+- new query: getGeneralStereotypesFromOtherProfiles(UMLStereotype)
+- new query: UMLElement.getAppliedStereotypesWithoutMetaclassProperties
+
+Version 0.10.0 March 4, 2015
+
+Full code generation.
+
+Version 0.9.7 February 27, 2015
+
+- new query: UMLNamespace.allNamespacesWithinScope(): Set[UMLNamespace]
+- new query: UMLNamespace.forwardReferencesToNamespaces(): Try[Set[UMLNamespace]]
+- new query: UMLNamespace.forwardReferencesBeyondNamespaceScope(): Try[Set[RelationTriple]]]
+- new query: UMLPackage.allPackagesWithinScope(): Set[UMLPackage]
+
+Version 0.9.6 February 26, 2015
+
+- new query: getPackageOrProfileOwner(UMLElement): Option[UMLPackage]
+- new query: UMLPackage.forwardReferencesBeyondPackageScope(): Try[Set[RelationTriple]]
+- new query: UMLPackage.forwardReferencesToPackagesOrProfiles(): Try[Set[UMLPackage]]
+
+- refactored UMLElementOps (see oti.package)
+
+Version 0.9.5 February 25, 2015
+
+- Exported OMG SysML 1.4
+
+Version 0.9.4 February 24, 2015
+
+- complete for clean compilation (with oti.magicdraw); however, some derivations are incompletely defined
+  (search for "= ???" in *Ops.scala)
+ 
+Version 0.9.3: February 22, 2015
+
+- Use the Acceleo-generated classes for all of UML.
+  Note: there are problems with Acceleo templates & protected guards -- don't re-generate/overwrite!  
+
+Version 0.9.2: February 21, 2015
+
+- Fix missing generalizations found in the OMG SYsML 1.4 profile.
+  (incorrect aggregation of ref / comp meta-properties)
+
+Version 0.9.1: February 17, 2015
+
+- Fix for the Canonical XMI serialization of XMIAttributes (i.e. no 2h from MOF/XMI)
+
+Version 0.9.0: February 17, 2015
+
+- Major refactoring of the xmi:ID generation / serialization framework.
+  See org.omg.oti.canonicalXMI.{Document, DocumentSet, ResolvedDocumentSet, IDGenerator}
+  
+- re-generated OMG SysML 1.4 (20150217) -- the validation & generation workflows are explicitly represented in UML.
+  (See the 'checks' and 'workflow' diagrams in the MD file)
+   
+- Captured the restrictions on the use of UML PackageImport & ProfileApplication.
+  (see org.omg.oti.validation.UMLPackageableElementRules)
+  The restrictions capture the intent that, at least for OMG machine-readable XMI files, 
+  there is directly or indirectly a package import or profile application to account for 
+  all cross references among XMI documents.
+
+  Although these restrictions seem to go beyond the well-formedness constraints defined in UML 2.5 and/or MOF/XMI 2.5,
+  it is difficult to assess from the specifications alone whether they cover reasonable practical expectations when working
+  with multiple XMI documents (libraries, profiles, etc...) Surprisingly, these additional restrictions helped detect 
+  subtle errors in the MD 18.0SP2 model of OMG SysML 1.4 (see the 'checks' workflow in the MD model). 
+
+- known upcoming changes:
+
+  -- A MetaAttributeAbstractFunction for properties typed by enumerations.
+  -- Change the API for stereotype tag values to be UML-neutral
+     There are 4 kinds of possible values for a stereotype tag property value:
+     --- the string representation for the value of a primitive type
+     --- the string representation for the value of an enumeration
+     --- a reference to a UML Element (i.e., the stereotype property is typed by a UML metaclass)
+     --- an object that is the value of a stereotype property typed by a profile-defined classifier (not a stereotype, not an extension, not a primitive type)
+  -- Change the XMI serialization from XMI attributes to nested XMI elements for all properties per the Canonical XMI Spec
+   
+     Canonical XMI:
+     2d:XMIAttributes      ::=  (2e:IdentityAttribs)?
+                                (2g:TypeAttrib)
+     
+     MOF/XMI 2.5:                             
+     2d:XMIAttributes      ::=  (1e:Namespaces)?
+                                (2e:IdentityAttribs)?
+                                (2g:TypeAttrib)
+                                (2h:FeatureAttrib)*
+                                
+     The current OTI Canonical XMI serializer uses 2h, which is non-compliant with Canonical XMI (ptc/2013-08-31)
+  
+Version 0.8.0: February 11, 2015
+
+- update for publishing OMG SysML 1.4 (20150211)
+
+- set xmi:uuid to "org.omg." + xmi:id (this is to ensure that we can generate OTI models with consistent xmi:uuid across different tools -- e.g. MagicDraw, Papyrus, ...)
+- change UMLElementOps.mofMetaclass: UMLClass[Uml] to UMLElementOps.mofMetaclassName: String
+
+- DocumentSet API: separate the documentURIMapper from the tool-specific builtInURIMapper
+
+Version 0.7.2: February 9, 2015
+
+- Support for Nerijus' 6 questions about accessibility rules for types that a tool should present to a user.
+  (the accessibility rules in OTI are a restricted clarification of the UML 2.5 Namespace import / visibility rules)
+   
+Version 0.7.1: February 9, 2015
+
+- Clarification about the semantics of UML package importation rules:
+  See UMLNamespaceOps.{visibleMembers, allVisibleMembers}
+   
+- Instead of fancy "// [protected ...]" and "// [/protected]" markers to protect regions from code generation,
+  use different traits to separate generated code that has no protected regions (e.g., UMLElement.scala, UMLNamespace.scala, UMLPackage.scala) 
+  vs. non-generated code that has no generated regions (e.g., UMLElementOps.scala, UMLNamespaceOps.scala, UMLPackageOps.scala)
+  
+Version 0.7.0: February 8, 2015
+
+- trampolined-serializer
+- TIWG-restrictions on Canonical XMI ordering & identification
+- serialize applied stereotype instances
+
+Version 0.6.4: February 2, 2015
+
+.classpath
+
+Version 0.6.3: February 2, 2015
+
+Update for applied stereotype tag/values
+
+Version 0.6.2: February 2, 2015
+
+Fixes for problems (1) and (2) in 0.6.1
+
+Version 0.6.1: February 2, 2015
+
+- working reflective serializer
+
+Known problems: 
+
+1) some attributes are serialized in the wrong order
+
+wrong:
+
+    <association xmi:id="_QUDV_-A_unitFactor_unit" xmi:uuid="2e341130-f070-48ea-8629-2f82acb02663" xmi:type="uml:Association" name="A_unitFactor_unit">
+      <property 
+        association="_QUDV_-A_unitFactor_unit" 
+        type="_QUDV_-UnitFactor" 
+        xmi:id="_QUDV_-A_unitFactor_unit-unitFactor" 
+        xmi:uuid="29811f55-8faa-4a5d-a993-16ac89abdae5" 
+        xmi:type="uml:Property" 
+        name="unitFactor" 
+        isOrdered="false" 
+        isUnique="true">
+      </property>
+    </association>
+
+should be:
+
+
+    <association xmi:id="_QUDV_-A_unitFactor_unit" xmi:uuid="2e341130-f070-48ea-8629-2f82acb02663" xmi:type="uml:Association" name="A_unitFactor_unit">
+      <property 
+        xmi:id="_QUDV_-A_unitFactor_unit-unitFactor" 
+        xmi:uuid="29811f55-8faa-4a5d-a993-16ac89abdae5" 
+        xmi:type="uml:Property" 
+        name="unitFactor" 
+        isOrdered="false" 
+        isUnique="true" 
+        type="_QUDV_-UnitFactor" 
+        association="_QUDV_-A_unitFactor_unit">
+      </property>
+    </association>
+
+2) the composite & reference MetaProperties have duplicates
+
+UMLProperty:
+
+  def property_referenceMetaProperties: MetaPropertyFunctions =
+    connectableElement_referenceMetaProperties ++
+    structuralFeature_referenceMetaProperties ++ ...
+    
+UMLConnectableElement:
+
+  def connectableElement_referenceMetaProperties: MetaPropertyFunctions =
+    typedElement_referenceMetaProperties
+
+UMLStructuralFeature:
+
+  def structuralFeature_referenceMetaProperties: MetaPropertyFunctions =
+    feature_referenceMetaProperties ++
+      multiplicityElement_referenceMetaProperties ++
+      typedElement_referenceMetaProperties    
+
+This results in duplicates in the serialization, e.g.:
+    
+</association>
+    <dataType xmi:id="_QUDV_-Rational" xmi:uuid="4e8b9de6-4171-4b2f-899f-5d04bda414fe" xmi:type="uml:DataType" name="Rational">
+      <property xmi:id="_QUDV_-Rational-numerator" xmi:uuid="c5132f22-3167-49a7-83eb-16d58020e1ab" xmi:type="uml:Property" name="numerator" isOrdered="false" isUnique="true">
+        <type href="http://www.omg.org/spec/SysML/20150301/SysML#_SysML_-Libraries-PrimitiveValueTypes-Integer"></type>
+        <type href="http://www.omg.org/spec/SysML/20150301/SysML#_SysML_-Libraries-PrimitiveValueTypes-Integer"></type>
+      </property>
+      ...
+          
+Version 0.6.0: February 1, 2015
+
+- reflective serializer (DocumentSet)
+
+Version 0.5.2: January 31, 2015
+
+- meta attributes
+
+Version 0.5.1: January 31, 2015
+
+- Naming convention subtleties
+
+Element.mofMetaclass
+Extension.metaclass
+
+Profile.profileApplications_appliedProfile
+Package.appliedProfile
+
+Property.association_navigableOwnedEnd
+Property.association_memberEnd
+
+Version 0.5.0: January 31, 2015
+
+- naming convention for names of association member end properties:
+
+-- singular if multiplicity is 0..1 or 1; plural otherwise
+-- for the name of an opposite association member end property (regardless of navigability):
+--- use the (opposite association member end) property name (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property type name>" (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property name>" (if unambiguous)
+--- use the property name suffixed with "_<opposite member end property type name>_<opposite member end property name>" (if unambiguous)
+
+- add support for serializing non-derived composite & reference properties
+-- UMLElement.{composite,reference}MetaProperties
+-- every metaclass defines: <metaclass name>_{composite,reference}MetaProperties to include the superclasses' meta-properties before the metaclass' properties
+   (see OMG Canonical XMI ordering rules)
+-- every concrete metaclass defines:
+
+override def {composite,reference}MetaProperties: MetaPropertyFunctions = <metaclass name>_{composite,reference}MetaProperties
+
+- added several data attributes
+
+Version 0.4: January 29, 2015
+
+- OTI::SpecificationRoot::packageURI
+- OTI::ID
+- OTI::ID::uuid
+- Cannonical XMI DocmentSet writer
+
+Version 0.3: January 29, 2015
+
+- Added UMLModel
+- forwardReferencesFromMetamodelAssociations
+
+Align the criteria used to the OMG MOF/XMI spec, that is
+directed, non-composite, non-derived properties
+
+- simplified the canonicalXMI.Document/DocumentSet model
+
+Simplification allows decoupling the modeling of Documents from 
+the analysis of element-level and document-level cross-references
+
+Version 0.2: January 29, 2015
+
+Add support for calculating the forward references from an Element.
+
+This is needed to serialize OTI models into OMG Canonical XMI documents since the serialization of a local element reference
+is different from that of an external element reference (see "Linking" in the OMG MOF/XMI spec)
+
+Version 0.1: January 28, 2015
+
+Added SBT configuration.
+Added org.omg.oti.canonicalXMI based on TIWG teleconference call discussions to avoid having to write tool-specific => tool-infrastructure save converters (XSL, ...)
