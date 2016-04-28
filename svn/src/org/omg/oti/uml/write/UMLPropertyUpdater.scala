@@ -224,7 +224,7 @@ extends UMLAttributeUpdater[Uml] {
             Seq(owner, owned))).left
         else {          
           val (left, right) = composed.splitAt(index)
-          val updated = left ::: right.drop(1)
+          val updated = left ++ right.drop(1)
           setLinks(owner, updated)
         }
       }
@@ -278,7 +278,7 @@ extends UMLAttributeUpdater[Uml] {
             Seq(owner, owned))).left
         else {          
           val (left, right) = composed.splitAt(index)
-          val updated = left ::: right.drop(1)
+          val updated = left ++ right.drop(1)
           setLinks(owner, updated)
         }
       }
@@ -333,7 +333,7 @@ extends UMLAttributeUpdater[Uml] {
             Seq(owner, owned))).left
         else {          
           val (left, right) = composed.splitAt(index)
-          val updated = left ::: right.drop(1)
+          val updated = left ++ right.drop(1)
           setLinks(owner, updated)
         }
       }

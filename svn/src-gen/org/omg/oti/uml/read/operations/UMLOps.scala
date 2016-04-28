@@ -43,13 +43,13 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 
+import org.omg.oti.json.common.OTIPrimitiveTypes._
 import org.omg.oti.uml._
-import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
 import scala.reflect.{classTag}
-import scala.{annotation,Boolean,Double,Int,Option,None,PartialFunction,Some,Tuple3}
+import scala.{annotation,AnyVal,Boolean,Double,Int,Option,None,PartialFunction,Some,Tuple3}
 import scala.Option
 import scala.Predef.{Set => _,_}
 import scala.collection.immutable._
@@ -6917,6 +6917,15 @@ import Option._
   }
 
   implicit def filterable[U](s: Stream[U]): FilterableUMLStream[U] = new FilterableUMLStream(s)
+
+  class FilterableUMLVector[U]( s: Vector[U]) {
+
+    def selectByKindOf[V <: UMLElement[Uml]](pf: PartialFunction[U, V]): Vector[V] =
+      s.flatMap { u => if (pf.isDefinedAt(u)) Some(pf(u)) else None }
+
+  }
+
+  implicit def filterable[U](s: Vector[U]): FilterableUMLVector[U] = new FilterableUMLVector(s)
 
   val cache = scala.collection.mutable.WeakHashMap[Uml#Element, UMLElement[Uml]]()
 

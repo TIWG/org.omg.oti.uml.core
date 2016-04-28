@@ -43,17 +43,20 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 
+import org.omg.oti.json.common.OTIPrimitiveTypes._
+import org.omg.oti.json.common.{OTIArtifactKind, OTISpecificationRootCharacteristics}
 import org.omg.oti.uml._
-import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
+
 import scala.language.postfixOps
-import scala.{annotation,Boolean,Option, None, Some}
-import scala.Predef.{Set => _, Map => _,_}
+import scala.{Boolean, None, Option, Some, annotation}
+import scala.Predef.{Map => _, Set => _, _}
 import scala.collection.immutable._
 import scala.collection.Iterable
-import scalaz._, Scalaz._
+import scalaz._
+import Scalaz._
 
 // End of user code
 
@@ -566,7 +569,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
   (implicit idg: IDGenerator[Uml])
   : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] = {
 
-    val scope = self.allOwnedElementsWithinPackageScope
+    val scope = self.allOwnedElements
 
     val visited = scala.collection.mutable.HashSet[UMLElement[Uml]]( self )
 
@@ -578,13 +581,13 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         acc.right
       else {
         val (th, tr: Set[RelationTriple[Uml]]) = (triples.head, triples.tail)
-        if (visited.contains(th.obj))
+        val ref = th.obj
+        if (visited.contains(ref))
           followReferencesUntilPackageScopeBoundary(acc, tr)
         else {
-          visited += th.sub;
-          ()
-          if (scope.contains(th.obj))
-            th.obj.forwardRelationTriples.flatMap {
+          visited += ref
+          if (scope.contains(ref))
+            ref.forwardRelationTriples.flatMap {
               nextTriples: Set[RelationTriple[Uml]] =>
                 followReferencesUntilPackageScopeBoundary(acc, nextTriples ++ tr)
             }

@@ -42,8 +42,8 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+import org.omg.oti.json.common.OTIPrimitiveTypes._
 import org.omg.oti.uml._
-import org.omg.oti.uml.OTIPrimitiveTypes._
 import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read._
 import org.omg.oti.uml.read.api._
@@ -161,8 +161,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   @annotation.tailrec final def getPackageOwnerWithEffectiveURI
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : Set[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
-    self match {
+  : Set[java.lang.Throwable] \/ Option[UMLPackage[Uml]]
+  = self match {
       case p: UMLPackage[Uml] if p.getEffectiveURI.isDefined =>
         p.some.right
       case _ => owner match {
@@ -258,8 +258,9 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * The element itself (if it is a kind of namespace)
    * or the first owner of the element that is a kind of namespace.
    */
-  @annotation.tailrec final def owningNamespace: Option[UMLNamespace[Uml]] =
-    self match {
+  @annotation.tailrec final def owningNamespace
+  : Option[UMLNamespace[Uml]]
+  = self match {
     case ns: UMLNamespace[Uml] =>
       Some(ns)
     case e: UMLElement[Uml] => e.owner match {
@@ -268,6 +269,21 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
       case Some(o) =>
         o.owningNamespace
     }
+  }
+
+  @annotation.tailrec
+  final def owningPackages
+  : Set[UMLPackage[Uml]]
+  = self match {
+    case ne: UMLNamedElement[Uml] =>
+      ne.allOwningPackages
+    case _ =>
+      owner match {
+        case None =>
+          Set.empty[UMLPackage[Uml]]
+        case Some(o) =>
+          o.owningPackages
+      }
   }
 
   /**
@@ -285,28 +301,28 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]
   = asForwardReferencesToOwningElementImportableOuterPackageableElements
 
-  val id_metaDocumentAttributeFunction =
-      MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
-        Some("xmi"), "id",
-        (e, otiCharacteristicsProvider) => {
-          val _id = e.toolSpecific_id.to[Iterable]
-          _id.map { id => Tag.unwrap(id) }.right
-        })
+  val id_metaDocumentAttributeFunction
+  = MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
+    Some("xmi"), "id",
+    (e, otiCharacteristicsProvider) => {
+      Iterable(Tag.unwrap(e.toolSpecific_id)).right
+    })
         
-  val uuid_metaDocumentAttributeFunction =
-     MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
-        Some("xmi"), "uuid",
-        (e, otiCharacteristicsProvider) => {
-          val _uuid = e.toolSpecific_uuid.to[Iterable]
-          _uuid.map { uuid => Tag.unwrap(uuid) }.right
-        })
+  val uuid_metaDocumentAttributeFunction
+  = MetaDocumentAttributeStringFunction[Uml, UMLElement[Uml]](
+    Some("xmi"), "uuid",
+    (e, otiCharacteristicsProvider) => {
+      val _uuid = e.toolSpecific_uuid.to[Iterable]
+      _uuid.map { uuid => Tag.unwrap(uuid) }.right
+    })
         
-  val type_metaAttributeFunction =
-     MetaAttributeStringFunction[Uml, UMLElement[Uml]](
-        Some("xmi"), "type", _.xmiType.right)
+  val type_metaAttributeFunction
+  = MetaAttributeStringFunction[Uml, UMLElement[Uml]](
+    Some("xmi"), "type", _.xmiType.right)
         
-  def mofXMI_metaAtttributes: MetaAttributeFunctions =
-    Seq(id_metaDocumentAttributeFunction, uuid_metaDocumentAttributeFunction, type_metaAttributeFunction)
+  def mofXMI_metaAtttributes
+  : MetaAttributeFunctions
+  = Seq(id_metaDocumentAttributeFunction, uuid_metaDocumentAttributeFunction, type_metaAttributeFunction)
 
   type MetaAttributeFunction = MetaAttributeAbstractFunction[Uml, _ <: UMLElement[Uml], _]
 
@@ -333,8 +349,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return
    */
   def forwardRelationTriples()
-  : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
-  {
+  : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]]
+  = {
 
     def addEvaluatedTriples
     (acc: Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]],
@@ -363,11 +379,15 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     accN
   }
 
-  def appendUnique[F](s1: Seq[F], s2: Seq[F]): Seq[F] =
-    s1 ++ (s2 filter (!s1.contains(_)))
+  def appendUnique[F]
+  (s1: Seq[F], s2: Seq[F])
+  : Seq[F]
+  = s1 ++ (s2 filter (!s1.contains(_)))
 
-  def appendUnique[F](ss: Seq[F]*): Seq[F] =
-    ss.toList match {
+  def appendUnique[F]
+  (ss: Seq[F]*)
+  : Seq[F]
+  = ss.toList match {
       case Nil => Seq()
       case (s :: Nil) => s
       case (s1 :: s2 :: Nil) => appendUnique(s1, s2)
@@ -476,8 +496,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The String values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyStringValues(tagProperty: UMLProperty[Uml])
-  : Set[java.lang.Throwable] \/ Iterable[String] =
-    lookupTagValueByProperty(tagProperty)
+  : Set[java.lang.Throwable] \/ Iterable[String]
+  = lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
         None
@@ -501,8 +521,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The EnumerationLiteral values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyEnumValues(tagProperty: UMLProperty[Uml])
-  : Set[java.lang.Throwable] \/ Iterable[UMLEnumerationLiteral[Uml]] =
-    lookupTagValueByProperty(tagProperty)
+  : Set[java.lang.Throwable] \/ Iterable[UMLEnumerationLiteral[Uml]]
+  = lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
         None
@@ -526,8 +546,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return The InstanceSpecification values, if any, of the tagProperty.
    */
   def getStereotypeTagPropertyInstanceValues(tagProperty: UMLProperty[Uml])
-  : Set[java.lang.Throwable] \/ Iterable[UMLInstanceSpecification[Uml]] =
-    lookupTagValueByProperty(tagProperty)
+  : Set[java.lang.Throwable] \/ Iterable[UMLInstanceSpecification[Uml]]
+  = lookupTagValueByProperty(tagProperty)
     .map {
       case None =>
         None
@@ -554,8 +574,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def oti_xmiID
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID] =
-    otiCharacteristicsProvider.xmiID(self)
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID]
+  = otiCharacteristicsProvider.xmiID(self)
 
   /**
    * Returns the value of the OTI::Identity::xmiUUID tag property on the element, if any. 
@@ -565,8 +585,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def oti_xmiUUID
   ()
   (implicit otiCharacteristicsProvider: OTICharacteristicsProvider[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID] =
-    otiCharacteristicsProvider.xmiUUID(self)
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
+  = otiCharacteristicsProvider.xmiUUID(self)
 
   /**
    * @see OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, id
@@ -592,8 +612,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *         Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
    */
   def xmiID()(implicit idg: IDGenerator[Uml])
-  : Set[java.lang.Throwable] \/ (String @@ OTI_ID) =
-    oti_xmiID()(idg.otiCharacteristicsProvider)
+  : Set[java.lang.Throwable] \/ (String @@ OTI_ID)
+  = oti_xmiID()(idg.otiCharacteristicsProvider)
     .flatMap {
       _id: Option[String @@ OTI_ID] =>
       _id
@@ -649,16 +669,19 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
     uuid <- xmiUUID
   } yield xmiElementLabel + uuid
 
-  def xmiType: Iterable[String] =
-    Iterable("uml:" + mofMetaclassName)
+  def xmiType
+  : Iterable[String]
+  = Iterable("uml:" + mofMetaclassName)
 
   /**
    * All the non-package elements directly or indirectly owned by a package scope.
    */
   def allOwnedElementsWithinPackageScope: Set[UMLElement[Uml]] = {
 
-    def directlyOwnedElementFilter(owned: UMLElement[Uml]): Boolean =
-      owned match {
+    def directlyOwnedElementFilter
+    (owned: UMLElement[Uml])
+    : Boolean
+    = owned match {
         case _: UMLPackage[Uml] => false
         case _: UMLElementImport[Uml] => false
         case _: UMLPackageImport[Uml] => false
@@ -668,23 +691,26 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
     @annotation.tailrec def allOwnedElementsWithinPackageScopeAggregator
     ( acc: Set[UMLElement[Uml]],
-      es: List[UMLElement[Uml]])
-    : Set[UMLElement[Uml]] = es match {
-      case Nil => acc
-      case x :: xs =>
-        x match {
-          case p: UMLPackage[Uml] =>
-            val pOwned = p.ownedElement.filter(directlyOwnedElementFilter).toList
-            allOwnedElementsWithinPackageScopeAggregator(acc, pOwned ::: xs)
-          case e if directlyOwnedElementFilter(e) =>
-            val eOwned = e.ownedElement.filter(directlyOwnedElementFilter).toList
-            allOwnedElementsWithinPackageScopeAggregator(acc + e, eOwned ::: xs)
-          case _ =>
-            allOwnedElementsWithinPackageScopeAggregator(acc, xs)
-        }
+      es: Vector[UMLElement[Uml]])
+    : Set[UMLElement[Uml]]
+    = if (es.isEmpty)
+      acc
+    else {
+      val x = es.head
+      val xs = es.tail
+      x match {
+        case p: UMLPackage[Uml] =>
+          val pOwned = p.ownedElement.filter(directlyOwnedElementFilter).to[Vector]
+          allOwnedElementsWithinPackageScopeAggregator(acc, pOwned ++ xs)
+        case e if directlyOwnedElementFilter(e) =>
+          val eOwned = e.ownedElement.filter(directlyOwnedElementFilter).to[Vector]
+          allOwnedElementsWithinPackageScopeAggregator(acc + e, eOwned ++ xs)
+        case _ =>
+          allOwnedElementsWithinPackageScopeAggregator(acc, xs)
+      }
     }
 
-    allOwnedElementsWithinPackageScopeAggregator(Set(), List(this)) - this
+    allOwnedElementsWithinPackageScopeAggregator(Set(), Vector(this)) - this
   }
 
   /**
@@ -850,8 +876,8 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   def getElementMetamodelPropertyValue
   (f: MetaPropertyEvaluator)
   (implicit idg: IDGenerator[Uml])
-  : Set[java.lang.Throwable] \/ Iterable[UMLElement[Uml]] =
-    f match {
+  : Set[java.lang.Throwable] \/ Iterable[UMLElement[Uml]]
+  = f match {
       case rf: MetaReferenceEvaluator =>
         for {v <- rf.evaluate(self)}
           yield v
@@ -873,14 +899,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
   : Set[java.lang.Throwable] \/ (String @@ OTI_UUID)
   = idg.computeSingleElementXMI_UUID(self)
 
-  /* 
+  /**
    * Every UML Element must have a tool-specific "xmi:id" identifier of some kind.
    * This "xmi:id" is a local with respect to the "XMI" document in which the UML Element is serialized.
    *
    * @return the tool-specific "xmi:id" identifier for the UML Element.
    * @throws java.lang.IllegalArgumentException if there is no tool-specific "xmi:id" available.
    */
-  def toolSpecific_id: Option[String @@ OTI_ID]
+  def toolSpecific_id: String @@ TOOL_SPECIFIC_ID
 
   /**
    * Every UML Element should have a tool-specific "xmi:uuid" identifier of some kind.
@@ -888,24 +914,14 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    *
    * @return the tool-specific "xmi:uuid" global identifier for the UML Element, if any.
    */
-  def toolSpecific_uuid: Option[String @@ OTI_UUID]
+  def toolSpecific_uuid: Option[String @@ TOOL_SPECIFIC_UUID]
 
-  def toolSpecific_id_uuid
-  : Set[java.lang.Throwable] \/ OTI_ID_UUID =
-    toolSpecific_id.fold[Set[java.lang.Throwable] \/ OTI_ID_UUID](
-      toolSpecific_uuid.fold[Set[java.lang.Throwable] \/ OTI_ID_UUID](
-        Set(
-          UMLError.illegalElementError[Uml, UMLElement[Uml]](
-          "A UMLElement must have either an OTI toolSpecific_id or an OTI toolSpecific_uuid",
-          Iterable(self)
-          )
-        ).left
-      ) { uuid =>
-        \&/.That(uuid).right
-      }
-    ){ id =>
-      \&/.This(id).right
-    }
+  /**
+    * Every UML Element should have a tool-specific external location of some kind
+    *
+    * @return the tool-specific "URL" for the UML Element.
+    */
+  def toolSpecific_url: String @@ TOOL_SPECIFIC_URL
 
   def hasStereotype(s: UMLStereotype[Uml])
   : Set[java.lang.Throwable] \/ Boolean
@@ -914,13 +930,13 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
    * @return A map for each applied stereotype (key) and the corresponding "base_<metaclass>" property
    */
   final def getAppliedStereotypes
-  : Set[java.lang.Throwable] \/ Map[UMLStereotype[Uml], UMLProperty[Uml]] =
-  tagValues
-  .map { stvs =>
-    (for {
-      tagValue <- stvs
-    } yield tagValue.appliedStereotype -> tagValue.stereotypeTagProperty) toMap
-  }
+  : Set[java.lang.Throwable] \/ Map[UMLStereotype[Uml], UMLProperty[Uml]]
+  = tagValues
+    .map { stvs =>
+      (for {
+        tagValue <- stvs
+      } yield tagValue.appliedStereotype -> tagValue.stereotypeTagProperty) toMap
+    }
 
   /**
    * Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.
@@ -933,8 +949,10 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
 
   def toWrappedObjectString: String = {
 
-    @annotation.tailrec def describe(context: Option[UMLElement[Uml]], path: Seq[String]): String =
-      context match {
+    @annotation.tailrec def describe
+    (context: Option[UMLElement[Uml]], path: Seq[String])
+    : String
+    = context match {
         case None =>
 
           def prefixStream(prefix: String): Stream[String] = prefix #:: prefixStream(prefix + "  ")
@@ -947,7 +965,7 @@ trait UMLElementOps[Uml <: UML] { self: UMLElement[Uml] =>
           result.result()
 
         case Some(e) =>
-          describe(e.owner, path :+ (e.xmiType.head + " {tool id=" + e.toolSpecific_id.get + "}"))
+          describe(e.owner, path :+ (e.xmiType.head + " {tool id=" + Tag.unwrap(e.toolSpecific_id) + "}"))
       }
 
     describe(Some(this), Seq())

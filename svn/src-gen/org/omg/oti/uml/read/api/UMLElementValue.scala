@@ -42,6 +42,9 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
+import org.omg.oti.uml.read.operations.UMLElementValueOps
+import scala.collection.immutable._
+import scala.Option
 // End of user code
 
 
@@ -56,6 +59,7 @@ trait UMLElementValue[Uml <: UML]
   with UMLElementValueOps[Uml] {
 
   // Start of user code for class imports
+  import ops._
   // End of user code
 
   /**

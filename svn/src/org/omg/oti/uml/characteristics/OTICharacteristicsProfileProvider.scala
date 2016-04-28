@@ -38,7 +38,8 @@
  */
 package org.omg.oti.uml.characteristics
 
-import org.omg.oti.uml.OTIPrimitiveTypes._
+import org.omg.oti.json.common._
+import org.omg.oti.json.common.OTIPrimitiveTypes._
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
@@ -100,8 +101,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
   (self: UMLPackage[Uml],
    pf: UMLPackage[Uml] => \/[Set[java.lang.Throwable], Option[V]],
    cf: UMLComment[Uml] => \/[Set[java.lang.Throwable], Option[V]])
-  : Set[java.lang.Throwable] \/ Option[V] =
-    otiCharacterizations.getOrElse(Map.empty[UMLPackage[Uml], UMLComment[Uml]])
+  : Set[java.lang.Throwable] \/ Option[V]
+  = otiCharacterizations.getOrElse(Map.empty[UMLPackage[Uml], UMLComment[Uml]])
     .get(self)
     .fold[Set[java.lang.Throwable] \/ Option[V]](
       getSpecificationRootAnnotatingComment(self)
@@ -147,8 +148,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     */
   def getSpecificationRootCharacterizedPackage
   ( self: UMLComment[Uml] )
-  : Set[java.lang.Throwable] \/ Option[UMLPackage[Uml]] =
-    OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
+  : Set[java.lang.Throwable] \/ Option[UMLPackage[Uml]]
+  = OTI_SPECIFICATION_ROOT_CHARACTERIZATION_S
       .flatMap { s =>
         self.hasStereotype(s)
           .flatMap { isOTICharacterization =>
@@ -176,7 +177,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
     */
   def getSpecificationRootAnnotatingComment
   ( self: UMLPackage[Uml] )
-  : Set[java.lang.Throwable] \/ Option[UMLComment[Uml]] = {
+  : Set[java.lang.Throwable] \/ Option[UMLComment[Uml]]
+  = {
     val c0: Set[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
       Seq().right
     val cN: Set[java.lang.Throwable] \/ Seq[UMLComment[Uml]] =
@@ -200,8 +202,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def packageURI
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI] =
-    for {
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URI]
+  = for {
       oti_packageURI <- OTI_SPECIFICATION_ROOT_packageURI
       oti_ch_packageURI <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_packageURI
       result <- oti_attributeValue[String](
@@ -221,8 +223,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def documentURL
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL] =
-    for {
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_URL]
+  = for {
       oti_documentURL <- OTI_SPECIFICATION_ROOT_documentURL
       oti_ch_documentURL <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_documentURL
       result <- oti_attributeValue[String](
@@ -241,8 +243,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def nsPrefix
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX] =
-    for {
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_NS_PREFIX]
+  = for {
       oti_nsPrefix <- OTI_SPECIFICATION_ROOT_nsPrefix
       oti_ch_nsPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_nsPrefix
       result <- oti_attributeValue[String](
@@ -262,8 +264,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def uuidPrefix
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX] =
-    for {
+  : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID_PREFIX]
+  = for {
       oti_uuidPrefix <- OTI_SPECIFICATION_ROOT_uuidPrefix
       oti_ch_uuidPrefix <- OTI_SPECIFICATION_ROOT_CHARACTERIZATION_uuidPrefix
       result <- oti_attributeValue[String](
@@ -283,7 +285,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def artifactKind
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind] = {
+  : Set[java.lang.Throwable] \/ Option[OTIArtifactKind]
+  = {
     val kind: Set[java.lang.Throwable] \/ Option[UMLEnumerationLiteral[Uml]] =
       for {
         oti_artifactKind <- OTI_SPECIFICATION_ROOT_artifactKind
@@ -331,7 +334,8 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
 
   override def getSpecificationRootCharacteristics
   (self: UMLPackage[Uml])
-  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics] = {
+  : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
+  = {
     for {
       ouri <- packageURI(self)
       ourl <- documentURL(self)
@@ -340,7 +344,7 @@ trait OTICharacteristicsProfileProvider[Uml <: UML]
       ouuid <- uuidPrefix(self)
     } yield {
       val characteristics =
-        (ouri |@| ourl |@| okind |@| ons |@| ouuid) { OTISpecificationRootCharacteristics }
+        (ouri |@| ourl |@| okind |@| ons |@| ouuid) { OTISpecificationRootCharacteristics.apply }
       characteristics
     }
   }

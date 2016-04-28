@@ -38,8 +38,8 @@
  */
 package org.omg.oti.uml.xmi
 
+import org.omg.oti.json.common.OTISpecificationRootCharacteristics
 import org.omg.oti.uml.RelationTriple
-import org.omg.oti.uml.characteristics.OTISpecificationRootCharacteristics
 import org.omg.oti.uml.read.api.{UML, UMLElement, UMLPackage}
 import org.omg.oti.uml.read.operations.UMLOps
 

@@ -42,10 +42,13 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+import org.omg.oti.uml.read.api.{UML,UMLElementValue,UMLPackageableElement}
+import scala.collection.immutable.Set
+import scalaz._, Scalaz._
 // End of user code
 
 /**
-  * 
+  *
   *
   * <!-- Start of user code documentation -->
   * <!-- End of user code documentation -->
@@ -53,10 +56,22 @@ package org.omg.oti.uml.read.operations
 trait UMLElementValueOps[Uml <: UML] { self: UMLElementValue[Uml] =>
 
 // Start of user code for class imports
-  import self.ops._
 // End of user code
 
-
   // Start of user code for additional features
+
+  override def asForwardReferencesToImportableOuterPackageableElements
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]
+  = elementValue_asForwardReferencesToImportableOuterPackageableElements
+
+  def elementValue_asForwardReferencesToImportableOuterPackageableElements
+  : Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]
+  = element
+    .fold[Set[java.lang.Throwable] \/ Set[UMLPackageableElement[Uml]]](
+    Set[UMLPackageableElement[Uml]]().right
+  ) { e =>
+    e.asForwardReferencesToImportableOuterPackageableElements
+  }
+
   // End of user code
 } //UMLElementValueOps

@@ -42,6 +42,7 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
+import org.omg.oti.uml.read.api.{UML,UMLDiagram}
 // End of user code
 
 /**
@@ -53,7 +54,6 @@ package org.omg.oti.uml.read.operations
 trait UMLDiagramOps[Uml <: UML] { self: UMLDiagram[Uml] =>
 
 // Start of user code for class imports
-  import self.ops._
 // End of user code
 
 

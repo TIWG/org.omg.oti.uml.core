@@ -61,10 +61,8 @@ lazy val core = Project("oti-uml-core", file("."))
     organizationName := "JPL, Caltech, Airbus & Object Management Group",
     organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
-    scalaSource in Compile :=
-      baseDirectory.value / "svn" / "org.omg.oti" / "src",
-    unmanagedSourceDirectories in Compile +=
-      baseDirectory.value / "svn" / "org.omg.oti" / "src-gen",
+    scalaSource in Compile := baseDirectory.value / "svn" / "src",
+    unmanagedSourceDirectories in Compile += baseDirectory.value / "svn" / "src-gen",
 
     scalacOptions in(Compile, doc) ++= Seq(
       "-diagrams",
@@ -72,7 +70,7 @@ lazy val core = Project("oti-uml-core", file("."))
       "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
     ),
 
-    resourceDirectory in Compile := baseDirectory.value / "svn" / "org.omg.oti" / "resources",
+    resourceDirectory in Compile := baseDirectory.value / "svn" / "resources",
 
     extractArchives := {},
 
@@ -131,7 +129,7 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
       packageSrc in Test,
       packageDoc in Test) map {
       (base, bin, src, doc, binT, srcT, docT) =>
-        val dir = base / "svn" / "org.omg.oti"
+        val dir = base / "svn"
           (dir ** "*.md").pair(relativeTo(dir)) ++
           com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
           addIfExists(bin, "lib/" + bin.name) ++

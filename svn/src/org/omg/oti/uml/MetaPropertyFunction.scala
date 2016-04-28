@@ -45,7 +45,7 @@ import scala.reflect._
 import scala.language.existentials
 import scala.{annotation,Any,Boolean,Double,Int,Option,None,Some}
 import scala.Predef.{require,String}
-import scala.collection.immutable.{List,Nil,Seq,Set,Stream}
+import scala.collection.immutable.{Seq,Set,Stream,Vector}
 import scala.collection.Iterable
 import scala.StringContext
 import scalaz._, Scalaz._
@@ -289,18 +289,18 @@ case class MetaPropertyCollection[Uml <: UML, U <: UMLElement[Uml], V <: UMLElem
     }
 
   def evaluate(e: UMLElement[Uml])
-  : Set[java.lang.Throwable] \/ List[UMLElement[Uml]] = {
+  : Set[java.lang.Throwable] \/ Vector[UMLElement[Uml]] = {
     require(e != null)
     e match {
       case u: U =>
         val v = f(u)
         require(v != null)
         if (v.isEmpty)
-          List.empty[UMLElement[Uml]].right
+          Vector.empty[UMLElement[Uml]].right
         else if (isOrdered)
-          v.toList.right
+          v.to[Vector].right
         else
-          v.toList.right
+          v.to[Vector].right
       case _ =>
         -\/(
           Set(

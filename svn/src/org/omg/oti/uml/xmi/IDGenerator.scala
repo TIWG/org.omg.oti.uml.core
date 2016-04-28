@@ -39,7 +39,8 @@
 package org.omg.oti.uml.xmi
 
 import java.net.{MalformedURLException,URL}
-import org.omg.oti.uml.OTIPrimitiveTypes._
+
+import org.omg.oti.json.common.OTIPrimitiveTypes._
 import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
@@ -205,7 +206,10 @@ trait IDGenerator[Uml <: UML] {
 
 object IDGenerator {
   
-  def xmlSafeID( self: String ): String = self match {
+  def xmlSafeID
+  ( self: String )
+  : String
+  = self match {
     case null =>
       ""
     case s =>
@@ -848,8 +852,10 @@ object IDGenerator {
    * character as defined by production [4] in Namespaces in XML
    * recommendation.
    */
-  def isNCNameStart( c: Char ): Boolean =
-    c.toInt < 0x10000 &&
+  def isNCNameStart
+  ( c: Char )
+  : Boolean
+  = c.toInt < 0x10000 &&
     (CHARS(c.toInt) & MASK_NCNAME_START) != 0.toByte
 
   /**
@@ -858,14 +864,19 @@ object IDGenerator {
    * character as defined by production [5] in Namespaces in XML
    * recommendation.
    */
-  def isNCNamePart( c: Char ): Boolean =
-    c.toInt < 0x10000 &&
+  def isNCNamePart
+  ( c: Char )
+  : Boolean
+  = c.toInt < 0x10000 &&
     (CHARS(c.toInt) & MASK_NCNAME) != 0.toByte
 
   /**
    * @see org.eclipse.uml2.common.util.UML2Util.getValidNCName(String)
    */
-  def getValidNCName( name: String ): String = {
+  def getValidNCName
+  ( name: String )
+  : String
+  = {
     val buff = new StringBuffer()
     getValidNCName( name, buff )
     buff.toString
@@ -875,7 +886,10 @@ object IDGenerator {
    * @see org.eclipse.uml2.common.util.UML2Util.getValidNCName(String, StringBuffer)
    * @see org.eclipse.uml2.uml.util.UMLUtil.Ecore2UMLConverter.escapeString(String, String)
    */
-  def getValidNCName( name: String, validNCName: StringBuffer ): Unit = {
+  def getValidNCName
+  ( name: String, validNCName: StringBuffer )
+  : Unit
+  = {
 
     def escapeChar( char: Char ) = {
       val charCode = char.toInt.toHexString.toUpperCase
@@ -918,14 +932,24 @@ object IDGenerator {
     }
   }
   
-  def computeStereotypeApplicationID
+  def computeStereotypeApplicationOTI_ID
   (eID: String @@ OTI_ID, stID: String @@ OTI_ID)
-  : String @@ OTI_ID =
-    OTI_ID(OTI_ID.unwrap(eID)+".stereotypeApplication_"+OTI_ID.unwrap(stID))
+  : String @@ OTI_ID
+  = OTI_ID(OTI_ID.unwrap(eID)+".stereotypeApplication_"+OTI_ID.unwrap(stID))
 
-  def computeStereotypeApplicationUUID
+  def computeStereotypeApplicationOTI_UUID
   (eUUID: String @@ OTI_UUID, stUUID: String @@ OTI_UUID)
-  : String @@ OTI_UUID =
-    OTI_UUID(OTI_UUID.unwrap(eUUID)+".stereotypeApplication_"+OTI_UUID.unwrap(stUUID))
+  : String @@ OTI_UUID
+  = OTI_UUID(OTI_UUID.unwrap(eUUID)+".stereotypeApplication_"+OTI_UUID.unwrap(stUUID))
+
+  def computeStereotypeApplicationTOOL_SPECIFIC_ID
+  (eID: String @@ TOOL_SPECIFIC_ID, stID: String @@ TOOL_SPECIFIC_ID)
+  : String @@ TOOL_SPECIFIC_ID
+  = TOOL_SPECIFIC_ID(TOOL_SPECIFIC_ID.unwrap(eID)+".stereotypeApplication_"+TOOL_SPECIFIC_ID.unwrap(stID))
+
+  def computeStereotypeApplicationTOOL_SPECIFIC_UUID
+  (eUUID: String @@ TOOL_SPECIFIC_UUID, stUUID: String @@ TOOL_SPECIFIC_UUID)
+  : String @@ TOOL_SPECIFIC_UUID
+  = TOOL_SPECIFIC_UUID(TOOL_SPECIFIC_UUID.unwrap(eUUID)+".stereotypeApplication_"+TOOL_SPECIFIC_UUID.unwrap(stUUID))
 
 }

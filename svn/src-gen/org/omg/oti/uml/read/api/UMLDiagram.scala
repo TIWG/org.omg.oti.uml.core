@@ -42,6 +42,9 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
+import org.omg.oti.uml.read.operations.UMLDiagramOps
+import scala.collection.immutable.Seq
+import scala.Option
 // End of user code
 
 
@@ -56,6 +59,7 @@ trait UMLDiagram[Uml <: UML]
   with UMLDiagramOps[Uml] {
 
   // Start of user code for class imports
+  import ops._
   // End of user code
 
   /**

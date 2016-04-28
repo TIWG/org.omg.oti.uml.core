@@ -38,10 +38,11 @@
  */
 package org.omg.oti.uml.characteristics
 
-import org.omg.oti.uml.OTIPrimitiveTypes._
+import org.omg.oti.json.common.OTIPrimitiveTypes._
+import org.omg.oti.json.common.{OTIArtifactKind, OTISpecificationRootCharacteristics}
 import org.omg.oti.uml.read.api._
 
-import scala.collection.immutable.{Map,Set}
+import scala.collection.immutable.{Map, Set}
 import scala.Option
 import scala.Predef.String
 import scalaz.{@@, \&/, \/}
@@ -143,103 +144,3 @@ trait OTICharacteristicsProvider[Uml <: UML] {
   (e: UMLElement[Uml])
   : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
 }
-
-/**
-  * A UML Package can be the root of an OTI artifact of some kind.
-  * OTI artifact kinds impose well-formedness constraints on
-  * UML Package inter-relationships. 
-  */
-sealed trait OTIArtifactKind
-
-/**
-  * The kind for a UML Package that is processed as part of an importing/loading an OTI Document
-  */
-object OTILoadingArtifactKind
- extends OTIArtifactKind
-
-/**
-  * The kind for a UML Package representing a metamodel (built-in or serializable)
-  */
-sealed trait OTIMetamodelArtifactKind extends OTIArtifactKind
-
-/**
-  * The kind for a UML Package representing a profile (built-in or serializable)
-  */
-sealed trait OTIProfileArtifactKind extends OTIArtifactKind
-
-/**
-  * The kind for a UML Package representing a model-library (built-in or serializable)
-  */
-sealed trait OTIModelLibraryArtifactKind extends OTIArtifactKind
-
-
-/**
-  * A UML Package that is the root of an OTI artifact of some kind
-  * that can be serialized to or deserialized from an external representation.
-  */
-sealed trait OTISerializableArtifactKind extends OTIArtifactKind
-
-/**
-  * The kind for a UML Package representing a metamodel that can be serialized.
-  * A metamodel package can acyclically import metamodel or model library packages
-  */
-object OTISerializableMetamodelArtifactKind
-  extends OTIArtifactKind
-  with OTISerializableArtifactKind
-  with OTIMetamodelArtifactKind
-
-/**
-  * The kind for a UML Package representing a profile that can be serialized.
-  * A profile package must acyclically extend at least one metamodel package
-  * and can acyclically import model library packages.
-  */
-object OTISerializableProfileArtifactKind
-  extends OTIArtifactKind
-  with OTISerializableArtifactKind
-  with OTIProfileArtifactKind
-
-/**
-  * The kind for a UML Package representing a model library that can be serialized.
-  * A model library package can acyclically import model library packages
-  * and can acyclically apply profile packages.
-  */
-object OTISerializableModelLibraryArtifactKind
-  extends OTIArtifactKind
-  with OTISerializableArtifactKind
-  with OTIModelLibraryArtifactKind
-
-/**
-  * A UML Package that is the root of an OTI artifact of some kind
-  * that is built-in an OTI-compatible tool. Such an artifact is neither
-  * serialized to nor deserialized from an external representation.
-  */
-sealed trait OTIBuiltInArtifactKind extends OTIArtifactKind
-
-/**
-  * The kind for a UML Package representing a metamodel that is built-in an OTI compatible tool.
-  * A built-in metamodel package can acyclically import built-in metamodel or built-in model library packages
-  */
-object OTIBuiltInMetamodelArtifactKind
-  extends OTIArtifactKind
-  with OTIBuiltInArtifactKind
-  with OTIMetamodelArtifactKind
-
-/**
-  * The kind for a UML Package representing a profile that is built-in an OTI compatible tool.
-  * A built-in profile package must acyclically extend at least one built-in metamodel package
-  * and can acyclically import built-in model library packages.
-  */
-object OTIBuiltInProfileArtifactKind
-  extends OTIArtifactKind
-  with OTIBuiltInArtifactKind
-  with OTIProfileArtifactKind
-
-/**
-  * The kind for a UML Package representing a model library that is built-in an OTI compatible tool.
-  * A built-in model library package can acyclically import built-in model library packages
-  * and can acyclically apply built-in profile packages.
-  */
-object OTIBuiltInModelLibraryArtifactKind
-  extends OTIArtifactKind
-  with OTIBuiltInArtifactKind
-  with OTIModelLibraryArtifactKind

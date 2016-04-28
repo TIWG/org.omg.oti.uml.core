@@ -42,6 +42,11 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
+import org.omg.oti.uml.read.api.{UML,UMLElement,UMLElementValue}
+
+import scala.collection.immutable.Set
+import scala.{AnyVal,Option,Unit}
+import scalaz.\/
 // End of user code
 
 /**
