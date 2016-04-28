@@ -124,11 +124,13 @@ trait UMLFactory[Uml <: UML] {
       "DestroyObjectAction" -> (f => f.createUMLDestroyObjectAction),
       "DestructionOccurrenceSpecification" -> (f => f.createUMLDestructionOccurrenceSpecification),
       "Device" -> (f => f.createUMLDevice),
+      "Diagram" -> (f => f.createUMLDiagram),
       "Duration" -> (f => f.createUMLDuration),
       "DurationConstraint" -> (f => f.createUMLDurationConstraint),
       "DurationInterval" -> (f => f.createUMLDurationInterval),
       "DurationObservation" -> (f => f.createUMLDurationObservation),
       "ElementImport" -> (f => f.createUMLElementImport),
+      "ElementValue" -> (f => f.createUMLElementValue),
       "Enumeration" -> (f => f.createUMLEnumeration),
       "EnumerationLiteral" -> (f => f.createUMLEnumerationLiteral),
       "ExceptionHandler" -> (f => f.createUMLExceptionHandler),
@@ -377,6 +379,8 @@ trait UMLFactory[Uml <: UML] {
 
   def createUMLDevice: \/[Set[java.lang.Throwable],UMLDevice[Uml]]
 
+  def createUMLDiagram: \/[Set[java.lang.Throwable],UMLDiagram[Uml]]
+
   def createUMLDuration: \/[Set[java.lang.Throwable],UMLDuration[Uml]]
 
   def createUMLDurationConstraint: \/[Set[java.lang.Throwable],UMLDurationConstraint[Uml]]
@@ -386,6 +390,8 @@ trait UMLFactory[Uml <: UML] {
   def createUMLDurationObservation: \/[Set[java.lang.Throwable],UMLDurationObservation[Uml]]
 
   def createUMLElementImport: \/[Set[java.lang.Throwable],UMLElementImport[Uml]]
+
+  def createUMLElementValue: \/[Set[java.lang.Throwable],UMLElementValue[Uml]]
 
   def createUMLEnumeration: \/[Set[java.lang.Throwable],UMLEnumeration[Uml]]
 

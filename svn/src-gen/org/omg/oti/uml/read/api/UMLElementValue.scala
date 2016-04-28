@@ -42,48 +42,30 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti.uml.read.operations.UMLNamespaceOps
-
-import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 // End of user code
 
 
 /**
-  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
+  * 
   *
   * <!-- Start of user code documentation -->
   * <!-- End of user code documentation -->
   */
-trait UMLNamespace[Uml <: UML]
-  extends UMLNamedElement[Uml]
-  with UMLNamespaceOps[Uml] {
+trait UMLElementValue[Uml <: UML]
+  extends UMLValueSpecification[Uml]
+  with UMLElementValueOps[Uml] {
 
   // Start of user code for class imports
-  import ops._
   // End of user code
 
   /**
-    * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.
+    * <!-- Start of user code doc for element -->
+    * <!-- End of user code doc for element -->
     *
-    * <!-- Start of user code doc for member -->
-    * <!-- End of user code doc for member -->
-    *
-    * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-    * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.member_memberNamespace
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="1..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.element_elementValue
     */
-  def member: Set[UMLNamedElement[Uml]]
-
-  /**
-    * A collection of NamedElements owned by the Namespace.
-    *
-    * <!-- Start of user code doc for ownedMember -->
-    * <!-- End of user code doc for ownedMember -->
-    *
-    * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-    * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.namespace
-    */
-  def ownedMember: Set[UMLNamedElement[Uml]]
+  def element: Option[UMLElement[Uml]]
 
   /**
     * The XMI meta-attributes relevant to this object
@@ -92,17 +74,17 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for metaAttributes -->
     */
     override def metaAttributes: MetaAttributeFunctions =
-      namespace_metaAttributes
+      elementValue_metaAttributes
 
   /**
-    * The XMI meta-attributes relevant to class UMLNamespace
+    * The XMI meta-attributes relevant to class UMLElementValue
     *
-    * <!-- Start of user code doc for namespace_metaAttributes -->
-    * <!-- End of user code doc for namespace_metaAttributes -->
+    * <!-- Start of user code doc for elementValue_metaAttributes -->
+    * <!-- End of user code doc for elementValue_metaAttributes -->
     */
-  def namespace_metaAttributes: MetaAttributeFunctions = 
+  def elementValue_metaAttributes: MetaAttributeFunctions = 
    appendUnique(
-     namedElement_metaAttributes,
+     valueSpecification_metaAttributes,
      Seq[MetaAttributeFunction]())
 
   /**
@@ -112,21 +94,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for compositeMetaProperties -->
     */
   override def compositeMetaProperties: MetaPropertyFunctions =
-    namespace_compositeMetaProperties
+    elementValue_compositeMetaProperties
 
   /**
-    * The XMI composite meta-properties relevant to class UMLNamespace
+    * The XMI composite meta-properties relevant to class UMLElementValue
     *
-    * <!-- Start of user code doc for namespace_compositeMetaProperties -->
-    * <!-- End of user code doc for namespace_compositeMetaProperties -->
+    * <!-- Start of user code doc for elementValue_compositeMetaProperties -->
+    * <!-- End of user code doc for elementValue_compositeMetaProperties -->
     */
-  def namespace_compositeMetaProperties: MetaPropertyFunctions = 
+  def elementValue_compositeMetaProperties: MetaPropertyFunctions = 
     appendUnique(
-      namedElement_compositeMetaProperties,
-      Seq[MetaPropertyEvaluator](Namespace_elementImport,
-      	Namespace_ownedDiagram,
-      	Namespace_ownedRule,
-      	Namespace_packageImport))
+      valueSpecification_compositeMetaProperties,
+      Seq[MetaPropertyEvaluator]())
 
   /**
     * The XMI reference meta-properties relevant to this object
@@ -135,18 +114,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for referenceMetaProperties -->
     */
   override def referenceMetaProperties: MetaPropertyFunctions =
-    namespace_referenceMetaProperties
+    elementValue_referenceMetaProperties
 
   /**
-    * The XMI reference meta-properties relevant to class UMLNamespace
+    * The XMI reference meta-properties relevant to class UMLElementValue
     *
-    * <!-- Start of user code doc for namespace_referenceMetaProperties -->
-    * <!-- End of user code doc for namespace_referenceMetaProperties -->
+    * <!-- Start of user code doc for elementValue_referenceMetaProperties -->
+    * <!-- End of user code doc for elementValue_referenceMetaProperties -->
     */
-  def namespace_referenceMetaProperties: MetaPropertyFunctions = 
+  def elementValue_referenceMetaProperties: MetaPropertyFunctions = 
     appendUnique(
-      namedElement_referenceMetaProperties,
-      Seq[MetaPropertyEvaluator]())
+      valueSpecification_referenceMetaProperties,
+      Seq[MetaPropertyEvaluator](ElementValue_element))
 
   /**
     * The XMI forward references from metamodel associations relevant to this object
@@ -155,18 +134,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
     */
   override def forwardReferencesFromMetamodelAssociations: Elements =
-    namespace_forwardReferencesFromMetamodelAssociations
+    elementValue_forwardReferencesFromMetamodelAssociations
 
   /**
-    * The XMI forward references from metamodel associations relevant to class UMLNamespace
+    * The XMI forward references from metamodel associations relevant to class UMLElementValue
     *
-    * <!-- Start of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
-    * <!-- End of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
+    * <!-- Start of user code doc for elementValue_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for elementValue_forwardReferencesFromMetamodelAssociations -->
     */
-  def namespace_forwardReferencesFromMetamodelAssociations: Elements =
-    namedElement_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+  def elementValue_forwardReferencesFromMetamodelAssociations: Elements =
+    valueSpecification_forwardReferencesFromMetamodelAssociations ++
+    element
 
   // Start of user code for additional features
   // End of user code
-} //UMLNamespace
+} //UMLElementValue

@@ -205,6 +205,15 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
   }
 
   /**
+    * <!-- Start of user code doc for ownedDiagram -->
+    * <!-- End of user code doc for ownedDiagram -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDiagram.ownedDiagram_diagramOwner
+    */
+  def ownedDiagram: Set[UMLDiagram[Uml]] = ownedElement.selectByKindOf { case x: UMLDiagram[Uml] => x }
+
+  /**
     * Specifies a set of Constraints owned by this Namespace.
     *
     * <!-- Start of user code doc for ownedRule -->

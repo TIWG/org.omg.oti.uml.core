@@ -563,6 +563,10 @@ with UMLPropertyUpdater[Uml] {
   (from: UMLDestroyObjectAction[Uml],
    to: Option[UMLInputPin[Uml]]): Set[java.lang.Throwable] \/ Unit
 
+  def links_Diagram_diagram_reference_context_Element
+  (from: UMLDiagram[Uml],
+   to: Option[UMLElement[Uml]]): Set[java.lang.Throwable] \/ Unit
+
   def links_Duration_duration_compose_expr_ValueSpecification
   (from: UMLDuration[Uml],
    to: Option[UMLValueSpecification[Uml]]): Set[java.lang.Throwable] \/ Unit
@@ -594,6 +598,10 @@ with UMLPropertyUpdater[Uml] {
   def links_ElementImport_import_reference_importedElement_PackageableElement
   (from: UMLElementImport[Uml],
    to: Option[UMLPackageableElement[Uml]]): Set[java.lang.Throwable] \/ Unit
+
+  def links_ElementValue_elementValue_reference_element_Element
+  (from: UMLElementValue[Uml],
+   to: Option[UMLElement[Uml]]): Set[java.lang.Throwable] \/ Unit
 
   def links_Enumeration_enumeration_compose_ownedLiteral_EnumerationLiteral
   (from: UMLEnumeration[Uml],
@@ -986,6 +994,10 @@ with UMLPropertyUpdater[Uml] {
   def links_Namespace_importingNamespace_compose_elementImport_ElementImport
   (from: UMLNamespace[Uml],
    to: Set[UMLElementImport[Uml]]): Set[java.lang.Throwable] \/ Unit
+
+  def links_Namespace_diagramOwner_compose_ownedDiagram_Diagram
+  (from: UMLNamespace[Uml],
+   to: Set[UMLDiagram[Uml]]): Set[java.lang.Throwable] \/ Unit
 
   def links_Namespace_context_compose_ownedRule_Constraint
   (from: UMLNamespace[Uml],
@@ -2273,6 +2285,11 @@ with UMLPropertyUpdater[Uml] {
       links_DestroyObjectAction_destroyObjectAction_compose_target_InputPin _,
       ops.DestroyObjectAction_target)
 
+  val Diagram_diagram_context_Element = 
+    AssociationMetaPropertyOptionUpdateInfo(
+      links_Diagram_diagram_reference_context_Element _,
+      ops.Diagram_context)
+
   val Duration_duration_expr_ValueSpecification = 
     AssociationMetaPropertyOptionUpdateInfo(
       links_Duration_duration_compose_expr_ValueSpecification _,
@@ -2312,6 +2329,11 @@ with UMLPropertyUpdater[Uml] {
     AssociationMetaPropertyOptionUpdateInfo(
       links_ElementImport_import_reference_importedElement_PackageableElement _,
       ops.ElementImport_importedElement)
+
+  val ElementValue_elementValue_element_Element = 
+    AssociationMetaPropertyOptionUpdateInfo(
+      links_ElementValue_elementValue_reference_element_Element _,
+      ops.ElementValue_element)
 
   val Enumeration_enumeration_ownedLiteral_EnumerationLiteral = 
     AssociationMetaPropertySequenceUpdateInfo(
@@ -2802,6 +2824,11 @@ with UMLPropertyUpdater[Uml] {
     AssociationMetaPropertySetUpdateInfo(
       links_Namespace_importingNamespace_compose_elementImport_ElementImport _,
       ops.Namespace_elementImport)
+
+  val Namespace_diagramOwner_ownedDiagram_Diagram = 
+    AssociationMetaPropertySetUpdateInfo(
+      links_Namespace_diagramOwner_compose_ownedDiagram_Diagram _,
+      ops.Namespace_ownedDiagram)
 
   val Namespace_context_ownedRule_Constraint = 
     AssociationMetaPropertySetUpdateInfo(
@@ -3966,11 +3993,13 @@ with UMLPropertyUpdater[Uml] {
     DecisionNode_decisionNode_decisionInput_Behavior :+
     DecisionNode_decisionNode_decisionInputFlow_ObjectFlow :+
     DestroyObjectAction_destroyObjectAction_target_InputPin :+
+    Diagram_diagram_context_Element :+
     Duration_duration_expr_ValueSpecification :+
     DurationConstraint_durationConstraint_specification_DurationInterval :+
     DurationInterval_durationInterval_max_Duration :+
     DurationInterval_durationInterval_min_Duration :+
     ElementImport_import_importedElement_PackageableElement :+
+    ElementValue_elementValue_element_Element :+
     ExceptionHandler_exceptionHandler_exceptionInput_ObjectNode :+
     ExceptionHandler_exceptionHandler_handlerBody_ExecutableNode :+
     ExecutionOccurrenceSpecification_executionOccurrenceSpecification_execution_ExecutionSpecification :+
@@ -4275,6 +4304,7 @@ with UMLPropertyUpdater[Uml] {
       LoopNode_loopNode_setupPart_ExecutableNode :+
       LoopNode_loopNode_test_ExecutableNode :+
       Namespace_importingNamespace_elementImport_ElementImport :+
+      Namespace_diagramOwner_ownedDiagram_Diagram :+
       Namespace_context_ownedRule_Constraint :+
       Namespace_importingNamespace_packageImport_PackageImport :+
       Node_node_nestedNode_Node :+
@@ -5101,11 +5131,13 @@ with UMLPropertyUpdater[Uml] {
     ("DestroyObjectAction" -> metaclass_attribute_updater_table_DestroyObjectAction) +
     ("DestructionOccurrenceSpecification" -> metaclass_attribute_updater_table_DestructionOccurrenceSpecification) +
     ("Device" -> metaclass_attribute_updater_table_Device) +
+    ("Diagram" -> metaclass_attribute_updater_table_Diagram) +
     ("Duration" -> metaclass_attribute_updater_table_Duration) +
     ("DurationConstraint" -> metaclass_attribute_updater_table_DurationConstraint) +
     ("DurationInterval" -> metaclass_attribute_updater_table_DurationInterval) +
     ("DurationObservation" -> metaclass_attribute_updater_table_DurationObservation) +
     ("ElementImport" -> metaclass_attribute_updater_table_ElementImport) +
+    ("ElementValue" -> metaclass_attribute_updater_table_ElementValue) +
     ("Enumeration" -> metaclass_attribute_updater_table_Enumeration) +
     ("EnumerationLiteral" -> metaclass_attribute_updater_table_EnumerationLiteral) +
     ("ExceptionHandler" -> metaclass_attribute_updater_table_ExceptionHandler) +
@@ -5699,6 +5731,12 @@ with UMLPropertyUpdater[Uml] {
         ( "isAbstract" -> Class_isAbstract ) :+
         ( "isActive" -> Class_isActive )
 
+  lazy val metaclass_attribute_updater_table_Diagram
+  : Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]
+  = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
+        ( "name" -> NamedElement_name ) :+
+        ( "visibility" -> NamedElement_visibility )
+
   lazy val metaclass_attribute_updater_table_Duration
   : Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
@@ -5730,6 +5768,12 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "alias" -> ElementImport_alias ) :+
         ( "visibility" -> ElementImport_visibility )
+
+  lazy val metaclass_attribute_updater_table_ElementValue
+  : Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]
+  = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
+        ( "name" -> NamedElement_name ) :+
+        ( "visibility" -> PackageableElement_visibility )
 
   lazy val metaclass_attribute_updater_table_Enumeration
   : Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]
@@ -5813,9 +5857,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> NamedElement_name ) :+
         ( "visibility" -> NamedElement_visibility ) :+
+        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MultiplicityElement_isUnique ) :+
-        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isStatic" -> Feature_isStatic ) :+
         ( "isReadOnly" -> StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> Property_aggregation ) :+
@@ -6251,9 +6295,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> NamedElement_name ) :+
         ( "visibility" -> NamedElement_visibility ) :+
-        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MultiplicityElement_isUnique ) :+
+        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isStatic" -> Feature_isStatic ) :+
         ( "isReadOnly" -> StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> Property_aggregation ) :+
@@ -6290,9 +6334,9 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, MetaAttributeUpdate[_ <: UMLElement[Uml]])]() :+
         ( "name" -> NamedElement_name ) :+
         ( "visibility" -> NamedElement_visibility ) :+
+        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isOrdered" -> MultiplicityElement_isOrdered ) :+
         ( "isUnique" -> MultiplicityElement_isUnique ) :+
-        ( "isLeaf" -> RedefinableElement_isLeaf ) :+
         ( "isStatic" -> Feature_isStatic ) :+
         ( "isReadOnly" -> StructuralFeature_isReadOnly ) :+
         ( "aggregation" -> Property_aggregation ) :+
@@ -6785,11 +6829,13 @@ with UMLPropertyUpdater[Uml] {
     ("DestroyObjectAction" -> metaclass_composite_updater_table_DestroyObjectAction) +
     ("DestructionOccurrenceSpecification" -> metaclass_composite_updater_table_DestructionOccurrenceSpecification) +
     ("Device" -> metaclass_composite_updater_table_Device) +
+    ("Diagram" -> metaclass_composite_updater_table_Diagram) +
     ("Duration" -> metaclass_composite_updater_table_Duration) +
     ("DurationConstraint" -> metaclass_composite_updater_table_DurationConstraint) +
     ("DurationInterval" -> metaclass_composite_updater_table_DurationInterval) +
     ("DurationObservation" -> metaclass_composite_updater_table_DurationObservation) +
     ("ElementImport" -> metaclass_composite_updater_table_ElementImport) +
+    ("ElementValue" -> metaclass_composite_updater_table_ElementValue) +
     ("Enumeration" -> metaclass_composite_updater_table_Enumeration) +
     ("EnumerationLiteral" -> metaclass_composite_updater_table_EnumerationLiteral) +
     ("ExceptionHandler" -> metaclass_composite_updater_table_ExceptionHandler) +
@@ -6921,7 +6967,7 @@ with UMLPropertyUpdater[Uml] {
     ("ValueSpecificationAction" -> metaclass_composite_updater_table_ValueSpecificationAction) +
     ("Variable" -> metaclass_composite_updater_table_Variable)
 
-  // All parents: {Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Abstraction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6962,7 +7008,7 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "generalOrdering" -> InteractionFragment_interactionFragment_generalOrdering_GeneralOrdering )
 
-  // All parents: {ActionInputPin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ActionInputPin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ActionInputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -6982,6 +7028,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7011,7 +7058,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
 
-  // All parents: {ActivityParameterNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ActivityParameterNode, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ActivityParameterNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7036,6 +7083,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7079,7 +7127,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
 
-  // All parents: {Artifact, Classifier, Namespace, DeployedArtifact, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Artifact, Classifier, DeployedArtifact, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Artifact
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7088,6 +7136,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7109,6 +7158,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7127,6 +7177,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7220,6 +7271,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7292,6 +7344,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7328,7 +7381,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment )
 
-  // All parents: {CommunicationPath, Association, Classifier, Namespace, Relationship, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {CommunicationPath, Association, Classifier, Relationship, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_CommunicationPath
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7337,6 +7390,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7355,6 +7409,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7373,7 +7428,7 @@ with UMLPropertyUpdater[Uml] {
     ( "packagedElement" -> Component_component_packagedElement_PackageableElement ) :+
     ( "realization" -> Component_abstraction_realization_ComponentRealization )
 
-  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_ComponentRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7381,13 +7436,14 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "mapping" -> Abstraction_abstraction_mapping_OpaqueExpression )
 
-  // All parents: {ConditionalNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
+  // All parents: {ConditionalNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ConditionalNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "handler" -> ExecutableNode_protectedNode_handler_ExceptionHandler ) :+
@@ -7522,6 +7578,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7539,7 +7596,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
 
-  // All parents: {Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Dependency
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7554,7 +7611,7 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "configuration" -> Deployment_deployment_configuration_DeploymentSpecification )
 
-  // All parents: {DeploymentSpecification, Artifact, Classifier, DeployedArtifact, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {DeploymentSpecification, Artifact, Classifier, Namespace, DeployedArtifact, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_DeploymentSpecification
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7563,6 +7620,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7607,7 +7665,7 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "generalOrdering" -> InteractionFragment_interactionFragment_generalOrdering_GeneralOrdering )
 
-  // All parents: {Device, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Device, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Device
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7616,6 +7674,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7625,14 +7684,21 @@ with UMLPropertyUpdater[Uml] {
     ( "substitution" -> Classifier_substitutingClassifier_substitution_Substitution ) :+
     ( "ownedAttribute" -> StructuredClassifier_structuredClassifier_ownedAttribute_Property ) :+
     ( "ownedConnector" -> StructuredClassifier_structuredClassifier_ownedConnector_Connector ) :+
+    ( "deployment" -> DeploymentTarget_location_deployment_Deployment ) :+
     ( "interfaceRealization" -> BehavioredClassifier_implementingClassifier_interfaceRealization_InterfaceRealization ) :+
     ( "ownedBehavior" -> BehavioredClassifier_behavioredClassifier_ownedBehavior_Behavior ) :+
-    ( "deployment" -> DeploymentTarget_location_deployment_Deployment ) :+
     ( "nestedClassifier" -> Class_nestingClass_nestedClassifier_Classifier ) :+
     ( "ownedAttribute" -> Class_class_ownedAttribute_Property ) :+
     ( "ownedOperation" -> Class_class_ownedOperation_Operation ) :+
     ( "ownedReception" -> Class_class_ownedReception_Reception ) :+
     ( "nestedNode" -> Node_node_nestedNode_Node )
+
+  // All parents: {Diagram, NamedElement, Element}
+  lazy val metaclass_composite_updater_table_Diagram
+  : Seq[(String, AssociationMetaPropertyUpdater)]
+  = Seq[(String, AssociationMetaPropertyUpdater)]() :+
+    ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
+    ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
 
   // All parents: {Duration, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Duration
@@ -7672,6 +7738,13 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment )
 
+  // All parents: {ElementValue, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
+  lazy val metaclass_composite_updater_table_ElementValue
+  : Seq[(String, AssociationMetaPropertyUpdater)]
+  = Seq[(String, AssociationMetaPropertyUpdater)]() :+
+    ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
+    ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
+
   // All parents: {Enumeration, DataType, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Enumeration
   : Seq[(String, AssociationMetaPropertyUpdater)]
@@ -7681,6 +7754,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7717,6 +7791,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7758,6 +7833,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "handler" -> ExecutableNode_protectedNode_handler_ExceptionHandler ) :+
@@ -7777,7 +7853,7 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "operand" -> Expression_expression_operand_ValueSpecification )
 
-  // All parents: {Extend, DirectedRelationship, NamedElement, Relationship, Element}
+  // All parents: {Extend, DirectedRelationship, Relationship, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Extend
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7794,6 +7870,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7804,7 +7881,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedEnd" -> Association_owningAssociation_ownedEnd_Property ) :+
     ( "ownedEnd" -> Extension_extension_ownedEnd_ExtensionEnd )
 
-  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_ExtensionEnd
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -7830,6 +7907,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "connection" -> State_state_connection_ConnectionPointReference ) :+
@@ -7863,6 +7941,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7937,6 +8016,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -7988,6 +8068,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8029,6 +8110,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "generalOrdering" -> InteractionFragment_interactionFragment_generalOrdering_GeneralOrdering ) :+
@@ -8055,6 +8137,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8068,7 +8151,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedReception" -> Interface_interface_ownedReception_Reception ) :+
     ( "protocol" -> Interface_interface_protocol_ProtocolStateMachine )
 
-  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_InterfaceRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8185,6 +8268,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "handler" -> ExecutableNode_protectedNode_handler_ExceptionHandler ) :+
@@ -8230,22 +8314,23 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "generalOrdering" -> InteractionFragment_interactionFragment_generalOrdering_GeneralOrdering )
 
-  // All parents: {Model, Package, Namespace, PackageableElement, TemplateableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Model, Package, Namespace, PackageableElement, NamedElement, TemplateableElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Model
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
-    ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
+    ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "packageMerge" -> Package_receivingPackage_packageMerge_PackageMerge ) :+
     ( "packagedElement" -> Package_owningPackage_packagedElement_PackageableElement ) :+
     ( "profileApplication" -> Package_applyingPackage_profileApplication_ProfileApplication )
 
-  // All parents: {Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Node
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8254,6 +8339,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8263,9 +8349,9 @@ with UMLPropertyUpdater[Uml] {
     ( "substitution" -> Classifier_substitutingClassifier_substitution_Substitution ) :+
     ( "ownedAttribute" -> StructuredClassifier_structuredClassifier_ownedAttribute_Property ) :+
     ( "ownedConnector" -> StructuredClassifier_structuredClassifier_ownedConnector_Connector ) :+
-    ( "deployment" -> DeploymentTarget_location_deployment_Deployment ) :+
     ( "interfaceRealization" -> BehavioredClassifier_implementingClassifier_interfaceRealization_InterfaceRealization ) :+
     ( "ownedBehavior" -> BehavioredClassifier_behavioredClassifier_ownedBehavior_Behavior ) :+
+    ( "deployment" -> DeploymentTarget_location_deployment_Deployment ) :+
     ( "nestedClassifier" -> Class_nestingClass_nestedClassifier_Classifier ) :+
     ( "ownedAttribute" -> Class_class_ownedAttribute_Property ) :+
     ( "ownedOperation" -> Class_class_ownedOperation_Operation ) :+
@@ -8310,6 +8396,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8335,7 +8422,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression )
 
-  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, Namespace, RedefinableElement, TemplateableElement, NamedElement, Element}
+  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, RedefinableElement, Namespace, TemplateableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Operation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8344,6 +8431,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "ownedParameter" -> BehavioralFeature_ownerFormalParam_ownedParameter_Parameter ) :+
@@ -8358,7 +8446,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedDefault" -> TemplateParameter_templateParameter_ownedDefault_ParameterableElement ) :+
     ( "ownedParameteredElement" -> TemplateParameter_owningTemplateParameter_ownedParameteredElement_ParameterableElement )
 
-  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_OutputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8377,6 +8465,7 @@ with UMLPropertyUpdater[Uml] {
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "packageMerge" -> Package_receivingPackage_packageMerge_PackageMerge ) :+
@@ -8395,7 +8484,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment )
 
-  // All parents: {Parameter, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
+  // All parents: {Parameter, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Parameter
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8424,7 +8513,7 @@ with UMLPropertyUpdater[Uml] {
     ( "argument" -> InteractionUse_interactionUse_argument_ValueSpecification ) :+
     ( "returnValue" -> InteractionUse_interactionUse_returnValue_ValueSpecification )
 
-  // All parents: {Port, Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {Port, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Port
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8445,6 +8534,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8464,6 +8554,7 @@ with UMLPropertyUpdater[Uml] {
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "packageMerge" -> Package_receivingPackage_packageMerge_PackageMerge ) :+
@@ -8476,7 +8567,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment )
 
-  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Property
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -8503,6 +8594,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8531,6 +8623,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "effect" -> Transition_transition_effect_Behavior ) :+
@@ -8663,13 +8756,14 @@ with UMLPropertyUpdater[Uml] {
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "mapping" -> Abstraction_abstraction_mapping_OpaqueExpression )
 
-  // All parents: {Reception, BehavioralFeature, Feature, RedefinableElement, Namespace, NamedElement, Element}
+  // All parents: {Reception, BehavioralFeature, Feature, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_Reception
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "ownedParameter" -> BehavioralFeature_ownerFormalParam_ownedParameter_Parameter ) :+
@@ -8713,6 +8807,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "subvertex" -> Region_container_subvertex_Vertex ) :+
@@ -8781,13 +8876,14 @@ with UMLPropertyUpdater[Uml] {
     ( "argument" -> InvocationAction_invocationAction_argument_InputPin ) :+
     ( "target" -> SendSignalAction_sendSignalAction_target_InputPin )
 
-  // All parents: {SequenceNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {SequenceNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_composite_updater_table_SequenceNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "handler" -> ExecutableNode_protectedNode_handler_ExceptionHandler ) :+
@@ -8809,6 +8905,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8863,6 +8960,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "connection" -> State_state_connection_ConnectionPointReference ) :+
@@ -8891,6 +8989,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8920,6 +9019,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -8955,6 +9055,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "handler" -> ExecutableNode_protectedNode_handler_ExceptionHandler ) :+
@@ -8966,7 +9067,7 @@ with UMLPropertyUpdater[Uml] {
     ( "structuredNodeOutput" -> StructuredActivityNode_structuredActivityNode_structuredNodeOutput_OutputPin ) :+
     ( "variable" -> StructuredActivityNode_scope_variable_Variable )
 
-  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_composite_updater_table_Substitution
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9063,6 +9164,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedComment" -> Element_owningElement_ownedComment_Comment ) :+
     ( "nameExpression" -> NamedElement_namedElement_nameExpression_StringExpression ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "effect" -> Transition_transition_effect_Behavior ) :+
@@ -9103,6 +9205,7 @@ with UMLPropertyUpdater[Uml] {
     ( "ownedTemplateSignature" -> TemplateableElement_template_ownedTemplateSignature_TemplateSignature ) :+
     ( "templateBinding" -> TemplateableElement_boundElement_templateBinding_TemplateBinding ) :+
     ( "elementImport" -> Namespace_importingNamespace_elementImport_ElementImport ) :+
+    ( "ownedDiagram" -> Namespace_diagramOwner_ownedDiagram_Diagram ) :+
     ( "ownedRule" -> Namespace_context_ownedRule_Constraint ) :+
     ( "packageImport" -> Namespace_importingNamespace_packageImport_PackageImport ) :+
     ( "collaborationUse" -> Classifier_classifier_collaborationUse_CollaborationUse ) :+
@@ -9213,11 +9316,13 @@ with UMLPropertyUpdater[Uml] {
    ("DestroyObjectAction" -> metaclass_reference_updater_table_DestroyObjectAction) +
    ("DestructionOccurrenceSpecification" -> metaclass_reference_updater_table_DestructionOccurrenceSpecification) +
    ("Device" -> metaclass_reference_updater_table_Device) +
+   ("Diagram" -> metaclass_reference_updater_table_Diagram) +
    ("Duration" -> metaclass_reference_updater_table_Duration) +
    ("DurationConstraint" -> metaclass_reference_updater_table_DurationConstraint) +
    ("DurationInterval" -> metaclass_reference_updater_table_DurationInterval) +
    ("DurationObservation" -> metaclass_reference_updater_table_DurationObservation) +
    ("ElementImport" -> metaclass_reference_updater_table_ElementImport) +
+   ("ElementValue" -> metaclass_reference_updater_table_ElementValue) +
    ("Enumeration" -> metaclass_reference_updater_table_Enumeration) +
    ("EnumerationLiteral" -> metaclass_reference_updater_table_EnumerationLiteral) +
    ("ExceptionHandler" -> metaclass_reference_updater_table_ExceptionHandler) +
@@ -9349,7 +9454,7 @@ with UMLPropertyUpdater[Uml] {
    ("ValueSpecificationAction" -> metaclass_reference_updater_table_ValueSpecificationAction) +
    ("Variable" -> metaclass_reference_updater_table_Variable)
 
-  // All parents: {Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Abstraction
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9386,7 +9491,7 @@ with UMLPropertyUpdater[Uml] {
     ( "start" -> ExecutionSpecification_executionSpecification_start_OccurrenceSpecification ) :+
     ( "covered" -> InteractionFragment_coveredBy_covered_Lifeline )
 
-  // All parents: {ActionInputPin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ActionInputPin, InputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ActionInputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9427,7 +9532,7 @@ with UMLPropertyUpdater[Uml] {
     ( "outgoing" -> ActivityNode_source_outgoing_ActivityEdge ) :+
     ( "redefinedNode" -> ActivityNode_activityNode_redefinedNode_ActivityNode )
 
-  // All parents: {ActivityParameterNode, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {ActivityParameterNode, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ActivityParameterNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9489,7 +9594,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {Artifact, Classifier, Namespace, DeployedArtifact, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Artifact, Classifier, DeployedArtifact, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Artifact
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9694,7 +9799,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "annotatedElement" -> Comment_comment_annotatedElement_Element )
 
-  // All parents: {CommunicationPath, Association, Classifier, Namespace, Relationship, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {CommunicationPath, Association, Classifier, Relationship, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_CommunicationPath
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9719,7 +9824,7 @@ with UMLPropertyUpdater[Uml] {
     ( "useCase" -> Classifier_subject_useCase_UseCase ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {ComponentRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_ComponentRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9728,7 +9833,7 @@ with UMLPropertyUpdater[Uml] {
     ( "supplier" -> Dependency_supplierDependency_supplier_NamedElement ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {ConditionalNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
+  // All parents: {ConditionalNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ConditionalNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9865,7 +9970,7 @@ with UMLPropertyUpdater[Uml] {
     ( "outgoing" -> ActivityNode_source_outgoing_ActivityEdge ) :+
     ( "redefinedNode" -> ActivityNode_activityNode_redefinedNode_ActivityNode )
 
-  // All parents: {Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Dependency
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9882,7 +9987,7 @@ with UMLPropertyUpdater[Uml] {
     ( "supplier" -> Dependency_supplierDependency_supplier_NamedElement ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {DeploymentSpecification, Artifact, Classifier, DeployedArtifact, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {DeploymentSpecification, Artifact, Classifier, Namespace, DeployedArtifact, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_DeploymentSpecification
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9923,7 +10028,7 @@ with UMLPropertyUpdater[Uml] {
     ( "toBefore" -> OccurrenceSpecification_after_toBefore_GeneralOrdering ) :+
     ( "covered" -> InteractionFragment_coveredBy_covered_Lifeline )
 
-  // All parents: {Device, Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Device, Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Device
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -9934,6 +10039,12 @@ with UMLPropertyUpdater[Uml] {
     ( "templateParameter" -> Classifier_parameteredElement_templateParameter_ClassifierTemplateParameter ) :+
     ( "useCase" -> Classifier_subject_useCase_UseCase ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
+
+  // All parents: {Diagram, NamedElement, Element}
+  lazy val metaclass_reference_updater_table_Diagram
+  : Seq[(String, AssociationMetaPropertyUpdater)]
+  = Seq[(String, AssociationMetaPropertyUpdater)]() :+
+    ( "context" -> Diagram_diagram_context_Element )
 
   // All parents: {Duration, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Duration
@@ -9973,6 +10084,14 @@ with UMLPropertyUpdater[Uml] {
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "importedElement" -> ElementImport_import_importedElement_PackageableElement )
+
+  // All parents: {ElementValue, ValueSpecification, PackageableElement, TypedElement, NamedElement, ParameterableElement, Element}
+  lazy val metaclass_reference_updater_table_ElementValue
+  : Seq[(String, AssociationMetaPropertyUpdater)]
+  = Seq[(String, AssociationMetaPropertyUpdater)]() :+
+    ( "element" -> ElementValue_elementValue_element_Element ) :+
+    ( "type" -> TypedElement_typedElement_type_Type ) :+
+    ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
   // All parents: {Enumeration, DataType, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Enumeration
@@ -10056,7 +10175,7 @@ with UMLPropertyUpdater[Uml] {
     ( "type" -> TypedElement_typedElement_type_Type ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {Extend, DirectedRelationship, NamedElement, Relationship, Element}
+  // All parents: {Extend, DirectedRelationship, Relationship, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Extend
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10076,7 +10195,7 @@ with UMLPropertyUpdater[Uml] {
     ( "useCase" -> Classifier_subject_useCase_UseCase ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {ExtensionEnd, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_ExtensionEnd
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10289,7 +10408,7 @@ with UMLPropertyUpdater[Uml] {
     ( "useCase" -> Classifier_subject_useCase_UseCase ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {InterfaceRealization, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_InterfaceRealization
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10457,13 +10576,13 @@ with UMLPropertyUpdater[Uml] {
     ( "toBefore" -> OccurrenceSpecification_after_toBefore_GeneralOrdering ) :+
     ( "covered" -> InteractionFragment_coveredBy_covered_Lifeline )
 
-  // All parents: {Model, Package, Namespace, PackageableElement, TemplateableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Model, Package, Namespace, PackageableElement, NamedElement, TemplateableElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Model
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {Node, Class, BehavioredClassifier, DeploymentTarget, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
+  // All parents: {Node, Class, DeploymentTarget, BehavioredClassifier, EncapsulatedClassifier, StructuredClassifier, Classifier, Namespace, RedefinableElement, TemplateableElement, Type, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Node
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10530,7 +10649,7 @@ with UMLPropertyUpdater[Uml] {
     ( "type" -> TypedElement_typedElement_type_Type ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, Namespace, RedefinableElement, TemplateableElement, NamedElement, Element}
+  // All parents: {Operation, BehavioralFeature, Feature, ParameterableElement, RedefinableElement, Namespace, TemplateableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Operation
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10552,7 +10671,7 @@ with UMLPropertyUpdater[Uml] {
     ( "default" -> TemplateParameter_templateParameter_default_ParameterableElement ) :+
     ( "parameteredElement" -> TemplateParameter_templateParameter_parameteredElement_ParameterableElement )
 
-  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {OutputPin, Pin, MultiplicityElement, ObjectNode, ActivityNode, TypedElement, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_OutputPin
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10583,7 +10702,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "mergedPackage" -> PackageMerge_packageMerge_mergedPackage_Package )
 
-  // All parents: {Parameter, ConnectableElement, MultiplicityElement, ParameterableElement, TypedElement, NamedElement, Element}
+  // All parents: {Parameter, ConnectableElement, ParameterableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Parameter
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10606,7 +10725,7 @@ with UMLPropertyUpdater[Uml] {
     ( "returnValueRecipient" -> InteractionUse_interactionUse_returnValueRecipient_Property ) :+
     ( "covered" -> InteractionFragment_coveredBy_covered_Lifeline )
 
-  // All parents: {Port, Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
+  // All parents: {Port, Property, ConnectableElement, DeploymentTarget, ParameterableElement, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Port
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10644,7 +10763,7 @@ with UMLPropertyUpdater[Uml] {
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
     ( "appliedProfile" -> ProfileApplication_profileApplication_appliedProfile_Profile )
 
-  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, RedefinableElement, MultiplicityElement, TypedElement, NamedElement, Element}
+  // All parents: {Property, ConnectableElement, ParameterableElement, DeploymentTarget, StructuralFeature, Feature, MultiplicityElement, RedefinableElement, TypedElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Property
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10805,7 +10924,7 @@ with UMLPropertyUpdater[Uml] {
     ( "supplier" -> Dependency_supplierDependency_supplier_NamedElement ) :+
     ( "templateParameter" -> ParameterableElement_parameteredElement_templateParameter_TemplateParameter )
 
-  // All parents: {Reception, BehavioralFeature, Feature, RedefinableElement, Namespace, NamedElement, Element}
+  // All parents: {Reception, BehavioralFeature, Feature, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_Reception
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -10905,7 +11024,7 @@ with UMLPropertyUpdater[Uml] {
     ( "outgoing" -> ActivityNode_source_outgoing_ActivityEdge ) :+
     ( "redefinedNode" -> ActivityNode_activityNode_redefinedNode_ActivityNode )
 
-  // All parents: {SequenceNode, StructuredActivityNode, Action, ActivityGroup, ExecutableNode, Namespace, ActivityNode, RedefinableElement, NamedElement, Element}
+  // All parents: {SequenceNode, StructuredActivityNode, Action, ExecutableNode, ActivityGroup, ActivityNode, Namespace, RedefinableElement, NamedElement, Element}
   lazy val metaclass_reference_updater_table_SequenceNode
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+
@@ -11022,7 +11141,7 @@ with UMLPropertyUpdater[Uml] {
     ( "outgoing" -> ActivityNode_source_outgoing_ActivityEdge ) :+
     ( "redefinedNode" -> ActivityNode_activityNode_redefinedNode_ActivityNode )
 
-  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, PackageableElement, Relationship, NamedElement, ParameterableElement, Element}
+  // All parents: {Substitution, Realization, Abstraction, Dependency, DirectedRelationship, Relationship, PackageableElement, NamedElement, ParameterableElement, Element}
   lazy val metaclass_reference_updater_table_Substitution
   : Seq[(String, AssociationMetaPropertyUpdater)]
   = Seq[(String, AssociationMetaPropertyUpdater)]() :+

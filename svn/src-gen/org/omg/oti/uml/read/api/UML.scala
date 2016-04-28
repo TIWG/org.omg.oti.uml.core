@@ -405,6 +405,11 @@ trait UML {
    */
   type Device <: Node
   /**
+   * The tool-specific Java type that corresponds to the OMG UML 2.5 Diagram metaclass.
+   * @template
+   */
+  type Diagram <: NamedElement
+  /**
    * The tool-specific Java type that corresponds to the OMG UML 2.5 DirectedRelationship metaclass.
    * @template
    */
@@ -439,6 +444,11 @@ trait UML {
    * @template
    */
   type ElementImport <: DirectedRelationship
+  /**
+   * The tool-specific Java type that corresponds to the OMG UML 2.5 ElementValue metaclass.
+   * @template
+   */
+  type ElementValue <: ValueSpecification
   /**
    * The tool-specific Java type that corresponds to the OMG UML 2.5 EncapsulatedClassifier metaclass.
    * @template

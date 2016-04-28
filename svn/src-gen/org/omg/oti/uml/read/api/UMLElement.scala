@@ -105,6 +105,24 @@ trait UMLElement[Uml <: UML]
   def constrainedElement_constraint: Set[UMLConstraint[Uml]]
 
   /**
+    * <!-- Start of user code doc for context_diagram -->
+    * <!-- End of user code doc for context_diagram -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLDiagram.context
+    */
+  def context_diagram: Set[UMLDiagram[Uml]]
+
+  /**
+    * <!-- Start of user code doc for element_elementValue -->
+    * <!-- End of user code doc for element_elementValue -->
+    *
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLElementValue.element
+    */
+  def element_elementValue: Set[UMLElementValue[Uml]]
+
+  /**
     * <!-- Start of user code doc for relatedElement_relationship -->
     * <!-- End of user code doc for relatedElement_relationship -->
     *

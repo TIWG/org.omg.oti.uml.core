@@ -554,6 +554,13 @@ package object api {
   (implicit umlU: UMLUpdate[Uml]) =
     new DeviceUpdater[Uml](domain)
 
+  // Diagram
+
+  implicit def enrichDiagram[Uml <: UML]
+  (domain: UMLDiagram[Uml])
+  (implicit umlU: UMLUpdate[Uml]) =
+    new DiagramUpdater[Uml](domain)
+
   // DirectedRelationship
 
   implicit def enrichDirectedRelationship[Uml <: UML]
@@ -602,6 +609,13 @@ package object api {
   (domain: UMLElementImport[Uml])
   (implicit umlU: UMLUpdate[Uml]) =
     new ElementImportUpdater[Uml](domain)
+
+  // ElementValue
+
+  implicit def enrichElementValue[Uml <: UML]
+  (domain: UMLElementValue[Uml])
+  (implicit umlU: UMLUpdate[Uml]) =
+    new ElementValueUpdater[Uml](domain)
 
   // EncapsulatedClassifier
 

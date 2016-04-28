@@ -165,6 +165,7 @@ import Option._
   implicit val DESTROY_OBJECT_ACTION: TypeTag[Uml#DestroyObjectAction]
   implicit val DESTRUCTION_OCCURRENCE_SPECIFICATION: TypeTag[Uml#DestructionOccurrenceSpecification]
   implicit val DEVICE: TypeTag[Uml#Device]
+  implicit val DIAGRAM: TypeTag[Uml#Diagram]
   implicit val DIRECTED_RELATIONSHIP: TypeTag[Uml#DirectedRelationship]
   implicit val DURATION: TypeTag[Uml#Duration]
   implicit val DURATION_CONSTRAINT: TypeTag[Uml#DurationConstraint]
@@ -172,6 +173,7 @@ import Option._
   implicit val DURATION_OBSERVATION: TypeTag[Uml#DurationObservation]
   implicit val ELEMENT: TypeTag[Uml#Element]
   implicit val ELEMENT_IMPORT: TypeTag[Uml#ElementImport]
+  implicit val ELEMENT_VALUE: TypeTag[Uml#ElementValue]
   implicit val ENCAPSULATED_CLASSIFIER: TypeTag[Uml#EncapsulatedClassifier]
   implicit val ENUMERATION: TypeTag[Uml#Enumeration]
   implicit val ENUMERATION_LITERAL: TypeTag[Uml#EnumerationLiteral]
@@ -692,6 +694,11 @@ import Option._
   implicit def umlDevice(c: Seq[Uml#Device]): Seq[UMLDevice[Uml]] = for {e <- c} yield umlDevice(e)
   implicit def umlDevice(c: Set[Uml#Device]): Set[UMLDevice[Uml]] = for {e <- c} yield umlDevice(e)
 
+  implicit def umlDiagram(e: Uml#Diagram): UMLDiagram[Uml]
+  implicit def umlDiagram(c: Iterable[Uml#Diagram]): Iterable[UMLDiagram[Uml]] = for {e <- c} yield umlDiagram(e)
+  implicit def umlDiagram(c: Seq[Uml#Diagram]): Seq[UMLDiagram[Uml]] = for {e <- c} yield umlDiagram(e)
+  implicit def umlDiagram(c: Set[Uml#Diagram]): Set[UMLDiagram[Uml]] = for {e <- c} yield umlDiagram(e)
+
   implicit def umlDirectedRelationship(e: Uml#DirectedRelationship): UMLDirectedRelationship[Uml]
   implicit def umlDirectedRelationship(c: Iterable[Uml#DirectedRelationship]): Iterable[UMLDirectedRelationship[Uml]] = for {e <- c} yield umlDirectedRelationship(e)
   implicit def umlDirectedRelationship(c: Seq[Uml#DirectedRelationship]): Seq[UMLDirectedRelationship[Uml]] = for {e <- c} yield umlDirectedRelationship(e)
@@ -726,6 +733,11 @@ import Option._
   implicit def umlElementImport(c: Iterable[Uml#ElementImport]): Iterable[UMLElementImport[Uml]] = for {e <- c} yield umlElementImport(e)
   implicit def umlElementImport(c: Seq[Uml#ElementImport]): Seq[UMLElementImport[Uml]] = for {e <- c} yield umlElementImport(e)
   implicit def umlElementImport(c: Set[Uml#ElementImport]): Set[UMLElementImport[Uml]] = for {e <- c} yield umlElementImport(e)
+
+  implicit def umlElementValue(e: Uml#ElementValue): UMLElementValue[Uml]
+  implicit def umlElementValue(c: Iterable[Uml#ElementValue]): Iterable[UMLElementValue[Uml]] = for {e <- c} yield umlElementValue(e)
+  implicit def umlElementValue(c: Seq[Uml#ElementValue]): Seq[UMLElementValue[Uml]] = for {e <- c} yield umlElementValue(e)
+  implicit def umlElementValue(c: Set[Uml#ElementValue]): Set[UMLElementValue[Uml]] = for {e <- c} yield umlElementValue(e)
 
   implicit def umlEncapsulatedClassifier(e: Uml#EncapsulatedClassifier): UMLEncapsulatedClassifier[Uml]
   implicit def umlEncapsulatedClassifier(c: Iterable[Uml#EncapsulatedClassifier]): Iterable[UMLEncapsulatedClassifier[Uml]] = for {e <- c} yield umlEncapsulatedClassifier(e)
@@ -3165,6 +3177,18 @@ import Option._
     redefinedMetaProperties=Set(),
     subsettingMetaProperties=Set())
 
+  lazy val Diagram_context =
+    MetaPropertyReference[Uml, UMLDiagram[Uml], UMLElement[Uml]](
+    "context",
+    _.context,
+    isComposite=false,
+    isSerializedAsNested=false,
+    isSerializedAsReference=true,
+    isUnique=true,
+    isOrdered=false,
+    redefinedMetaProperties=Set(),
+    subsettingMetaProperties=Set())
+
   lazy val Duration_expr =
     MetaPropertyReference[Uml, UMLDuration[Uml], UMLValueSpecification[Uml]](
     "expr",
@@ -3277,6 +3301,18 @@ import Option._
     new MetaAttributeEnumerationFunction[Uml, UMLElementImport[Uml], UMLVisibilityKind.Value, UMLVisibilityKind.ValueSet](
     OptionConstructor(), None, "visibility",
     (x: UMLElementImport[Uml]) => x.visibility, UMLVisibilityKind.values)
+
+  lazy val ElementValue_element =
+    MetaPropertyReference[Uml, UMLElementValue[Uml], UMLElement[Uml]](
+    "element",
+    _.element,
+    isComposite=false,
+    isSerializedAsNested=false,
+    isSerializedAsReference=true,
+    isUnique=true,
+    isOrdered=false,
+    redefinedMetaProperties=Set(),
+    subsettingMetaProperties=Set())
 
   lazy val Enumeration_ownedLiteral =
     MetaPropertyCollection[Uml, UMLEnumeration[Uml], UMLEnumerationLiteral[Uml]](
@@ -4552,6 +4588,18 @@ import Option._
     isOrdered=false,
     redefinedMetaProperties=Set(),
     subsettingMetaProperties=Set(Profile_metaclassReference))
+
+  lazy val Namespace_ownedDiagram =
+    MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLDiagram[Uml]](
+    "ownedDiagram",
+    _.ownedDiagram,
+    isComposite=true,
+    isSerializedAsNested=true,
+    isSerializedAsReference=false,
+    isUnique=true,
+    isOrdered=false,
+    redefinedMetaProperties=Set(),
+    subsettingMetaProperties=Set())
 
   lazy val Namespace_ownedRule =
     MetaPropertyCollection[Uml, UMLNamespace[Uml], UMLConstraint[Uml]](

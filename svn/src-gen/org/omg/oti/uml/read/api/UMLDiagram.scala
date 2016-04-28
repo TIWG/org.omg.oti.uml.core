@@ -42,48 +42,39 @@
 package org.omg.oti.uml.read.api
 
 // Start of user code for imports
-import org.omg.oti.uml.read.operations.UMLNamespaceOps
-
-import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 // End of user code
 
 
 /**
-  * A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.
+  * 
   *
   * <!-- Start of user code documentation -->
   * <!-- End of user code documentation -->
   */
-trait UMLNamespace[Uml <: UML]
+trait UMLDiagram[Uml <: UML]
   extends UMLNamedElement[Uml]
-  with UMLNamespaceOps[Uml] {
+  with UMLDiagramOps[Uml] {
 
   // Start of user code for class imports
-  import ops._
   // End of user code
 
   /**
-    * A collection of NamedElements identifiable within the Namespace, either by being owned or by being introduced by importing or inheritance.
+    * <!-- Start of user code doc for context -->
+    * <!-- End of user code doc for context -->
     *
-    * <!-- Start of user code doc for member -->
-    * <!-- End of user code doc for member -->
-    *
-    * UML Property derived="true" ordered="false" unique="true" aggregation="none" multiplicity="0..*"
-    * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.member_memberNamespace
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLElement.context_diagram
     */
-  def member: Set[UMLNamedElement[Uml]]
+  def context: Option[UMLElement[Uml]]
 
   /**
-    * A collection of NamedElements owned by the Namespace.
+    * <!-- Start of user code doc for ownedDiagram_diagramOwner -->
+    * <!-- End of user code doc for ownedDiagram_diagramOwner -->
     *
-    * <!-- Start of user code doc for ownedMember -->
-    * <!-- End of user code doc for ownedMember -->
-    *
-    * UML Property derived="true" ordered="false" unique="true" aggregation="composite" multiplicity="0..*"
-    * UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.namespace
+    * UML Property derived="false" ordered="false" unique="true" aggregation="none" multiplicity="0..1"
+    * UML opposite Property: org.omg.oti.uml.read.api.UMLNamespace.ownedDiagram
     */
-  def ownedMember: Set[UMLNamedElement[Uml]]
+  def ownedDiagram_diagramOwner: Option[UMLNamespace[Uml]]
 
   /**
     * The XMI meta-attributes relevant to this object
@@ -92,15 +83,15 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for metaAttributes -->
     */
     override def metaAttributes: MetaAttributeFunctions =
-      namespace_metaAttributes
+      diagram_metaAttributes
 
   /**
-    * The XMI meta-attributes relevant to class UMLNamespace
+    * The XMI meta-attributes relevant to class UMLDiagram
     *
-    * <!-- Start of user code doc for namespace_metaAttributes -->
-    * <!-- End of user code doc for namespace_metaAttributes -->
+    * <!-- Start of user code doc for diagram_metaAttributes -->
+    * <!-- End of user code doc for diagram_metaAttributes -->
     */
-  def namespace_metaAttributes: MetaAttributeFunctions = 
+  def diagram_metaAttributes: MetaAttributeFunctions = 
    appendUnique(
      namedElement_metaAttributes,
      Seq[MetaAttributeFunction]())
@@ -112,21 +103,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for compositeMetaProperties -->
     */
   override def compositeMetaProperties: MetaPropertyFunctions =
-    namespace_compositeMetaProperties
+    diagram_compositeMetaProperties
 
   /**
-    * The XMI composite meta-properties relevant to class UMLNamespace
+    * The XMI composite meta-properties relevant to class UMLDiagram
     *
-    * <!-- Start of user code doc for namespace_compositeMetaProperties -->
-    * <!-- End of user code doc for namespace_compositeMetaProperties -->
+    * <!-- Start of user code doc for diagram_compositeMetaProperties -->
+    * <!-- End of user code doc for diagram_compositeMetaProperties -->
     */
-  def namespace_compositeMetaProperties: MetaPropertyFunctions = 
+  def diagram_compositeMetaProperties: MetaPropertyFunctions = 
     appendUnique(
       namedElement_compositeMetaProperties,
-      Seq[MetaPropertyEvaluator](Namespace_elementImport,
-      	Namespace_ownedDiagram,
-      	Namespace_ownedRule,
-      	Namespace_packageImport))
+      Seq[MetaPropertyEvaluator]())
 
   /**
     * The XMI reference meta-properties relevant to this object
@@ -135,18 +123,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for referenceMetaProperties -->
     */
   override def referenceMetaProperties: MetaPropertyFunctions =
-    namespace_referenceMetaProperties
+    diagram_referenceMetaProperties
 
   /**
-    * The XMI reference meta-properties relevant to class UMLNamespace
+    * The XMI reference meta-properties relevant to class UMLDiagram
     *
-    * <!-- Start of user code doc for namespace_referenceMetaProperties -->
-    * <!-- End of user code doc for namespace_referenceMetaProperties -->
+    * <!-- Start of user code doc for diagram_referenceMetaProperties -->
+    * <!-- End of user code doc for diagram_referenceMetaProperties -->
     */
-  def namespace_referenceMetaProperties: MetaPropertyFunctions = 
+  def diagram_referenceMetaProperties: MetaPropertyFunctions = 
     appendUnique(
       namedElement_referenceMetaProperties,
-      Seq[MetaPropertyEvaluator]())
+      Seq[MetaPropertyEvaluator](Diagram_context))
 
   /**
     * The XMI forward references from metamodel associations relevant to this object
@@ -155,18 +143,18 @@ trait UMLNamespace[Uml <: UML]
     * <!-- End of user code doc for forwardReferencesFromMetamodelAssociations -->
     */
   override def forwardReferencesFromMetamodelAssociations: Elements =
-    namespace_forwardReferencesFromMetamodelAssociations
+    diagram_forwardReferencesFromMetamodelAssociations
 
   /**
-    * The XMI forward references from metamodel associations relevant to class UMLNamespace
+    * The XMI forward references from metamodel associations relevant to class UMLDiagram
     *
-    * <!-- Start of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
-    * <!-- End of user code doc for namespace_forwardReferencesFromMetamodelAssociations -->
+    * <!-- Start of user code doc for diagram_forwardReferencesFromMetamodelAssociations -->
+    * <!-- End of user code doc for diagram_forwardReferencesFromMetamodelAssociations -->
     */
-  def namespace_forwardReferencesFromMetamodelAssociations: Elements =
+  def diagram_forwardReferencesFromMetamodelAssociations: Elements =
     namedElement_forwardReferencesFromMetamodelAssociations ++
-    Set ()
+    context
 
   // Start of user code for additional features
   // End of user code
-} //UMLNamespace
+} //UMLDiagram

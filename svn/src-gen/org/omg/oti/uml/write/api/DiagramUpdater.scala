@@ -42,40 +42,17 @@
 package org.omg.oti.uml.write.api
 
 // Start of user code for imports
-import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.immutable.Set
-import scalaz._
 // End of user code
 
 /**
  * <!-- Start of user code documentation -->
  * <!-- End of user code documentation -->
  */
-class NamespaceUpdater[Uml <: UML](val domain: UMLNamespace[Uml]) extends AnyVal {
+class DiagramUpdater[Uml <: UML](val domain: UMLDiagram[Uml]) extends AnyVal {
 
-  def links_Namespace_importingNamespace_compose_elementImport_ElementImport
-  (range: Set[UMLElementImport[Uml]])
+  def links_Diagram_diagram_reference_context_Element
+  (range: Option[UMLElement[Uml]])
   (implicit umlU: UMLUpdate[Uml])
   : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_importingNamespace_compose_elementImport_ElementImport(domain, range)
-
-  def links_Namespace_diagramOwner_compose_ownedDiagram_Diagram
-  (range: Set[UMLDiagram[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_diagramOwner_compose_ownedDiagram_Diagram(domain, range)
-
-  def links_Namespace_context_compose_ownedRule_Constraint
-  (range: Set[UMLConstraint[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_context_compose_ownedRule_Constraint(domain, range)
-
-  def links_Namespace_importingNamespace_compose_packageImport_PackageImport
-  (range: Set[UMLPackageImport[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_importingNamespace_compose_packageImport_PackageImport(domain, range)
+    umlU.links_Diagram_diagram_reference_context_Element(domain, range)
 }

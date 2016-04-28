@@ -39,43 +39,24 @@
  *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.omg.oti.uml.write.api
+package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-import org.omg.oti.uml.read.api._
-
-import scala.{AnyVal,Unit}
-import scala.collection.immutable.Set
-import scalaz._
 // End of user code
 
 /**
- * <!-- Start of user code documentation -->
- * <!-- End of user code documentation -->
- */
-class NamespaceUpdater[Uml <: UML](val domain: UMLNamespace[Uml]) extends AnyVal {
+  * 
+  *
+  * <!-- Start of user code documentation -->
+  * <!-- End of user code documentation -->
+  */
+trait UMLElementValueOps[Uml <: UML] { self: UMLElementValue[Uml] =>
 
-  def links_Namespace_importingNamespace_compose_elementImport_ElementImport
-  (range: Set[UMLElementImport[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_importingNamespace_compose_elementImport_ElementImport(domain, range)
+// Start of user code for class imports
+  import self.ops._
+// End of user code
 
-  def links_Namespace_diagramOwner_compose_ownedDiagram_Diagram
-  (range: Set[UMLDiagram[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_diagramOwner_compose_ownedDiagram_Diagram(domain, range)
 
-  def links_Namespace_context_compose_ownedRule_Constraint
-  (range: Set[UMLConstraint[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_context_compose_ownedRule_Constraint(domain, range)
-
-  def links_Namespace_importingNamespace_compose_packageImport_PackageImport
-  (range: Set[UMLPackageImport[Uml]])
-  (implicit umlU: UMLUpdate[Uml])
-  : \/[Set[java.lang.Throwable],Unit] =
-    umlU.links_Namespace_importingNamespace_compose_packageImport_PackageImport(domain, range)
-}
+  // Start of user code for additional features
+  // End of user code
+} //UMLElementValueOps
