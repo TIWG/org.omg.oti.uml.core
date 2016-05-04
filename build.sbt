@@ -36,6 +36,9 @@ lazy val core = Project("oti-uml-core", file("."))
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
     IMCEKeys.targetJDK := IMCEKeys.jdk17.value,
 
+    // @todo add this to the imce.sbt.plugin
+    scalacOptions in (Compile,doc) += "-no-link-warnings",
+
     organization := "org.omg.tiwg",
     organizationHomepage :=
       Some(url("http://www.omg.org/members/sysml-rtf-wiki/doku.php?id=rtf5:groups:tools_infrastructure:index")),
