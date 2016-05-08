@@ -558,39 +558,56 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     namespace
     .selectByKindOf { case x: UMLStereotype[Uml] => x }
 
-  def isLogicallyNavigable: Boolean =
-    association match {
-      case None    => false
+  /**
+    * For a binary association, the logical navigability of an end property
+    * is a function of the characteristics of the member ends.
+    *
+    * 1) this property is owned by a class; the opposite is owned by the association
+    * 2) both ends have the same kind of ownership and this property is composite, the opposite is not
+    * 3) both ends are owned by the association and this property is a navigable owned end, the opposite is not
+    * 4) neither end is composite and this property is unbounded, the opposite has an upper bound of 1
+    *
+    * @return true if the property is a logically navigable association end
+    */
+  def isLogicallyNavigable
+  : Boolean
+  = association match {
+      case None    =>
+        false
       case Some(a) =>
         opposite match {
-          case None       => false
+          case None       =>
+            false
           case Some(that) =>
-            val thisAssociationOwned = owningAssociation.isDefined
-            val thisComposite = isComposite
-            val thisNavigableOwnedEnd = navigableOwnedEnd_association.isDefined
+            val thisAssociationOwned = self.owningAssociation.isDefined
+            val thisComposite = self.isComposite
+            val thisNavigableOwnedEnd = self.navigableOwnedEnd_association.isDefined
+            val thisUnbounded = -1 == self.upper
+            val thisScalar = 1 == self.upper
 
             val thatAssociationOwned = that.owningAssociation.isDefined
             val thatComposite = that.isComposite
             val thatNavigableOwnedEnd = that.navigableOwnedEnd_association.isDefined
+            val thatUnbounded = -1 == that.upper
+            val thatScalar = 1 == that.upper
 
-            //System.out.println(s"p ${e.qualifiedName.get} opposite: ${opposite.qualifiedName.get}")
-            //          System.out.println(s" thisAssociationOwned=${thisAssociationOwned}")
-            //          System.out.println(s" thisComposite=${thisComposite}")
-            //          System.out.println(s" thisNavigableOwnedEnd=${thisNavigableOwnedEnd}")
-
-            //          System.out.println(s" thatAssociationOwned=${thatAssociationOwned}")
-            //          System.out.println(s" thatComposite=${thatComposite}")
-            //          System.out.println(s" thatNavigableOwnedEnd=${thatNavigableOwnedEnd}")
             val case1 = !thisAssociationOwned && thatAssociationOwned
             val case2 = thisAssociationOwned == thatAssociationOwned && thisComposite && !thatComposite
             val case3 = thisAssociationOwned && thatAssociationOwned && thisNavigableOwnedEnd && !thatNavigableOwnedEnd
-            //          System.out.println(s" case1=${case1} case2=${case2} case3=${case3}")
-            case1 || case2 || case3
+            val case4 = !thisComposite && !thatComposite && thisUnbounded && !thatUnbounded && thatScalar
+            case1 || case2 || case3 || case4
         }
     }
 
-  def isSemanticallyNavigable: Boolean =
-    isLogicallyNavigable ||
+  /**
+    * For a binary association, the semantic navigability of an end property
+    * is a function of the subsetting and/or redefinition of the association ends.
+    *
+    * @return
+    */
+  def isSemanticallyNavigable
+  : Boolean
+  = isLogicallyNavigable ||
       closure(this, (x: UMLProperty[Uml]) => x.subsettedProperty).exists(_.isLogicallyNavigable) ||
       closure(this, (x: UMLProperty[Uml]) => x.redefinedProperty).exists(_.isLogicallyNavigable)
 

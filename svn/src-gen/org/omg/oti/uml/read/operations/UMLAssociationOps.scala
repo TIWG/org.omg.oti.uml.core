@@ -185,26 +185,36 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
 
   // Start of user code for additional features
 
-  def getDirectedAssociationEnd: Option[(UMLProperty[Uml], UMLProperty[Uml])] =
-    memberEnd.toList match {
-      case end1 :: end2 :: Nil =>
-        (end1.isLogicallyNavigable, end2.isLogicallyNavigable) match {
-          case (true, false) => Some((end2, end1))
-          case (false, true) => Some((end1, end2))
-          case (_, _)        =>
-            (end1.isSemanticallyNavigable, end2.isSemanticallyNavigable) match {
-              case (true, false) => Some((end2, end1))
-              case (false, true) => Some((end1, end2))
-              case (_, _)        => None
-            }
-        }
-      case _                   => None
-    }
+  def getDirectedAssociationEnd
+  : Option[(UMLProperty[Uml], UMLProperty[Uml])]
+  = memberEnd.toList match {
+    case end1 :: end2 :: Nil =>
+      (end1.isLogicallyNavigable, end2.isLogicallyNavigable) match {
+        case (true, false) =>
+          Some((end1, end2))
+        case (false, true) =>
+          Some((end2, end1))
+        case (_, _) =>
+          (end1.isSemanticallyNavigable, end2.isSemanticallyNavigable) match {
+            case (true, false) =>
+              Some((end1, end2))
+            case (false, true) =>
+              Some((end2, end1))
+            case (_, _) =>
+              Some((end1, end2))
+          }
+      }
+    case _ =>
+      None
+  }
 
-  def isConsistentlyNonDerived: Boolean =
-    !isDerived & memberEnd.forall { p => !p.isDerived & !p.isDerivedUnion }
+  def isConsistentlyNonDerived
+  : Boolean
+  = !isDerived & memberEnd.forall { p => !p.isDerived & !p.isDerivedUnion }
 
-  def getRedefinedOrSpecializedAssociations: Set[UMLAssociation[Uml]] = {
+  def getRedefinedOrSpecializedAssociations
+  : Set[UMLAssociation[Uml]]
+  = {
     val redefined = memberEnd.flatMap(_.redefinedProperty).flatMap(_.association).toSet
     val specialized = general.selectByKindOf { case a: UMLAssociation[Uml] => a }
     redefined ++ specialized
