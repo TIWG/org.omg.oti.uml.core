@@ -44,7 +44,7 @@ import org.omg.oti.json.common.OTIPrimitiveTypes._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.collection.immutable.{Map,Set}
+import scala.collection.immutable.{Map,Set,Vector}
 import scala.{Option,Some}
 import scala.Predef.{Map => _, Set => _, _}
 import scala.reflect.runtime.universe._
@@ -59,7 +59,7 @@ extends OTICharacteristicsProvider[Uml] {
   implicit val umlPackageTag: TypeTag[UMLPackage[Uml]]
   implicit val opsTag: TypeTag[UMLOps[Uml]]
 
-  val data: OTIDocumentSetConfiguration
+  val data: Vector[OTIDocumentSetConfiguration]
 
   protected implicit def Package2SpecificationRootCharacteristicsSemigroup
   : Semigroup[Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]]
@@ -78,7 +78,7 @@ extends OTICharacteristicsProvider[Uml] {
     = allPackages
       .flatMap { pkg =>
         data
-          .documents
+          .flatMap(_.documents)
           .find(_.toolSpecificPackageID == pkg.toolSpecific_id)
           .fold[Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]](
           Map()
@@ -106,7 +106,7 @@ extends OTICharacteristicsProvider[Uml] {
     = allPackages
       .flatMap { pkg =>
         data
-          .documents
+          .flatMap(_.documents)
           .find(_.toolSpecificPackageID == pkg.toolSpecific_id)
           .fold[Map[UMLPackage[Uml], OTISpecificationRootCharacteristics]](
           Map()
@@ -127,7 +127,7 @@ extends OTICharacteristicsProvider[Uml] {
   override def getSpecificationRootCharacteristics
   (e: UMLPackage[Uml])
   : Set[java.lang.Throwable] \/ Option[OTISpecificationRootCharacteristics]
-  = \/-(data.documents.find(_.toolSpecificPackageID == e.toolSpecific_id).map(_.otiCharacteristics))
+  = \/-(data.flatMap(_.documents).find(_.toolSpecificPackageID == e.toolSpecific_id).map(_.otiCharacteristics))
 
   override def packageURI
   (e: UMLPackage[Uml])
@@ -163,8 +163,9 @@ extends OTICharacteristicsProvider[Uml] {
   : Set[java.lang.Throwable] \/ Option[String @@ OTI_ID]
   = {
     val pkgIDs = e.owningPackages.map(_.toolSpecific_id)
-    \/-(data
-      .documents
+    \/-(
+      data
+      .flatMap(_.documents)
       .find { d => pkgIDs.contains(d.toolSpecificPackageID) }
       .flatMap { d =>
         d.overrideID
@@ -178,8 +179,9 @@ extends OTICharacteristicsProvider[Uml] {
   : Set[java.lang.Throwable] \/ Option[String @@ OTI_UUID]
   = {
     val pkgIDs = e.owningPackages.map(_.toolSpecific_id)
-    \/-(data
-      .documents
+    \/-(
+      data
+      .flatMap(_.documents)
       .find { d => pkgIDs.contains(d.toolSpecificPackageID) }
       .flatMap { d =>
         d.overrideUUID
