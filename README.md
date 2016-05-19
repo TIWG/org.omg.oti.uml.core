@@ -1,4 +1,4 @@
-MBSE Asset Catalog: [OTI](https://cae-cop.jpl.nasa.gov/assetcatalog-admin/index.html#/view/tool/151)
+MBSE Asset Catalog: [OTI Core](https://cae-cop.jpl.nasa.gov/assetcatalog-admin/index.html#/view/tool/151)
 
 See [OTI UML Core API](svn/README.md)
 
