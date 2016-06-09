@@ -44,9 +44,6 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.Boolean
-import scala.Option
-import scala.Some
-import scala.Predef.String
 // End of user code
 
 /**
@@ -96,6 +93,5 @@ trait UMLLiteralNullOps[Uml <: UML] { self: UMLLiteralNull[Uml] =>
   }
 
   // Start of user code for additional features
-  override def stringValue: Option[String]  = Some("***NULL***")  
   // End of user code
 } //UMLLiteralNullOps

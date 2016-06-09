@@ -554,6 +554,9 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
         None
     }
 
+  def extension: Option[UMLExtension[Uml]] =
+    member_memberNamespace.selectByKindOf { case x: UMLExtension[Uml] => x } headOption
+
   def owningStereotype: Option[UMLStereotype[Uml]] =
     namespace
     .selectByKindOf { case x: UMLStereotype[Uml] => x }
