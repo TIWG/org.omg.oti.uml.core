@@ -42,10 +42,10 @@
 package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
-import org.omg.oti.uml.read.api._
-import scala.Boolean
-import scala.Option
 import java.lang.Integer
+import org.omg.oti.uml.read.api._
+import scala.{Boolean,Option}
+import scala.Predef.String
 // End of user code
 
 /**
@@ -95,5 +95,11 @@ trait UMLLiteralUnlimitedNaturalOps[Uml <: UML] { self: UMLLiteralUnlimitedNatur
   }
 
   // Start of user code for additional features
+  override def stringValue: Option[String] = {
+    if (value.intValue() < 0)
+      Option.apply("*")
+    else
+      Option.apply(value.toString)
+  }
   // End of user code
 } //UMLLiteralUnlimitedNaturalOps

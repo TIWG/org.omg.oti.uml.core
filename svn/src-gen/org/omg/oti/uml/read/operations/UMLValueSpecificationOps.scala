@@ -44,13 +44,10 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
-import scala.Boolean
-import scala.Double
-import scala.Option
-import scala.Predef.{???,String}
+import scala.{Boolean,Double,Option,None}
+import scala.Predef.String
 import scala.collection.Iterable
-import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
+import scala.collection.immutable.{Seq,Set}
 import java.lang.Integer
 // End of user code
 
@@ -197,7 +194,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def booleanValue: Option[Boolean] = {
     // Start of user code for "booleanValue"
-    ???
+    None
     // End of user code
   }
 
@@ -214,7 +211,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def integerValue: Option[Integer] = {
     // Start of user code for "integerValue"
-    ???
+    None
     // End of user code
   }
 
@@ -232,7 +229,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   override def isCompatibleWith(p: Option[UMLParameterableElement[Uml]]): Boolean = {
     // Start of user code for "isCompatibleWith"
-    ???
+    false
     // End of user code
   }
 
@@ -249,7 +246,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def isComputable: Boolean = {
     // Start of user code for "isComputable"
-    ???
+    false
     // End of user code
   }
 
@@ -266,7 +263,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def isNull: Boolean = {
     // Start of user code for "isNull"
-    ???
+    false
     // End of user code
   }
 
@@ -283,7 +280,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def realValue: Option[Double] = {
     // Start of user code for "realValue"
-    ???
+    None
     // End of user code
   }
 
@@ -300,7 +297,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def stringValue: Option[String] = {
     // Start of user code for "stringValue"
-    ???
+    None
     // End of user code
   }
 
@@ -317,7 +314,7 @@ trait UMLValueSpecificationOps[Uml <: UML] { self: UMLValueSpecification[Uml] =>
     */
   def unlimitedValue: Option[Integer] = {
     // Start of user code for "unlimitedValue"
-    ???
+    None
     // End of user code
   }
 
