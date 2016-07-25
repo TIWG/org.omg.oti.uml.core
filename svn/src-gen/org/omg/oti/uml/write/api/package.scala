@@ -43,8 +43,6 @@ package org.omg.oti.uml.write
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-import scala.{Option,Unit}
-import scala.collection.immutable.Set
 // End of user code
 
 /**

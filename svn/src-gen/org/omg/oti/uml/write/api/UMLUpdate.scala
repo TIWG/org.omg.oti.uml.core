@@ -45,16 +45,12 @@ package org.omg.oti.uml.write.api
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.write._
 
-import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
+import scala.{Boolean,Double,Option,Unit}
 import scala.Predef.{Map => _, Set => _, _}
 import scala.collection.immutable._
 import scala.collection.Iterable
-import scala.language.postfixOps
-import scala.language.implicitConversions
-import scala.language.existentials
 import scalaz._
 
-import java.lang.IllegalArgumentException
 import java.lang.Integer
 // End of user code
 

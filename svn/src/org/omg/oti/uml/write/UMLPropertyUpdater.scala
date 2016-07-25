@@ -41,8 +41,8 @@ package org.omg.oti.uml.write
 import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 
-import scala.{Enumeration,Option,None,Some,StringContext,Unit}
-import scala.Predef.{???,String}
+import scala.{Option,None,Some,StringContext,Unit}
+import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
 import scala.reflect._

@@ -44,10 +44,6 @@ package org.omg.oti.uml.read.api
 // Start of user code for imports
 import org.omg.oti.uml.read.operations.UMLBehavioredClassifierOps
 
-import scala.Boolean
-import scala.Option
-import scala.collection.Iterable
-import scala.collection.immutable.Set
 import scala.collection.immutable.Seq
 // End of user code
 

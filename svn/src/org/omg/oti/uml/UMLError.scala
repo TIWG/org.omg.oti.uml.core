@@ -44,7 +44,7 @@ import org.omg.oti.uml.write.UMLAttributeUpdater
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.collection.immutable.Set
-import scala.{Option, None, Some, StringContext}
+import scala.{Option, None, StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 

@@ -38,10 +38,7 @@
  */
 package org.omg.oti.uml.xmi
 
-import java.net.{MalformedURLException,URL}
-
 import org.omg.oti.json.common.OTIPrimitiveTypes._
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.characteristics._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
@@ -50,7 +47,6 @@ import scala.Predef.String
 import scala.{Array,Byte,Boolean,Char,Int,Option,Unit}
 import scala.Predef.{Map => _,Set => _,_}
 import scala.collection.immutable._
-import scala.language.postfixOps
 
 import java.lang.StringBuffer
 

@@ -38,7 +38,6 @@
  */
 package org.omg.oti.uml.read
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.xmi.IDGenerator
 import org.omg.oti.uml.read.api.UML
 import org.omg.oti.uml.read.api.UMLElement

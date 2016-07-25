@@ -51,7 +51,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.language.postfixOps
-import scala.{Boolean, None, Option, Some, annotation}
+import scala.{Boolean, None, Option, Some}
 import scala.Predef.{Map => _, Set => _, _}
 import scala.collection.immutable._
 import scala.collection.Iterable

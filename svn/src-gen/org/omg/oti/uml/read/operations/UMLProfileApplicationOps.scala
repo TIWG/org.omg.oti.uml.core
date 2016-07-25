@@ -43,16 +43,12 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
-import scala.Boolean
-import scala.{Option,None,Some}
+import scala.Option
 import scala.Predef.String
-import scala.collection.Iterable
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 import scalaz._, Scalaz._
 
 // End of user code

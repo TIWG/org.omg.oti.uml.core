@@ -44,7 +44,7 @@ import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api._
 
 import scala.collection.immutable._
-import scala.{Boolean, Option, StringContext}
+import scala.{Option, StringContext}
 import scala.Predef.String
 import scalaz._
 import Scalaz._

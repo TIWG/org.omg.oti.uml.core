@@ -46,7 +46,6 @@ import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
 import scala.{Option,None,Some}
-import scala.PartialFunction
 import scala.collection.Iterable
 import scala.collection.immutable._
 // End of user code

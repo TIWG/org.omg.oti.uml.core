@@ -43,14 +43,10 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-import scala.language.postfixOps
 import scala.Boolean
 import scala.Option
 import scala.Predef.???
-import scala.collection.Iterable
-import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
-// End of user code
+// End of user cod
 
 /**
   * A Clause is an Element that represents a single branch of a ConditionalNode, including a test and a body section. The body section is executed only if (but not necessarily if) the test section evaluates to true.

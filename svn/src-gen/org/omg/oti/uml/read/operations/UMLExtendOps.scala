@@ -46,9 +46,6 @@ import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
 import scala.Option
-import scala.collection.Iterable
-import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 import scala.Predef.???
 // End of user code
 

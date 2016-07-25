@@ -47,9 +47,7 @@ import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
 import scala.{Boolean,Option}
 import scala.Predef.String
-import scala.collection.immutable.Iterable
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 import scalaz._
 import scalaz.Scalaz._
 // End of user code

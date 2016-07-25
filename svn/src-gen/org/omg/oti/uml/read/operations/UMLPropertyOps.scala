@@ -45,12 +45,9 @@ package org.omg.oti.uml.read.operations
 import org.omg.oti.uml.read.api._
 import scala.language.postfixOps
 import scala.Boolean
-import scala.Int
 import scala.{Option,None,Some}
 import scala.Predef._
-import scala.collection.Iterable
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 // End of user code
 
 /**

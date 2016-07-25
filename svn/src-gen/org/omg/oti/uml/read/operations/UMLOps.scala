@@ -48,15 +48,13 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import scala.reflect.runtime.universe._
 import scala.language.implicitConversions
-import scala.reflect.{classTag}
-import scala.{annotation,AnyVal,Boolean,Double,Int,Option,None,PartialFunction,Some,Tuple3}
+import scala.{Boolean,Option,None,PartialFunction,Some,Tuple3}
 import scala.Option
 import scala.Predef.{Set => _,_}
 import scala.collection.immutable._
-import scala.collection.{Iterable,Iterator}
+import scala.collection.Iterable
 import scalaz._
 
-import java.lang.Integer
 import java.lang.System
 
 // End of user code

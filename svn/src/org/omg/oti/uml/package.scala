@@ -43,13 +43,11 @@ import java.util.concurrent.TimeUnit
 
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
-import org.omg.oti.uml.xmi.IDGenerator
 
-import scala.language.existentials
-import scala.{annotation,Boolean,Double,Int,Option,None,Some}
+import scala.{annotation,Boolean,Double,Option,None,Some}
 import scala.concurrent.duration.Duration
 import scala.concurrent.duration.FiniteDuration
-import scala.{Long, StringContext}
+import scala.Long
 import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable

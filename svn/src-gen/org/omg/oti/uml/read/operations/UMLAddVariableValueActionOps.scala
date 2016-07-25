@@ -44,9 +44,7 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.Boolean
-import scala.Int
 import scala.Predef._
-import java.lang.Integer
 
 // End of user code
 

@@ -39,18 +39,15 @@
 package org.omg.oti.uml
 
 import org.omg.oti.uml.read.api._
-import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.reflect._
 import scala.language.existentials
-import scala.{annotation,Any,Boolean,Double,Int,Option,None,Some}
+import scala.{Any,Boolean,Int,Option,None,Some}
 import scala.Predef.{require,String}
-import scala.collection.immutable.{Seq,Set,Stream,Vector}
+import scala.collection.immutable.{Set,Vector}
 import scala.collection.Iterable
 import scala.StringContext
 import scalaz._, Scalaz._
-
-import java.lang.Exception
 
 /**
  * A MetaPropertyFunction provides information about properties defined on an element's metaclass

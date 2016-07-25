@@ -49,7 +49,6 @@ import scala.Option
 import scala.Predef.???
 import scala.collection.Iterable
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 // End of user code
 
 /**

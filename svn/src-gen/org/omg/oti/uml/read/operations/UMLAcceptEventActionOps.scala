@@ -43,16 +43,12 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-import scala.language.postfixOps
 import scala.Boolean
-import scala.{Int,Option,None,Some,Tuple2}
+import scala.{None,Some,Tuple2}
 import scala.Predef._
-import scala.collection.Iterable
 import scala.collection.immutable.::
 import scala.collection.immutable.Nil
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
-import java.lang.Integer
 // End of user code
 
 /**

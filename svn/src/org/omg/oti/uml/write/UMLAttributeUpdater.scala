@@ -46,7 +46,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations.UMLOps
 
 import scala.{Boolean,Double,Enumeration,Option,None,Some,StringContext,Unit}
-import scala.Predef.{???,String}
+import scala.Predef.String
 import scala.collection.immutable._
 import scala.collection.Iterable
 import scala.reflect._

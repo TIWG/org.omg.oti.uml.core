@@ -50,7 +50,7 @@ import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
 import scala.annotation
-import scala.{Boolean,Int,Double,StringBuilder,StringContext}
+import scala.{Boolean,Int,Double,StringBuilder}
 import scala.{Option,None,Some}
 import scala.Predef.{Set => _, Map => _,_}
 import scala.collection.immutable._

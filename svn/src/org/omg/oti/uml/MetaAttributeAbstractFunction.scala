@@ -40,15 +40,13 @@ package org.omg.oti.uml
 
 import org.omg.oti.uml.characteristics.OTICharacteristicsProvider
 import org.omg.oti.uml.read.api._
-import org.omg.oti.uml.xmi.IDGenerator
 
 import java.lang.Integer
-import scala.{Any,Boolean,Double,Enumeration,Function1,Function2,Int,Option,None,Some,StringContext}
+import scala.{Any,Boolean,Double,Enumeration,Int,Option,None,Some,StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scala.reflect._
-import scala.language.existentials
 import scala.reflect.runtime.universe._
 
 import scalaz._, Scalaz._

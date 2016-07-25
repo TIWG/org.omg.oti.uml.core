@@ -46,13 +46,10 @@ import org.omg.oti.uml._
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.xmi.IDGenerator
 import scala.language.postfixOps
-import scala.annotation
 import scala.Boolean
 import scala.{Option,None,Some}
 import scala.Predef._
-import scala.collection.Iterable
 import scala.collection.immutable.Set
-import scala.collection.immutable.Seq
 import scalaz._, Scalaz._
 
 // End of user code

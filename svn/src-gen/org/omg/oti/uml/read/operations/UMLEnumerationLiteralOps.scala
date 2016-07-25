@@ -43,8 +43,6 @@ package org.omg.oti.uml.read.operations
 
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
-import scala.language.postfixOps
-import scala.Boolean
 import scala.Option
 import scala.collection.Iterable
 import scala.collection.immutable._

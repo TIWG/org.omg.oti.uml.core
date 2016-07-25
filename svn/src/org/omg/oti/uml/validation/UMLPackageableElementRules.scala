@@ -38,11 +38,10 @@
  */
 package org.omg.oti.uml.validation
 
-import org.omg.oti.uml.UMLError
 import org.omg.oti.uml.read.api.{UMLPackage, UML, UMLPackageableElement}
 import org.omg.oti.uml.read.operations.UMLOps
 
-import scala.{Function2,Option,None,Some}
+import scala.{Function2,Option,Some}
 import scala.collection.Iterable
 import scala.collection.immutable.Set
 import scalaz._
