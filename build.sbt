@@ -30,11 +30,11 @@ lazy val core = Project("oti-uml-core", file("."))
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.uml.core")))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
-  .settings(IMCEPlugin.scalaDocSettings(diagrams=false))
+  //.settings(IMCEPlugin.scalaDocSettings(diagrams=false))
   .settings(
     IMCEKeys.licenseYearOrRange := "2014-2016",
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
-    IMCEKeys.targetJDK := IMCEKeys.jdk17.value,
+    IMCEKeys.targetJDK := IMCEKeys.jdk18.value,
 
     // @todo add this to the imce.sbt.plugin
     scalacOptions in (Compile,doc) += "-no-link-warnings",
