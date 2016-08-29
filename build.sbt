@@ -2,13 +2,8 @@
 import sbt.Keys._
 import sbt._
 
-import de.heikoseeberger.sbtheader.HeaderPlugin
-import de.heikoseeberger.sbtheader.HeaderPattern
-import de.heikoseeberger.sbtheader.license.CommentBlock
-
 import gov.nasa.jpl.imce.sbt._
 import gov.nasa.jpl.imce.sbt.ProjectHelper._
-import scala.util.matching.Regex
 
 useGpg := true
 
@@ -46,7 +41,6 @@ lazy val core = Project("oti-uml-core", file("."))
   .enablePlugins(IMCEReleasePlugin)
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.uml.core")))
-  .settings(OTICoreLicenseSettings)
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   //.settings(IMCEPlugin.scalaDocSettings(diagrams=false))
   .settings(
@@ -167,30 +161,3 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
     }
   )
 }
-
-val oti_uml_core_license =
-  s"""|Copyright 2014 California Institute of Technology ("Caltech").
-      |U.S. Government sponsorship acknowledged.
-      |
-      |Copyright 2015 Airbus.
-      |
-      |Licensed under the Apache License, Version 2.0 (the "License");
-      |you may not use this file except in compliance with the License.
-      |You may obtain a copy of the License at
-      |
-      |    http://www.apache.org/licenses/LICENSE-2.0
-      |
-      |Unless required by applicable law or agreed to in writing, software
-      |distributed under the License is distributed on an "AS IS" BASIS,
-      |WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      |See the License for the specific language governing permissions and
-      |limitations under the License.
-      |License Terms
-      |""".stripMargin
-
-val OTICoreLicenseSettings : Seq[Setting[_]] =
-  Seq(
-    startYear := Some(2014),
-
-    headers := Map("scala" -> (HeaderPattern.cStyleBlockComment, CommentBlock.cStyle(oti_uml_core_license)))
-  )

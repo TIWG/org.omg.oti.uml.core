@@ -2,5 +2,6 @@
 .ensime*
 .idea
 .iml
+local.*
 target
-links.json
+*links.json
