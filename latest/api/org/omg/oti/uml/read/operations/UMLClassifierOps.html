@@ -1,0 +1,1182 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLClassifierOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLClassifierOps</title>
+          <meta name="description" content="UMLClassifierOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLClassifierOps" />
+          <meta name="keywords" content="UMLClassifierOps org.omg.oti.uml.core org.omg.oti.uml.read.operations.UMLClassifierOps" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.operations.UMLClassifierOps';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">operations</a></p>
+        <h1>UMLClassifierOps</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">package operations</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLClassifierOps</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Classifier represents a classification of instances according to their Features.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]</dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../api/UMLActivity.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivity">UMLActivity</a>, <a href="../api/UMLActor.html" class="extype" name="org.omg.oti.uml.read.api.UMLActor">UMLActor</a>, <a href="../api/UMLArtifact.html" class="extype" name="org.omg.oti.uml.read.api.UMLArtifact">UMLArtifact</a>, <a href="../api/UMLAssociation.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociation">UMLAssociation</a>, <a href="../api/UMLAssociationClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociationClass">UMLAssociationClass</a>, <a href="../api/UMLBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLBehavior">UMLBehavior</a>, <a href="../api/UMLBehavioredClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLBehavioredClassifier">UMLBehavioredClassifier</a>, <a href="../api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">UMLClass</a>, <a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>, <a href="../api/UMLCollaboration.html" class="extype" name="org.omg.oti.uml.read.api.UMLCollaboration">UMLCollaboration</a>, <a href="../api/UMLCommunicationPath.html" class="extype" name="org.omg.oti.uml.read.api.UMLCommunicationPath">UMLCommunicationPath</a>, <a href="../api/UMLComponent.html" class="extype" name="org.omg.oti.uml.read.api.UMLComponent">UMLComponent</a>, <a href="../api/UMLDataType.html" class="extype" name="org.omg.oti.uml.read.api.UMLDataType">UMLDataType</a>, <a href="../api/UMLDeploymentSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLDeploymentSpecification">UMLDeploymentSpecification</a>, <a href="../api/UMLDevice.html" class="extype" name="org.omg.oti.uml.read.api.UMLDevice">UMLDevice</a>, <a href="../api/UMLEncapsulatedClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLEncapsulatedClassifier">UMLEncapsulatedClassifier</a>, <a href="../api/UMLEnumeration.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumeration">UMLEnumeration</a>, <a href="../api/UMLExecutionEnvironment.html" class="extype" name="org.omg.oti.uml.read.api.UMLExecutionEnvironment">UMLExecutionEnvironment</a>, <a href="../api/UMLExtension.html" class="extype" name="org.omg.oti.uml.read.api.UMLExtension">UMLExtension</a>, <a href="../api/UMLFunctionBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLFunctionBehavior">UMLFunctionBehavior</a>, <a href="../api/UMLInformationItem.html" class="extype" name="org.omg.oti.uml.read.api.UMLInformationItem">UMLInformationItem</a>, <a href="../api/UMLInteraction.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteraction">UMLInteraction</a>, <a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>, <a href="../api/UMLNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLNode">UMLNode</a>, <a href="../api/UMLOpaqueBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLOpaqueBehavior">UMLOpaqueBehavior</a>, <a href="../api/UMLPrimitiveType.html" class="extype" name="org.omg.oti.uml.read.api.UMLPrimitiveType">UMLPrimitiveType</a>, <a href="../api/UMLProtocolStateMachine.html" class="extype" name="org.omg.oti.uml.read.api.UMLProtocolStateMachine">UMLProtocolStateMachine</a>, <a href="../api/UMLSignal.html" class="extype" name="org.omg.oti.uml.read.api.UMLSignal">UMLSignal</a>, <a href="../api/UMLStateMachine.html" class="extype" name="org.omg.oti.uml.read.api.UMLStateMachine">UMLStateMachine</a>, <a href="../api/UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>, <a href="../api/UMLStructuredClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredClassifier">UMLStructuredClassifier</a>, <a href="../api/UMLUseCase.html" class="extype" name="org.omg.oti.uml.read.api.UMLUseCase">UMLUseCase</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.operations.UMLClassifierOps"><span>UMLClassifierOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allAttributes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allAttributes:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="allAttributes:Seq[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allAttributes</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allAttributes:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query allAttributes gives an ordered set of all owned and inherited attributes of the Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query allAttributes gives an ordered set of all owned and inherited attributes of the Classifier. All owned attributes appear before any inherited attributes, and the attributes inherited from any more specific parent Classifier appear before those of any more general parent Classifier. However, if the Classifier has multiple immediate parents, then the relative ordering of the sets of attributes from those parents is not defined.</p><p>UML Operation ordered=&quot;true&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (attribute-&gt;asSequence()-&gt;union(parents()-&gt;asSequence().allAttributes())-&gt;select(p | member-&gt;includes(p))-&gt;asOrderedSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allAttributesExceptRedefined" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allAttributesExceptRedefined:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="allAttributesExceptRedefined:Seq[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allAttributesExceptRedefined</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allAttributesExceptRedefined:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allFeatures" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allFeatures:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLFeature[Uml]]"></a>
+      <a id="allFeatures:Set[UMLFeature[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allFeatures</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLFeature.html" class="extype" name="org.omg.oti.uml.read.api.UMLFeature">UMLFeature</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allFeatures:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLFeature[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query allFeatures() gives all of the Features in the namespace of the Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query allFeatures() gives all of the Features in the namespace of the Classifier. In general, through mechanisms such as inheritance, this will be a larger set than feature.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (member-&gt;select(oclIsKindOf(Feature))-&gt;collect(oclAsType(Feature))-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allParents" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allParents:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="allParents:Set[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allParents</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allParents:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query allParents() gives all of the direct and indirect ancestors of a generalized Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query allParents() gives all of the direct and indirect ancestors of a generalized Classifier.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (parents()-&gt;union(parents()-&gt;collect(allParents())-&gt;asSet()))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allRealizedInterfaces" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allRealizedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="allRealizedInterfaces:Set[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allRealizedInterfaces</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allRealizedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Interfaces realized by this Classifier and all of its generalizations</p><div class="fullcomment"><div class="comment cmt"><p>The Interfaces realized by this Classifier and all of its generalizations</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (directlyRealizedInterfaces()-&gt;union(self.allParents()-&gt;collect(directlyRealizedInterfaces()))-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allSlottableFeatures" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allSlottableFeatures:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLStructuralFeature[Uml]]"></a>
+      <a id="allSlottableFeatures:Set[UMLStructuralFeature[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allSlottableFeatures</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLStructuralFeature.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuralFeature">UMLStructuralFeature</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allSlottableFeatures:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLStructuralFeature[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All StructuralFeatures related to the Classifier that may have Slots, including direct attributes, inherited attributes, private attributes in generalizations, and memberEnds of Associations, but excluding redefined StructuralFeatures.</p><div class="fullcomment"><div class="comment cmt"><p>All StructuralFeatures related to the Classifier that may have Slots, including direct attributes, inherited attributes, private attributes in generalizations, and memberEnds of Associations, but excluding redefined StructuralFeatures.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (member-&gt;select(oclIsKindOf(StructuralFeature))-&gt;
+  collect(oclAsType(StructuralFeature))-&gt;
+   union(self.inherit(self.allParents()-&gt;collect(p | p.attribute)-&gt;asSet())-&gt;
+     collect(oclAsType(StructuralFeature)))-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#allUsedInterfaces" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allUsedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="allUsedInterfaces:Set[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allUsedInterfaces</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@allUsedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Interfaces used by this Classifier and all of its generalizations</p><div class="fullcomment"><div class="comment cmt"><p>The Interfaces used by this Classifier and all of its generalizations</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (directlyUsedInterfaces()-&gt;union(self.allParents()-&gt;collect(directlyUsedInterfaces()))-&gt;asSet())</pre></div></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#collaborationUse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="collaborationUse:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLCollaborationUse[Uml]]"></a>
+      <a id="collaborationUse:Set[UMLCollaborationUse[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">collaborationUse</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLCollaborationUse.html" class="extype" name="org.omg.oti.uml.read.api.UMLCollaborationUse">UMLCollaborationUse</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@collaborationUse:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLCollaborationUse[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The CollaborationUses owned by the Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The CollaborationUses owned by the Classifier.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse.collaborationUse_classifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#conformsTo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="conformsTo(other:Option[org.omg.oti.uml.read.api.UMLType[Uml]]):Boolean"></a>
+      <a id="conformsTo(Option[UMLType[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">conformsTo</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLType.html" class="extype" name="org.omg.oti.uml.read.api.UMLType">UMLType</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@conformsTo(other:Option[org.omg.oti.uml.read.api.UMLType[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query conformsTo() gives true for a Classifier that defines a type that conforms to another.</p><div class="fullcomment"><div class="comment cmt"><p>The query conformsTo() gives true for a Classifier that defines a type that conforms to another. This is used, for example, in the specification of signature conformance for operations.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (<span class="kw">if</span> other.oclIsKindOf(Classifier) then
+  let otherClassifier : Classifier = other.oclAsType(Classifier) in
+    self = otherClassifier or allParents()-&gt;includes(otherClassifier)
+<span class="kw">else</span>
+  <span class="kw">false</span>
+endif)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#directlyRealizedInterfaces" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="directlyRealizedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="directlyRealizedInterfaces:Set[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">directlyRealizedInterfaces</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@directlyRealizedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Interfaces directly realized by this Classifier</p><div class="fullcomment"><div class="comment cmt"><p>The Interfaces directly realized by this Classifier</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = ((clientDependency-&gt;
+  select(oclIsKindOf(Realization) and supplier-&gt;forAll(oclIsKindOf(Interface))))-&gt;
+      collect(supplier.oclAsType(Interface))-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#directlyUsedInterfaces" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="directlyUsedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="directlyUsedInterfaces:Set[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">directlyUsedInterfaces</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@directlyUsedInterfaces:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Interfaces directly used by this Classifier</p><div class="fullcomment"><div class="comment cmt"><p>The Interfaces directly used by this Classifier</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = ((supplierDependency-&gt;
+  select(oclIsKindOf(Usage) and client-&gt;forAll(oclIsKindOf(Interface))))-&gt;
+    collect(client.oclAsType(Interface))-&gt;asSet())</pre></div></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#feature" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="feature:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLFeature[Uml]]"></a>
+      <a id="feature:Set[UMLFeature[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">feature</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLFeature.html" class="extype" name="org.omg.oti.uml.read.api.UMLFeature">UMLFeature</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@feature:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLFeature[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specifies each Feature directly defined in the classifier.</p><div class="fullcomment"><div class="comment cmt"><p>Specifies each Feature directly defined in the classifier. Note that there may be members of the Classifier that are of the type Feature but are not included, e.g., inherited features.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLFeature.featuringClassifier
+</p></div></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#general" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="general:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="general:Set[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">general</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@general:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The generalizing Classifiers for this Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The generalizing Classifiers for this Classifier.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.general_classifier</p><pre>OCL Body result = (parents())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#general_generalization" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="general_generalization:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLGeneralization[Uml]]"></a>
+      <a id="general_generalization:Set[UMLGeneralization[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">general_generalization</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLGeneralization.html" class="extype" name="org.omg.oti.uml.read.api.UMLGeneralization">UMLGeneralization</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@general_generalization:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLGeneralization[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralization.general
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#generalization" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="generalization:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLGeneralization[Uml]]"></a>
+      <a id="generalization:Set[UMLGeneralization[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">generalization</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLGeneralization.html" class="extype" name="org.omg.oti.uml.read.api.UMLGeneralization">UMLGeneralization</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@generalization:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLGeneralization[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Generalization relationships for this Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The Generalization relationships for this Classifier. These Generalizations navigate to more general Classifiers in the generalization hierarchy.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLGeneralization.specific
+</p></div></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#hasVisibilityOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasVisibilityOf(n:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):Boolean"></a>
+      <a id="hasVisibilityOf(Option[UMLNamedElement[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasVisibilityOf</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@hasVisibilityOf(n:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query hasVisibilityOf() determines whether a NamedElement is visible in the classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query hasVisibilityOf() determines whether a NamedElement is visible in the classifier. Non-private members are visible. It is only called when the argument is something owned by a parent.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (n.visibility &lt;&gt; VisibilityKind::<span class="kw">private</span>)</pre></div></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#inherit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="inherit(inhs:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]"></a>
+      <a id="inherit(Set[UMLNamedElement[Uml]]):Set[UMLNamedElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">inherit</span><span class="params">(<span name="inhs">inhs: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@inherit(inhs:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query inherit() defines how to inherit a set of elements passed as its argument.</p><div class="fullcomment"><div class="comment cmt"><p>The query inherit() defines how to inherit a set of elements passed as its argument.  It excludes redefined elements from the result.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (inhs-&gt;reject(inh |
+  inh.oclIsKindOf(RedefinableElement) and
+  ownedMember-&gt;select(oclIsKindOf(RedefinableElement))-&gt;
+    select(redefinedElement-&gt;includes(inh.oclAsType(RedefinableElement)))
+       -&gt;notEmpty()))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#inheritableMembers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="inheritableMembers(c:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]"></a>
+      <a id="inheritableMembers(Option[UMLClassifier[Uml]]):Set[UMLNamedElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">inheritableMembers</span><span class="params">(<span name="c">c: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@inheritableMembers(c:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query inheritableMembers() gives all of the members of a Classifier that may be inherited in one of its descendants, subject to whatever visibility restrictions apply.</p><div class="fullcomment"><div class="comment cmt"><p>The query inheritableMembers() gives all of the members of a Classifier that may be inherited in one of its descendants, subject to whatever visibility restrictions apply.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (member-&gt;select(m | c.hasVisibilityOf(m)))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#inheritedMember" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="inheritedMember:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]"></a>
+      <a id="inheritedMember:Set[UMLNamedElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">inheritedMember</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@inheritedMember:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All elements inherited by this Classifier from its general Classifiers.</p><div class="fullcomment"><div class="comment cmt"><p>All elements inherited by this Classifier from its general Classifiers.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLNamedElement.inheritedMember_inheritingClassifier</p><pre>OCL Body result = (inherit(parents()-&gt;collect(inheritableMembers(self))-&gt;asSet()))</pre></div></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#isSubstitutableFor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isSubstitutableFor(contract:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):Boolean"></a>
+      <a id="isSubstitutableFor(Option[UMLClassifier[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isSubstitutableFor</span><span class="params">(<span name="contract">contract: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@isSubstitutableFor(contract:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><div class="fullcomment"><div class="comment cmt"><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (substitution.contract-&gt;includes(contract))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#isTemplate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isTemplate:Boolean"></a>
+      <a id="isTemplate:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isTemplate</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@isTemplate:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isTemplate() returns whether this Classifier is actually a template.</p><div class="fullcomment"><div class="comment cmt"><p>The query isTemplate() returns whether this Classifier is actually a template.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (ownedTemplateSignature &lt;&gt; <span class="kw">null</span> or general-&gt;exists(g | g.isTemplate()))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#maySpecializeType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="maySpecializeType(c:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):Boolean"></a>
+      <a id="maySpecializeType(Option[UMLClassifier[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">maySpecializeType</span><span class="params">(<span name="c">c: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@maySpecializeType(c:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query maySpecializeType() determines whether this classifier may have a generalization relationship to classifiers of the specified type.</p><div class="fullcomment"><div class="comment cmt"><p>The query maySpecializeType() determines whether this classifier may have a generalization relationship to classifiers of the specified type. By default a classifier may specialize classifiers of the same or a more general type. It is intended to be redefined by classifiers that have different specialization constraints.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (self.oclIsKindOf(c.oclType()))</pre></div></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#nestedClassifier_interface" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="nestedClassifier_interface:Option[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="nestedClassifier_interface:Option[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nestedClassifier_interface</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@nestedClassifier_interface:Option[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.nestedClassifier
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#nestedClassifier_nestingClass" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="nestedClassifier_nestingClass:Option[org.omg.oti.uml.read.api.UMLClass[Uml]]"></a>
+      <a id="nestedClassifier_nestingClass:Option[UMLClass[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nestedClassifier_nestingClass</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">UMLClass</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@nestedClassifier_nestingClass:Option[org.omg.oti.uml.read.api.UMLClass[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLClass.nestedClassifier
+</p>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#ownedTemplateSignature" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ownedTemplateSignature:Option[org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature[Uml]]"></a>
+      <a id="ownedTemplateSignature:Option[UMLRedefinableTemplateSignature[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedTemplateSignature</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLRedefinableTemplateSignature.html" class="extype" name="org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature">UMLRedefinableTemplateSignature</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@ownedTemplateSignature:Option[org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The optional RedefinableTemplateSignature specifying the formal template parameters.</p><div class="fullcomment"><div class="comment cmt"><p>The optional RedefinableTemplateSignature specifying the formal template parameters.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLRedefinableTemplateSignature.classifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#ownedUseCase" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ownedUseCase:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLUseCase[Uml]]"></a>
+      <a id="ownedUseCase:Set[UMLUseCase[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedUseCase</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLUseCase.html" class="extype" name="org.omg.oti.uml.read.api.UMLUseCase">UMLUseCase</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@ownedUseCase:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLUseCase[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The UseCases owned by this classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The UseCases owned by this classifier.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLUseCase.ownedUseCase_classifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#parents" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="parents:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="parents:Set[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parents</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@parents:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query parents() gives all of the immediate ancestors of a generalized Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query parents() gives all of the immediate ancestors of a generalized Classifier.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (generalization.general-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#redefinedClassifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="redefinedClassifier:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="redefinedClassifier:Set[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinedClassifier</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@redefinedClassifier:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Classifiers redefined by this Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The Classifiers redefined by this Classifier.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier_classifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#redefinedClassifier_classifier" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="redefinedClassifier_classifier:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="redefinedClassifier_classifier:Set[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinedClassifier_classifier</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@redefinedClassifier_classifier:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLClassifier.redefinedClassifier
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#redefinitionContext_region" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="redefinitionContext_region:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLRegion[Uml]]"></a>
+      <a id="redefinitionContext_region:Set[UMLRegion[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinitionContext_region</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLRegion.html" class="extype" name="org.omg.oti.uml.read.api.UMLRegion">UMLRegion</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@redefinitionContext_region:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLRegion[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLRegion.redefinitionContext
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#redefinitionContext_state" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="redefinitionContext_state:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLState[Uml]]"></a>
+      <a id="redefinitionContext_state:Set[UMLState[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinitionContext_state</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLState.html" class="extype" name="org.omg.oti.uml.read.api.UMLState">UMLState</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@redefinitionContext_state:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLState[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLState.redefinitionContext
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#redefinitionContext_transition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="redefinitionContext_transition:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLTransition[Uml]]"></a>
+      <a id="redefinitionContext_transition:Set[UMLTransition[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinitionContext_transition</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLTransition.html" class="extype" name="org.omg.oti.uml.read.api.UMLTransition">UMLTransition</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@redefinitionContext_transition:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLTransition[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLTransition.redefinitionContext
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#representation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="representation:Option[org.omg.oti.uml.read.api.UMLCollaborationUse[Uml]]"></a>
+      <a id="representation:Option[UMLCollaborationUse[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">representation</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLCollaborationUse.html" class="extype" name="org.omg.oti.uml.read.api.UMLCollaborationUse">UMLCollaborationUse</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@representation:Option[org.omg.oti.uml.read.api.UMLCollaborationUse[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A CollaborationUse which indicates the Collaboration that represents this Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>A CollaborationUse which indicates the Collaboration that represents this Classifier.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLCollaborationUse.representation_classifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#substitution" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="substitution:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLSubstitution[Uml]]"></a>
+      <a id="substitution:Set[UMLSubstitution[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">substitution</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLSubstitution.html" class="extype" name="org.omg.oti.uml.read.api.UMLSubstitution">UMLSubstitution</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLClassifierOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@substitution:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLSubstitution[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Substitutions owned by this Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The Substitutions owned by this Classifier.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLSubstitution.substitutingClassifier
+</p></div></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#validate_maps_to_generalization_set" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_maps_to_generalization_set:Boolean"></a>
+      <a id="validate_maps_to_generalization_set:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_maps_to_generalization_set</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@validate_maps_to_generalization_set:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Classifier that maps to a GeneralizationSet may neither be a specific nor a general Classifier in any of the Generalization relationships defined for that GeneralizationSet.</p><div class="fullcomment"><div class="comment cmt"><p>The Classifier that maps to a GeneralizationSet may neither be a specific nor a general Classifier in any of the Generalization relationships defined for that GeneralizationSet. In other words, a power type may not be an instance of itself nor may its instances also be its subclasses.</p><pre>OCL Body powertypeExtent-&gt;forAll( gs |
+  gs.generalization-&gt;forAll( gen |
+    not (gen.general = self) and not gen.general.allParents()-&gt;includes(self) and not (gen.specific = self) and not self.allParents()-&gt;includes(gen.specific)
+  ))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#validate_no_cycles_in_generalization" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_no_cycles_in_generalization:Boolean"></a>
+      <a id="validate_no_cycles_in_generalization:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_no_cycles_in_generalization</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@validate_no_cycles_in_generalization:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Generalization hierarchies must be directed and acyclical.</p><div class="fullcomment"><div class="comment cmt"><p>Generalization hierarchies must be directed and acyclical. A Classifier can not be both a transitively general and transitively specific Classifier of the same Classifier.</p><pre>OCL Body not allParents()-&gt;includes(self)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#validate_non_final_parents" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_non_final_parents:Boolean"></a>
+      <a id="validate_non_final_parents:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_non_final_parents</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@validate_non_final_parents:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The parents of a Classifier must be non-final.</p><div class="fullcomment"><div class="comment cmt"><p>The parents of a Classifier must be non-final.</p><pre>OCL Body parents()-&gt;forAll(not isFinalSpecialization)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLClassifierOps#validate_specialize_type" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_specialize_type:Boolean"></a>
+      <a id="validate_specialize_type:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_specialize_type</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@validate_specialize_type:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Classifier may only specialize Classifiers of a valid type.</p><div class="fullcomment"><div class="comment cmt"><p>A Classifier may only specialize Classifiers of a valid type.</p><pre>OCL Body parents()-&gt;forAll(c | self.maySpecializeType(c))</pre></div></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLClassifierOps@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

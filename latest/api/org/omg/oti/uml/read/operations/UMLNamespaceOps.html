@@ -1,0 +1,955 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLNamespaceOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLNamespaceOps</title>
+          <meta name="description" content="UMLNamespaceOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLNamespaceOps" />
+          <meta name="keywords" content="UMLNamespaceOps org.omg.oti.uml.core org.omg.oti.uml.read.operations.UMLNamespaceOps" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.operations.UMLNamespaceOps';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">operations</a></p>
+        <h1>UMLNamespaceOps</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">package operations</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLNamespaceOps</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Namespace is an Element in a model that owns and/or imports a set of NamedElements that can be identified by name.</p><p>In UML, a PackageImport is a relationship between a Namespace and a Package.
+It means that the members of the imported package can be &quot;referred by name&quot; from
+the context of the importing namespace. What does &quot;referred by name&quot; really means in UML
+given that UML itself does not specify anything notion of name/symbol resolution/lookup?</p><p>In OTI, this is clarified based on two pragmatic clarifications:</p><p>1) In MOF/XMI, &quot;referred by name&quot; pertains to the prefix + name of an XML Element.</p><p>For example, &quot;&lt;uml:Package ..../&gt;&quot;, means that &quot;uml&quot; denotes the namespace prefix for the UML
+metamodel and &quot;Package&quot; is a class defined in the UML metamodel &quot;referred by name&quot;.
+If anything, this is the main reason why the UML 2.5 metamodel has several package import
+relationships from the UML metamodel package to the nested packages.
+For example, the qualified name of the &quot;Package&quot; metaclass in the metamodel in &quot;UML::Packages::Package&quot;
+where &quot;UML::Packages&quot; is the qualified name of a nested package, &quot;Packages&quot;.
+Without the UML metamodel package importing the nested package, UML::Packages, the XMI serialization
+of a UML Package would not be &quot;&lt;uml:Package .../&gt;&quot; but something else (TBD).</p><p>2) In OCL, &quot;referred by name&quot; pertains to the prefix + name of a metaclass.</p><p>For example, &quot;x.oclIsKindOf(uml:Package)&quot; involves a reference to the metaclass, &quot;uml:Package&quot;,
+according to the UML rules for referring to named elements in a namespace context.
+Again, without the import from UML to the nexted package UML::Package, the above OCL example
+would have to be written differently (TBD).</p><p>UML 2.5 is the first major metamodel at the OMG to have a nested package organization.
+This means that there is no established precedent at the OMG for referring to elements
+in MOF/XMI and OCL that are not direct members of a toplevel metamodel/profile/library.
+Instead of postulating something that does not have a significant consensus,
+the approach used in OTI is to adopt a conservative clarification on UML, preferably based
+on an established precedent at the OMG.</p><p>UML 2.5 itself establishes the precedent for requiring a package P1 to import its nested packages
+explicitly (e.g., P1::P2) in order to expose the contents in a way that can be &quot;referred by name&quot;
+from the context of the outer package (i.e., P1). This clarification needs to be
+reconciled with three semantics:</p><p>- the semantics of Namespaces &amp; NamedElements (7.4.3):</p><p>When a distinction is necessary, a simple name that is not qualified with Namespace names may be
+referred to as an unqualified name. Within a Namespace, unqualified names may be used to refer
+to the members of that Namespace and to outer names that are not hidden. An outer name is the name of
+a NamedElement that may be referenced using an unqualified name in an immediately enclosing Namespace.
+An outer name is hidden unless it is distinguishable from all members of the inner Namespace.
+(See the discussion on distinguishability below under ???Named Elements???.)</p><p>- the semantics of PackageableElements &amp; Import (7.4.3):</p><hr /><p>A PackageableElement is a NamedElement that may be owned directly by a Package (see Clause 12 on Packages).
+Any such element may serve as a TemplateParameter (see sub clause 7.3 on Templates).</p><p>An ElementImport is a DirectedRelationship between an importing Namespace and a PackageableElement.
+It adds the name of the PackageableElement to the importing Namespace. The visibility of the ElementImport
+may be either the same or more restricted than that of the imported element.</p><p>In case of a name clash with an outer name (an element that is defined in an enclosing Namespace that
+is available using its unqualified name in enclosed Namespaces) in the importing Namespace,
+the outer name is hidden by an ElementImport, and the unqualified name refers to the imported element.
+The outer name can be accessed using its qualified name. A PackageImport is a DirectedRelationship between
+an importing Namespace and a Package, indicating that the importing Namespace adds the names of
+the members of the Package to its own Namespace. Conceptually, a Package import is equivalent to
+having an ElementImport to each individual member of the imported Namespace, unless there is
+a separately-defined ElementImport. If there is an ElementImport for an Element,
+then this takes precedence over a potential import of the same Element via a PackageImport.</p><p>If indistinguishable Elements would be imported into a Namespace as a consequence of ElementImports
+or PackageImports, the Elements are not added to the importing Namespace and the names of those
+Elements must be qualified in order to be used in that Namespace. If the name of an imported Element
+is indistinguishable from an Element owned by the importing Namespace, that Element is not added to
+the importing Namespace and the name of that Element must be qualified in order to be used.</p><p>An Element that is publicly imported is a public member of the importing Namespace.
+This means that, if the Namespace is a Package, a PackageImport of it by another Namespace will
+result in the further import of those publicly imported members into the other Namespace,
+in addition to the public ownedMembers of the Package.</p><p>NOTE. A Namespace may not import itself, nor may it import any of its own ownedMembers.
+This means that it is not possible for a NamedElement to acquire an alias in its owning Namespace.
+------------------</p><p>Although the UML 2.5 specification does not clearly specify what is the semantics
+of an ElementImport where the imported element is a Package (instead of a non-Package PackageableElement),
+the important clarification about the UML 2.5 specification made here is that of
+separating three ways in which elements can be &quot;referred by name&quot; in the context of a package:
+1) by following package import relationships
+2) by following package nesting (inwards)
+3) by following package nesting (outwards)</p><p>The semantics of importation involves (1) per 7.4.3
+The semantics of profile application involves both (1) and (2) per 12.3.3
+The semantics of namespaces involves (1) and (3) per 7.4.3</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="../api/UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]</dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../api/UMLActivity.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivity">UMLActivity</a>, <a href="../api/UMLActor.html" class="extype" name="org.omg.oti.uml.read.api.UMLActor">UMLActor</a>, <a href="../api/UMLArtifact.html" class="extype" name="org.omg.oti.uml.read.api.UMLArtifact">UMLArtifact</a>, <a href="../api/UMLAssociation.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociation">UMLAssociation</a>, <a href="../api/UMLAssociationClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociationClass">UMLAssociationClass</a>, <a href="../api/UMLBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLBehavior">UMLBehavior</a>, <a href="../api/UMLBehavioralFeature.html" class="extype" name="org.omg.oti.uml.read.api.UMLBehavioralFeature">UMLBehavioralFeature</a>, <a href="../api/UMLBehavioredClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLBehavioredClassifier">UMLBehavioredClassifier</a>, <a href="../api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">UMLClass</a>, <a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>, <a href="../api/UMLCollaboration.html" class="extype" name="org.omg.oti.uml.read.api.UMLCollaboration">UMLCollaboration</a>, <a href="../api/UMLCommunicationPath.html" class="extype" name="org.omg.oti.uml.read.api.UMLCommunicationPath">UMLCommunicationPath</a>, <a href="../api/UMLComponent.html" class="extype" name="org.omg.oti.uml.read.api.UMLComponent">UMLComponent</a>, <a href="../api/UMLConditionalNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLConditionalNode">UMLConditionalNode</a>, <a href="../api/UMLDataType.html" class="extype" name="org.omg.oti.uml.read.api.UMLDataType">UMLDataType</a>, <a href="../api/UMLDeploymentSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLDeploymentSpecification">UMLDeploymentSpecification</a>, <a href="../api/UMLDevice.html" class="extype" name="org.omg.oti.uml.read.api.UMLDevice">UMLDevice</a>, <a href="../api/UMLEncapsulatedClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLEncapsulatedClassifier">UMLEncapsulatedClassifier</a>, <a href="../api/UMLEnumeration.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumeration">UMLEnumeration</a>, <a href="../api/UMLExecutionEnvironment.html" class="extype" name="org.omg.oti.uml.read.api.UMLExecutionEnvironment">UMLExecutionEnvironment</a>, <a href="../api/UMLExpansionRegion.html" class="extype" name="org.omg.oti.uml.read.api.UMLExpansionRegion">UMLExpansionRegion</a>, <a href="../api/UMLExtension.html" class="extype" name="org.omg.oti.uml.read.api.UMLExtension">UMLExtension</a>, <a href="../api/UMLFinalState.html" class="extype" name="org.omg.oti.uml.read.api.UMLFinalState">UMLFinalState</a>, <a href="../api/UMLFunctionBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLFunctionBehavior">UMLFunctionBehavior</a>, <a href="../api/UMLInformationItem.html" class="extype" name="org.omg.oti.uml.read.api.UMLInformationItem">UMLInformationItem</a>, <a href="../api/UMLInteraction.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteraction">UMLInteraction</a>, <a href="../api/UMLInteractionOperand.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteractionOperand">UMLInteractionOperand</a>, <a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>, <a href="../api/UMLLoopNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLLoopNode">UMLLoopNode</a>, <a href="../api/UMLModel.html" class="extype" name="org.omg.oti.uml.read.api.UMLModel">UMLModel</a>, <a href="../api/UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>, <a href="../api/UMLNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLNode">UMLNode</a>, <a href="../api/UMLOpaqueBehavior.html" class="extype" name="org.omg.oti.uml.read.api.UMLOpaqueBehavior">UMLOpaqueBehavior</a>, <a href="../api/UMLOperation.html" class="extype" name="org.omg.oti.uml.read.api.UMLOperation">UMLOperation</a>, <a href="../api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>, <a href="../api/UMLPrimitiveType.html" class="extype" name="org.omg.oti.uml.read.api.UMLPrimitiveType">UMLPrimitiveType</a>, <a href="../api/UMLProfile.html" class="extype" name="org.omg.oti.uml.read.api.UMLProfile">UMLProfile</a>, <a href="../api/UMLProtocolStateMachine.html" class="extype" name="org.omg.oti.uml.read.api.UMLProtocolStateMachine">UMLProtocolStateMachine</a>, <a href="../api/UMLProtocolTransition.html" class="extype" name="org.omg.oti.uml.read.api.UMLProtocolTransition">UMLProtocolTransition</a>, <a href="../api/UMLReception.html" class="extype" name="org.omg.oti.uml.read.api.UMLReception">UMLReception</a>, <a href="../api/UMLRegion.html" class="extype" name="org.omg.oti.uml.read.api.UMLRegion">UMLRegion</a>, <a href="../api/UMLSequenceNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLSequenceNode">UMLSequenceNode</a>, <a href="../api/UMLSignal.html" class="extype" name="org.omg.oti.uml.read.api.UMLSignal">UMLSignal</a>, <a href="../api/UMLState.html" class="extype" name="org.omg.oti.uml.read.api.UMLState">UMLState</a>, <a href="../api/UMLStateMachine.html" class="extype" name="org.omg.oti.uml.read.api.UMLStateMachine">UMLStateMachine</a>, <a href="../api/UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>, <a href="../api/UMLStructuredActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredActivityNode">UMLStructuredActivityNode</a>, <a href="../api/UMLStructuredClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredClassifier">UMLStructuredClassifier</a>, <a href="../api/UMLTransition.html" class="extype" name="org.omg.oti.uml.read.api.UMLTransition">UMLTransition</a>, <a href="../api/UMLUseCase.html" class="extype" name="org.omg.oti.uml.read.api.UMLUseCase">UMLUseCase</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.operations.UMLNamespaceOps"><span>UMLNamespaceOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#allImportedPackagesTransitively" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allImportedPackagesTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]"></a>
+      <a id="allImportedPackagesTransitively:Set[UMLPackage[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allImportedPackagesTransitively</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@allImportedPackagesTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The transitive closure of 'importedPackages', that is:</p><div class="fullcomment"><div class="comment cmt"><p>The transitive closure of 'importedPackages', that is:</p><p>A namespace NS indirectly imports a package P if either
+- NS directly imports P, or
+- NS directly imports P' that indirectly imports P
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#allNamespacesWithinScope" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allNamespacesWithinScope:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamespace[Uml]]"></a>
+      <a id="allNamespacesWithinScope:Set[UMLNamespace[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allNamespacesWithinScope</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@allNamespacesWithinScope:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamespace[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All namespaces that are owned within the reflexive transitive closure of ownership from this namespace
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#allVisibleMembersAccessibleTransitively" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allVisibleMembersAccessibleTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="allVisibleMembersAccessibleTransitively:Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allVisibleMembersAccessibleTransitively</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@allVisibleMembersAccessibleTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">allVisibleMembersAccessibleTransitively corresponds to the union of
+all visible members of the namespace and those of its outer namespace, if any.</p><div class="fullcomment"><div class="comment cmt"><p>allVisibleMembersAccessibleTransitively corresponds to the union of
+all visible members of the namespace and those of its outer namespace, if any.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>UML 2.5, 7.4.3 Namespaces, Semantics
+     Within a Namespace, unqualified names may be used to refer to the members of
+     that Namespace and to outer names that are not hidden.
+     An outer name is the name of a NamedElement that may be referenced using an unqualified name in an
+     immediately enclosing Namespace. An outer name is hidden unless
+     it is distinguishable from all members of the inner Namespace.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#allVisibleMembersTransitively" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="allVisibleMembersTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="allVisibleMembersTransitively:Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allVisibleMembersTransitively</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@allVisibleMembersTransitively:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">allVisibleMembers is the union of the visibleMembers of the namespace and
+those of its directly and indirectly imported packages.</p>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#asPackageableElement" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="asPackageableElement:Option[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="asPackageableElement:Option[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asPackageableElement</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@asPackageableElement:Option[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#elementImport" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="elementImport:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElementImport[Uml]]"></a>
+      <a id="elementImport:Set[UMLElementImport[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">elementImport</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">UMLElementImport</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@elementImport:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElementImport[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">References the ElementImports owned by the Namespace.</p><div class="fullcomment"><div class="comment cmt"><p>References the ElementImports owned by the Namespace.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLElementImport.importingNamespace
+</p></div></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#excludeCollisions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="excludeCollisions(imps:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="excludeCollisions(Set[UMLPackageableElement[Uml]]):Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">excludeCollisions</span><span class="params">(<span name="imps">imps: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@excludeCollisions(imps:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query excludeCollisions() excludes from a set of PackageableElements any that would not be distinguishable from each other in this Namespace.</p><div class="fullcomment"><div class="comment cmt"><p>The query excludeCollisions() excludes from a set of PackageableElements any that would not be distinguishable from each other in this Namespace.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (imps-&gt;reject(imp1  | imps-&gt;exists(imp2 | not imp1.isDistinguishableFrom(imp2, self))))</pre></div></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#forwardReferencesBeyondNamespaceScope" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="forwardReferencesBeyondNamespaceScope()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.RelationTriple[Uml]]]"></a>
+      <a id="forwardReferencesBeyondNamespaceScope()(IDGenerator[Uml]):\/[Set[Throwable],Set[RelationTriple[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forwardReferencesBeyondNamespaceScope</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../../RelationTriple.html" class="extype" name="org.omg.oti.uml.RelationTriple">RelationTriple</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@forwardReferencesBeyondNamespaceScope()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.RelationTriple[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The RelationTriples characterizing the namespace boundary.</p><div class="fullcomment"><div class="comment cmt"><p>The RelationTriples characterizing the namespace boundary.
+The subject of each relation triple is an element inside the ownership scope of the namespace.
+The object of each relation triple is an element outside the ownership scope of the namespace.
+The property of each relation triple is either a metamodel association or a stereotype property.
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#forwardReferencesToNamespaces" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="forwardReferencesToNamespaces()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamespace[Uml]]]"></a>
+      <a id="forwardReferencesToNamespaces()(IDGenerator[Uml]):\/[Set[Throwable],Set[UMLNamespace[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forwardReferencesToNamespaces</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@forwardReferencesToNamespaces()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLNamespace[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Find the packages or profiles that own the elements referenced from the packaged elements of this package.</p><div class="fullcomment"><div class="comment cmt"><p>Find the packages or profiles that own the elements referenced from the packaged elements of this package.
+This does not include references from elements in nested packages.
+</p></div></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#getNamesOfMember" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getNamesOfMember(element:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):scala.collection.immutable.Set[String]"></a>
+      <a id="getNamesOfMember(Option[UMLNamedElement[Uml]]):Set[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getNamesOfMember</span><span class="params">(<span name="element">element: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@getNamesOfMember(element:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):scala.collection.immutable.Set[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query getNamesOfMember() gives a set of all of the names that a member would have in a Namespace, taking importing into account.</p><div class="fullcomment"><div class="comment cmt"><p>The query getNamesOfMember() gives a set of all of the names that a member would have in a Namespace, taking importing into account. In general a member can have multiple names in a Namespace if it is imported more than once with different aliases.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (<span class="kw">if</span> self.ownedMember -&gt;includes(element)
+then <span class="std">Set</span>{element.name}
+<span class="kw">else</span> let elementImports : <span class="std">Set</span>(ElementImport) = self.elementImport-&gt;select(ei | ei.importedElement = element) in
+  <span class="kw">if</span> elementImports-&gt;notEmpty()
+  then
+     elementImports-&gt;collect(el | el.getName())-&gt;asSet()
+  <span class="kw">else</span>
+     self.packageImport-&gt;select(pi | pi.importedPackage.visibleMembers().oclAsType(NamedElement)-&gt;includes(element))-&gt; collect(pi | pi.importedPackage.getNamesOfMember(element))-&gt;asSet()
+  endif
+endif)</pre></div></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#importMembers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="importMembers(imps:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="importMembers(Set[UMLPackageableElement[Uml]]):Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">importMembers</span><span class="params">(<span name="imps">imps: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@importMembers(imps:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]):scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query importMembers() defines which of a set of PackageableElements are actually imported into the Namespace.</p><div class="fullcomment"><div class="comment cmt"><p>The query importMembers() defines which of a set of PackageableElements are actually imported into the Namespace. This excludes hidden ones, i.e., those which have names that conflict with names of ownedMembers, and it also excludes PackageableElements that would have the indistinguishable names when imported.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (self.excludeCollisions(imps)-&gt;select(imp | self.ownedMember-&gt;forAll(mem | imp.isDistinguishableFrom(mem, self))))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#importedMember" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="importedMember:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="importedMember:Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">importedMember</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@importedMember:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.</p><div class="fullcomment"><div class="comment cmt"><p>References the PackageableElements that are members of this Namespace as a result of either PackageImports or ElementImports.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLPackageableElement.importedMember_namespace</p><pre>OCL Body result = (self.importMembers(elementImport.importedElement-&gt;asSet()-&gt;union(packageImport.importedPackage-&gt;collect(p | p.visibleMembers()))-&gt;asSet()))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#importedPackages" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="importedPackages:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]"></a>
+      <a id="importedPackages:Set[UMLPackage[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">importedPackages</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@importedPackages:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A namespace NS directly imports a package P if there is a PackageImport(NS, P)
+</p>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#makesVisible" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="makesVisible(el:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):Boolean"></a>
+      <a id="makesVisible(Option[UMLNamedElement[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">makesVisible</span><span class="params">(<span name="el">el: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@makesVisible(el:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query makesVisible() defines whether a Package makes an element visible outside itself.</p><div class="fullcomment"><div class="comment cmt"><p>The query makesVisible() defines whether a Package makes an element visible outside itself. Elements with no visibility and elements with public visibility are made visible.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (ownedMember-&gt;includes(el) or
+(elementImport-&gt;select(ei|ei.importedElement = VisibilityKind::public)-&gt;collect(importedElement.oclAsType(NamedElement))-&gt;includes(el)) or
+(packageImport-&gt;select(visibility = VisibilityKind::public)-&gt;collect(importedPackage.member-&gt;includes(el))-&gt;notEmpty()))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#membersAreDistinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="membersAreDistinguishable:Boolean"></a>
+      <a id="membersAreDistinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">membersAreDistinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@membersAreDistinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Boolean query membersAreDistinguishable() determines whether all of the Namespace's members are distinguishable within it.</p><div class="fullcomment"><div class="comment cmt"><p>The Boolean query membersAreDistinguishable() determines whether all of the Namespace's members are distinguishable within it.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (member-&gt;forAll( memb |
+   member-&gt;excluding(memb)-&gt;forAll(other |
+       memb.isDistinguishableFrom(other, self))))</pre></div></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#ownedDiagram" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ownedDiagram:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDiagram[Uml]]"></a>
+      <a id="ownedDiagram:Set[UMLDiagram[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedDiagram</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLDiagram.html" class="extype" name="org.omg.oti.uml.read.api.UMLDiagram">UMLDiagram</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@ownedDiagram:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDiagram[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDiagram.ownedDiagram_diagramOwner
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#ownedRule" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ownedRule:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLConstraint[Uml]]"></a>
+      <a id="ownedRule:Set[UMLConstraint[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedRule</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLConstraint.html" class="extype" name="org.omg.oti.uml.read.api.UMLConstraint">UMLConstraint</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@ownedRule:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLConstraint[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specifies a set of Constraints owned by this Namespace.</p><div class="fullcomment"><div class="comment cmt"><p>Specifies a set of Constraints owned by this Namespace.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.context
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#packageImport" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="packageImport:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageImport[Uml]]"></a>
+      <a id="packageImport:Set[UMLPackageImport[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">packageImport</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">UMLPackageImport</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@packageImport:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageImport[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">References the PackageImports owned by the Namespace.</p><div class="fullcomment"><div class="comment cmt"><p>References the PackageImports owned by the Namespace.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLPackageImport.importingNamespace
+</p></div></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#validate_cannot_import_ownedMembers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_cannot_import_ownedMembers:Boolean"></a>
+      <a id="validate_cannot_import_ownedMembers:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_cannot_import_ownedMembers</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@validate_cannot_import_ownedMembers:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Namespace cannot have an ElementImport to one of its ownedMembers.</p><div class="fullcomment"><div class="comment cmt"><p>A Namespace cannot have an ElementImport to one of its ownedMembers.</p><pre>OCL Body elementImport.importedElement.oclAsType(Element)-&gt;excludesAll(ownedMember)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#validate_cannot_import_self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_cannot_import_self:Boolean"></a>
+      <a id="validate_cannot_import_self:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_cannot_import_self</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@validate_cannot_import_self:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Namespace cannot have a PackageImport to itself.</p><div class="fullcomment"><div class="comment cmt"><p>A Namespace cannot have a PackageImport to itself.</p><pre>OCL Body packageImport.importedPackage.oclAsType(Namespace)-&gt;excludes(self)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#validate_members_distinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_members_distinguishable:Boolean"></a>
+      <a id="validate_members_distinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_members_distinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@validate_members_distinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All the members of a Namespace are distinguishable within it.</p><div class="fullcomment"><div class="comment cmt"><p>All the members of a Namespace are distinguishable within it.</p><pre>OCL Body membersAreDistinguishable()</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLNamespaceOps#visibleMembers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="visibleMembers:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]"></a>
+      <a id="visibleMembers:Set[UMLPackageableElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">visibleMembers</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLNamespaceOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@visibleMembers:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query visibleMembers() defines which members of a Package can be accessed outside it.</p><div class="fullcomment"><div class="comment cmt"><p>The query visibleMembers() defines which members of a Package can be accessed outside it.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (member-&gt;select( m | m.oclIsKindOf(PackageableElement) and self.makesVisible(m))-&gt;collect(oclAsType(PackageableElement))-&gt;asSet())</pre></div></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLNamespaceOps@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -1,0 +1,2084 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLSlot - org.omg.oti.uml.core - org.omg.oti.uml.read.api.UMLSlot</title>
+          <meta name="description" content="UMLSlot - org.omg.oti.uml.core - org.omg.oti.uml.read.api.UMLSlot" />
+          <meta name="keywords" content="UMLSlot org.omg.oti.uml.core org.omg.oti.uml.read.api.UMLSlot" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.api.UMLSlot';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.api">api</a></p>
+        <h1>UMLSlot</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.api">package api</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLSlot</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>] with <a href="../operations/UMLSlotOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLSlotOps">UMLSlotOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Slot designates that an entity modeled by an InstanceSpecification has a value or values for a specific StructuralFeature.</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../operations/UMLSlotOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLSlotOps">UMLSlotOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.api.UMLSlot"><span>UMLSlot</span></li><li class="in" name="org.omg.oti.uml.read.operations.UMLSlotOps"><span>UMLSlotOps</span></li><li class="in" name="org.omg.oti.uml.read.api.UMLElement"><span>UMLElement</span></li><li class="in" name="org.omg.oti.uml.read.operations.UMLElementOps"><span>UMLElementOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.uml.read.operations.UMLElementOps.Elements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Elements=scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="Elements:Elements"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Elements</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@Elements=scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaAttributeFunction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaAttributeFunction=org.omg.oti.uml.MetaAttributeAbstractFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaAttributeFunction:MetaAttributeFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaAttributeFunction</span><span class="result"> = <a href="../../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaAttributeFunction=org.omg.oti.uml.MetaAttributeAbstractFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaAttributeFunctions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]"></a>
+      <a id="MetaAttributeFunctions:MetaAttributeFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaAttributeFunctions</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="#MetaAttributeFunction=org.omg.oti.uml.MetaAttributeAbstractFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaAttributeFunction">MetaAttributeFunction</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaCollectionEvaluator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaCollectionEvaluator=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="MetaCollectionEvaluator:MetaCollectionEvaluator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaCollectionEvaluator</span><span class="result"> = <a href="../../MetaPropertyCollection.html" class="extype" name="org.omg.oti.uml.MetaPropertyCollection">MetaPropertyCollection</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaCollectionEvaluator=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaPropertyEvaluator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaPropertyEvaluator=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="MetaPropertyEvaluator:MetaPropertyEvaluator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaPropertyEvaluator</span><span class="result"> = <a href="../../MetaPropertyFunction.html" class="extype" name="org.omg.oti.uml.MetaPropertyFunction">MetaPropertyFunction</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaPropertyEvaluator=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaPropertyFunctions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]"></a>
+      <a id="MetaPropertyFunctions:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaPropertyFunctions</span><span class="result"> = <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="#MetaPropertyEvaluator=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyEvaluator">MetaPropertyEvaluator</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps.MetaReferenceEvaluator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaReferenceEvaluator=org.omg.oti.uml.MetaPropertyReference[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="MetaReferenceEvaluator:MetaReferenceEvaluator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaReferenceEvaluator</span><span class="result"> = <a href="../../MetaPropertyReference.html" class="extype" name="org.omg.oti.uml.MetaPropertyReference">MetaPropertyReference</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], _ &lt;: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@MetaReferenceEvaluator=org.omg.oti.uml.MetaPropertyReference[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="org.omg.oti.uml.read.api.UMLElement#annotatedElement_comment" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="annotatedElement_comment:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLComment[Uml]]"></a>
+      <a id="annotatedElement_comment:Set[UMLComment[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">annotatedElement_comment</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLComment.html" class="extype" name="org.omg.oti.uml.read.api.UMLComment">UMLComment</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@annotatedElement_comment:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLComment[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLComment.annotatedElement
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLComment.annotatedElement
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#constrainedElement_constraint" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="constrainedElement_constraint:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLConstraint[Uml]]"></a>
+      <a id="constrainedElement_constraint:Set[UMLConstraint[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">constrainedElement_constraint</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLConstraint.html" class="extype" name="org.omg.oti.uml.read.api.UMLConstraint">UMLConstraint</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@constrainedElement_constraint:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLConstraint[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.constrainedElement
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLConstraint.constrainedElement
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#context_diagram" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="context_diagram:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDiagram[Uml]]"></a>
+      <a id="context_diagram:Set[UMLDiagram[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">context_diagram</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLDiagram.html" class="extype" name="org.omg.oti.uml.read.api.UMLDiagram">UMLDiagram</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@context_diagram:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDiagram[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDiagram.context
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDiagram.context
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#definingFeature" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="definingFeature:Option[org.omg.oti.uml.read.api.UMLStructuralFeature[Uml]]"></a>
+      <a id="definingFeature:Option[UMLStructuralFeature[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">definingFeature</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="UMLStructuralFeature.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuralFeature">UMLStructuralFeature</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@definingFeature:Option[org.omg.oti.uml.read.api.UMLStructuralFeature[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The StructuralFeature that specifies the values that may be held by the Slot.</p><div class="fullcomment"><div class="comment cmt"><p>The StructuralFeature that specifies the values that may be held by the Slot.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;1..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLStructuralFeature.definingFeature_slot
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#element_elementValue" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="element_elementValue:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElementValue[Uml]]"></a>
+      <a id="element_elementValue:Set[UMLElementValue[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_elementValue</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElementValue.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementValue">UMLElementValue</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_elementValue:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElementValue[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLElementValue.element
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLElementValue.element
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getAppliedStereotypesWithoutMetaclassProperties" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="getAppliedStereotypesWithoutMetaclassProperties:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLStereotype[Uml]]]"></a>
+      <a id="getAppliedStereotypesWithoutMetaclassProperties:\/[Set[Throwable],Set[UMLStereotype[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getAppliedStereotypesWithoutMetaclassProperties</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getAppliedStereotypesWithoutMetaclassProperties:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLStereotype[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.</p><div class="fullcomment"><div class="comment cmt"><p>Stereotypes applied; however, there is no applicable 'base_...' property for the element's metaclass.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#hasStereotype" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="hasStereotype(s:org.omg.oti.uml.read.api.UMLStereotype[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Boolean]"></a>
+      <a id="hasStereotype(UMLStereotype[Uml]):\/[Set[Throwable],Boolean]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasStereotype</span><span class="params">(<span name="s">s: <a href="UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@hasStereotype(s:org.omg.oti.uml.read.api.UMLStereotype[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Boolean]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#isAncestorOf" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="isAncestorOf(other:org.omg.oti.uml.read.api.UMLElement[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Boolean]"></a>
+      <a id="isAncestorOf(UMLElement[Uml]):\/[Set[Throwable],Boolean]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isAncestorOf</span><span class="params">(<span name="other">other: <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@isAncestorOf(other:org.omg.oti.uml.read.api.UMLElement[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Boolean]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#mofMetaclassName" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="mofMetaclassName:String"></a>
+      <a id="mofMetaclassName:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mofMetaclassName</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@mofMetaclassName:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#ops" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ops:org.omg.oti.uml.read.operations.UMLOps[Uml]"></a>
+      <a id="ops:UMLOps[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ops</span><span class="result">: <a href="../operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@ops:org.omg.oti.uml.read.operations.UMLOps[Uml]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a> → <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#ownedElement" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ownedElement:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="ownedElement:Set[UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedElement</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@ownedElement:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Elements owned by this Element.</p><div class="fullcomment"><div class="comment cmt"><p>The Elements owned by this Element.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLElement.owner
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#owner" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="owner:Option[org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="owner:Option[UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owner</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@owner:Option[org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Element that owns this Element.</p><div class="fullcomment"><div class="comment cmt"><p>The Element that owns this Element.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLElement.ownedElement
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#relatedElement_relationship" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="relatedElement_relationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLRelationship[Uml]]"></a>
+      <a id="relatedElement_relationship:Set[UMLRelationship[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">relatedElement_relationship</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLRelationship.html" class="extype" name="org.omg.oti.uml.read.api.UMLRelationship">UMLRelationship</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@relatedElement_relationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLRelationship[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLRelationship.relatedElement
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLRelationship.relatedElement
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#represents_activityPartition" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="represents_activityPartition:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityPartition[Uml]]"></a>
+      <a id="represents_activityPartition:Set[UMLActivityPartition[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">represents_activityPartition</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLActivityPartition.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityPartition">UMLActivityPartition</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@represents_activityPartition:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityPartition[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.represents
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLActivityPartition.represents
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#source_directedRelationship" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="source_directedRelationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDirectedRelationship[Uml]]"></a>
+      <a id="source_directedRelationship:Set[UMLDirectedRelationship[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">source_directedRelationship</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLDirectedRelationship.html" class="extype" name="org.omg.oti.uml.read.api.UMLDirectedRelationship">UMLDirectedRelationship</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@source_directedRelationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDirectedRelationship[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.source
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.source
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#tagValues" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="tagValues:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Seq[org.omg.oti.uml.read.UMLStereotypeTagValue[Uml]]]"></a>
+      <a id="tagValues:\/[Set[Throwable],Seq[UMLStereotypeTagValue[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tagValues</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="../UMLStereotypeTagValue.html" class="extype" name="org.omg.oti.uml.read.UMLStereotypeTagValue">UMLStereotypeTagValue</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@tagValues:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Seq[org.omg.oti.uml.read.UMLStereotypeTagValue[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The ordered set of stereotype tag property values.</p><div class="fullcomment"><div class="comment cmt"><p>The ordered set of stereotype tag property values.</p><p>The ordering is the application of OMG Canonical XMI (ptc/13-08-28)
+applied to properties of the MOF-equivalent class of a stereotype.</p><p>tag values with hasProfileLifecycleSemantics=false are ordered before
+tag values with hasProfileLifecycleSemantics=true</p><p>UMLStereotypeTagExtendedMetaclassPropertyElementReference are ordered before
+any other kind of UMLStereotypeTagValue</p><p>The element is well-formed if there is at least one
+UMLStereotypeTagExtendedMetaclassPropertyElementReference
+(i.e., there must be at least one 'base_...' property with a value)
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A tuple of the tag property values according to their lifecycle semantics</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#target_directedRelationship" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="target_directedRelationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDirectedRelationship[Uml]]"></a>
+      <a id="target_directedRelationship:Set[UMLDirectedRelationship[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">target_directedRelationship</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLDirectedRelationship.html" class="extype" name="org.omg.oti.uml.read.api.UMLDirectedRelationship">UMLDirectedRelationship</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@target_directedRelationship:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLDirectedRelationship[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.target
+</p><div class="fullcomment"><div class="comment cmt"><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDirectedRelationship.target
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#toolSpecific_id" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="toolSpecific_id:scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_ID]"></a>
+      <a id="toolSpecific_id:@@[String,TOOL_SPECIFIC_ID]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toolSpecific_id</span><span class="result">: <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_ID">TOOL_SPECIFIC_ID</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@toolSpecific_id:scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_ID]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Every UML Element must have a tool-specific &quot;xmi:id&quot; identifier of some kind.</p><div class="fullcomment"><div class="comment cmt"><p>Every UML Element must have a tool-specific &quot;xmi:id&quot; identifier of some kind.
+This &quot;xmi:id&quot; is a local with respect to the &quot;XMI&quot; document in which the UML Element is serialized.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the tool-specific &quot;xmi:id&quot; identifier for the UML Element.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>Exceptions thrown</dt><dd><span class="cmt"><p><span class="extype" name="java.lang.IllegalArgumentException"><code>java.lang.IllegalArgumentException</code></span> if there is no tool-specific &quot;xmi:id&quot; available.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#toolSpecific_url" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="toolSpecific_url:scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_URL]"></a>
+      <a id="toolSpecific_url:@@[String,TOOL_SPECIFIC_URL]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toolSpecific_url</span><span class="result">: <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_URL">TOOL_SPECIFIC_URL</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@toolSpecific_url:scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_URL]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Every UML Element should have a tool-specific external location of some kind
+</p><div class="fullcomment"><div class="comment cmt"><p>Every UML Element should have a tool-specific external location of some kind
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the tool-specific &quot;URL&quot; for the UML Element.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#toolSpecific_uuid" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="toolSpecific_uuid:Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_UUID]]"></a>
+      <a id="toolSpecific_uuid:Option[@@[String,TOOL_SPECIFIC_UUID]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toolSpecific_uuid</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_UUID">TOOL_SPECIFIC_UUID</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@toolSpecific_uuid:Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.TOOL_SPECIFIC_UUID]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Every UML Element should have a tool-specific &quot;xmi:uuid&quot; identifier of some kind.</p><div class="fullcomment"><div class="comment cmt"><p>Every UML Element should have a tool-specific &quot;xmi:uuid&quot; identifier of some kind.
+This &quot;xmi:uuid&quot;, if supported by the specific tool, should be globally unique.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the tool-specific &quot;xmi:uuid&quot; global identifier for the UML Element, if any.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#value" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="value:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLValueSpecification[Uml]]"></a>
+      <a id="value:Seq[UMLValueSpecification[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">value</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">UMLValueSpecification</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@value:scala.collection.immutable.Seq[org.omg.oti.uml.read.api.UMLValueSpecification[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The value or values held by the Slot.</p><div class="fullcomment"><div class="comment cmt"><p>The value or values held by the Slot.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;true&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLValueSpecification.value_owningSlot
+</p></div></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#allForwardReferencesFromStereotypeTagProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allForwardReferencesFromStereotypeTagProperties:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]]"></a>
+      <a id="allForwardReferencesFromStereotypeTagProperties:\/[Set[Throwable],Set[UMLElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allForwardReferencesFromStereotypeTagProperties</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@allForwardReferencesFromStereotypeTagProperties:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The set of Elements referenced from this Element due to values of applied stereotype tag properties
+</p><div class="fullcomment"><div class="comment cmt"><p>The set of Elements referenced from this Element due to values of applied stereotype tag properties
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#allForwardReferencesToElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allForwardReferencesToElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]]"></a>
+      <a id="allForwardReferencesToElements:\/[Set[Throwable],Set[UMLElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allForwardReferencesToElements</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@allForwardReferencesToElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Calculate the references from this element to other elements due to any of the following:
+- non-composite, non-derived properties defined for the element's metaclass (<code>forwardReferencesFromMetamodelAssociations</code>)
+- stereotype tag property values due to stereotypes applied to the element (<code>allForwardReferencesFromStereotypeTagProperties</code>)</p><div class="fullcomment"><div class="comment cmt"><p>Calculate the references from this element to other elements due to any of the following:
+- non-composite, non-derived properties defined for the element's metaclass (<code>forwardReferencesFromMetamodelAssociations</code>)
+- stereotype tag property values due to stereotypes applied to the element (<code>allForwardReferencesFromStereotypeTagProperties</code>)</p><p>For serializing an OTI model into an OMG Canonical XMI document,
+the references among elements do matter; particularly, references
+due to non-composite, non-derived properties matter because their serialization
+depends on whether the two elements are serialized within the same document or not.</p><p>The OMG MOF/XMI spec is incomplete in the sense that it does not mention
+references due to values of applied stereotype tag properties.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#allForwardReferencesToImportablePackageableElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allForwardReferencesToImportablePackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]"></a>
+      <a id="allForwardReferencesToImportablePackageableElements:\/[Set[Throwable],Set[UMLPackageableElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allForwardReferencesToImportablePackageableElements</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@allForwardReferencesToImportablePackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Aggregates all forward references to the level of importable outer packageable elements
+</p><div class="fullcomment"><div class="comment cmt"><p>Aggregates all forward references to the level of importable outer packageable elements
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#allOwnedElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allOwnedElements:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="allOwnedElements:Set[UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allOwnedElements</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@allOwnedElements:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.</p><div class="fullcomment"><div class="comment cmt"><p>The query allOwnedElements() gives all of the direct and indirect ownedElements of an Element.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (ownedElement-&gt;union(ownedElement-&gt;collect(e | e.allOwnedElements()))-&gt;asSet())</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#allOwnedElementsWithinPackageScope" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allOwnedElementsWithinPackageScope:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="allOwnedElementsWithinPackageScope:Set[UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allOwnedElementsWithinPackageScope</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@allOwnedElementsWithinPackageScope:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All the non-package elements directly or indirectly owned by a package scope.</p><div class="fullcomment"><div class="comment cmt"><p>All the non-package elements directly or indirectly owned by a package scope.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#appendUnique" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="appendUnique[F](ss:scala.collection.immutable.Seq[F]*):scala.collection.immutable.Seq[F]"></a>
+      <a id="appendUnique[F](Seq[F]*):Seq[F]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">appendUnique</span><span class="tparams">[<span name="F">F</span>]</span><span class="params">(<span name="ss">ss: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps.appendUnique.F">F</span>]*</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps.appendUnique.F">F</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@appendUnique[F](ss:scala.collection.immutable.Seq[F]*):scala.collection.immutable.Seq[F]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#appendUnique" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="appendUnique[F](s1:scala.collection.immutable.Seq[F],s2:scala.collection.immutable.Seq[F]):scala.collection.immutable.Seq[F]"></a>
+      <a id="appendUnique[F](Seq[F],Seq[F]):Seq[F]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">appendUnique</span><span class="tparams">[<span name="F">F</span>]</span><span class="params">(<span name="s1">s1: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps.appendUnique.F">F</span>]</span>, <span name="s2">s2: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps.appendUnique.F">F</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps.appendUnique.F">F</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@appendUnique[F](s1:scala.collection.immutable.Seq[F],s2:scala.collection.immutable.Seq[F]):scala.collection.immutable.Seq[F]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#asForwardReferencesToImportableOuterPackageableElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asForwardReferencesToImportableOuterPackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]"></a>
+      <a id="asForwardReferencesToImportableOuterPackageableElements:\/[Set[Throwable],Set[UMLPackageableElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asForwardReferencesToImportableOuterPackageableElements</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@asForwardReferencesToImportableOuterPackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">To enable verifying whether all forward references from elements contained within
+the scope of a package refer to elements that are directly or indirectly imported
+from that package or included in directly or indirectly applied profiles, it is necessary
+to aggregate a forward reference to an element up to the first,
+importable outer packageable element.</p><div class="fullcomment"><div class="comment cmt"><p>To enable verifying whether all forward references from elements contained within
+the scope of a package refer to elements that are directly or indirectly imported
+from that package or included in directly or indirectly applied profiles, it is necessary
+to aggregate a forward reference to an element up to the first,
+importable outer packageable element. This aggregation is metaclass-specific.</p><p>By default, this method delegates to asForwardReferencesToOwningElementImportableOuterPackageableElements
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>See also</dt><dd><span class="cmt"><p>asForwardReferencesToOwningElementImportableOuterPackageableElements</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#asForwardReferencesToOwningElementImportableOuterPackageableElements" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asForwardReferencesToOwningElementImportableOuterPackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]"></a>
+      <a id="asForwardReferencesToOwningElementImportableOuterPackageableElements:\/[Set[Throwable],Set[UMLPackageableElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asForwardReferencesToOwningElementImportableOuterPackageableElements</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@asForwardReferencesToOwningElementImportableOuterPackageableElements:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackageableElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#compositeMetaProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compositeMetaProperties:UMLSlot.this.MetaPropertyFunctions"></a>
+      <a id="compositeMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compositeMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@compositeMetaProperties:UMLSlot.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI composite meta-properties relevant to this object</p><div class="fullcomment"><div class="comment cmt"><p>The XMI composite meta-properties relevant to this object</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.uml.read.api.UMLSlot">UMLSlot</a> → <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a> → <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#element_compositeMetaProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="element_compositeMetaProperties:UMLElement.this.MetaPropertyFunctions"></a>
+      <a id="element_compositeMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_compositeMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_compositeMetaProperties:UMLElement.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI composite meta-properties relevant to class UMLElement</p><div class="fullcomment"><div class="comment cmt"><p>The XMI composite meta-properties relevant to class UMLElement</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#element_forwardReferencesFromMetamodelAssociations" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="element_forwardReferencesFromMetamodelAssociations:UMLElement.this.Elements"></a>
+      <a id="element_forwardReferencesFromMetamodelAssociations:Elements"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_forwardReferencesFromMetamodelAssociations</span><span class="result">: <a href="#Elements=scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.Elements">Elements</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_forwardReferencesFromMetamodelAssociations:UMLElement.this.Elements" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI forward references from metamodel associations relevant to class UMLElement</p><div class="fullcomment"><div class="comment cmt"><p>The XMI forward references from metamodel associations relevant to class UMLElement</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#element_metaAttributes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="element_metaAttributes:UMLElement.this.MetaAttributeFunctions"></a>
+      <a id="element_metaAttributes:MetaAttributeFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_metaAttributes</span><span class="result">: <a href="#MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaAttributeFunctions">MetaAttributeFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_metaAttributes:UMLElement.this.MetaAttributeFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI meta-attributes relevant to class UMLElement</p><div class="fullcomment"><div class="comment cmt"><p>The XMI meta-attributes relevant to class UMLElement</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLElement#element_referenceMetaProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="element_referenceMetaProperties:UMLElement.this.MetaPropertyFunctions"></a>
+      <a id="element_referenceMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_referenceMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_referenceMetaProperties:UMLElement.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI reference meta-properties relevant to class UMLElement</p><div class="fullcomment"><div class="comment cmt"><p>The XMI reference meta-properties relevant to class UMLElement</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#element_xmiOrderingKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="element_xmiOrderingKey()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],String]"></a>
+      <a id="element_xmiOrderingKey()(IDGenerator[Uml]):\/[Set[Throwable],String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">element_xmiOrderingKey</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@element_xmiOrderingKey()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#forwardReferencesFromMetamodelAssociations" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="forwardReferencesFromMetamodelAssociations:UMLSlot.this.Elements"></a>
+      <a id="forwardReferencesFromMetamodelAssociations:Elements"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forwardReferencesFromMetamodelAssociations</span><span class="result">: <a href="#Elements=scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.Elements">Elements</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@forwardReferencesFromMetamodelAssociations:UMLSlot.this.Elements" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI forward references from metamodel associations relevant to this object</p><div class="fullcomment"><div class="comment cmt"><p>The XMI forward references from metamodel associations relevant to this object</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.uml.read.api.UMLSlot">UMLSlot</a> → <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a> → <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#forwardRelationTriples" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="forwardRelationTriples():scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.RelationTriple[Uml]]]"></a>
+      <a id="forwardRelationTriples():\/[Set[Throwable],Set[RelationTriple[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forwardRelationTriples</span><span class="params">()</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../../RelationTriple.html" class="extype" name="org.omg.oti.uml.RelationTriple">RelationTriple</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@forwardRelationTriples():scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Set[org.omg.oti.uml.RelationTriple[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Triples representing forward references from this UML element to other UML elements.</p><div class="fullcomment"><div class="comment cmt"><p>Triples representing forward references from this UML element to other UML elements.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#generatedOTI_id" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="generatedOTI_id()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]"></a>
+      <a id="generatedOTI_id()(IDGenerator[Uml]):\/[Set[Throwable],@@[String,OTI_ID]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">generatedOTI_id</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID">OTI_ID</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@generatedOTI_id()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The computed OTI xmi:id for the element
+</p><div class="fullcomment"><div class="comment cmt"><p>The computed OTI xmi:id for the element
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#generatedOTI_uuid" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="generatedOTI_uuid()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]"></a>
+      <a id="generatedOTI_uuid()(IDGenerator[Uml]):\/[Set[Throwable],@@[String,OTI_UUID]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">generatedOTI_uuid</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID">OTI_UUID</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@generatedOTI_uuid()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The computed OTI xmi:uuid for the element
+</p><div class="fullcomment"><div class="comment cmt"><p>The computed OTI xmi:uuid for the element
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getAppliedStereotypes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getAppliedStereotypes:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Map[org.omg.oti.uml.read.api.UMLStereotype[Uml],org.omg.oti.uml.read.api.UMLProperty[Uml]]]"></a>
+      <a id="getAppliedStereotypes:\/[Set[Throwable],Map[UMLStereotype[Uml],UMLProperty[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getAppliedStereotypes</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.immutable.Map">Map</span>[<a href="UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>], <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getAppliedStereotypes:scalaz.\/[scala.collection.immutable.Set[Throwable],scala.collection.immutable.Map[org.omg.oti.uml.read.api.UMLStereotype[Uml],org.omg.oti.uml.read.api.UMLProperty[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A map for each applied stereotype (key) and the corresponding &quot;base_&lt;metaclass&gt;&quot; property</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getContainingMetaPropertyEvaluator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getContainingMetaPropertyEvaluator()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[UMLElementOps.this.MetaPropertyEvaluator]]"></a>
+      <a id="getContainingMetaPropertyEvaluator()(IDGenerator[Uml]):\/[Set[Throwable],Option[MetaPropertyEvaluator]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getContainingMetaPropertyEvaluator</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Option">Option</span>[<a href="#MetaPropertyEvaluator=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyEvaluator">MetaPropertyEvaluator</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getContainingMetaPropertyEvaluator()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[UMLElementOps.this.MetaPropertyEvaluator]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The MetaPropertyEvaluator, if any, that represents the current owner of the (M1)Element object.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>See also</dt><dd><span class="cmt"><p>OMG MOF2.5
+     Section 15.9 Additional Operations
+     [6] This returns the single Property with a slot that represents
+     the current owner of the Object based on current instance values;
+     may be null for top level objects.</p><pre>(M1)<span class="std">Object</span>::owningProperty(): (M2)Property modeled as (M1)ClassInstance::owningProperty(): (M2)Property
+result = self.classifier.allSlottableProperties()
+-&gt;any(p |p.opposite &lt;&gt; <span class="kw">null</span> and p.opposite.isComposite and self.get(p)&lt;&gt; <span class="kw">null</span>)</pre></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getElementMetamodelPropertyValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getElementMetamodelPropertyValue(f:UMLElementOps.this.MetaPropertyEvaluator)(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLElement[Uml]]]"></a>
+      <a id="getElementMetamodelPropertyValue(MetaPropertyEvaluator)(IDGenerator[Uml]):\/[Set[Throwable],Iterable[UMLElement[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getElementMetamodelPropertyValue</span><span class="params">(<span name="f">f: <a href="#MetaPropertyEvaluator=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyEvaluator">MetaPropertyEvaluator</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getElementMetamodelPropertyValue(f:UMLElementOps.this.MetaPropertyEvaluator)(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLElement[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">See MOF 2.5</p><div class="fullcomment"><div class="comment cmt"><p>See MOF 2.5</p><p>- Section 9.4:</p><p>get(property: Property) : Object
+Gets the value of the given property.
+If the Property has multiplicity upper bound of 1, get() returns the value of the Property.
+If Property has multiplicity upper bound &gt;1, get() returns a ReflectiveCollection containing
+the values of the Property.
+If there are no values, the ReflectiveCollection returned is empty.
+Exception: throws IllegalArgumentException if Property is not a member of the Class from class().</p><p>- Section 15.5</p><pre><span class="std">Object</span>::get(Property p): Element
+modeled as ObjectInstance::get(Property p): ElementInstance
+-- If a foreign association end, then navigate link, <span class="kw">else</span> access slot or derive the value
+post: (p.namespace.isOclType(Association) and result = navigate(p)) or
+self.propertySlot(p) &lt;&gt; <span class="kw">null</span> and (
+(self.propertySlot(p).value &lt;&gt; <span class="kw">null</span> and result = self.propertySlot(p).value) or result = p.default) or
+(p.isDerivedUnion and result = unionedProperties(p)-&gt;union(s| s = self.get(s)) or
+(p.isDerived and result = self.extInvoke(<span class="lit">'get'</span>, p))</pre></div><dl class="paramcmts block"><dt class="param">f</dt><dd class="cmt"><p>(M2)Property</p></dd><dt>returns</dt><dd class="cmt"><p>A collection of (M1)Element(s) that are the value of the (M2)Property f on the element.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getPackageOwnerWithEffectiveURI" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getPackageOwnerWithEffectiveURI()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[org.omg.oti.uml.read.api.UMLPackage[Uml]]]"></a>
+      <a id="getPackageOwnerWithEffectiveURI()(OTICharacteristicsProvider[Uml]):\/[Set[Throwable],Option[UMLPackage[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getPackageOwnerWithEffectiveURI</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="otiCharacteristicsProvider">otiCharacteristicsProvider: <a href="../../characteristics/OTICharacteristicsProvider.html" class="extype" name="org.omg.oti.uml.characteristics.OTICharacteristicsProvider">OTICharacteristicsProvider</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Option">Option</span>[<a href="UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getPackageOwnerWithEffectiveURI()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[org.omg.oti.uml.read.api.UMLPackage[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The element or the first owner of the element that is a package with an effective URI;
+none if no such owner package exists.</p><div class="fullcomment"><div class="comment cmt"><p>The element or the first owner of the element that is a package with an effective URI;
+none if no such owner package exists.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@tailrec</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyBooleanValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyBooleanValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Boolean]]"></a>
+      <a id="getStereotypeTagPropertyBooleanValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[Boolean]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyBooleanValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Boolean">Boolean</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyBooleanValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Boolean]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The String values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyEnumValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyEnumValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLEnumerationLiteral[Uml]]]"></a>
+      <a id="getStereotypeTagPropertyEnumValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[UMLEnumerationLiteral[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyEnumValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="UMLEnumerationLiteral.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumerationLiteral">UMLEnumerationLiteral</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyEnumValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLEnumerationLiteral[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The EnumerationLiteral values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyInstanceValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyInstanceValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLInstanceSpecification[Uml]]]"></a>
+      <a id="getStereotypeTagPropertyInstanceValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[UMLInstanceSpecification[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyInstanceValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="UMLInstanceSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLInstanceSpecification">UMLInstanceSpecification</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyInstanceValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[org.omg.oti.uml.read.api.UMLInstanceSpecification[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The InstanceSpecification values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyIntegerValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyIntegerValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Int]]"></a>
+      <a id="getStereotypeTagPropertyIntegerValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[Int]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyIntegerValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Int">Int</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyIntegerValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Int]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The Integer values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyRealValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyRealValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Double]]"></a>
+      <a id="getStereotypeTagPropertyRealValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[Double]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyRealValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Double">Double</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyRealValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Double]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The Integer values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyStringValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyStringValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[String]]"></a>
+      <a id="getStereotypeTagPropertyStringValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[String]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyStringValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyStringValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[String]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The String values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#getStereotypeTagPropertyUnlimitedNaturalValues" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getStereotypeTagPropertyUnlimitedNaturalValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Int]]"></a>
+      <a id="getStereotypeTagPropertyUnlimitedNaturalValues(UMLProperty[Uml]):\/[Set[Throwable],Iterable[Int]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getStereotypeTagPropertyUnlimitedNaturalValues</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Int">Int</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@getStereotypeTagPropertyUnlimitedNaturalValues(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[Int]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>The Integer values, if any, of the tagProperty.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#id_metaDocumentAttributeFunction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="id_metaDocumentAttributeFunction:org.omg.oti.uml.MetaDocumentAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="id_metaDocumentAttributeFunction:MetaDocumentAttributeStringFunction[Uml,UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">id_metaDocumentAttributeFunction</span><span class="result">: <a href="../../MetaDocumentAttributeStringFunction.html" class="extype" name="org.omg.oti.uml.MetaDocumentAttributeStringFunction">MetaDocumentAttributeStringFunction</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@id_metaDocumentAttributeFunction:org.omg.oti.uml.MetaDocumentAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#lookupTagValueByProperty" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="lookupTagValueByProperty(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[org.omg.oti.uml.read.UMLStereotypeTagValue[Uml]]]"></a>
+      <a id="lookupTagValueByProperty(UMLProperty[Uml]):\/[Set[Throwable],Option[UMLStereotypeTagValue[Uml]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lookupTagValueByProperty</span><span class="params">(<span name="tagProperty">tagProperty: <a href="UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Option">Option</span>[<a href="../UMLStereotypeTagValue.html" class="extype" name="org.omg.oti.uml.read.UMLStereotypeTagValue">UMLStereotypeTagValue</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@lookupTagValueByProperty(tagProperty:org.omg.oti.uml.read.api.UMLProperty[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[org.omg.oti.uml.read.UMLStereotypeTagValue[Uml]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#metaAttributes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="metaAttributes:UMLSlot.this.MetaAttributeFunctions"></a>
+      <a id="metaAttributes:MetaAttributeFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metaAttributes</span><span class="result">: <a href="#MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaAttributeFunctions">MetaAttributeFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@metaAttributes:UMLSlot.this.MetaAttributeFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI meta-attributes relevant to this object</p><div class="fullcomment"><div class="comment cmt"><p>The XMI meta-attributes relevant to this object</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.uml.read.api.UMLSlot">UMLSlot</a> → <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a> → <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#metaclass_name" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="metaclass_name:String"></a>
+      <a id="metaclass_name:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">metaclass_name</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@metaclass_name:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#mofXMI_metaAtttributes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mofXMI_metaAtttributes:UMLElementOps.this.MetaAttributeFunctions"></a>
+      <a id="mofXMI_metaAtttributes:MetaAttributeFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mofXMI_metaAtttributes</span><span class="result">: <a href="#MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaAttributeFunctions">MetaAttributeFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@mofXMI_metaAtttributes:UMLElementOps.this.MetaAttributeFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#mustBeOwned" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mustBeOwned:Boolean"></a>
+      <a id="mustBeOwned:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mustBeOwned</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@mustBeOwned:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query mustBeOwned() indicates whether Elements of this type must have an owner.</p><div class="fullcomment"><div class="comment cmt"><p>The query mustBeOwned() indicates whether Elements of this type must have an owner. Subclasses of Element that do not require an owner must override this operation.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (<span class="kw">true</span>)</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#oti_xmiID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oti_xmiID()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]]"></a>
+      <a id="oti_xmiID()(OTICharacteristicsProvider[Uml]):\/[Set[Throwable],Option[@@[String,OTI_ID]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oti_xmiID</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="otiCharacteristicsProvider">otiCharacteristicsProvider: <a href="../../characteristics/OTICharacteristicsProvider.html" class="extype" name="org.omg.oti.uml.characteristics.OTICharacteristicsProvider">OTICharacteristicsProvider</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID">OTI_ID</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@oti_xmiID()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the value of the OTI::Identity::xmiID tag property on the element, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the value of the OTI::Identity::xmiID tag property on the element, if any.</p><p>Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#oti_xmiUUID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="oti_xmiUUID()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]]"></a>
+      <a id="oti_xmiUUID()(OTICharacteristicsProvider[Uml]):\/[Set[Throwable],Option[@@[String,OTI_UUID]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">oti_xmiUUID</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="otiCharacteristicsProvider">otiCharacteristicsProvider: <a href="../../characteristics/OTICharacteristicsProvider.html" class="extype" name="org.omg.oti.uml.characteristics.OTICharacteristicsProvider">OTICharacteristicsProvider</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID">OTI_UUID</span>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@oti_xmiUUID()(implicitotiCharacteristicsProvider:org.omg.oti.uml.characteristics.OTICharacteristicsProvider[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],Option[scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the value of the OTI::Identity::xmiUUID tag property on the element, if any.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the value of the OTI::Identity::xmiUUID tag property on the element, if any.</p><p>Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#ownedComment" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ownedComment:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLComment[Uml]]"></a>
+      <a id="ownedComment:Set[UMLComment[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedComment</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLComment.html" class="extype" name="org.omg.oti.uml.read.api.UMLComment">UMLComment</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@ownedComment:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLComment[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Comments owned by this Element.</p><div class="fullcomment"><div class="comment cmt"><p>The Comments owned by this Element.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLComment.ownedComment_owningElement
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLSlotOps#owningInstance" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="owningInstance:Option[org.omg.oti.uml.read.api.UMLInstanceSpecification[Uml]]"></a>
+      <a id="owningInstance:Option[UMLInstanceSpecification[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owningInstance</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="UMLInstanceSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLInstanceSpecification">UMLInstanceSpecification</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@owningInstance:Option[org.omg.oti.uml.read.api.UMLInstanceSpecification[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The InstanceSpecification that owns this Slot.</p><div class="fullcomment"><div class="comment cmt"><p>The InstanceSpecification that owns this Slot.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;1..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInstanceSpecification.slot
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLSlotOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLSlotOps">UMLSlotOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#owningNamespace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="owningNamespace:Option[org.omg.oti.uml.read.api.UMLNamespace[Uml]]"></a>
+      <a id="owningNamespace:Option[UMLNamespace[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owningNamespace</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@owningNamespace:Option[org.omg.oti.uml.read.api.UMLNamespace[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The element itself (if it is a kind of namespace)
+or the first owner of the element that is a kind of namespace.</p><div class="fullcomment"><div class="comment cmt"><p>The element itself (if it is a kind of namespace)
+or the first owner of the element that is a kind of namespace.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@tailrec</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#owningPackages" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="owningPackages:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]"></a>
+      <a id="owningPackages:Set[UMLPackage[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owningPackages</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@owningPackages:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLPackage[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@tailrec</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#referenceMetaProperties" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="referenceMetaProperties:UMLSlot.this.MetaPropertyFunctions"></a>
+      <a id="referenceMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">referenceMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@referenceMetaProperties:UMLSlot.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI reference meta-properties relevant to this object</p><div class="fullcomment"><div class="comment cmt"><p>The XMI reference meta-properties relevant to this object</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.omg.oti.uml.read.api.UMLSlot">UMLSlot</a> → <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a> → <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#slot_compositeMetaProperties" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="slot_compositeMetaProperties:UMLSlot.this.MetaPropertyFunctions"></a>
+      <a id="slot_compositeMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">slot_compositeMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@slot_compositeMetaProperties:UMLSlot.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI composite meta-properties relevant to class UMLSlot</p>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#slot_forwardReferencesFromMetamodelAssociations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="slot_forwardReferencesFromMetamodelAssociations:UMLSlot.this.Elements"></a>
+      <a id="slot_forwardReferencesFromMetamodelAssociations:Elements"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">slot_forwardReferencesFromMetamodelAssociations</span><span class="result">: <a href="#Elements=scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.Elements">Elements</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@slot_forwardReferencesFromMetamodelAssociations:UMLSlot.this.Elements" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI forward references from metamodel associations relevant to class UMLSlot</p>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#slot_metaAttributes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="slot_metaAttributes:UMLSlot.this.MetaAttributeFunctions"></a>
+      <a id="slot_metaAttributes:MetaAttributeFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">slot_metaAttributes</span><span class="result">: <a href="#MetaAttributeFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaAttributeFunction]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaAttributeFunctions">MetaAttributeFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@slot_metaAttributes:UMLSlot.this.MetaAttributeFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI meta-attributes relevant to class UMLSlot</p>
+    </li><li name="org.omg.oti.uml.read.api.UMLSlot#slot_referenceMetaProperties" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="slot_referenceMetaProperties:UMLSlot.this.MetaPropertyFunctions"></a>
+      <a id="slot_referenceMetaProperties:MetaPropertyFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">slot_referenceMetaProperties</span><span class="result">: <a href="#MetaPropertyFunctions=scala.collection.immutable.Seq[UMLElementOps.this.MetaPropertyEvaluator]" class="extmbr" name="org.omg.oti.uml.read.api.UMLSlot.MetaPropertyFunctions">MetaPropertyFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@slot_referenceMetaProperties:UMLSlot.this.MetaPropertyFunctions" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The XMI reference meta-properties relevant to class UMLSlot</p>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#toWrappedObjectString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toWrappedObjectString:String"></a>
+      <a id="toWrappedObjectString:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toWrappedObjectString</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@toWrappedObjectString:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#type_metaAttributeFunction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="type_metaAttributeFunction:org.omg.oti.uml.MetaAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="type_metaAttributeFunction:MetaAttributeStringFunction[Uml,UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">type_metaAttributeFunction</span><span class="result">: <a href="../../MetaAttributeStringFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeStringFunction">MetaAttributeStringFunction</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@type_metaAttributeFunction:org.omg.oti.uml.MetaAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#uuid_metaDocumentAttributeFunction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="uuid_metaDocumentAttributeFunction:org.omg.oti.uml.MetaDocumentAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="uuid_metaDocumentAttributeFunction:MetaDocumentAttributeStringFunction[Uml,UMLElement[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">uuid_metaDocumentAttributeFunction</span><span class="result">: <a href="../../MetaDocumentAttributeStringFunction.html" class="extype" name="org.omg.oti.uml.MetaDocumentAttributeStringFunction">MetaDocumentAttributeStringFunction</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>, <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@uuid_metaDocumentAttributeFunction:org.omg.oti.uml.MetaDocumentAttributeStringFunction[Uml,org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#validate_has_owner" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_has_owner:Boolean"></a>
+      <a id="validate_has_owner:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_has_owner</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@validate_has_owner:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Elements that must be owned must have an owner.</p><div class="fullcomment"><div class="comment cmt"><p>Elements that must be owned must have an owner.</p><pre>OCL Body mustBeOwned() implies owner-&gt;notEmpty()</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#validate_not_own_self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_not_own_self:Boolean"></a>
+      <a id="validate_not_own_self:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_not_own_self</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@validate_not_own_self:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An element may not directly or indirectly own itself.</p><div class="fullcomment"><div class="comment cmt"><p>An element may not directly or indirectly own itself.</p><pre>OCL Body not allOwnedElements()-&gt;includes(self)</pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#xmiElementLabel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xmiElementLabel:String"></a>
+      <a id="xmiElementLabel:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmiElementLabel</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@xmiElementLabel:String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#xmiID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xmiID()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]"></a>
+      <a id="xmiID()(IDGenerator[Uml]):\/[Set[Throwable],@@[String,OTI_ID]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmiID</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID">OTI_ID</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@xmiID()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_ID]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">idg</dt><dd class="cmt"><p>The OTI IDGenerator, used if it is necessary to compute the element's xmi:ID</p></dd><dt>returns</dt><dd class="cmt"><p>The OTI xmi:id for the element, which is either:</p><ul><li>the value of the OTI::Identity::xmiID tag property on the element, if specified, or</li><li>the generated OTI xmi:id
+        Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.</li></ul></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>See also</dt><dd><span class="cmt"><p>OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, id
+     XML semantics require the values of this attribute to be unique within an XML document;
+     however, the value is not required to be globally unique.
+     This attribute may be used as the value of the idref attribute defined in the next sub clause.
+     It may also be included as part of the value of the href attribute in XLinks.
+     An example of the use of this attribute and the other attributes in this sub clause can be found in 7.10.3.
+     If the metaclass has (or inherits) a Property with isId = ???true,??? then
+     the value of that property may be used as the basis of the xmi:id and/or xmi:uuid attributes.
+     This is not mandatory, and the exact algorithm to be used is not specified in this International Standard.
+     However it is important, to be a valid XML document, that the value for xmi:id is unique
+     across all elements within the file. The xmi:uuid is not so constrained,
+     but if the same value is used in multiple XML elements, then
+     they are all deemed to reference the same MOF element (e.g., they may represent different aspects).</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLSlotOps#xmiOrderingKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xmiOrderingKey()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],String]"></a>
+      <a id="xmiOrderingKey()(IDGenerator[Uml]):\/[Set[Throwable],String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmiOrderingKey</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@xmiOrderingKey()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">TIWG: see UMLUtil, Rule #4
+</p><div class="fullcomment"><div class="comment cmt"><p>TIWG: see UMLUtil, Rule #4
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLSlotOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLSlotOps">UMLSlotOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#xmiType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xmiType:Iterable[String]"></a>
+      <a id="xmiType:Iterable[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmiType</span><span class="result">: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@xmiType:Iterable[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLElementOps#xmiUUID" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xmiUUID()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]"></a>
+      <a id="xmiUUID()(IDGenerator[Uml]):\/[Set[Throwable],@@[String,OTI_UUID]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">xmiUUID</span><span class="params">()</span><span class="params">(<span class="implicit">implicit </span><span name="idg">idg: <a href="../../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scalaz.@@">@@</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID">OTI_UUID</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.api.UMLSlot@xmiUUID()(implicitidg:org.omg.oti.uml.xmi.IDGenerator[Uml]):scalaz.\/[scala.collection.immutable.Set[Throwable],scalaz.@@[String,org.omg.oti.json.common.OTIPrimitiveTypes.OTI_UUID]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">idg</dt><dd class="cmt"><p>The OTI IDGenerator, used if it is necessary to compute the element's xmi:ID to derive its xmi:uuid</p></dd><dt>returns</dt><dd class="cmt"><p>The OTI xmi:uuid for the element, which is either:</p><ul><li>the value of the OTI::Identity::xmiUUID tag property on the element, if specified, or</li><li>the generated OTI xmi:uuid
+        Note: Normally, it should be unecessary to override this method in a tool-specific OTI adapter.</li></ul></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a></dd><dt>See also</dt><dd><span class="cmt"><p>OMG XMI 2.5, ptc/2014-09-21, Section 7.6.1, uuid
+     The purpose of this attribute is to provide a globally unique identifier for an XML element.
+     The values of this attribute should be globally unique strings prefixed by the type of identifier.
+     If you have access to the UUID assigned in MOF, you may put the MOF UUID in the uuid XML attribute
+     when encoding the MOF data in XMI. UUIDs should use URIs as the unique string.
+     Refer to 6.4.1.1 of the MOF Facility and Object Lifecycle Specification for
+     an example of a scheme for detailed URI production rules.
+     An example URI for the metaclass UseCase in the UML2 metamodel looks like this:
+     http://www.omg.org/spec/UML//20200901/uml.xml#UseCase</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="org.omg.oti.uml.read.operations.UMLSlotOps">
+              <h3>Inherited from <a href="../operations/UMLSlotOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLSlotOps">UMLSlotOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</h3>
+            </div><div class="parent" name="org.omg.oti.uml.read.api.UMLElement">
+              <h3>Inherited from <a href="UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</h3>
+            </div><div class="parent" name="org.omg.oti.uml.read.operations.UMLElementOps">
+              <h3>Inherited from <a href="../operations/UMLElementOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLElementOps">UMLElementOps</a>[<span class="extype" name="org.omg.oti.uml.read.api.UMLSlot.Uml">Uml</span>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>validation - org.omg.oti.uml.core - org.omg.oti.uml.validation</title>
+          <meta name="description" content="validation - org.omg.oti.uml.core - org.omg.oti.uml.validation" />
+          <meta name="keywords" content="validation org.omg.oti.uml.core org.omg.oti.uml.validation" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.uml.validation.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml">uml</a></p>
+        <h1>validation</h1><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validation</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p><a href="../../../../../index.html" target="_top">Top</a></p><h3> OTI-based EMOF and CMOF Validation </h3></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, section 12.4</p><h4> OTI-specified EMOF Validation Constraints </h4><ul><li>[1] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[3] <a href="NamedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.NamedElementValidationHelper">validation.NamedElementValidationHelper</a></li><li>[4] <a href="VisibilityValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.VisibilityValidationHelper">validation.VisibilityValidationHelper</a></li><li>[22] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[23] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[24] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[25] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[26] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[28] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[29] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[30] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[31] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[32] <a href="ConnectableMultiplicityValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper">validation.ConnectableMultiplicityValidationHelper</a></li></ul><h4> Non-specified EMOF Validation Constraints </h4><ul><li>[2]</li><li>[5]</li><li>[6]</li><li>[7]</li><li>[8]</li><li>[9]</li><li>[10]</li><li>[11]</li><li>[12]</li><li>[13]</li><li>[14]</li><li>[15]</li><li>[16]</li><li>[17]</li><li>[18]</li><li>[19]</li><li>[20]</li><li>[21]</li><li>[22]</li><li>[27]</li></ul><h4> OTI-specified CMOF Validation Constraints </h4><ul><li>[2] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[6] <a href="NamedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.NamedElementValidationHelper">validation.NamedElementValidationHelper</a></li><li>[7] <a href="VisibilityValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.VisibilityValidationHelper">validation.VisibilityValidationHelper</a></li><li>[13] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[14] <a href="ConnectableMultiplicityValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper">validation.ConnectableMultiplicityValidationHelper</a></li><li>[22] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[23] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[24] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[25] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[26] <a href="DefaultValueValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper">validation.DefaultValueValidationHelper</a></li><li>[28] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[29] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li><li>[30] <a href="TypedElementValidationHelper.html" class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper">validation.TypedElementValidationHelper</a></li></ul><h4> Non-specified CMOF Validation Constraints </h4><ul><li>[1]</li><li>[3]</li><li>[4]</li><li>[5]</li><li>[8]</li><li>[9]</li><li>[10]</li><li>[11]</li><li>[12]</li><li>[15]</li><li>[16]</li><li>[17]</li><li>[18]</li><li>[19]</li><li>[20]</li><li>[21]</li><li>[27]</li><li>[31]</li><li>[32]</li></ul></span></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.validation"><span>validation</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.uml.validation.AbstractDefaultValueValidationInfo" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AbstractDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAnyRef"></a>
+      <a id="AbstractDefaultValueValidationInfo[Uml&lt;:UML]:AbstractDefaultValueValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractDefaultValueValidationInfo.html"><span class="name">AbstractDefaultValueValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@AbstractDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The common superclass of the different categories of DefaultValue validation results.</p><div class="fullcomment"><div class="comment cmt"><p>The common superclass of the different categories of DefaultValue validation results.
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.AbstractVisibilityValidationInfo" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AbstractVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAnyRef"></a>
+      <a id="AbstractVisibilityValidationInfo[Uml&lt;:UML]:AbstractVisibilityValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractVisibilityValidationInfo.html"><span class="name">AbstractVisibilityValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@AbstractVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The common superclass of the different categories of visibility validation results.</p><div class="fullcomment"><div class="comment cmt"><p>The common superclass of the different categories of visibility validation results.
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConnectableMultiplicityValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable"></a>
+      <a id="ConnectableMultiplicityValidationHelper[Uml&lt;:UML,UmlOps&lt;:UMLOps[Uml]]:ConnectableMultiplicityValidationHelper[Uml,UmlOps]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConnectableMultiplicityValidationHelper.html"><span class="name">ConnectableMultiplicityValidationHelper</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper.Uml">Uml</span>]</span>]</span><span class="params">(<span name="pkgs">pkgs: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper.Uml">Uml</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="umlOps">umlOps: <span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper.UmlOps">UmlOps</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ConnectableMultiplicityValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Helper for EMOF/CMOF Multiplicity range validation for
+<a href="../read/api/UMLConnectableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLConnectableElement">connectable elements</a>
+(<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">parameters</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">properties</a>)
+</p><div class="fullcomment"><div class="comment cmt"><p>Helper for EMOF/CMOF Multiplicity range validation for
+<a href="../read/api/UMLConnectableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLConnectableElement">connectable elements</a>
+(<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">parameters</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">properties</a>)
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="tparam">UmlOps</dt><dd class="cmt"><p>The tool-specific OTI UML operations adapter type</p></dd><dt class="param">pkgs</dt><dd class="cmt"><p>set of <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UML Packages</a> to analyze the contents for EMOF/CMOF
+            multiplicity rance validation</p></dd><dt class="param">umlOps</dt><dd class="cmt"><p>A tool-specific OTI UML operations adapter object</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConnectableMultiplicityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable"></a>
+      <a id="ConnectableMultiplicityValidationInfo[Uml&lt;:UML]:ConnectableMultiplicityValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConnectableMultiplicityValidationInfo.html"><span class="name">ConnectableMultiplicityValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="parameter_or_property">parameter_or_property: <a href="../read/api/UMLConnectableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLConnectableElement">UMLConnectableElement</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>] with <a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">UMLMultiplicityElement</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>]</span>, <span name="role">role: <a href="../MetaPropertyReference.html" class="extype" name="org.omg.oti.uml.MetaPropertyReference">MetaPropertyReference</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>, <a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">UMLMultiplicityElement</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>], <a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">UMLValueSpecification</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>]]</span>, <span name="value">value: <span class="extype" name="scala.Option">Option</span>[<a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">UMLValueSpecification</a>[<span class="extype" name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationInfo.Uml">Uml</span>]]</span>, <span name="status">status: <a href="MultiplicityValueValidationStatus$.html#MultiplicityValueValidationStatus=org.omg.oti.uml.validation.MultiplicityValueValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.MultiplicityValueValidationStatus.MultiplicityValueValidationStatus">MultiplicityValueValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="valueRepair">valueRepair: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="java.lang.Integer">Integer</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ConnectableMultiplicityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Multiplicity range validation result for a <a href="../read/api/UMLConnectableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLConnectableElement">connectable element</a>
+(<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">property</a>)
+</p><div class="fullcomment"><div class="comment cmt"><p>Multiplicity range validation result for a <a href="../read/api/UMLConnectableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLConnectableElement">connectable element</a>
+(<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">property</a>)
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">parameter_or_property</dt><dd class="cmt"><p>A <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a></p></dd><dt class="param">role</dt><dd class="cmt"><p><a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">MultiplicityElement</a>_lowerValue or
+            <a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">MultiplicityElement</a>_upperValue</p></dd><dt class="param">status</dt><dd class="cmt"><p>valid, redundant or invalid</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>description of the validation result</p></dd><dt class="param">valueRepair</dt><dd class="cmt"><p>if invalid, an integer value to repair the model</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.DefaultValueValidationHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DefaultValueValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable"></a>
+      <a id="DefaultValueValidationHelper[Uml&lt;:UML]:DefaultValueValidationHelper[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultValueValidationHelper.html"><span class="name">DefaultValueValidationHelper</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="scope">scope: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.DefaultValueValidationHelper.Uml">Uml</span>]]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@DefaultValueValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Helper for EMOF/CMOF default value validation
+</p><div class="fullcomment"><div class="comment cmt"><p>Helper for EMOF/CMOF default value validation
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">scope</dt><dd class="cmt"><p>set of UML Packages to analyze the contents for EMOF/CMOF default value validation constraints</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.ElementImportVisibilityValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ElementImportVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="ElementImportVisibilityValidationInfo[Uml&lt;:UML]:ElementImportVisibilityValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ElementImportVisibilityValidationInfo.html"><span class="name">ElementImportVisibilityValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">UMLElementImport</a>[<span class="extype" name="org.omg.oti.uml.validation.ElementImportVisibilityValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="VisibilityValidationStatus$.html#VisibilityValidationStatus=org.omg.oti.uml.validation.VisibilityValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.VisibilityValidationStatus.VisibilityValidationStatus">VisibilityValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractVisibilityValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractVisibilityValidationInfo">AbstractVisibilityValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.ElementImportVisibilityValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ElementImportVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Visibility validation result for an <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Visibility validation result for an <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p><a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.NamedElementNameValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NamedElementNameValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable"></a>
+      <a id="NamedElementNameValidationInfo[Uml&lt;:UML]:NamedElementNameValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedElementNameValidationInfo.html"><span class="name">NamedElementNameValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="namedElement">namedElement: <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.validation.NamedElementNameValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="NamedElementValidationStatus$.html#NamedElementValidationStatus=org.omg.oti.uml.validation.NamedElementValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.NamedElementValidationStatus.NamedElementValidationStatus">NamedElementValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@NamedElementNameValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">NamedElement name validation result
+</p><div class="fullcomment"><div class="comment cmt"><p>NamedElement name validation result
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">namedElement</dt><dd class="cmt"><p>A <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UML NamedElement</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.NamedElementValidationHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NamedElementValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable"></a>
+      <a id="NamedElementValidationHelper[Uml&lt;:UML,UmlOps&lt;:UMLOps[Uml]]:NamedElementValidationHelper[Uml,UmlOps]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedElementValidationHelper.html"><span class="name">NamedElementValidationHelper</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.NamedElementValidationHelper.Uml">Uml</span>]</span>]</span><span class="params">(<span name="scope">scope: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.NamedElementValidationHelper.Uml">Uml</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="umlOps">umlOps: <span class="extype" name="org.omg.oti.uml.validation.NamedElementValidationHelper.UmlOps">UmlOps</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@NamedElementValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Helper for EMOF/CMOF <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UML NamedElement</a> validation
+</p><div class="fullcomment"><div class="comment cmt"><p>Helper for EMOF/CMOF <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UML NamedElement</a> validation
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="tparam">UmlOps</dt><dd class="cmt"><p>The tool-specific OTI UML operations adapter type</p></dd><dt class="param">scope</dt><dd class="cmt"><p>set of <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UML Packages</a> to analyze the contents for EMOF/CMOF
+             <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UML NamedElement</a> validation constraints</p></dd><dt class="param">umlOps</dt><dd class="cmt"><p>A tool-specific OTI UML operations adapter object</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.NamedElementVisibilityValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NamedElementVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="NamedElementVisibilityValidationInfo[Uml&lt;:UML]:NamedElementVisibilityValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedElementVisibilityValidationInfo.html"><span class="name">NamedElementVisibilityValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.validation.NamedElementVisibilityValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="VisibilityValidationStatus$.html#VisibilityValidationStatus=org.omg.oti.uml.validation.VisibilityValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.VisibilityValidationStatus.VisibilityValidationStatus">VisibilityValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractVisibilityValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractVisibilityValidationInfo">AbstractVisibilityValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.NamedElementVisibilityValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@NamedElementVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Visibility validation result for a kind of <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Visibility validation result for a kind of <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p><a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.PackageImportVisibilityValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PackageImportVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="PackageImportVisibilityValidationInfo[Uml&lt;:UML]:PackageImportVisibilityValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PackageImportVisibilityValidationInfo.html"><span class="name">PackageImportVisibilityValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">UMLPackageImport</a>[<span class="extype" name="org.omg.oti.uml.validation.PackageImportVisibilityValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="VisibilityValidationStatus$.html#VisibilityValidationStatus=org.omg.oti.uml.validation.VisibilityValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.VisibilityValidationStatus.VisibilityValidationStatus">VisibilityValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractVisibilityValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractVisibilityValidationInfo">AbstractVisibilityValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.PackageImportVisibilityValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@PackageImportVisibilityValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractVisibilityValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Visibility validation result for a <a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Visibility validation result for a <a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p><a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.ParameterDefaultValueValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ParameterDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="ParameterDefaultValueValidationInfo[Uml&lt;:UML]:ParameterDefaultValueValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ParameterDefaultValueValidationInfo.html"><span class="name">ParameterDefaultValueValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">UMLParameter</a>[<span class="extype" name="org.omg.oti.uml.validation.ParameterDefaultValueValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="DefaultValueValidationStatus$.html#DefaultValueValidationStatus=org.omg.oti.uml.validation.DefaultValueValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.DefaultValueValidationStatus.DefaultValueValidationStatus">DefaultValueValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractDefaultValueValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractDefaultValueValidationInfo">AbstractDefaultValueValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.ParameterDefaultValueValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ParameterDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Validation result for the DefaultValue of a <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Validation result for the DefaultValue of a <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p>a <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.PropertyDefaultValueValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PropertyDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="PropertyDefaultValueValidationInfo[Uml&lt;:UML]:PropertyDefaultValueValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PropertyDefaultValueValidationInfo.html"><span class="name">PropertyDefaultValueValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.validation.PropertyDefaultValueValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="DefaultValueValidationStatus$.html#DefaultValueValidationStatus=org.omg.oti.uml.validation.DefaultValueValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.DefaultValueValidationStatus.DefaultValueValidationStatus">DefaultValueValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractDefaultValueValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractDefaultValueValidationInfo">AbstractDefaultValueValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.PropertyDefaultValueValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@PropertyDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Validation result for the DefaultValue of a kind of <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Validation result for the DefaultValue of a kind of <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p>a kind of <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.TypedElementValidationHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TypedElementValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable"></a>
+      <a id="TypedElementValidationHelper[Uml&lt;:UML,UmlOps&lt;:UMLOps[Uml]]:TypedElementValidationHelper[Uml,UmlOps]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedElementValidationHelper.html"><span class="name">TypedElementValidationHelper</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper.Uml">Uml</span>]</span>]</span><span class="params">(<span name="scope">scope: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper.Uml">Uml</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="umlOps">umlOps: <span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper.UmlOps">UmlOps</span></span>, <span name="idg">idg: <a href="../xmi/IDGenerator.html" class="extype" name="org.omg.oti.uml.xmi.IDGenerator">IDGenerator</a>[<span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper.Uml">Uml</span>]</span>, <span name="otiCharacteristicsProvider">otiCharacteristicsProvider: <a href="../characteristics/OTICharacteristicsProvider.html" class="extype" name="org.omg.oti.uml.characteristics.OTICharacteristicsProvider">OTICharacteristicsProvider</a>[<span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationHelper.Uml">Uml</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@TypedElementValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Helper for EMOF/CMOF TypedElement validation
+</p><div class="fullcomment"><div class="comment cmt"><p>Helper for EMOF/CMOF TypedElement validation
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="tparam">UmlOps</dt><dd class="cmt"><p>The tool-specific OTI UML operations adapter type</p></dd><dt class="param">scope</dt><dd class="cmt"><p>A set of UML Packages to analyze the contents for EMOF/CMOF NamedElement validation constraints</p></dd><dt class="param">umlOps</dt><dd class="cmt"><p>A tool-specific OTI UML operations adapter object</p></dd><dt class="param">idg</dt><dd class="cmt"><p>A tool-specific OTI IDGenerator</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.TypedElementValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TypedElementValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable"></a>
+      <a id="TypedElementValidationInfo[Uml&lt;:UML]:TypedElementValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedElementValidationInfo.html"><span class="name">TypedElementValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="typedElement">typedElement: <a href="../read/api/UMLTypedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLTypedElement">UMLTypedElement</a>[<span class="extype" name="org.omg.oti.uml.validation.TypedElementValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="TypedElementValidationStatus$.html#TypedElementValidationStatus=org.omg.oti.uml.validation.TypedElementValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.TypedElementValidationStatus.TypedElementValidationStatus">TypedElementValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@TypedElementValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">TypedElement validation result
+</p><div class="fullcomment"><div class="comment cmt"><p>TypedElement validation result
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">typedElement</dt><dd class="cmt"><p>A TypedElement</p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="UMLPackageableElementRules[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsAnyRef"></a>
+      <a id="UMLPackageableElementRules[Uml&lt;:UML,UmlOps&lt;:UMLOps[Uml]]:UMLPackageableElementRules[Uml,UmlOps]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPackageableElementRules.html"><span class="name">UMLPackageableElementRules</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@UMLPackageableElementRules[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Non-standard well-formedness rules for the accessibility of and references to packageable elements.</p><div class="fullcomment"><div class="comment cmt"><p>Non-standard well-formedness rules for the accessibility of and references to packageable elements.</p><p>At the OMG, UML itself is defined as a so-called CMOF metamodel.
+The well-formedness rules for CMOF metamodels have been clarified for UML 2.4.1 / MOF 2.4.1; however,
+these rules do not address implicit patterns used in the organization of CMOF metamodels, profiles and libraries.</p><p>Examples:</p><p>1) the 'UML' metamodel imports the 'PrimitiveTypes' library.</p><p>The rationale for this import is to account for references to primitive types in UML itself.
+For example: NamedElement::name : String[0..1]</p><p>However, nothing in UML nor in CMOF requires such import to be present.</p><p>2) Compared to UML 2.4.1 where all of UML metaclasses were directly owned by the UML metamodel package,
+the UML 2.5 metamodel introduced 1 level of nested packages
+(e.g., UML::Classifiers, UML::CommonStructure, UML::Packages, ...)
+Additionally, the UML 2.5 metamodel package imports all of these nested packages.</p><p>The rationale for the toplevel UML metamodel package to import all of its nested packages stems
+from subtleties in the rules for referencing UML's metaclasses by name. For example, 'uml:Package'
+refers to the UML metaclass 'UML::Packages::Package' by name (i.e., 'Package') via the namespace
+prefix of the UML metamodel itself, i.e., 'uml'. These references by name 'work' in OCL and MOF/XMI
+precisely because the UML metamodel package imports all of its nested packages and therefore allows
+referencing contents of these nested packages by name.</p><p>The two examples above illustrate that there are two different useful semantics for package imports:
+- summarizing all references to elements outside the scope a package from any element within
+  the scope of that package -- i.e., case (1)
+- specifying the subset of elements within the scope of a package that can be externally referenced from
+  outside of that package &quot;by name&quot; -- i.e., case (2)</p><p>OTI provides non-standard operations to facilitate using UML in conformance with the tacit well-formedness rules
+adopted at the OMG for the organization of metamodels, profiles and libraries.
+</p></div></div>
+    </li><li name="org.omg.oti.uml.validation.ValueSpecificationAsDefaultValueValidationInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ValueSpecificationAsDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable"></a>
+      <a id="ValueSpecificationAsDefaultValueValidationInfo[Uml&lt;:UML]:ValueSpecificationAsDefaultValueValidationInfo[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ValueSpecificationAsDefaultValueValidationInfo.html"><span class="name">ValueSpecificationAsDefaultValueValidationInfo</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="params">(<span name="e">e: <a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">UMLValueSpecification</a>[<span class="extype" name="org.omg.oti.uml.validation.ValueSpecificationAsDefaultValueValidationInfo.Uml">Uml</span>]</span>, <span name="status">status: <a href="DefaultValueValidationStatus$.html#DefaultValueValidationStatus=org.omg.oti.uml.validation.DefaultValueValidationStatus.Value" class="extmbr" name="org.omg.oti.uml.validation.DefaultValueValidationStatus.DefaultValueValidationStatus">DefaultValueValidationStatus</a></span>, <span name="explanation">explanation: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result"> extends <a href="AbstractDefaultValueValidationInfo.html" class="extype" name="org.omg.oti.uml.validation.AbstractDefaultValueValidationInfo">AbstractDefaultValueValidationInfo</a>[<span class="extype" name="org.omg.oti.uml.validation.ValueSpecificationAsDefaultValueValidationInfo.Uml">Uml</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ValueSpecificationAsDefaultValueValidationInfo[Uml&lt;:org.omg.oti.uml.read.api.UML]extendsAbstractDefaultValueValidationInfo[Uml]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Validation result for a ValueSpecification as a DefaultValue for a
+<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>Validation result for a ValueSpecification as a DefaultValue for a
+<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="param">e</dt><dd class="cmt"><p>a kind of <a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">ValueSpecification</a></p></dd><dt class="param">status</dt><dd class="cmt"><p>validation status</p></dd><dt class="param">explanation</dt><dd class="cmt"><p>if invalid, an explanation for humans</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.VisibilityValidationHelper" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="VisibilityValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable"></a>
+      <a id="VisibilityValidationHelper[Uml&lt;:UML,UmlOps&lt;:UMLOps[Uml]]:VisibilityValidationHelper[Uml,UmlOps]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="VisibilityValidationHelper.html"><span class="name">VisibilityValidationHelper</span></a><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.VisibilityValidationHelper.Uml">Uml</span>]</span>]</span><span class="params">(<span name="scope">scope: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.VisibilityValidationHelper.Uml">Uml</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="umlOps">umlOps: <span class="extype" name="org.omg.oti.uml.validation.VisibilityValidationHelper.UmlOps">UmlOps</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@VisibilityValidationHelper[Uml&lt;:org.omg.oti.uml.read.api.UML,UmlOps&lt;:org.omg.oti.uml.read.operations.UMLOps[Uml]]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Helper for EMOF/CMOF visibilty &amp; alias validation
+</p><div class="fullcomment"><div class="comment cmt"><p>Helper for EMOF/CMOF visibilty &amp; alias validation
+</p></div><dl class="paramcmts block"><dt class="tparam">Uml</dt><dd class="cmt"><p>The type signature for a tool-specific adaptation of the OTI UML API</p></dd><dt class="tparam">UmlOps</dt><dd class="cmt"><p>The tool-specific OTI UML operations adapter type</p></dd><dt class="param">scope</dt><dd class="cmt"><p>set of <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UML Packages</a> to analyze</p></dd><dt class="param">umlOps</dt><dd class="cmt"><p>A tool-specific OTI UML operations adapter object</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="org.omg.oti.uml.validation.ConnectableMultiplicityValidationHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConnectableMultiplicityValidationHelper"></a>
+      <a id="ConnectableMultiplicityValidationHelper:ConnectableMultiplicityValidationHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConnectableMultiplicityValidationHelper$.html"><span class="name">ConnectableMultiplicityValidationHelper</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@ConnectableMultiplicityValidationHelper" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Multiplicity range validation support for <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">property</a> connectable elements
+</p>
+    </li><li name="org.omg.oti.uml.validation.DefaultValueValidationHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultValueValidationHelper"></a>
+      <a id="DefaultValueValidationHelper:DefaultValueValidationHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultValueValidationHelper$.html"><span class="name">DefaultValueValidationHelper</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@DefaultValueValidationHelper" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.validation.DefaultValueValidationStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DefaultValueValidationStatus"></a>
+      <a id="DefaultValueValidationStatus:DefaultValueValidationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultValueValidationStatus$.html"><span class="name">DefaultValueValidationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@DefaultValueValidationStatus" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation for default values
+</p><div class="fullcomment"><div class="comment cmt"><p>The different categories of validation for default values
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, Section 14.4 CMOF Constraints
+     [13] A multi-valued <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> cannot have a default value.</p><ul><li>The default value of a <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by a
+     <a href="../read/api/UMLPrimitiveType.html" class="extype" name="org.omg.oti.uml.read.api.UMLPrimitiveType">PrimitiveType</a> must be a kind of
+     <a href="../read/api/UMLLiteralSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralSpecification">LiteralSpecification</a>.</li><li>The default value of a <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by an
+     <a href="../read/api/UMLEnumeration.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumeration">Enumeration</a> must be a kind of
+     <a href="../read/api/UMLInstanceValue.html" class="extype" name="org.omg.oti.uml.read.api.UMLInstanceValue">InstanceValue</a>.</li><li>A <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by a
+     <a href="../read/api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">Class</a> cannot have a default value.
+     [24] A TypedElement that is a kind of <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by a
+     <a href="../read/api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">Class</a>  cannot have a default value.
+     [25] For a TypedElement that is a kind of <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by an
+     <a href="../read/api/UMLEnumeration.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumeration">Enumeration</a>, the defaultValue, if any,
+     must be a kind of <a href="../read/api/UMLInstanceValue.html" class="extype" name="org.omg.oti.uml.read.api.UMLInstanceValue">InstanceValue</a>.
+     [26] For a TypedElement that is a kind of <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> typed by an
+     <a href="../read/api/UMLPrimitiveType.html" class="extype" name="org.omg.oti.uml.read.api.UMLPrimitiveType">PrimitiveType</a>, the defaultValue, if any,
+     must be a kind of <a href="../read/api/UMLLiteralSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralSpecification">LiteralSpecification</a>.</li></ul></span><span class="cmt"><p>MOF 2.5, Section 12.4 EMOF Constraints
+     [24] A <a href="../read/api/UMLTypedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLTypedElement">TypedElement</a> that is a kind of
+     <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+     typed by a <a href="../read/api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">Class</a> cannot have a default value.
+     [25] For a <a href="../read/api/UMLTypedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLTypedElement">TypedElement</a> that is a kind of
+     <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+     typed by an <a href="../read/api/UMLEnumeration.html" class="extype" name="org.omg.oti.uml.read.api.UMLEnumeration">Enumeration</a>, the defaultValue,
+     if any, must be a kind of <a href="../read/api/UMLInstanceValue.html" class="extype" name="org.omg.oti.uml.read.api.UMLInstanceValue">InstanceValue</a>.
+     [26] A <a href="../read/api/UMLTypedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLTypedElement">TypedElement</a> that is a kind of
+     <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+     typed by a <a href="../read/api/UMLPrimitiveType.html" class="extype" name="org.omg.oti.uml.read.api.UMLPrimitiveType">PrimitiveType</a>, the defaultValue,
+     if any, must be a kind of <a href="../read/api/UMLLiteralSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralSpecification">LiteralSpecification</a>.
+     [31] A multi-valued <a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a>
+     or <a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a> cannot have a default value.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.MultiplicityValueValidationStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MultiplicityValueValidationStatus"></a>
+      <a id="MultiplicityValueValidationStatus:MultiplicityValueValidationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MultiplicityValueValidationStatus$.html"><span class="name">MultiplicityValueValidationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@MultiplicityValueValidationStatus" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation for the lower or upper value of a
+<a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">multiplicity element</a>
+that is a kind of
+<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p><div class="fullcomment"><div class="comment cmt"><p>The different categories of validation for the lower or upper value of a
+<a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">multiplicity element</a>
+that is a kind of
+<a href="../read/api/UMLParameter.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameter">Parameter</a> or
+<a href="../read/api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">Property</a>
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, Section 14.4 CMOF Constraints
+[14] The values of <a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">MultiplicityElement</a>::lowerValue
+and upperValue must be of kind
+<a href="../read/api/UMLLiteralInteger.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralInteger">LiteralInteger</a> and
+<a href="../read/api/UMLLiteralUnlimitedNatural.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural">LiteralUnlimitedNatural</a> respectively.</p></span><span class="cmt"><p>MOF 2.5, Section 12.4 EMOF Constraints
+[32] The values of <a href="../read/api/UMLMultiplicityElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLMultiplicityElement">MultiplicityElement</a>::lowerValue
+and upperValue must be of kind
+<a href="../read/api/UMLLiteralInteger.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralInteger">LiteralInteger</a> and
+<a href="../read/api/UMLLiteralUnlimitedNatural.html" class="extype" name="org.omg.oti.uml.read.api.UMLLiteralUnlimitedNatural">LiteralUnlimitedNatural</a> respectively.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.NamedElementValidationHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NamedElementValidationHelper"></a>
+      <a id="NamedElementValidationHelper:NamedElementValidationHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedElementValidationHelper$.html"><span class="name">NamedElementValidationHelper</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@NamedElementValidationHelper" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.validation.NamedElementValidationStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NamedElementValidationStatus"></a>
+      <a id="NamedElementValidationStatus:NamedElementValidationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedElementValidationStatus$.html"><span class="name">NamedElementValidationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@NamedElementValidationStatus" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation for the name of <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">named elements</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The different categories of validation for the name of <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">named elements</a>.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, Section 14.4 CMOF Constraints
+[6] Names are required for all <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElements</a>
+    except for <a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">ValueSpecifications</a>.</p></span><span class="cmt"><p>MOF 2.5, Section 12.4 EMOF Constraints
+[3] Names are required for all <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElements</a>
+    except for <a href="../read/api/UMLValueSpecification.html" class="extype" name="org.omg.oti.uml.read.api.UMLValueSpecification">ValueSpecifications</a>.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.TypedElementValidationHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TypedElementValidationHelper"></a>
+      <a id="TypedElementValidationHelper:TypedElementValidationHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedElementValidationHelper$.html"><span class="name">TypedElementValidationHelper</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@TypedElementValidationHelper" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.validation.TypedElementValidationStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TypedElementValidationStatus"></a>
+      <a id="TypedElementValidationStatus:TypedElementValidationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedElementValidationStatus$.html"><span class="name">TypedElementValidationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@TypedElementValidationStatus" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation on 'typing' rules.</p><div class="fullcomment"><div class="comment cmt"><p>The different categories of validation on 'typing' rules.
+Note: 'typing' rules for Properties &amp; Parameters have higher precedence to default value rules.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, Section 14.4 CMOF Constraints
+     [2] The type of Operation::raisedException is limited to be Class rather than Type.
+     [22] A TypedElement cannot be typed by an Association.
+     [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
+     [28] A Property typed by a kind of DataType must have aggregation = none.
+     [29] A Property owned by a DataType can only be typed by a DataType.
+     [30] Each Association memberEnd Property must be typed by a Class.</p></span><span class="cmt"><p>MOF 2.5, Section 12.4 EMOF Constraints
+     [1] The type of Operation::raisedException is limited to be Class rather than Type.
+     [22] A TypedElement cannot be typed by an Association.
+     [23] A TypedElement other than a LiteralSpecification or an OpaqueExpression must have a Type.
+     [28] A Property typed by a kind of DataType must have aggregation = none.
+     [29] A Property owned by a DataType can only be typed by a DataType.
+     [30] Each Association memberEnd Property must be typed by a Class.</p></span></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.VisibilityValidationHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VisibilityValidationHelper"></a>
+      <a id="VisibilityValidationHelper:VisibilityValidationHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VisibilityValidationHelper$.html"><span class="name">VisibilityValidationHelper</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@VisibilityValidationHelper" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation for the visibility &amp; aliasing (where applicable)
+of a <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a>,
+<a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a> or
+<a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a>.</p>
+    </li><li name="org.omg.oti.uml.validation.VisibilityValidationStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="VisibilityValidationStatus"></a>
+      <a id="VisibilityValidationStatus:VisibilityValidationStatus"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="VisibilityValidationStatus$.html"><span class="name">VisibilityValidationStatus</span></a><span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.package@VisibilityValidationStatus" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The different categories of validation for the visibility &amp; aliasing (where applicable)
+of a <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a>,
+<a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a> or
+<a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The different categories of validation for the visibility &amp; aliasing (where applicable)
+of a <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElement</a>,
+<a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a> or
+<a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImport</a>.
+</p></div><dl class="attributes block"> <dt>See also</dt><dd><span class="cmt"><p>MOF 2.5, Section 14.4 CMOF Constraints
+     [7] CMOF does not support visibilities.
+     All property visibilities must be explicitly set to public where applicable,
+     that is for all <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElements</a>,
+     <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImports</a> and
+     <a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImports</a>.
+     Furthermore, no alias is allowed for any
+     <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a>.</p></span><span class="cmt"><p>MOF 2.5, Section 12.4 EMOF Constraints
+     [4] Core::Basic and EMOF does not support visibilities.
+     All property visibilities must be explicitly set to public where applicable,
+     that is for all <a href="../read/api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">NamedElements</a>,
+     <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImports</a> and
+     <a href="../read/api/UMLPackageImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageImport">PackageImports</a>.
+     Furthermore, no alias is allowed for any
+     <a href="../read/api/UMLElementImport.html" class="extype" name="org.omg.oti.uml.read.api.UMLElementImport">ElementImport</a>.</p></span></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

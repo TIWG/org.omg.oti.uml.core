@@ -1,0 +1,738 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLStructuredActivityNodeOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps</title>
+          <meta name="description" content="UMLStructuredActivityNodeOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps" />
+          <meta name="keywords" content="UMLStructuredActivityNodeOps org.omg.oti.uml.core org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">operations</a></p>
+        <h1>UMLStructuredActivityNodeOps</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">package operations</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLStructuredActivityNodeOps</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A StructuredActivityNode is an Action that is also an ActivityGroup and whose behavior is specified by the ActivityNodes and ActivityEdges it so contains. Unlike other kinds of ActivityGroup, a StructuredActivityNode owns the ActivityNodes and ActivityEdges it contains, and so a node or edge can only be directly contained in one StructuredActivityNode, though StructuredActivityNodes may be nested.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="../api/UMLStructuredActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredActivityNode">UMLStructuredActivityNode</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]</dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../api/UMLConditionalNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLConditionalNode">UMLConditionalNode</a>, <a href="../api/UMLExpansionRegion.html" class="extype" name="org.omg.oti.uml.read.api.UMLExpansionRegion">UMLExpansionRegion</a>, <a href="../api/UMLLoopNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLLoopNode">UMLLoopNode</a>, <a href="../api/UMLSequenceNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLSequenceNode">UMLSequenceNode</a>, <a href="../api/UMLStructuredActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredActivityNode">UMLStructuredActivityNode</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps"><span>UMLStructuredActivityNodeOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#activity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="activity:Option[org.omg.oti.uml.read.api.UMLActivity[Uml]]"></a>
+      <a id="activity:Option[UMLActivity[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">activity</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLActivity.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivity">UMLActivity</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@activity:Option[org.omg.oti.uml.read.api.UMLActivity[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Activity immediately containing the StructuredActivityNode, if it is not contained in another StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The Activity immediately containing the StructuredActivityNode, if it is not contained in another StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLActivity.structuredNode
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#allActions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allActions:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLAction[Uml]]"></a>
+      <a id="allActions:Set[UMLAction[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allActions</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLAction.html" class="extype" name="org.omg.oti.uml.read.api.UMLAction">UMLAction</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@allActions:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLAction[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns this StructuredActivityNode and all Actions contained in it.</p><div class="fullcomment"><div class="comment cmt"><p>Returns this StructuredActivityNode and all Actions contained in it.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (node-&gt;select(oclIsKindOf(Action)).oclAsType(Action).allActions()-&gt;including(self)-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#allOwnedNodes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="allOwnedNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]"></a>
+      <a id="allOwnedNodes:Set[UMLActivityNode[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">allOwnedNodes</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityNode">UMLActivityNode</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@allOwnedNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns all the ActivityNodes contained directly or indirectly within this StructuredActivityNode, in addition to the Pins of the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>Returns all the ActivityNodes contained directly or indirectly within this StructuredActivityNode, in addition to the Pins of the StructuredActivityNode.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (self.Action::allOwnedNodes()-&gt;union(node)-&gt;union(node-&gt;select(oclIsKindOf(Action)).oclAsType(Action).allOwnedNodes())-&gt;asSet())</pre></div></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#containingActivity" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="containingActivity:Option[org.omg.oti.uml.read.api.UMLActivity[Uml]]"></a>
+      <a id="containingActivity:Option[UMLActivity[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">containingActivity</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLActivity.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivity">UMLActivity</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@containingActivity:Option[org.omg.oti.uml.read.api.UMLActivity[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Activity that directly or indirectly contains this StructuredActivityNode (considered as an Action).</p><div class="fullcomment"><div class="comment cmt"><p>The Activity that directly or indirectly contains this StructuredActivityNode (considered as an Action).</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..1&quot;</p><pre>OCL Body result = (self.Action::containingActivity())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#edge" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="edge:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityEdge[Uml]]"></a>
+      <a id="edge:Set[UMLActivityEdge[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">edge</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLActivityEdge.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityEdge">UMLActivityEdge</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@edge:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityEdge[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The ActivityEdges immediately contained in the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The ActivityEdges immediately contained in the StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLActivityEdge.inStructuredNode
+</p></div></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#node" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="node:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]"></a>
+      <a id="node:Set[UMLActivityNode[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">node</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityNode">UMLActivityNode</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@node:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The ActivityNodes immediately contained in the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The ActivityNodes immediately contained in the StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLActivityNode.inStructuredNode
+</p></div></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#sourceNodes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sourceNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]"></a>
+      <a id="sourceNodes:Set[UMLActivityNode[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sourceNodes</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityNode">UMLActivityNode</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@sourceNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return those ActivityNodes contained immediately within the StructuredActivityNode that may act as sources of edges owned by the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>Return those ActivityNodes contained immediately within the StructuredActivityNode that may act as sources of edges owned by the StructuredActivityNode.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (node-&gt;union(input.oclAsType(ActivityNode)-&gt;asSet())-&gt;
+  union(node-&gt;select(oclIsKindOf(Action)).oclAsType(Action).output)-&gt;asSet())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#structuredNodeInput" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="structuredNodeInput:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInputPin[Uml]]"></a>
+      <a id="structuredNodeInput:Set[UMLInputPin[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">structuredNodeInput</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLInputPin.html" class="extype" name="org.omg.oti.uml.read.api.UMLInputPin">UMLInputPin</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@structuredNodeInput:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLInputPin[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The InputPins owned by the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The InputPins owned by the StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInputPin.structuredNodeInput_structuredActivityNode
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#structuredNodeOutput" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="structuredNodeOutput:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLOutputPin[Uml]]"></a>
+      <a id="structuredNodeOutput:Set[UMLOutputPin[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">structuredNodeOutput</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLOutputPin.html" class="extype" name="org.omg.oti.uml.read.api.UMLOutputPin">UMLOutputPin</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@structuredNodeOutput:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLOutputPin[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The OutputPins owned by the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The OutputPins owned by the StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLOutputPin.structuredNodeOutput_structuredActivityNode
+</p></div></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#targetNodes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="targetNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]"></a>
+      <a id="targetNodes:Set[UMLActivityNode[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">targetNodes</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLActivityNode.html" class="extype" name="org.omg.oti.uml.read.api.UMLActivityNode">UMLActivityNode</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@targetNodes:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLActivityNode[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return those ActivityNodes contained immediately within the StructuredActivityNode that may act as targets of edges owned by the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>Return those ActivityNodes contained immediately within the StructuredActivityNode that may act as targets of edges owned by the StructuredActivityNode.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (node-&gt;union(output.oclAsType(ActivityNode)-&gt;asSet())-&gt;
+  union(node-&gt;select(oclIsKindOf(Action)).oclAsType(Action).input)-&gt;asSet())</pre></div></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#validate_edges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_edges:Boolean"></a>
+      <a id="validate_edges:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_edges</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@validate_edges:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The edges of a StructuredActivityNode are all the ActivityEdges with source and target ActivityNodes contained directly or indirectly within the StructuredActivityNode and at least one of the source or target not contained in any more deeply nested StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The edges of a StructuredActivityNode are all the ActivityEdges with source and target ActivityNodes contained directly or indirectly within the StructuredActivityNode and at least one of the source or target not contained in any more deeply nested StructuredActivityNode.</p><pre>OCL Body edge=self.sourceNodes().outgoing-&gt;intersection(self.allOwnedNodes().incoming)-&gt;
+	union(self.targetNodes().incoming-&gt;intersection(self.allOwnedNodes().outgoing))-&gt;asSet()</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#validate_input_pin_edges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_input_pin_edges:Boolean"></a>
+      <a id="validate_input_pin_edges:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_input_pin_edges</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@validate_input_pin_edges:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The incoming ActivityEdges of an InputPin of a StructuredActivityNode must have sources that are not within the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The incoming ActivityEdges of an InputPin of a StructuredActivityNode must have sources that are not within the StructuredActivityNode.</p><pre>OCL Body input.incoming.source-&gt;excludesAll(allOwnedNodes()-output)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#validate_output_pin_edges" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_output_pin_edges:Boolean"></a>
+      <a id="validate_output_pin_edges:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_output_pin_edges</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@validate_output_pin_edges:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The outgoing ActivityEdges of the OutputPins of a StructuredActivityNode must have targets that are not within the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The outgoing ActivityEdges of the OutputPins of a StructuredActivityNode must have targets that are not within the StructuredActivityNode.</p><pre>OCL Body output.outgoing.target-&gt;excludesAll(allOwnedNodes()-input)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps#variable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="variable:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLVariable[Uml]]"></a>
+      <a id="variable:Set[UMLVariable[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">variable</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLVariable.html" class="extype" name="org.omg.oti.uml.read.api.UMLVariable">UMLVariable</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@variable:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLVariable[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Variables defined in the scope of the StructuredActivityNode.</p><div class="fullcomment"><div class="comment cmt"><p>The Variables defined in the scope of the StructuredActivityNode.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;composite&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLVariable.scope
+</p></div></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLStructuredActivityNodeOps@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLPropertyUpdater - org.omg.oti.uml.core - org.omg.oti.uml.write.UMLPropertyUpdater</title>
+          <meta name="description" content="UMLPropertyUpdater - org.omg.oti.uml.core - org.omg.oti.uml.write.UMLPropertyUpdater" />
+          <meta name="keywords" content="UMLPropertyUpdater org.omg.oti.uml.core org.omg.oti.uml.write.UMLPropertyUpdater" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.uml.write.UMLPropertyUpdater';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.write">write</a></p>
+        <h1>UMLPropertyUpdater</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.write">package write</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLPropertyUpdater</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>UMLPropertyUpdater supports
+1) creating/deleting link instances of a composite association
+2) creating/deleting link instances of a reference association</p><p>Unfortunately, the names of UML associations is not necessarily consistent with that of the association ends.
+Differences include:
+- ordering (e.g., an association from end1 to end2 is sometimes named A_end1_end2 or A_end2_end1)
+- redefinitions (e.g., there would be name conflicts if the association were to be named according to
+  the names of its member ends so the association name is different)</p><p>To avoid these problems and make the API more &quot;litterate&quot;, the naming scheme is:</p><p>For (1)
+links_&lt;metaclass1&gt;_&lt;end1&gt;_compose_&lt;end2&gt;_&lt;metaclass2&gt;
+  (from: &lt;metaclass1&gt;,
+   to: &lt;metaclass2TypeOrCollection&gt;): Set[java.lang.Throwable] \/ Unit</p><p>For (3)
+links_&lt;metaclass1&gt;_&lt;end1&gt;_reference_&lt;end2&gt;_&lt;metaclass2&gt;
+  (from: &lt;metaclass1&gt;,
+   to: &lt;metaclass2TypeOrCollection&gt;): Set[java.lang.Throwable] \/ Unit</p><p>This is done for all non-derived, non-abstract associations whose member ends have each an upper bound &gt; 0</p><p>The rationale for this association API is to provide flexibility in adapting the OTI UML API
+to existing implementations of OMG UML 2.5. Even though the OMG defined UML 2.5 as a CMOF metamodel,
+the UML specification does not explicitly require that a compliant implementation provides API-level
+support for link-related operations defined in MOF 2.5 (see section 15, CMOF Abstract Semantics).</p><p>MOF 2.5 is inconsistent about the semantics of link instances of CMOF metamodel associations.</p><p>13.2 (Link) Semantics states:
+When a Link is created, it is not inserted into any Extent.
+When one or more ends of the Association are ordered, links carry ordering information in addition to their end values.</p><p>The first point contradicts the operations defined for a CMOF Extent (13.7):</p><p>linksOfType(type : Association, includesSubtypes : Boolean) : Link[0..*]
+This returns those links in the extent that are instances of the supplied Association,
+or of any of its subclasses if includesSubtypes is true.</p><p>The second point (carrying ordering information) is not reflected in the CMOF abstract syntax (section 13)
+or in the CMOF abstract semantics (section 15)</p><p>On a practical level, several implementations of OMG UML 2.5 do not expose link instances of their UML 2.5 metamodel.
+In fact, implementations that use the Eclipse EMF framework (e.g., Eclipse, MagicDraw) typically
+do not have Associations either because Associations are not explicitly supported in Eclipse EMF ecore metamodels.
+That is, such implementations effectively treat UML as an EMOF metamodel and instead encode the semantics
+of CMOF associations as part of the API for managing Class-owned association end properties.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="api/UMLUpdate.html" class="extype" name="org.omg.oti.uml.write.api.UMLUpdate">UMLUpdate</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.write.UMLPropertyUpdater"><span>UMLPropertyUpdater</span></li><li class="in" name="org.omg.oti.uml.write.UMLAttributeUpdater"><span>UMLAttributeUpdater</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyCollectionQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyCollectionQuery=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="AssociationMetaPropertyCollectionQuery:AssociationMetaPropertyCollectionQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">AssociationMetaPropertyCollectionQuery</span><span class="result"> = <a href="../MetaPropertyCollection.html" class="extype" name="org.omg.oti.uml.MetaPropertyCollection">MetaPropertyCollection</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>, _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyCollectionQuery=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyFunctionQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyFunctionQuery=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="AssociationMetaPropertyFunctionQuery:AssociationMetaPropertyFunctionQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">AssociationMetaPropertyFunctionQuery</span><span class="result"> = <a href="../MetaPropertyFunction.html" class="extype" name="org.omg.oti.uml.MetaPropertyFunction">MetaPropertyFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>, _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyFunctionQuery=org.omg.oti.uml.MetaPropertyFunction[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdateInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyIterableUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertyIterableUpdaterwithProductwithSerializable"></a>
+      <a id="AssociationMetaPropertyIterableUpdateInfo[U&lt;:UMLElement[Uml],V&lt;:UMLElement[Uml]]:AssociationMetaPropertyIterableUpdateInfo[U,V]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertyIterableUpdateInfo.html"><span class="name">AssociationMetaPropertyIterableUpdateInfo</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>, <span name="V">V &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>]</span><span class="params">(<span name="links_composes">links_composes: (<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdateInfo.U">U</span>, <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdateInfo.V">V</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="links_query">links_query: <a href="#AssociationMetaPropertyCollectionQuery=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyCollectionQuery">AssociationMetaPropertyCollectionQuery</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdateInfo.U">U</span>]</span>, <span name="vtag">vtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdateInfo.V">V</span>]</span>)</span><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyIterableUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdater">AssociationMetaPropertyIterableUpdater</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyIterableUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertyIterableUpdaterwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyIterableUpdater" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyIterableUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater"></a>
+      <a id="AssociationMetaPropertyIterableUpdater:AssociationMetaPropertyIterableUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertyIterableUpdater.html"><span class="name">AssociationMetaPropertyIterableUpdater</span></a><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyUpdater">AssociationMetaPropertyUpdater</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyIterableUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdateInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyOptionUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertyOptionUpdaterwithProductwithSerializable"></a>
+      <a id="AssociationMetaPropertyOptionUpdateInfo[U&lt;:UMLElement[Uml],V&lt;:UMLElement[Uml]]:AssociationMetaPropertyOptionUpdateInfo[U,V]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertyOptionUpdateInfo.html"><span class="name">AssociationMetaPropertyOptionUpdateInfo</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>, <span name="V">V &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>]</span><span class="params">(<span name="links_composes">links_composes: (<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdateInfo.U">U</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdateInfo.V">V</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="links_query">links_query: <a href="#AssociationMetaPropertyReferenceQuery=org.omg.oti.uml.MetaPropertyReference[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyReferenceQuery">AssociationMetaPropertyReferenceQuery</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdateInfo.U">U</span>]</span>, <span name="vtag">vtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdateInfo.V">V</span>]</span>)</span><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyOptionUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdater">AssociationMetaPropertyOptionUpdater</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyOptionUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertyOptionUpdaterwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyOptionUpdater" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyOptionUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater"></a>
+      <a id="AssociationMetaPropertyOptionUpdater:AssociationMetaPropertyOptionUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertyOptionUpdater.html"><span class="name">AssociationMetaPropertyOptionUpdater</span></a><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyUpdater">AssociationMetaPropertyUpdater</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyOptionUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyReferenceQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyReferenceQuery=org.omg.oti.uml.MetaPropertyReference[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]"></a>
+      <a id="AssociationMetaPropertyReferenceQuery:AssociationMetaPropertyReferenceQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">AssociationMetaPropertyReferenceQuery</span><span class="result"> = <a href="../MetaPropertyReference.html" class="extype" name="org.omg.oti.uml.MetaPropertyReference">MetaPropertyReference</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>, _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyReferenceQuery=org.omg.oti.uml.MetaPropertyReference[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdateInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertySequenceUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertySequenceUpdaterwithProductwithSerializable"></a>
+      <a id="AssociationMetaPropertySequenceUpdateInfo[U&lt;:UMLElement[Uml],V&lt;:UMLElement[Uml]]:AssociationMetaPropertySequenceUpdateInfo[U,V]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertySequenceUpdateInfo.html"><span class="name">AssociationMetaPropertySequenceUpdateInfo</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>, <span name="V">V &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>]</span><span class="params">(<span name="links_composes">links_composes: (<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdateInfo.U">U</span>, <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdateInfo.V">V</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="links_query">links_query: <a href="#AssociationMetaPropertyCollectionQuery=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyCollectionQuery">AssociationMetaPropertyCollectionQuery</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdateInfo.U">U</span>]</span>, <span name="vtag">vtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdateInfo.V">V</span>]</span>)</span><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertySequenceUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdater">AssociationMetaPropertySequenceUpdater</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertySequenceUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertySequenceUpdaterwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySequenceUpdater" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertySequenceUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater"></a>
+      <a id="AssociationMetaPropertySequenceUpdater:AssociationMetaPropertySequenceUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertySequenceUpdater.html"><span class="name">AssociationMetaPropertySequenceUpdater</span></a><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyUpdater">AssociationMetaPropertyUpdater</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertySequenceUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdateInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertySetUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertySetUpdaterwithProductwithSerializable"></a>
+      <a id="AssociationMetaPropertySetUpdateInfo[U&lt;:UMLElement[Uml],V&lt;:UMLElement[Uml]]:AssociationMetaPropertySetUpdateInfo[U,V]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertySetUpdateInfo.html"><span class="name">AssociationMetaPropertySetUpdateInfo</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>, <span name="V">V &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>]</span><span class="params">(<span name="links_composes">links_composes: (<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdateInfo.U">U</span>, <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdateInfo.V">V</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="links_query">links_query: <a href="#AssociationMetaPropertyCollectionQuery=org.omg.oti.uml.MetaPropertyCollection[Uml,_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]" class="extmbr" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyCollectionQuery">AssociationMetaPropertyCollectionQuery</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdateInfo.U">U</span>]</span>, <span name="vtag">vtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdateInfo.V">V</span>]</span>)</span><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertySetUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdater">AssociationMetaPropertySetUpdater</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertySetUpdateInfo[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],V&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsUMLPropertyUpdater.this.AssociationMetaPropertySetUpdaterwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertySetUpdater" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertySetUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater"></a>
+      <a id="AssociationMetaPropertySetUpdater:AssociationMetaPropertySetUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertySetUpdater.html"><span class="name">AssociationMetaPropertySetUpdater</span></a><span class="result"> extends <a href="UMLPropertyUpdater$AssociationMetaPropertyUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyUpdater">AssociationMetaPropertyUpdater</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertySetUpdaterextendsUMLPropertyUpdater.this.AssociationMetaPropertyUpdater" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater.AssociationMetaPropertyUpdater" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AssociationMetaPropertyUpdaterextendsAnyRef"></a>
+      <a id="AssociationMetaPropertyUpdater:AssociationMetaPropertyUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPropertyUpdater$AssociationMetaPropertyUpdater.html"><span class="name">AssociationMetaPropertyUpdater</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@AssociationMetaPropertyUpdaterextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MetaAttributeUpdate[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsAnyRef"></a>
+      <a id="MetaAttributeUpdate[U&lt;:UMLElement[Uml]]:MetaAttributeUpdate[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaAttributeUpdate.html"><span class="name">MetaAttributeUpdate</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaAttributeUpdate[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaEnumerationAttributeUpdate=UMLAttributeUpdater.this.MetaEnumerationAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_,_]"></a>
+      <a id="MetaEnumerationAttributeUpdate:MetaEnumerationAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaEnumerationAttributeUpdate</span><span class="result"> = <a href="#MetaEnumerationAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT&lt;:Enumeration#Value,DTSet&lt;:Enumeration#ValueSet]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater">MetaEnumerationAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _, _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaEnumerationAttributeUpdate=UMLAttributeUpdater.this.MetaEnumerationAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_,_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaEnumerationAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT&lt;:Enumeration#Value,DTSet&lt;:Enumeration#ValueSet]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaEnumerationAttributeUpdater[U&lt;:UMLElement[Uml],DT&lt;:Value,DTSet&lt;:ValueSet]:MetaEnumerationAttributeUpdater[U,DT,DTSet]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaEnumerationAttributeUpdater.html"><span class="name">MetaEnumerationAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT &lt;: <span class="extype" name="scala.Enumeration.Value">Value</span></span>, <span name="DTSet">DTSet &lt;: <span class="extype" name="scala.Enumeration.ValueSet">ValueSet</span></span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.U">U</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.DT">DT</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeEnumerationFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeEnumerationFunction">MetaAttributeEnumerationFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.DT">DT</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.DTSet">DTSet</span>]</span>, <span name="enumerationValues">enumerationValues: <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaEnumerationAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaEnumerationAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT&lt;:Enumeration#Value,DTSet&lt;:Enumeration#ValueSet]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaIterableAttributeUpdate=UMLAttributeUpdater.this.MetaIterableAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaIterableAttributeUpdate:MetaIterableAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaIterableAttributeUpdate</span><span class="result"> = <a href="#MetaIterableAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater">MetaIterableAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaIterableAttributeUpdate=UMLAttributeUpdater.this.MetaIterableAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaIterableAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaIterableAttributeUpdater[U&lt;:UMLElement[Uml],DT]:MetaIterableAttributeUpdater[U,DT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaIterableAttributeUpdater.html"><span class="name">MetaIterableAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT</span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.U">U</span>, <span class="extype" name="scala.collection.Iterable">Iterable</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.DT">DT</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.DT">DT</span>]</span>, <span name="valueConverter">valueConverter: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaIterableAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaIterableAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaOptionAttributeUpdate=UMLAttributeUpdater.this.MetaOptionAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaOptionAttributeUpdate:MetaOptionAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaOptionAttributeUpdate</span><span class="result"> = <a href="#MetaOptionAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater">MetaOptionAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaOptionAttributeUpdate=UMLAttributeUpdater.this.MetaOptionAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaOptionAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaOptionAttributeUpdater[U&lt;:UMLElement[Uml],DT]:MetaOptionAttributeUpdater[U,DT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaOptionAttributeUpdater.html"><span class="name">MetaOptionAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT</span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.U">U</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.DT">DT</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.DT">DT</span>]</span>, <span name="valueConverter">valueConverter: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaOptionAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaOptionAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaScalarAttributeUpdate=UMLAttributeUpdater.this.MetaScalarAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaScalarAttributeUpdate:MetaScalarAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaScalarAttributeUpdate</span><span class="result"> = <a href="#MetaScalarAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater">MetaScalarAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaScalarAttributeUpdate=UMLAttributeUpdater.this.MetaScalarAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaScalarAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaScalarAttributeUpdater[U&lt;:UMLElement[Uml],DT]:MetaScalarAttributeUpdater[U,DT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaScalarAttributeUpdater.html"><span class="name">MetaScalarAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT</span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.DT">DT</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.DT">DT</span>]</span>, <span name="valueConverter">valueConverter: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaScalarAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaScalarAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaSeqAttributeUpdate=UMLAttributeUpdater.this.MetaSeqAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaSeqAttributeUpdate:MetaSeqAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaSeqAttributeUpdate</span><span class="result"> = <a href="#MetaSeqAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater">MetaSeqAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaSeqAttributeUpdate=UMLAttributeUpdater.this.MetaSeqAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaSeqAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaSeqAttributeUpdater[U&lt;:UMLElement[Uml],DT]:MetaSeqAttributeUpdater[U,DT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaSeqAttributeUpdater.html"><span class="name">MetaSeqAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT</span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.U">U</span>, <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.DT">DT</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.DT">DT</span>]</span>, <span name="valueConverter">valueConverter: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSeqAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaSeqAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaSetAttributeUpdate=UMLAttributeUpdater.this.MetaSetAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]"></a>
+      <a id="MetaSetAttributeUpdate:MetaSetAttributeUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MetaSetAttributeUpdate</span><span class="result"> = <a href="#MetaSetAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" class="extmbr" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater">MetaSetAttributeUpdater</a>[_ &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>], _]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@MetaSetAttributeUpdate=UMLAttributeUpdater.this.MetaSetAttributeUpdater[_&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MetaSetAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable"></a>
+      <a id="MetaSetAttributeUpdater[U&lt;:UMLElement[Uml],DT]:MetaSetAttributeUpdater[U,DT]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLAttributeUpdater$MetaSetAttributeUpdater.html"><span class="name">MetaSetAttributeUpdater</span></a><span class="tparams">[<span name="U">U &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>]</span>, <span name="DT">DT</span>]</span><span class="params">(<span name="attributeUpdate">attributeUpdate: (<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.U">U</span>, <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.DT">DT</span>]) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>, <span name="attributeQuery">attributeQuery: <a href="../MetaAttributeAbstractFunction.html" class="extype" name="org.omg.oti.uml.MetaAttributeAbstractFunction">MetaAttributeAbstractFunction</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.Uml">Uml</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.U">U</span>, <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.DT">DT</span>]</span>, <span name="valueConverter">valueConverter: (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.DT">DT</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="utag">utag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.U">U</span>]</span>, <span name="dtag">dtag: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.DT">DT</span>]</span>)</span><span class="result"> extends <a href="UMLAttributeUpdater$MetaAttributeUpdate.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaAttributeUpdate">MetaAttributeUpdate</a>[<span class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater.MetaSetAttributeUpdater.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLAttributeUpdater@MetaSetAttributeUpdater[U&lt;:org.omg.oti.uml.read.api.UMLElement[Uml],DT]extendsUMLAttributeUpdater.this.MetaAttributeUpdate[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="org.omg.oti.uml.write.UMLAttributeUpdater#ops" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ops:org.omg.oti.uml.read.operations.UMLOps[Uml]"></a>
+      <a id="ops:UMLOps[Uml]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ops</span><span class="result">: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@ops:org.omg.oti.uml.read.operations.UMLOps[Uml]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.write.UMLPropertyUpdater#nonFatalCatchUMLException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="nonFatalCatchUMLException[E&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]](e:E,message:String,action:=&gt;Unit):scalaz.\/[scala.collection.immutable.Set[Throwable],Unit]"></a>
+      <a id="nonFatalCatchUMLException[E&lt;:UMLElement[Uml]](E,String,⇒Unit):\/[Set[Throwable],Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nonFatalCatchUMLException</span><span class="tparams">[<span name="E">E &lt;: <a href="../read/api/UMLElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLElement">UMLElement</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</span>]</span><span class="params">(<span name="e">e: <span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.nonFatalCatchUMLException.E">E</span></span>, <span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="action">action: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@nonFatalCatchUMLException[E&lt;:org.omg.oti.uml.read.api.UMLElement[Uml]](e:E,message:String,action:=&gt;Unit):scalaz.\/[scala.collection.immutable.Set[Throwable],Unit]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.write.UMLPropertyUpdater@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="org.omg.oti.uml.write.UMLAttributeUpdater">
+              <h3>Inherited from <a href="UMLAttributeUpdater.html" class="extype" name="org.omg.oti.uml.write.UMLAttributeUpdater">UMLAttributeUpdater</a>[<span class="extype" name="org.omg.oti.uml.write.UMLPropertyUpdater.Uml">Uml</span>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

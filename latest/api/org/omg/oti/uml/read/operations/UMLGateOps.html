@@ -1,0 +1,852 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLGateOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLGateOps</title>
+          <meta name="description" content="UMLGateOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLGateOps" />
+          <meta name="keywords" content="UMLGateOps org.omg.oti.uml.core org.omg.oti.uml.read.operations.UMLGateOps" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.operations.UMLGateOps';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">operations</a></p>
+        <h1>UMLGateOps</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">package operations</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLGateOps</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Gate is a MessageEnd which serves as a connection point for relating a Message which has a MessageEnd (sendEvent / receiveEvent) outside an InteractionFragment with another Message which has a MessageEnd (receiveEvent / sendEvent)  inside that InteractionFragment.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="../api/UMLGate.html" class="extype" name="org.omg.oti.uml.read.api.UMLGate">UMLGate</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]</dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../api/UMLGate.html" class="extype" name="org.omg.oti.uml.read.api.UMLGate">UMLGate</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.operations.UMLGateOps"><span>UMLGateOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#actualGate_interactionUse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="actualGate_interactionUse:Option[org.omg.oti.uml.read.api.UMLInteractionUse[Uml]]"></a>
+      <a id="actualGate_interactionUse:Option[UMLInteractionUse[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">actualGate_interactionUse</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLInteractionUse.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteractionUse">UMLInteractionUse</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@actualGate_interactionUse:Option[org.omg.oti.uml.read.api.UMLInteractionUse[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInteractionUse.actualGate
+</p>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#cfragmentGate_combinedFragment" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="cfragmentGate_combinedFragment:Option[org.omg.oti.uml.read.api.UMLCombinedFragment[Uml]]"></a>
+      <a id="cfragmentGate_combinedFragment:Option[UMLCombinedFragment[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cfragmentGate_combinedFragment</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLCombinedFragment.html" class="extype" name="org.omg.oti.uml.read.api.UMLCombinedFragment">UMLCombinedFragment</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@cfragmentGate_combinedFragment:Option[org.omg.oti.uml.read.api.UMLCombinedFragment[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLCombinedFragment.cfragmentGate
+</p>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#formalGate_interaction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="formalGate_interaction:Option[org.omg.oti.uml.read.api.UMLInteraction[Uml]]"></a>
+      <a id="formalGate_interaction:Option[UMLInteraction[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">formalGate_interaction</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLInteraction.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteraction">UMLInteraction</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@formalGate_interaction:Option[org.omg.oti.uml.read.api.UMLInteraction[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInteraction.formalGate
+</p>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#getName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getName:Option[String]"></a>
+      <a id="getName:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getName</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@getName:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns the name of the gate, either the explicit name (.name) or the constructed name ('out_&quot; or 'in_' concatenated in front of .message.name) if the explicit name is not present.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns the name of the gate, either the explicit name (.name) or the constructed name ('out_&quot; or 'in_' concatenated in front of .message.name) if the explicit name is not present.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (<span class="kw">if</span> name-&gt;notEmpty() then name-&gt;asOrderedSet()-&gt;first()
+<span class="kw">else</span>  <span class="kw">if</span> isActual() or isOutsideCF()
+  then <span class="kw">if</span> isSend()
+    then <span class="lit">'out_'</span>.concat(self.message.name-&gt;asOrderedSet()-&gt;first())
+    <span class="kw">else</span> <span class="lit">'in_'</span>.concat(self.message.name-&gt;asOrderedSet()-&gt;first())
+    endif
+  <span class="kw">else</span> <span class="kw">if</span> isSend()
+    then <span class="lit">'in_'</span>.concat(self.message.name-&gt;asOrderedSet()-&gt;first())
+    <span class="kw">else</span> <span class="lit">'out_'</span>.concat(self.message.name-&gt;asOrderedSet()-&gt;first())
+    endif
+  endif
+endif)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#getOperand" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getOperand:Option[org.omg.oti.uml.read.api.UMLInteractionOperand[Uml]]"></a>
+      <a id="getOperand:Option[UMLInteractionOperand[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getOperand</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLInteractionOperand.html" class="extype" name="org.omg.oti.uml.read.api.UMLInteractionOperand">UMLInteractionOperand</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@getOperand:Option[org.omg.oti.uml.read.api.UMLInteractionOperand[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If the Gate is an inside Combined Fragment Gate, this operation returns the InteractionOperand that the opposite end of this Gate is included within.</p><div class="fullcomment"><div class="comment cmt"><p>If the Gate is an inside Combined Fragment Gate, this operation returns the InteractionOperand that the opposite end of this Gate is included within.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (<span class="kw">if</span> isInsideCF() then
+  let oppEnd : MessageEnd = self.oppositeEnd()-&gt;asOrderedSet()-&gt;first() in
+    <span class="kw">if</span> oppEnd.oclIsKindOf(MessageOccurrenceSpecification)
+    then let oppMOS : MessageOccurrenceSpecification = oppEnd.oclAsType(MessageOccurrenceSpecification)
+        in oppMOS.enclosingOperand-&gt;asOrderedSet()-&gt;first()
+    <span class="kw">else</span> let oppGate : Gate = oppEnd.oclAsType(Gate)
+        in oppGate.combinedFragment.enclosingOperand-&gt;asOrderedSet()-&gt;first()
+    endif
+  <span class="kw">else</span> <span class="kw">null</span>
+endif)</pre></div></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#isActual" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isActual:Boolean"></a>
+      <a id="isActual:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isActual</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isActual:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns true value if this Gate is an actualGate of an InteractionUse.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns true value if this Gate is an actualGate of an InteractionUse.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (interactionUse-&gt;notEmpty())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#isDistinguishableFrom" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isDistinguishableFrom(n:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]],ns:Option[org.omg.oti.uml.read.api.UMLNamespace[Uml]]):Boolean"></a>
+      <a id="isDistinguishableFrom(Option[UMLNamedElement[Uml]],Option[UMLNamespace[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isDistinguishableFrom</span><span class="params">(<span name="n">n: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLNamedElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamedElement">UMLNamedElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>, <span name="ns">ns: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLNamespace.html" class="extype" name="org.omg.oti.uml.read.api.UMLNamespace">UMLNamespace</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isDistinguishableFrom(n:Option[org.omg.oti.uml.read.api.UMLNamedElement[Uml]],ns:Option[org.omg.oti.uml.read.api.UMLNamespace[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isDistinguishableFrom() specifies that two Gates may coexist in the same Namespace, without an explicit name property.</p><div class="fullcomment"><div class="comment cmt"><p>The query isDistinguishableFrom() specifies that two Gates may coexist in the same Namespace, without an explicit name property. The association end formalGate subsets ownedElement, and since the Gate name attribute
+is optional, it is allowed to have two formal gates without an explicit name, but having derived names which are distinct.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (<span class="kw">true</span>)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#isFormal" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isFormal:Boolean"></a>
+      <a id="isFormal:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isFormal</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isFormal:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns true if this Gate is a formalGate of an Interaction.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns true if this Gate is a formalGate of an Interaction.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (interaction-&gt;notEmpty())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#isInsideCF" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInsideCF:Boolean"></a>
+      <a id="isInsideCF:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInsideCF</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isInsideCF:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present) is inside of an InteractionOperator of the same CombinedFragment.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present) is inside of an InteractionOperator of the same CombinedFragment.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (self.oppositeEnd()-&gt; notEmpty() and combinedFragment-&gt;notEmpty() implies
+let oppEnd : MessageEnd = self.oppositeEnd()-&gt;asOrderedSet()-&gt;first() in
+<span class="kw">if</span> oppEnd.oclIsKindOf(MessageOccurrenceSpecification)
+then let oppMOS : MessageOccurrenceSpecification
+= oppEnd.oclAsType(MessageOccurrenceSpecification)
+in combinedFragment = oppMOS.enclosingOperand.combinedFragment
+<span class="kw">else</span> let oppGate : Gate = oppEnd.oclAsType(Gate)
+in combinedFragment = oppGate.combinedFragment.enclosingOperand.combinedFragment
+endif)</pre></div></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#isOutsideCF" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isOutsideCF:Boolean"></a>
+      <a id="isOutsideCF:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isOutsideCF</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@isOutsideCF:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present)  is outside of the same CombinedFragment.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns true if this Gate is attached to the boundary of a CombinedFragment, and its other end (if present)  is outside of the same CombinedFragment.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (self.oppositeEnd()-&gt; notEmpty() and combinedFragment-&gt;notEmpty() implies
+let oppEnd : MessageEnd = self.oppositeEnd()-&gt;asOrderedSet()-&gt;first() in
+<span class="kw">if</span> oppEnd.oclIsKindOf(MessageOccurrenceSpecification)
+then let oppMOS : MessageOccurrenceSpecification = oppEnd.oclAsType(MessageOccurrenceSpecification)
+in  self.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)-&gt;asSet()-&gt;
+     union(self.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)-&gt;asSet()) =
+     oppMOS.enclosingInteraction.oclAsType(InteractionFragment)-&gt;asSet()-&gt;
+     union(oppMOS.enclosingOperand.oclAsType(InteractionFragment)-&gt;asSet())
+<span class="kw">else</span> let oppGate : Gate = oppEnd.oclAsType(Gate)
+in self.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)-&gt;asSet()-&gt;
+     union(self.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)-&gt;asSet()) =
+     oppGate.combinedFragment.enclosingInteraction.oclAsType(InteractionFragment)-&gt;asSet()-&gt;
+     union(oppGate.combinedFragment.enclosingOperand.oclAsType(InteractionFragment)-&gt;asSet())
+endif)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#matches" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="matches(gateToMatch:Option[org.omg.oti.uml.read.api.UMLGate[Uml]]):Boolean"></a>
+      <a id="matches(Option[UMLGate[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">matches</span><span class="params">(<span name="gateToMatch">gateToMatch: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLGate.html" class="extype" name="org.omg.oti.uml.read.api.UMLGate">UMLGate</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLGateOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@matches(gateToMatch:Option[org.omg.oti.uml.read.api.UMLGate[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This query returns true if the name of this Gate matches the name of the in parameter Gate, and the messages for the two Gates correspond.</p><div class="fullcomment"><div class="comment cmt"><p>This query returns true if the name of this Gate matches the name of the in parameter Gate, and the messages for the two Gates correspond. The Message for one Gate (say A) corresponds to the Message for another Gate (say B) if (A and B have the same name value) and (if A is a sendEvent then B is a receiveEvent) and (if A is a receiveEvent then B is a sendEvent) and (A and B have the same messageSort value) and (A and B have the same signature value).</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (self.getName() = gateToMatch.getName() and
+self.message.messageSort = gateToMatch.message.messageSort and
+self.message.name = gateToMatch.message.name and
+self.message.sendEvent-&gt;includes(self) implies gateToMatch.message.receiveEvent-&gt;includes(gateToMatch)  and
+self.message.receiveEvent-&gt;includes(self) implies gateToMatch.message.sendEvent-&gt;includes(gateToMatch) and
+self.message.signature = gateToMatch.message.signature)</pre></div></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_actual_gate_distinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_actual_gate_distinguishable:Boolean"></a>
+      <a id="validate_actual_gate_distinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_actual_gate_distinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_actual_gate_distinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">isActual() implies that no other actualGate of the parent InteractionUse returns the same getName() as returned for self</p><div class="fullcomment"><div class="comment cmt"><p>isActual() implies that no other actualGate of the parent InteractionUse returns the same getName() as returned for self</p><pre>OCL Body isActual() implies interactionUse.actualGate-&gt;select(getName() = self.getName())-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_actual_gate_matched" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_actual_gate_matched:Boolean"></a>
+      <a id="validate_actual_gate_matched:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_actual_gate_matched</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_actual_gate_matched:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If this Gate is an actualGate, it must have exactly one matching formalGate within the referred Interaction.</p><div class="fullcomment"><div class="comment cmt"><p>If this Gate is an actualGate, it must have exactly one matching formalGate within the referred Interaction.</p><pre>OCL Body interactionUse-&gt;notEmpty() implies interactionUse.refersTo.formalGate-&gt;select(matches(self))-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_formal_gate_distinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_formal_gate_distinguishable:Boolean"></a>
+      <a id="validate_formal_gate_distinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_formal_gate_distinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_formal_gate_distinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">isFormal() implies that no other formalGate of the parent Interaction returns the same getName() as returned for self</p><div class="fullcomment"><div class="comment cmt"><p>isFormal() implies that no other formalGate of the parent Interaction returns the same getName() as returned for self</p><pre>OCL Body isFormal() implies interaction.formalGate-&gt;select(getName() = self.getName())-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_inside_cf_gate_distinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_inside_cf_gate_distinguishable:Boolean"></a>
+      <a id="validate_inside_cf_gate_distinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_inside_cf_gate_distinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_inside_cf_gate_distinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">isInsideCF() implies that no other inside cfragmentGate attached to a message with its other end in the same InteractionOperator as self, returns the same getName() as returned for self</p><div class="fullcomment"><div class="comment cmt"><p>isInsideCF() implies that no other inside cfragmentGate attached to a message with its other end in the same InteractionOperator as self, returns the same getName() as returned for self</p><pre>OCL Body isInsideCF() implies
+let selfOperand : InteractionOperand = self.getOperand() in
+  combinedFragment.cfragmentGate-&gt;select(isInsideCF() and getName() = self.getName())-&gt;select(getOperand() = selfOperand)-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_inside_cf_matched" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_inside_cf_matched:Boolean"></a>
+      <a id="validate_inside_cf_matched:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_inside_cf_matched</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_inside_cf_matched:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If this Gate is inside a CombinedFragment, it must have exactly one matching Gate which is outside of that CombinedFragment.</p><div class="fullcomment"><div class="comment cmt"><p>If this Gate is inside a CombinedFragment, it must have exactly one matching Gate which is outside of that CombinedFragment.</p><pre>OCL Body isInsideCF() implies combinedFragment.cfragmentGate-&gt;select(isOutsideCF() and matches(self))-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_outside_cf_gate_distinguishable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_outside_cf_gate_distinguishable:Boolean"></a>
+      <a id="validate_outside_cf_gate_distinguishable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_outside_cf_gate_distinguishable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_outside_cf_gate_distinguishable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">isOutsideCF() implies that no other outside cfragmentGate of the parent CombinedFragment returns the same getName() as returned for self</p><div class="fullcomment"><div class="comment cmt"><p>isOutsideCF() implies that no other outside cfragmentGate of the parent CombinedFragment returns the same getName() as returned for self</p><pre>OCL Body isOutsideCF() implies combinedFragment.cfragmentGate-&gt;select(getName() = self.getName())-&gt;size()=<span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLGateOps#validate_outside_cf_matched" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_outside_cf_matched:Boolean"></a>
+      <a id="validate_outside_cf_matched:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_outside_cf_matched</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@validate_outside_cf_matched:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If this Gate is outside an 'alt' CombinedFragment,  for every InteractionOperator inside that CombinedFragment there must be exactly one matching Gate inside the CombindedFragment with its opposing end enclosed by that InteractionOperator.</p><div class="fullcomment"><div class="comment cmt"><p>If this Gate is outside an 'alt' CombinedFragment,  for every InteractionOperator inside that CombinedFragment there must be exactly one matching Gate inside the CombindedFragment with its opposing end enclosed by that InteractionOperator. If this Gate is outside CombinedFragment with operator other than 'alt',   there must be exactly one matching Gate inside that CombinedFragment.</p><pre>OCL Body isOutsideCF() implies
+ <span class="kw">if</span> self.combinedFragment.interactionOperator-&gt;asOrderedSet()-&gt;first() = InteractionOperatorKind::alt
+ then self.combinedFragment.operand-&gt;forAll(op : InteractionOperand |
+ self.combinedFragment.cfragmentGate-&gt;select(isInsideCF() and
+ oppositeEnd().enclosingFragment()-&gt;includes(self.combinedFragment) and matches(self))-&gt;size()=<span class="num">1</span>)
+ <span class="kw">else</span>  self.combinedFragment.cfragmentGate-&gt;select(isInsideCF() and matches(self))-&gt;size()=<span class="num">1</span>
+ endif</pre></div></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLGateOps@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

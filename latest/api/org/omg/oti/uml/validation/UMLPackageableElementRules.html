@@ -1,0 +1,633 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLPackageableElementRules - org.omg.oti.uml.core - org.omg.oti.uml.validation.UMLPackageableElementRules</title>
+          <meta name="description" content="UMLPackageableElementRules - org.omg.oti.uml.core - org.omg.oti.uml.validation.UMLPackageableElementRules" />
+          <meta name="keywords" content="UMLPackageableElementRules org.omg.oti.uml.core org.omg.oti.uml.validation.UMLPackageableElementRules" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'org.omg.oti.uml.validation.UMLPackageableElementRules';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="org">org</a>.<a href="../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.validation">validation</a></p>
+        <h1>UMLPackageableElementRules</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.validation">package validation</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLPackageableElementRules</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../read/api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>, <span name="UmlOps">UmlOps &lt;: <a href="../read/operations/UMLOps.html" class="extype" name="org.omg.oti.uml.read.operations.UMLOps">UMLOps</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Non-standard well-formedness rules for the accessibility of and references to packageable elements.</p><p>At the OMG, UML itself is defined as a so-called CMOF metamodel.
+The well-formedness rules for CMOF metamodels have been clarified for UML 2.4.1 / MOF 2.4.1; however,
+these rules do not address implicit patterns used in the organization of CMOF metamodels, profiles and libraries.</p><p>Examples:</p><p>1) the 'UML' metamodel imports the 'PrimitiveTypes' library.</p><p>The rationale for this import is to account for references to primitive types in UML itself.
+For example: NamedElement::name : String[0..1]</p><p>However, nothing in UML nor in CMOF requires such import to be present.</p><p>2) Compared to UML 2.4.1 where all of UML metaclasses were directly owned by the UML metamodel package,
+the UML 2.5 metamodel introduced 1 level of nested packages
+(e.g., UML::Classifiers, UML::CommonStructure, UML::Packages, ...)
+Additionally, the UML 2.5 metamodel package imports all of these nested packages.</p><p>The rationale for the toplevel UML metamodel package to import all of its nested packages stems
+from subtleties in the rules for referencing UML's metaclasses by name. For example, 'uml:Package'
+refers to the UML metaclass 'UML::Packages::Package' by name (i.e., 'Package') via the namespace
+prefix of the UML metamodel itself, i.e., 'uml'. These references by name 'work' in OCL and MOF/XMI
+precisely because the UML metamodel package imports all of its nested packages and therefore allows
+referencing contents of these nested packages by name.</p><p>The two examples above illustrate that there are two different useful semantics for package imports:
+- summarizing all references to elements outside the scope a package from any element within
+  the scope of that package -- i.e., case (1)
+- specifying the subset of elements within the scope of a package that can be externally referenced from
+  outside of that package &quot;by name&quot; -- i.e., case (2)</p><p>OTI provides non-standard operations to facilitate using UML in conformance with the tacit well-formedness rules
+adopted at the OMG for the organization of metamodels, profiles and libraries.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.validation.UMLPackageableElementRules"><span>UMLPackageableElementRules</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="org.omg.oti.uml.validation.UMLPackageableElementRules.AccessibilityViolation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AccessibilityViolationextendsAnyRef"></a>
+      <a id="AccessibilityViolation:AccessibilityViolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPackageableElementRules$AccessibilityViolation.html"><span class="name">AccessibilityViolation</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@AccessibilityViolationextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleConstructor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReferencedButNotAccessibleConstructor=(org.omg.oti.uml.read.api.UMLPackage[Uml],org.omg.oti.uml.read.api.UMLPackageableElement[Uml])=&gt;Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]"></a>
+      <a id="ReferencedButNotAccessibleConstructor:ReferencedButNotAccessibleConstructor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ReferencedButNotAccessibleConstructor</span><span class="result"> = (<a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>], <a href="../read/api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]) ⇒ <span class="extype" name="scala.Option">Option</span>[<a href="UMLPackageableElementRules$ReferencedButNotAccessibleViolation.html" class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleViolation">ReferencedButNotAccessibleViolation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@ReferencedButNotAccessibleConstructor=(org.omg.oti.uml.read.api.UMLPackage[Uml],org.omg.oti.uml.read.api.UMLPackageableElement[Uml])=&gt;Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleViolation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReferencedButNotAccessibleViolationextendsUMLPackageableElementRules.this.AccessibilityViolation"></a>
+      <a id="ReferencedButNotAccessibleViolation:ReferencedButNotAccessibleViolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UMLPackageableElementRules$ReferencedButNotAccessibleViolation.html"><span class="name">ReferencedButNotAccessibleViolation</span></a><span class="result"> extends <a href="UMLPackageableElementRules$AccessibilityViolation.html" class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.AccessibilityViolation">AccessibilityViolation</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@ReferencedButNotAccessibleViolationextendsUMLPackageableElementRules.this.AccessibilityViolation" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Referenced importable packabeable element is not accessible
+</p>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="org.omg.oti.uml.validation.UMLPackageableElementRules#umlOps" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="umlOps:UmlOps"></a>
+      <a id="umlOps:UmlOps"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">umlOps</span><span class="result">: <span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.UmlOps">UmlOps</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@umlOps:UmlOps" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules#defaultReferencedButNotAccessibleConstructor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="defaultReferencedButNotAccessibleConstructor(_context:org.omg.oti.uml.read.api.UMLPackage[Uml],_referencedButNotAccessible:org.omg.oti.uml.read.api.UMLPackageableElement[Uml]):Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]"></a>
+      <a id="defaultReferencedButNotAccessibleConstructor(UMLPackage[Uml],UMLPackageableElement[Uml]):Option[ReferencedButNotAccessibleViolation]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultReferencedButNotAccessibleConstructor</span><span class="params">(<span name="_context">_context: <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>, <span name="_referencedButNotAccessible">_referencedButNotAccessible: <a href="../read/api/UMLPackageableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackageableElement">UMLPackageableElement</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="UMLPackageableElementRules$ReferencedButNotAccessibleViolation.html" class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleViolation">ReferencedButNotAccessibleViolation</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@defaultReferencedButNotAccessibleConstructor(_context:org.omg.oti.uml.read.api.UMLPackage[Uml],_referencedButNotAccessible:org.omg.oti.uml.read.api.UMLPackageableElement[Uml]):Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules#findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles(context:org.omg.oti.uml.read.api.UMLPackage[Uml])(implicitc:UMLPackageableElementRules.this.ReferencedButNotAccessibleConstructor):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]]"></a>
+      <a id="findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles(UMLPackage[Uml])(ReferencedButNotAccessibleConstructor):\/[Set[Throwable],Iterable[ReferencedButNotAccessibleViolation]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles</span><span class="params">(<span name="context">context: <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="c">c: <a href="#ReferencedButNotAccessibleConstructor=(org.omg.oti.uml.read.api.UMLPackage[Uml],org.omg.oti.uml.read.api.UMLPackageableElement[Uml])=&gt;Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]" class="extmbr" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleConstructor">ReferencedButNotAccessibleConstructor</a></span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="UMLPackageableElementRules$ReferencedButNotAccessibleViolation.html" class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleViolation">ReferencedButNotAccessibleViolation</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@findNonAccessibleButReferencedImportablePackabeableElementsExceptNestingPackagesAndAppliedProfiles(context:org.omg.oti.uml.read.api.UMLPackage[Uml])(implicitc:UMLPackageableElementRules.this.ReferencedButNotAccessibleConstructor):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Compare two sets of elements:
+- referenced from owned element within the context
+- accessible from direct imports and applied profiles (excluding those from nesting packages)</p><div class="fullcomment"><div class="comment cmt"><p>Compare two sets of elements:
+- referenced from owned element within the context
+- accessible from direct imports and applied profiles (excluding those from nesting packages)</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Violations correspond to referenced elements that are not accessible.</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.validation.UMLPackageableElementRules#findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles(context:org.omg.oti.uml.read.api.UMLPackage[Uml])(implicitc:UMLPackageableElementRules.this.ReferencedButNotAccessibleConstructor):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]]"></a>
+      <a id="findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles(UMLPackage[Uml])(ReferencedButNotAccessibleConstructor):\/[Set[Throwable],Iterable[ReferencedButNotAccessibleViolation]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles</span><span class="params">(<span name="context">context: <a href="../read/api/UMLPackage.html" class="extype" name="org.omg.oti.uml.read.api.UMLPackage">UMLPackage</a>[<span class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.Uml">Uml</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="c">c: <a href="#ReferencedButNotAccessibleConstructor=(org.omg.oti.uml.read.api.UMLPackage[Uml],org.omg.oti.uml.read.api.UMLPackageableElement[Uml])=&gt;Option[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]" class="extmbr" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleConstructor">ReferencedButNotAccessibleConstructor</a></span>)</span><span class="result">: <span class="extype" name="scalaz.\/">\/</span>[<span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="java.lang.Throwable">Throwable</span>], <span class="extype" name="scala.collection.Iterable">Iterable</span>[<a href="UMLPackageableElementRules$ReferencedButNotAccessibleViolation.html" class="extype" name="org.omg.oti.uml.validation.UMLPackageableElementRules.ReferencedButNotAccessibleViolation">ReferencedButNotAccessibleViolation</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@findNonAccessibleButReferencedImportablePackabeableElementsIncludingNestingPackagesAndAppliedProfiles(context:org.omg.oti.uml.read.api.UMLPackage[Uml])(implicitc:UMLPackageableElementRules.this.ReferencedButNotAccessibleConstructor):scalaz.\/[scala.collection.immutable.Set[Throwable],Iterable[UMLPackageableElementRules.this.ReferencedButNotAccessibleViolation]]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Compare two sets of elements:
+- referenced from owned element within the context
+- accessible from all imports and applied profiles (including those from nesting packages)</p><div class="fullcomment"><div class="comment cmt"><p>Compare two sets of elements:
+- referenced from owned element within the context
+- accessible from all imports and applied profiles (including those from nesting packages)</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>Violations correspond to referenced elements that are not accessible.</p></dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#org.omg.oti.uml.validation.UMLPackageableElementRules@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

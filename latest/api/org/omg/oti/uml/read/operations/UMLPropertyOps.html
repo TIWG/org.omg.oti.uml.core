@@ -1,0 +1,1160 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>UMLPropertyOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLPropertyOps</title>
+          <meta name="description" content="UMLPropertyOps - org.omg.oti.uml.core - org.omg.oti.uml.read.operations.UMLPropertyOps" />
+          <meta name="keywords" content="UMLPropertyOps org.omg.oti.uml.core org.omg.oti.uml.read.operations.UMLPropertyOps" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../../../../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../../../../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../../index.html';
+            var hash = 'org.omg.oti.uml.read.operations.UMLPropertyOps';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../../../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../../../../package.html" class="extype" name="org">org</a>.<a href="../../../../package.html" class="extype" name="org.omg">omg</a>.<a href="../../../package.html" class="extype" name="org.omg.oti">oti</a>.<a href="../../package.html" class="extype" name="org.omg.oti.uml">uml</a>.<a href="../package.html" class="extype" name="org.omg.oti.uml.read">read</a>.<a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">operations</a></p>
+        <h1>UMLPropertyOps</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="org.omg.oti.uml.read.operations">package operations</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UMLPropertyOps</span><span class="tparams">[<span name="Uml">Uml &lt;: <a href="../api/UML.html" class="extype" name="org.omg.oti.uml.read.api.UML">UML</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Property is a StructuralFeature. A Property related by ownedAttribute to a Classifier (other than an association) represents an attribute and might also represent an association end. It relates an instance of the Classifier to a value or set of values of the type of the attribute. A Property related by memberEnd to an Association represents an end of the Association. The type of the Property is the type of the end of the Association. A Property has the capability of being a DeploymentTarget in a Deployment relationship. This enables modeling the deployment to hierarchical nodes that have Properties functioning as internal parts.  Property specializes ParameterableElement to specify that a Property can be exposed as a formal template parameter, and provided as an actual parameter in a binding of a template.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]</dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="../api/UMLExtensionEnd.html" class="extype" name="org.omg.oti.uml.read.api.UMLExtensionEnd">UMLExtensionEnd</a>, <a href="../api/UMLPort.html" class="extype" name="org.omg.oti.uml.read.api.UMLPort">UMLPort</a>, <a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a></div>
+          </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="org.omg.oti.uml.read.operations.UMLPropertyOps"><span>UMLPropertyOps</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#_class" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_class:Option[org.omg.oti.uml.read.api.UMLClass[Uml]]"></a>
+      <a id="_class:Option[UMLClass[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">_class</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClass.html" class="extype" name="org.omg.oti.uml.read.api.UMLClass">UMLClass</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@_class:Option[org.omg.oti.uml.read.api.UMLClass[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Class that owns this Property, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The Class that owns this Property, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLClass.ownedAttribute
+</p></div></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#association" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="association:Option[org.omg.oti.uml.read.api.UMLAssociation[Uml]]"></a>
+      <a id="association:Option[UMLAssociation[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">association</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLAssociation.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociation">UMLAssociation</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@association:Option[org.omg.oti.uml.read.api.UMLAssociation[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Association of which this Property is a member, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The Association of which this Property is a member, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.memberEnd
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#associationEnd" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="associationEnd:Option[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="associationEnd:Option[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">associationEnd</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@associationEnd:Option[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Designates the optional association end that owns a qualifier attribute.</p><div class="fullcomment"><div class="comment cmt"><p>Designates the optional association end that owns a qualifier attribute.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.qualifier
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#classifier" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="classifier:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]"></a>
+      <a id="classifier:Option[UMLClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">classifier</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLClassifier">UMLClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@classifier:Option[org.omg.oti.uml.read.api.UMLClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#datatype" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="datatype:Option[org.omg.oti.uml.read.api.UMLDataType[Uml]]"></a>
+      <a id="datatype:Option[UMLDataType[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">datatype</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLDataType.html" class="extype" name="org.omg.oti.uml.read.api.UMLDataType">UMLDataType</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@datatype:Option[org.omg.oti.uml.read.api.UMLDataType[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The DataType that owns this Property, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The DataType that owns this Property, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLDataType.ownedAttribute
+</p></div></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#extension" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="extension:Option[org.omg.oti.uml.read.api.UMLExtension[Uml]]"></a>
+      <a id="extension:Option[UMLExtension[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extension</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLExtension.html" class="extype" name="org.omg.oti.uml.read.api.UMLExtension">UMLExtension</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@extension:Option[org.omg.oti.uml.read.api.UMLExtension[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#interface" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="interface:Option[org.omg.oti.uml.read.api.UMLInterface[Uml]]"></a>
+      <a id="interface:Option[UMLInterface[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">interface</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLInterface.html" class="extype" name="org.omg.oti.uml.read.api.UMLInterface">UMLInterface</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@interface:Option[org.omg.oti.uml.read.api.UMLInterface[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The Interface that owns this Property, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The Interface that owns this Property, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLInterface.ownedAttribute
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isAttribute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isAttribute:Boolean"></a>
+      <a id="isAttribute:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isAttribute</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isAttribute:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isAttribute() is true if the Property is defined as an attribute of some Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>The query isAttribute() is true if the Property is defined as an attribute of some Classifier.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (not classifier-&gt;isEmpty())</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isCompatibleWith" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isCompatibleWith(p:Option[org.omg.oti.uml.read.api.UMLParameterableElement[Uml]]):Boolean"></a>
+      <a id="isCompatibleWith(Option[UMLParameterableElement[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isCompatibleWith</span><span class="params">(<span name="p">p: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLParameterableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLParameterableElement">UMLParameterableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isCompatibleWith(p:Option[org.omg.oti.uml.read.api.UMLParameterableElement[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isCompatibleWith() determines if this Property is compatible with the specified ParameterableElement.</p><div class="fullcomment"><div class="comment cmt"><p>The query isCompatibleWith() determines if this Property is compatible with the specified ParameterableElement. This Property is compatible with ParameterableElement p if the kind of this Property is thesame as or a subtype of the kind of p. Further, if p is a TypedElement, then the type of this Property must be conformant with the type of p.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (self.oclIsKindOf(p.oclType()) and (p.oclIsKindOf(TypeElement) implies
+self.<span class="kw">type</span>.conformsTo(p.oclAsType(TypedElement).<span class="kw">type</span>)))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isComposite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isComposite:Boolean"></a>
+      <a id="isComposite:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isComposite</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isComposite:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If isComposite is true, the object containing the attribute is a container for the object or value contained in the attribute.</p><div class="fullcomment"><div class="comment cmt"><p>If isComposite is true, the object containing the attribute is a container for the object or value contained in the attribute. This is a derived value, indicating whether the aggregation of the Property is composite or not.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (aggregation = AggregationKind::composite)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isConsistentWith" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isConsistentWith(redefiningElement:Option[org.omg.oti.uml.read.api.UMLRedefinableElement[Uml]]):Boolean"></a>
+      <a id="isConsistentWith(Option[UMLRedefinableElement[Uml]]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isConsistentWith</span><span class="params">(<span name="redefiningElement">redefiningElement: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLRedefinableElement.html" class="extype" name="org.omg.oti.uml.read.api.UMLRedefinableElement">UMLRedefinableElement</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isConsistentWith(redefiningElement:Option[org.omg.oti.uml.read.api.UMLRedefinableElement[Uml]]):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isConsistentWith() specifies, for any two Properties in a context in which redefinition is possible, whether redefinition would be logically consistent.</p><div class="fullcomment"><div class="comment cmt"><p>The query isConsistentWith() specifies, for any two Properties in a context in which redefinition is possible, whether redefinition would be logically consistent. A redefining Property is consistent with a redefined Property if the type of the redefining Property conforms to the type of the redefined Property, and the multiplicity of the redefining Property (if specified) is contained in the multiplicity of the redefined Property.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (redefiningElement.oclIsKindOf(Property) and
+  let prop : Property = redefiningElement.oclAsType(Property) in
+  (prop.<span class="kw">type</span>.conformsTo(self.<span class="kw">type</span>) and
+  ((prop.lower()-&gt;notEmpty() and self.lower()-&gt;notEmpty()) implies prop.lower() &gt;= self.lower()) and
+  ((prop.upper()-&gt;notEmpty() and self.upper()-&gt;notEmpty()) implies prop.lower() &lt;= self.lower()) and
+  (self.isComposite implies prop.isComposite)))</pre></div></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isLogicallyNavigable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isLogicallyNavigable:Boolean"></a>
+      <a id="isLogicallyNavigable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isLogicallyNavigable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isLogicallyNavigable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">For a binary association, the logical navigability of an end property
+is a function of the characteristics of the member ends.</p><div class="fullcomment"><div class="comment cmt"><p>For a binary association, the logical navigability of an end property
+is a function of the characteristics of the member ends.</p><p>1) this property is owned by a class; the opposite is owned by the association
+2) both ends have the same kind of ownership and this property is composite, the opposite is not
+3) both ends are owned by the association and this property is a navigable owned end, the opposite is not
+4) neither end is composite and this property is unbounded, the opposite has an upper bound of 1
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>true if the property is a logically navigable association end</p></dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isNavigable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isNavigable:Boolean"></a>
+      <a id="isNavigable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isNavigable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isNavigable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query isNavigable() indicates whether it is possible to navigate across the property.</p><div class="fullcomment"><div class="comment cmt"><p>The query isNavigable() indicates whether it is possible to navigate across the property.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;1..1&quot;</p><pre>OCL Body result = (not classifier-&gt;isEmpty() or association.navigableOwnedEnd-&gt;includes(self))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#isSemanticallyNavigable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="isSemanticallyNavigable:Boolean"></a>
+      <a id="isSemanticallyNavigable:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isSemanticallyNavigable</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@isSemanticallyNavigable:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">For a binary association, the semantic navigability of an end property
+is a function of the subsetting and/or redefinition of the association ends.</p>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#opposite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="opposite:Option[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="opposite:Option[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">opposite</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@opposite:Option[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">In the case where the Property is one end of a binary association this gives the other end.</p><div class="fullcomment"><div class="comment cmt"><p>In the case where the Property is one end of a binary association this gives the other end.</p><p>UML Property derived=&quot;true&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.opposite_property</p><pre>OCL Body result = (<span class="kw">if</span> association &lt;&gt; <span class="kw">null</span> and association.memberEnd-&gt;size() = <span class="num">2</span>
+then
+    association.memberEnd-&gt;any(e | e &lt;&gt; self)
+<span class="kw">else</span>
+    <span class="kw">null</span>
+endif)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#ownedAttribute_artifact" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ownedAttribute_artifact:Option[org.omg.oti.uml.read.api.UMLArtifact[Uml]]"></a>
+      <a id="ownedAttribute_artifact:Option[UMLArtifact[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedAttribute_artifact</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLArtifact.html" class="extype" name="org.omg.oti.uml.read.api.UMLArtifact">UMLArtifact</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@ownedAttribute_artifact:Option[org.omg.oti.uml.read.api.UMLArtifact[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLArtifact.ownedAttribute
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#ownedAttribute_owningSignal" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ownedAttribute_owningSignal:Option[org.omg.oti.uml.read.api.UMLSignal[Uml]]"></a>
+      <a id="ownedAttribute_owningSignal:Option[UMLSignal[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedAttribute_owningSignal</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLSignal.html" class="extype" name="org.omg.oti.uml.read.api.UMLSignal">UMLSignal</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@ownedAttribute_owningSignal:Option[org.omg.oti.uml.read.api.UMLSignal[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLSignal.ownedAttribute
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#ownedAttribute_structuredClassifier" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ownedAttribute_structuredClassifier:Option[org.omg.oti.uml.read.api.UMLStructuredClassifier[Uml]]"></a>
+      <a id="ownedAttribute_structuredClassifier:Option[UMLStructuredClassifier[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ownedAttribute_structuredClassifier</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLStructuredClassifier.html" class="extype" name="org.omg.oti.uml.read.api.UMLStructuredClassifier">UMLStructuredClassifier</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@ownedAttribute_structuredClassifier:Option[org.omg.oti.uml.read.api.UMLStructuredClassifier[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLStructuredClassifier.ownedAttribute
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#owningAssociation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="owningAssociation:Option[org.omg.oti.uml.read.api.UMLAssociation[Uml]]"></a>
+      <a id="owningAssociation:Option[UMLAssociation[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owningAssociation</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLAssociation.html" class="extype" name="org.omg.oti.uml.read.api.UMLAssociation">UMLAssociation</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@owningAssociation:Option[org.omg.oti.uml.read.api.UMLAssociation[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The owning association of this property, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The owning association of this property, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..1&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLAssociation.ownedEnd
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#owningStereotype" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="owningStereotype:Option[org.omg.oti.uml.read.api.UMLStereotype[Uml]]"></a>
+      <a id="owningStereotype:Option[UMLStereotype[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">owningStereotype</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="../api/UMLStereotype.html" class="extype" name="org.omg.oti.uml.read.api.UMLStereotype">UMLStereotype</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@owningStereotype:Option[org.omg.oti.uml.read.api.UMLStereotype[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#pscs_canInstantiate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="pscs_canInstantiate:Boolean"></a>
+      <a id="pscs_canInstantiate:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pscs_canInstantiate</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@pscs_canInstantiate:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">PSCS 2015-02-18, 8.5.1.2.4 CS_DefaultConstructStrategy
+[2] public canInstantiate(p:Property) : Boolean
+// Instantiate is possible if:
+// - p is composite
+// - p is typed
+// - This type is a Class and it is not abstract
+// - Or p is a Port and the type is an Interface
+if (p.isComposite) {
+if (p.typedElement.type != null) {
+if (p.typedElement.type instanceof Class_) {
+return ! ((Class_)p.typedElement.type).isAbstract ;
+}
+}
+else if (p.typedElement.type instanceof Interface) {
+return p instanceof Port ;
+}
+}
+return false ;
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#redefinedProperty" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="redefinedProperty:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="redefinedProperty:Set[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinedProperty</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@redefinedProperty:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The properties that are redefined by this property, if any.</p><div class="fullcomment"><div class="comment cmt"><p>The properties that are redefined by this property, if any.</p><p>UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.redefinedProperty_property
+</p></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#redefinedProperty_property" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="redefinedProperty_property:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLProperty[Uml]]"></a>
+      <a id="redefinedProperty_property:Set[UMLProperty[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">redefinedProperty_property</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLProperty.html" class="extype" name="org.omg.oti.uml.read.api.UMLProperty">UMLProperty</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@redefinedProperty_property:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLProperty[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">UML Property derived=&quot;false&quot; ordered=&quot;false&quot; unique=&quot;true&quot; aggregation=&quot;none&quot; multiplicity=&quot;0..*&quot;
+UML opposite Property: org.omg.oti.uml.read.api.UMLProperty.redefinedProperty
+</p>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#subsettingContext" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="subsettingContext:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLType[Uml]]"></a>
+      <a id="subsettingContext:Set[UMLType[Uml]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">subsettingContext</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../api/UMLType.html" class="extype" name="org.omg.oti.uml.read.api.UMLType">UMLType</a>[<span class="extype" name="org.omg.oti.uml.read.operations.UMLPropertyOps.Uml">Uml</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@subsettingContext:scala.collection.immutable.Set[org.omg.oti.uml.read.api.UMLType[Uml]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The query subsettingContext() gives the context for subsetting a Property.</p><div class="fullcomment"><div class="comment cmt"><p>The query subsettingContext() gives the context for subsetting a Property. It consists, in the case of an attribute, of the corresponding Classifier, and in the case of an association end, all of the Classifiers at the other ends.</p><p>UML Operation ordered=&quot;false&quot; unique=&quot;true&quot; multiplicity=&quot;0..*&quot;</p><pre>OCL Body result = (<span class="kw">if</span> association &lt;&gt; <span class="kw">null</span>
+then association.memberEnd-&gt;excluding(self)-&gt;collect(<span class="kw">type</span>)-&gt;asSet()
+<span class="kw">else</span>
+  <span class="kw">if</span> classifier&lt;&gt;<span class="kw">null</span>
+  then classifier-&gt;asSet()
+  <span class="kw">else</span> <span class="std">Set</span>{}
+  endif
+endif)</pre></div></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_binding_to_attribute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_binding_to_attribute:Boolean"></a>
+      <a id="validate_binding_to_attribute:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_binding_to_attribute</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_binding_to_attribute:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A binding of a PropertyTemplateParameter representing an attribute must be to an attribute.</p><div class="fullcomment"><div class="comment cmt"><p>A binding of a PropertyTemplateParameter representing an attribute must be to an attribute.</p><pre>OCL Body (self.isAttribute()
+and (templateParameterSubstitution-&gt;notEmpty())
+implies (templateParameterSubstitution-&gt;forAll(ts |
+    ts.formal.oclIsKindOf(Property)
+    and ts.formal.oclAsType(Property).isAttribute())))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_deployment_target" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_deployment_target:Boolean"></a>
+      <a id="validate_deployment_target:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_deployment_target</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_deployment_target:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Property can be a DeploymentTarget if it is a kind of Node and functions as a part in the internal structure of an encompassing Node.</p><div class="fullcomment"><div class="comment cmt"><p>A Property can be a DeploymentTarget if it is a kind of Node and functions as a part in the internal structure of an encompassing Node.</p><pre>OCL Body deployment-&gt;notEmpty() implies owner.oclIsKindOf(Node) and Node.allInstances()-&gt;exists(n | n.part-&gt;exists(p | p = self))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_derived_union_is_derived" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_derived_union_is_derived:Boolean"></a>
+      <a id="validate_derived_union_is_derived:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_derived_union_is_derived</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_derived_union_is_derived:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A derived union is derived.</p><div class="fullcomment"><div class="comment cmt"><p>A derived union is derived.</p><pre>OCL Body isDerivedUnion implies isDerived</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_derived_union_is_read_only" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_derived_union_is_read_only:Boolean"></a>
+      <a id="validate_derived_union_is_read_only:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_derived_union_is_read_only</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_derived_union_is_read_only:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A derived union is read only.</p><div class="fullcomment"><div class="comment cmt"><p>A derived union is read only.</p><pre>OCL Body isDerivedUnion implies isReadOnly</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_multiplicity_of_composite" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_multiplicity_of_composite:Boolean"></a>
+      <a id="validate_multiplicity_of_composite:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_multiplicity_of_composite</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_multiplicity_of_composite:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A multiplicity on the composing end of a composite aggregation must not have an upper bound greater than 1.</p><div class="fullcomment"><div class="comment cmt"><p>A multiplicity on the composing end of a composite aggregation must not have an upper bound greater than 1.</p><pre>OCL Body isComposite and association &lt;&gt; <span class="kw">null</span> implies opposite.upper() &lt;= <span class="num">1</span></pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_qualified_is_association_end" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_qualified_is_association_end:Boolean"></a>
+      <a id="validate_qualified_is_association_end:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_qualified_is_association_end</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_qualified_is_association_end:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All qualified Properties must be Association ends</p><div class="fullcomment"><div class="comment cmt"><p>All qualified Properties must be Association ends</p><pre>OCL Body qualifier-&gt;notEmpty() implies association-&gt;notEmpty()</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_redefined_property_inherited" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_redefined_property_inherited:Boolean"></a>
+      <a id="validate_redefined_property_inherited:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_redefined_property_inherited</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_redefined_property_inherited:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A redefined Property must be inherited from a more general Classifier.</p><div class="fullcomment"><div class="comment cmt"><p>A redefined Property must be inherited from a more general Classifier.</p><pre>OCL Body (redefinedProperty-&gt;notEmpty()) implies
+  (redefinitionContext-&gt;notEmpty() and
+      redefinedProperty-&gt;forAll(rp|
+        ((redefinitionContext-&gt;collect(fc|
+          fc.allParents()))-&gt;asSet())-&gt;collect(c| c.allFeatures())-&gt;asSet()-&gt;includes(rp)))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_subsetted_property_names" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_subsetted_property_names:Boolean"></a>
+      <a id="validate_subsetted_property_names:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_subsetted_property_names</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_subsetted_property_names:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Property may not subset a Property with the same name.</p><div class="fullcomment"><div class="comment cmt"><p>A Property may not subset a Property with the same name.</p><pre>OCL Body subsettedProperty-&gt;forAll(sp | sp.name &lt;&gt; name)</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_subsetting_context_conforms" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_subsetting_context_conforms:Boolean"></a>
+      <a id="validate_subsetting_context_conforms:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_subsetting_context_conforms</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_subsetting_context_conforms:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Subsetting may only occur when the context of the subsetting property conforms to the context of the subsetted property.</p><div class="fullcomment"><div class="comment cmt"><p>Subsetting may only occur when the context of the subsetting property conforms to the context of the subsetted property.</p><pre>OCL Body subsettedProperty-&gt;notEmpty() implies
+  (subsettingContext()-&gt;notEmpty() and subsettingContext()-&gt;forAll (sc |
+    subsettedProperty-&gt;forAll(sp |
+      sp.subsettingContext()-&gt;exists(c | sc.conformsTo(c)))))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_subsetting_rules" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_subsetting_rules:Boolean"></a>
+      <a id="validate_subsetting_rules:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_subsetting_rules</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_subsetting_rules:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A subsetting Property may strengthen the type of the subsetted Property, and its upper bound may be less.</p><div class="fullcomment"><div class="comment cmt"><p>A subsetting Property may strengthen the type of the subsetted Property, and its upper bound may be less.</p><pre>OCL Body subsettedProperty-&gt;forAll(sp |
+  self.<span class="kw">type</span>.conformsTo(sp.<span class="kw">type</span>) and
+    ((self.upper()-&gt;notEmpty() and sp.upper()-&gt;notEmpty()) implies
+      self.upper() &lt;= sp.upper() ))</pre></div></div>
+    </li><li name="org.omg.oti.uml.read.operations.UMLPropertyOps#validate_type_of_opposite_end" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validate_type_of_opposite_end:Boolean"></a>
+      <a id="validate_type_of_opposite_end:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validate_type_of_opposite_end</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@validate_type_of_opposite_end:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">If a Property is a classifier-owned end of a binary Association, its owner must be the type of the opposite end.</p><div class="fullcomment"><div class="comment cmt"><p>If a Property is a classifier-owned end of a binary Association, its owner must be the type of the opposite end.</p><pre>OCL Body (opposite-&gt;notEmpty() and owningAssociation-&gt;isEmpty()) implies classifier = opposite.<span class="kw">type</span></pre></div></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#org.omg.oti.uml.read.operations.UMLPropertyOps@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
