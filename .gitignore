@@ -2,6 +2,7 @@
 .ensime*
 .idea
 .iml
+gh-pages
+*links.json
 local.*
 target
-*links.json

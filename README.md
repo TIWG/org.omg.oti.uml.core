@@ -1,4 +1,7 @@
-# OMG Tool Interchange (OTI) API for OMG UML 2.5-compliant Modeling Tools
+# OMG Tool Interoperability (OTI) API for OMG UML 2.5-compliant Modeling Tools
+
+[![Build Status](https://travis-ci.org/TIWG/org.omg.oti.uml.core.svg?branch=master)](https://travis-ci.org/TIWG/org.omg.oti.uml.core)
+ [ ![Download](https://api.bintray.com/packages/tiwg/org.omg.tiwg/org.omg.oti.uml.core/images/download.svg) ](https://bintray.com/tiwg/org.omg.tiwg/org.omg.oti.uml.core/_latestVersion)
 
 OTI is a parameterized functional API for OMG's UML 2.5 for querying & transforming OMG UML 2.5 models.
 This functional API is parameterized by the implementation of OMG UML 2.5, including but not limited to:

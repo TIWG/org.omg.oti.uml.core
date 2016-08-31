@@ -6,6 +6,8 @@ import de.heikoseeberger.sbtheader.HeaderPattern
 import de.heikoseeberger.sbtheader.license.CommentBlock
 import scala.util.matching.Regex
 
+licenses in GlobalScope += "Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")
+
 val oti_uml_core_license =
   s"""|Copyright 2014 California Institute of Technology ("Caltech").
       |U.S. Government sponsorship acknowledged.
