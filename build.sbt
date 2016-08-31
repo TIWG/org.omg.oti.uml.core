@@ -44,7 +44,8 @@ lazy val core = Project("oti-uml-core", file("."))
     unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
 
     scalacOptions in(Compile, doc) ++= Seq(
-      "-diagrams",
+      // Graphviz too many erors on travis-ci.
+      //"-diagrams",
       "-doc-title", name.value,
       "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
     ),
