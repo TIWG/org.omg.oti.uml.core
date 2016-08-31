@@ -1,8 +1,8 @@
 
 // publish to bintray.com via: `sbt publish`
 publishTo := Some(
-  "JPL-IMCE" at
-    s"https://api.bintray.com/content/tiwg/org.omg.oti/org.omg.oti.uml.core/${version.value}")
+  "TIWG" at
+    s"https://api.bintray.com/content/tiwg/org.omg.tiwg/${moduleName.value}/${version.value}")
 
 PgpKeys.useGpg := true
 

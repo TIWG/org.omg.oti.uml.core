@@ -5,36 +5,7 @@ import sbt._
 import gov.nasa.jpl.imce.sbt._
 import gov.nasa.jpl.imce.sbt.ProjectHelper._
 
-useGpg := true
-
 updateOptions := updateOptions.value.withCachedResolution(true)
-
-developers := List(
-  Developer(
-    id="NicolasRouquette",
-    name="Nicolas F. Rouquette",
-    email="nicolas.f.rouquette@jpl.nasa.gov",
-    url=url("https://github.com/NicolasRouquette")),
-  Developer(
-    id="melaasar",
-    name="Maged Elaasar",
-    email="maged.elaasar@jpl.nasa.gov",
-    url=url("https://gateway.jpl.nasa.gov/personal/melaasar/default.aspx")),
-  Developer(
-    id="ybernard",
-    name="Yves Bernard",
-    email="yves.bernard@airbus.com",
-    url=url("http://airbus.com")),
-  Developer(
-    id="CodyLanier",
-    name="Cody Lanier",
-    email="cody.lanier@jpl.nasa.gov",
-    url=url("http://airbus.com")),
-  Developer(
-    id="SebastianHerzig",
-    name="Sebastian Herzig",
-    email="sebastian.j.herzig@jpl.nasa.gov",
-    url=url("https://gateway.jpl.nasa.gov/personal/sherzig/default.aspx")))
 
 lazy val core = Project("oti-uml-core", file("."))
   .enablePlugins(IMCEGitPlugin)
@@ -50,10 +21,6 @@ lazy val core = Project("oti-uml-core", file("."))
 
     // @todo add this to the imce.sbt.plugin
     scalacOptions in (Compile,doc) += "-no-link-warnings",
-
-    organization := "org.omg.tiwg",
-    organizationHomepage :=
-      Some(url("http://www.omg.org/members/sysml-rtf-wiki/doku.php?id=rtf5:groups:tools_infrastructure:index")),
 
     buildInfoPackage := "org.omg.oti.uml.core",
     buildInfoKeys ++= Seq[BuildInfoKey](BuildInfoKey.action("buildDateUTC") { buildUTCDate.value }),
@@ -73,11 +40,8 @@ lazy val core = Project("oti-uml-core", file("."))
     },
 
     git.baseVersion := Versions.version,
-    organizationName := "JPL, Caltech, Airbus & Object Management Group",
-    organizationHomepage := Some(url("http://solitaire.omg.org/browse/TIWG")),
 
-    scalaSource in Compile := baseDirectory.value / "svn" / "src",
-    unmanagedSourceDirectories in Compile += baseDirectory.value / "svn" / "src-gen",
+    unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
 
     scalacOptions in(Compile, doc) ++= Seq(
       "-diagrams",
@@ -89,24 +53,16 @@ lazy val core = Project("oti-uml-core", file("."))
 
     extractArchives := {},
 
-    libraryDependencies ++= Seq (
-      "gov.nasa.jpl.imce.thirdParty" %% "other-scala-libraries" % Versions_other_scala_libraries.version artifacts
-      Artifact("other-scala-libraries", "zip", "zip", Some("resource"), Seq(), None, Map())
-    ),
-
-    IMCEKeys.nexusJavadocRepositoryRestAPIURL2RepositoryName := Map(
-       "https://oss.sonatype.org/service/local" -> "releases",
-       "https://cae-nexuspro.jpl.nasa.gov/nexus/service/local" -> "JPL"),
-    IMCEKeys.pomRepositoryPathRegex := """\<repositoryPath\>\s*([^\"]*)\s*\<\/repositoryPath\>""".r
-
+    resolvers += Resolver.bintrayRepo("jpl-imce", "gov.nasa.jpl.imce"),
+    resolvers += Resolver.bintrayRepo("tiwg", "org.omg.tiwg")
   )
   .dependsOnSourceProjectOrLibraryArtifacts(
     "org-omg-oti-uml-json",
     "org.omg.oti.uml.json",
     Seq(
-      "org.omg.tiwg" %% "org-omg-oti-uml-json"
+      "org.omg.tiwg" %% "org.omg.oti.uml.json.schema"
         % Versions_oti_uml_json.version % "compile" withSources() withJavadoc() artifacts
-        Artifact("org-omg-oti-uml-json", "zip", "zip", Some("resource"), Seq(), None, Map())
+        Artifact("org.omg.oti.uml.json.schema", "zip", "zip", Some("resource"), Seq(), None, Map())
     )
   )
 
