@@ -15,7 +15,7 @@ lazy val core = Project("oti-uml-core", file("."))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   //.settings(IMCEPlugin.scalaDocSettings(diagrams=false))
   .settings(
-    IMCEKeys.licenseYearOrRange := "2014-2016",
+    IMCEKeys.licenseYearOrRange := "2014",
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
     IMCEKeys.targetJDK := IMCEKeys.jdk18.value,
 
@@ -44,13 +44,13 @@ lazy val core = Project("oti-uml-core", file("."))
     unmanagedSourceDirectories in Compile += baseDirectory.value / "src-gen",
 
     scalacOptions in(Compile, doc) ++= Seq(
-      // Graphviz too many erors on travis-ci.
+      // Graphviz too many errors on travis-ci.
       //"-diagrams",
       "-doc-title", name.value,
       "-doc-root-content", baseDirectory.value + "/rootdoc.txt"
     ),
 
-    resourceDirectory in Compile := baseDirectory.value / "svn" / "resources",
+    resourceDirectory in Compile := baseDirectory.value / "resources",
 
     extractArchives := {},
 
@@ -92,24 +92,24 @@ def dynamicScriptsResourceSettings(dynamicScriptsProjectName: Option[String] = N
       normalizedName.value + "_" + scalaBinaryVersion.value + "-" + version.value + "-resource",
 
     // contents of the '*-resource.zip' to be produced by 'universal:packageBin'
-    mappings in Universal <++= (
-      baseDirectory,
-      packageBin in Compile,
-      packageSrc in Compile,
-      packageDoc in Compile,
-      packageBin in Test,
-      packageSrc in Test,
-      packageDoc in Test) map {
-      (base, bin, src, doc, binT, srcT, docT) =>
-        val dir = base / "svn"
-          (dir ** "*.md").pair(relativeTo(dir)) ++
-          com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
-          addIfExists(bin, "lib/" + bin.name) ++
-          addIfExists(binT, "lib/" + binT.name) ++
-          addIfExists(src, "lib.sources/" + src.name) ++
-          addIfExists(srcT, "lib.sources/" + srcT.name) ++
-          addIfExists(doc, "lib.javadoc/" + doc.name) ++
-          addIfExists(docT, "lib.javadoc/" + docT.name)
+    mappings in Universal in packageBin ++= {
+      val dir = baseDirectory.value
+      val bin = (packageBin in Compile).value
+      val src = (packageSrc in Compile).value
+      val doc = (packageDoc in Compile).value
+      val binT = (packageBin in Test).value
+      val srcT = (packageSrc in Test).value
+      val docT = (packageDoc in Test).value
+
+      addIfExists(dir / ".classpath", ".classpath") ++
+        (dir ** "*.md").pair(relativeTo(dir)) ++
+        com.typesafe.sbt.packager.MappingsHelper.directory(dir / "resources") ++
+        addIfExists(bin, "lib/" + bin.name) ++
+        addIfExists(binT, "lib/" + binT.name) ++
+        addIfExists(src, "lib.sources/" + src.name) ++
+        addIfExists(srcT, "lib.sources/" + srcT.name) ++
+        addIfExists(doc, "lib.javadoc/" + doc.name) ++
+        addIfExists(docT, "lib.javadoc/" + docT.name)
     },
 
     artifacts <+= (name in Universal) { n => Artifact(n, "zip", "zip", Some("resource"), Seq(), None, Map()) },
