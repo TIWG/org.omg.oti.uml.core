@@ -47,7 +47,16 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"></div>
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><h3> OMG Tool-neutral Interchange (OTI) API for OMG UML 2.5-compliant Modeling Tools </h3><p>OTI is a parameterized functional API for OMG's UML 2.5 for querying &amp; transforming OMG UML 2.5 models.
+This functional API is parameterized by tool-specific adapters. An OTI adapter maps the tool-neutral OTI API
+onto the corresponding tool-specific APIs.</p><h4> 1. Tool-specific OTI Adapters </h4><p>Currently, adapters are available for the following OMG UML 2.5 implementations:</p><ul><li>MagicDraw 18.0 SP4 (see org.omg.oti.magicdraw)</li><li>Papyrus (see org.omg.oti.papyrus)</li></ul><h4> 2. Capabilities </h4><h5> 2.1. <a href="org/omg/oti/uml/package.html" class="extype" name="org.omg.oti.uml">org.omg.oti.uml</a>: MOF-like Reflection about UML models </h5><p>MOF-like API such as reflection capabilities</p><h5> 2.2. <a href="org/omg/oti/uml/read/package.html" class="extype" name="org.omg.oti.uml.read">org.omg.oti.uml.read</a>: OCL/QVT-like Query of UML models  </h5><p>The OTI UML Query API covers all the metaclasses, attributes, properties and query operations
+specified in the normative OMG UML 2.5 abstract syntax metamodel. Where the OMG UML 2.5 specification
+includes OCL constraints for specifying derived properties or query operations,
+the OTI UML API provides corresponding tool-neutral implementations in Scala.</p><h5> 2.3. <a href="org/omg/oti/uml/validation/package.html" class="extype" name="org.omg.oti.uml.validation">org.omg.oti.uml.validation</a>: Generic OTI-based Implementation of
+    normative OMG MOF 2.5 EMOF and CMOF Validation Constraints </h5><ul><li><a href="http://www.omg.org/spec/MOF/20131001/EMOFConstraints.ocl" target="_blank">MOF 2.5 EMOF constraints</a></li><li><a href="http://www.omg.org/spec/MOF/20131001/CMOFConstraints.ocl" target="_blank">MOF 2.5 CMOF constraints</a></li></ul><h5> 2.4. <a href="org/omg/oti/uml/xmi/package.html" class="extype" name="org.omg.oti.uml.xmi">org.omg.oti.uml.xmi</a>: Generic OTI-based XMI Document/Extent </h5><p>OTI's Document API provides the basis for OMG XMI 2.5.1-based document export/import and inter-document linking.
+This API combines the concept of OMG XMI2.5.1 Document (a locatable resource that can be referenced),
+and that of OMG MOF 2.5 Extent (exporting/importing a document involves all elements transitively contained
+in the context of the document root element).</p><p>This package also includes an API for the OMG XMI 2.5.1, Section B.6, (Canonical XMI) Identification.</p><h4> 3. Third-party capabilities </h4><h5> 3.1. <a href="https://github.com/nikita-volkov/sext" target="_blank">https://github.com/nikita-volkov/sext</a>: Scala Extensions for pretty-printing </h5><p>OTI uses a subset of sext for pretty-printing of Scala collections.</p></div></div>
         
 
       <div id="mbrsel">
