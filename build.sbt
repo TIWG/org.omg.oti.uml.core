@@ -13,7 +13,6 @@ lazy val core = Project("oti-uml-core", file("."))
   .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(dynamicScriptsResourceSettings(Some("org.omg.oti.uml.core")))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
-  //.settings(IMCEPlugin.scalaDocSettings(diagrams=false))
   .settings(
     IMCEKeys.licenseYearOrRange := "2014",
     IMCEKeys.organizationInfo := IMCEPlugin.Organizations.oti,
