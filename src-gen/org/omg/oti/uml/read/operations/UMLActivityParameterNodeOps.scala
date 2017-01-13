@@ -51,8 +51,12 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
   def validate_has_parameters: Boolean = {
     // Start of user code for "has_parameters"
     activity match {
-      case Some(a) => a.ownedParameter.contains(parameter)
-      case None => false
+      case Some(a) =>
+        parameter.fold[Boolean](true) { param =>
+          a.ownedParameter.contains(param)
+        }
+      case None =>
+        false
     }
     // End of user code
   }
@@ -87,10 +91,15 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
     */
   def validate_no_incoming_edges: Boolean = {
     // Start of user code for "no_incoming_edges"
-    if (!outgoing.isEmpty && incoming.isEmpty)
+    if (outgoing.nonEmpty && incoming.isEmpty)
       parameter match {
-        case Some(p) => p.direction == UMLParameterDirectionKind.in || p.direction == UMLParameterDirectionKind.inout
-        case None => false
+        case Some(p) =>
+          p.direction.fold[Boolean](true) { dir =>
+            dir == UMLParameterDirectionKind.in ||
+              dir == UMLParameterDirectionKind.inout
+          }
+        case None =>
+          false
       }
     else true
     // End of user code
@@ -111,15 +120,19 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
     */
   def validate_no_outgoing_edges: Boolean = {
     // Start of user code for "no_outgoing_edges"
-    if (!incoming.isEmpty && outgoing.isEmpty) {
-        parameter match {
-          case Some(p) => 
-            p.direction == UMLParameterDirectionKind.out ||
-            p.direction == UMLParameterDirectionKind.inout ||
-            p.direction == UMLParameterDirectionKind._return
-          case None => false
-        }
-      } else true
+    if (incoming.nonEmpty && outgoing.isEmpty) {
+      parameter match {
+        case Some(p) =>
+          p.direction.fold[Boolean](true) { dir =>
+            dir == UMLParameterDirectionKind.out ||
+              dir == UMLParameterDirectionKind.inout ||
+              dir == UMLParameterDirectionKind._return
+          }
+        case None =>
+          false
+      }
+    } else
+      true
     // End of user code
   }
 
@@ -136,8 +149,10 @@ trait UMLActivityParameterNodeOps[Uml <: UML] { self: UMLActivityParameterNode[U
   def validate_same_type: Boolean = {
     // Start of user code for "same_type"
     parameter match {
-      case Some(p) => self._type == p._type
-      case None => false
+      case Some(p) =>
+        self._type == p._type
+      case None =>
+        false
     }
     // End of user code
   }

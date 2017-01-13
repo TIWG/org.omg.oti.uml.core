@@ -323,16 +323,15 @@ trait UMLNamespaceOps[Uml <: UML] { self: UMLNamespace[Uml] =>
                       }
                   } ||
           packageImport
-          .filter(pi => pi.visibility == UMLVisibilityKind.public)
-          .exists {
-                    pi =>
-                      pi.importedPackage match {
-                        case Some(ip) =>
-                          ip.member.contains(ne)
-                        case None     =>
-                          false
-                      }
-                  }
+          .filter(pi => pi.visibility == Some(UMLVisibilityKind.public))
+          .exists { pi =>
+            pi.importedPackage match {
+              case Some(ip) =>
+                ip.member.contains(ne)
+              case None     =>
+                false
+            }
+          }
     }
     // End of user code
   }

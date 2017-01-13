@@ -23,7 +23,7 @@ package org.omg.oti.uml.util
 import org.omg.oti.uml.read.api._
 import org.omg.oti.uml.read.operations._
 import scala.collection.immutable._
-import scala.{Boolean,Option}
+import scala.{Boolean,Option,Some}
 import scala.Predef.String
 
 /**
@@ -77,7 +77,7 @@ trait UMLStereotypeUtil [Uml <: UML] {
    * @see [[org.omg.oti.uml.read.operations.UMLClassifierOps.allAttributesExceptRedefined]]
    */
   def getProperty(stereotype: UMLStereotype[Uml], propertyName: String): Option[UMLProperty[Uml]] =
-    stereotype.allAttributesExceptRedefined.find(_.name == propertyName)
+    stereotype.allAttributesExceptRedefined.find(_.name == Some(propertyName))
   
   /**
    * Find stereotype by name inside a profile 
@@ -86,7 +86,7 @@ trait UMLStereotypeUtil [Uml <: UML] {
    * @see [[org.omg.oti.uml.read.operations.UMLPackageOps.allApplicableStereotypes]]
    */
   def getStereotype(stereotypeName: String, profile: UMLProfile[Uml]): Option[UMLStereotype[Uml]] =
-    profile.allApplicableStereotypes.find(_.name == stereotypeName)
+    profile.allApplicableStereotypes.find(_.name == Some(stereotypeName))
   
   /**
    * get the value of a stereotype property according to its name.

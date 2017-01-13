@@ -110,7 +110,7 @@ trait UMLPropertyOps[Uml <: UML] { self: UMLProperty[Uml] =>
     */
   def isComposite: Boolean = {
     // Start of user code for "isComposite"
-    aggregation == UMLAggregationKind.composite
+    aggregation == Some(UMLAggregationKind.composite)
     // End of user code
   }
 

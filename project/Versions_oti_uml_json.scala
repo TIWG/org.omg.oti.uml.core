@@ -1,5 +1,5 @@
 object Versions_oti_uml_json {
 
-  val version="3.3.+"
+  val version="3.4.+"
 
 }

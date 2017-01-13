@@ -108,16 +108,19 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
     */
   def validate_maximum_one_parameter_node: Boolean = {
     // Start of user code for "maximum_one_parameter_node"
-    ownedParameter.forall {
-                            p =>
-                              if (p.direction != UMLParameterDirectionKind.inout) {
-                                1 == node.count {
-                                                  case apn: UMLActivityParameterNode[Uml] => apn.parameter.contains(p)
-                                                  case _                                  => false
-                                                }
-                              } else
-                                true
-                          }
+    ownedParameter.forall { p =>
+      p.direction.fold[Boolean](true) { dir =>
+        if (dir != UMLParameterDirectionKind.inout) {
+          1 == node.count {
+            case apn: UMLActivityParameterNode[Uml] =>
+              apn.parameter.contains(p)
+            case _ =>
+              false
+          }
+        } else
+          true
+      }
+    }
     // End of user code
   }
 
@@ -141,16 +144,20 @@ trait UMLActivityOps[Uml <: UML] { self: UMLActivity[Uml] =>
   def validate_maximum_two_parameter_nodes: Boolean = {
     // Start of user code for "maximum_two_parameter_nodes"
     ownedParameter.forall { p =>
-      if (p.direction == UMLParameterDirectionKind.inout) {
-        val associatedNodes: Set[UMLActivityNode[Uml]] =
-          node.filter {
-                        case apn: UMLActivityParameterNode[Uml] => apn.parameter.contains(p)
-                        case _                                  => false
-                      }
-        2 == associatedNodes.size &&
-          1 >= associatedNodes.count { an => an.incoming.nonEmpty } &&
-          1 >= associatedNodes.count { an => an.outgoing.nonEmpty }
-      } else true
+      p.direction.fold[Boolean](true) { dir =>
+        if (dir == UMLParameterDirectionKind.inout) {
+          val associatedNodes: Set[UMLActivityNode[Uml]] =
+            node.filter {
+              case apn: UMLActivityParameterNode[Uml] =>
+                apn.parameter.contains(p)
+              case _ =>
+                false
+            }
+          2 == associatedNodes.size &&
+            1 >= associatedNodes.count { an => an.incoming.nonEmpty } &&
+            1 >= associatedNodes.count { an => an.outgoing.nonEmpty }
+        } else true
+      }
     }
     // End of user code
   }

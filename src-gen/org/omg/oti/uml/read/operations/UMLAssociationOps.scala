@@ -88,10 +88,15 @@ trait UMLAssociationOps[Uml <: UML] { self: UMLAssociation[Uml] =>
     */
   def validate_binary_associations: Boolean = {
     // Start of user code for "binary_associations"
-    if (memberEnd.exists { me => me.aggregation != UMLAggregationKind.none })
-      2 == memberEnd.size &&
-        memberEnd.exists { me => me.aggregation == UMLAggregationKind.none }
-    else
+    if (memberEnd.size > 2) {
+      memberEnd
+        .forall { me =>
+          val x: Boolean = me.aggregation.fold[Boolean](true) { agg =>
+            agg == UMLAggregationKind.none
+          }
+          x
+        }
+    } else
       true
     // End of user code
   }

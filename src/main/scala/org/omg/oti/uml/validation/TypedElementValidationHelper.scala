@@ -315,7 +315,7 @@ case class TypedElementValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
         p._type.fold[Option[TypedElementValidationInfo[Uml]]](None) {
             case _: UMLDataType[Uml] =>
               p.aggregation match {
-                case UMLAggregationKind.none =>
+                case Some(UMLAggregationKind.none) =>
                   None
                 case k =>
                   Some(

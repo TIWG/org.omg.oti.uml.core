@@ -22,7 +22,7 @@ package sext
 
 import scala.language.higherKinds
 import scala.util.control.NonFatal
-import scala.{AnyVal,Boolean,Byte,Char,Console,Double,Int,Float,Option,None,Long,Product,Short,Some,Unit}
+import scala.{Any,AnyVal,Boolean,Byte,Char,Console,Double,Int,Float,Option,None,Long,Product,Short,Some,Unit}
 import scala.Predef._
 import scala.reflect.runtime.universe._
 import scala.reflect.runtime.currentMirror
@@ -221,6 +221,7 @@ object PrettyPrinting {
         x.valueTreeString
       case a : Product =>
         val b
+        : Stream[(String, Any)]
         = currentMirror.reflect(a).symbol.typeSignature.members.toStream
           .collect{ case a : TermSymbol => a }
           .filterNot(_.isMethod)

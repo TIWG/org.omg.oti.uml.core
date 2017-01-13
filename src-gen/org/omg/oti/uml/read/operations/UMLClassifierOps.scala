@@ -453,8 +453,12 @@ trait UMLClassifierOps[Uml <: UML] { self: UMLClassifier[Uml] =>
   def hasVisibilityOf(n: Option[UMLNamedElement[Uml]]): Boolean = {
     // Start of user code for "hasVisibilityOf"
     n match {
-      case None     => true
-      case Some(ne) => ne.visibility != UMLVisibilityKind._private
+      case None =>
+        true
+      case Some(ne) =>
+        ne.visibility.fold[Boolean](true) { vis =>
+          vis != UMLVisibilityKind._private
+        }
     }
     // End of user code
   }

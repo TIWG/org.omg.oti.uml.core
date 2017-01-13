@@ -69,9 +69,11 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
     // Start of user code for "inputParameters"
     ownedParameter
     .filter(_.direction match {
-              case _@(UMLParameterDirectionKind.in | UMLParameterDirectionKind.inout) => true
-              case _                                                                  => false
-            })
+      case Some(_@(UMLParameterDirectionKind.in | UMLParameterDirectionKind.inout)) =>
+        true
+      case _ =>
+        false
+    })
     // End of user code
   }
 
@@ -152,9 +154,11 @@ trait UMLBehavioralFeatureOps[Uml <: UML] { self: UMLBehavioralFeature[Uml] =>
     // Start of user code for "outputParameters"
     ownedParameter
     .filter(_.direction match {
-              case UMLParameterDirectionKind.in => false
-              case _                            => true
-            })
+      case Some(UMLParameterDirectionKind.in) =>
+        false
+      case _ =>
+        true
+    })
     // End of user code
   }
 

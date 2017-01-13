@@ -276,7 +276,7 @@ case class VisibilityValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
   /**
    * EMOF/CMOF validation for [[org.omg.oti.uml.read.api.UMLElementImport ElementImport]]
    *
-   * @param ne a [[org.omg.oti.uml.read.api.UMLElementImport ElementImport]] to validate
+   * @param ei a [[org.omg.oti.uml.read.api.UMLElementImport ElementImport]] to validate
    * @return If applicable, [[AbstractVisibilityValidationInfo]] reults
    */
   def checkElementImportVisibilityAndAlias
@@ -284,19 +284,19 @@ case class VisibilityValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
   : Iterable[AbstractVisibilityValidationInfo[Uml]] = {
     val v1: Iterable[AbstractVisibilityValidationInfo[Uml]] =
       ei.visibility match {
-        case UMLVisibilityKind.public =>
+        case Some(UMLVisibilityKind.public) =>
           Iterable()
-        case UMLVisibilityKind._package =>
+        case Some(UMLVisibilityKind._package) =>
           Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'package'")))
-        case UMLVisibilityKind._private =>
+        case Some(UMLVisibilityKind._private) =>
           Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
               Some(INVALID_NON_PUBLIC_VISIBILITY + "'private'")))
-        case UMLVisibilityKind._protected =>
+        case Some(UMLVisibilityKind._protected) =>
           Iterable(
             ElementImportVisibilityValidationInfo(
               ei, InvalidNonPublicVisibilityStatus,
@@ -320,26 +320,26 @@ case class VisibilityValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
   /**
    * EMOF/CMOF validation for [[org.omg.oti.uml.read.api.UMLPackageImport PackageImport]]
    *
-   * @param ne a [[org.omg.oti.uml.read.api.UMLPackageImport PackageImport]] to validate
+   * @param pi a [[org.omg.oti.uml.read.api.UMLPackageImport PackageImport]] to validate
    * @return If applicable, [[AbstractVisibilityValidationInfo]] reults
    */
   def checkPackageImportVisibility
   (pi: UMLPackageImport[Uml])
   : Iterable[AbstractVisibilityValidationInfo[Uml]] =
     pi.visibility match {
-      case UMLVisibilityKind.public =>
+      case Some(UMLVisibilityKind.public) =>
         Iterable(PackageImportVisibilityValidationInfo(pi, ValidVisibilityStatus))
-      case UMLVisibilityKind._package =>
+      case Some(UMLVisibilityKind._package) =>
         Iterable(
           PackageImportVisibilityValidationInfo(
             pi, InvalidNonPublicVisibilityStatus,
             Some(INVALID_NON_PUBLIC_VISIBILITY + "'package'")))
-      case UMLVisibilityKind._private =>
+      case Some(UMLVisibilityKind._private) =>
         Iterable(
           PackageImportVisibilityValidationInfo(
             pi, InvalidNonPublicVisibilityStatus,
             Some(INVALID_NON_PUBLIC_VISIBILITY + "'private'")))
-      case UMLVisibilityKind._protected =>
+      case Some(UMLVisibilityKind._protected) =>
         Iterable(
           PackageImportVisibilityValidationInfo(
             pi, InvalidNonPublicVisibilityStatus,
@@ -351,7 +351,7 @@ case class VisibilityValidationHelper[Uml <: UML, UmlOps <: UMLOps[Uml]]
   /**
    * EMOF/CMOF validation for [[org.omg.oti.uml.read.api.UMLNamespace Namespace]]
    *
-   * @param ne a [[[org.omg.oti.uml.read.api.UMLNamespace Namespace]] to validate
+   * @param ns a [[[org.omg.oti.uml.read.api.UMLNamespace Namespace]] to validate
    * @return If applicable, [[AbstractVisibilityValidationInfo]] reults
    */
   def checkNamespace

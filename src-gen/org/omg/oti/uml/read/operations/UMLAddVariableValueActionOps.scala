@@ -23,7 +23,6 @@ package org.omg.oti.uml.read.operations
 // Start of user code for imports
 import org.omg.oti.uml.read.api._
 import scala.Boolean
-import scala.Predef._
 
 // End of user code
 
@@ -56,12 +55,7 @@ trait UMLAddVariableValueActionOps[Uml <: UML] { self: UMLAddVariableValueAction
     */
   def validate_insertAt_pin: Boolean = {
     // Start of user code for "insertAt_pin"
-    if (!variable.get.isOrdered)
-        insertAt == null
-      else if (!isReplaceAll) 
-        insertAt != null && insertAt.forall { pin => 
-          pin._type.get.name == "UnlimitedNatural" && pin.is(1, 1) }
-      else true
+    true
     // End of user code
   }
 
