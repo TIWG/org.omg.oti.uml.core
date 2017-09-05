@@ -9,8 +9,6 @@ updateOptions := updateOptions.value.withCachedResolution(true)
 
 lazy val core = Project("oti-uml-core", file("."))
   .enablePlugins(IMCEGitPlugin)
-  .enablePlugins(IMCEReleasePlugin)
-  .settings(IMCEReleasePlugin.packageReleaseProcessSettings)
   .settings(dynamicScriptsResourceSettings("org.omg.oti.uml.core"))
   .settings(IMCEPlugin.strictScalacFatalWarningsSettings)
   .settings(
@@ -50,8 +48,6 @@ lazy val core = Project("oti-uml-core", file("."))
     ),
 
     resourceDirectory in Compile := baseDirectory.value / "resources",
-
-    extractArchives := {},
 
     resolvers += Resolver.bintrayRepo("jpl-imce", "gov.nasa.jpl.imce"),
     resolvers += Resolver.bintrayRepo("tiwg", "org.omg.tiwg"),
