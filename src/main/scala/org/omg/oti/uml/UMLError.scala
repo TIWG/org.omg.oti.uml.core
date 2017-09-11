@@ -26,7 +26,7 @@ import org.omg.oti.uml.write.UMLAttributeUpdater
 import org.omg.oti.uml.xmi.IDGenerator
 
 import scala.collection.immutable.Set
-import scala.{Option, None, StringContext}
+import scala.{Any,Boolean,Int,Option,None,StringContext}
 import scala.Predef.String
 import scala.collection.Iterable
 
@@ -47,27 +47,114 @@ object UMLError {
       this.initCause(nels.head)
     }
 
+    override val hashCode: Int = (message, cause).##
+
+    def canEqual(other: Any): Boolean = other match {
+      case _: UException => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UException =>
+        (that canEqual this) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause)
+      case _ =>
+        false
+    }
+
   }
 
   class UMLAdaptationError
   ( override val message: String)
-    extends UException(message, emptyThrowableNel )
+    extends UException(message, emptyThrowableNel ) {
+
+    override val hashCode: Int = message.##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UMLAdaptationError => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UMLAdaptationError =>
+        (that canEqual this) &&
+          (this.message == that.message)
+      case _ =>
+        false
+    }
+
+  }
 
   class UMLAdaptationException
   ( override val message: String,
     override val cause: OptionThrowableNel)
-    extends UException(message, cause)
+    extends UException(message, cause) {
+
+    override val hashCode: Int = (message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UMLAdaptationException => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UMLAdaptationException =>
+        (that canEqual this) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause)
+      case _ =>
+        false
+    }
+
+  }
 
   class UMLOpsError[Uml <: UML]
   ( val ops: UMLOps[Uml],
     override val message: String)
-    extends UException(message, emptyThrowableNel )
+    extends UException(message, emptyThrowableNel ) {
+
+    override val hashCode: Int = (ops, message).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UMLOpsError[_] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UMLOpsError[Uml] =>
+        (that canEqual this) &&
+          (this.message == that.message) &&
+          (this.ops == that.ops)
+      case _ =>
+        false
+    }
+
+  }
 
   class UMLOpsException[Uml <: UML]
   ( val ops: UMLOps[Uml],
     override val message: String,
     override val cause: OptionThrowableNel )
-    extends UException(message, cause)
+    extends UException(message, cause) {
+
+    override val hashCode: Int = (ops, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UMLOpsException[_] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UMLOpsException[Uml] =>
+        (that canEqual this) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause) &&
+          (this.ops == that.ops)
+      case _ =>
+        false
+    }
+  }
 
   class UElementException[Uml <: UML, E <: UMLElement[Uml]]
   ( val element: Iterable[E],
@@ -75,13 +162,48 @@ object UMLError {
     override val cause: OptionThrowableNel = emptyThrowableNel)
   extends UException(message, cause) {
     type UmlE = E
+
+    override val hashCode: Int = (element, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UElementException[_, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UElementException[Uml, E] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause)
+      case _ =>
+        false
+    }
   }
 
   class IllegalElementException[Uml <: UML, E <: UMLElement[Uml]]
   (override val element: Iterable[E],
    override val message: String,
    override val cause: OptionThrowableNel = emptyThrowableNel)
-  extends UElementException[Uml, E](element, message, cause)
+  extends UElementException[Uml, E](element, message, cause) {
+
+    override val hashCode: Int = (element, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: IllegalElementException[_, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: IllegalElementException[Uml, E] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause)
+      case _ =>
+        false
+    }
+  }
 
   abstract class UEvaluationException[Uml <: UML, E <: UMLElement[Uml]]
   ( val element: Iterable[E],
@@ -89,6 +211,23 @@ object UMLError {
     override val cause: OptionThrowableNel = emptyThrowableNel)
   extends UException(message, cause) {
     type UmlE = E
+
+    override val hashCode: Int = (element, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UEvaluationException[_, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UEvaluationException[Uml, E] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause)
+      case _ =>
+        false
+    }
   }
 
   class IllegalMetaPropertyEvaluation[
@@ -96,34 +235,127 @@ object UMLError {
   E <: UMLElement[Uml], 
   MPF <: MetaPropertyFunction[Uml, _ <: UMLElement[Uml], _ <: UMLElement[Uml]]]
   ( val e: E,
-    metaPropertyFunction: MPF)
-  extends UEvaluationException[Uml, E](Iterable(e), s"$metaPropertyFunction not applicable to ${e.xmiType.head}")
+    val metaPropertyFunction: MPF)
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaPropertyFunction not applicable to ${e.xmiType.head}") {
+
+    override val hashCode: Int = (e, metaPropertyFunction).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: IllegalMetaPropertyEvaluation[_, _, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: IllegalMetaPropertyEvaluation[Uml, E, MPF] =>
+        (that canEqual this) &&
+          (this.e == that.e) &&
+          (this.metaPropertyFunction == that.metaPropertyFunction)
+      case _ =>
+        false
+    }
+  }
 
   class IllegalMetaAttributeEvaluation[Uml <: UML, E <: UMLElement[Uml], U <: UMLElement[Uml], DT]
   ( val e: E,
-    metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
-  extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}")
+    val metaAttributeFunction: MetaAttributeAbstractFunction[Uml, U, DT])
+  extends UEvaluationException[Uml, E](Iterable(e), s"$metaAttributeFunction not applicable to ${e.xmiType.head}") {
+
+    override val hashCode: Int = (e, metaAttributeFunction).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: IllegalMetaAttributeEvaluation[_, _, _, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: IllegalMetaAttributeEvaluation[Uml, E, U, DT] =>
+        (that canEqual this) &&
+          (this.e == that.e) &&
+          (this.metaAttributeFunction == that.metaAttributeFunction)
+      case _ =>
+        false
+    }
+  }
 
   class UMLUpdateException[Uml <: UML, E <: UMLElement[Uml]]
-  (umlUpdate: UMLAttributeUpdater[Uml],
+  (val umlUpdate: UMLAttributeUpdater[Uml],
    override val element: Iterable[E],
    override val message: String,
    override val cause: OptionThrowableNel)
-  extends UElementException[Uml, E](element, message, cause)
+  extends UElementException[Uml, E](element, message, cause) {
+
+    override val hashCode: Int = (umlUpdate, element, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UMLUpdateException[_, _] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UMLUpdateException[Uml, E] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause) &&
+          (this.umlUpdate == that.umlUpdate)
+      case _ =>
+        false
+    }
+  }
   
   class IDGeneratorException[Uml <: UML]
-  ( idGenerator: IDGenerator[Uml],
+  ( val idGenerator: IDGenerator[Uml],
     override val element: Iterable[UMLElement[Uml]],
     override val message: String,
     override val cause: UMLError.OptionThrowableNel = UMLError.emptyThrowableNel)
-  extends UMLError.UElementException[Uml, UMLElement[Uml]](element, message, cause)
+  extends UMLError.UElementException[Uml, UMLElement[Uml]](element, message, cause) {
+
+      override val hashCode: Int = (idGenerator, element, message, cause).##
+
+      override def canEqual(other: Any): Boolean = other match {
+        case _: IDGeneratorException[_] => true
+        case _ => false
+      }
+
+      override def equals(other: Any): Boolean = other match {
+      case that: IDGeneratorException[Uml] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause) &&
+          (this.idGenerator == that.idGenerator)
+      case _ =>
+        false
+    }
+
+  }
 
   class UUIDGeneratorException[Uml <: UML]
-  ( idGenerator: IDGenerator[Uml],
+  ( val idGenerator: IDGenerator[Uml],
     override val element: Iterable[UMLElement[Uml]],
     override val message: String,
     override val cause: UMLError.OptionThrowableNel = UMLError.emptyThrowableNel)
-    extends UMLError.UElementException[Uml, UMLElement[Uml]](element, message, cause)
+    extends UMLError.UElementException[Uml, UMLElement[Uml]](element, message, cause) {
+
+    override val hashCode: Int = (idGenerator, element, message, cause).##
+
+    override def canEqual(other: Any): Boolean = other match {
+      case _: UUIDGeneratorException[_] => true
+      case _ => false
+    }
+
+    override def equals(other: Any): Boolean = other match {
+      case that: UUIDGeneratorException[Uml] =>
+        (that canEqual this) &&
+          (this.element == that.element) &&
+          (this.message == that.message) &&
+          (this.cause == that.cause) &&
+          (this.idGenerator == that.idGenerator)
+      case _ =>
+        false
+    }
+
+  }
 
   def umlAdaptationError
   (message: String)
