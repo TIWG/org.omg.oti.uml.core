@@ -9,12 +9,12 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 10486.4)">
 <title>dependency&#45;graph</title>
 <polygon fill="white" stroke="none" points="-4,4 -4,-10486.4 7332,-10486.4 7332,4 -4,4"/>
-<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4 -->
-<g id="node1" class="node"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4</title>
+<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5 -->
+<g id="node1" class="node"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5</title>
 <ellipse fill="none" stroke="black" cx="120" cy="-345.58" rx="120.417" ry="35.2113"/>
 <text text-anchor="start" x="82.5" y="-356.38" font-family="Times,serif" font-size="14.00">org.omg.tiwg</text>
 <text text-anchor="start" x="43" y="-342.38" font-family="Times,serif" font-weight="bold" font-size="14.00">org.omg.oti.uml.core_2.11</text>
-<text text-anchor="start" x="106" y="-328.38" font-family="Times,serif" font-size="14.00">3.4.4</text>
+<text text-anchor="start" x="106" y="-328.38" font-family="Times,serif" font-size="14.00">3.4.5</text>
 </g>
 <!-- org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4 -->
 <g id="node2" class="node"><title>org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4</title>
@@ -23,8 +23,8 @@
 <text text-anchor="start" x="331.5" y="-1118.38" font-family="Times,serif" font-weight="bold" font-size="14.00">org.omg.oti.uml.json.schema_2.11</text>
 <text text-anchor="start" x="418" y="-1104.38" font-family="Times,serif" font-size="14.00">3.4.4</text>
 </g>
-<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4&#45;&gt;org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4 -->
-<g id="edge1" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4&#45;&gt;org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4</title>
+<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5&#45;&gt;org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4 -->
+<g id="edge1" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5&#45;&gt;org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4</title>
 <path fill="none" stroke="black" d="M135.024,-380.684C185.379,-506.736 357.044,-936.451 413.12,-1076.82"/>
 <polygon fill="black" stroke="black" points="409.994,-1078.43 416.954,-1086.42 416.494,-1075.83 409.994,-1078.43"/>
 </g>
@@ -35,8 +35,8 @@
 <text text-anchor="start" x="4117" y="-1198.38" font-family="Times,serif" font-weight="bold" font-size="14.00">scalac&#45;scapegoat&#45;plugin_2.11</text>
 <text text-anchor="start" x="4187" y="-1184.38" font-family="Times,serif" font-size="14.00">1.0.0</text>
 </g>
-<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0 -->
-<g id="edge559" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
+<!-- org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0 -->
+<g id="edge557" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.core_2.11:3.4.5&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
 <path fill="none" stroke="black" d="M139.904,-310.805C181.931,-238.702 290.585,-79.5798 431,-79.5798 431,-79.5798 431,-79.5798 1817,-79.5798 2697.53,-79.5798 3182.4,243.207 3770,-412.58 3789.43,-434.268 3778.61,-448.015 3788,-475.58 3887.32,-767.134 3838,-890.596 4044,-1119.58 4062.68,-1140.35 4087.88,-1156.73 4112.56,-1169.21"/>
 <polygon fill="black" stroke="black" points="4111.1,-1172.39 4121.62,-1173.64 4114.17,-1166.1 4111.1,-1172.39"/>
 </g>
@@ -53,7 +53,7 @@
 <polygon fill="black" stroke="black" points="614.449,-1125.08 624.448,-1121.58 614.448,-1118.08 614.449,-1125.08"/>
 </g>
 <!-- org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0 -->
-<g id="edge557" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
+<g id="edge558" class="edge"><title>org.omg.tiwg:org.omg.oti.uml.json.schema_2.11:3.4.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
 <path fill="none" stroke="black" d="M433.546,-1157.18C443.046,-1769.38 576.308,-10072.6 816,-10072.6 816,-10072.6 816,-10072.6 2042,-10072.6 2390.74,-10072.6 3274.31,-7569.43 3420,-7252.58 3584,-6895.9 3640.91,-6812.33 3770,-6441.58 3914.07,-6027.8 3967.66,-5923.82 4026,-5489.58 4033.57,-5433.25 4025.14,-1451.19 4044,-1397.58 4065.79,-1335.66 4116.11,-1278.62 4153.75,-1242.23"/>
 <polygon fill="black" stroke="black" points="4156.27,-1244.67 4161.1,-1235.23 4151.44,-1239.6 4156.27,-1244.67"/>
 </g>
@@ -4906,7 +4906,7 @@
 <polygon fill="black" stroke="black" points="5820.77,-2071.33 5824.42,-2081.28 5827.77,-2071.23 5820.77,-2071.33"/>
 </g>
 <!-- gov.nasa.jpl.imce:imce.third_party.scala_libraries_2.11:3.0.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0 -->
-<g id="edge558" class="edge"><title>gov.nasa.jpl.imce:imce.third_party.scala_libraries_2.11:3.0.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
+<g id="edge559" class="edge"><title>gov.nasa.jpl.imce:imce.third_party.scala_libraries_2.11:3.0.4&#45;&gt;com.sksamuel.scapegoat:scalac&#45;scapegoat&#45;plugin_2.11:1.0.0</title>
 <path fill="none" stroke="black" d="M3753.61,-1155.82C3850.42,-1165.74 3975.57,-1178.57 4068.71,-1188.12"/>
 <polygon fill="black" stroke="black" points="4068.46,-1191.61 4078.76,-1189.15 4069.17,-1184.65 4068.46,-1191.61"/>
 </g>
