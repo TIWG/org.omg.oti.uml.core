@@ -1,0 +1,7 @@
+org.omg.oti.uml.core 3.4.5 is a minor update
+
+## Issues Resolved
+
+- [#3 Stack overflow vulnerability in UMLPackageOps.forwardReferencesBeyondPackageScope](https://github.com/TIWG/org.omg.oti.uml.core/issues/3)
+
+- [#4 UMLError subtypes need to override equals and hashCode for fast set operations](https://github.com/TIWG/org.omg.oti.uml.core/issues/4)
