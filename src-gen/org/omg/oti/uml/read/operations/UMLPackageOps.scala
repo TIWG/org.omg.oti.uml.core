@@ -552,7 +552,7 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
 
     val visited = scala.collection.mutable.HashSet[UMLElement[Uml]]( self )
 
-    /* @annotation.tailrec */ def followReferencesUntilPackageScopeBoundary
+    @scala.annotation.tailrec def followReferencesUntilPackageScopeBoundary
     ( acc: Set[RelationTriple[Uml]],
       triples: Set[RelationTriple[Uml]])
     : Set[java.lang.Throwable] \/ Set[RelationTriple[Uml]] =
@@ -566,9 +566,11 @@ trait UMLPackageOps[Uml <: UML] { self: UMLPackage[Uml] =>
         else {
           visited += ref
           if (scope.contains(ref))
-            ref.forwardRelationTriples.flatMap {
-              nextTriples: Set[RelationTriple[Uml]] =>
+            ref.forwardRelationTriples match {
+              case \/-(nextTriples) =>
                 followReferencesUntilPackageScopeBoundary(acc, nextTriples ++ tr)
+              case -\/(errors) =>
+                -\/(errors)
             }
           else
             followReferencesUntilPackageScopeBoundary(acc + th, tr)
